@@ -36,6 +36,21 @@
     <ClInclude Include="..\..\public\basic\interface.hpp">
       <Filter>basic</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\public\thread\syncobject.hpp">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\thread\event.hpp">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\thread\semaphore.hpp">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\thread\criticalsection.hpp">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\thread\mutex.hpp">
+      <Filter>thread</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

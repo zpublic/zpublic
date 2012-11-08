@@ -67,6 +67,11 @@
     <ClInclude Include="..\..\public\basic\basic.hpp" />
     <ClInclude Include="..\..\public\basic\interface.hpp" />
     <ClInclude Include="..\..\public\basic\nocopyable.hpp" />
+    <ClInclude Include="..\..\public\thread\criticalsection.hpp" />
+    <ClInclude Include="..\..\public\thread\event.hpp" />
+    <ClInclude Include="..\..\public\thread\mutex.hpp" />
+    <ClInclude Include="..\..\public\thread\semaphore.hpp" />
+    <ClInclude Include="..\..\public\thread\syncobject.hpp" />
     <ClInclude Include="..\..\public\thread\thread.hpp" />
   </ItemGroup>
   <ItemGroup>

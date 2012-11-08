@@ -10,11 +10,10 @@
 #ifndef _THREAD_HPP_
 #define _THREAD_HPP_
 
-namespace zl
-{
-
-#include "basic/basic.hpp"
-
-}
+#include "syncobject.hpp"
+#include "event.hpp"
+#include "semaphore.hpp"
+#include "criticalsection.hpp"
+#include "mutex.hpp"
 
 #endif
