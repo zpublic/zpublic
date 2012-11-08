@@ -1,5 +1,5 @@
 #include <iostream>
-#include "thread/thread.h"
+#include "thread/thread.hpp"
 
 int main()
 {

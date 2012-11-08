@@ -16,10 +16,25 @@
     <Filter Include="thread">
       <UniqueIdentifier>{368e0d89-a52c-4dde-a1f9-17f8f4b77322}</UniqueIdentifier>
     </Filter>
+    <Filter Include="basic">
+      <UniqueIdentifier>{44839606-283e-4609-ad69-287575f03273}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\public\thread\thread.h">
+    <ClInclude Include="..\..\public\basic\nocopyable.hpp">
+      <Filter>basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\thread\thread.hpp">
       <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\basic\basic.hpp">
+      <Filter>basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\basic\assert.hpp">
+      <Filter>basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\basic\interface.hpp">
+      <Filter>basic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

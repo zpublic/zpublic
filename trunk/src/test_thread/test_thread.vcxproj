@@ -63,7 +63,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\public\thread\thread.h" />
+    <ClInclude Include="..\..\public\basic\assert.hpp" />
+    <ClInclude Include="..\..\public\basic\basic.hpp" />
+    <ClInclude Include="..\..\public\basic\interface.hpp" />
+    <ClInclude Include="..\..\public\basic\nocopyable.hpp" />
+    <ClInclude Include="..\..\public\thread\thread.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
