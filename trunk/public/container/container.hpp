@@ -8,6 +8,7 @@
 #ifndef CONTAINER_HPP_
 #define CONTAINER_HPP_
 
-
+#include "pair.hpp"
+#include "bit.hpp"
 
 #endif /* CONTAINER_HPP_ */
