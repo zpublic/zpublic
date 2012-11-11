@@ -76,7 +76,7 @@ namespace zl
             return Compare(bit) != 0;
         }
 
-        Bit& operator & (const Bit& bit)
+        Bit& operator &= (const Bit& bit)
         {
             if(this != &bit)
             {
@@ -85,7 +85,7 @@ namespace zl
             return *this;
         }
 
-        Bit& operator | (const Bit& bit)
+        Bit& operator |= (const Bit& bit)
         {
             if(this != &bit)
             {
@@ -94,7 +94,7 @@ namespace zl
             return *this;
         }
 
-        Bit& operator ^ (const Bit& bit)
+        Bit& operator ^= (const Bit& bit)
         {
             if(this != &bit)
             {

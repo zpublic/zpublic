@@ -13,20 +13,29 @@
 namespace zl
 {
 
-class CHash
-{
-public:
+#include <stdlib.h>
+#include <wchar.h>
+#include <string.h>
+
+#ifndef DWORD
+#define DWORD unsigned int
+#endif
+
+#ifndef __int64
+#define __int64 long long
+#endif
+
     template<typename KeyT>
     static DWORD HashKey(KeyT Key)
     {
         ldiv_t hash_val = ldiv((long)Key, 127773);
         hash_val.rem = 16807 * hash_val.rem - 2836 * hash_val.quot;
         if (hash_val.rem < 0) hash_val.rem += 2147483647;
-        return ((UINT)hash_val.rem);
+        return ((DWORD)hash_val.rem);
     }
 
     template<>
-    static DWORD HashKey<LPCSTR>(LPCSTR Key)
+    DWORD HashKey<const char*>(const char* Key)
     {
         DWORD hash_val = 2166136261U;
         DWORD fst = 0;
@@ -38,7 +47,7 @@ public:
     }
 
     template<>
-    static DWORD HashKey<LPCWSTR>(LPCWSTR Key)
+    DWORD HashKey<const wchar_t*>(const wchar_t* Key)
     {
         DWORD hash_val = 2166136261U;
         DWORD fst = 0;
@@ -50,11 +59,10 @@ public:
     }
 
     template<>
-    static DWORD HashKey<__int64>(__int64 key)
+    DWORD HashKey<__int64>(__int64 key)
     {
         return (HashKey<DWORD>((DWORD)(key & 0xffffffffUL)) ^ HashKey<DWORD>((DWORD)(key >> 32)));
     }
-};
 
 }
 
