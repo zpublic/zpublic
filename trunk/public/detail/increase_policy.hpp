@@ -13,39 +13,25 @@
 namespace zl
 {
 
-    class IIncrease
-    {
-    public:
-        IIncrease() : m_Num(0) {}
-        ~IIncrease() {}
-
-    public:
-        void Set(unsigned long num) { m_Num = num; }
-        virtual unsigned Increase() = 0;
-
-    protected:
-        unsigned long m_Num;
-    };
-
     template <unsigned long N>
-    class PIncreaseRegular : public IIncrease
+    class PIncreaseRegular
     {
     public:
-        virtual unsigned Increase()
+        static unsigned long Increase(unsigned long num)
         {
-            m_Num += N;
-            return m_Num;
+            num += N;
+            return num;
         }
     };
 
     template <unsigned long N>
-    class PIncreaseMul : public IIncrease
+    class PIncreaseMul
     {
     public:
-        virtual unsigned Increase()
+        static unsigned long Increase(unsigned long num)
         {
-            m_Num *= N;
-            return m_Num;
+            num *= N;
+            return num;
         }
     };
 

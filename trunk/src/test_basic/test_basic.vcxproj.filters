@@ -25,6 +25,9 @@
     <Filter Include="zpublic\detail">
       <UniqueIdentifier>{a003c069-7004-42e0-9654-af6570ff58ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="zpublic\memory">
+      <UniqueIdentifier>{b1a35c19-98f3-4984-9c56-19353007c06c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -50,6 +53,15 @@
     </ClInclude>
     <ClInclude Include="..\..\public\detail\increase_policy.hpp">
       <Filter>zpublic\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\memory\variable_memory.hpp">
+      <Filter>zpublic\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\memory\increase_memory.hpp">
+      <Filter>zpublic\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\memory\allocer.hpp">
+      <Filter>zpublic\memory</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
