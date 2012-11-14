@@ -1,10 +1,15 @@
+/*
+ * stringmatch.hpp
+ *
+ *  Created on: 2012-11-13
+ *      Author: kevin
+ */
+
 #ifndef STRINGMATCH_HPP__
 #define STRINGMATCH_HPP__
 
 namespace zl
 {
-#include <stdlib.h>
-#include <stdio.h>
 
 int SundayMatchString(const char* lpSource, int nSourceLen, const char* lpPattern, int nPatLen, int flag)
 {
