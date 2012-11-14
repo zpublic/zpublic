@@ -22,6 +22,9 @@
     <Filter Include="zpublic\container">
       <UniqueIdentifier>{2b35ec2a-1785-4995-8db1-0b66a82aa6a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="zpublic\detail">
+      <UniqueIdentifier>{a003c069-7004-42e0-9654-af6570ff58ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -42,8 +45,11 @@
     <ClInclude Include="..\..\public\container\bit.hpp">
       <Filter>zpublic\container</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\public\container\byte.hpp">
-      <Filter>zpublic\container</Filter>
+    <ClInclude Include="..\..\public\algorithm\stringmatch.hpp">
+      <Filter>zpublic\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\detail\increase_policy.hpp">
+      <Filter>zpublic\detail</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
