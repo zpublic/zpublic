@@ -10,17 +10,13 @@
 #ifndef _ARRAY_HPP_
 #define _ARRAY_HPP_
 
-#include <tuple>
 #include "memory/variable_memory.hpp"
-
-#define TupleGet0 ::std::get<0>
-#define TupleGet1 ::std::get<1>
-#define TupleGet2 ::std::get<2>
+#include "tuple.hpp"
 
 namespace zl
 {
-    typedef ::std::tuple<size_t, size_t>           DoublePos;
-    typedef ::std::tuple<size_t, size_t, size_t>   ThreePos;
+    typedef zl::Tuple<int, int>         DoublePos;
+    typedef zl::Tuple<int, int, int>    ThreePos;
 
     template <typename T, size_t N>
     class CArrayFixed
@@ -103,42 +99,42 @@ namespace zl
     public:
         CArrayVariable<T>& operator[](DoublePos pos)
         {
-            size_t iSize = TupleGet1(pos) - TupleGet0(pos);
+            size_t iSize = pos.f1 - pos.f0;
             CArrayVariable<T> *pArr = new CArrayVariable<T>(iSize);
             for (size_t i = 0; i < iSize; ++i)
             {
-                (*pArr)[i] = m_Arr[TupleGet0(pos) + i];
+                (*pArr)[i] = m_Arr[pos.f0 + i];
             }
             return *pArr;
         }
         const CArrayVariable<T>& operator[](DoublePos pos) const
         {
-            size_t iSize = TupleGet1(pos) - TupleGet0(pos);
+            size_t iSize = pos.f1 - pos.f0;
             CArrayVariable<T> *pArr = new CArrayVariable<T>(iSize);
             for (size_t i = 0; i < iSize; ++i)
             {
-                (*pArr)[i] = m_Arr[TupleGet0(pos) + i];
+                (*pArr)[i] = m_Arr[pos.f0 + i];
             }
             return *pArr;
         }
 
         CArrayVariable<T>& operator[](ThreePos pos)
         {
-            size_t iSize = (TupleGet1(pos) - TupleGet0(pos)) / TupleGet2(pos);
+            size_t iSize = (pos.f1 - pos.f0) / pos.f2;
             CArrayVariable<T> *pArr = new CArrayVariable<T>(iSize);
             for (size_t i = 0; i < iSize; ++i)
             {
-                (*pArr)[i] = m_Arr[TupleGet0(pos) + i * TupleGet2(pos)];
+                (*pArr)[i] = m_Arr[pos.f0 + i * pos.f2];
             }
             return *pArr;
         }
         const CArrayVariable<T>& operator[](ThreePos pos) const
         {
-            size_t iSize = (TupleGet1(pos) - TupleGet0(pos)) / TupleGet2(pos);
+            size_t iSize = (pos.f1 - pos.f0) / pos.f2;
             CArrayVariable<T> *pArr = new CArrayVariable<T>(iSize);
             for (size_t i = 0; i < iSize; ++i)
             {
-                (*pArr)[i] = m_Arr[TupleGet0(pos) + i * TupleGet2(pos)];
+                (*pArr)[i] = m_Arr[pos.f0 + i * pos.f2];
             }
             return *pArr;
         }

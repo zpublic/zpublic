@@ -11,5 +11,6 @@
 #include "pair.hpp"
 #include "bit.hpp"
 #include "array.hpp"
+#include "tuple.hpp"
 
 #endif /* CONTAINER_HPP_ */
