@@ -40,9 +40,10 @@ int main()
     mem.Release();
 
     int a;
-    int *b;
+    int *b = 0;
     zl::_Allocate(4, &a);
     zl::_Allocate(b, 10);
+    b = zl::_Allocate<int>(10);
 
     getchar();
     return 0;

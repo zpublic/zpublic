@@ -15,7 +15,7 @@ namespace zl
 
 #include <stdlib.h>
 
-    template <typename _SizeType, typename _Ty> inline
+    template <typename _Ty, typename _SizeType> inline
     _Ty *_Allocate(_SizeType _Count, _Ty*)
     {
         void *_Ptr = 0;
@@ -25,8 +25,18 @@ namespace zl
         return ((_Ty *)_Ptr);
     }
 
-    template <typename _SizeType, typename _Ty> inline
+    template <typename _Ty, typename _SizeType> inline
         _Ty *_Allocate(_Ty*, _SizeType _Count)
+    {
+        void *_Ptr = 0;
+        if (_Count != 0)
+            _Ptr = malloc(_Count * sizeof(_Ty));
+
+        return ((_Ty *)_Ptr);
+    }
+
+    template <typename _Ty, typename _SizeType> inline
+    _Ty *_Allocate(_SizeType _Count)
     {
         void *_Ptr = 0;
         if (_Count != 0)
