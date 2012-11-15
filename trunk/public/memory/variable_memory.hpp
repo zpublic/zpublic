@@ -31,6 +31,10 @@ namespace zl
         {
             return m_p;
         }
+        const T* Get() const
+        {
+            return m_p;
+        }
         T* Get(unsigned long _Size)
         {
             if (m_p == INVALID_PTR)

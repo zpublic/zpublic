@@ -52,6 +52,28 @@ namespace zl
         {
             m_mem.Release();
         }
+        CArrayVariable(const CArrayVariable<T>& Arr)
+            : m_Size(Arr.Size())
+        {
+            m_mem.Get(m_Size * sizeof(T));
+
+            for (size_t i = 0; i < m_Size; ++i)
+            {
+                (*this)[i] = Arr[i];
+            }
+        }
+        CArrayVariable<T>& operator=( const CArrayVariable<T>& Arr )
+        {
+            if (this->Size() != Arr.Size())
+            {
+                this->ReSize(Arr.Size());
+            }
+            for (size_t i = 0; i < Arr.Size(); ++i)
+            {
+                (*this)[i] = Arr[i];
+            }
+            return( *this );
+        }
 
     public:
         T& operator[](size_t n)
@@ -62,7 +84,7 @@ namespace zl
         {
             return *(m_mem.Get() + n);
         }
-        size_t Size()
+        const size_t Size() const
         {
             return m_Size;
         }
@@ -97,47 +119,28 @@ namespace zl
             return N;
         }
     public:
-        CArrayVariable<T>& operator[](DoublePos pos)
+        const CArrayVariable<T> operator[](DoublePos pos) const
         {
             size_t iSize = pos.f1 - pos.f0;
-            CArrayVariable<T> *pArr = new CArrayVariable<T>(iSize);
+            CArrayVariable<T> Arr(iSize);
             for (size_t i = 0; i < iSize; ++i)
             {
-                (*pArr)[i] = m_Arr[pos.f0 + i];
+                Arr[i] = m_Arr[pos.f0 + i];
             }
-            return *pArr;
-        }
-        const CArrayVariable<T>& operator[](DoublePos pos) const
-        {
-            size_t iSize = pos.f1 - pos.f0;
-            CArrayVariable<T> *pArr = new CArrayVariable<T>(iSize);
-            for (size_t i = 0; i < iSize; ++i)
-            {
-                (*pArr)[i] = m_Arr[pos.f0 + i];
-            }
-            return *pArr;
+            return Arr;
         }
 
-        CArrayVariable<T>& operator[](ThreePos pos)
+        const CArrayVariable<T> operator[](ThreePos pos) const
         {
             size_t iSize = (pos.f1 - pos.f0) / pos.f2;
-            CArrayVariable<T> *pArr = new CArrayVariable<T>(iSize);
+            CArrayVariable<T> Arr(iSize);
             for (size_t i = 0; i < iSize; ++i)
             {
-                (*pArr)[i] = m_Arr[pos.f0 + i * pos.f2];
+                Arr[i] = m_Arr[pos.f0 + i * pos.f2];
             }
-            return *pArr;
+            return Arr;
         }
-        const CArrayVariable<T>& operator[](ThreePos pos) const
-        {
-            size_t iSize = (pos.f1 - pos.f0) / pos.f2;
-            CArrayVariable<T> *pArr = new CArrayVariable<T>(iSize);
-            for (size_t i = 0; i < iSize; ++i)
-            {
-                (*pArr)[i] = m_Arr[pos.f0 + i * pos.f2];
-            }
-            return *pArr;
-        }
+
     };
 }
 

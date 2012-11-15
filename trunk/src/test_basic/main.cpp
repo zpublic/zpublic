@@ -51,7 +51,9 @@ int main()
     for (int i = 0; i < 20; i++)
         arr20[i] = i * 5;
 
-    zl::CArrayVariable<int> arrX = arr20[zl::DoublePos(13, 17)];
+    zl::CArrayVariable<int> arrX;
+    arrX = arr20[zl::DoublePos(13, 17)];
+
     for (size_t i = 0; i < arrX.Size(); i++)
         printf("%d\n", arrX[i]);
 
