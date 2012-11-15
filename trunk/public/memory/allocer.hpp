@@ -10,10 +10,10 @@
 #ifndef _ALLOCER_HPP_
 #define _ALLOCER_HPP_
 
+#include <stdlib.h>
+
 namespace zl
 {
-
-#include <stdlib.h>
 
     template <typename _Ty, typename _SizeType> inline
     _Ty *_Allocate(_SizeType _Count, _Ty*)

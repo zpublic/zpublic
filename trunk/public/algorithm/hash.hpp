@@ -10,12 +10,12 @@
 #ifndef _HASH_HPP_
 #define _HASH_HPP_
 
-namespace zl
-{
-
 #include <stdlib.h>
 #include <wchar.h>
 #include <string.h>
+
+namespace zl
+{
 
 #ifndef DWORD
 #define DWORD unsigned int

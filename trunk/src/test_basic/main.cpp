@@ -42,10 +42,24 @@ int main()
 //     b = zl::_Allocate<int>(10);
 //     
 
-    zl::CArrayFixed<int, 10> arr10 = {0};
-    for (int i = 0; i < 10; i++)
-        arr10[i] = i * 5;
-    printf("%d\n", arr10[1]);
+//     zl::CArrayFixed<int, 10> arr10 = {0};
+//     for (int i = 0; i < 10; i++)
+//         arr10[i] = i * 5;
+//     printf("%d\n", arr10[1]);
+
+    zl::CArrayFixedEx<int, 20> arr20 = {0};
+    for (int i = 0; i < 20; i++)
+        arr20[i] = i * 5;
+
+    zl::CArrayVariable<int> arrX = arr20[zl::DoublePos(13, 17)];
+    for (size_t i = 0; i < arrX.Size(); i++)
+        printf("%d\n", arrX[i]);
+
+    printf("\n");
+
+    zl::CArrayVariable<int> arrY = arr20[zl::ThreePos(5, 17, 3)];
+    for (size_t i = 0; i < arrY.Size(); i++)
+        printf("%d\n", arrY[i]);
 
     getchar();
     return 0;
