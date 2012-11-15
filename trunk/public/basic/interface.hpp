@@ -10,10 +10,10 @@
 #ifndef _INTERFACE_HPP_
 #define _INTERFACE_HPP_
 
+#include "nocopyable.hpp"
+
 namespace zl
 {
-
-#include "nocopyable.hpp"
 
     class Interface : public NoCopyable
     {

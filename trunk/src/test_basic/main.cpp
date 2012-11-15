@@ -1,10 +1,6 @@
 #include "stdio.h"
 #include "windows.h"
-#include "algorithm/algorithm.hpp"
-#include "container/container.hpp"
-#include "algorithm/stringmatch.hpp"
-#include "memory/increase_memory.hpp"
-#include "memory/allocer.hpp"
+#include "zpublic.hpp"
 
 int main()
 {
@@ -31,19 +27,19 @@ int main()
 //     char pattern[10] = "kevin";
 //     int ret = zl::SundayMatchString(source, strlen(source), pattern, strlen(pattern), 0);
 //     printf("%d\n",ret);
-
-    zl::CIncreaseMemory<char> mem(8);
-    mem.Inc();
-    printf("%ld\n", mem.Size());
-    mem.Inc();
-    printf("%ld\n", mem.Size());
-    mem.Release();
-
-    int a;
-    int *b = 0;
-    zl::_Allocate(4, &a);
-    zl::_Allocate(b, 10);
-    b = zl::_Allocate<int>(10);
+// 
+//     zl::CIncreaseMemory<char> mem(8);
+//     mem.Inc();
+//     printf("%ld\n", mem.Size());
+//     mem.Inc();
+//     printf("%ld\n", mem.Size());
+//     mem.Release();
+// 
+//     int a;
+//     int *b = 0;
+//     zl::_Allocate(4, &a);
+//     zl::_Allocate(b, 10);
+//     b = zl::_Allocate<int>(10);
 
     getchar();
     return 0;

@@ -10,10 +10,10 @@
 #ifndef _SYNC_OBJECT_
 #define _SYNC_OBJECT_
 
+#include "basic/interface.hpp"
+
 namespace zl
 {
-
-#include "basic/interface.hpp"
 
     class SyncObject : public Interface
     {

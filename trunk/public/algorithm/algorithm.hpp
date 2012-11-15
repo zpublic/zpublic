@@ -10,5 +10,6 @@
 
 #include "crc.hpp"
 #include "hash.hpp"
+#include "stringmatch.hpp"
 
 #endif /* ALGORITHM_HPP_ */
