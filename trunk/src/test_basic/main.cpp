@@ -4,6 +4,7 @@
 #include "container/container.hpp"
 #include "algorithm/stringmatch.hpp"
 #include "memory/increase_memory.hpp"
+#include "memory/allocer.hpp"
 
 int main()
 {
@@ -37,6 +38,11 @@ int main()
     mem.Inc();
     printf("%ld\n", mem.Size());
     mem.Release();
+
+    int a;
+    int *b;
+    zl::_Allocate(4, &a);
+    zl::_Allocate(b, 10);
 
     getchar();
     return 0;

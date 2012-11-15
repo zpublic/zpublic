@@ -26,6 +26,16 @@ namespace zl
     }
 
     template <typename _SizeType, typename _Ty> inline
+        _Ty *_Allocate(_Ty*, _SizeType _Count)
+    {
+        void *_Ptr = 0;
+        if (_Count != 0)
+            _Ptr = malloc(_Count * sizeof(_Ty));
+
+        return ((_Ty *)_Ptr);
+    }
+
+    template <typename _SizeType, typename _Ty> inline
     _Ty *_ReAllocate(_SizeType _Count, _Ty* _PtrOld)
     {
         void *_Ptr = 0;
