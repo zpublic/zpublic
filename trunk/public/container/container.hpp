@@ -10,5 +10,6 @@
 
 #include "pair.hpp"
 #include "bit.hpp"
+#include "array.hpp"
 
 #endif /* CONTAINER_HPP_ */

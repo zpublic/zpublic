@@ -40,6 +40,12 @@ int main()
 //     zl::_Allocate(4, &a);
 //     zl::_Allocate(b, 10);
 //     b = zl::_Allocate<int>(10);
+//     
+
+    zl::CArrayFixed<int, 10> arr10 = {0};
+    for (int i = 0; i < 10; i++)
+        arr10[i] = i * 5;
+    printf("%d\n", arr10[1]);
 
     getchar();
     return 0;

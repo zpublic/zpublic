@@ -72,6 +72,9 @@
     <ClInclude Include="..\..\public\zpublic.hpp">
       <Filter>zpublic</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\public\container\array.hpp">
+      <Filter>zpublic\container</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

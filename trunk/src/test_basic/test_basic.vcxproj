@@ -67,6 +67,7 @@
     <ClInclude Include="..\..\public\algorithm\crc.hpp" />
     <ClInclude Include="..\..\public\algorithm\hash.hpp" />
     <ClInclude Include="..\..\public\algorithm\stringmatch.hpp" />
+    <ClInclude Include="..\..\public\container\array.hpp" />
     <ClInclude Include="..\..\public\container\bit.hpp" />
     <ClInclude Include="..\..\public\container\container.hpp" />
     <ClInclude Include="..\..\public\container\pair.hpp" />
