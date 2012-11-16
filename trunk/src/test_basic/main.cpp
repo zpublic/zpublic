@@ -1,6 +1,7 @@
 #include "stdio.h"
 #include "windows.h"
 #include "zpublic.hpp"
+#include "string.hpp"
 
 int main()
 {
@@ -23,10 +24,10 @@ int main()
 //     //std::cout << b1 << std::endl;
 //     //<< " "<< b2 << " " << b1<b2 << " " << b1&b2 << " " << b1|b2 << " " << b1^b2 << std::endl;
 //     
-//     char source[100] = "what the fuck xxxx qqqqd fsds kevin sadsadeqw";
-//     char pattern[10] = "kevin";
-//     int ret = zl::SundayMatchString(source, strlen(source), pattern, strlen(pattern), 0);
-//     printf("%d\n",ret);
+    char source[100] = "what the fuck xxxx qqqqd fsds kevin sadsadeqw";
+    char pattern[10] = "kevin";
+    size_t ret = zl::SundayMatchString(source, strlen(source), pattern, strlen(pattern), 0);
+    printf("%d\n",ret);
 // 
 //     zl::CIncreaseMemory<char> mem(8);
 //     mem.Inc();
@@ -62,6 +63,15 @@ int main()
     zl::CArrayVariable<int> arrY = arr20[zl::ThreePos(5, 17, 3)];
     for (size_t i = 0; i < arrY.Size(); i++)
         printf("%d\n", arrY[i]);
+
+	zl::basic_string str("hello world");
+	printf("%s\n",str.c_str());
+	str.upper();
+	printf("%s\n",str.c_str());
+	str.lower();
+	printf("%s\n",str.c_str());
+	printf("%d\n",str.find("world"));
+	printf("%d\n",str.rfind("or"));
 
     getchar();
     return 0;

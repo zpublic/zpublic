@@ -26,7 +26,7 @@ namespace zl
     }
 
     template <typename _Ty, typename _SizeType> inline
-        _Ty *_Allocate(_Ty*, _SizeType _Count)
+    _Ty *_Allocate(_Ty*, _SizeType _Count)
     {
         void *_Ptr = 0;
         if (_Count != 0)

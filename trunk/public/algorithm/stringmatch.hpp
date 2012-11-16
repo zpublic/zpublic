@@ -11,12 +11,11 @@
 namespace zl
 {
 
-int SundayMatchString(const char* lpSource, int nSourceLen, const char* lpPattern, int nPatLen, int flag)
+size_t SundayMatchString(const char* lpSource, size_t nSourceLen, const char* lpPattern, size_t nPatLen, int flag = 0)
 {
-	int			nStep[256];
-	int			nPos		= 0;
-	int			nLen;
-	int			j;
+	size_t			nStep[256];
+	size_t			nPos = 0;
+	size_t			j;
 
 	if(lpSource == NULL || lpPattern == NULL)
 	{
@@ -28,21 +27,20 @@ int SundayMatchString(const char* lpSource, int nSourceLen, const char* lpPatter
 	{
 		return -1;
 	}
-	for(int i=0; i<256; i++)
+	for(size_t i=0; i<256; i++)
 	{
 		nStep[i] = nPatLen + 1;
 	}
 
 	//构造pattern数组;
-	for(int i=0; i<nPatLen; i++)
+	for(size_t i=0; i<nPatLen; i++)
 	{
 		nStep[(unsigned char)lpPattern[i]] = nPatLen - i; 	
 	}
 
-	nLen = 0;
 	while(nPos < nSourceLen-nPatLen+1)
 	{
-		if(lpSource[nPos] != lpPattern[nLen])
+		if(lpSource[nPos] != lpPattern[0])
 		{
 			//第一个位置不相等 比较紧跟字串的最后一个字符;
 			if(nPos+nPatLen > nSourceLen)
