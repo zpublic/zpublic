@@ -1,7 +1,6 @@
 #include "stdio.h"
 #include "windows.h"
 #include "zpublic.hpp"
-#include "string.hpp"
 
 int main()
 {

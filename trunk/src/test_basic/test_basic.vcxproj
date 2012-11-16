@@ -71,6 +71,7 @@
     <ClInclude Include="..\..\public\container\bit.hpp" />
     <ClInclude Include="..\..\public\container\container.hpp" />
     <ClInclude Include="..\..\public\container\pair.hpp" />
+    <ClInclude Include="..\..\public\container\string.hpp" />
     <ClInclude Include="..\..\public\container\tuple.hpp" />
     <ClInclude Include="..\..\public\detail\detail.hpp" />
     <ClInclude Include="..\..\public\detail\increase_policy.hpp" />
@@ -79,7 +80,6 @@
     <ClInclude Include="..\..\public\memory\memory.hpp" />
     <ClInclude Include="..\..\public\memory\variable_memory.hpp" />
     <ClInclude Include="..\..\public\zpublic.hpp" />
-    <ClInclude Include="string.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

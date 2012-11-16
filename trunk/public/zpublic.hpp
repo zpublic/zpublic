@@ -15,6 +15,7 @@
 #include "container/container.hpp"
 #include "detail/detail.hpp"
 #include "memory/memory.hpp"
+#include "container/string.hpp"
 
 #ifdef _WINDOWS_
 #include "thread/thread.hpp"
