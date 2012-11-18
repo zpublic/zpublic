@@ -10,6 +10,12 @@
 #ifndef _NOCOPYABLE_HPP_
 #define _NOCOPYABLE_HPP_
 
+#ifndef DISALLOW_COPY_AND_ASSIGN
+#define DISALLOW_COPY_AND_ASSIGN(TypeName) \
+    TypeName(const TypeName&);               \
+    void operator=(const TypeName&)
+#endif
+
 namespace zl
 {
 

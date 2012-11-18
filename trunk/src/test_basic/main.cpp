@@ -4,6 +4,8 @@
 #include "zpublic.hpp"
 #include <atlbase.h>
 
+void test_mrumap();
+
 int main()
 {
 //     const BYTE pp[] = {"124"};
@@ -74,16 +76,49 @@ int main()
 // 	printf("%d\n",str.find("world"));
 // 	printf("%d\n",str.rfind("or"));
 // 	
-    
-    setlocale(LC_ALL, "chs");
-    USES_CONVERSION;
-    std::string strB(CW2A(L"helloÄãºÃ", CP_UTF8));
-    std::string strB2, strB3;
-    zl::Base64Encode(strB, &strB2);
-    printf("%s\n", strB2.c_str());
-    zl::Base64Decode(strB2, &strB3);
-    wprintf(CA2W(strB3.c_str(), CP_UTF8));
+//     
+//     setlocale(LC_ALL, "chs");
+//     USES_CONVERSION;
+//     std::string strB(CW2A(L"helloÄãºÃ", CP_UTF8));
+//     std::string strB2, strB3;
+//     zl::Base64Encode(strB, &strB2);
+//     printf("%s\n", strB2.c_str());
+//     zl::Base64Decode(strB2, &strB3);
+//     wprintf(CA2W(strB3.c_str(), CP_UTF8));
+
+    test_mrumap();
 
     getchar();
     return 0;
+}
+
+void test_mrumap()
+{
+    typedef zl::MRUCache<int, int> Cache;
+    Cache cache(4);
+    cache.Put(1, 5);
+    cache.Put(2, 10);
+    cache.Put(3, 15);
+    cache.Put(4, 20);
+    cache.Put(2, 25);
+    for (Cache::const_iterator p = cache.begin();
+        p != cache.end();
+        ++p)
+    {
+        printf("%d ", p->second);
+    }
+
+    typedef zl::HashingMRUCache<const char*, int> Cache2;
+    Cache2 cache2(4);
+    cache2.Put("1", 5);
+    cache2.Put("2", 10);
+    cache2.Put("3", 15);
+    cache2.Put("4", 20);
+    cache2.Put("222222222222", 25);
+    for (Cache2::const_iterator p = cache2.begin();
+        p != cache2.end();
+        ++p)
+    {
+        printf("%d ", p->second);
+    }
 }

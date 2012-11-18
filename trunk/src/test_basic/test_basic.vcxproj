@@ -67,9 +67,15 @@
     <ClInclude Include="..\..\3rdparty\modp_b64\modp_b64_data.h" />
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp" />
     <ClInclude Include="..\..\public\algorithm\stringmatch.hpp" />
+    <ClInclude Include="..\..\public\basic\assert.hpp" />
+    <ClInclude Include="..\..\public\basic\basic.hpp" />
+    <ClInclude Include="..\..\public\basic\interface.hpp" />
+    <ClInclude Include="..\..\public\basic\nocopyable.hpp" />
     <ClInclude Include="..\..\public\container\array.hpp" />
     <ClInclude Include="..\..\public\container\bit.hpp" />
     <ClInclude Include="..\..\public\container\container.hpp" />
+    <ClInclude Include="..\..\public\container\linked_list.hpp" />
+    <ClInclude Include="..\..\public\container\mru_map.hpp" />
     <ClInclude Include="..\..\public\container\pair.hpp" />
     <ClInclude Include="..\..\public\container\string.hpp" />
     <ClInclude Include="..\..\public\container\tuple.hpp" />

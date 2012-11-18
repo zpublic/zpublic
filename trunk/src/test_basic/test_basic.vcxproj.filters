@@ -37,6 +37,9 @@
     <Filter Include="3rdparty\modp_b64">
       <UniqueIdentifier>{d202c84d-3c73-402f-a6fc-2ab961265e61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="zpublic\basic">
+      <UniqueIdentifier>{f8356473-42cd-4fd6-ad93-63fb2d0056b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -101,6 +104,24 @@
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\modp_b64\modp_b64_data.h">
       <Filter>3rdparty\modp_b64</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\container\linked_list.hpp">
+      <Filter>zpublic\container</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\basic\assert.hpp">
+      <Filter>zpublic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\basic\basic.hpp">
+      <Filter>zpublic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\basic\interface.hpp">
+      <Filter>zpublic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\basic\nocopyable.hpp">
+      <Filter>zpublic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\container\mru_map.hpp">
+      <Filter>zpublic\container</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
