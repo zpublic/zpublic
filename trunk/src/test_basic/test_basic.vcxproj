@@ -43,7 +43,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>./../../public</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./../../public;./../../3rdparty</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -63,9 +63,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\3rdparty\modp_b64\modp_b64.h" />
+    <ClInclude Include="..\..\3rdparty\modp_b64\modp_b64_data.h" />
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp" />
-    <ClInclude Include="..\..\public\algorithm\crc.hpp" />
-    <ClInclude Include="..\..\public\algorithm\hash.hpp" />
     <ClInclude Include="..\..\public\algorithm\stringmatch.hpp" />
     <ClInclude Include="..\..\public\container\array.hpp" />
     <ClInclude Include="..\..\public\container\bit.hpp" />
@@ -73,6 +73,10 @@
     <ClInclude Include="..\..\public\container\pair.hpp" />
     <ClInclude Include="..\..\public\container\string.hpp" />
     <ClInclude Include="..\..\public\container\tuple.hpp" />
+    <ClInclude Include="..\..\public\crypt\base64.hpp" />
+    <ClInclude Include="..\..\public\crypt\crc.hpp" />
+    <ClInclude Include="..\..\public\crypt\crypt.hpp" />
+    <ClInclude Include="..\..\public\crypt\hash.hpp" />
     <ClInclude Include="..\..\public\detail\detail.hpp" />
     <ClInclude Include="..\..\public\detail\increase_policy.hpp" />
     <ClInclude Include="..\..\public\memory\allocer.hpp" />
@@ -82,6 +86,7 @@
     <ClInclude Include="..\..\public\zpublic.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\3rdparty\modp_b64\modp_b64.cc" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
