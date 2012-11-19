@@ -16,9 +16,11 @@
 #include "detail/detail.hpp"
 #include "memory/memory.hpp"
 #include "container/string.hpp"
+#include "crypt/crypt.hpp"
 
 #ifdef _WINDOWS_
-#include "thread/thread.hpp"
+#include "win/thread/thread.hpp"
+#include "win/ptr/ptr.hpp"
 #endif
 
 #endif

@@ -10,7 +10,7 @@
 #ifndef _SYNC_OBJECT_
 #define _SYNC_OBJECT_
 
-#include "basic/interface.hpp"
+#include "../../basic/interface.hpp"
 
 namespace zl
 {

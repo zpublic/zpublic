@@ -28,15 +28,30 @@
     <Filter Include="zpublic\memory">
       <UniqueIdentifier>{b1a35c19-98f3-4984-9c56-19353007c06c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="zpublic\crypt">
+      <UniqueIdentifier>{518b6819-488e-49dc-97d5-1b684094971d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty">
+      <UniqueIdentifier>{e266ea56-9043-4bba-8bb7-ce1ac9d5d470}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\modp_b64">
+      <UniqueIdentifier>{d202c84d-3c73-402f-a6fc-2ab961265e61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zpublic\basic">
+      <UniqueIdentifier>{f8356473-42cd-4fd6-ad93-63fb2d0056b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zpublic\win">
+      <UniqueIdentifier>{9e827b9e-be36-403a-844f-146c8d07bab5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zpublic\win\thread">
+      <UniqueIdentifier>{08a22743-5961-46d8-8296-2a8ab6353bf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zpublic\win\ptr">
+      <UniqueIdentifier>{05ab0b24-fb44-4582-bded-8999d8674412}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
-      <Filter>zpublic\algorithm</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\public\algorithm\crc.hpp">
-      <Filter>zpublic\algorithm</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\public\algorithm\hash.hpp">
       <Filter>zpublic\algorithm</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\container\container.hpp">
@@ -81,10 +96,73 @@
     <ClInclude Include="..\..\public\container\string.hpp">
       <Filter>zpublic\container</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\public\crypt\crc.hpp">
+      <Filter>zpublic\crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\crypt\hash.hpp">
+      <Filter>zpublic\crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\crypt\crypt.hpp">
+      <Filter>zpublic\crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\crypt\base64.hpp">
+      <Filter>zpublic\crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\modp_b64\modp_b64.h">
+      <Filter>3rdparty\modp_b64</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\modp_b64\modp_b64_data.h">
+      <Filter>3rdparty\modp_b64</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\container\linked_list.hpp">
+      <Filter>zpublic\container</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\basic\assert.hpp">
+      <Filter>zpublic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\basic\basic.hpp">
+      <Filter>zpublic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\basic\interface.hpp">
+      <Filter>zpublic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\basic\nocopyable.hpp">
+      <Filter>zpublic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\container\mru_map.hpp">
+      <Filter>zpublic\container</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\thread\criticalsection.hpp">
+      <Filter>zpublic\win\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\thread\event.hpp">
+      <Filter>zpublic\win\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\thread\mutex.hpp">
+      <Filter>zpublic\win\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\thread\semaphore.hpp">
+      <Filter>zpublic\win\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\thread\syncobject.hpp">
+      <Filter>zpublic\win\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\thread\thread.hpp">
+      <Filter>zpublic\win\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\ptr\ref_counted.hpp">
+      <Filter>zpublic\win\ptr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\ptr\ptr.hpp">
+      <Filter>zpublic\win\ptr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\modp_b64\modp_b64.cc">
+      <Filter>3rdparty\modp_b64</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

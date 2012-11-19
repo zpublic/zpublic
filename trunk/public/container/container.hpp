@@ -12,5 +12,7 @@
 #include "bit.hpp"
 #include "array.hpp"
 #include "tuple.hpp"
+#include "linked_list.hpp"
+#include "mru_map.hpp"
 
 #endif /* CONTAINER_HPP_ */

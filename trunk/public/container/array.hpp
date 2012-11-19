@@ -10,7 +10,7 @@
 #ifndef _ARRAY_HPP_
 #define _ARRAY_HPP_
 
-#include "memory/variable_memory.hpp"
+#include "../memory/variable_memory.hpp"
 #include "tuple.hpp"
 
 namespace zl

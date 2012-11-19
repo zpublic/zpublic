@@ -10,7 +10,7 @@
 #ifndef _VARIABLE_MEMORY_
 #define _VARIABLE_MEMORY_
 
-#include "memory/allocer.hpp"
+#include "../memory/allocer.hpp"
 
 namespace zl
 {

@@ -1,6 +1,13 @@
 #include "stdio.h"
 #include "windows.h"
+#include <string>
 #include "zpublic.hpp"
+#include <atlbase.h>
+
+void test_mrumap();
+void test_thread();
+void test_ptr();
+void teststring();
 
 int main()
 {
@@ -23,10 +30,10 @@ int main()
 //     //std::cout << b1 << std::endl;
 //     //<< " "<< b2 << " " << b1<b2 << " " << b1&b2 << " " << b1|b2 << " " << b1^b2 << std::endl;
 //     
-    char source[100] = "what the fuck xxxx qqqqd fsds kevin sadsadeqw";
-    char pattern[10] = "kevin";
-    size_t ret = zl::SundayMatchString(source, strlen(source), pattern, strlen(pattern), 0);
-    printf("%d\n",ret);
+//     char source[100] = "what the fuck xxxx qqqqd fsds kevin sadsadeqw";
+//     char pattern[10] = "kevin";
+//     size_t ret = zl::SundayMatchString(source, strlen(source), pattern, strlen(pattern), 0);
+//     printf("%d\n",ret);
 // 
 //     zl::CIncreaseMemory<char> mem(8);
 //     mem.Inc();
@@ -47,22 +54,122 @@ int main()
 //         arr10[i] = i * 5;
 //     printf("%d\n", arr10[1]);
 
-    zl::CArrayFixedEx<int, 20> arr20 = {0};
-    for (int i = 0; i < 20; i++)
-        arr20[i] = i * 5;
+//     zl::CArrayFixedEx<int, 20> arr20 = {0};
+//     for (int i = 0; i < 20; i++)
+//         arr20[i] = i * 5;
+// 
+//     zl::CArrayVariable<int> arrX;
+//     arrX = arr20[zl::DoublePos(13, 17)];
+// 
+//     for (size_t i = 0; i < arrX.Size(); i++)
+//         printf("%d\n", arrX[i]);
+// 
+//     printf("\n");
+// 
+//     zl::CArrayVariable<int> arrY = arr20[zl::ThreePos(5, 17, 3)];
+//     for (size_t i = 0; i < arrY.Size(); i++)
+//         printf("%d\n", arrY[i]);
 
-    zl::CArrayVariable<int> arrX;
-    arrX = arr20[zl::DoublePos(13, 17)];
+// 	zl::basic_string str("hello world");
+// 	printf("%s\n",str.c_str());
+// 	str.upper();
+// 	printf("%s\n",str.c_str());
+// 	str.lower();
+// 	printf("%s\n",str.c_str());
+// 	printf("%d\n",str.find("world"));
+// 	printf("%d\n",str.rfind("or"));
+// 	
+//     
+//     setlocale(LC_ALL, "chs");
+//     USES_CONVERSION;
+//     std::string strB(CW2A(L"helloÄãºÃ", CP_UTF8));
+//     std::string strB2, strB3;
+//     zl::Base64Encode(strB, &strB2);
+//     printf("%s\n", strB2.c_str());
+//     zl::Base64Decode(strB2, &strB3);
+//     wprintf(CA2W(strB3.c_str(), CP_UTF8));
 
-    for (size_t i = 0; i < arrX.Size(); i++)
-        printf("%d\n", arrX[i]);
+    //test_mrumap();
+    //test_thread();
+    //test_ptr();
+	teststring();
+    getchar();
+    return 0;
+}
 
-    printf("\n");
+void test_mrumap()
+{
+    typedef zl::MRUCache<int, int> Cache;
+    Cache cache(4);
+    cache.Put(1, 5);
+    cache.Put(2, 10);
+    cache.Put(3, 15);
+    cache.Put(4, 20);
+    cache.Put(2, 25);
+    for (Cache::const_iterator p = cache.begin();
+        p != cache.end();
+        ++p)
+    {
+        printf("%d ", p->second);
+    }
 
-    zl::CArrayVariable<int> arrY = arr20[zl::ThreePos(5, 17, 3)];
-    for (size_t i = 0; i < arrY.Size(); i++)
-        printf("%d\n", arrY[i]);
 
+    typedef zl::HashingMRUCache<const char*, int> Cache2;
+    Cache2 cache2(4);
+    cache2.Put("1", 5);
+    cache2.Put("2", 10);
+    cache2.Put("3", 15);
+    cache2.Put("4", 20);
+    cache2.Put("2", 25);
+    for (Cache2::const_iterator p = cache2.begin();
+        p != cache2.end();
+        ++p)
+    {
+        printf("%d ", p->second);
+    }
+}
+
+
+void test_thread()
+{
+    zl::CEvent xEvent;
+    xEvent.Create();
+    xEvent.Wait(5000);
+    xEvent.Set();
+    xEvent.Wait(10000);
+
+    zl::CSemaphore xSemaphore;
+    xSemaphore.Create(0, 10);
+    xSemaphore.Wait(3000);
+    xSemaphore.Release();
+    xSemaphore.Release();
+    xSemaphore.Wait(3000);
+    xSemaphore.Wait(3000);
+    xSemaphore.Wait(3000);
+
+}
+
+void test_ptr()
+{
+    class CPtrTest : public zl::RefCounted<CPtrTest>
+    {
+    public:
+        CPtrTest() {}
+
+    private:
+        FREIEND_REFCOUNTED(CPtrTest)
+    };
+
+
+    CPtrTest *pp1 = new CPtrTest;
+    pp1->AddRef();
+    pp1->AddRef();
+    pp1->Release();
+    pp1->Release();
+}
+
+void teststring()
+{
 	zl::CArrayVariable<zl::basic_string*> stringlist;
 	zl::basic_string a = "hello kevin";
 	zl::basic_string sub;
@@ -71,9 +178,6 @@ int main()
 		printf("%s\n",sub.c_str());
 	}
 	//stringlist[0] = &a;
-	
-	//a.split(" ", stringlist);
 
-    getchar();
-    return 0;
+	//a.split(" ", stringlist);
 }
