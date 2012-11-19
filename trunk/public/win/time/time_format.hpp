@@ -11,6 +11,7 @@
 #define _TIME_FORMAT_HPP_
 
 #include <time.h>
+#include <stdio.h>
 
 #ifndef _FILETIME_
 #define _FILETIME_
