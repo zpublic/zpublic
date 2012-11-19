@@ -8,6 +8,7 @@ void test_mrumap();
 void test_thread();
 void test_ptr();
 void test_vector();
+void teststring();
 
 int main()
 {
@@ -92,7 +93,8 @@ int main()
     //test_mrumap();
     //test_thread();
     //test_ptr();
-    test_vector();
+    //test_vector();
+	teststring();
 
     getchar();
     return 0;
@@ -114,6 +116,7 @@ void test_mrumap()
         printf("%d ", p->second);
     }
 
+
     typedef zl::HashingMRUCache<const char*, int> Cache2;
     Cache2 cache2(4);
     cache2.Put("1", 5);
@@ -128,6 +131,7 @@ void test_mrumap()
         printf("%d ", p->second);
     }
 }
+
 
 void test_thread()
 {
@@ -186,4 +190,18 @@ void test_vector()
     {
         printf("%d ", vecInt2[i]);
     }
+}
+
+void teststring()
+{
+    zl::CArrayVariable<zl::basic_string*> stringlist;
+    zl::basic_string a = "hello kevin";
+    zl::basic_string sub;
+    if(a.GetSub(&sub, 6, 5))
+    {
+        printf("%s\n",sub.c_str());
+    }
+    //stringlist[0] = &a;
+
+    //a.split(" ", stringlist);
 }
