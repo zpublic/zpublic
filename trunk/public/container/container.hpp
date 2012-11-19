@@ -14,5 +14,6 @@
 #include "tuple.hpp"
 #include "linked_list.hpp"
 #include "mru_map.hpp"
+#include "vector.hpp"
 
 #endif /* CONTAINER_HPP_ */

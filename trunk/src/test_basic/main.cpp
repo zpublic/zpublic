@@ -7,6 +7,7 @@
 void test_mrumap();
 void test_thread();
 void test_ptr();
+void test_vector();
 
 int main()
 {
@@ -47,12 +48,12 @@ int main()
 //     zl::_Allocate(b, 10);
 //     b = zl::_Allocate<int>(10);
 //     
-
+// 
 //     zl::CArrayFixed<int, 10> arr10 = {0};
 //     for (int i = 0; i < 10; i++)
 //         arr10[i] = i * 5;
 //     printf("%d\n", arr10[1]);
-
+// 
 //     zl::CArrayFixedEx<int, 20> arr20 = {0};
 //     for (int i = 0; i < 20; i++)
 //         arr20[i] = i * 5;
@@ -90,7 +91,8 @@ int main()
 
     //test_mrumap();
     //test_thread();
-    test_ptr();
+    //test_ptr();
+    test_vector();
 
     getchar();
     return 0;
@@ -163,4 +165,25 @@ void test_ptr()
     pp1->AddRef();
     pp1->Release();
     pp1->Release();
+}
+
+void test_vector()
+{
+    zl::CSimpleVector<int> vecInt(2);
+    vecInt.Add(1);
+    vecInt.Add(2);
+    vecInt.Add(1);
+    vecInt.Add(2);
+    vecInt.Add(1);
+    vecInt.Add(2);
+    vecInt.Add(1);
+    vecInt.Add(2);
+    vecInt.Add(1);
+    vecInt.Add(2);
+    vecInt.RemoveAt(3);
+    zl::CSimpleVector<int> vecInt2 = vecInt;
+    for (int i=0; i<vecInt2.GetSize(); i++)
+    {
+        printf("%d ", vecInt2[i]);
+    }
 }

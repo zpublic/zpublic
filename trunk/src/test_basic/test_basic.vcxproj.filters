@@ -156,6 +156,9 @@
     <ClInclude Include="..\..\public\win\ptr\ptr.hpp">
       <Filter>zpublic\win\ptr</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\public\container\vector.hpp">
+      <Filter>zpublic\container</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

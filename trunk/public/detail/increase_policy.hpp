@@ -35,6 +35,7 @@ namespace zl
         }
     };
 
+    typedef PIncreaseMul<2> DoubleIncrese;
 }
 
 #endif
