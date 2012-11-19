@@ -62,20 +62,17 @@ int main()
     zl::CArrayVariable<int> arrY = arr20[zl::ThreePos(5, 17, 3)];
     for (size_t i = 0; i < arrY.Size(); i++)
         printf("%d\n", arrY[i]);
-	zl::basic_string a = "kevin";
-	zl::basic_string c = "wtf";
-	zl::basic_string b;
-	b = c;
-	a = "wo le ge qu a  aaaaaaa";
-	printf("a = %s\nb = %s\n",a.c_str(),b.c_str());
-	zl::basic_string str("hello world");
-	printf("%s\n",str.c_str());
-	str.upper();
-	printf("%s\n",str.c_str());
-	str.lower();
-	printf("%s\n",str.c_str());
-	printf("%d\n",str.find("world"));
-	printf("%d\n",str.rfind("or"));
+
+	zl::CArrayVariable<zl::basic_string*> stringlist;
+	zl::basic_string a = "hello kevin";
+	zl::basic_string sub;
+	if(a.GetSub(&sub, 6, 5))
+	{
+		printf("%s\n",sub.c_str());
+	}
+	//stringlist[0] = &a;
+	
+	//a.split(" ", stringlist);
 
     getchar();
     return 0;
