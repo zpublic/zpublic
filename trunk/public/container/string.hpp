@@ -10,7 +10,6 @@
 
 #include "memory/allocer.hpp"
 #include "algorithm/stringmatch.hpp"
-#include "stdlib.h"
 
 namespace zl
 {
@@ -100,6 +99,36 @@ namespace zl
 		const char* c_str()
 		{
 			return (const char*)m_string;
+		}
+		
+// 		basic_string operator=(basic_string& x)
+// 		{
+// 			if(m_string != NULL)
+// 				_Free(m_string);
+// 			m_string = _Allocate(m_string, x.m_capacity);
+// 			if(m_string != NULL)
+// 			{
+// 				size_t i;
+// 				for(i = 0; i < x.m_size; i++)
+// 				{
+// 					m_string[i] = x.c_str()[i]; 
+// 				}
+// 				m_string[i] = '\0';
+// 			}
+// 			m_size = x.m_size;
+// 			m_capacity = x.m_capacity;
+// 		}
+
+		void operator=(const char* buf)
+		{
+			m_size = GetStrLen(buf);
+			m_string = _Allocate(m_string, m_size * 2);
+			m_capacity = m_size * 2;
+
+			size_t i;
+			for(i=0; i < m_size; i++)
+				m_string[i] = buf[i];
+			m_string[i] = '\0';
 		}
 
 	private:
