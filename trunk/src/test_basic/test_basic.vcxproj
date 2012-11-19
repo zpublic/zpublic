@@ -89,6 +89,12 @@
     <ClInclude Include="..\..\public\memory\increase_memory.hpp" />
     <ClInclude Include="..\..\public\memory\memory.hpp" />
     <ClInclude Include="..\..\public\memory\variable_memory.hpp" />
+    <ClInclude Include="..\..\public\win\thread\criticalsection.hpp" />
+    <ClInclude Include="..\..\public\win\thread\event.hpp" />
+    <ClInclude Include="..\..\public\win\thread\mutex.hpp" />
+    <ClInclude Include="..\..\public\win\thread\semaphore.hpp" />
+    <ClInclude Include="..\..\public\win\thread\syncobject.hpp" />
+    <ClInclude Include="..\..\public\win\thread\thread.hpp" />
     <ClInclude Include="..\..\public\zpublic.hpp" />
   </ItemGroup>
   <ItemGroup>

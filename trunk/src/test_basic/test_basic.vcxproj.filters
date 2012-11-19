@@ -40,6 +40,12 @@
     <Filter Include="zpublic\basic">
       <UniqueIdentifier>{f8356473-42cd-4fd6-ad93-63fb2d0056b1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="zpublic\win">
+      <UniqueIdentifier>{9e827b9e-be36-403a-844f-146c8d07bab5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zpublic\win\thread">
+      <UniqueIdentifier>{08a22743-5961-46d8-8296-2a8ab6353bf1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -122,6 +128,24 @@
     </ClInclude>
     <ClInclude Include="..\..\public\container\mru_map.hpp">
       <Filter>zpublic\container</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\thread\criticalsection.hpp">
+      <Filter>zpublic\win\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\thread\event.hpp">
+      <Filter>zpublic\win\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\thread\mutex.hpp">
+      <Filter>zpublic\win\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\thread\semaphore.hpp">
+      <Filter>zpublic\win\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\thread\syncobject.hpp">
+      <Filter>zpublic\win\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\thread\thread.hpp">
+      <Filter>zpublic\win\thread</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

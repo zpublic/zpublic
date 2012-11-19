@@ -10,7 +10,7 @@
 #ifndef _BASE64_HPP_
 #define _BASE64_HPP_
 
-#include "modp_b64/modp_b64.h"
+#include "../../3rdparty/modp_b64/modp_b64.h"
 
 namespace zl
 {

@@ -8,8 +8,8 @@
 #ifndef _STRING_HPP_
 #define _STRING_HPP_
 
-#include "memory/allocer.hpp"
-#include "algorithm/stringmatch.hpp"
+#include "../memory/allocer.hpp"
+#include "../algorithm/stringmatch.hpp"
 #include "stdlib.h"
 
 namespace zl

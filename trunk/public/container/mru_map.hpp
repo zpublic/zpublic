@@ -13,7 +13,7 @@
 #include <map>
 #include <list>
 #include <hash_map>
-#include "basic/nocopyable.hpp"
+#include "../basic/nocopyable.hpp"
 
 namespace zl
 {

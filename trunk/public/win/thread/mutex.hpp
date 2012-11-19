@@ -13,7 +13,7 @@
 namespace zl
 {
 
-#include "basic/nocopyable.hpp"
+#include "../../basic/nocopyable.hpp"
 #include "criticalsection.hpp"
 
     class CMutex : public NoCopyable

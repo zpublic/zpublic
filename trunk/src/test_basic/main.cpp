@@ -5,6 +5,7 @@
 #include <atlbase.h>
 
 void test_mrumap();
+void test_thread();
 
 int main()
 {
@@ -86,7 +87,8 @@ int main()
 //     zl::Base64Decode(strB2, &strB3);
 //     wprintf(CA2W(strB3.c_str(), CP_UTF8));
 
-    test_mrumap();
+    //test_mrumap();
+    test_thread();
 
     getchar();
     return 0;
@@ -114,11 +116,30 @@ void test_mrumap()
     cache2.Put("2", 10);
     cache2.Put("3", 15);
     cache2.Put("4", 20);
-    cache2.Put("222222222222", 25);
+    cache2.Put("2", 25);
     for (Cache2::const_iterator p = cache2.begin();
         p != cache2.end();
         ++p)
     {
         printf("%d ", p->second);
     }
+}
+
+void test_thread()
+{
+    zl::CEvent xEvent;
+    xEvent.Create();
+    xEvent.Wait(5000);
+    xEvent.Set();
+    xEvent.Wait(10000);
+
+    zl::CSemaphore xSemaphore;
+    xSemaphore.Create(0, 10);
+    xSemaphore.Wait(3000);
+    xSemaphore.Release();
+    xSemaphore.Release();
+    xSemaphore.Wait(3000);
+    xSemaphore.Wait(3000);
+    xSemaphore.Wait(3000);
+
 }

@@ -19,7 +19,7 @@
 #include "crypt/crypt.hpp"
 
 #ifdef _WINDOWS_
-#include "thread/thread.hpp"
+#include "win/thread/thread.hpp"
 #endif
 
 #endif

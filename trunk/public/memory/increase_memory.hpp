@@ -10,8 +10,8 @@
 #ifndef _INCREASE_MEMORY_
 #define _INCREASE_MEMORY_
 
-#include "memory/variable_memory.hpp"
-#include "detail/increase_policy.hpp"
+#include "../memory/variable_memory.hpp"
+#include "../detail/increase_policy.hpp"
 
 namespace zl
 {
