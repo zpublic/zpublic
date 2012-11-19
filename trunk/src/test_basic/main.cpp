@@ -211,6 +211,9 @@ void teststring()
 
 void test_time()
 {
+    LARGE_INTEGER llTimeBegin = {0};
+    zl::CTimeInterval::GetTime(llTimeBegin);
+
     __time64_t t1 = 0;
     zl::GetFileTimeInfo(L"c:\\windows\\notepad.exe", &t1, 0, 0);
     FILETIME ft = zl::Time642FileTime(t1);
@@ -220,4 +223,9 @@ void test_time()
     wchar_t strTime[TIME_STRING_MAX_LEN] = {0};
     zl::Time2Str(sTime, strTime);
     zl::Str2Time(strTime, sTime);
+
+    
+    double dfTimeInterval = 0.0;
+    zl::CTimeInterval::Calc(llTimeBegin, dfTimeInterval);
+    printf("%.2f", dfTimeInterval);
 }

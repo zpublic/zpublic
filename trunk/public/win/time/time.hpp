@@ -13,5 +13,6 @@
 #include "time_format.hpp"
 #include "file_time.hpp"
 #include "time_ini.hpp"
+#include "time_interval.hpp"
 
 #endif

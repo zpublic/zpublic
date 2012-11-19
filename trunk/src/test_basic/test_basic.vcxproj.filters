@@ -174,6 +174,9 @@
     <ClInclude Include="..\..\public\win\time\time_ini.hpp">
       <Filter>zpublic\win\time</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\public\win\time\time_interval.hpp">
+      <Filter>zpublic\win\time</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
