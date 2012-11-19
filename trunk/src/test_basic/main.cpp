@@ -9,6 +9,7 @@ void test_thread();
 void test_ptr();
 void test_vector();
 void teststring();
+void test_time();
 
 int main()
 {
@@ -95,6 +96,8 @@ int main()
     //test_ptr();
     //test_vector();
 	teststring();
+
+    test_time();
 
     getchar();
     return 0;
@@ -204,4 +207,17 @@ void teststring()
     //stringlist[0] = &a;
 
     //a.split(" ", stringlist);
+}
+
+void test_time()
+{
+    __time64_t t1 = 0;
+    zl::GetFileTimeInfo(L"c:\\windows\\notepad.exe", &t1, 0, 0);
+    FILETIME ft = zl::Time642FileTime(t1);
+
+    SYSTEMTIME sTime;
+    GetSystemTime(&sTime);
+    wchar_t strTime[TIME_STRING_MAX_LEN] = {0};
+    zl::Time2Str(sTime, strTime);
+    zl::Str2Time(strTime, sTime);
 }

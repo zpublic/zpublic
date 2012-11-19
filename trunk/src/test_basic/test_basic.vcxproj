@@ -99,6 +99,10 @@
     <ClInclude Include="..\..\public\win\thread\semaphore.hpp" />
     <ClInclude Include="..\..\public\win\thread\syncobject.hpp" />
     <ClInclude Include="..\..\public\win\thread\thread.hpp" />
+    <ClInclude Include="..\..\public\win\time\file_time.hpp" />
+    <ClInclude Include="..\..\public\win\time\time.hpp" />
+    <ClInclude Include="..\..\public\win\time\time_format.hpp" />
+    <ClInclude Include="..\..\public\win\time\time_ini.hpp" />
     <ClInclude Include="..\..\public\zpublic.hpp" />
   </ItemGroup>
   <ItemGroup>
