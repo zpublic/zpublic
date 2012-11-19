@@ -6,6 +6,7 @@
 
 void test_mrumap();
 void test_thread();
+void test_ptr();
 
 int main()
 {
@@ -88,7 +89,8 @@ int main()
 //     wprintf(CA2W(strB3.c_str(), CP_UTF8));
 
     //test_mrumap();
-    test_thread();
+    //test_thread();
+    test_ptr();
 
     getchar();
     return 0;
@@ -142,4 +144,23 @@ void test_thread()
     xSemaphore.Wait(3000);
     xSemaphore.Wait(3000);
 
+}
+
+void test_ptr()
+{
+    class CPtrTest : public zl::RefCounted<CPtrTest>
+    {
+    public:
+        CPtrTest() {}
+
+    private:
+        FREIEND_REFCOUNTED(CPtrTest)
+    };
+
+
+    CPtrTest *pp1 = new CPtrTest;
+    pp1->AddRef();
+    pp1->AddRef();
+    pp1->Release();
+    pp1->Release();
 }

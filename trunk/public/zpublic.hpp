@@ -20,6 +20,7 @@
 
 #ifdef _WINDOWS_
 #include "win/thread/thread.hpp"
+#include "win/ptr/ptr.hpp"
 #endif
 
 #endif

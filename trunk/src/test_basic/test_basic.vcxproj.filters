@@ -46,6 +46,9 @@
     <Filter Include="zpublic\win\thread">
       <UniqueIdentifier>{08a22743-5961-46d8-8296-2a8ab6353bf1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="zpublic\win\ptr">
+      <UniqueIdentifier>{05ab0b24-fb44-4582-bded-8999d8674412}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -146,6 +149,12 @@
     </ClInclude>
     <ClInclude Include="..\..\public\win\thread\thread.hpp">
       <Filter>zpublic\win\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\ptr\ref_counted.hpp">
+      <Filter>zpublic\win\ptr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\ptr\ptr.hpp">
+      <Filter>zpublic\win\ptr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
