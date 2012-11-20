@@ -10,6 +10,7 @@ void test_ptr();
 void test_vector();
 void teststring();
 void test_time();
+void test_info();
 
 int main()
 {
@@ -97,7 +98,8 @@ int main()
     //test_vector();
 	teststring();
 
-    test_time();
+    //test_time();
+    test_info();
 
     getchar();
     return 0;
@@ -228,4 +230,10 @@ void test_time()
     double dfTimeInterval = 0.0;
     zl::CTimeInterval::Calc(llTimeBegin, dfTimeInterval);
     printf("%.2f", dfTimeInterval);
+}
+
+void test_info()
+{
+    std::wstring sGuid = zl::GenerateGUID();
+    zl::IsValidGUID(sGuid);
 }

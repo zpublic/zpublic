@@ -22,6 +22,7 @@
 #include "win/thread/thread.hpp"
 #include "win/ptr/ptr.hpp"
 #include "win/time/time.hpp"
+#include "win/info/info.hpp"
 #endif
 
 #endif
