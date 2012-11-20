@@ -13,7 +13,7 @@
 #include "../detail/increase_policy.hpp"
 #include "../memory/variable_memory.hpp"
 
-#define DEFAULT_VECTOR_SIZE 4
+const int DEFAULT_VECTOR_SIZE = 4;
 
 namespace zl
 {

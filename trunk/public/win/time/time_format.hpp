@@ -22,7 +22,7 @@ typedef struct _FILETIME
 } 	FILETIME;
 #endif
 
-#define TIME_STRING_MAX_LEN 28
+const int TIME_STRING_MAX_LEN = 28;
 
 namespace zl
 {

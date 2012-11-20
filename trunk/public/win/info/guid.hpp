@@ -10,8 +10,8 @@
 #ifndef _GUID_HPP_
 #define _GUID_HPP_
 
-#define kGUIDLength 36U
-#define kGUIDSize   39U
+const int kGUIDLength = 36;
+const int kGUIDSize   = 39;
 
 namespace zl
 {
