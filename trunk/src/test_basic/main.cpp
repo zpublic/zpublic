@@ -171,12 +171,18 @@ void test_ptr()
 void teststring()
 {
 	zl::CArrayVariable<zl::basic_string*> stringlist;
-	zl::basic_string a = "hello kevin";
+	zl::basic_string a = "hello kevin fuck you kevin yes true";
 	zl::basic_string sub;
-	if(a.GetSub(&sub, 6, 5))
-	{
-		printf("%s\n",sub.c_str());
-	}
+	zl::basic_string b;
+
+	b = a + " fuck you";
+	printf("%s\n",b.c_str());
+
+	b = a.GetSub(6,5);
+	zl::basic_string x;
+	b.swap(x);
+	printf("%s\n",x.c_str());
+	b = a.replace("kevin", "()");
 	//stringlist[0] = &a;
 
 	//a.split(" ", stringlist);

@@ -42,6 +42,14 @@ namespace zl
 			m_string[i] = '\0';
 		}
 
+		basic_string(basic_string& x)
+		{
+			this->m_size = x.Size();
+			this->m_capacity = x.Capacity();
+			this->m_string = _Allocate(this->m_string, this->m_capacity);
+			memcpy(this->m_string, x.c_str(), (this->m_size + 1) * sizeof(char));
+		}
+
 	public:
 
 		basic_string& operator=(basic_string& x)
@@ -76,6 +84,51 @@ namespace zl
 			this->m_string[i] = '\0';
 		}
 
+		basic_string& operator+=(const char* buf)
+		{
+			size_t len = GetStrLen(buf);
+			size_t oldsize = this->m_size;
+			char* oldstring = this->m_string;
+			bool flag = false;
+
+			this->m_size += len;
+			if(this->m_size > this->m_capacity)
+			{
+				char* tmp = NULL;
+				tmp = _Allocate(tmp, this->m_size + 1);
+				this->m_capacity = this->m_size + 1;
+				for(size_t i = 0; i < oldsize; i++)
+					tmp[i] = this->m_string[i];
+				this->m_string = tmp;
+				flag = true;
+			}
+			size_t i;
+			for(i = oldsize; i < this->m_size; i++)
+				this->m_string[i] = buf[i-oldsize];
+			this->m_string[i] = '\0';
+			
+			if(oldstring != NULL && flag)
+				_Free(oldstring);
+
+			return ( *this );
+		}
+
+		basic_string operator+(const char* buf)
+		{
+			basic_string tmp = *this;
+			return tmp += buf;
+		}
+
+		basic_string& operator+=(basic_string& x)
+		{
+			return (*this += x.c_str());
+		}
+
+		basic_string operator+(basic_string& x)
+		{
+			basic_string tmp = *this;
+			return tmp += x;
+		}
 
 		inline size_t GetStrLen(const char* str)
 		{
@@ -183,6 +236,25 @@ namespace zl
 			return true;
 		}
 
+		basic_string GetSub(size_t start, size_t len)
+		{
+			if(start + len > this->m_size)
+				return *this; 
+
+			char* p = NULL;
+			p = _Allocate(p, len+1);
+			size_t i;
+			for(i = 0; i < len; i++)
+			{
+				p[i] = this->m_string[i + start];
+			}
+			p[i] = '\0';
+			basic_string substring = p;
+			_Free(p);
+
+			return substring;
+		}
+
 		int split(const char* x, CArrayVariable<basic_string *>& splitarray)
 		{
 			size_t len = GetStrLen(x);
@@ -212,7 +284,58 @@ namespace zl
 
 			return count;
 		}
-	
+		
+		void swap(basic_string& x)
+		{
+			basic_string tmp;
+			tmp = x;
+			x = *this;
+			*this = tmp;
+		}
+
+		basic_string replace(const char* pattern, const char* word)
+		{
+			size_t patlen = GetStrLen(pattern);
+			size_t wordlen = GetStrLen(word);
+			bool flag = false;
+
+			char* tmp = NULL;
+			if(wordlen > patlen)
+			{
+				size_t maxlen = this->m_size / patlen * (wordlen - patlen) + this->m_size % patlen;
+				tmp = _Allocate(tmp, maxlen);
+			}
+			else
+			{
+				tmp = _Allocate(tmp, this->m_capacity);
+			}
+
+
+			size_t ret = 0;
+			size_t pos = 0;
+			const char* p = this->m_string;
+			char* q = tmp;
+
+			do 
+			{
+				pos += ret;
+				p += ret;
+				q += ret;
+				ret = SundayMatchString(p, m_size-ret-1, pattern, patlen);
+				if(ret != -1)
+				{
+					memcpy(q, p, sizeof(char) * ret);
+					memcpy(q + ret, word, sizeof(char)*wordlen);
+					p += patlen;
+					q += wordlen;
+				}
+			} while (ret != -1);
+
+			memcpy(q, p, this->m_size - pos + 1);
+			
+			return basic_string(tmp);
+		}
+
 	private:
 		char*	m_string;
 		size_t	m_size;
