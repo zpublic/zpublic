@@ -195,7 +195,7 @@
     <ClInclude Include="..\..\public\win\encode\string_encode.hpp">
       <Filter>zpublic\win\encode</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\public\container\HashTable.hpp">
+    <ClInclude Include="..\..\public\container\hashtable.hpp">
       <Filter>zpublic\container</Filter>
     </ClInclude>
   </ItemGroup>

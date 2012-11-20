@@ -1,7 +1,7 @@
+#include "zpublic.hpp"
 #include "stdio.h"
 #include "windows.h"
 #include <string>
-#include "zpublic.hpp"
 #include <atlbase.h>
 
 void test_mrumap();
@@ -98,12 +98,9 @@ int main()
     //test_mrumap();
     //test_thread();
     //test_ptr();
-<<<<<<< HEAD
     //test_vector();
-	test_hashtable();
-=======
-    test_vector();
->>>>>>> 66f8df13388c06e00ada695805d9c16b92278922
+	//test_hashtable();
+    //test_vector();
 	teststring();
 
     //test_time();

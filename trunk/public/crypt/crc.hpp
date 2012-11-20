@@ -11,7 +11,7 @@
 namespace zl {
 
 #ifndef BYTE
-#define BYTE unsigned char
+typedef unsigned char BYTE;
 #endif
 
 static unsigned long crc_table[] =

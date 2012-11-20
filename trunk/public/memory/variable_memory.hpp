@@ -12,12 +12,12 @@
 
 #include "../memory/allocer.hpp"
 
-namespace zl
-{
-
 #ifndef INVALID_PTR
 #define INVALID_PTR 0
 #endif
+
+namespace zl
+{
 
     template <typename T>
     class CVariableMem

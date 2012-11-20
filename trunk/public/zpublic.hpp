@@ -17,9 +17,8 @@
 #include "memory/memory.hpp"
 #include "container/string.hpp"
 #include "crypt/crypt.hpp"
-#include "container/HashTable.hpp"
 
-#ifdef _WINDOWS_
+#ifdef _MSC_VER
 #include "win/thread/thread.hpp"
 #include "win/ptr/ptr.hpp"
 #include "win/time/time.hpp"
