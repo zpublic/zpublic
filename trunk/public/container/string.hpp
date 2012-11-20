@@ -42,17 +42,23 @@ namespace zl
 			m_string[i] = '\0';
 		}
 
-		basic_string(basic_string& x)
+		basic_string(const basic_string& x) 
 		{
-			this->m_size = x.Size();
-			this->m_capacity = x.Capacity();
-			this->m_string = _Allocate(this->m_string, this->m_capacity);
+			if(x.Size() >= this->m_capacity)
+			{
+				if(this->m_string != NULL)
+					_Free(this->m_string);
+				this->m_size = x.Size();
+				this->m_capacity = x.Capacity();
+				this->m_string = _Allocate(this->m_string, this->m_capacity);
+			}
+			
 			memcpy(this->m_string, x.c_str(), (this->m_size + 1) * sizeof(char));
 		}
 
 	public:
 
-		basic_string& operator=(basic_string& x)
+		basic_string& operator=(const basic_string& x)
 		{
 			if(this->m_string != NULL)
 				_Free(this->m_string);
@@ -74,10 +80,16 @@ namespace zl
 
 		void operator=(const char* buf)
 		{
-			this->m_size = GetStrLen(buf);
-			this->m_string = _Allocate(m_string, m_size * 2);
-			m_capacity = this->m_size * 2;
-
+			size_t len = GetStrLen(buf);
+			if(len >= this->m_capacity)
+			{
+				if(this->m_string != NULL)
+					_Free(this->m_string);
+				this->m_size = GetStrLen(buf);
+				this->m_string = _Allocate(m_string, m_size * 2);
+				m_capacity = this->m_size * 2;
+			}
+			
 			size_t i;
 			for(i=0; i < m_size; i++)
 				this->m_string[i] = buf[i];
@@ -92,7 +104,7 @@ namespace zl
 			bool flag = false;
 
 			this->m_size += len;
-			if(this->m_size > this->m_capacity)
+			if(this->m_size >= this->m_capacity)
 			{
 				char* tmp = NULL;
 				tmp = _Allocate(tmp, this->m_size + 1);
@@ -138,12 +150,12 @@ namespace zl
 			return i;
 		}
 
-		size_t Size()
+		size_t Size() const
 		{
 			return m_size;
 		}
 
-		size_t Capacity()
+		size_t Capacity() const
 		{
 			return m_capacity;
 		}
@@ -194,7 +206,7 @@ namespace zl
 			}
 		}
 
-		const char* c_str()
+		const char* c_str() const
 		{
 			return (const char*)m_string;
 		}
@@ -272,7 +284,7 @@ namespace zl
 				if(ret != -1)
 				{
 					tmp = _Allocate(tmp, 1);
-					memset(tmp,	0,	sizeof(tmp));
+					memset(tmp,	0,	sizeof(basic_string));
 					if(this->GetSub(tmp, pos, ret))
 					{
 						vecSplit.Add(tmp);

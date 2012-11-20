@@ -12,6 +12,7 @@ void teststring();
 void test_time();
 void test_info();
 void test_encode();
+void test_hashtable();
 
 int main()
 {
@@ -98,6 +99,7 @@ int main()
     //test_thread();
     //test_ptr();
     //test_vector();
+	test_hashtable();
 	teststring();
 
     //test_time();
@@ -261,4 +263,44 @@ void test_encode()
     std::wstring sHello1(L"helloÄãºÃ");
     std::string sHello2 = zl::WideToUTF8(sHello1);
     std::wstring sHello3 = zl::UTF8ToWide(sHello2);
+}
+
+void test_hashtable()
+{
+	struct st 
+	{
+		int key;
+		int value;
+	};
+
+	struct st_equal
+	{
+		bool operator() (const st& first, const st& second) const
+		{
+			return first.value == second.value;
+		}
+	};
+
+	struct st_hash
+	{
+		unsigned long operator() (const st& first, const unsigned long n) const
+		{
+			return first.value % n;
+		}
+	};
+
+	zl::HashTable<st, st_hash, st_equal> myHashTable(10);
+	st tmp;
+	int count = 0;
+	for(unsigned long i = 0; i<100; i++)
+	{
+		tmp.key = 10;
+		tmp.value = i;
+		myHashTable.insert_unique(tmp);
+	}
+	tmp.value = 10;
+	myHashTable.find(tmp);
+	tmp.key = 21;
+	tmp.value = 64;
+	myHashTable.find(tmp);
 }

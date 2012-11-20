@@ -72,5 +72,6 @@ size_t SundayMatchString(const char* lpSource, size_t nSourceLen, const char* lp
 	return -1;
 }
 
+
 }
 #endif // STRINGMATCH_HPP__
