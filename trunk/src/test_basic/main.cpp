@@ -11,9 +11,11 @@ void test_vector();
 void teststring();
 void test_time();
 void test_info();
+void test_encode();
 
 int main()
 {
+    setlocale(LC_ALL, "chs");
 //     const BYTE pp[] = {"124"};
 //     //cout << hex <<  zl::ExCRC32(pp, 3) << endl;
 //     printf("%08x", zl::ExCRC32(pp, 3));
@@ -83,7 +85,7 @@ int main()
 // 	printf("%d\n",str.rfind("or"));
 // 	
 //     
-//     setlocale(LC_ALL, "chs");
+//     
 //     USES_CONVERSION;
 //     std::string strB(CW2A(L"helloÄãºÃ", CP_UTF8));
 //     std::string strB2, strB3;
@@ -99,7 +101,8 @@ int main()
 	teststring();
 
     //test_time();
-    test_info();
+    //test_info();
+    test_encode();
 
     getchar();
     return 0;
@@ -236,4 +239,11 @@ void test_info()
 {
     std::wstring sGuid = zl::GenerateGUID();
     zl::IsValidGUID(sGuid);
+}
+
+void test_encode()
+{
+    std::wstring sHello1(L"helloÄãºÃ");
+    std::string sHello2 = zl::WideToUTF8(sHello1);
+    std::wstring sHello3 = zl::UTF8ToWide(sHello2);
 }

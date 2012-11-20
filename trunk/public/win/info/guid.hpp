@@ -92,6 +92,22 @@ namespace zl
         return guid_string.substr(1, guid_string.length() - 2);
     }
 
+    std::wstring GUIDToWString(GUID *guid)
+    {
+        wchar_t guid_string[kGUIDLength + 1] = {0};
+        ::swprintf(
+            guid_string, sizeof(guid_string) / sizeof(guid_string[0]),
+            L"%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x",
+            guid->Data1, guid->Data2, guid->Data3,
+            guid->Data4[0], guid->Data4[1], guid->Data4[2],
+            guid->Data4[3], guid->Data4[4], guid->Data4[5],
+            guid->Data4[6], guid->Data4[7]);
+
+        guid_string[sizeof(guid_string) / sizeof(guid_string[0]) - 1] = L'\0';
+
+        return std::wstring(guid_string);
+    }
+
 }
 
 #endif

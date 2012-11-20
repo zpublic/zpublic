@@ -23,6 +23,7 @@
 #include "win/ptr/ptr.hpp"
 #include "win/time/time.hpp"
 #include "win/info/info.hpp"
+#include "win/encode/encode.hpp"
 #endif
 
 #endif
