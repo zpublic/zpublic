@@ -55,6 +55,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>./../../public;./../../3rdparty</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -79,6 +80,7 @@
     <ClInclude Include="..\..\public\container\pair.hpp" />
     <ClInclude Include="..\..\public\container\string.hpp" />
     <ClInclude Include="..\..\public\container\tuple.hpp" />
+    <ClInclude Include="..\..\public\container\vector.hpp" />
     <ClInclude Include="..\..\public\crypt\base64.hpp" />
     <ClInclude Include="..\..\public\crypt\crc.hpp" />
     <ClInclude Include="..\..\public\crypt\crypt.hpp" />
@@ -97,6 +99,11 @@
     <ClInclude Include="..\..\public\win\thread\semaphore.hpp" />
     <ClInclude Include="..\..\public\win\thread\syncobject.hpp" />
     <ClInclude Include="..\..\public\win\thread\thread.hpp" />
+    <ClInclude Include="..\..\public\win\time\file_time.hpp" />
+    <ClInclude Include="..\..\public\win\time\time.hpp" />
+    <ClInclude Include="..\..\public\win\time\time_format.hpp" />
+    <ClInclude Include="..\..\public\win\time\time_ini.hpp" />
+    <ClInclude Include="..\..\public\win\time\time_interval.hpp" />
     <ClInclude Include="..\..\public\zpublic.hpp" />
   </ItemGroup>
   <ItemGroup>

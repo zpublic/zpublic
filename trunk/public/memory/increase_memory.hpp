@@ -16,7 +16,7 @@
 namespace zl
 {
 
-    template <typename T, typename IncreasePolicy = PIncreaseMul<2> >
+    template <typename T, typename IncreasePolicy = DoubleIncrese >
     class CIncreaseMemory
     {
     public:

@@ -21,6 +21,7 @@
 #ifdef _WINDOWS_
 #include "win/thread/thread.hpp"
 #include "win/ptr/ptr.hpp"
+#include "win/time/time.hpp"
 #endif
 
 #endif

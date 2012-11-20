@@ -49,6 +49,9 @@
     <Filter Include="zpublic\win\ptr">
       <UniqueIdentifier>{05ab0b24-fb44-4582-bded-8999d8674412}</UniqueIdentifier>
     </Filter>
+    <Filter Include="zpublic\win\time">
+      <UniqueIdentifier>{6487bb4c-c802-4c6f-9c94-b8c5dd058389}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -155,6 +158,24 @@
     </ClInclude>
     <ClInclude Include="..\..\public\win\ptr\ptr.hpp">
       <Filter>zpublic\win\ptr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\container\vector.hpp">
+      <Filter>zpublic\container</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\time\time.hpp">
+      <Filter>zpublic\win\time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\time\time_format.hpp">
+      <Filter>zpublic\win\time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\time\file_time.hpp">
+      <Filter>zpublic\win\time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\time\time_ini.hpp">
+      <Filter>zpublic\win\time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\time\time_interval.hpp">
+      <Filter>zpublic\win\time</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
