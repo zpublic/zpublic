@@ -97,12 +97,12 @@ int main()
     //test_mrumap();
     //test_thread();
     //test_ptr();
-    //test_vector();
+    test_vector();
 	teststring();
 
     //test_time();
     //test_info();
-    test_encode();
+    //test_encode();
 
     getchar();
     return 0;
