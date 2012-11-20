@@ -201,6 +201,8 @@ void teststring()
 	zl::basic_string a = "hello kevin fuck you kevin yes true";
 	zl::basic_string sub;
 	zl::basic_string b;
+	zl::CSimpleVector<zl::basic_string *> vecSplit;
+	a.split(" ", vecSplit);
 
 	b = a + " fuck you";
 	printf("%s\n",b.c_str());
@@ -211,13 +213,12 @@ void teststring()
 	printf("%s\n",x.c_str());
 	b = a.replace("kevin", "()");
 	//stringlist[0] = &a;
-    zl::CArrayVariable<zl::basic_string*> stringlist;
-    zl::basic_string a = "hello kevin";
-    zl::basic_string sub;
-    if(a.GetSub(&sub, 6, 5))
-    {
-        printf("%s\n",sub.c_str());
-    }
+//     zl::basic_string a = "hello kevin";
+//     zl::basic_string sub;
+//     if(a.GetSub(&sub, 6, 5))
+//     {
+//         printf("%s\n",sub.c_str());
+//     }
     //stringlist[0] = &a;
 
     //a.split(" ", stringlist);

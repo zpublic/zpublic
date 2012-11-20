@@ -10,7 +10,7 @@
 
 #include "../memory/allocer.hpp"
 #include "../algorithm/stringmatch.hpp"
-#include "array.hpp"
+#include "vector.hpp"
 
 namespace zl
 {
@@ -255,7 +255,7 @@ namespace zl
 			return substring;
 		}
 
-		int split(const char* x, CArrayVariable<basic_string *>& splitarray)
+		int split(const char* x, zl::CSimpleVector<basic_string *>& vecSplit)
 		{
 			size_t len = GetStrLen(x);
 			size_t ret = -1;
@@ -273,7 +273,12 @@ namespace zl
 				{
 					tmp = _Allocate(tmp, 1);
 					memset(tmp,	0,	sizeof(tmp));
-					if(this->GetSub(tmp, pos, ret - pos));
+					if(this->GetSub(tmp, pos, ret))
+					{
+						vecSplit.Add(tmp);
+						count++;
+					}
+				
 				}
 			} while (ret != -1);
 			
@@ -281,6 +286,8 @@ namespace zl
 			tmp = _Allocate(tmp, 1);
 			memset(tmp,	0,	sizeof(tmp));
 			this->GetSub(tmp, pos, m_size - pos);
+			vecSplit.Add(tmp);
+			count++;
 
 			return count;
 		}
