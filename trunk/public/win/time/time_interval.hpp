@@ -21,7 +21,7 @@ namespace zl
 
     public:
 
-        static BOOL CTimeInterval::Calc(LARGE_INTEGER& llTimeBegin, double& dfTimeInterval )
+        static BOOL CTimeInterval::Calc( LARGE_INTEGER& llTimeBegin, double& dfTimeInterval )
         {
             LARGE_INTEGER timeEnd = { 0 };
             if (llTimeBegin.QuadPart != 0
@@ -34,7 +34,7 @@ namespace zl
             return FALSE;
         }
 
-        static BOOL CTimeInterval::GetTime( OUT LARGE_INTEGER& llCurrentTime )
+        static BOOL CTimeInterval::GetTime( LARGE_INTEGER& llCurrentTime )
         {
             return ::QueryPerformanceCounter(&llCurrentTime);
         }

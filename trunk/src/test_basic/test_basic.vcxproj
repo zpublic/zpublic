@@ -91,6 +91,10 @@
     <ClInclude Include="..\..\public\memory\increase_memory.hpp" />
     <ClInclude Include="..\..\public\memory\memory.hpp" />
     <ClInclude Include="..\..\public\memory\variable_memory.hpp" />
+    <ClInclude Include="..\..\public\win\encode\encode.hpp" />
+    <ClInclude Include="..\..\public\win\encode\string_encode.hpp" />
+    <ClInclude Include="..\..\public\win\info\guid.hpp" />
+    <ClInclude Include="..\..\public\win\info\info.hpp" />
     <ClInclude Include="..\..\public\win\ptr\ptr.hpp" />
     <ClInclude Include="..\..\public\win\ptr\ref_counted.hpp" />
     <ClInclude Include="..\..\public\win\thread\criticalsection.hpp" />

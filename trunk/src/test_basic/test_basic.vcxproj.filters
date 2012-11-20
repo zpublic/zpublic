@@ -52,6 +52,12 @@
     <Filter Include="zpublic\win\time">
       <UniqueIdentifier>{6487bb4c-c802-4c6f-9c94-b8c5dd058389}</UniqueIdentifier>
     </Filter>
+    <Filter Include="zpublic\win\info">
+      <UniqueIdentifier>{714743c2-530a-4eba-88d2-386e67148b7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zpublic\win\encode">
+      <UniqueIdentifier>{e514e133-d359-4320-9a61-440b9fe2832a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -176,6 +182,18 @@
     </ClInclude>
     <ClInclude Include="..\..\public\win\time\time_interval.hpp">
       <Filter>zpublic\win\time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\info\info.hpp">
+      <Filter>zpublic\win\info</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\info\guid.hpp">
+      <Filter>zpublic\win\info</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\encode\encode.hpp">
+      <Filter>zpublic\win\encode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\encode\string_encode.hpp">
+      <Filter>zpublic\win\encode</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
