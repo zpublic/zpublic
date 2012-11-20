@@ -106,6 +106,8 @@ namespace zl
 
         void RemoveAll()
         {
+            for(int i = 0; i < m_Size; i++)
+                m_mem.Get()[i].~T();
             m_mem.Release();
             m_Size = 0;
             m_SizeAlloc = 0;
