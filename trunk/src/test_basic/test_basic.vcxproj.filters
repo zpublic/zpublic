@@ -198,6 +198,9 @@
     <ClInclude Include="..\..\public\container\hashtable.hpp">
       <Filter>zpublic\container</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\public\basic\singleton.hpp">
+      <Filter>zpublic\basic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

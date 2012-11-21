@@ -13,5 +13,6 @@
 #include "nocopyable.hpp"
 #include "assert.hpp"
 #include "interface.hpp"
+#include "singleton.hpp"
 
 #endif

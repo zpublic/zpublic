@@ -13,6 +13,7 @@ void test_time();
 void test_info();
 void test_encode();
 void test_hashtable();
+void test_basic();
 
 int main()
 {
@@ -99,15 +100,19 @@ int main()
     //test_thread();
     //test_ptr();
 
-    //test_vector();
+    ///> èº¸ç×¨Êô
 	test_hashtable();
     test_vector();
 
 	teststring();
 
+
+    ///> zap×¨Êô
     //test_time();
     //test_info();
     //test_encode();
+    //test_basic();
+    
 
     getchar();
     return 0;
@@ -310,4 +315,10 @@ void test_hashtable()
 	tmp.key = 21;
 	tmp.value = 64;
 	myHashTable.find(tmp);
+}
+
+void test_basic()
+{
+    zl::singleton<std::string>::Instance() = "123";
+    printf("\n%s\n", zl::singleton<std::string>::Instance().c_str());
 }
