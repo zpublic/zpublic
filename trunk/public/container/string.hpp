@@ -39,7 +39,7 @@ namespace zl
 			m_string[i] = '\0';
 		}
 
-		basic_string(const basic_string& x):m_size(0),m_capacity(0),m_string(NULL)
+		basic_string(const basic_string& x)
 		{
 			this->m_size = x.Size();
 			this->m_capacity = x.Capacity();
@@ -286,8 +286,6 @@ namespace zl
 			} while (ret != -1);
 			
 			//最后一个子串
-			tmp = _Allocate(tmp, 1);
-			memset(tmp,	0,	sizeof(basic_string));
 			tmp = new basic_string;
 			this->GetSub(tmp, pos, m_size - pos);
 			vecSplit.Add(tmp);

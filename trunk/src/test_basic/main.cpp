@@ -98,16 +98,12 @@ int main()
     //test_mrumap();
     //test_thread();
     //test_ptr();
-<<<<<<< HEAD
 
     //test_vector();
 	test_hashtable();
     test_vector();
-=======
-    //test_vector();
-	//test_hashtable();
-    //test_vector();
->>>>>>> f93c3d562e3e7809fe993f55d810c270c78f61a1
+
+
 	teststring();
 
     //test_time();
