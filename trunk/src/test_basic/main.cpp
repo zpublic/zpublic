@@ -103,7 +103,6 @@ int main()
 	test_hashtable();
     test_vector();
 
-
 	teststring();
 
     //test_time();
@@ -223,6 +222,10 @@ void teststring()
 	b.swap(x);
 	printf("%s\n",x.c_str());
 	b = a.replace("kevin", "()");
+
+	zl::basic_string str1 = "kzvin";
+	zl::basic_string str2 = "kevin";
+	printf("%d", str1 <= str2);
 	//stringlist[0] = &a;
 //     zl::basic_string a = "hello kevin";
 //     zl::basic_string sub;
