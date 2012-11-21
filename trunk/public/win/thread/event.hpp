@@ -10,10 +10,10 @@
 #ifndef _EVENT_
 #define _EVENT_
 
+#include "syncobject.hpp"
+
 namespace zl
 {
-
-#include "syncobject.hpp"
 
     class CEvent : public SyncObject
     {

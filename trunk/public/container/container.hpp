@@ -15,5 +15,6 @@
 #include "linked_list.hpp"
 #include "mru_map.hpp"
 #include "vector.hpp"
+#include "hashtable.hpp"
 
 #endif /* CONTAINER_HPP_ */

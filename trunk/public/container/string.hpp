@@ -24,10 +24,7 @@ namespace zl
 		
 		~basic_string()
 		{
-			m_size = 0;
-			m_capacity = 0;
 			_Free(m_string);
-			m_string = NULL;
 		}
 
 		basic_string(const char* buf)
@@ -42,7 +39,7 @@ namespace zl
 			m_string[i] = '\0';
 		}
 
-		basic_string(const basic_string& x) 
+		basic_string(const basic_string& x):m_size(0),m_capacity(0),m_string(NULL)
 		{
 			this->m_size = x.Size();
 			this->m_capacity = x.Capacity();
@@ -278,8 +275,7 @@ namespace zl
 				ret = SundayMatchString(p, m_size-ret-1, x, len);
 				if(ret != -1)
 				{
-					tmp = _Allocate(tmp, 1);
-					memset(tmp,	0,	sizeof(basic_string));
+					tmp = new basic_string;
 					if(this->GetSub(tmp, pos, ret))
 					{
 						vecSplit.Add(tmp);
@@ -292,6 +288,7 @@ namespace zl
 			//最后一个子串
 			tmp = _Allocate(tmp, 1);
 			memset(tmp,	0,	sizeof(basic_string));
+			tmp = new basic_string;
 			this->GetSub(tmp, pos, m_size - pos);
 			vecSplit.Add(tmp);
 			count++;

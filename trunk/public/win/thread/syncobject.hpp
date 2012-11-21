@@ -11,6 +11,7 @@
 #define _SYNC_OBJECT_
 
 #include "../../basic/interface.hpp"
+#include <wtypes.h>
 
 namespace zl
 {
@@ -37,7 +38,7 @@ namespace zl
 
         BOOL Close()
         {
-            BOOL ret = true;
+            BOOL ret = TRUE;
             if(!IsClosed())
                 ret = ::CloseHandle(m_hSync);
             m_hSync = INVALID_HANDLE_VALUE;

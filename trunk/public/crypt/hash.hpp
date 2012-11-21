@@ -18,7 +18,7 @@ namespace zl
 {
 
 #ifndef DWORD
-#define DWORD unsigned long
+typedef unsigned long DWORD;
 #endif
 
 #ifndef __int64

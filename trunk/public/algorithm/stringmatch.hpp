@@ -8,6 +8,10 @@
 #ifndef STRINGMATCH_HPP__
 #define STRINGMATCH_HPP__
 
+#ifndef INVALID_PTR
+#define INVALID_PTR 0
+#endif
+
 namespace zl
 {
 
@@ -17,7 +21,7 @@ size_t SundayMatchString(const char* lpSource, size_t nSourceLen, const char* lp
 	size_t			nPos = 0;
 	size_t			j;
 
-	if(lpSource == NULL || lpPattern == NULL)
+	if(lpSource == INVALID_PTR || lpPattern == INVALID_PTR)
 	{
 		return -1;
 	}
