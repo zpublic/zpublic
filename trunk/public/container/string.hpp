@@ -44,15 +44,10 @@ namespace zl
 
 		basic_string(const basic_string& x) 
 		{
-			if(x.Size() >= this->m_capacity)
-			{
-				if(this->m_string != NULL)
-					_Free(this->m_string);
-				this->m_size = x.Size();
-				this->m_capacity = x.Capacity();
-				this->m_string = _Allocate(this->m_string, this->m_capacity);
-			}
-			
+			this->m_size = x.Size();
+			this->m_capacity = x.Capacity();
+			this->m_string = _Allocate(this->m_string, this->m_capacity);
+
 			memcpy(this->m_string, x.c_str(), (this->m_size + 1) * sizeof(char));
 		}
 
@@ -296,7 +291,7 @@ namespace zl
 			
 			//最后一个子串
 			tmp = _Allocate(tmp, 1);
-			memset(tmp,	0,	sizeof(tmp));
+			memset(tmp,	0,	sizeof(basic_string));
 			this->GetSub(tmp, pos, m_size - pos);
 			vecSplit.Add(tmp);
 			count++;
