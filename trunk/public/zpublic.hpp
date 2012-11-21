@@ -17,6 +17,7 @@
 #include "memory/memory.hpp"
 #include "container/string.hpp"
 #include "crypt/crypt.hpp"
+#include "time/time.hpp"
 
 #ifdef _MSC_VER
 #include "win/thread/thread.hpp"

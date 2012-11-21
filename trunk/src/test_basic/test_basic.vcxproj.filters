@@ -58,6 +58,9 @@
     <Filter Include="zpublic\win\encode">
       <UniqueIdentifier>{e514e133-d359-4320-9a61-440b9fe2832a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="zpublic\time">
+      <UniqueIdentifier>{6ad69542-6931-4e6a-88f7-00003f35f0af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -199,6 +202,15 @@
       <Filter>zpublic\container</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\basic\singleton.hpp">
+      <Filter>zpublic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\time\time.hpp">
+      <Filter>zpublic\time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\time\timer.hpp">
+      <Filter>zpublic\time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\basic\scoped_ptr.hpp">
       <Filter>zpublic\basic</Filter>
     </ClInclude>
   </ItemGroup>

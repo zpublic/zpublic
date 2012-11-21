@@ -14,5 +14,6 @@
 #include "assert.hpp"
 #include "interface.hpp"
 #include "singleton.hpp"
+#include "scoped_ptr.hpp"
 
 #endif

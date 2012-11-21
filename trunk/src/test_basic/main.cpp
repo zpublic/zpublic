@@ -111,7 +111,7 @@ int main()
     //test_time();
     //test_info();
     //test_encode();
-    //test_basic();
+    test_basic();
     
 
     getchar();
@@ -245,23 +245,28 @@ void teststring()
 
 void test_time()
 {
-    LARGE_INTEGER llTimeBegin = {0};
-    zl::CTimeInterval::GetTime(llTimeBegin);
+//     LARGE_INTEGER llTimeBegin = {0};
+//     zl::CTimeInterval::GetTime(llTimeBegin);
+// 
+//     __time64_t t1 = 0;
+//     zl::GetFileTimeInfo(L"c:\\windows\\notepad.exe", &t1, 0, 0);
+//     FILETIME ft = zl::Time642FileTime(t1);
+// 
+//     SYSTEMTIME sTime;
+//     GetSystemTime(&sTime);
+//     wchar_t strTime[TIME_STRING_MAX_LEN] = {0};
+//     zl::Time2Str(sTime, strTime);
+//     zl::Str2Time(strTime, sTime);
+// 
+//     
+//     double dfTimeInterval = 0.0;
+//     zl::CTimeInterval::Calc(llTimeBegin, dfTimeInterval);
+//     printf("%.2f", dfTimeInterval);
 
-    __time64_t t1 = 0;
-    zl::GetFileTimeInfo(L"c:\\windows\\notepad.exe", &t1, 0, 0);
-    FILETIME ft = zl::Time642FileTime(t1);
-
-    SYSTEMTIME sTime;
-    GetSystemTime(&sTime);
-    wchar_t strTime[TIME_STRING_MAX_LEN] = {0};
-    zl::Time2Str(sTime, strTime);
-    zl::Str2Time(strTime, sTime);
-
-    
-    double dfTimeInterval = 0.0;
-    zl::CTimeInterval::Calc(llTimeBegin, dfTimeInterval);
-    printf("%.2f", dfTimeInterval);
+    zl::timer t;
+    printf("\n%f ", zl::timer_elapsed_min);
+    ::Sleep(1000);
+    printf("%f\n", t.elapsed());
 }
 
 void test_info()
@@ -319,6 +324,9 @@ void test_hashtable()
 
 void test_basic()
 {
-    zl::singleton<std::string>::Instance() = "123";
-    printf("\n%s\n", zl::singleton<std::string>::Instance().c_str());
+//     zl::singleton<std::string>::Instance() = "123";
+//     printf("\n%s\n", zl::singleton<std::string>::Instance().c_str());
+//     
+    zl::scoped_ptr<std::string> p(new std::string("1234"));
+    p->c_str();
 }

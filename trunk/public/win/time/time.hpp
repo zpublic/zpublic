@@ -7,8 +7,8 @@
 * 
 *********************************************************************/
 
-#ifndef _TIME_HPP_
-#define _TIME_HPP_
+#ifndef _W_TIME_HPP_
+#define _W_TIME_HPP_
 
 #include "time_format.hpp"
 #include "file_time.hpp"
