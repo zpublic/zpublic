@@ -98,16 +98,12 @@ int main()
     //test_mrumap();
     //test_thread();
     //test_ptr();
-<<<<<<< HEAD
-
     //test_vector();
 	test_hashtable();
     test_vector();
-=======
     //test_vector();
 	//test_hashtable();
     //test_vector();
->>>>>>> f93c3d562e3e7809fe993f55d810c270c78f61a1
 	teststring();
 
     //test_time();
@@ -227,6 +223,10 @@ void teststring()
 	b.swap(x);
 	printf("%s\n",x.c_str());
 	b = a.replace("kevin", "()");
+
+	zl::basic_string str1 = "kzvin";
+	zl::basic_string str2 = "kevin";
+	printf("%d", str1 <= str2);
 	//stringlist[0] = &a;
 //     zl::basic_string a = "hello kevin";
 //     zl::basic_string sub;

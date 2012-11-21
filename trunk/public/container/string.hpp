@@ -134,6 +134,70 @@ namespace zl
 			return tmp += x;
 		}
 
+		bool operator==(const basic_string& x)
+		{
+			return compare(x) == 0;
+		}
+
+		bool operator!=(const basic_string& x)
+		{
+			return compare(x) != 0;
+		}
+
+		bool operator>(const basic_string& x)
+		{
+			return compare(x) == 1;
+		}
+
+		bool operator<(const basic_string& x)
+		{
+			return compare(x) == -1;
+		}
+
+		bool operator<=(const basic_string& x)
+		{
+			return compare(x) <= 0;
+		}
+
+		bool operator>=(const basic_string& x)
+		{
+			return compare(x) >= 0;
+		}
+
+		int compare(const basic_string& x)
+		{
+			size_t minimal;
+			bool flag = false;
+			
+			if(m_size < x.Size()) 
+			{
+				minimal = m_size;
+				flag = true; //this×Ö´®±È½Ï¶Ì
+			}
+			else
+			{
+				minimal = x.Size();
+			}
+
+			const char* p = x.c_str();
+			for(size_t i = 0; i < minimal; i++)
+			{
+				if(m_string[i] > p[i])
+					return 1;
+				else if(m_string[i] < p[i])
+					return -1;
+			}
+
+			
+			if(m_size == x.Size())
+				return 0;
+			else if(flag)
+				return -1;
+			else
+				return 1;
+			
+		}
+
 		inline size_t GetStrLen(const char* str)
 		{
 			size_t i;
