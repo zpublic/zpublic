@@ -15,5 +15,6 @@
 #include "interface.hpp"
 #include "singleton.hpp"
 #include "scoped_ptr.hpp"
+#include "scoped_arr.hpp"
 
 #endif

@@ -16,10 +16,10 @@ namespace zl
     class scoped_ptr
     {
     private:
-        T * px;
+        T* px;
 
         scoped_ptr(scoped_ptr const &);
-        scoped_ptr & operator=(scoped_ptr const &);
+        scoped_ptr& operator=(scoped_ptr const &);
 
         typedef scoped_ptr<T> this_type;
         void operator==( scoped_ptr const& ) const;
@@ -28,7 +28,7 @@ namespace zl
     public:
         typedef T element_type;
 
-        explicit scoped_ptr( T * p = 0 ): px( p )
+        explicit scoped_ptr( T* p = 0 ): px( p )
         {
 
         }
@@ -43,22 +43,22 @@ namespace zl
             this_type(p).swap(*this);
         }
 
-        T & operator*() const
+        T& operator*() const
         {
             return *px;
         }
 
-        T * operator->() const
+        T* operator->() const
         {
             return px;
         }
 
-        T * get() const
+        T* get() const
         {
             return px;
         }
 
-        void swap(scoped_ptr & b)
+        void swap(scoped_ptr& b)
         {
             T* tmp = b.px;
             b.px = px;
@@ -66,12 +66,12 @@ namespace zl
         }
     };
 
-    template<class T> inline void swap(scoped_ptr<T> & a, scoped_ptr<T> & b)
+    template<class T> inline void swap(scoped_ptr<T>& a, scoped_ptr<T>& b)
     {
         a.swap(b);
     }
 
-    template<class T> inline T * get_pointer(scoped_ptr<T> const & p)
+    template<class T> inline T* get_pointer(scoped_ptr<T> const& p)
     {
         return p.get();
     }

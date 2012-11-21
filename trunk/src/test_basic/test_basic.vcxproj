@@ -72,6 +72,7 @@
     <ClInclude Include="..\..\public\basic\basic.hpp" />
     <ClInclude Include="..\..\public\basic\interface.hpp" />
     <ClInclude Include="..\..\public\basic\nocopyable.hpp" />
+    <ClInclude Include="..\..\public\basic\scoped_arr.hpp" />
     <ClInclude Include="..\..\public\basic\scoped_ptr.hpp" />
     <ClInclude Include="..\..\public\basic\singleton.hpp" />
     <ClInclude Include="..\..\public\container\array.hpp" />

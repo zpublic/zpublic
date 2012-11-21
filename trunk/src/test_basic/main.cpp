@@ -327,6 +327,8 @@ void test_basic()
 //     zl::singleton<std::string>::Instance() = "123";
 //     printf("\n%s\n", zl::singleton<std::string>::Instance().c_str());
 //     
-    zl::scoped_ptr<std::string> p(new std::string("1234"));
-    p->c_str();
+//     zl::scoped_ptr<std::string> p(new std::string("1234"));
+//     p->c_str();
+
+    zl::scoped_arr<int> arrInt(new int[10]);
 }
