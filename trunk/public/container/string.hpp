@@ -17,7 +17,7 @@ namespace zl
 	class basic_string
 	{
 	public:
-		basic_string():m_size(0),m_capacity(0),m_string(NULL)
+		basic_string():m_size(0),m_capacity(0),m_string(0)
 		{
 			
 		}
@@ -270,7 +270,7 @@ namespace zl
 		int count(const char* pattern)
 		{
 			size_t patternlen = GetStrLen(pattern);
-			size_t ret = -1;
+			int ret = -1;
 			int count = 0;
 			const char* p = m_string;
 
@@ -326,7 +326,7 @@ namespace zl
 		int split(const char* x, zl::CSimpleVector<basic_string *>& vecSplit)
 		{
 			size_t len = GetStrLen(x);
-			size_t ret = -1;
+			int ret = -1;
 			size_t pos = 0;
 			int count = 0;
 			const char* p = m_string;
@@ -370,7 +370,6 @@ namespace zl
 		{
 			size_t patlen = GetStrLen(pattern);
 			size_t wordlen = GetStrLen(word);
-			bool flag = false;
 
 			char* tmp = NULL;
 			if(wordlen > patlen)
@@ -384,7 +383,7 @@ namespace zl
 			}
 
 
-			size_t ret = 0;
+			int ret = 0;
 			size_t pos = 0;
 			const char* p = this->m_string;
 			char* q = tmp;
@@ -410,9 +409,9 @@ namespace zl
 		}
 
 	private:
-		char*	m_string;
 		size_t	m_size;
 		size_t	m_capacity;
+        char*   m_string;
 	};
 }
 

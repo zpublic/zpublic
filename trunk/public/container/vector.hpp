@@ -12,6 +12,7 @@
 
 #include "../detail/increase_policy.hpp"
 #include "../memory/variable_memory.hpp"
+#include <string.h>
 
 const int DEFAULT_VECTOR_SIZE = 4;
 
@@ -88,7 +89,8 @@ namespace zl
         {
             return m_mem.Get()[nIndex];
         }
-        T& operator[] (_In_ int nIndex)
+
+        T& operator[] (int nIndex)
         {
             return m_mem.Get()[nIndex];
         }

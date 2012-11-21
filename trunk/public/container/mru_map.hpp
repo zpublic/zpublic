@@ -256,7 +256,11 @@ namespace zl
     template <class KeyType, class ValueType>
     struct MRUCacheHashMap
     {
+#ifdef _MSC_VER
         typedef std::hash_map<KeyType, ValueType> Type;
+#else
+        typedef __gnu_cxx::hash_map<KeyType, ValueType> Type;
+#endif
     };
 
     template <class KeyType, class PayloadType>

@@ -12,6 +12,9 @@
 
 #include "crc.hpp"
 #include "hash.hpp"
+
+#ifdef _MSC_VER
 #include "base64.hpp"
+#endif
 
 #endif

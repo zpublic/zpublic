@@ -1,5 +1,14 @@
 #include "stdio.h"
 #include "zpublic.hpp"
+
+void test_algorithm();
+void test_basic();
+void test_container();
+void test_detail();
+void test_crypy();
+void test_memory();
+void test_time();
+
 int main()
 {
 
@@ -29,6 +38,43 @@ int main()
         printf("%d ", arr[n]);
     }
 
+    test_algorithm();
+    test_basic();
+    test_container();
+    test_detail();
+    test_crypy();
+    test_memory();
+    test_time();
 
 	return 0;
+}
+
+void test_algorithm()
+{
+
+}
+
+void test_basic()
+{
+
+}
+void test_container()
+{
+
+}
+void test_detail()
+{
+
+}
+void test_crypy()
+{
+
+}
+void test_memory()
+{
+
+}
+void test_time()
+{
+
 }
