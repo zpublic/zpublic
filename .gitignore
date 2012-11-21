@@ -5,9 +5,19 @@
 
 # Compiled Dynamic libraries
 *.so
-*.suo
 
 # Compiled Static libraries
 *.lai
 *.la
 *.a
+
+*.exe
+*.ilk
+*.tlog
+*.obj
+*.sdf
+*.idb
+*.pdb
+
+Debug
+Release
