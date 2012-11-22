@@ -58,7 +58,8 @@ namespace zl
             }
             
             this->m_size = x.Size();
-			memcpy(this->m_string, x.c_str(), (x.Size()+1) * sizeof(char));
+            if(x.Size() != 0)
+			    memcpy(this->m_string, x.c_str(), (x.Size()+1) * sizeof(char));
 			return ( *this );
 		}
 
