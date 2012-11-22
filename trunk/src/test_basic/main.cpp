@@ -1,8 +1,13 @@
 #include "zpublic.hpp"
 #include "stdio.h"
-#include "windows.h"
 #include <string>
 #include <atlbase.h>
+
+#include "cpptest-1.1.2/src/cpptest.h"
+using namespace Test;
+#ifdef _MSC_VER
+#pragma warning (disable: 4290)
+#endif
 
 void test_mrumap();
 void test_thread();
@@ -16,9 +21,10 @@ void test_hashtable();
 void test_basic();
 void test_heap();
 
-int main()
+int main(int argc, char* argv[])
 {
     setlocale(LC_ALL, "chs");
+    Suite suite;
 //     const BYTE pp[] = {"124"};
 //     //cout << hex <<  zl::ExCRC32(pp, 3) << endl;
 //     printf("%08x", zl::ExCRC32(pp, 3));

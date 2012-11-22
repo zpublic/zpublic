@@ -42,7 +42,6 @@
     <ClCompile Include="src\utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test\mytest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\cpptest.h">

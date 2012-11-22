@@ -225,6 +225,9 @@
     <ClInclude Include="..\..\3rdparty\cpptest-1.1.2\src\cpptest.h">
       <Filter>3rdparty\cpptest</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cpptest-1.1.2\src\cpptest-assert.h">
+      <Filter>3rdparty\cpptest</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
