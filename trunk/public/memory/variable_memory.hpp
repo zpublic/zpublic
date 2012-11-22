@@ -23,7 +23,7 @@ namespace zl
     class CVariableMem
     {
     public:
-        CVariableMem() : m_p(INVALID_PTR) {}
+        CVariableMem() : m_p(INVALID_PTR), m_Size(0) {}
         ~CVariableMem() {}
 
     public:
@@ -43,8 +43,9 @@ namespace zl
             }
             else
             {
-                m_p = _ReAllocate(_Size, m_p);
+                m_p = _ReAllocate(_Size, m_p, m_Size);
             }
+            m_Size = _Size;
             return m_p;
         }
         void Release()
@@ -58,6 +59,7 @@ namespace zl
 
     private:
         T* m_p;
+        unsigned long m_Size;
     };
 
 }

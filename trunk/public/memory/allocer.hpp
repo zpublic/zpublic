@@ -44,10 +44,10 @@ namespace zl
     }
 
     template <typename _SizeType, typename _Ty> inline
-    _Ty *_ReAllocate(_SizeType _Count, _Ty* _PtrOld)
+    _Ty *_ReAllocate(_SizeType _Count, _Ty* _PtrOld, _SizeType _OldSize)
     {
         _Ty* tmp = (_Ty*)(::operator new(_Count));
-        memcpy(tmp, _PtrOld, _Count);
+        memcpy(tmp, _PtrOld, _OldSize);
         if(_PtrOld != 0)
         {
             ::operator delete(_PtrOld);
@@ -57,11 +57,10 @@ namespace zl
     }
 
     template <typename _SizeType, typename _Ty> inline
-        _Ty *_ReAllocate(_Ty* _PtrOld, _SizeType _Count)
+    _Ty *_ReAllocate(_Ty* _PtrOld, _SizeType _Count, _SizeType _OldSize)
     {
         _Ty* tmp = (_Ty*)(::operator new(_Count * sizeof(_Ty)));
-
-        memcpy(tmp, _PtrOld, _Count * sizeof(_Ty));
+        memcpy(tmp, _PtrOld, _OldSize * sizeof(_Ty));
 
         if (_PtrOld != 0)
         {

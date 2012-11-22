@@ -21,10 +21,35 @@ void test_hashtable();
 void test_basic();
 void test_heap();
 
+class FailTestSuite : public Test::Suite
+{
+public:
+    FailTestSuite()
+    {
+        TEST_ADD(FailTestSuite::success)
+        TEST_ADD(FailTestSuite::always_fail)
+
+    }
+
+private:
+    void success() {}
+
+    void always_fail()
+    {
+        TEST_FAIL("unconditional fail");
+    }
+};
+
 int main(int argc, char* argv[])
 {
     setlocale(LC_ALL, "chs");
-    Suite suite;
+    Suite ts;
+    ts.add(std::auto_ptr<Test::Suite>(new FailTestSuite));
+    std::auto_ptr<Test::Output> output(new Test::TextOutput(Test::TextOutput::Verbose));
+    ts.run(*output, true);
+    Test::HtmlOutput* const html = dynamic_cast<Test::HtmlOutput*>(output.get());
+    if (html)
+        html->generate(std::cout, true, "MyTest");
 //     const BYTE pp[] = {"124"};
 //     //cout << hex <<  zl::ExCRC32(pp, 3) << endl;
 //     printf("%08x", zl::ExCRC32(pp, 3));
@@ -103,9 +128,9 @@ int main(int argc, char* argv[])
 //     zl::Base64Decode(strB2, &strB3);
 //     wprintf(CA2W(strB3.c_str(), CP_UTF8));
 
-    //test_mrumap();
+    test_mrumap();
     //test_thread();
-    //test_ptr();
+    test_ptr();
 
     ///> èº¸ç×¨Êô
 	test_heap();
@@ -116,13 +141,11 @@ int main(int argc, char* argv[])
 
 
     ///> zap×¨Êô
-    //test_time();
-    //test_info();
-    //test_encode();
+    test_time();
+    test_info();
+    test_encode();
     test_basic();
     
-
-    getchar();
     return 0;
 }
 
