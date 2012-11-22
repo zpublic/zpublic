@@ -31,11 +31,12 @@ namespace zl
 
         explicit scoped_arr( T* p = 0 ) : px( p )
         {
-
+            //TODO:自定义构造
         }
 
         ~scoped_arr()
         {
+            //TODO:自定义析构
             delete[] px;
         }
 
