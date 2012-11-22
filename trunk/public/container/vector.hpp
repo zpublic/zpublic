@@ -109,7 +109,7 @@ namespace zl
         void RemoveAll()
         {
             for(int i = 0; i < m_Size; i++)
-                m_mem.Get()[i].~T();
+                destory(&m_mem.Get()[i]);
             m_mem.Release();
             m_Size = 0;
             m_SizeAlloc = 0;
@@ -133,7 +133,8 @@ namespace zl
                 if(m_mem.Get(m_SizeAlloc * sizeof(T)) == NULL)
                     return false;
             }
-            m_mem.Get()[m_Size] = t;
+            construct(&m_mem.Get()[m_Size], t);
+            //m_mem.Get()[m_Size] = t;
             m_Size++;
             return true;
         }
@@ -142,6 +143,7 @@ namespace zl
         {
             if (nIndex < 0 || nIndex >= m_Size)
                 return false;
+            destory(&(m_mem.Get()[nIndex]));
             if (nIndex != m_Size - 1 && m_Size != 1)
             {
                 ::memcpy(

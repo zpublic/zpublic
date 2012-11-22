@@ -343,16 +343,32 @@ void test_basic()
 
 void test_heap()
 {
-	zl::Heap<int> heap;
-	int array[11] = {68, 32, 13, 19, 21, 16, 31, 50, 24, 65, 26};
+	zl::Heap<zl::basic_string> heap;
+    zl::Heap<int> heap2;
+	int array[11] = {68, 32, 19, 21, 16, 31, 50, 24, 13, 26, 65};
+	char str[10][20] = {"kevin", "lily", "david", "zapline", "lafeng", "laopan", "animal", "dachu", "moster"};
 	//int array[11] = {31, 65, 68};
-	int x;
-	for(int i=0; i<11; i++)
-		heap.push(array[i]);
-	for(int i = 0; i < 11; i++)
+	zl::basic_string x;
+    
+	for(int i=0; i<9; i++)
+		heap.push(str[i]);
+    //heap.print_heap();
+	for(int i = 0; i < 9; i++)
 	{
 		if(heap.pop(x))
-			printf("%d ",x);
+            printf("%s ", x.c_str());
 	}
+
+    int b;
+    for(int i = 0; i < 11; i++)
+        heap2.push(array[i]);
+    //heap2.print_heap1();
+    for(int i = 0; i < 11; i++)
+    {
+        if(heap2.pop(b))
+            printf("%d ", b);
+    }
+   
+    
 	//heap.print_heap();
 }

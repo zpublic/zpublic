@@ -32,11 +32,7 @@ namespace zl
 			m_size = GetStrLen(buf);
 			m_string = _Allocate(m_string, m_size * 2);
 			m_capacity = m_size * 2;
-			
-			size_t i;
-			for(i=0; i < m_size; i++)
-				m_string[i] = buf[i];
-			m_string[i] = '\0';
+			memcpy(m_string, buf, m_size + 1);
 		}
 
 		basic_string(const basic_string& x)
@@ -52,21 +48,17 @@ namespace zl
 
 		basic_string& operator=(const basic_string& x)
 		{
-			if(this->m_string != NULL)
-				_Free(this->m_string);
-			this->m_string = _Allocate(m_string, x.m_capacity);
-			if(this->m_string != NULL)
-			{
-				size_t i;
-				for(i = 0; i < x.m_size; i++)
-				{
-					this->m_string[i] = x.c_str()[i]; 
-				}
-				this->m_string[i] = '\0';
-			}
-			this->m_size = x.m_size;
-			this->m_capacity = x.m_capacity;
-
+			if(x.Size() >= this->m_capacity)
+            {
+                if(this->m_string != NULL)
+                    _Free(this->m_string);
+                this->m_size = x.Size();
+                this->m_capacity = x.Capacity();
+                this->m_string = _Allocate(m_string, this->m_capacity);
+            }
+            
+            this->m_size = x.Size();
+			memcpy(this->m_string, x.c_str(), (x.Size()+1) * sizeof(char));
 			return ( *this );
 		}
 
