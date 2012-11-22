@@ -15,7 +15,6 @@
 #include "container/container.hpp"
 #include "detail/detail.hpp"
 #include "memory/memory.hpp"
-#include "container/string.hpp"
 #include "crypt/crypt.hpp"
 #include "time/time.hpp"
 

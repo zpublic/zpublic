@@ -79,6 +79,7 @@
     <ClInclude Include="..\..\public\container\bit.hpp" />
     <ClInclude Include="..\..\public\container\container.hpp" />
     <ClInclude Include="..\..\public\container\hashtable.hpp" />
+    <ClInclude Include="..\..\public\container\heap.hpp" />
     <ClInclude Include="..\..\public\container\linked_list.hpp" />
     <ClInclude Include="..\..\public\container\mru_map.hpp" />
     <ClInclude Include="..\..\public\container\pair.hpp" />

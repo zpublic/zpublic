@@ -14,6 +14,7 @@ void test_info();
 void test_encode();
 void test_hashtable();
 void test_basic();
+void test_heap();
 
 int main()
 {
@@ -101,6 +102,7 @@ int main()
     //test_ptr();
 
     ///> èº¸ç×¨Êô
+	test_heap();
 	test_hashtable();
     test_vector();
 
@@ -191,7 +193,7 @@ void test_ptr()
 
 void test_vector()
 {
-    zl::CSimpleVector<int> vecInt(2);
+	zl::CSimpleVector<int> vecInt(2);
     vecInt.Add(1);
     vecInt.Add(2);
     vecInt.Add(1);
@@ -331,4 +333,20 @@ void test_basic()
 //     p->c_str();
 
     zl::scoped_arr<int> arrInt(new int[10]);
+}
+
+void test_heap()
+{
+	zl::Heap<int> heap;
+	int array[11] = {68, 32, 13, 19, 21, 16, 31, 50, 24, 65, 26};
+	//int array[11] = {31, 65, 68};
+	int x;
+	for(int i=0; i<11; i++)
+		heap.push(array[i]);
+	for(int i = 0; i < 11; i++)
+	{
+		if(heap.pop(x))
+			printf("%d ",x);
+	}
+	//heap.print_heap();
 }

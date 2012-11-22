@@ -216,6 +216,9 @@
     <ClInclude Include="..\..\public\basic\scoped_arr.hpp">
       <Filter>zpublic\basic</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\public\container\heap.hpp">
+      <Filter>zpublic\container</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
