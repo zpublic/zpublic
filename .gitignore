@@ -18,6 +18,10 @@
 *.sdf
 *.idb
 *.pdb
+*.lib
 
 Debug
 Release
+/trunk/sln/UpgradeLog.XML
+/trunk/sln/UpgradeLog.htm
+/trunk/sln/_UpgradeReport_Files

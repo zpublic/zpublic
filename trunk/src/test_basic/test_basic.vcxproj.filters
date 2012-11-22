@@ -61,6 +61,9 @@
     <Filter Include="zpublic\time">
       <UniqueIdentifier>{6ad69542-6931-4e6a-88f7-00003f35f0af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="3rdparty\cpptest">
+      <UniqueIdentifier>{378bc027-040e-4272-bcc1-4f2e51ad9b73}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -218,6 +221,9 @@
     </ClInclude>
     <ClInclude Include="..\..\public\container\heap.hpp">
       <Filter>zpublic\container</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cpptest-1.1.2\src\cpptest.h">
+      <Filter>3rdparty\cpptest</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -35,6 +35,7 @@ namespace zl
 
         ~scoped_ptr()
         {
+            //TODO:自定义析构
             delete px;
         }
 

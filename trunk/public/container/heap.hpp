@@ -97,7 +97,13 @@ namespace zl
 		bool pop(T& ret)
 		{
 			int n = m_array.GetSize();
-			if(n > 0)
+            if (n == 1)
+            {
+                ret = m_array[0];
+                m_array.RemoveData();
+                return true;
+            }
+			else if(n > 1)
 			{
 				ret = m_array[0];
 
