@@ -32,14 +32,14 @@ namespace zl
 		}
 
 	protected:
-		void Swap(T& x, T& y)
+		inline void Swap(T& x, T& y)
 		{
 			T tmp = x;
 			x = y;
 			y = tmp;
 		}
 
-		void AdjustHeap(int i, int nLenth)
+		void AdjustHeap_down(int i, int nLenth)
 		{
 			int nChild = i*2 + 1;
 			while(nChild < nLenth)
@@ -49,6 +49,7 @@ namespace zl
 					nChild++;
 				if(m_array[nChild] < m_array[i])
 				{
+                   // printf("%s %s\n", m_array[nChild].c_str(), m_array[i].c_str());
 					Swap(m_array[nChild], m_array[i]);
 					i = nChild;
 					nChild = i*2 + 1;
@@ -57,6 +58,24 @@ namespace zl
 					break;
 			}
 		}
+
+        void AdjustHeap_up(int i)
+        {
+            int nFather = (i-1)/2 ;
+            while(i > 0)
+            {
+                if(m_array[i] < m_array[nFather])
+                {
+                    Swap(m_array[i], m_array[nFather]);
+                    i = nFather;
+                    nFather = (i-1)/2;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
 
 
 	public:
@@ -71,14 +90,12 @@ namespace zl
 			int n = m_array.GetSize();
 			if(n > 2)
 			{
-				AdjustHeap(n/2 - 1, n);
+				AdjustHeap_up(n-1);
 			}
-			//print_heap();
 		}
 
 		bool pop(T& ret)
 		{
-
 			int n = m_array.GetSize();
 			if(n > 0)
 			{
@@ -87,14 +104,14 @@ namespace zl
 				Swap(m_array[0], m_array[n-1]);
 				m_array.RemoveAt(n-1);
 				if(n > 2)
-					AdjustHeap(0, n-1);
+					AdjustHeap_down(0, n-1);
 				return true;
 			}
 
 			return false;
 		}
 
-// 		void print_heap()
+// 		void print_heap1()
 // 		{
 // 			for(int i = 0; i < m_array.GetSize(); i++)
 // 			{
@@ -102,6 +119,15 @@ namespace zl
 // 			}
 // 			printf("\n");
 // 		}
+// 
+//         void print_heap2()
+//         {
+//             for(int i = 0; i < m_array.GetSize(); i++)
+//             {
+//                 printf("%s ", m_array[i].c_str());
+//             }
+//             printf("\n");
+//         }
 
 	private:
 		CSimpleVector<T> m_array;
