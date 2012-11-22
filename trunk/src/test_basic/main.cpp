@@ -2,7 +2,6 @@
 #include "stdio.h"
 #include <string>
 #include <atlbase.h>
-#include <fstream>
 
 #include "cpptest-1.1.2/src/cpptest.h"
 using namespace Test;
@@ -46,14 +45,9 @@ int main(int argc, char* argv[])
     setlocale(LC_ALL, "chs");
     Suite ts;
     ts.add(std::auto_ptr<Test::Suite>(new FailTestSuite));
-    std::auto_ptr<Test::Output> output(new Test::HtmlOutput); //new Test::TextOutput(Test::TextOutput::Verbose));
+    std::auto_ptr<Test::Output> output(new Test::TextOutput(Test::TextOutput::Verbose));
     ts.run(*output, true);
-    Test::HtmlOutput* const html = dynamic_cast<Test::HtmlOutput*>(output.get());
-    if (html)
-    {
-        std::ofstream fout("./bin/test.html");
-        html->generate(fout, true, "TestReport");
-    }
+
 //     const BYTE pp[] = {"124"};
 //     //cout << hex <<  zl::ExCRC32(pp, 3) << endl;
 //     printf("%08x", zl::ExCRC32(pp, 3));
