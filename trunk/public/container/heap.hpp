@@ -83,7 +83,7 @@ namespace zl
             if (n == 1)
             {
                 ret = m_array[0];
-                m_array.RemoveAll();
+                m_array.RemoveData();
                 return true;
             }
 			else if(n > 1)
