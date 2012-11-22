@@ -64,6 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\3rdparty\cpptest-1.1.2\src\cpptest.h" />
     <ClInclude Include="..\..\3rdparty\modp_b64\modp_b64.h" />
     <ClInclude Include="..\..\3rdparty\modp_b64\modp_b64_data.h" />
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp" />
