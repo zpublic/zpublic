@@ -1,24 +1,24 @@
 @echo off 
-@echo |
+@echo =
 @echo ================	Build Client	=================
-@echo |
-@echo |
+@echo =
+@echo =
 "%VS11PATH%\devenv.com" .\trunk\sln\zpublic.sln /rebuild "Release"
 if ERRORLEVEL 1 exit /b 1
-@echo |
-@echo |
+@echo =
+@echo =
 @echo ================	Copy File 	=================
-@echo |
-@echo |
+@echo =
+@echo =
 copy .\trunk\sln\Release\test_basic.exe .\bin
-@echo |
-@echo |
+@echo =
+@echo =
 @echo ================	Unit Test	=================
-@echo |
-@echo |
+@echo =
+@echo =
 .\bin\test_basic.exe
-@echo |
-@echo |
+@echo =
+@echo =
 @echo ================	End~~	=================
-@echo |
+@echo =
 @exit /b 0
