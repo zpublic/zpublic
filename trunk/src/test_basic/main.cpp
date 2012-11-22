@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
     Test::HtmlOutput* const html = dynamic_cast<Test::HtmlOutput*>(output.get());
     if (html)
     {
-        std::ofstream fout("./test.html");
+        std::ofstream fout("./bin/test.html");
         html->generate(fout, true, "TestReport");
     }
 //     const BYTE pp[] = {"124"};
