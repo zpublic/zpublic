@@ -1,16 +1,9 @@
-#include "zpublic.hpp"
+#include "def.h"
+#include "TestSample.h"
 #include "stdio.h"
 #include <string>
 #include <atlbase.h>
 #include <fstream>
-
-#include "tinyxml-2.6.2/tinyxml.h"
-
-#include "cpptest_ext/src/cpptest.h"
-using namespace Test;
-#ifdef _MSC_VER
-#pragma warning (disable: 4290)
-#endif
 
 void test_mrumap();
 void test_thread();
@@ -24,40 +17,30 @@ void test_hashtable();
 void test_basic();
 void test_heap();
 
-class FailTestSuite : public Suite
+void AddTest(Suite& ts)
 {
-public:
-    FailTestSuite()
-    {
-        TEST_ADD(FailTestSuite::success)
-        TEST_ADD(FailTestSuite::always_fail)
-    }
+    ts.add(std::auto_ptr<Suite>(new CTestSample));
+}
 
-private:
-    void success() {}
-
-    void always_fail()
-    {
-        TEST_FAIL("unconditional fail");
-    }
-};
-
-int main(int argc, char* argv[])
+void UniTest()
 {
-    setlocale(LC_ALL, "chs");
-
     Suite ts;
-    ts.add(std::auto_ptr<Suite>(new FailTestSuite));
+    AddTest(ts);
     std::auto_ptr<Output> output(new XmlOutput);
     ts.run(*output, true);
     Test::XmlOutput* const xml_output = dynamic_cast<XmlOutput*>(output.get());
     if (xml_output)
     {
-        //xml_output->generate(std::cout, true, "zpublic");
-
         std::ofstream fout("./test.xml");
         xml_output->generate(fout, true, "zpublic");
     }
+}
+
+int main(int argc, char* argv[])
+{
+    setlocale(LC_ALL, "chs");
+
+    UniTest();
 
 //     const BYTE pp[] = {"124"};
 //     //cout << hex <<  zl::ExCRC32(pp, 3) << endl;

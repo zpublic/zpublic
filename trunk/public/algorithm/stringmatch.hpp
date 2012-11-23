@@ -15,7 +15,7 @@
 namespace zl
 {
 
-size_t SundayMatchString(const char* lpSource, size_t nSourceLen, const char* lpPattern, size_t nPatLen)
+static size_t SundayMatchString(const char* lpSource, size_t nSourceLen, const char* lpPattern, size_t nPatLen)
 {
 	size_t			nStep[256];
 	size_t			nPos = 0;

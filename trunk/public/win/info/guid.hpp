@@ -17,7 +17,7 @@ namespace zl
 {
 
     template <typename StringType>
-    bool IsValidGUID(const StringType& guid)
+    static bool IsValidGUID(const StringType& guid)
     {
         if (guid.length() != kGUIDLength)
             return false;
@@ -43,7 +43,7 @@ namespace zl
     }
 
     template <const char*>
-    bool IsValidGUID(const char* guid)
+    static bool IsValidGUID(const char* guid)
     {
         if (NULL = guid)
             return false;
@@ -73,7 +73,7 @@ namespace zl
         return true;
     }
 
-    std::wstring GenerateGUID()
+    static std::wstring GenerateGUID()
     {
         wchar_t szGuid[kGUIDSize] = {0};
         GUID guid;
@@ -92,7 +92,7 @@ namespace zl
         return guid_string.substr(1, guid_string.length() - 2);
     }
 
-    std::wstring GUIDToWString(GUID *guid)
+    static std::wstring GUIDToWString(GUID *guid)
     {
         wchar_t guid_string[kGUIDLength + 1] = {0};
         ::swprintf(

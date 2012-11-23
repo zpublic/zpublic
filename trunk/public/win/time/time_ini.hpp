@@ -16,7 +16,7 @@
 namespace zl
 {
 
-    BOOL WriteTimeToIni(
+    static BOOL WriteTimeToIni(
         const wchar_t* lpszFile,
         const wchar_t* lpszApp,
         const wchar_t* lpszKey,
@@ -35,7 +35,7 @@ namespace zl
         return FALSE;
     }
 
-    BOOL ReadTimeFromIni(
+    static BOOL ReadTimeFromIni(
         const wchar_t* lpszFile,
         const wchar_t* lpszApp,
         const wchar_t* lpszKey,
@@ -55,7 +55,7 @@ namespace zl
             return TRUE;
     }
 
-    BOOL ReadTimeFromIni(
+    static BOOL ReadTimeFromIni(
         const wchar_t* lpszFile, 
         const wchar_t* lpszApp,
         const wchar_t* lpszKey,

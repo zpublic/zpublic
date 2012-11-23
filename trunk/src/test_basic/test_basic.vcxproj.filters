@@ -105,9 +105,6 @@
     <ClInclude Include="..\..\public\detail\detail.hpp">
       <Filter>zpublic\detail</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\public\zpublic.hpp">
-      <Filter>zpublic</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\public\container\array.hpp">
       <Filter>zpublic\container</Filter>
     </ClInclude>
@@ -243,6 +240,15 @@
     <ClInclude Include="..\..\3rdparty\cpptest_ext\src\cpptest-assert.h">
       <Filter>3rdparty\cpptest_ext</Filter>
     </ClInclude>
+    <ClInclude Include="TestSample.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="def.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\zpublic.hpp">
+      <Filter>zpublic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -259,6 +265,9 @@
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxmlparser.cpp">
       <Filter>3rdparty\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="TestSample.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -62,7 +62,7 @@ namespace zl
 	};
 
 
-	unsigned long LowerBound(const unsigned long* primelist, int n, unsigned long key)
+	static unsigned long LowerBound(const unsigned long* primelist, int n, unsigned long key)
 	{
 		int start = 0;
 		int end = n-1;

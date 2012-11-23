@@ -126,6 +126,8 @@
     <ClInclude Include="..\..\public\win\time\time_ini.hpp" />
     <ClInclude Include="..\..\public\win\time\time_interval.hpp" />
     <ClInclude Include="..\..\public\zpublic.hpp" />
+    <ClInclude Include="def.h" />
+    <ClInclude Include="TestSample.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\3rdparty\modp_b64\modp_b64.cc" />
@@ -133,6 +135,7 @@
     <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxmlerror.cpp" />
     <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxmlparser.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TestSample.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

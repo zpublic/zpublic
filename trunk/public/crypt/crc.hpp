@@ -70,7 +70,7 @@ static unsigned long crc_table[] =
     0x2d02ef8dL
 };
 
-unsigned int ExCRC32(const BYTE* dat, unsigned int len)
+static unsigned int ExCRC32(const BYTE* dat, unsigned int len)
 {
     unsigned int crc32_val = 0;
     for(size_t i = 0; i < len; ++i)

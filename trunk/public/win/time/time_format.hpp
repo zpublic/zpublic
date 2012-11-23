@@ -27,7 +27,7 @@ const int TIME_STRING_MAX_LEN = 28;
 namespace zl
 {
 
-    FILETIME Time642FileTime(__time64_t tm)
+    static FILETIME Time642FileTime(__time64_t tm)
     {
         FILETIME ft;
         LONGLONG ll;
@@ -37,14 +37,14 @@ namespace zl
         return ft;
     }
 
-    __time64_t FileTime2Time64(const FILETIME* pft)
+    static __time64_t FileTime2Time64(const FILETIME* pft)
     {
         __time64_t cTime = pft->dwHighDateTime;
         cTime = (cTime<<32) + pft->dwLowDateTime;  
         return ((cTime - 116444736000000000)/10000000);
     }
 
-    void Time2Str(const SYSTEMTIME& stTime, wchar_t* strTime /* [TIME_STRING_MAX_LEN] */ )
+    static void Time2Str(const SYSTEMTIME& stTime, wchar_t* strTime /* [TIME_STRING_MAX_LEN] */ )
     {
         ::wsprintfW(strTime, L"%d-%d-%d %d:%d:%d:%d %d",
             stTime.wYear, stTime.wMonth, stTime.wDay,
@@ -52,7 +52,7 @@ namespace zl
             stTime.wMilliseconds, stTime.wDayOfWeek);
     }
 
-    BOOL Str2Time(const wchar_t* strTime, SYSTEMTIME& stTime)
+    static BOOL Str2Time(const wchar_t* strTime, SYSTEMTIME& stTime)
     {
         int nYear  = 0;
         int nMonth = 0;

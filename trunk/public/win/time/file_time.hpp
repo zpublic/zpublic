@@ -16,7 +16,7 @@
 namespace zl
 {
 
-    BOOL GetFileTimeInfo(
+    static BOOL GetFileTimeInfo(
         LPCWSTR pszFileName,
         __time64_t* ptmCreate,
         __time64_t* ptmAccess,
