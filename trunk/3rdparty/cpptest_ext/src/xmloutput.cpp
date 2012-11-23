@@ -83,7 +83,7 @@ namespace Test
     {
         os << "      <";
         os << name;
-        os << ">" << escape(s) << "</";
+        os << ">" << escape(s) << "<";
         os << name;
         os << "/>\n";	
     }
