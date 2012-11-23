@@ -48,7 +48,10 @@ namespace Test
 		_file(file ? file : ""),
 		_msg(msg ? msg : "")
 	{
-        _msg = _msg.substr(1, _msg.size() - 2);
+        if (_msg.at(0) == '\"')
+        {
+            _msg = _msg.substr(1, _msg.size() - 2);
+        }
     }
 	
 	/// \return Name of the file containing the failing function.

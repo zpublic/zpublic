@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="资源文件">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="zpublic">
       <UniqueIdentifier>{1304093f-9896-4698-ac80-b79940ca6080}</UniqueIdentifier>
     </Filter>
@@ -243,17 +239,15 @@
     <ClInclude Include="TestSample.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="def.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\public\zpublic.hpp">
       <Filter>zpublic</Filter>
     </ClInclude>
+    <ClInclude Include="TestBasic.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="def.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\3rdparty\modp_b64\modp_b64.cc">
       <Filter>3rdparty\modp_b64</Filter>
     </ClCompile>
@@ -269,5 +263,9 @@
     <ClCompile Include="TestSample.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="TestBasic.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
 </Project>

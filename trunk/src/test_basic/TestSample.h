@@ -13,7 +13,7 @@ private:
 
     void always_fail()
     {
-        TEST_FAIL("unconditional fail");
+        //TEST_FAIL("unconditional fail");
     }
 };
 

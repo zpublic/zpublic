@@ -1,5 +1,6 @@
 #include "def.h"
 #include "TestSample.h"
+#include "TestBasic.h"
 #include "stdio.h"
 #include <string>
 #include <atlbase.h>
@@ -14,12 +15,12 @@ void test_time();
 void test_info();
 void test_encode();
 void test_hashtable();
-void test_basic();
 void test_heap();
 
 void AddTest(Suite& ts)
 {
     ts.add(std::auto_ptr<Suite>(new CTestSample));
+    ts.add(std::auto_ptr<Suite>(new CTestBasic));
 }
 
 void UniTest()
@@ -136,7 +137,6 @@ int main(int argc, char* argv[])
     test_time();
     test_info();
     test_encode();
-    test_basic();
     
     return 0;
 }
@@ -343,17 +343,6 @@ void test_hashtable()
 	tmp.key = 21;
 	tmp.value = 64;
 	myHashTable.find(tmp);
-}
-
-void test_basic()
-{
-//     zl::singleton<std::string>::Instance() = "123";
-//     printf("\n%s\n", zl::singleton<std::string>::Instance().c_str());
-//     
-//     zl::scoped_ptr<std::string> p(new std::string("1234"));
-//     p->c_str();
-
-    zl::scoped_arr<int> arrInt(new int[10]);
 }
 
 void test_heap()
