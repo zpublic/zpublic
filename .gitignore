@@ -26,3 +26,5 @@ Release
 /trunk/sln/UpgradeLog.htm
 /trunk/sln/_UpgradeReport_Files
 /trunk/src/test_basic/test.html
+/trunk/src/test_basic/test.xml
+/trunk/3rdparty/cpptest_ext/*.user

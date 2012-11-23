@@ -67,6 +67,9 @@
     <Filter Include="3rdparty\tinyxml">
       <UniqueIdentifier>{46092b16-bc87-474f-8a71-625bf8d56d0e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="3rdparty\cpptest_ext">
+      <UniqueIdentifier>{80e707f3-96a2-4d19-a66c-d1fa431c985a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -233,6 +236,12 @@
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tinyxml-2.6.2\tinyxml.h">
       <Filter>3rdparty\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cpptest_ext\src\cpptest.h">
+      <Filter>3rdparty\cpptest_ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cpptest_ext\src\cpptest-assert.h">
+      <Filter>3rdparty\cpptest_ext</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

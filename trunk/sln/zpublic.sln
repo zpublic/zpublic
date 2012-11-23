@@ -3,10 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_basic", "..\src\test_basic\test_basic.vcxproj", "{D8116073-6948-4FAB-BC31-DAD96D94B7DF}"
 	ProjectSection(ProjectDependencies) = postProject
-		{ED964EAB-86BC-4568-B3DE-66686C81BFF7} = {ED964EAB-86BC-4568-B3DE-66686C81BFF7}
+		{BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243} = {BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpptest", "..\3rdparty\cpptest-1.1.2\cpptest.vcxproj", "{ED964EAB-86BC-4568-B3DE-66686C81BFF7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpptest_ext", "..\3rdparty\cpptest_ext\cpptest_ext.vcxproj", "{BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ED964EAB-86BC-4568-B3DE-66686C81BFF7} = {ED964EAB-86BC-4568-B3DE-66686C81BFF7}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,6 +27,10 @@ Global
 		{ED964EAB-86BC-4568-B3DE-66686C81BFF7}.Debug|Win32.Build.0 = Debug|Win32
 		{ED964EAB-86BC-4568-B3DE-66686C81BFF7}.Release|Win32.ActiveCfg = Release|Win32
 		{ED964EAB-86BC-4568-B3DE-66686C81BFF7}.Release|Win32.Build.0 = Release|Win32
+		{BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243}.Debug|Win32.Build.0 = Debug|Win32
+		{BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243}.Release|Win32.ActiveCfg = Release|Win32
+		{BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

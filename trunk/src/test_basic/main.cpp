@@ -2,10 +2,11 @@
 #include "stdio.h"
 #include <string>
 #include <atlbase.h>
+#include <fstream>
 
 #include "tinyxml-2.6.2/tinyxml.h"
 
-#include "cpptest-1.1.2/src/cpptest.h"
+#include "cpptest_ext/src/cpptest.h"
 using namespace Test;
 #ifdef _MSC_VER
 #pragma warning (disable: 4290)
@@ -30,7 +31,6 @@ public:
     {
         TEST_ADD(FailTestSuite::success)
         TEST_ADD(FailTestSuite::always_fail)
-
     }
 
 private:
@@ -46,12 +46,18 @@ int main(int argc, char* argv[])
 {
     setlocale(LC_ALL, "chs");
 
-    TiXmlDocument doc;
-
     Suite ts;
     ts.add(std::auto_ptr<Suite>(new FailTestSuite));
-    std::auto_ptr<Output> output(new TextOutput(TextOutput::Verbose));
+    std::auto_ptr<Output> output(new XmlOutput);
     ts.run(*output, true);
+    Test::XmlOutput* const xml_output = dynamic_cast<XmlOutput*>(output.get());
+    if (xml_output)
+    {
+        //xml_output->generate(std::cout, true, "zpublic");
+
+        std::ofstream fout("./test.xml");
+        xml_output->generate(fout, true, "zpublic");
+    }
 
 //     const BYTE pp[] = {"124"};
 //     //cout << hex <<  zl::ExCRC32(pp, 3) << endl;
