@@ -66,7 +66,7 @@ namespace Test
 
     void table_footer(ostream& os, const char* summary = "??")
     {
-        os << "  <" << escape(summary) << "/>\n";
+        os << "  </" << escape(summary) << ">\n";
     }
 
     void table_node_header(ostream& os, int id = -1)
@@ -83,9 +83,9 @@ namespace Test
     {
         os << "      <";
         os << name;
-        os << ">" << escape(s) << "<";
+        os << ">" << escape(s) << "</";
         os << name;
-        os << "/>\n";	
+        os << ">\n";	
     }
 
 //////////////////////////////////////////////////////////////////////////
