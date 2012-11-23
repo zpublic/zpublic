@@ -10,13 +10,13 @@ if ERRORLEVEL 1 exit /b 1
 @echo ================	Copy File 	=================
 @echo =
 @echo =
-copy .\trunk\sln\Release\test_basic.exe .\bin
+copy .\trunk\sln\Release\test_basic.exe .\
 @echo =
 @echo =
 @echo ================	Unit Test	=================
 @echo =
 @echo =
-.\bin\test_basic.exe
+.\test_basic.exe
 @echo =
 @echo =
 @echo ================	End~~	=================
