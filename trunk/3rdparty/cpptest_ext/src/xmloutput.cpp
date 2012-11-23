@@ -71,7 +71,7 @@ namespace Test
 
     void table_node_header(ostream& os, int id = -1)
     {
-        os << "    <Test id=" << id << ">\n";
+        os << "    <Test id=\"" << id << "\">\n";
     }
 
     void table_node_footer(ostream& os)
