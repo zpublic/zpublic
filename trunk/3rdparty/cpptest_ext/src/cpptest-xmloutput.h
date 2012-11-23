@@ -27,15 +27,11 @@ namespace Test
             const std::string& name = "");
 
     private:
-        struct SuiteRow;
-        struct TestRow;
-        struct TestSuiteRowFalse;
         struct TestSuiteRowTrue;
+        struct TestSuiteRowFalse;
         struct TestResult;
         struct TestResultAll;
-        struct SuiteTestResult;
-
-        friend struct TestSuiteRow;
+        struct TestRow;
     };
 
 } // namespace Test

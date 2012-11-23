@@ -34,11 +34,15 @@
 
 using namespace std;
 
+int g_TestId = 1;
+
 namespace Test
 {
 	CollectorOutput::TestInfo::TestInfo(const string name)
 	:	_name(name)
-	{}
+	{
+        _id = g_TestId++;
+    }
 
 	CollectorOutput::SuiteInfo::SuiteInfo(const string& name, int tests)
 	:	_name(name),
