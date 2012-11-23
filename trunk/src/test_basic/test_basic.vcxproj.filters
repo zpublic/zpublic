@@ -64,6 +64,9 @@
     <Filter Include="3rdparty\cpptest">
       <UniqueIdentifier>{378bc027-040e-4272-bcc1-4f2e51ad9b73}</UniqueIdentifier>
     </Filter>
+    <Filter Include="3rdparty\tinyxml">
+      <UniqueIdentifier>{46092b16-bc87-474f-8a71-625bf8d56d0e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -228,6 +231,9 @@
     <ClInclude Include="..\..\3rdparty\cpptest-1.1.2\src\cpptest-assert.h">
       <Filter>3rdparty\cpptest</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\tinyxml-2.6.2\tinyxml.h">
+      <Filter>3rdparty\tinyxml</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -235,6 +241,15 @@
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\modp_b64\modp_b64.cc">
       <Filter>3rdparty\modp_b64</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxml.cpp">
+      <Filter>3rdparty\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxmlerror.cpp">
+      <Filter>3rdparty\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxmlparser.cpp">
+      <Filter>3rdparty\tinyxml</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

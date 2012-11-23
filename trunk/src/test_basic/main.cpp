@@ -3,6 +3,8 @@
 #include <string>
 #include <atlbase.h>
 
+#include "tinyxml-2.6.2/tinyxml.h"
+
 #include "cpptest-1.1.2/src/cpptest.h"
 using namespace Test;
 #ifdef _MSC_VER
@@ -21,7 +23,7 @@ void test_hashtable();
 void test_basic();
 void test_heap();
 
-class FailTestSuite : public Test::Suite
+class FailTestSuite : public Suite
 {
 public:
     FailTestSuite()
@@ -43,9 +45,12 @@ private:
 int main(int argc, char* argv[])
 {
     setlocale(LC_ALL, "chs");
+
+    TiXmlDocument doc;
+
     Suite ts;
-    ts.add(std::auto_ptr<Test::Suite>(new FailTestSuite));
-    std::auto_ptr<Test::Output> output(new Test::TextOutput(Test::TextOutput::Verbose));
+    ts.add(std::auto_ptr<Suite>(new FailTestSuite));
+    std::auto_ptr<Output> output(new TextOutput(TextOutput::Verbose));
     ts.run(*output, true);
 
 //     const BYTE pp[] = {"124"};
