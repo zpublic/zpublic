@@ -127,7 +127,11 @@ namespace Test
             if (!ti._success)
             {
                 table_node2_header(_os, ti._id);
-                for_each(ti._sources.begin(), ti._sources.end(), TestResult(_os));
+                ///> cppunit的id是针对每个断言了，这里只显示第一个错误来兼容其xml格式测试报告
+                if (ti._sources.size() > 0)
+                {
+                    for_each(ti._sources.begin(), ++ti._sources.begin(), TestResult(_os));
+                }
                 table_node2_footer(_os);
             }
         }
