@@ -110,6 +110,9 @@
     <ClInclude Include="..\..\public\time\timer.hpp" />
     <ClInclude Include="..\..\public\win\encode\encode.hpp" />
     <ClInclude Include="..\..\public\win\encode\string_encode.hpp" />
+    <ClInclude Include="..\..\public\win\file\file.hpp" />
+    <ClInclude Include="..\..\public\win\file\file_normal.hpp" />
+    <ClInclude Include="..\..\public\win\file\ifile_oper.h" />
     <ClInclude Include="..\..\public\win\info\guid.hpp" />
     <ClInclude Include="..\..\public\win\info\info.hpp" />
     <ClInclude Include="..\..\public\win\ptr\ptr.hpp" />
@@ -128,6 +131,7 @@
     <ClInclude Include="..\..\public\zpublic.hpp" />
     <ClInclude Include="def.h" />
     <ClInclude Include="TestBasic.h" />
+    <ClInclude Include="TestFile.h" />
     <ClInclude Include="TestSample.h" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +141,7 @@
     <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxmlparser.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestBasic.cpp" />
+    <ClCompile Include="TestFile.cpp" />
     <ClCompile Include="TestSample.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

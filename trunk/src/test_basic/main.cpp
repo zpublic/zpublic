@@ -1,6 +1,7 @@
 #include "def.h"
 #include "TestSample.h"
 #include "TestBasic.h"
+#include "TestFile.h"
 #include "stdio.h"
 #include <string>
 #include <atlbase.h>
@@ -21,6 +22,7 @@ void AddTest(Suite& ts)
 {
     ts.add(std::auto_ptr<Suite>(new CTestSample));
     ts.add(std::auto_ptr<Suite>(new CTestBasic));
+    ts.add(std::auto_ptr<Suite>(new CTestFile));
 }
 
 void UniTest()

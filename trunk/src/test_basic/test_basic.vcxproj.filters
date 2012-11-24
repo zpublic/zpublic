@@ -66,6 +66,9 @@
     <Filter Include="3rdparty\cpptest_ext">
       <UniqueIdentifier>{80e707f3-96a2-4d19-a66c-d1fa431c985a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="zpublic\win\file">
+      <UniqueIdentifier>{557d7ba4-115b-4f0d-8e05-a0463feafdc0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -246,6 +249,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="def.h" />
+    <ClInclude Include="..\..\public\win\file\file.hpp">
+      <Filter>zpublic\win\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\file\ifile_oper.h">
+      <Filter>zpublic\win\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\file\file_normal.hpp">
+      <Filter>zpublic\win\file</Filter>
+    </ClInclude>
+    <ClInclude Include="TestFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\3rdparty\modp_b64\modp_b64.cc">
@@ -267,5 +282,8 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TestFile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

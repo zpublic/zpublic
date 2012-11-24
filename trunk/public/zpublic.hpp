@@ -24,6 +24,7 @@
 #include "win/time/time.hpp"
 #include "win/info/info.hpp"
 #include "win/encode/encode.hpp"
+#include "win/file/file.hpp"
 #endif
 
 #endif
