@@ -12,6 +12,12 @@
 
 #include "./../../basic/interface.hpp"
 
+#ifndef SEEK_SET
+#define SEEK_SET    0
+#define SEEK_CUR    1
+#define SEEK_END    2
+#endif
+
 namespace zl
 {
 
@@ -46,9 +52,12 @@ namespace zl
 
     public:
         virtual unsigned int Read(
-            char* lpData,
+            void * lpData,
             unsigned int uSize,
             unsigned int uCount) = 0;
+        virtual void Seek(
+            long lOffset,
+            int origin = SEEK_SET) = 0;
     };
 
     class IFileWrite : public Interface
@@ -64,7 +73,7 @@ namespace zl
 
     public:
         virtual unsigned int Write(
-            const char* lpData,
+            const void * lpData,
             unsigned int uSize,
             unsigned int uCount) = 0;
     };

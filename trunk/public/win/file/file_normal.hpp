@@ -37,15 +37,23 @@ namespace zl
             const char* lpMode)
         {
             Close();
-            if (::fopen_s(&m_pf, lpFilePath, lpMode)) m_pf = 0;
+            if (::fopen_s(&m_pf, lpFilePath, lpMode))
+            {
+                m_pf = 0;
+            }
             return m_pf ? true : false;
         }
+
         virtual void Close()
         {
-            if (m_pf) ::fclose(m_pf);
+            if (m_pf)
+            {
+                ::fclose(m_pf);
+            }
         }
+
         virtual unsigned int Read(
-            char* lpData,
+            void * lpData,
             unsigned int uSize,
             unsigned int uCount)
         {
@@ -56,8 +64,19 @@ namespace zl
             }
             return uRead;
         }
+
+        virtual void Seek(
+            long lOffset,
+            int origin = SEEK_SET)
+        {
+            if (m_pf)
+            {
+                ::fseek(m_pf, lOffset, origin);
+            }
+        }
+
         virtual unsigned int Write(
-            const char* lpData,
+            const void * lpData,
             unsigned int uSize,
             unsigned int uCount)
         {
