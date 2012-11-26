@@ -261,6 +261,9 @@
     <ClInclude Include="TestFile.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="TestCrypt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\3rdparty\modp_b64\modp_b64.cc">
@@ -283,6 +286,9 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestFile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TestCrypt.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

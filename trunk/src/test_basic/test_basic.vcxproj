@@ -131,6 +131,7 @@
     <ClInclude Include="..\..\public\zpublic.hpp" />
     <ClInclude Include="def.h" />
     <ClInclude Include="TestBasic.h" />
+    <ClInclude Include="TestCrypt.h" />
     <ClInclude Include="TestFile.h" />
     <ClInclude Include="TestSample.h" />
   </ItemGroup>
@@ -141,6 +142,7 @@
     <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxmlparser.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestBasic.cpp" />
+    <ClCompile Include="TestCrypt.cpp" />
     <ClCompile Include="TestFile.cpp" />
     <ClCompile Include="TestSample.cpp" />
   </ItemGroup>

@@ -2,9 +2,9 @@
 #include "TestSample.h"
 #include "TestBasic.h"
 #include "TestFile.h"
+#include "TestCrypt.h"
 #include "stdio.h"
 #include <string>
-#include <atlbase.h>
 #include <fstream>
 
 void test_mrumap();
@@ -23,6 +23,7 @@ void AddTest(Suite& ts)
     ts.add(std::auto_ptr<Suite>(new CTestSample));
     ts.add(std::auto_ptr<Suite>(new CTestBasic));
     ts.add(std::auto_ptr<Suite>(new CTestFile));
+    ts.add(std::auto_ptr<Suite>(new CTestCrypt));
 }
 
 void UniTest()
@@ -41,19 +42,9 @@ void UniTest()
 
 int main(int argc, char* argv[])
 {
-    setlocale(LC_ALL, "chs");
 
     UniTest();
 
-//     const BYTE pp[] = {"124"};
-//     //cout << hex <<  zl::ExCRC32(pp, 3) << endl;
-//     printf("%08x", zl::ExCRC32(pp, 3));
-//     
-//     
-//     const char *pp2 = {"124"};
-//     printf("%08x", zl::HashKey(pp2));
-//     printf("%08x", zl::HashKey(100));
-// 
 //     zl::Pair<int, int> p;
 //     p.key =1; p.value =2;
 //     zl::Pair<int, int> p2(p);
@@ -113,15 +104,6 @@ int main(int argc, char* argv[])
 // 	printf("%d\n",str.find("world"));
 // 	printf("%d\n",str.rfind("or"));
 // 	
-//     
-//     
-//     USES_CONVERSION;
-//     std::string strB(CW2A(L"helloÄãºÃ", CP_UTF8));
-//     std::string strB2, strB3;
-//     zl::Base64Encode(strB, &strB2);
-//     printf("%s\n", strB2.c_str());
-//     zl::Base64Decode(strB2, &strB3);
-//     wprintf(CA2W(strB3.c_str(), CP_UTF8));
 
     test_mrumap();
     //test_thread();
