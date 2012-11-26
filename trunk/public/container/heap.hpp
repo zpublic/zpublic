@@ -45,9 +45,9 @@ namespace zl
 			while(nChild < nLenth)
 			{
 				//nChild指向较小的节点
-				if(nChild < nLenth - 1 && m_array[nChild+1] < m_array[nChild])
+				if(nChild < nLenth - 1 && m_array[nChild+1] > m_array[nChild])
 					nChild++;
-				if(m_array[nChild] < m_array[i])
+				if(m_array[nChild] > m_array[i])
 				{
                    // printf("%s %s\n", m_array[nChild].c_str(), m_array[i].c_str());
 					Swap(m_array[nChild], m_array[i]);
@@ -64,7 +64,7 @@ namespace zl
             int nFather = (i-1)/2 ;
             while(i > 0)
             {
-                if(m_array[i] < m_array[nFather])
+                if(m_array[i] > m_array[nFather])
                 {
                     Swap(m_array[i], m_array[nFather]);
                     i = nFather;

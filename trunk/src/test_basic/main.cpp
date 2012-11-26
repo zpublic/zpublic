@@ -385,7 +385,8 @@ void test_heap()
 	for(int i=0; i<9; i++)
 		heap.push(str[i]);
     //heap.print_heap();
-	for(int i = 0; i < 9; i++)
+	printf("\n");
+    for(int i = 0; i < 9; i++)
 	{
 		if(heap.pop(x))
             printf("%s ", x.c_str());
