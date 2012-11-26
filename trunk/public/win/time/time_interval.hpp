@@ -43,7 +43,7 @@ namespace zl
         static LARGE_INTEGER m_Freq;
     };
 
-    LARGE_INTEGER CTimeInterval::m_Freq = { 0 };
+    //LARGE_INTEGER CTimeInterval::m_Freq = { 0 };
 }
 
 #endif

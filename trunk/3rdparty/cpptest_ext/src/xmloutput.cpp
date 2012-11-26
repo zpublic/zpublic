@@ -126,8 +126,12 @@ namespace Test
         {
             if (!ti._success)
             {
-                table_node2_header(_os, 1); //ti.id
-                for_each(ti._sources.begin(), ti._sources.end(), TestResult(_os));
+                table_node2_header(_os, ti._id);
+                ///> cppunit的id是针对每个断言了，这里只显示第一个错误来兼容其xml格式测试报告
+                if (ti._sources.size() > 0)
+                {
+                    for_each(ti._sources.begin(), ++ti._sources.begin(), TestResult(_os));
+                }
                 table_node2_footer(_os);
             }
         }
@@ -142,7 +146,7 @@ namespace Test
         {
             if (ti._success)
             {
-                table_node_header(_os, 2); //ti.id
+                table_node_header(_os, ti._id);
                 table_entry(_os, ti._name, "Name");
                 table_node_footer(_os);
             }

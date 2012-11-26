@@ -15,7 +15,7 @@
 namespace zl
 {
 
-    bool Base64Encode(const std::string& input, std::string* output)
+    static bool Base64Encode(const std::string& input, std::string* output)
     {
         std::string temp;
         temp.resize(modp_b64_encode_len(input.size()));
@@ -31,7 +31,7 @@ namespace zl
         return true;
     }
 
-    bool Base64Decode(const std::string& input, std::string* output)
+    static bool Base64Decode(const std::string& input, std::string* output)
     {
         std::string temp;
         temp.resize(modp_b64_decode_len(input.size()));

@@ -13,7 +13,7 @@
 namespace zl
 {
 
-    std::wstring UTF8ToWide(const std::string &utf8)
+    static std::wstring UTF8ToWide(const std::string &utf8)
     {
         if (utf8.length() == 0)
         {
@@ -46,7 +46,7 @@ namespace zl
         return result;
     }
 
-    std::string WideToUTF8(const std::wstring &wide)
+    static std::string WideToUTF8(const std::wstring &wide)
     {
         if (wide.length() == 0)
         {

@@ -35,7 +35,7 @@ typedef unsigned long DWORD;
     }
 
     template<>
-    DWORD HashKey<const char*>(const char* Key)
+    static DWORD HashKey<const char*>(const char* Key)
     {
         DWORD hash_val = 2166136261U;
         DWORD fst = 0;
@@ -47,7 +47,7 @@ typedef unsigned long DWORD;
     }
 
     template<>
-    DWORD HashKey<const wchar_t*>(const wchar_t* Key)
+    static DWORD HashKey<const wchar_t*>(const wchar_t* Key)
     {
         DWORD hash_val = 2166136261U;
         DWORD fst = 0;
@@ -59,7 +59,7 @@ typedef unsigned long DWORD;
     }
 
     template<>
-    DWORD HashKey<__int64>(__int64 key)
+    static DWORD HashKey<__int64>(__int64 key)
     {
         return (HashKey<DWORD>((DWORD)(key & 0xffffffffUL)) ^ HashKey<DWORD>((DWORD)(key >> 32)));
     }

@@ -70,6 +70,7 @@ namespace Test
 			
 			bool		_success : 1;
 			Sources		_sources;
+            int         _id;
 			
 			explicit TestInfo(const std::string name);
 		};

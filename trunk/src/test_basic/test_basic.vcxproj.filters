@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="资源文件">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="zpublic">
       <UniqueIdentifier>{1304093f-9896-4698-ac80-b79940ca6080}</UniqueIdentifier>
     </Filter>
@@ -70,6 +66,9 @@
     <Filter Include="3rdparty\cpptest_ext">
       <UniqueIdentifier>{80e707f3-96a2-4d19-a66c-d1fa431c985a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="zpublic\win\file">
+      <UniqueIdentifier>{557d7ba4-115b-4f0d-8e05-a0463feafdc0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -104,9 +103,6 @@
     </ClInclude>
     <ClInclude Include="..\..\public\detail\detail.hpp">
       <Filter>zpublic\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\public\zpublic.hpp">
-      <Filter>zpublic</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\container\array.hpp">
       <Filter>zpublic\container</Filter>
@@ -243,11 +239,30 @@
     <ClInclude Include="..\..\3rdparty\cpptest_ext\src\cpptest-assert.h">
       <Filter>3rdparty\cpptest_ext</Filter>
     </ClInclude>
+    <ClInclude Include="TestSample.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\zpublic.hpp">
+      <Filter>zpublic</Filter>
+    </ClInclude>
+    <ClInclude Include="TestBasic.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="def.h" />
+    <ClInclude Include="..\..\public\win\file\file.hpp">
+      <Filter>zpublic\win\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\file\ifile_oper.h">
+      <Filter>zpublic\win\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\file\file_normal.hpp">
+      <Filter>zpublic\win\file</Filter>
+    </ClInclude>
+    <ClInclude Include="TestFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\3rdparty\modp_b64\modp_b64.cc">
       <Filter>3rdparty\modp_b64</Filter>
     </ClCompile>
@@ -259,6 +274,16 @@
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxmlparser.cpp">
       <Filter>3rdparty\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="TestSample.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBasic.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="TestFile.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
