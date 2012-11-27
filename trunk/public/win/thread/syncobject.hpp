@@ -60,6 +60,21 @@ namespace zl
             return ::WaitForSingleObject(hSync, dwWaitTime);
         }
 
+        DWORD Wait2(HANDLE hSync, DWORD dwWaitTime = INFINITE)
+        {
+            if (hSync == NULL)
+                return WAIT_FAILED;
+            HANDLE h2[] = {m_hSync, hSync};
+            return ::WaitForMultipleObjects(2, h2, FALSE, dwWaitTime);
+        }
+
+        DWORD Wait2(SyncObject& Sync, DWORD dwWaitTime = INFINITE)
+        {
+            if ( IsClosed() )
+                return WAIT_FAILED;
+            return Sync.Wait2(m_hSync, dwWaitTime);
+        }
+
     protected:
         HANDLE m_hSync;
     };

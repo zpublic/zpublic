@@ -18,6 +18,22 @@ void test_encode();
 void test_hashtable();
 void test_heap();
 
+zl::CLogQueue* GetTraceInstance()
+{
+    static zl::CLogQueue mylog("./zpublic.log", FALSE);
+    return &mylog;
+}
+
+int GetTraceLevel(BOOL bReLoad)
+{
+    static int nLevel = -1;
+    if (bReLoad || nLevel == -1)
+    {
+        nLevel = 2;
+    }
+    return nLevel;
+}
+
 void AddTest(Suite& ts)
 {
     ts.add(std::auto_ptr<Suite>(new CTestSample));
@@ -42,7 +58,10 @@ void UniTest()
 
 int main(int argc, char* argv[])
 {
-
+    DT(L"123");
+    DT_W(L"123");
+    DT_F(L"123");
+    DT_E(L"123%d %d", 2, 3);
     UniTest();
 
 //     zl::Pair<int, int> p;

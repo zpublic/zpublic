@@ -10,6 +10,8 @@
 #ifndef _CRITICAL_SECTION_
 #define _CRITICAL_SECTION_
 
+#include <windows.h>
+
 namespace zl
 {
 

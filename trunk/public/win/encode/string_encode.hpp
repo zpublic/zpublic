@@ -83,6 +83,38 @@ namespace zl
         return result;
     }
 
+    static std::string WideToUTF8(const wchar_t* wide)
+    {
+        int charcount = WideCharToMultiByte(
+            CP_UTF8,
+            0,
+            wide,
+            -1,
+            NULL,
+            0,
+            NULL,
+            NULL);
+        if (charcount == 0)
+        {
+            return std::string();
+        }
+
+        char *buf = new char[charcount];
+        WideCharToMultiByte(
+            CP_UTF8,
+            0,
+            wide,
+            -1,
+            buf,
+            charcount,
+            NULL,
+            NULL);
+
+        std::string result(buf);
+        delete[] buf;
+        return result;
+    }
+
 }
 
 #endif

@@ -46,6 +46,7 @@
       <AdditionalIncludeDirectories>./../../public;./../../3rdparty</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <CallingConvention>Cdecl</CallingConvention>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);_ENABLE_DT;DT_LEVEL=3</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -78,6 +79,11 @@
     <ClInclude Include="..\..\3rdparty\tinyxml-2.6.2\tinyxml.h" />
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp" />
     <ClInclude Include="..\..\public\algorithm\stringmatch.hpp" />
+    <ClInclude Include="..\..\public\application\application.hpp" />
+    <ClInclude Include="..\..\public\application\log\log.hpp" />
+    <ClInclude Include="..\..\public\application\log\log_file.hpp" />
+    <ClInclude Include="..\..\public\application\log\log_macro.hpp" />
+    <ClInclude Include="..\..\public\application\log\log_queue.hpp" />
     <ClInclude Include="..\..\public\basic\assert.hpp" />
     <ClInclude Include="..\..\public\basic\basic.hpp" />
     <ClInclude Include="..\..\public\basic\interface.hpp" />

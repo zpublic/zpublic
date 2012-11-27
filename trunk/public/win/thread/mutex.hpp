@@ -10,11 +10,11 @@
 #ifndef _MUTEX_
 #define _MUTEX_
 
-namespace zl
-{
-
 #include "../../basic/nocopyable.hpp"
 #include "criticalsection.hpp"
+
+namespace zl
+{
 
     class CMutex : public NoCopyable
     {

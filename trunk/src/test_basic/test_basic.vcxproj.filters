@@ -69,6 +69,12 @@
     <Filter Include="zpublic\win\file">
       <UniqueIdentifier>{557d7ba4-115b-4f0d-8e05-a0463feafdc0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="zpublic\application">
+      <UniqueIdentifier>{628396a7-fb1c-4ebe-ac1c-23970d223f2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zpublic\application\log">
+      <UniqueIdentifier>{7f0fe680-10f7-4fb1-bbbc-b8b62f0e54fe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -263,6 +269,21 @@
     </ClInclude>
     <ClInclude Include="TestCrypt.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\application\log\log.hpp">
+      <Filter>zpublic\application\log</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\application\application.hpp">
+      <Filter>zpublic\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\application\log\log_file.hpp">
+      <Filter>zpublic\application\log</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\application\log\log_queue.hpp">
+      <Filter>zpublic\application\log</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\application\log\log_macro.hpp">
+      <Filter>zpublic\application\log</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

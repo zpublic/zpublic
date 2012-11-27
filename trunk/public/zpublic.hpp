@@ -25,6 +25,8 @@
 #include "win/info/info.hpp"
 #include "win/encode/encode.hpp"
 #include "win/file/file.hpp"
+
+#include "application/application.hpp"
 #endif
 
 #endif
