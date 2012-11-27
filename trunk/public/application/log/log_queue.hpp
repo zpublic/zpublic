@@ -76,12 +76,16 @@ namespace zl
             Time2Str(st, sTime);
             std::wstring sOut(L"[");
             sOut.append(sTime);
+            sOut.append(L"][");
+
+            wchar_t sTid[12] = {0};
+            _itow_s(GetCurrentThreadId(), sTid, 10);
+            sOut.append(sTid);
             sOut.append(L"]");
             return sOut;
         }
         void AddMsgToList(std::string& strMsg)
         {
-
             CMutexGuard guard(m_QueueMutex);
             m_ltMsg.push_back(strMsg);
             m_Semaphore.Release();
