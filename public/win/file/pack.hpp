@@ -1,16 +1,15 @@
 /********************************************************************
-* @file      : file.hpp
+* @file      : pack.hpp
 * @author    : zapline <zhuxianzhang@kingsoft.com>
-* @date      : 2012/11/24 13:31
-* @brief     : 
+* @date      : 2012/11/29 17:14
+* @brief     : 打包解包相关
 * 
 * 
 *********************************************************************/
 
-#ifndef _W_FILE_HPP_
-#define _W_FILE_HPP_
+#ifndef _PACK_HPP_
+#define _PACK_HPP_
 
-#include "file_normal.hpp"
-#include "pack.hpp"
+#include "pack_zip.hpp"
 
 #endif

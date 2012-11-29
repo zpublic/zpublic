@@ -77,6 +77,8 @@
     <ClInclude Include="..\..\3rdparty\modp_b64\modp_b64.h" />
     <ClInclude Include="..\..\3rdparty\modp_b64\modp_b64_data.h" />
     <ClInclude Include="..\..\3rdparty\tinyxml-2.6.2\tinyxml.h" />
+    <ClInclude Include="..\..\3rdparty\xzip\XUnzip.h" />
+    <ClInclude Include="..\..\3rdparty\xzip\XZip.h" />
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp" />
     <ClInclude Include="..\..\public\algorithm\stringmatch.hpp" />
     <ClInclude Include="..\..\public\application\application.hpp" />
@@ -119,6 +121,8 @@
     <ClInclude Include="..\..\public\win\file\file.hpp" />
     <ClInclude Include="..\..\public\win\file\file_normal.hpp" />
     <ClInclude Include="..\..\public\win\file\ifile_oper.h" />
+    <ClInclude Include="..\..\public\win\file\pack.hpp" />
+    <ClInclude Include="..\..\public\win\file\pack_zip.hpp" />
     <ClInclude Include="..\..\public\win\info\guid.hpp" />
     <ClInclude Include="..\..\public\win\info\info.hpp" />
     <ClInclude Include="..\..\public\win\ptr\ptr.hpp" />
@@ -146,6 +150,8 @@
     <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxml.cpp" />
     <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxmlerror.cpp" />
     <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\3rdparty\xzip\XUnzip.cpp" />
+    <ClCompile Include="..\..\3rdparty\xzip\XZip.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestBasic.cpp" />
     <ClCompile Include="TestCrypt.cpp" />

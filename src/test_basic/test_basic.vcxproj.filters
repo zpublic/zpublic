@@ -75,6 +75,9 @@
     <Filter Include="zpublic\application\log">
       <UniqueIdentifier>{7f0fe680-10f7-4fb1-bbbc-b8b62f0e54fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="3rdparty\xzip">
+      <UniqueIdentifier>{bc6214a0-48bf-4c86-a480-c94783780319}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -285,6 +288,18 @@
     <ClInclude Include="..\..\public\application\log\log_macro.hpp">
       <Filter>zpublic\application\log</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\xzip\XUnzip.h">
+      <Filter>3rdparty\xzip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\xzip\XZip.h">
+      <Filter>3rdparty\xzip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\file\pack.hpp">
+      <Filter>zpublic\win\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\win\file\pack_zip.hpp">
+      <Filter>zpublic\win\file</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\3rdparty\modp_b64\modp_b64.cc">
@@ -311,6 +326,12 @@
     </ClCompile>
     <ClCompile Include="TestCrypt.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\xzip\XUnzip.cpp">
+      <Filter>3rdparty\xzip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\xzip\XZip.cpp">
+      <Filter>3rdparty\xzip</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -30,3 +30,4 @@ Release
 /3rdparty/cpptest_ext/*.user
 /src/test_basic/testfile.dat
 /src/test_basic/zpublic.log
+/src/test_basic/test.zip

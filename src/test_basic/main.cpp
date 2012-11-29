@@ -140,6 +140,11 @@ int main(int argc, char* argv[])
     test_time();
     test_info();
     test_encode();
+
+    zl::Zip zzzz;
+    zzzz.Open("./test.zip");
+    zzzz.ZipFile("./test.xml");
+    zzzz.Close();
     
     return 0;
 }
