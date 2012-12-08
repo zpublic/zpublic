@@ -11,5 +11,6 @@
 #define _APPILICATION_HPP_
 
 #include "log/log.hpp"
+#include "pluginframework/pluginframework.h"
 
 #endif
