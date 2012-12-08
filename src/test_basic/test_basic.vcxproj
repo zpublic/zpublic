@@ -86,6 +86,9 @@
     <ClInclude Include="..\..\public\application\log\log_file.hpp" />
     <ClInclude Include="..\..\public\application\log\log_macro.hpp" />
     <ClInclude Include="..\..\public\application\log\log_queue.hpp" />
+    <ClInclude Include="..\..\public\application\pluginframework\pluginbase.h" />
+    <ClInclude Include="..\..\public\application\pluginframework\pluginframework.h" />
+    <ClInclude Include="..\..\public\application\pluginframework\pluginmanager.h" />
     <ClInclude Include="..\..\public\basic\assert.hpp" />
     <ClInclude Include="..\..\public\basic\basic.hpp" />
     <ClInclude Include="..\..\public\basic\interface.hpp" />
@@ -152,6 +155,8 @@
     <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxmlparser.cpp" />
     <ClCompile Include="..\..\3rdparty\xzip\XUnzip.cpp" />
     <ClCompile Include="..\..\3rdparty\xzip\XZip.cpp" />
+    <ClCompile Include="..\..\public\application\pluginframework\pluginbase.cpp" />
+    <ClCompile Include="..\..\public\application\pluginframework\pluginmanager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestBasic.cpp" />
     <ClCompile Include="TestCrypt.cpp" />

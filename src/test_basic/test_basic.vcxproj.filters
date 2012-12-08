@@ -78,6 +78,9 @@
     <Filter Include="3rdparty\xzip">
       <UniqueIdentifier>{bc6214a0-48bf-4c86-a480-c94783780319}</UniqueIdentifier>
     </Filter>
+    <Filter Include="zpublic\application\pluginframework">
+      <UniqueIdentifier>{65fb52b9-f931-4d88-98cc-87d2d74fb908}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -300,6 +303,15 @@
     <ClInclude Include="..\..\public\win\file\pack_zip.hpp">
       <Filter>zpublic\win\file</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\public\application\pluginframework\pluginframework.h">
+      <Filter>zpublic\application\pluginframework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\application\pluginframework\pluginmanager.h">
+      <Filter>zpublic\application\pluginframework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\application\pluginframework\pluginbase.h">
+      <Filter>zpublic\application\pluginframework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\3rdparty\modp_b64\modp_b64.cc">
@@ -332,6 +344,12 @@
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\xzip\XZip.cpp">
       <Filter>3rdparty\xzip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\application\pluginframework\pluginmanager.cpp">
+      <Filter>zpublic\application\pluginframework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\application\pluginframework\pluginbase.cpp">
+      <Filter>zpublic\application\pluginframework</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
