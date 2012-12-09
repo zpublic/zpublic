@@ -28,3 +28,23 @@ int CPluginBase::UnInit()
 {
     return 0;
 }
+
+CDllPluginBase::CDllPluginBase()
+{
+
+}
+
+CDllPluginBase::~CDllPluginBase()
+{
+
+}
+
+int CDllPluginBase::Init()
+{
+
+}
+
+int CDllPluginBase::UnInit()
+{
+
+}

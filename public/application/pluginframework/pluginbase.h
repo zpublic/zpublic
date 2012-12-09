@@ -24,5 +24,21 @@ private:
 
 };
 
+class CDllPluginBase : public CPluginBase
+{
+public:
+    CDllPluginBase();
+
+    virtual ~CDllPluginBase();
+
+public:
+    virtual int Init();
+    virtual int UnInit();
+
+private:
+
+};
+
+
 
 #endif
