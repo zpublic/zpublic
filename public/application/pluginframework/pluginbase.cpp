@@ -41,10 +41,10 @@ CDllPluginBase::~CDllPluginBase()
 
 int CDllPluginBase::Init()
 {
-
+    return 0;
 }
 
 int CDllPluginBase::UnInit()
 {
-
+    return 0;
 }
