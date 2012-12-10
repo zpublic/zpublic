@@ -10,6 +10,8 @@
 #ifndef _PLUGIN_BASE_
 #define _PLUGIN_BASE_
 
+#include<Windows.h>
+
 class CPluginBase
 {
 public:
@@ -34,9 +36,11 @@ public:
 public:
     virtual int Init();
     virtual int UnInit();
-
+    int     LoadDll(LPCSTR);
+    void    UnloadDll();
+    FARPROC GetProcAddr(LPCSTR);
 private:
-
+    HMODULE m_hLibModule;
 };
 
 
