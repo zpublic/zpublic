@@ -17,6 +17,7 @@ void test_info();
 void test_encode();
 void test_hashtable();
 void test_heap();
+void test_indextree();
 
 void AddTest(Suite& ts)
 {
@@ -131,7 +132,7 @@ int main(int argc, char* argv[])
 	test_heap();
 	test_hashtable();
     test_vector();
-
+    test_indextree();
 	teststring();
 
 
@@ -378,4 +379,9 @@ void test_heap()
    
     
 	//heap.print_heap();
+}
+
+void test_indextree()
+{
+
 }

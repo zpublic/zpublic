@@ -261,6 +261,9 @@
     <ClInclude Include="TestFile.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\public\algorithm\indextree.h">
+      <Filter>zpublic\algorithm</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\3rdparty\modp_b64\modp_b64.cc">
@@ -284,6 +287,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestFile.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\algorithm\indextree.cpp">
+      <Filter>zpublic\algorithm</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -77,6 +77,7 @@
     <ClInclude Include="..\..\3rdparty\modp_b64\modp_b64_data.h" />
     <ClInclude Include="..\..\3rdparty\tinyxml-2.6.2\tinyxml.h" />
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp" />
+    <ClInclude Include="..\..\public\algorithm\indextree.h" />
     <ClInclude Include="..\..\public\algorithm\stringmatch.hpp" />
     <ClInclude Include="..\..\public\basic\assert.hpp" />
     <ClInclude Include="..\..\public\basic\basic.hpp" />
@@ -139,6 +140,7 @@
     <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxml.cpp" />
     <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxmlerror.cpp" />
     <ClCompile Include="..\..\3rdparty\tinyxml-2.6.2\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\public\algorithm\indextree.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestBasic.cpp" />
     <ClCompile Include="TestFile.cpp" />
