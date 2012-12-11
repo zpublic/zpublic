@@ -80,6 +80,7 @@
     <ClInclude Include="..\..\3rdparty\xzip\XUnzip.h" />
     <ClInclude Include="..\..\3rdparty\xzip\XZip.h" />
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp" />
+    <ClInclude Include="..\..\public\algorithm\indextree.h" />
     <ClInclude Include="..\..\public\algorithm\stringmatch.hpp" />
     <ClInclude Include="..\..\public\application\application.hpp" />
     <ClInclude Include="..\..\public\application\log\log.hpp" />
@@ -159,6 +160,7 @@
     <ClCompile Include="..\..\public\application\pluginframework\pluginbase.cpp" />
     <ClCompile Include="..\..\public\application\pluginframework\pluginlist.cpp" />
     <ClCompile Include="..\..\public\application\pluginframework\pluginmanager.cpp" />
+    <ClCompile Include="..\..\public\algorithm\indextree.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestBasic.cpp" />
     <ClCompile Include="TestCrypt.cpp" />

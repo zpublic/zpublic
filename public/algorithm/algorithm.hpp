@@ -9,5 +9,6 @@
 #define ALGORITHM_HPP_
 
 #include "stringmatch.hpp"
+#include "indextree.h"
 
 #endif /* ALGORITHM_HPP_ */

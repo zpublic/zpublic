@@ -273,6 +273,10 @@
     <ClInclude Include="TestFile.h">
       <Filter>头文件</Filter>
     </ClInclude>
+<<<<<<< HEAD:trunk/src/test_basic/test_basic.vcxproj.filters
+    <ClInclude Include="..\..\public\algorithm\indextree.h">
+      <Filter>zpublic\algorithm</Filter>
+=======
     <ClInclude Include="TestCrypt.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -314,6 +318,7 @@
     </ClInclude>
     <ClInclude Include="..\..\public\application\pluginframework\pluginlist.h">
       <Filter>zpublic\application\pluginframework</Filter>
+>>>>>>> 7b286c5de7208f5f9df33f0e60f74f03f2313a1b:src/test_basic/test_basic.vcxproj.filters
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -339,6 +344,10 @@
     <ClCompile Include="TestFile.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+<<<<<<< HEAD:trunk/src/test_basic/test_basic.vcxproj.filters
+    <ClCompile Include="..\..\public\algorithm\indextree.cpp">
+      <Filter>zpublic\algorithm</Filter>
+=======
     <ClCompile Include="TestCrypt.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -356,6 +365,7 @@
     </ClCompile>
     <ClCompile Include="..\..\public\application\pluginframework\pluginlist.cpp">
       <Filter>zpublic\application\pluginframework</Filter>
+>>>>>>> 7b286c5de7208f5f9df33f0e60f74f03f2313a1b:src/test_basic/test_basic.vcxproj.filters
     </ClCompile>
   </ItemGroup>
 </Project>
