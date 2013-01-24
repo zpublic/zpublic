@@ -17,8 +17,17 @@ bool StringData::ToStr(OUT std::string& Value)
 }
 
 StringData::StringData( const std::string& Value )
+    : m_Value(Value)
 {
     SetValue(Value);
+}
+
+StringData::StringData( const char* Value )
+{
+    if (Value)
+    {
+        m_Value = Value;
+    }
 }
 
 StringData::StringData() : m_Value("")

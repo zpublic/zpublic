@@ -14,6 +14,7 @@ public:
     virtual ~StringData(){}
     StringData();
     StringData(const std::string& Value);
+    StringData(const char* Value);
 
     virtual bool ToStr(OUT std::string& Value);
 
