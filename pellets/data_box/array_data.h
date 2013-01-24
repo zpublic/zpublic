@@ -8,25 +8,28 @@ namespace zl
 namespace DataBox
 {
 
+typedef std::vector<ValueData*> ArrDataContainer;
+
 class ArrayData
 {
 public:
-    ArrayData();
+    ArrayData(bool bNeedGC = true);
     virtual ~ArrayData();
 
     size_t Size();
 
     bool IsEmpty();
 
-    std::vector<ValueData*>::const_iterator Begin() const;
+    ArrDataContainer::const_iterator Begin() const;
 
-    std::vector<ValueData*>::const_iterator End() const;
+    ArrDataContainer::const_iterator End() const;
 
     void Push(IN ValueData* pValue);
 
 private:
     DISALLOW_ASSIGN(ArrayData)
-    std::vector<ValueData*> m_arrValuePtr;
+    ArrDataContainer m_arrValuePtr;
+    bool m_bNeedGC;
 };
 
 }// namespace DataBox

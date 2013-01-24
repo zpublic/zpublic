@@ -5,14 +5,22 @@ namespace zl
 namespace DataBox
 {
 
-ArrayData::ArrayData()
+ArrayData::ArrayData(bool bNeedGC)
 {
-
+    m_bNeedGC = bNeedGC;
 }
 
 ArrayData::~ArrayData()
 {
-
+    if (m_bNeedGC)
+    {
+        ArrDataContainer::const_iterator it = m_arrValuePtr.begin();
+        for (; it != m_arrValuePtr.end(); ++it)
+        {
+            delete (ValueData*)&(*it);
+        }
+    }
+    m_arrValuePtr.clear();
 }
 
 size_t ArrayData::Size()
