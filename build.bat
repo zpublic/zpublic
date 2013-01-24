@@ -17,8 +17,8 @@ copy .\trunk\sln\Release\test_pellets.exe .\
 @echo ================	Unit Test	=================
 @echo =
 @echo =
-.\test_basic.exe
-.\test_pellets.exe
+".\test_basic.exe"
+".\test_pellets.exe"
 @echo =
 @echo =
 @echo ================	End~~	=================
