@@ -11,6 +11,7 @@ if ERRORLEVEL 1 exit /b 1
 @echo =
 @echo =
 copy .\trunk\sln\Release\test_basic.exe .\
+@echo =
 copy .\trunk\sln\Release\test_pellets.exe .\
 @echo =
 @echo =
@@ -18,6 +19,7 @@ copy .\trunk\sln\Release\test_pellets.exe .\
 @echo =
 @echo =
 ".\test_basic.exe"
+@echo =
 ".\test_pellets.exe"
 @echo =
 @echo =
