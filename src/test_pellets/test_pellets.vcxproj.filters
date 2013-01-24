@@ -54,6 +54,12 @@
     <ClInclude Include="..\..\pellets\data_box\value_data_uint32.h">
       <Filter>pellets\DataBox</Filter>
     </ClInclude>
+    <ClInclude Include="TestDataBox.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="def.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -79,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="..\..\pellets\data_box\value_data_uint32.cpp">
       <Filter>pellets\DataBox</Filter>
+    </ClCompile>
+    <ClCompile Include="TestDataBox.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

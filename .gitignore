@@ -31,3 +31,5 @@ Release
 /src/test_basic/testfile.dat
 /src/test_basic/zpublic.log
 /src/test_basic/test.zip
+*.ipch
+/src/test_pellets/test_pellets.xml
