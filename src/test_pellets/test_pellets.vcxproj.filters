@@ -19,6 +19,9 @@
     <Filter Include="pellets\DataBox">
       <UniqueIdentifier>{39738561-dba6-4940-ad16-452ad4181206}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\ThreadSync">
+      <UniqueIdentifier>{8146a8a3-58ad-4691-9072-de1bd0637a06}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -57,6 +60,30 @@
     <ClInclude Include="..\..\pellets\data_box\value_data_num.hpp">
       <Filter>pellets\DataBox</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\thread_sync\criticalsection.hpp">
+      <Filter>pellets\ThreadSync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\thread_sync\event.hpp">
+      <Filter>pellets\ThreadSync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\thread_sync\mutex.hpp">
+      <Filter>pellets\ThreadSync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\thread_sync\semaphore.hpp">
+      <Filter>pellets\ThreadSync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\thread_sync\syncobject.hpp">
+      <Filter>pellets\ThreadSync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\thread_sync\thread_sync.h">
+      <Filter>pellets\ThreadSync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\thread_sync\thread_sync_def.h">
+      <Filter>pellets\ThreadSync</Filter>
+    </ClInclude>
+    <ClInclude Include="TestThreadSync.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -75,6 +102,9 @@
       <Filter>pellets\DataBox</Filter>
     </ClCompile>
     <ClCompile Include="TestDataBox.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TestThreadSync.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

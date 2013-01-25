@@ -4,10 +4,12 @@
 #include "stdafx.h"
 #include <fstream>
 #include "TestDataBox.h"
+#include "TestThreadSync.h"
 
 void AddTest(Suite& ts)
 {
     ts.add(std::auto_ptr<Suite>(new CTestDataBox));
+    ts.add(std::auto_ptr<Suite>(new CTestThreadSync));
 }
 
 void UniTest()

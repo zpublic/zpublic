@@ -97,10 +97,18 @@
     <ClInclude Include="..\..\pellets\data_box\value_data.h" />
     <ClInclude Include="..\..\pellets\data_box\value_data_string.h" />
     <ClInclude Include="..\..\pellets\data_box\value_data_t.hpp" />
+    <ClInclude Include="..\..\pellets\thread_sync\criticalsection.hpp" />
+    <ClInclude Include="..\..\pellets\thread_sync\event.hpp" />
+    <ClInclude Include="..\..\pellets\thread_sync\mutex.hpp" />
+    <ClInclude Include="..\..\pellets\thread_sync\semaphore.hpp" />
+    <ClInclude Include="..\..\pellets\thread_sync\syncobject.hpp" />
+    <ClInclude Include="..\..\pellets\thread_sync\thread_sync.h" />
+    <ClInclude Include="..\..\pellets\thread_sync\thread_sync_def.h" />
     <ClInclude Include="def.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TestDataBox.h" />
+    <ClInclude Include="TestThreadSync.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp" />
@@ -111,6 +119,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TestDataBox.cpp" />
+    <ClCompile Include="TestThreadSync.cpp" />
     <ClCompile Include="test_pellets.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
