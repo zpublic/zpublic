@@ -21,8 +21,6 @@
 #include "value_data.h"
 #include "array_data.h"
 #include "value_data_string.h"
-#include "value_data_uint8.h"
-#include "value_data_uint16.h"
-#include "value_data_uint32.h"
+#include "value_data_num.hpp"
 
 #endif

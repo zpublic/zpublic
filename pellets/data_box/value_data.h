@@ -37,6 +37,12 @@ public:
 
     virtual bool ToUInt32(OUT uint32& Value);
 
+    virtual bool ToInt8(OUT int8& Value);
+
+    virtual bool ToInt16(OUT int16& Value);
+
+    virtual bool ToInt32(OUT int32& Value);
+
 private:
     DISALLOW_ASSIGN(ValueData)
 };

@@ -46,5 +46,20 @@ bool ValueData::ToUInt32( uint32& Value )
     return false;
 }
 
+bool ValueData::ToInt8( int8& Value )
+{
+    return false;
+}
+
+bool ValueData::ToInt16( int16& Value )
+{
+    return false;
+}
+
+bool ValueData::ToInt32( int32& Value )
+{
+    return false;
+}
+
 }// namespace DataBox
 }// namespace zl

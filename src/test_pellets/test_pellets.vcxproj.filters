@@ -45,20 +45,17 @@
     <ClInclude Include="..\..\pellets\data_box\value_data_string.h">
       <Filter>pellets\DataBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\data_box\value_data_uint8.h">
-      <Filter>pellets\DataBox</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\data_box\value_data_uint16.h">
-      <Filter>pellets\DataBox</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\data_box\value_data_uint32.h">
-      <Filter>pellets\DataBox</Filter>
-    </ClInclude>
     <ClInclude Include="TestDataBox.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="def.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\data_box\value_data_t.hpp">
+      <Filter>pellets\DataBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\data_box\value_data_num.hpp">
+      <Filter>pellets\DataBox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -75,15 +72,6 @@
       <Filter>pellets\DataBox</Filter>
     </ClCompile>
     <ClCompile Include="..\..\pellets\data_box\value_data_string.cpp">
-      <Filter>pellets\DataBox</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\data_box\value_data_uint8.cpp">
-      <Filter>pellets\DataBox</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\data_box\value_data_uint16.cpp">
-      <Filter>pellets\DataBox</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\data_box\value_data_uint32.cpp">
       <Filter>pellets\DataBox</Filter>
     </ClCompile>
     <ClCompile Include="TestDataBox.cpp">

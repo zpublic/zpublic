@@ -14,33 +14,61 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
-#include "value_data_uint32.h"
+#ifndef ZL_VALUE_DATA_NUM_HPP
+#define ZL_VALUE_DATA_NUM_HPP
+
+#include "value_data_t.hpp"
 
 namespace zl
 {
 namespace DataBox
 {
 
-void UInt32Data::SetValue(uint32 Value)
-{
-    m_Value = Value;
-}
+typedef ValueDataT<int8>    Int8Data;
+typedef ValueDataT<int16>   Int16Data;
+typedef ValueDataT<int32>   Int32Data;
+typedef ValueDataT<uint8>   UInt8Data;
+typedef ValueDataT<uint16>  UInt16Data;
+typedef ValueDataT<uint32>  UInt32Data;
 
-bool UInt32Data::ToUInt32(uint32& Value)
+template<>
+virtual bool Int8Data::ToInt8(OUT int8& Value)
+{
+    Value = m_Value;
+    return true;
+}
+template<>
+virtual bool Int16Data::ToInt16(OUT int16& Value)
+{
+    Value = m_Value;
+    return true;
+}
+template<>
+virtual bool Int32Data::ToInt32(OUT int32& Value)
+{
+    Value = m_Value;
+    return true;
+}
+template<>
+virtual bool UInt8Data::ToUInt8(OUT uint8& Value)
+{
+    Value = m_Value;
+    return true;
+}
+template<>
+virtual bool UInt16Data::ToUInt16(OUT uint16& Value)
+{
+    Value = m_Value;
+    return true;
+}
+template<>
+virtual bool UInt32Data::ToUInt32(OUT uint32& Value)
 {
     Value = m_Value;
     return true;
 }
 
-UInt32Data::UInt32Data(uint32 Value) : m_Value(Value)
-{
-
-}
-
-UInt32Data::~UInt32Data()
-{
-
-}
-
 }// namespace DataBox
 }// namespace zl
+
+#endif

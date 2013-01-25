@@ -23,5 +23,26 @@ public:
         TEST_ASSERT(str == "hello");
         delete pData;
     }
+
+    void testInt8()
+    {
+        int8 i8 = 0;
+        ValueData* pData = new Int8Data(123);
+        TEST_ASSERT(pData->ToInt8(i8) == true);
+        TEST_ASSERT(i8 == 123);
+        delete pData;
+    }
+
+    void testUInt16()
+    {
+        uint16 u16 = 0;
+        int8 i8 = 0;
+        ValueData* pData = new UInt16Data(1233);
+        TEST_ASSERT(pData->ToInt8(i8) == false);
+        TEST_ASSERT(i8 == 0);
+        TEST_ASSERT(pData->ToUInt16(u16) == true);
+        TEST_ASSERT(u16 == 1233);
+        delete pData;
+    }
 };
 

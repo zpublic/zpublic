@@ -14,8 +14,8 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
-#ifndef ZL_VALUE_DATA_UINT32_H
-#define ZL_VALUE_DATA_UINT32_H
+#ifndef ZL_VALUE_DATA_T_HPP
+#define ZL_VALUE_DATA_T_HPP
 
 #include "value_data.h"
 
@@ -24,19 +24,26 @@ namespace zl
 namespace DataBox
 {
 
-class UInt8Data : public ValueData
+template<typename T>
+class ValueDataT : public ValueData
 {
 public:
-    UInt8Data(uint8 Value = 0);
-    virtual ~UInt8Data();
+    ValueDataT(T Value) { m_Value = Value; }
+    virtual ~ValueDataT() { }
 
-    virtual bool ToUInt8(OUT uint8& Value);
+    void SetValue(IN const T& Value) { m_Value = Value; }
 
-    void SetValue(IN uint8 Value);
+    virtual bool ToUInt8( uint8& Value )   { return false; }
+    virtual bool ToUInt16( uint16& Value ) { return false; }
+    virtual bool ToUInt32( uint32& Value ) { return false; }
+    virtual bool ToInt8( int8& Value )     { return false; }
+    virtual bool ToInt16( int16& Value )   { return false; }
+    virtual bool ToInt32( int32& Value )   { return false; }
 
 private:
-    DISALLOW_ASSIGN(UInt8Data);
-    uint8 m_Value;
+    DISALLOW_ASSIGN(ValueDataT);
+    ValueDataT() { }
+    T m_Value;
 };
 
 }// namespace DataBox
