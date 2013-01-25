@@ -55,14 +55,14 @@ namespace zl
 
         static DWORD WaitObj(HANDLE hSync, DWORD dwWaitTime = INFINITE)
         {
-            if (hSync == NULL)
+            if (hSync == NULL || hSync == INVALID_HANDLE_VALUE)
                 return WAIT_FAILED;
             return ::WaitForSingleObject(hSync, dwWaitTime);
         }
 
         DWORD Wait2(HANDLE hSync, DWORD dwWaitTime = INFINITE)
         {
-            if (hSync == NULL)
+            if (hSync == NULL || hSync == INVALID_HANDLE_VALUE)
                 return WAIT_FAILED;
             HANDLE h2[] = {m_hSync, hSync};
             return ::WaitForMultipleObjects(2, h2, FALSE, dwWaitTime);
