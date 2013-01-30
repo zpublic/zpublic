@@ -52,14 +52,71 @@ public:
     }
 };
 
+class CSysMutex
+{
+private:
+    DISALLOW_COPY_AND_ASSIGN(CSysMutex);
+    HANDLE m_handle;
+
+public:
+    CSysMutex() : m_handle(NULL)
+    {
+
+    }
+
+    CSysMutex(bool bInitialOwner, const TCHAR* pszName = NULL, LPSECURITY_ATTRIBUTES psa = NULL)
+    {
+        Init(bInitialOwner, pszName, psa);
+    }
+
+    DWORD Init(bool bInitialOwner, const TCHAR* pszName = NULL, LPSECURITY_ATTRIBUTES psa = NULL)
+    {
+        m_handle = ::CreateMutex(psa, bInitialOwner, pszName);
+        return (m_handle != NULL) ? 0 : ::GetLastError();
+    }
+
+    virtual ~CSysMutex()
+    {
+        UnInit();
+    }
+
+    DWORD UnInit()
+    {
+        DWORD nRetCode = 0;
+        if (m_handle)
+        {
+            ::ReleaseMutex(m_handle);
+            nRetCode = ::CloseHandle(m_handle) ? 0 : ::GetLastError();
+            m_handle = NULL;
+        }
+        return nRetCode;
+    }
+
+    DWORD Lock(DWORD dwWaitTime = INFINITE)
+    {
+        return ::WaitForSingleObject(m_handle, dwWaitTime);
+    }
+
+    DWORD UnLock()
+    {
+        return ::ReleaseMutex(m_handle) ? 0 : ::GetLastError();
+    }
+
+    bool IsValid(void)
+    {
+        return (m_handle != NULL);
+    }
+};
+
+template<class MutexType>
 class CMutexGuard
 {
 private:
     DISALLOW_COPY_AND_ASSIGN(CMutexGuard);
-    CMutex& m_Mutex;
+    MutexType& m_Mutex;
 
 public:
-    CMutexGuard(CMutex& mutex) : m_Mutex(mutex)
+    CMutexGuard(MutexType& mutex) : m_Mutex(mutex)
     {
         m_Mutex.Lock();
     }
