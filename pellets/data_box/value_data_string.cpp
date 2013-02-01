@@ -50,5 +50,9 @@ StringData::StringData() : m_Value("")
 {
 }
 
+StringData::~StringData()
+{
+}
+
 }// namespace DataBox
 }// namespace zl

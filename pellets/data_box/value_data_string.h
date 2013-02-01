@@ -27,7 +27,7 @@ namespace DataBox
 class StringData : public ValueData
 {
 public:
-    virtual ~StringData(){}
+    virtual ~StringData();
     StringData();
     StringData(const std::string& Value);
     StringData(const char* Value);

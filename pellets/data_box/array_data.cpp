@@ -33,7 +33,7 @@ ArrayData::~ArrayData()
         ArrDataContainer::const_iterator it = m_arrValuePtr.begin();
         for (; it != m_arrValuePtr.end(); ++it)
         {
-            delete (ValueData*)&(*it);
+            delete (ValueData*)(*it);
         }
     }
     m_arrValuePtr.clear();
