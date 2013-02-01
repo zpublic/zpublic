@@ -14,8 +14,8 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
-#ifndef ZL_EVENT_HPP
-#define ZL_EVENT_HPP
+#ifndef ZL_THREAD_SYNC_EVENT_HPP
+#define ZL_THREAD_SYNC_EVENT_HPP
 
 #include "syncobject.hpp"
 

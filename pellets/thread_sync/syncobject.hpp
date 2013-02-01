@@ -14,8 +14,8 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
-#ifndef ZL_SYNC_OBJECT_HPP
-#define ZL_SYNC_OBJECT_HPP
+#ifndef ZL_THREAD_SYNC_SYNC_OBJECT_HPP
+#define ZL_THREAD_SYNC_SYNC_OBJECT_HPP
 
 namespace zl
 {

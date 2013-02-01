@@ -14,8 +14,8 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
-#ifndef ZL_MUTEX_HPP
-#define ZL_MUTEX_HPP
+#ifndef ZL_THREAD_SYNC_MUTEX_HPP
+#define ZL_THREAD_SYNC_MUTEX_HPP
 
 #include "criticalsection.hpp"
 

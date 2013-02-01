@@ -14,8 +14,8 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
-#ifndef ZL_CRITICAL_SECTION_HPP
-#define ZL_CRITICAL_SECTION_HPP
+#ifndef ZL_THREAD_SYNC_CRITICAL_SECTION_HPP
+#define ZL_THREAD_SYNC_CRITICAL_SECTION_HPP
 
 namespace zl
 {

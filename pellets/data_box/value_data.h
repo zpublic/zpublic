@@ -14,8 +14,8 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
-#ifndef ZL_VALUE_DATA_H
-#define ZL_VALUE_DATA_H
+#ifndef ZL_DATA_BOX_VALUE_DATA_H
+#define ZL_DATA_BOX_VALUE_DATA_H
 
 #include "data_box_def.h"
 

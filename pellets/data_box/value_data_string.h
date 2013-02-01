@@ -1,6 +1,3 @@
-#ifndef ZL_VALUE_DATA_STRING_H
-#define ZL_VALUE_DATA_STRING_H
-
 /*************************************************************************
  *                                                                       *
  *  I|*j^3Cl|a   "+!*%                  qt          Nd   gW              *
@@ -17,6 +14,9 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+#ifndef ZL_DATA_BOX_VALUE_DATA_STRING_H
+#define ZL_DATA_BOX_VALUE_DATA_STRING_H
+
 #include "value_data.h"
 
 namespace zl
