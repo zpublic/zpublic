@@ -22,6 +22,9 @@
     <Filter Include="pellets\ThreadSync">
       <UniqueIdentifier>{8146a8a3-58ad-4691-9072-de1bd0637a06}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\Serialize">
+      <UniqueIdentifier>{158145e1-f44d-4d7f-a307-f2f4b6cd5502}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -84,6 +87,24 @@
     <ClInclude Include="TestThreadSync.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\serialize\serialize.h">
+      <Filter>pellets\Serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\serialize\data.h">
+      <Filter>pellets\Serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\serialize\data_format.h">
+      <Filter>pellets\Serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\serialize\serialize_engine.h">
+      <Filter>pellets\Serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\serialize\serialize_def.h">
+      <Filter>pellets\Serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="TestSerialize.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -105,6 +126,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="TestThreadSync.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\serialize\data.cpp">
+      <Filter>pellets\Serialize</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\serialize\data_format.cpp">
+      <Filter>pellets\Serialize</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\serialize\serialize_engine.cpp">
+      <Filter>pellets\Serialize</Filter>
+    </ClCompile>
+    <ClCompile Include="TestSerialize.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -5,11 +5,13 @@
 #include <fstream>
 #include "TestDataBox.h"
 #include "TestThreadSync.h"
+#include "TestSerialize.h"
 
 void AddTest(Suite& ts)
 {
     ts.add(std::auto_ptr<Suite>(new CTestDataBox));
     ts.add(std::auto_ptr<Suite>(new CTestThreadSync));
+    ts.add(std::auto_ptr<Suite>(new CTestSerialize));
 }
 
 void UniTest()
