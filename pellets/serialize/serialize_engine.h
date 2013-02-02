@@ -88,7 +88,7 @@ public:
         }
         nBufLen = nLen;
 
-        return _SerializeData(Data, pFormat, pBuf);
+        return _SerializeData(Data, pFormat, nLen, pBuf);
     }
 
     bool Parse(
@@ -233,8 +233,154 @@ private:
         return false;
     }
 
-    bool _SerializeData( CData& Data, DataFormat* pFormat, char* pBuf )
+    bool _SerializeData(
+        CData& Data,
+        DataFormat* pFormat,
+        unsigned int nLen,
+        char* pBuf)
     {
+        unsigned int nPos = 0;
+
+        *(uint16*)pBuf = (uint16)nLen;
+        nPos += 2;
+
+        *(uint32*)(pBuf + nPos) = pFormat->Id;
+        nPos += 4;
+
+        for (auto it = pFormat->ItemMap.begin();
+            it != pFormat->ItemMap.end();
+            ++it)
+        {
+            if (it->second.MType == DataMType_Value)
+            {
+                if (!_SerializeValue(Data, it->second, pBuf, nPos))
+                    return false;
+            }
+            else if (it->second.MType == DataMType_Array)
+            {
+                if (!_SerializeArray(Data, it->second, pBuf, nPos))
+                    return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    bool _SerializeValue(
+        CData& Data,
+        const DataItem& Item,
+        char* pBuf,
+        unsigned int& nPos)
+    {
+        ValueData* pValue = NULL;
+        if (!Data.Read(Item.Name, pValue) || !pValue)
+            return false;
+
+        switch (Item.Type)
+        {
+        case DataType_String:
+            return _SerializeString(pValue, pBuf, nPos);
+            break;
+        case DataType_Uint8:
+            if (!pValue->ToUInt8(*(uint8*)(pBuf + nPos)))
+                return false;
+            nPos += 1;
+            break;
+        case DataType_Uint16:
+            if (!pValue->ToUInt16(*(uint16*)(pBuf + nPos)))
+                return false;
+            nPos += 2;
+            break;
+        case DataType_Uint32:
+            if (!pValue->ToUInt32(*(uint32*)(pBuf + nPos)))
+                return false;
+            nPos += 4;
+            break;
+        default:
+            return false;
+            break;
+        }
+        return true;
+    }
+
+    bool _SerializeArray(
+        CData& Data,
+        const DataItem& Item,
+        char* pBuf,
+        unsigned int& nPos)
+    {
+        ArrayData* pArr = NULL;
+        if (Data.ReadArr(Item.Name, pArr) && pArr)
+        {
+            *(uint16*)(pBuf + nPos) = (uint16)pArr->Size();
+            nPos += 2;
+
+            switch (Item.Type)
+            {
+            case DataType_String:
+                for (auto it = pArr->Begin();
+                    it != pArr->End();
+                    ++it)
+                {
+                    if (!_SerializeString(*it, pBuf, nPos))
+                        return false;
+                }
+                break;
+            case DataType_Uint8:
+                for (auto it = pArr->Begin();
+                    it != pArr->End();
+                    ++it)
+                {
+                    if (!(ValueData*)(*it)->ToUInt8(*(uint8*)(pBuf + nPos)))
+                        return false;
+                    nPos++;
+                }
+                break;
+            case DataType_Uint16:
+                for (auto it = pArr->Begin();
+                    it != pArr->End();
+                    ++it)
+                {
+                    if (!(ValueData*)(*it)->ToUInt16(*(uint16*)(pBuf + nPos)))
+                        return false;
+                    nPos += 2;
+                }
+                break;
+            case DataType_Uint32:
+                for (auto it = pArr->Begin();
+                    it != pArr->End();
+                    ++it)
+                {
+                    if (!(ValueData*)(*it)->ToUInt32(*(uint32*)(pBuf + nPos)))
+                        return false;
+                    nPos += 4;
+                }
+                break;
+            default:
+                return false;
+                break;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    bool _SerializeString(
+        ValueData* pValue,
+        char* pBuf,
+        unsigned int& nPos )
+    {
+        std::string str;
+        if (pValue->ToStr(str))
+        {
+            *(uint16*)(pBuf + nPos) = str.size();
+            nPos += 2;
+            memcpy(pBuf + nPos, str.c_str(), str.size());
+            nPos += str.size();
+            return true;
+        }
         return false;
     }
 

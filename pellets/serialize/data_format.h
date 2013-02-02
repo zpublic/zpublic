@@ -64,9 +64,9 @@ typedef std::map<std::string, DataItem> DataItemMap;
 
 typedef struct DataFormat_
 {
-    int         Id;
-    std::string Name;
-    DataItemMap ItemMap;
+    unsigned int    Id;
+    std::string     Name;
+    DataItemMap     ItemMap;
 
     DataFormat_()
     {
@@ -81,7 +81,7 @@ typedef struct DataFormat_
 
     }
 
-    DataFormat_(int id, const char* name)
+    DataFormat_(unsigned int id, const char* name)
         : Id(id)
         , Name(name)
     {
@@ -104,8 +104,8 @@ typedef struct DataFormat_
     }
 }DataFormat;
 
-typedef std::map<std::string, int>  FormatIdMap;
-typedef std::map<int, DataFormat>   FormatMap;
+typedef std::map<std::string, unsigned int>  FormatIdMap;
+typedef std::map<unsigned int, DataFormat>   FormatMap;
 
 class CDataFormatManager
 {
@@ -118,7 +118,7 @@ public:
 
     ///> 外部保证读写线程安全！
     DataFormat* GetFormat(IN const std::string& sDataName);
-    DataFormat* GetFormat(IN int nDataId);
+    DataFormat* GetFormat(IN unsigned int nDataId);
 
 private:
     FormatIdMap m_mapId;

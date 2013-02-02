@@ -43,7 +43,7 @@ public:
         ArrayData* pArr = new ArrayData();
         pArr->Push(new StringData("a1"));
         pArr->Push(new StringData("a2"));
-        pArr->Push(new StringData("a3"));
+        pArr->Push(new StringData("a33"));
         data.WriteArr("a", pArr);
         data.Write("b", new UInt16Data(123));
         data.Write("c", new StringData("ccccc"));
@@ -51,13 +51,30 @@ public:
 
         unsigned int uLen = 0;
         TEST_ASSERT(m_Eng.Serialize(data, NULL, uLen) == true);
-        TEST_ASSERT(uLen == 33); ///> 6+ 2+ 2+2+ 2+2+ 2+2+ 2+ 2+5+ 4
+        TEST_ASSERT(uLen == 34); ///> 6+ 2+ 2+2+ 2+2+ 2+3+ 2+ 2+5+ 4
 
         uLen++;
         char* pBuf = new char[uLen];
         memset(pBuf, 0, uLen);
 
         TEST_ASSERT(m_Eng.Serialize(data, pBuf, uLen) == true);
+
+        char pBufTest[] =
+        {
+            34,0, 1,0,0,0, //size | id
+            3,0,
+            2,0, 'a','1',
+            2,0, 'a','2',
+            3,0, 'a','3','3',
+            123,0,
+            5,0, 'c','c','c','c','c',
+            57,48,0,0
+        };
+
+        for (unsigned int i = 0; i < uLen; ++i)
+        {
+            TEST_ASSERT(pBuf[i] == pBufTest[i]);
+        }
 
         delete[] pBuf;
     }

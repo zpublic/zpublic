@@ -52,7 +52,7 @@ DataFormat* CDataFormatManager::GetFormat(IN const std::string& sDataName)
     return 0;
 }
 
-DataFormat* CDataFormatManager::GetFormat(IN int nDataId)
+DataFormat* CDataFormatManager::GetFormat(IN unsigned int nDataId)
 {
     auto It = m_mapFormat.find(nDataId);
     if (It != m_mapFormat.end())
