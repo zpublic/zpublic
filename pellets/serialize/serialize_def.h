@@ -32,14 +32,12 @@ using namespace DataBox;
 
 typedef enum _DataMType
 {
-    DataMType_Null,
     DataMType_Value,
     DataMType_Array,
 }DataMType;
 
 typedef enum _DataType
 {
-    DataType_Null,
     DataType_String,
     DataType_Uint8,
     DataType_Uint16,

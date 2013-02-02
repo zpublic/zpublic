@@ -51,7 +51,15 @@ public:
 
         unsigned int uLen = 0;
         TEST_ASSERT(m_Eng.Serialize(data, NULL, uLen) == true);
-        TEST_ASSERT(uLen == 8+ 2+ 2+2+ 2+2+ 2+2+ 2+ 2+5+ 4);
+        TEST_ASSERT(uLen == 33); ///> 6+ 2+ 2+2+ 2+2+ 2+2+ 2+ 2+5+ 4
+
+        uLen++;
+        char* pBuf = new char[uLen];
+        memset(pBuf, 0, uLen);
+
+        TEST_ASSERT(m_Eng.Serialize(data, pBuf, uLen) == true);
+
+        delete[] pBuf;
     }
 
     void testParse()
