@@ -50,14 +50,14 @@ public:
         data.Write("d", new UInt32Data(12345));
 
         unsigned int uLen = 0;
-        TEST_ASSERT(m_Eng.Serialize(data, NULL, uLen) == true);
+        TEST_ASSERT(m_Eng.Serialize(data, NULL, uLen));
         TEST_ASSERT(uLen == 34); ///> 6+ 2+ 2+2+ 2+2+ 2+3+ 2+ 2+5+ 4
 
         uLen++;
-        char* pBuf = new char[uLen];
-        memset(pBuf, 0, uLen);
+        m_pBuf = new char[uLen];
+        memset(m_pBuf, 0, uLen);
 
-        TEST_ASSERT(m_Eng.Serialize(data, pBuf, uLen) == true);
+        TEST_ASSERT(m_Eng.Serialize(data, m_pBuf, uLen));
 
         char pBufTest[] =
         {
@@ -73,19 +73,45 @@ public:
 
         for (unsigned int i = 0; i < uLen; ++i)
         {
-            TEST_ASSERT(pBuf[i] == pBufTest[i]);
+            TEST_ASSERT(m_pBuf[i] == pBufTest[i]);
         }
-
-        delete[] pBuf;
     }
 
     void testParse()
     {
+        CData data;
+        TEST_ASSERT(m_Eng.Parse(m_pBuf, 34, data));
 
+        ArrayData* pArr;
+        ValueData* pValue;
+        TEST_ASSERT(data.ReadArr("a", pArr));
+        TEST_ASSERT(pArr->Size() == 3);
+
+        std::string str;
+        uint16 u16 = 0;
+        uint32 u32 = 0;
+        auto it = pArr->Begin();
+        TEST_ASSERT((ValueData*)(*it)->ToStr(str));
+        TEST_ASSERT(str == "a1");
+        TEST_ASSERT(data.Read("c", pValue));
+        TEST_ASSERT(pValue->ToStr(str));
+        TEST_ASSERT(str == "ccccc");
+
+        TEST_ASSERT(data.Read("b", pValue));
+        TEST_ASSERT(pValue->ToUInt16(u16));
+        TEST_ASSERT(u16 == 123);
+
+        TEST_ASSERT(data.Read("d", pValue));
+        TEST_ASSERT(pValue->ToUInt32(u32));
+        TEST_ASSERT(u32 == 12345);
+
+        delete[] m_pBuf;
     }
 
 private:
     CDataFormatManager m_formatMgr;
     CSerializeEngine m_Eng;
+
+    char* m_pBuf;
 };
 

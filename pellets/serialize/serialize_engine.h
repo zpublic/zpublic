@@ -96,12 +96,35 @@ public:
         IN unsigned int nBufLen,
         OUT CData& Data)
     {
-        return true;
+        if (nBufLen < 6)
+        {
+            return false;
+        }
+
+        if (*(uint16*)pBuf != nBufLen)
+        {
+            return false;
+        }
+
+        unsigned int nPos = 2;
+        Data.m_nDataId = *(uint32 *)(pBuf + nPos);
+
+        DataFormat* pFormat = NULL;
+        if (!_GetDataFormat(Data, &pFormat))
+        {
+            ///> 找不到对应格式
+            return false;
+        }
+
+        return _ParseData(Data, pFormat, pBuf, nPos, nBufLen);
     }
 
 private:
     bool _GetDataFormat(IN const CData& Data, OUT DataFormat** ppFormat)
     {
+        if (!m_pFormatManager)
+            return false;
+
         if (Data.m_nDataId == 0)
         {
             if (Data.m_sDataName.empty())
@@ -382,6 +405,83 @@ private:
             return true;
         }
         return false;
+    }
+
+    bool _ParseData(
+        CData& Data,
+        DataFormat* pFormat,
+        const char* pBuf,
+        unsigned int nPos,
+        unsigned int nBufLen)
+    {
+        for (auto it = pFormat->ItemMap.begin();
+            it != pFormat->ItemMap.end();
+            ++it)
+        {
+            if (it->second.MType == DataMType_Value)
+            {
+                if (!_ParseValue(Data, it->second, pBuf, nPos, nBufLen))
+                    return false;
+            }
+            else if (it->second.MType == DataMType_Array)
+            {
+                if (!_ParseArray(Data, it->second, pBuf, nPos, nBufLen))
+                    return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    bool _ParseValue(
+        CData& Data,
+        const DataItem& Item,
+        const char* pBuf,
+        unsigned int& nPos,
+        unsigned int nBufLen)
+    {
+        return true;
+    }
+
+    bool _ParseArray(
+        CData& Data,
+        const DataItem& Item,
+        const char* pBuf,
+        unsigned int& nPos,
+        unsigned int nBufLen)
+    {
+        return true;
+    }
+
+    bool _ParseString(
+        CData& Data,
+        char* pBuf,
+        unsigned int& nPos,
+        unsigned int nBufLen)
+    {
+        
+        std::string str;
+        if (nPos > nBufLen - 2)
+        {
+            return false;
+        }
+        uint16 nSize = *(uint16*)(pBuf + nPos);
+        nPos += 2;
+
+        if (nPos > nBufLen - nSize)
+        {
+            return false;
+        }
+        str.resize(nSize + 1);
+        ::std::copy(pBuf + nPos, pBuf + nPos + nSize - 1, str.begin());
+        nPos += nSize;
+
+//         StringData *pStr = new StringData(str);
+//         Data.Write();
+        return true;
     }
 
 private:

@@ -31,7 +31,7 @@ typedef std::map<DataName, ArrayData*> ArrayDataMap;
 class CData
 {
 public:
-    CData(int nDataId, const char* pName = "")
+    CData(int nDataId = 0, const char* pName = "")
         : m_nDataId(nDataId)
         , m_sDataName("")
     {
