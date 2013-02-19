@@ -462,8 +462,6 @@ private:
         unsigned int& nPos,
         unsigned int nBufLen)
     {
-        
-        std::string str;
         if (nPos > nBufLen - 2)
         {
             return false;
@@ -475,9 +473,9 @@ private:
         {
             return false;
         }
-        str.resize(nSize + 1);
-        ::std::copy(pBuf + nPos, pBuf + nPos + nSize - 1, str.begin());
-        nPos += nSize;
+//         str.resize(nSize + 1);
+//         ::std::copy(pBuf + nPos, pBuf + nPos + nSize - 1, str.begin());
+//         nPos += nSize;
 
 //         StringData *pStr = new StringData(str);
 //         Data.Write();
