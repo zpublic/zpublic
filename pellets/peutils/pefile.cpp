@@ -7,18 +7,18 @@ namespace Peutils
 
 using namespace Define;
 
-TCHAR* CPEFile::_ConverFileType(PEFileType pefileType)
+uint32 CPEFile::_ConverFileType(PEFileType pefileType)
 {
     switch (pefileType)
     {
-        case PEFILE_R: return (_T("r"));
-        case PEFILE_W: return (_T("w"));
-        case PEFILE_A: return  (_T("a"));
-        case PEFILE_ATO_A: return (_T("a+"));
-        case PEFILE_ATO_R: return (_T("r+"));
-        case PEFILE_ATO_W: return (_T("w+"));
+        case PEFILE_R: return OPEN_EXISTING;
+        case PEFILE_W: return OPEN_EXISTING;
+        case PEFILE_A: return OPEN_ALWAYS;
+        case PEFILE_ATO_A: return OPEN_EXISTING|OPEN_ALWAYS;
+        case PEFILE_ATO_R: return OPEN_EXISTING|OPEN_ALWAYS;
+        case PEFILE_ATO_W: return OPEN_EXISTING|OPEN_ALWAYS;
     }
-    return _T("");
+    return -1;
 }
 
 CPEFile::CPEFile() : m_File_Ptr(0)
@@ -27,6 +27,7 @@ CPEFile::CPEFile() : m_File_Ptr(0)
 
 CPEFile::~CPEFile()
 {
+    Close();
 }
 
 PEStatus CPEFile::Open(TCHAR* lpszPath, PEFileType pefileType)
@@ -35,10 +36,7 @@ PEStatus CPEFile::Open(TCHAR* lpszPath, PEFileType pefileType)
     {
         return PEStatus_Err;
     }
-    if (::_tfopen_s(&m_File_Ptr, lpszPath, _ConverFileType(pefileType)) != 0)
-    {
-        return PEStatus_Err;
-    }
+    m_File_Ptr = CreateFile(lpszPath, GENERIC_READ, FILE_SHARE_READ, NULL, _ConverFileType(pefileType), 0, NULL);
     if (m_File_Ptr == NULL)
     {
         return PEStatus_Err;
@@ -52,8 +50,8 @@ uint32 CPEFile::Read(void* pData, Define::uint32 nDataSize)
     {
         return -1;
     }
-    int RetSizeRead = ::fread(pData, nDataSize, 1, m_File_Ptr);
-    if (RetSizeRead == 0)
+    DWORD RetSizeRead = 0;
+    if (!(::ReadFile(m_File_Ptr, pData, nDataSize, &RetSizeRead, NULL)))
     {
         return -1;
     }
@@ -66,8 +64,8 @@ uint32 CPEFile::Write(void* pData, Define::uint32 nDataSize)
     {
         return -1;
     }
-    int RetSizeWrite = ::fwrite(pData, nDataSize, 1, m_File_Ptr);
-    if (RetSizeWrite == -1)
+    DWORD RetSizeWrite = 0;
+    if (!(::WriteFile(m_File_Ptr, pData, nDataSize, &RetSizeWrite, NULL)))
     {
         return -1;
     }
@@ -80,16 +78,26 @@ PEStatus CPEFile::Seek(Define::uint32 nSeekPos, PEFileSeekType peSeek)
     {
         return PEStatus_Err;
     }
-    if (::fseek(m_File_Ptr, nSeekPos, peSeek) == -1)
+    if (::SetFilePointer(m_File_Ptr, nSeekPos, 0, peSeek) == 0)
     {
         return PEStatus_Err;
     }
     return PEStatus_Ok;
 }
 
+PEStatus CPEFile::Close()
+{
+    if (m_File_Ptr != NULL)
+    {
+        CloseHandle(m_File_Ptr);
+        m_File_Ptr = NULL;
+    }
+    return PEStatus_Ok;
+}
+
 bool CPEFile::IsOpen()
 {
-    if (!m_File_Ptr)
+    if (m_File_Ptr == NULL)
     {
         return false;
     }

@@ -13,7 +13,13 @@ public:
     void testJudgeFileSubSystem()
     {
         CPEParser PeParser;
-        PeParser.OpenFile(_T("msg.exe"));
+        PeParser.OpenFile(_T("exe.bin"));
         TEST_ASSERT(PeParser.IsExe() == true);
+        PeParser.Close();
+        PeParser.OpenFile(_T("dll.bin"));
+        TEST_ASSERT(PeParser.IsDLL() == true);
+        PeParser.Close();
+        PeParser.OpenFile(_T("sys.bin"));
+        TEST_ASSERT(PeParser.IsSys() == true);
     }
 };

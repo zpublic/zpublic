@@ -13,6 +13,8 @@ CPEParser::CPEParser()
 
 CPEParser::~CPEParser()
 {
+    m_File.Close();
+    Close();
 }
 
 PEStatus CPEParser::OpenFile(TCHAR* lpszPath)
@@ -74,19 +76,17 @@ PEStatus CPEParser::OpenFile(TCHAR* lpszPath)
 bool CPEParser::IsExe()
 {
     uint16 nSubType = GetSubSystemType();
-    return ((nSubType == IMAGE_SUBSYSTEM_WINDOWS_GUI ||
-        nSubType == IMAGE_SUBSYSTEM_WINDOWS_CUI) &&
-        (GetFileHead()->Characteristics & IMAGE_FILE_DLL) == 0
-        );
+    return ((nSubType == IMAGE_SUBSYSTEM_WINDOWS_GUI
+        || nSubType == IMAGE_SUBSYSTEM_WINDOWS_CUI)
+        && (GetFileHead()->Characteristics & IMAGE_FILE_DLL) == 0);
 }
 
 bool CPEParser::IsDLL()
 {
     uint16 nSubType = GetSubSystemType();
-    return ((nSubType == IMAGE_SUBSYSTEM_WINDOWS_GUI ||
-        nSubType == IMAGE_SUBSYSTEM_WINDOWS_CUI) &&
-        (GetFileHead()->Characteristics & IMAGE_FILE_DLL) != 0
-        );
+    return ((nSubType == IMAGE_SUBSYSTEM_WINDOWS_GUI
+        || nSubType == IMAGE_SUBSYSTEM_WINDOWS_CUI)
+        && (GetFileHead()->Characteristics & IMAGE_FILE_DLL) != 0);
 }
 
 bool CPEParser::IsSys()
@@ -103,6 +103,18 @@ PIMAGE_FILE_HEADER CPEParser::GetFileHead()
 uint16 CPEParser::GetSubSystemType() const
 {
     return m_IsX64 ? m_NtHead64.OptionalHeader.Subsystem : m_NtHead32.OptionalHeader.Subsystem;
+}
+
+PEStatus CPEParser::Close()
+{
+    if (m_File.IsOpen())
+    {
+        m_File.Close();
+        ::memset(&m_NtHead32, 0, sizeof(m_NtHead32));
+        ::memset(&m_NtHead64, 0, sizeof(m_NtHead64));
+        m_IsX64 = false;
+    }
+    return PEStatus_Ok;
 }
 
 }

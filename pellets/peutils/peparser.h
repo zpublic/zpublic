@@ -32,6 +32,8 @@ public:
 
     PEStatus OpenFile(TCHAR* lpszPath);
 
+    PEStatus Close();
+
     bool IsExe();
 
     bool IsDLL();

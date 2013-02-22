@@ -7,6 +7,7 @@
 #include <tchar.h>
 #include <stdio.h>
 #include "peutils_def.h"
+#include <Windows.h>
 
 namespace zl
 {
@@ -33,10 +34,10 @@ public:
 
 private:
 
-    TCHAR* _ConverFileType(PEFileType pefileType);
+    Define::uint32 _ConverFileType(PEFileType pefileType);
 
 private:
-    FILE* m_File_Ptr;
+    HANDLE m_File_Ptr;
 };
 
 }
