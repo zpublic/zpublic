@@ -99,6 +99,7 @@
     <ClInclude Include="..\..\pellets\data_box\value_data_t.hpp" />
     <ClInclude Include="..\..\pellets\peutils\pefile.h" />
     <ClInclude Include="..\..\pellets\peutils\peparser.h" />
+    <ClInclude Include="..\..\pellets\peutils\pesectionobject.h" />
     <ClInclude Include="..\..\pellets\peutils\peutils_def.h" />
     <ClInclude Include="..\..\pellets\serialize\data.h" />
     <ClInclude Include="..\..\pellets\serialize\data_format.h" />
@@ -126,6 +127,7 @@
     <ClCompile Include="..\..\pellets\data_box\value_data_string.cpp" />
     <ClCompile Include="..\..\pellets\peutils\pefile.cpp" />
     <ClCompile Include="..\..\pellets\peutils\peparser.cpp" />
+    <ClCompile Include="..\..\pellets\peutils\pesectionobject.cpp" />
     <ClCompile Include="..\..\pellets\serialize\data.cpp" />
     <ClCompile Include="..\..\pellets\serialize\data_format.cpp" />
     <ClCompile Include="..\..\pellets\serialize\serialize_engine.cpp" />

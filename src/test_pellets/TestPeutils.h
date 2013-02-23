@@ -12,14 +12,18 @@ public:
 
     void testJudgeFileSubSystem()
     {
+        CPEFile peFile;
         CPEParser PeParser;
-        PeParser.OpenFile(_T("exe.bin"));
+        peFile.Open(_T("exe.bin"), PEFILE_R);
+        PeParser.Parse(peFile);
         TEST_ASSERT(PeParser.IsExe() == true);
-        PeParser.Close();
-        PeParser.OpenFile(_T("dll.bin"));
+        peFile.Close();
+        peFile.Open(_T("dll.bin"), PEFILE_R);
+        PeParser.Parse(peFile);
         TEST_ASSERT(PeParser.IsDLL() == true);
-        PeParser.Close();
-        PeParser.OpenFile(_T("sys.bin"));
+        peFile.Close();
+        peFile.Open(_T("sys.bin"), PEFILE_R);
+        PeParser.Parse(peFile);
         TEST_ASSERT(PeParser.IsSys() == true);
     }
 };
