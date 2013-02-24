@@ -9,6 +9,7 @@
 #include <vector>
 #include "pefile.h"
 #include "pesectionobject.h"
+#include "peimport.h"
 
 namespace zl
 {
@@ -39,6 +40,15 @@ public:
 
     PIMAGE_FILE_HEADER GetFileHead();
 
+protected:
+    Define::uint64 _ConverOffsetOfRVA(Define::uint64 nRVA);
+
+    Define::uint128 _ConverOffsetOfRVA(Define::uint128 nRVA);
+
+    PEStatus _ParseImport32(CPEFile& PEFile);
+
+    PEStatus _ParseImport64(CPEFile& PEFile);
+
 private:
     bool m_IsX64;
     bool m_IsVaild;
@@ -46,6 +56,7 @@ private:
     IMAGE_NT_HEADERS32*      m_NtHead32_Ptr;
     IMAGE_NT_HEADERS64*      m_NtHead64_Ptr;
     std::vector<CPESectionObject> m_SectionList;
+    std::vector<CPEImportObject> m_ImporObjecttList;
 };
 
 }

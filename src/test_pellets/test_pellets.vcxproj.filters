@@ -123,6 +123,12 @@
     <ClInclude Include="..\..\pellets\peutils\pesectionobject.h">
       <Filter>pellets\Peutils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\peutils\peimport.h">
+      <Filter>pellets\Peutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\peutils\peobject.h">
+      <Filter>pellets\Peutils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -168,6 +174,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\pellets\peutils\pesectionobject.cpp">
+      <Filter>pellets\Peutils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\peutils\peimport.cpp">
       <Filter>pellets\Peutils</Filter>
     </ClCompile>
   </ItemGroup>

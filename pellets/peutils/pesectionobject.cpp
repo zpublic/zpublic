@@ -24,7 +24,7 @@ IMAGE_SECTION_HEADER& CPESectionObject::Get()
     return m_SectHead;
 }
 
-bool CPESectionObject::IsVaild()
+bool CPESectionObject::IsVaild() const
 {
     return true;
 }

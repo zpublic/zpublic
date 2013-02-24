@@ -8,19 +8,20 @@
 #include <tchar.h>
 #include <vector>
 #include "peutils_def.h"
+#include "peobject.h"
 
 namespace zl
 {
 namespace Peutils
 {
 
-class CPESectionObject
+class CPESectionObject : public CPEObject
 {
 public:
     CPESectionObject(IMAGE_SECTION_HEADER* pstSectionHead);
     virtual ~CPESectionObject();
 
-    bool IsVaild();
+    bool IsVaild() const;
 
     void Close();
 
