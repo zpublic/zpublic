@@ -25,6 +25,9 @@
     <Filter Include="pellets\Serialize">
       <UniqueIdentifier>{158145e1-f44d-4d7f-a307-f2f4b6cd5502}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\Peutils">
+      <UniqueIdentifier>{801fdacf-4c1e-43cf-9ab0-067a76338303}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -105,6 +108,27 @@
     <ClInclude Include="TestSerialize.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\peutils\pefile.h">
+      <Filter>pellets\Peutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\peutils\peparser.h">
+      <Filter>pellets\Peutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\peutils\peutils_def.h">
+      <Filter>pellets\Peutils</Filter>
+    </ClInclude>
+    <ClInclude Include="TestPeutils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\peutils\pesectionobject.h">
+      <Filter>pellets\Peutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\peutils\peimport.h">
+      <Filter>pellets\Peutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\peutils\peobject.h">
+      <Filter>pellets\Peutils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -139,6 +163,21 @@
     </ClCompile>
     <ClCompile Include="TestSerialize.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\peutils\pefile.cpp">
+      <Filter>pellets\Peutils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\peutils\peparser.cpp">
+      <Filter>pellets\Peutils</Filter>
+    </ClCompile>
+    <ClCompile Include="TestPeutils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\peutils\pesectionobject.cpp">
+      <Filter>pellets\Peutils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\peutils\peimport.cpp">
+      <Filter>pellets\Peutils</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

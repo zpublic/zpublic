@@ -97,6 +97,12 @@
     <ClInclude Include="..\..\pellets\data_box\value_data.h" />
     <ClInclude Include="..\..\pellets\data_box\value_data_string.h" />
     <ClInclude Include="..\..\pellets\data_box\value_data_t.hpp" />
+    <ClInclude Include="..\..\pellets\peutils\pefile.h" />
+    <ClInclude Include="..\..\pellets\peutils\peimport.h" />
+    <ClInclude Include="..\..\pellets\peutils\peobject.h" />
+    <ClInclude Include="..\..\pellets\peutils\peparser.h" />
+    <ClInclude Include="..\..\pellets\peutils\pesectionobject.h" />
+    <ClInclude Include="..\..\pellets\peutils\peutils_def.h" />
     <ClInclude Include="..\..\pellets\serialize\data.h" />
     <ClInclude Include="..\..\pellets\serialize\data_format.h" />
     <ClInclude Include="..\..\pellets\serialize\serialize.h" />
@@ -113,6 +119,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TestDataBox.h" />
+    <ClInclude Include="TestPeutils.h" />
     <ClInclude Include="TestSerialize.h" />
     <ClInclude Include="TestThreadSync.h" />
   </ItemGroup>
@@ -120,6 +127,10 @@
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp" />
     <ClCompile Include="..\..\pellets\data_box\value_data.cpp" />
     <ClCompile Include="..\..\pellets\data_box\value_data_string.cpp" />
+    <ClCompile Include="..\..\pellets\peutils\pefile.cpp" />
+    <ClCompile Include="..\..\pellets\peutils\peimport.cpp" />
+    <ClCompile Include="..\..\pellets\peutils\peparser.cpp" />
+    <ClCompile Include="..\..\pellets\peutils\pesectionobject.cpp" />
     <ClCompile Include="..\..\pellets\serialize\data.cpp" />
     <ClCompile Include="..\..\pellets\serialize\data_format.cpp" />
     <ClCompile Include="..\..\pellets\serialize\serialize_engine.cpp" />
@@ -128,6 +139,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TestDataBox.cpp" />
+    <ClCompile Include="TestPeutils.cpp" />
     <ClCompile Include="TestSerialize.cpp" />
     <ClCompile Include="TestThreadSync.cpp" />
     <ClCompile Include="test_pellets.cpp" />
