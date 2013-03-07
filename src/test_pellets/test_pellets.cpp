@@ -6,12 +6,14 @@
 #include "TestDataBox.h"
 #include "TestThreadSync.h"
 #include "TestSerialize.h"
+#include "TestPeutils.h"
 
 void AddTest(Suite& ts)
 {
     ts.add(std::auto_ptr<Suite>(new CTestDataBox));
     ts.add(std::auto_ptr<Suite>(new CTestThreadSync));
     ts.add(std::auto_ptr<Suite>(new CTestSerialize));
+    ts.add(std::auto_ptr<Suite>(new CTestPeutils));
 }
 
 void UniTest()
