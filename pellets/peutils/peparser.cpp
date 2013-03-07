@@ -57,6 +57,9 @@ PEStatus CPEParser::Parse(CPEFile& PEFile)
     {
         return PEStatus_Err;
     }
+    m_SectionList.clear();
+    m_ImporObjecttList.clear();
+
     PEFile.Seek(0, PEFILE_SK_SET);
     if (PEFile.Read(m_DosHead_Ptr, sizeof(IMAGE_DOS_HEADER)) != sizeof(IMAGE_DOS_HEADER))
     {
@@ -100,7 +103,7 @@ PEStatus CPEParser::Parse(CPEFile& PEFile)
                 delete m_NtHead32_Ptr;
                 m_NtHead32_Ptr = NULL;
             }
-            lnSectionTableOffset = m_NtHead64_Ptr->OptionalHeader.SizeOfHeaders;
+            lnSectionTableOffset = m_NtHead64_Ptr->FileHeader.SizeOfOptionalHeader;
         }
 
         if (lnSectionTableOffset != 0)
@@ -148,26 +151,17 @@ PEStatus CPEParser::_ParseImport32(CPEFile& PEFile)
     {
         return PEStatus_Err;
     }
-    uint32 posImport = 0;
-    uint32 posVAddr = m_NtHead32_Ptr->OptionalHeader.DataDirectory[1].VirtualAddress;
+
+    uint64 posVAddr = m_NtHead32_Ptr->OptionalHeader.DataDirectory[1].VirtualAddress;
     uint32 nImportSize = m_NtHead32_Ptr->OptionalHeader.DataDirectory[1].Size;
 
-    for (auto It = m_SectionList.begin(); It != m_SectionList.end(); ++It)
-    {
-        if (((*It).Get().VirtualAddress <= posVAddr)
-            && ((*It).Get().SizeOfRawData + (*It).Get().VirtualAddress >= posVAddr))
-        {
-            posImport = (*It).Get().PointerToRawData;
-            break;
-        }
-    }
     uint32 nImportNum = nImportSize / sizeof(IMAGE_IMPORT_DESCRIPTOR);
     if (posVAddr == 0 && nImportNum != 0)
     {
         return PEStatus_Err;
     }
     PIMAGE_IMPORT_DESCRIPTOR pstImport = new IMAGE_IMPORT_DESCRIPTOR[nImportNum];
-    PEFile.Seek(posImport, PEFILE_SK_SET);
+    PEFile.Seek(_ConverOffsetOfRVA(posVAddr), PEFILE_SK_SET);
     if (PEFile.Read(pstImport, nImportSize)
         != nImportSize)
     {
@@ -254,26 +248,16 @@ PEStatus CPEParser::_ParseImport64(CPEFile& PEFile)
     {
         return PEStatus_Err;
     }
-    uint32 posImport = 0;
-    uint32 posVAddr = m_NtHead64_Ptr->OptionalHeader.DataDirectory[1].VirtualAddress;
+    uint128 posVAddr = m_NtHead64_Ptr->OptionalHeader.DataDirectory[1].VirtualAddress;
     uint32 nImportSize = m_NtHead64_Ptr->OptionalHeader.DataDirectory[1].Size;
 
-    for (auto It = m_SectionList.begin(); It != m_SectionList.end(); ++It)
-    {
-        if (((*It).Get().VirtualAddress <= posVAddr)
-            && ((*It).Get().SizeOfRawData + (*It).Get().VirtualAddress >= posVAddr))
-        {
-            posImport = (*It).Get().PointerToRawData;
-            break;
-        }
-    }
     uint32 nImportNum = nImportSize / sizeof(IMAGE_IMPORT_DESCRIPTOR);
     if (posVAddr == 0 && nImportNum != 0)
     {
         return PEStatus_Err;
     }
     PIMAGE_IMPORT_DESCRIPTOR pstImport = new IMAGE_IMPORT_DESCRIPTOR[nImportNum];
-    PEFile.Seek(posImport, PEFILE_SK_SET);
+    PEFile.Seek64(_ConverOffsetOfRVA(posVAddr), PEFILE_SK_SET);
     if (PEFile.Read(pstImport, nImportSize)
         != nImportSize)
     {
@@ -282,29 +266,29 @@ PEStatus CPEParser::_ParseImport64(CPEFile& PEFile)
 
     for (uint32 index = 0; index < nImportNum; index++)
     {
-        CPEImportFunObject peFunObject;
+        CPEImportFunObject64 peFunObject;
         char lpszTmpName[MAX_PATH] = {0};
         PEFile.Seek(_ConverOffsetOfRVA(pstImport[index].Name), PEFILE_SK_SET);
         if (PEFile.Read(lpszTmpName, MAX_PATH) != MAX_PATH)
         {
             return PEStatus_Err;
         }
-        uint64 nFunType64 = 0;
-        uint64 nOrdinal64 = 0;
+        uint128 nFunType64 = 0;
+        uint128 nOrdinal64 = 0;
         if (pstImport[index].OriginalFirstThunk != NULL)
         {
             IMAGE_THUNK_DATA64 stThunkData64;
-            for (uint32 nThunkNum = 0; ;nThunkNum++)
+            for (uint32 nThunkNum = 0; nThunkNum != 0xFFFFFF;nThunkNum++)
             {
-                PEFile.Seek(_ConverOffsetOfRVA(pstImport[index].OriginalFirstThunk)
+                PEFile.Seek64(_ConverOffsetOfRVA(pstImport[index].OriginalFirstThunk)
                     + (sizeof(IMAGE_THUNK_DATA64) * nThunkNum), PEFILE_SK_SET);
                 if (PEFile.Read(&stThunkData64, sizeof(IMAGE_THUNK_DATA64))
                     != sizeof(IMAGE_THUNK_DATA64))
                 {
                     return PEStatus_Err;
                 }
-                nFunType64 = (uint64)stThunkData64.u1.AddressOfData & IMAGE_ORDINAL_FLAG64;
-                nOrdinal64 = (uint64)stThunkData64.u1.Ordinal;
+                nFunType64 = stThunkData64.u1.AddressOfData & IMAGE_ORDINAL_FLAG64;
+                nOrdinal64 = stThunkData64.u1.Ordinal;
 
                 if (stThunkData64.u1.AddressOfData == 0)
                 {
@@ -314,14 +298,14 @@ PEStatus CPEParser::_ParseImport64(CPEFile& PEFile)
                 {
                     /*Name*/
                     IMAGE_IMPORT_BY_NAME ImportFoName;
-                    PEFile.Seek(_ConverOffsetOfRVA(nOrdinal64), PEFILE_SK_SET);
+                    PEFile.Seek64(_ConverOffsetOfRVA(nOrdinal64), PEFILE_SK_SET);
                     if (PEFile.Read(&ImportFoName, sizeof(IMAGE_IMPORT_BY_NAME))
                         != sizeof(IMAGE_IMPORT_BY_NAME))
                     {
                         return PEStatus_Err;
                     }
                     std::string strOrdinalName;
-                    PEFile.Seek(_ConverOffsetOfRVA(nOrdinal64) + sizeof(uint16), PEFILE_SK_SET);
+                    PEFile.Seek64(_ConverOffsetOfRVA(nOrdinal64) + sizeof(uint16), PEFILE_SK_SET);
                     while (true)
                     {
                         uint8 nTmp = 0;

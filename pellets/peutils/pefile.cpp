@@ -85,6 +85,19 @@ PEStatus CPEFile::Seek(Define::uint32 nSeekPos, PEFileSeekType peSeek)
     return PEStatus_Ok;
 }
 
+PEStatus CPEFile::Seek64(Define::uint128 nSeekPos, PEFileSeekType peSeek)
+{
+    if (!IsOpen())
+    {
+        return PEStatus_Err;
+    }
+    if (::SetFilePointer(m_File_Ptr, nSeekPos, 0, peSeek) == 0)
+    {
+        return PEStatus_Err;
+    }
+    return PEStatus_Ok;
+}
+
 PEStatus CPEFile::Close()
 {
     if (m_File_Ptr != NULL)

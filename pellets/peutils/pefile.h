@@ -32,6 +32,8 @@ public:
 
     PEStatus Seek(Define::uint32 nSeekPos, PEFileSeekType peSeek);
 
+    PEStatus Seek64(Define::uint128 nSeekPos, PEFileSeekType peSeek);
+
 private:
 
     Define::uint32 _ConverFileType(PEFileType pefileType);

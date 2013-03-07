@@ -9,6 +9,7 @@ using namespace Define;
 
 CPESectionObject::CPESectionObject()
 {
+    memset(&m_SectHead, 0, sizeof(IMAGE_SECTION_HEADER));
 }
 
 CPESectionObject::CPESectionObject(IMAGE_SECTION_HEADER* pstSectionHead)
