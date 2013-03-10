@@ -97,6 +97,24 @@
     <ClInclude Include="..\..\pellets\data_box\value_data.h" />
     <ClInclude Include="..\..\pellets\data_box\value_data_string.h" />
     <ClInclude Include="..\..\pellets\data_box\value_data_t.hpp" />
+    <ClInclude Include="..\..\pellets\ipc\ipccallclient.h" />
+    <ClInclude Include="..\..\pellets\ipc\ipcimsgprocessor.h" />
+    <ClInclude Include="..\..\pellets\ipc\ipcjsonprocessor.h" />
+    <ClInclude Include="..\..\pellets\ipc\ipcpipecltchannel.h" />
+    <ClInclude Include="..\..\pellets\ipc\ipcpipesvr.h" />
+    <ClInclude Include="..\..\pellets\ipc\ipcpipesvrchannel.h" />
+    <ClInclude Include="..\..\pellets\ipc\ipcrefcount.h" />
+    <ClInclude Include="..\..\pellets\ipc\ipc_def.h" />
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcerror.h" />
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcexception.h" />
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcfuncmgr.h" />
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcjsonconvert.h" />
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcjsonparam.h" />
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcjsonrun.h" />
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipclocation.h" />
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipclocker.h" />
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcpublic.h" />
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcutfconv.h" />
     <ClInclude Include="..\..\pellets\peutils\pefile.h" />
     <ClInclude Include="..\..\pellets\peutils\peimport.h" />
     <ClInclude Include="..\..\pellets\peutils\peobject.h" />
@@ -124,9 +142,17 @@
     <ClInclude Include="TestThreadSync.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_reader.cpp" />
+    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_value.cpp" />
+    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_writer.cpp" />
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp" />
     <ClCompile Include="..\..\pellets\data_box\value_data.cpp" />
     <ClCompile Include="..\..\pellets\data_box\value_data_string.cpp" />
+    <ClCompile Include="..\..\pellets\ipc\ipccallclient.cpp" />
+    <ClCompile Include="..\..\pellets\ipc\ipcjsonprocessor.cpp" />
+    <ClCompile Include="..\..\pellets\ipc\ipcpipecltchannel.cpp" />
+    <ClCompile Include="..\..\pellets\ipc\ipcpipesvr.cpp" />
+    <ClCompile Include="..\..\pellets\ipc\ipcpipesvrchannel.cpp" />
     <ClCompile Include="..\..\pellets\peutils\pefile.cpp" />
     <ClCompile Include="..\..\pellets\peutils\peimport.cpp" />
     <ClCompile Include="..\..\pellets\peutils\peparser.cpp" />
@@ -143,6 +169,11 @@
     <ClCompile Include="TestSerialize.cpp" />
     <ClCompile Include="TestThreadSync.cpp" />
     <ClCompile Include="test_pellets.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\3rdparty\jsonlib\src\json_internalarray.inl" />
+    <None Include="..\..\3rdparty\jsonlib\src\json_internalmap.inl" />
+    <None Include="..\..\3rdparty\jsonlib\src\json_valueiterator.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
