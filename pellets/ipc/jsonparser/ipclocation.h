@@ -18,22 +18,22 @@ namespace Ipc
 @ Creator: zzd
 @ Brief	: 记录代码位置，调试时使用
 @ Example:
-	class A : public KLocation
+	class A : public ipcLocation
 	{...}
 
 	A a;
 	a.Set(HERE_LOCATION);//a位记录下此代码的位置
 */
 
-class KLocation
+class ipcLocation
 {
 public:
-	KLocation(const char* file = UNKNOWN_LOCATION, const char* func = UNKNOWN_LOCATION, int line = -1)
+	ipcLocation(const char* file = UNKNOWN_LOCATION, const char* func = UNKNOWN_LOCATION, int line = -1)
 		: file_(file), func_(func){line_ = IntToString(line);}
-	KLocation(KLocation& l){
+	ipcLocation(ipcLocation& l){
 		file_ = l.file_; func_ = l.func_; line_ = l.line_;
 	}
-	virtual ~KLocation(){}
+	virtual ~ipcLocation(){}
 
 	void Set(const char* file, const char* func, int line)
 	{

@@ -44,12 +44,12 @@ namespace Ipc
 	};
 
 	template <class R>
-	class KGlobalFunc_0 : public IGlobalFunc
+	class ipcGlobalFunc_0 : public IGlobalFunc
 	{
 	public:
 		typedef R (*FuncType)(void);
 
-		KGlobalFunc_0(const char* func_name, FuncType func_ptr)
+		ipcGlobalFunc_0(const char* func_name, FuncType func_ptr)
 			: func_name_(func_name), func_ptr_(func_ptr){}
 
 		virtual const std::string& FuncName(void){return func_name_;}
@@ -79,12 +79,12 @@ namespace Ipc
 	};
 
 	template <class R, class P1>
-	class KGlobalFunc_1 : public IGlobalFunc
+	class ipcGlobalFunc_1 : public IGlobalFunc
 	{
 	public:
 		typedef R (*FuncType)(P1);
 
-		KGlobalFunc_1(const char* func_name, FuncType func_ptr)
+		ipcGlobalFunc_1(const char* func_name, FuncType func_ptr)
 			: func_name_(func_name), func_ptr_(func_ptr){}
 
 		virtual const std::string& FuncName(void){return func_name_;}
@@ -118,12 +118,12 @@ namespace Ipc
 	};
 
 	template <class R, class P1, class P2>
-	class KGlobalFunc_2 : public IGlobalFunc
+	class ipcGlobalFunc_2 : public IGlobalFunc
 	{
 	public:
 		typedef R (*FuncType)(P1, P2);
 
-		KGlobalFunc_2(const char* func_name, FuncType func_ptr)
+		ipcGlobalFunc_2(const char* func_name, FuncType func_ptr)
 			: func_name_(func_name), func_ptr_(func_ptr){}
 
 		virtual const std::string& FuncName(void){return func_name_;}
@@ -159,12 +159,12 @@ namespace Ipc
 	};
 
 	template <class R, class P1, class P2, class P3>
-	class KGlobalFunc_3 : public IGlobalFunc
+	class ipcGlobalFunc_3 : public IGlobalFunc
 	{
 	public:
 		typedef R (*FuncType)(P1, P2, P3);
 
-		KGlobalFunc_3(const char* func_name, FuncType func_ptr)
+		ipcGlobalFunc_3(const char* func_name, FuncType func_ptr)
 			: func_name_(func_name), func_ptr_(func_ptr){}
 
 		virtual const std::string& FuncName(void){return func_name_;}
@@ -202,12 +202,12 @@ namespace Ipc
 	};
 
 	template <class R, class P1, class P2, class P3, class P4>
-	class KGlobalFunc_4 : public IGlobalFunc
+	class ipcGlobalFunc_4 : public IGlobalFunc
 	{
 	public:
 		typedef R (*FuncType)(P1, P2, P3, P4);
 
-		KGlobalFunc_4(const char* func_name, FuncType func_ptr)
+		ipcGlobalFunc_4(const char* func_name, FuncType func_ptr)
 			: func_name_(func_name), func_ptr_(func_ptr){}
 
 		virtual const std::string& FuncName(void){return func_name_;}
@@ -247,12 +247,12 @@ namespace Ipc
 	};
 
 	template <class R, class P1, class P2, class P3, class P4, class P5>
-	class KGlobalFunc_5 : public IGlobalFunc
+	class ipcGlobalFunc_5 : public IGlobalFunc
 	{
 	public:
 		typedef R (*FuncType)(P1, P2, P3, P4, P5);
 
-		KGlobalFunc_5(const char* func_name, FuncType func_ptr)
+		ipcGlobalFunc_5(const char* func_name, FuncType func_ptr)
 			: func_name_(func_name), func_ptr_(func_ptr){}
 
 		virtual const std::string& FuncName(void){return func_name_;}
@@ -537,10 +537,10 @@ namespace Ipc
 		FuncType func_ptr_;
 	};
 
-	class KGlobalFuncSet
+	class ipcGlobalFuncSet
 	{
 	public:
-		~KGlobalFuncSet(void){this->Clear();}
+		~ipcGlobalFuncSet(void){this->Clear();}
 
 		IGlobalFunc* GetGlobalFunc(const char* func_name, int param_count)
 		{
@@ -794,7 +794,7 @@ namespace Ipc
 				}
 				return KJsonReturn(enumRet_Error).ToString();
 			}
-			catch (KException* e) {
+			catch (ipcException* e) {
 				return KJsonReturn(enumRet_Error, e->what()).ToString();
 			}
 			catch (std::exception* e)
@@ -819,7 +819,7 @@ namespace Ipc
 				}
 				return KJsonReturn(enumRet_Error).ToString();
 			}
-			catch (KException* e) {
+			catch (ipcException* e) {
 				return KJsonReturn(enumRet_Error, e->what()).ToString();
 			}
 			catch (std::exception* e)
@@ -861,7 +861,7 @@ namespace Ipc
 					else return KJsonReturn(enumRet_FuncNotFound).ToString();
 				}
 			}
-			catch (KException* e) {
+			catch (ipcException* e) {
 				return KJsonReturn(enumRet_Error, e->what()).ToString();
 			}
 			catch (std::exception* e)
@@ -894,7 +894,7 @@ namespace Ipc
 		DISNABLE_ASSIGN_OPERATION(KRemoteRunManager);
 
 	private:
-		KGlobalFuncSet	global_func_set_;
+		ipcGlobalFuncSet	global_func_set_;
 		KAllClassFuncSets class_func_sets_;
 		KClassObjectInstSet class_object_inst_set_;
 	};
@@ -905,7 +905,7 @@ namespace Ipc
 		typedef R (*FuncType)(void);
 		__KAutoAddGlobalFunc_0(const char* func_name, FuncType func_ptr)
 		{
-			KGlobalFunc_0<R>* p_global_func = new KGlobalFunc_0<R>(func_name, func_ptr);
+			ipcGlobalFunc_0<R>* p_global_func = new ipcGlobalFunc_0<R>(func_name, func_ptr);
 			KRemoteRunManager::Inst().Add(p_global_func);
 		}
 	};
@@ -916,7 +916,7 @@ namespace Ipc
 		typedef R (*FuncType)(P1);
 		__KAutoAddGlobalFunc_1(const char* func_name, FuncType func_ptr)
 		{
-			KGlobalFunc_1<R, P1>* p_global_func = new KGlobalFunc_1<R, P1>(func_name, func_ptr);
+			ipcGlobalFunc_1<R, P1>* p_global_func = new ipcGlobalFunc_1<R, P1>(func_name, func_ptr);
 			KRemoteRunManager::Inst().Add(p_global_func);
 		}
 	};
@@ -927,7 +927,7 @@ namespace Ipc
 		typedef R (*FuncType)(P1, P2);
 		__KAutoAddGlobalFunc_2(const char* func_name, FuncType func_ptr)
 		{
-			KGlobalFunc_2<R, P1, P2>* p_global_func = new KGlobalFunc_2<R, P1, P2>(func_name, func_ptr);
+			ipcGlobalFunc_2<R, P1, P2>* p_global_func = new ipcGlobalFunc_2<R, P1, P2>(func_name, func_ptr);
 			KRemoteRunManager::Inst().Add(p_global_func);
 		}
 	};
@@ -938,7 +938,7 @@ namespace Ipc
 		typedef R (*FuncType)(P1, P2, P3);
 		__KAutoAddGlobalFunc_3(const char* func_name, FuncType func_ptr)
 		{
-			KGlobalFunc_3<R, P1, P2, P3>* p_global_func = new KGlobalFunc_3<R, P1, P2, P3>(func_name, func_ptr);
+			ipcGlobalFunc_3<R, P1, P2, P3>* p_global_func = new ipcGlobalFunc_3<R, P1, P2, P3>(func_name, func_ptr);
 			KRemoteRunManager::Inst().Add(p_global_func);
 		}
 	};
@@ -949,7 +949,7 @@ namespace Ipc
 		typedef R (*FuncType)(P1, P2, P3, P4);
 		__KAutoAddGlobalFunc_4(const char* func_name, FuncType func_ptr)
 		{
-			KGlobalFunc_4<R, P1, P2, P3, P4>* p_global_func = new KGlobalFunc_4<R, P1, P2, P3, P4>(func_name, func_ptr);
+			ipcGlobalFunc_4<R, P1, P2, P3, P4>* p_global_func = new ipcGlobalFunc_4<R, P1, P2, P3, P4>(func_name, func_ptr);
 			KRemoteRunManager::Inst().Add(p_global_func);
 		}
 	};
@@ -960,7 +960,7 @@ namespace Ipc
 		typedef R (*FuncType)(P1, P2, P3, P4, P5);
 		__KAutoAddGlobalFunc_5(const char* func_name, FuncType func_ptr)
 		{
-			KGlobalFunc_5<R, P1, P2, P3, P4, P5>* p_global_func = new KGlobalFunc_5<R, P1, P2, P3, P4, P5>(func_name, func_ptr);
+			ipcGlobalFunc_5<R, P1, P2, P3, P4, P5>* p_global_func = new ipcGlobalFunc_5<R, P1, P2, P3, P4, P5>(func_name, func_ptr);
 			KRemoteRunManager::Inst().Add(p_global_func);
 		}
 	};

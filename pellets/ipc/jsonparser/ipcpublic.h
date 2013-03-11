@@ -50,7 +50,7 @@ namespace Ipc
 		protected: \
 		class_name& operator = (class_name&){}
 
-	#define THROW_EXCEPTION throw new KException(KLocation(HERE_LOCATION))
+	#define THROW_EXCEPTION throw new ipcException(ipcLocation(HERE_LOCATION))
 
 }
 }
