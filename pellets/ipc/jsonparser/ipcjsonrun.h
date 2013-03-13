@@ -41,18 +41,18 @@
 
 	5.调用全局函数时直接创建Json字符串，如：
 	std::string json_str = CreateGlobalCall("PrintValue", 3888);
-	KJsonRun::KReturnParse parse = KRemoteRunManager::Inst().Run(json_str.c_str());
+	zl::Ipc::ipcReturnParse parse = ipcRemoteRunManager::Inst().Run(json_str.c_str());
 	int n_ret_value = -1;
 	if (parse.Value(n_ret_value)) {...};use n_ret_value
 	else {...}error
 
 	6.调用接口的类函数时，要先创建对象，再通过对象ID调用，如：
 	std::string json_str = CreateObjectCreateCall("IExport");
-	KJsonRun::KReturnParse parse = KRemoteRunManager::Inst().Run(json_str.c_str());
+	zl::Ipc::ipcReturnParse parse = ipcRemoteRunManager::Inst().Run(json_str.c_str());
 	parse.Value(n_id);
 
 	json_str = CreateClass(n_id, "PrintValue", 3888);
-	int n_ret = KRemoteRunManager::Inst().Run(json_str.c_str());
+	int n_ret = ipcRemoteRunManager::Inst().Run(json_str.c_str());
 
 	7.C++调用时，用KJsonParam来创建调用函数。Html就得自己组建Json字符串
 

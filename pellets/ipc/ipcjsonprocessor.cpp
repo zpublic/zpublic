@@ -11,14 +11,14 @@ std::string ipcJsonProcessor::Process(const char* szBuffer)
 	Json::Value json_value;
 	std::string json_operation;
 
-	json_operation = KRemoteRunManager::Inst().GetOperation(szBuffer, json_value);
+	json_operation = ipcRemoteRunManager::Inst().GetOperation(szBuffer, json_value);
 	if (json_operation == defJsonOperateAlloc)
 	{
 		int nID = 0;
 		std::string json_ret;
-		KReturnParse parse;
+		ipcReturnParse parse;
 		
-		json_ret = KRemoteRunManager::Inst().AllocObject(json_value);
+		json_ret = ipcRemoteRunManager::Inst().AllocObject(json_value);
 		
 		parse = json_ret;
 		if (parse.Value(nID))
@@ -38,11 +38,11 @@ std::string ipcJsonProcessor::Process(const char* szBuffer)
 			this->RemoveObject(nID);
 		}
 		
-		return KRemoteRunManager::Inst().DeallocObject(json_value);
+		return ipcRemoteRunManager::Inst().DeallocObject(json_value);
 	}
 	else if (json_operation == defJsonOperateRun)
 	{
-		return KRemoteRunManager::Inst().RunFunc(json_value);
+		return ipcRemoteRunManager::Inst().RunFunc(json_value);
 	}
 	
 	return KJsonReturn(enumRet_Error).ToString();
@@ -71,7 +71,7 @@ void ipcJsonProcessor::ClearAll(void)
 	for (iter = m_lstObjects.begin(); iter != m_lstObjects.end(); ++iter)
 	{
 		nID = *iter;
-		KRemoteRunManager::Inst().DeallocObject(nID);		
+		ipcRemoteRunManager::Inst().DeallocObject(nID);		
 	}
 	
 	m_lstObjects.clear();

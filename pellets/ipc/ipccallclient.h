@@ -73,6 +73,21 @@ public:
     template<class T, class P1, class P2, class P3>
     BOOL CallFunc(LPCSTR funcName, T& funcRet, const P1& p1, const P2& p2, const P3& p3);
 
+    template<class T, class RP1>
+    BOOL CallFuncRP1(LPCSTR funcName, T& funcRet, RP1& rp1);
+
+    template<class T, class RP1, class P1>
+    BOOL CallFuncRP1(LPCSTR funcName, T& funcRet, RP1& rp1, const P1& p1);
+
+    template<class T, class RP1, class P1, class P2>
+    BOOL CallFuncRP1(LPCSTR funcName, T& funcRet, RP1& rp1, const P1& p1, const P2& p2);
+
+    template<class T, class RP1, class RP2>
+    BOOL CallFuncRP2(LPCSTR funcName, T& funcRet, RP1& rp1, RP2& rp2);
+
+    template<class T, class RP1, class RP2, class P1>
+    BOOL CallFuncRP2(LPCSTR funcName, T& funcRet, RP1& rp1, RP2& rp2, const P1& p1);
+
 protected:
     BOOL Connect(void);
     
@@ -89,7 +104,7 @@ std::string ipcCallClient::Call(LPCSTR szFuncName, const P1& p1)
 {	
     std::string json_call_string;
 
-    json_call_string = KJsonRun::CreateGlobalCall(szFuncName, p1);
+    json_call_string = zl::Ipc::CreateGlobalCall(szFuncName, p1);
     
     return this->RunJson(json_call_string);
 }
@@ -99,7 +114,7 @@ std::string ipcCallClient::Call(LPCSTR szFuncName, const P1& p1, const P2& p2)
 {
     std::string json_call_string;
 
-    json_call_string = KJsonRun::CreateGlobalCall(szFuncName, p1, p2);
+    json_call_string = zl::Ipc::CreateGlobalCall(szFuncName, p1, p2);
 
     return this->RunJson(json_call_string);
 }
@@ -109,7 +124,7 @@ std::string ipcCallClient::Call(LPCSTR szFuncName, const P1& p1, const P2& p2, c
 {
     std::string json_call_string;
 
-    json_call_string = KJsonRun::CreateGlobalCall(szFuncName, p1, p2, p3);
+    json_call_string = zl::Ipc::CreateGlobalCall(szFuncName, p1, p2, p3);
 
     return this->RunJson(json_call_string);
 }
@@ -119,7 +134,7 @@ std::string ipcCallClient::Call(LPCSTR szFuncName, const P1& p1, const P2& p2, c
 {
     std::string json_call_string;
 
-    json_call_string = KJsonRun::CreateGlobalCall(szFuncName, p1, p2, p3, p4);
+    json_call_string = zl::Ipc::CreateGlobalCall(szFuncName, p1, p2, p3, p4);
 
     return this->RunJson(json_call_string);
 }
@@ -129,7 +144,7 @@ std::string ipcCallClient::Call(LPCSTR szFuncName, const P1& p1, const P2& p2, c
 {
     std::string json_call_string;
 
-    json_call_string = KJsonRun::CreateGlobalCall(szFuncName, p1, p2, p3, p4, p5);
+    json_call_string = zl::Ipc::CreateGlobalCall(szFuncName, p1, p2, p3, p4, p5);
 
     return this->RunJson(json_call_string);
 }
@@ -139,7 +154,7 @@ std::string ipcCallClient::Call(int id, LPCSTR szFuncName, const P1& p1)
 {	
     std::string json_call_string;
 
-    json_call_string = KJsonRun::CreateClassCall(id, szFuncName, p1);
+    json_call_string = zl::Ipc::CreateClassCall(id, szFuncName, p1);
 
     return this->RunJson(json_call_string);
 }
@@ -149,7 +164,7 @@ std::string ipcCallClient::Call(int id, LPCSTR szFuncName, const P1& p1, const P
 {
     std::string json_call_string;
 
-    json_call_string = KJsonRun::CreateClassCall(id, szFuncName, p1, p2);
+    json_call_string = zl::Ipc::CreateClassCall(id, szFuncName, p1, p2);
 
     return this->RunJson(json_call_string);
 }
@@ -159,7 +174,7 @@ std::string ipcCallClient::Call(int id, LPCSTR szFuncName, const P1& p1, const P
 {
     std::string json_call_string;
 
-    json_call_string = KJsonRun::CreateClassCall(id, szFuncName, p1, p2, p3);
+    json_call_string = zl::Ipc::CreateClassCall(id, szFuncName, p1, p2, p3);
 
     return this->RunJson(json_call_string);
 }
@@ -169,7 +184,7 @@ std::string ipcCallClient::Call(int id, LPCSTR szFuncName, const P1& p1, const P
 {
     std::string json_call_string;
 
-    json_call_string = KJsonRun::CreateClassCall(id, szFuncName, p1, p2, p3, p4);
+    json_call_string = zl::Ipc::CreateClassCall(id, szFuncName, p1, p2, p3, p4);
 
     return this->RunJson(json_call_string);
 }
@@ -179,7 +194,7 @@ std::string ipcCallClient::Call(int id, LPCSTR szFuncName, const P1& p1, const P
 {
     std::string json_call_string;
 
-    json_call_string = KJsonRun::CreateClassCall(id, szFuncName, p1, p2, p3, p4, p5);
+    json_call_string = zl::Ipc::CreateClassCall(id, szFuncName, p1, p2, p3, p4, p5);
 
     return this->RunJson(json_call_string);
 }
@@ -188,7 +203,7 @@ template<class T>
 BOOL ipcCallClient::CallFunc(LPCSTR funcName, T& funcRet)
 {
     BOOL bRet = FALSE;
-    KJsonRun::KReturnParse parser = this->Call(funcName);
+    zl::Ipc::ipcReturnParse parser = this->Call(funcName);
     if (parser.Error())
         goto Exit0;
     if (!parser.Value(funcRet))
@@ -202,10 +217,80 @@ template<class T, class P1>
 BOOL ipcCallClient::CallFunc(LPCSTR funcName, T& funcRet, const P1& p1)
 {
     BOOL bRet = FALSE;
-    KJsonRun::KReturnParse parser = this->Call(funcName, p1);
+    zl::Ipc::ipcReturnParse parser = this->Call(funcName, p1);
     if (parser.Error())
         goto Exit0;
     if (!parser.Value(funcRet))
+        goto Exit0;
+    bRet = TRUE;
+Exit0:
+    return bRet;
+}
+
+template<class T, class RP1>
+BOOL ipcCallClient::CallFuncRP1(LPCSTR funcName, T& funcRet, RP1& rp1)
+{
+    BOOL bRet = FALSE;
+    zl::Ipc::ipcReturnParse parser = this->Call(funcName, rp1);
+    if (parser.Error())
+        goto Exit0;
+    if (!parser.Value(funcRet, rp1))
+        goto Exit0;
+    bRet = TRUE;
+Exit0:
+    return bRet;
+}
+
+template<class T, class RP1, class P1>
+BOOL ipcCallClient::CallFuncRP1(LPCSTR funcName, T& funcRet, RP1& rp1, const P1& p1)
+{
+    BOOL bRet = FALSE;
+    zl::Ipc::ipcReturnParse parser = this->Call(funcName, rp1, p1);
+    if (parser.Error())
+        goto Exit0;
+    if (!parser.Value(funcRet, rp1))
+        goto Exit0;
+    bRet = TRUE;
+Exit0:
+    return bRet;
+}
+
+template<class T, class RP1, class P1, class P2>
+BOOL ipcCallClient::CallFuncRP1(LPCSTR funcName, T& funcRet, RP1& rp1, const P1& p1, const P2& p2)
+{
+    BOOL bRet = FALSE;
+    zl::Ipc::ipcReturnParse parser = this->Call(funcName, rp1, p1, p2);
+    if (parser.Error())
+        goto Exit0;
+    if (!parser.Value(funcRet, rp1))
+        goto Exit0;
+    bRet = TRUE;
+Exit0:
+    return bRet;
+}
+
+template<class T, class RP1, class RP2>
+BOOL ipcCallClient::CallFuncRP2(LPCSTR funcName, T& funcRet, RP1& rp1, RP2& rp2)
+{
+    BOOL bRet = FALSE;
+    zl::Ipc::ipcReturnParse parser = this->Call(funcName, rp1, rp2);
+    if (parser.Error())
+        goto Exit0;
+    if (!parser.Value(funcRet, rp1, rp2))
+        goto Exit0;
+    bRet = TRUE;
+Exit0:
+    return bRet;
+}
+
+template<class T, class RP1, class RP2, class P1>
+BOOL ipcCallClient::CallFuncRP2(LPCSTR funcName, T& funcRet, RP1& rp1, RP2& rp2, const P1& p1)
+{
+    BOOL bRet = FALSE;
+    zl::Ipc::ipcReturnParse parser = this->Call(funcName, rp1, rp2, p1);
+    if (parser.Error())
+        goto Exit0;
+    if (!parser.Value(funcRet, rp1, rp2))
         goto Exit0;
     bRet = TRUE;
 Exit0:
@@ -216,7 +301,7 @@ template<class T, class P1, class P2>
 BOOL ipcCallClient::CallFunc(LPCSTR funcName, T& funcRet, const P1& p1, const P2& p2)
 {
     BOOL bRet = FALSE;
-    KJsonRun::KReturnParse parser = this->Call(funcName, p1, p2);
+    zl::Ipc::ipcReturnParse parser = this->Call(funcName, p1, p2);
     if (parser.Error())
         goto Exit0;
     if (!parser.Value(funcRet))
@@ -230,7 +315,7 @@ template<class T, class P1, class P2, class P3>
 BOOL ipcCallClient::CallFunc(LPCSTR funcName, T& funcRet, const P1& p1, const P2& p2, const P3& p3)
 {
     BOOL bRet = FALSE;
-    KJsonRun::KReturnParse parser = this->Call(funcName, p1, p2, p3);
+    zl::Ipc::ipcReturnParse parser = this->Call(funcName, p1, p2, p3);
     if (parser.Error())
         goto Exit0;
     if (!parser.Value(funcRet))

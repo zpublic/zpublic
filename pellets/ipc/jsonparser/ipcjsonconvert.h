@@ -631,14 +631,14 @@ namespace Ipc
     };
 
     /*
-    @ ClassName : KReturnParse
+    @ ClassName : ipcReturnParse
     @ Brief		: 外部使用，将返回的Json中的信息提取出来
     */
-    struct KReturnParse 
+    struct ipcReturnParse
     {
-        KReturnParse() : code_(enumRet_Error){}
+        ipcReturnParse() : code_(enumRet_Error){}
 
-        KReturnParse(std::string& s){ Parse(s); }
+        ipcReturnParse(std::string& s){ Parse(s); }
 
         std::string& operator = (std::string& s){ Parse(s); return s; }
         const char* operator = (const char* s){ Parse(s); return s; }
