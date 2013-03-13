@@ -10,11 +10,6 @@ namespace zl
 {
 namespace Ipc
 {
-    /*
-    @ ClassName : Value2Json
-    @ Brief		: 将数据转换成Json字符串
-    @ Remark	: 支持的数据类型在该文件头处已有声明
-    */
     template <class T>
     struct Value2Json 
     {
@@ -583,35 +578,16 @@ namespace Ipc
         } 
     }
 
-    /*
-    @ 返回值的Json结构:
-        code : 0;
-        msg  : "";
-        value : json_value;
-
-    struct KJsonReturn 
-    {
-        int nError;
-        std::string strErrorMsg;
-        Json::Value json_return;
-    };
-    */
-
-
-    /*
-    @ ClassName	: KJsonReturn
-    @ Brief		: 内部使用，将返回码，提示信息和返回值转换成Json
-    */
-    class KJsonReturn
+    class ipcJsonReturn
     {
     public:
-        KJsonReturn(enumReturnValule code = enumRet_Succeed, const char* msg = "") : code_(code), msg_(msg)
+        ipcJsonReturn(enumReturnValule code = enumRet_Succeed, const char* msg = "") : code_(code), msg_(msg)
         {
             value_[defJsonRetCode] = code;
             value_[defJsonRetMessage] = msg;
         }
         template<class T>
-        KJsonReturn(T& v, enumReturnValule code = enumRet_Succeed, const char* msg = "")
+        ipcJsonReturn(T& v, enumReturnValule code = enumRet_Succeed, const char* msg = "")
         {
             value_[defJsonRetCode] = code;
             value_[defJsonRetMessage] = msg;
@@ -630,10 +606,6 @@ namespace Ipc
         Json::Value value_;
     };
 
-    /*
-    @ ClassName : ipcReturnParse
-    @ Brief		: 外部使用，将返回的Json中的信息提取出来
-    */
     struct ipcReturnParse
     {
         ipcReturnParse() : code_(enumRet_Error){}
@@ -721,10 +693,12 @@ namespace Ipc
         Json::Value value_;
     };
 
-}//namespace KJsonRun
+}
+}
 
 #define STRUCT_TO_JSON_1(struct_name, m1) \
-namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
     struct Value2Json<const struct_name> \
     { \
@@ -753,10 +727,12 @@ namespace KJsonRun { \
     private: \
         Json::Value json_value_; \
     }; \
+}\
 }
 
 #define STRUCT_TO_JSON_2(struct_name, m1, m2) \
-namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
     struct Value2Json<const struct_name> \
     { \
@@ -787,10 +763,12 @@ namespace KJsonRun { \
     private: \
         Json::Value json_value_; \
     }; \
+}\
 }
 
 #define STRUCT_TO_JSON_3(struct_name, m1, m2, m3) \
-namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
     struct Value2Json<const struct_name> \
     { \
@@ -823,10 +801,12 @@ namespace KJsonRun { \
     private: \
         Json::Value json_value_; \
     }; \
+}\
 }
 
 #define STRUCT_TO_JSON_4(struct_name, m1, m2, m3, m4) \
-    namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
 struct Value2Json<const struct_name> \
     { \
@@ -861,10 +841,12 @@ struct Value2Json<const struct_name&> \
     private: \
         Json::Value json_value_; \
     }; \
+}\
 }
 
 #define STRUCT_TO_JSON_5(struct_name, m1, m2, m3, m4, m5) \
-    namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
 struct Value2Json<const struct_name> \
     { \
@@ -901,10 +883,12 @@ struct Value2Json<const struct_name&> \
     private: \
         Json::Value json_value_; \
     }; \
+}\
 }
 
 #define STRUCT_TO_JSON_6(struct_name, m1, m2, m3, m4, m5, m6) \
-    namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
 struct Value2Json<const struct_name> \
     { \
@@ -943,10 +927,12 @@ struct Value2Json<const struct_name&> \
     private: \
         Json::Value json_value_; \
     }; \
+}\
 }
 
 #define STRUCT_TO_JSON_7(struct_name, m1, m2, m3, m4, m5, m6, m7) \
-    namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
 struct Value2Json<const struct_name> \
     { \
@@ -987,10 +973,12 @@ struct Value2Json<const struct_name&> \
     private: \
         Json::Value json_value_; \
     }; \
+}\
 }
 
 #define STRUCT_TO_JSON_8(struct_name, m1, m2, m3, m4, m5, m6, m7, m8) \
-    namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
 struct Value2Json<const struct_name> \
     { \
@@ -1033,12 +1021,13 @@ struct Value2Json<const struct_name&> \
     private: \
         Json::Value json_value_; \
     }; \
+}\
 }
 
 
-
 #define JSON_TO_STRUCT_VALUE_1(struct_name, m1) \
-namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
     struct Json2Value<struct_name> \
     { \
@@ -1078,7 +1067,8 @@ namespace KJsonRun { \
 }
 
 #define JSON_TO_STRUCT_VALUE_2(struct_name, m1, m2) \
-namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
     struct Json2Value<struct_name> \
     { \
@@ -1117,10 +1107,12 @@ namespace KJsonRun { \
     private: \
         struct_name value_; \
     }; \
+}\
 }
 
 #define JSON_TO_STRUCT_VALUE_3(struct_name, m1, m2, m3) \
-namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
     struct Json2Value<struct_name> \
     { \
@@ -1161,10 +1153,12 @@ namespace KJsonRun { \
     private: \
         struct_name value_; \
     }; \
+}\
 }
 
 #define JSON_TO_STRUCT_VALUE_4(struct_name, m1, m2, m3, m4) \
-namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
     struct Json2Value<struct_name> \
     { \
@@ -1207,10 +1201,12 @@ namespace KJsonRun { \
     private: \
         struct_name value_; \
     }; \
+}\
 }
 
 #define JSON_TO_STRUCT_VALUE_5(struct_name, m1, m2, m3, m4, m5) \
-namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
     struct Json2Value<struct_name> \
     { \
@@ -1255,10 +1251,12 @@ namespace KJsonRun { \
     private: \
         struct_name value_; \
     }; \
+}\
 }
 
 #define JSON_TO_STRUCT_VALUE_6(struct_name, m1, m2, m3, m4, m5, m6) \
-namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
     struct Json2Value<struct_name> \
     { \
@@ -1305,10 +1303,12 @@ namespace KJsonRun { \
     private: \
         struct_name value_; \
     }; \
+}\
 }
 
 #define JSON_TO_STRUCT_VALUE_7(struct_name, m1, m2, m3, m4, m5, m6, m7) \
-namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
     struct Json2Value<struct_name> \
     { \
@@ -1357,10 +1357,12 @@ namespace KJsonRun { \
     private: \
         struct_name value_; \
     }; \
+}\
 }
 
 #define JSON_TO_STRUCT_VALUE_8(struct_name, m1, m2, m3, m4, m5, m6, m7, m8) \
-namespace KJsonRun { \
+namespace zl { \
+namespace Ipc { \
     template <> \
     struct Json2Value<struct_name> \
     { \
@@ -1411,7 +1413,7 @@ namespace KJsonRun { \
     private: \
         struct_name value_; \
     }; \
-}
+}\
 }
 
 #define DECLARE_JSON_CONVERSION_1(struct_name, m1) \

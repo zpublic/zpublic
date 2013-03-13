@@ -54,7 +54,7 @@
 	json_str = CreateClass(n_id, "PrintValue", 3888);
 	int n_ret = ipcRemoteRunManager::Inst().Run(json_str.c_str());
 
-	7.C++调用时，用KJsonParam来创建调用函数。Html就得自己组建Json字符串
+	7.C++调用时，用ipcJsonParam来创建调用函数。Html就得自己组建Json字符串
 
 	8.各种Json字符串说明
 	  调用全局函数时的Json字符串
@@ -82,15 +82,15 @@
 	2.增加注释
 
 	3.让Call的调用简单一点，如下：
-	KGlobalRun_0<class R>
+	ipcGlobalRun_0<class R>
 	{
-		KGlobalRun_0(const char* class_name);
+		ipcGlobalRun_0(const char* class_name);
 		void Run();
 		int RetCode();
 		std::string& RetMsg();
 		R& RetValue();
 	}
-	KGlobalRun_1<class R, class P1>;
+	ipcGlobalRun_1<class R, class P1>;
 
 
 */

@@ -72,7 +72,7 @@ Exit0:
     }
     else
     {
-        return KJsonReturn(json_ret_error).ToString();
+        return ipcJsonReturn(json_ret_error).ToString();
     }
 }
 

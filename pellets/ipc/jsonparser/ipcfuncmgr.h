@@ -9,9 +9,6 @@ namespace zl
 {
 namespace Ipc
 {
-    /*
-    @ Brief	: 以下是将所有全局函数，类函数，类实例统一维护起来，运行的时候可以用Json通过一个接口调用
-    */
     struct IGlobalFunc
     {
         virtual ~IGlobalFunc(){}
@@ -64,13 +61,13 @@ namespace Ipc
         std::string RunByType(Json::Value& param_array, Type2Type<T>)
         {
             R ret_value = func_ptr_();
-            return KJsonReturn(ret_value).ToString();
+            return ipcJsonReturn(ret_value).ToString();
         }
 
         std::string RunByType(Json::Value& param_array, Type2Type<void>)
         {
             func_ptr_();
-            return KJsonReturn().ToString();
+            return ipcJsonReturn().ToString();
         }
 
     private:
@@ -101,7 +98,7 @@ namespace Ipc
             int n_param_pos_0 = 0;
             Json2Value<P1> p1(param_array[n_param_pos_0]);
             R ret_value = func_ptr_(p1.Value());
-            return KJsonReturn(ret_value).ToString();
+            return ipcJsonReturn(ret_value).ToString();
         }
 
         std::string RunByType(Json::Value& param_array, Type2Type<void>)
@@ -109,7 +106,7 @@ namespace Ipc
             int n_param_pos_0 = 0;
             Json2Value<P1> p1(param_array[n_param_pos_0]);
             func_ptr_(p1.Value());
-            return KJsonReturn().ToString();
+            return ipcJsonReturn().ToString();
         }
 
     private:
@@ -141,7 +138,7 @@ namespace Ipc
             Json2Value<P1> p1(param_array[n_param_pos_0]);
             Json2Value<P2> p2(param_array[n_param_pos_0 + 1]);
             R ret_value = func_ptr_(p1.Value(), p2.Value());
-            return KJsonReturn(ret_value).ToString();
+            return ipcJsonReturn(ret_value).ToString();
         }
 
         std::string RunByType(Json::Value& param_array, Type2Type<void>)
@@ -150,7 +147,7 @@ namespace Ipc
             Json2Value<P1> p1(param_array[n_param_pos_0]);
             Json2Value<P2> p2(param_array[n_param_pos_0 + 1]);
             func_ptr_(p1.Value(), p2.Value());
-            return KJsonReturn().ToString();
+            return ipcJsonReturn().ToString();
         }
 
     private:
@@ -183,7 +180,7 @@ namespace Ipc
             Json2Value<P2> p2(param_array[n_param_pos_0 + 1]);
             Json2Value<P3> p3(param_array[n_param_pos_0 + 2]);
             R ret_value = func_ptr_(p1.Value(), p2.Value(), p3.Value());
-            return KJsonReturn(ret_value).ToString();
+            return ipcJsonReturn(ret_value).ToString();
         }
 
         std::string RunByType(Json::Value& param_array, Type2Type<void>)
@@ -193,7 +190,7 @@ namespace Ipc
             Json2Value<P2> p2(param_array[n_param_pos_0 + 1]);
             Json2Value<P3> p3(param_array[n_param_pos_0 + 2]);
             func_ptr_(p1.Value(), p2.Value(), p3.Value());
-            return KJsonReturn().ToString();
+            return ipcJsonReturn().ToString();
         }
 
     private:
@@ -227,7 +224,7 @@ namespace Ipc
             Json2Value<P3> p3(param_array[n_param_pos_0 + 2]);
             Json2Value<P4> p4(param_array[n_param_pos_0 + 3]);
             R ret_value = func_ptr_(p1.Value(), p2.Value(), p3.Value(), p4.Value());
-            return KJsonReturn(ret_value).ToString();
+            return ipcJsonReturn(ret_value).ToString();
         }
 
         std::string RunByType(Json::Value& param_array, Type2Type<void>)
@@ -238,7 +235,7 @@ namespace Ipc
             Json2Value<P3> p3(param_array[n_param_pos_0 + 2]);
             Json2Value<P4> p4(param_array[n_param_pos_0 + 3]);
             func_ptr_(p1.Value(), p2.Value(), p3.Value(), p4.Value());
-            return KJsonReturn().ToString();
+            return ipcJsonReturn().ToString();
         }
 
     private:
@@ -273,7 +270,7 @@ namespace Ipc
             Json2Value<P4> p4(param_array[n_param_pos_0 + 3]);
             Json2Value<P5> p5(param_array[n_param_pos_0 + 4]);
             R ret_value = func_ptr_(p1.Value(), p2.Value(), p3.Value(), p4.Value(), p5.Valule());
-            return KJsonReturn(ret_value).ToString();
+            return ipcJsonReturn(ret_value).ToString();
         }
 
         std::string RunByType(Json::Value& param_array, Type2Type<void>)
@@ -285,7 +282,7 @@ namespace Ipc
             Json2Value<P4> p4(param_array[n_param_pos_0 + 3]);
             Json2Value<P5> p5(param_array[n_param_pos_0 + 4]);
             func_ptr_(p1.Value(), p2.Value(), p3.Value(), p4.Value(), p5.Value());
-            return KJsonReturn().ToString();
+            return ipcJsonReturn().ToString();
         }
 
     private:
@@ -374,12 +371,12 @@ namespace Ipc
     };
 
     template <class R, class RP1, class P2, class P3>
-    class KGlobalFunc_3_1 : public IGlobalFunc
+    class ipcGlobalFunc_3_1 : public IGlobalFunc
     {
     public:
         typedef R (*FuncType)(RP1&, P2, P3);
 
-        KGlobalFunc_3_1(const char* func_name, FuncType func_ptr)
+        ipcGlobalFunc_3_1(const char* func_name, FuncType func_ptr)
             : func_name_(func_name), func_ptr_(func_ptr){}
 
         virtual const std::string& FuncName(void){return func_name_;}
@@ -398,7 +395,7 @@ namespace Ipc
             Json2Value<P3> p3(param_array[n_param_pos_0 + 2]);
             RP1 rp1;
             R ret_value = func_ptr_(rp1, p2.Value(), p3.Value());
-            return KJsonReturn(ret_value, rp1).ToString();
+            return ipcJsonReturn(ret_value, rp1).ToString();
         }
 
         std::string RunByType(Json::Value& param_array, Type2Type<void>)
@@ -408,7 +405,7 @@ namespace Ipc
             Json2Value<P3> p3(param_array[n_param_pos_0 + 2]);
             RP1 rp1;
             func_ptr_(rp1, p2.Value(), p3.Value());
-            return KJsonReturn(0, rp1).ToString();
+            return ipcJsonReturn(0, rp1).ToString();
         }
 
     private:
@@ -503,11 +500,11 @@ namespace Ipc
 
 
     template <class Class, class R>
-    class KClassFunc_0 : public IClassFunc<Class>
+    class ipcClassFunc_0 : public IClassFunc<Class>
     {
     public:
         typedef R (Class::*FuncType)(void);
-        KClassFunc_0(const char* func_name, FuncType func_ptr)
+        ipcClassFunc_0(const char* func_name, FuncType func_ptr)
             : func_name_(func_name), func_ptr_(func_ptr){}
 
         virtual const std::string& FuncName(void){return func_name_;}
@@ -522,13 +519,13 @@ namespace Ipc
         std::string RunByType(Class* p_inst, Json::Value& param_array, Type2Type<T>)
         {
             R ret_value = (p_inst->*func_ptr_)();
-            return KJsonReturn(ret_value).ToString();
+            return ipcJsonReturn(ret_value).ToString();
         }
 
         std::string RunByType(Class* p_inst, Json::Value& param_array, Type2Type<void>)
         {
             (p_inst->*func_ptr_)();
-            return KJsonReturn().ToString();
+            return ipcJsonReturn().ToString();
         }
 
     private:
@@ -537,11 +534,11 @@ namespace Ipc
     };
 
     template <class Class, class R, class P1>
-    class KClassFunc_1 : public IClassFunc<Class>
+    class ipcClassFunc_1 : public IClassFunc<Class>
     {
     public:
         typedef R (Class::*FuncType)(P1);
-        KClassFunc_1(const char* func_name, FuncType func_ptr)
+        ipcClassFunc_1(const char* func_name, FuncType func_ptr)
             : func_name_(func_name), func_ptr_(func_ptr){}
 
         virtual const std::string& FuncName(void){return func_name_;}
@@ -558,7 +555,7 @@ namespace Ipc
             int n_param_pos_0 = 0;
             Json2Value<P1> p1(param_array[n_param_pos_0]);
             R ret_value = (p_inst->*func_ptr_)(p1.Value());
-            return KJsonReturn(ret_value).ToString();
+            return ipcJsonReturn(ret_value).ToString();
         }
 
         std::string RunByType(Class* p_inst, Json::Value& param_array, Type2Type<void>)
@@ -566,7 +563,7 @@ namespace Ipc
             int n_param_pos_0 = 0;
             Json2Value<P1> p1(param_array[n_param_pos_0]);
             (p_inst->*func_ptr_)(p1.Value());
-            return KJsonReturn().ToString();
+            return ipcJsonReturn().ToString();
         }
 
     private:
@@ -575,11 +572,11 @@ namespace Ipc
     };
 
     template <class Class, class R, class P1, class P2>
-    class KClassFunc_2 : public IClassFunc<Class>
+    class ipcClassFunc_2 : public IClassFunc<Class>
     {
     public:
         typedef R (Class::*FuncType)(P1, P2);
-        KClassFunc_2(const char* func_name, FuncType func_ptr)
+        ipcClassFunc_2(const char* func_name, FuncType func_ptr)
             : func_name_(func_name), func_ptr_(func_ptr){}
 
         virtual const std::string& FuncName(void){return func_name_;}
@@ -597,7 +594,7 @@ namespace Ipc
             Json2Value<P1> p1(param_array[n_param_pos_0]);
             Json2Value<P2> p2(param_array[n_param_pos_0 + 1]);
             R ret_value = (p_inst->*func_ptr_)(p1.Value(), p2.Value());
-            return KJsonReturn(ret_value).ToString();
+            return ipcJsonReturn(ret_value).ToString();
         }
 
         std::string RunByType(Class* p_inst, Json::Value& param_array, Type2Type<void>)
@@ -606,7 +603,7 @@ namespace Ipc
             Json2Value<P1> p1(param_array[n_param_pos_0]);
             Json2Value<P2> p2(param_array[n_param_pos_0 + 1]);
             (p_inst->*func_ptr_)(p1.Value(), p2.Value());
-            return KJsonReturn().ToString();
+            return ipcJsonReturn().ToString();
         }
 
     private:
@@ -615,11 +612,11 @@ namespace Ipc
     };
 
     template <class Class, class R, class P1, class P2, class P3>
-    class KClassFunc_3 : public IClassFunc<Class>
+    class ipcClassFunc_3 : public IClassFunc<Class>
     {
     public:
         typedef R (Class::*FuncType)(P1, P2, P3);
-        KClassFunc_3(const char* func_name, FuncType func_ptr)
+        ipcClassFunc_3(const char* func_name, FuncType func_ptr)
             : func_name_(func_name), func_ptr_(func_ptr){}
 
         virtual const std::string& FuncName(void){return func_name_;}
@@ -638,7 +635,7 @@ namespace Ipc
             Json2Value<P2> p2(param_array[n_param_pos_0 + 1]);
             Json2Value<P3> p3(param_array[n_param_pos_0 + 2]);
             R ret_value = (p_inst->*func_ptr_)(p1.Value(), p2.Value(), p3.Value());
-            return KJsonReturn(ret_value).ToString();
+            return ipcJsonReturn(ret_value).ToString();
         }
 
         std::string RunByType(Class* p_inst, Json::Value& param_array, Type2Type<void>)
@@ -648,7 +645,7 @@ namespace Ipc
             Json2Value<P2> p2(param_array[n_param_pos_0 + 1]);
             Json2Value<P3> p3(param_array[n_param_pos_0 + 2]);
             (p_inst->*func_ptr_)(p1.Value(), p2.Value(), p3.Value());
-            return KJsonReturn().ToString();
+            return ipcJsonReturn().ToString();
         }
 
     private:
@@ -657,11 +654,11 @@ namespace Ipc
     };
 
     template <class Class, class R, class P1, class P2, class P3, class P4>
-    class KClassFunc_4 : public IClassFunc<Class>
+    class ipcClassFunc_4 : public IClassFunc<Class>
     {
     public:
         typedef R (Class::*FuncType)(P1, P2, P3, P4);
-        KClassFunc_4(const char* func_name, FuncType func_ptr)
+        ipcClassFunc_4(const char* func_name, FuncType func_ptr)
             : func_name_(func_name), func_ptr_(func_ptr){}
 
         virtual const std::string& FuncName(void){return func_name_;}
@@ -681,7 +678,7 @@ namespace Ipc
             Json2Value<P3> p3(param_array[n_param_pos_0 + 2]);
             Json2Value<P4> p4(param_array[n_param_pos_0 + 3]);
             R ret_value = (p_inst->*func_ptr_)(p1.Value(), p2.Value(), p3.Value(), p4.Value());
-            return KJsonReturn(ret_value).ToString();
+            return ipcJsonReturn(ret_value).ToString();
         }
 
         std::string RunByType(Class* p_inst, Json::Value& param_array, Type2Type<void>)
@@ -692,7 +689,7 @@ namespace Ipc
             Json2Value<P3> p3(param_array[n_param_pos_0 + 2]);
             Json2Value<P4> p4(param_array[n_param_pos_0 + 3]);
             (p_inst->*func_ptr_)(p1.Value(), p2.Value(), p3.Value(), p4.Value());
-            return KJsonReturn().ToString();
+            return ipcJsonReturn().ToString();
         }
 
     private:
@@ -701,11 +698,11 @@ namespace Ipc
     };
 
     template <class Class, class R, class P1, class P2, class P3, class P4, class P5>
-    class KClassFunc_5 : public IClassFunc<Class>
+    class ipcClassFunc_5 : public IClassFunc<Class>
     {
     public:
         typedef R (Class::*FuncType)(P1, P2, P3, P4, P5);
-        KClassFunc_5(const char* func_name, FuncType func_ptr)
+        ipcClassFunc_5(const char* func_name, FuncType func_ptr)
             : func_name_(func_name), func_ptr_(func_ptr){}
 
         virtual const std::string& FuncName(void){return func_name_;}
@@ -726,7 +723,7 @@ namespace Ipc
             Json2Value<P4> p4(param_array[n_param_pos_0 + 3]);
             Json2Value<P5> p5(param_array[n_param_pos_0 + 4]);
             R ret_value = (p_inst->*func_ptr_)(p1.Value(), p2.Value(), p3.Value(), p4.Value(), p5.Value());
-            return KJsonReturn(ret_value).ToString();
+            return ipcJsonReturn(ret_value).ToString();
         }
 
         std::string RunByType(Class* p_inst, Json::Value& param_array, Type2Type<void>)
@@ -738,7 +735,7 @@ namespace Ipc
             Json2Value<P4> p4(param_array[n_param_pos_0 + 3]);
             Json2Value<P5> p5(param_array[n_param_pos_0 + 4]);
             (p_inst->*func_ptr_)(p1.Value(), p2.Value(), p3.Value(), p4.Value(), p5.Value());
-            return KJsonReturn().ToString();
+            return ipcJsonReturn().ToString();
         }
 
     private:
@@ -835,11 +832,11 @@ namespace Ipc
         virtual int InstID(){return inst_id_;}
         virtual std::string Run(const char* func_name, Json::Value& param_array)
         {
-            if (!p_class_func_set_) return KJsonReturn(enumRet_FuncNotFound).ToString();
+            if (!p_class_func_set_) return ipcJsonReturn(enumRet_FuncNotFound).ToString();
             IClassFunc<Class>* p_class_func = p_class_func_set_->GetClassFunc(func_name, param_array.size());
 
             if (p_class_func) return p_class_func->Run(p_class_object_inst_, param_array);
-            else return KJsonReturn(enumRet_FuncNotFound).ToString();		
+            else return ipcJsonReturn(enumRet_FuncNotFound).ToString();		
         }
 
         void SetClassFuncSet(ipcClassFuncSet<Class>* p_func_set){p_class_func_set_ = p_func_set;}
@@ -854,12 +851,12 @@ namespace Ipc
     {
     public:
         ~ipcClassObjectInstSet(){ this->Clear(); }
-        void Add(IClassObjectInst* p_inst){KLocker lock(&session_lock_);vec_class_object_.push_back(p_inst);}
+        void Add(IClassObjectInst* p_inst){ipcLocker lock(&session_lock_);vec_class_object_.push_back(p_inst);}
         void Clear(void){for(size_t i = 0; i < vec_class_object_.size(); ++i) delete vec_class_object_[i]; vec_class_object_.clear();}
 
         void Erase(int inst_id)
         {
-            KLocker lock(&session_lock_);
+            ipcLocker lock(&session_lock_);
             std::vector<IClassObjectInst*>::iterator iter;
             for (iter = vec_class_object_.begin(); iter != vec_class_object_.end(); ++iter)
             {	
@@ -874,7 +871,7 @@ namespace Ipc
         }
         IClassObjectInst* GetClassObjectInst(int inst_id)
         {
-            KLocker lock(&session_lock_);
+            ipcLocker lock(&session_lock_);
             for (size_t i = 0; i < vec_class_object_.size(); ++i)
             {
                 if (vec_class_object_[i]->InstID() == inst_id)
@@ -886,7 +883,7 @@ namespace Ipc
         }
 
     private:
-        KCriticalSesion	session_lock_;
+        ipcCriticalSesion	session_lock_;
         std::vector<IClassObjectInst*> vec_class_object_;
     };
 
@@ -970,7 +967,7 @@ namespace Ipc
                 return DeallocObject(value);
             }
 
-            return KJsonReturn(enumRet_Error, "unknown operation").ToString();
+            return ipcJsonReturn(enumRet_Error, "unknown operation").ToString();
         }
 
         std::string GetOperation(const char* json_string, Json::Value& value)
@@ -999,19 +996,19 @@ namespace Ipc
                 if (json_class_name.isString())
                 {
                     int inst_id = __CreateObjectByClassName(json_class_name.asCString());
-                    return KJsonReturn(inst_id).ToString();
+                    return ipcJsonReturn(inst_id).ToString();
                 }
-                return KJsonReturn(enumRet_Error).ToString();
+                return ipcJsonReturn(enumRet_Error).ToString();
             }
             catch (ipcException* e) {
-                return KJsonReturn(enumRet_Error, e->what()).ToString();
+                return ipcJsonReturn(enumRet_Error, e->what()).ToString();
             }
             catch (std::exception* e)
             {
-                return KJsonReturn(enumRet_Error, e->what()).ToString();
+                return ipcJsonReturn(enumRet_Error, e->what()).ToString();
             }
             catch (...) {
-                return KJsonReturn(enumRet_Error).ToString();
+                return ipcJsonReturn(enumRet_Error).ToString();
             }
         }
 
@@ -1024,19 +1021,19 @@ namespace Ipc
                 {
                     int inst_id = json_inst_id.asInt();
                     class_object_inst_set_.Erase(inst_id);
-                    return KJsonReturn(enumRet_Succeed).ToString();
+                    return ipcJsonReturn(enumRet_Succeed).ToString();
                 }
-                return KJsonReturn(enumRet_Error).ToString();
+                return ipcJsonReturn(enumRet_Error).ToString();
             }
             catch (ipcException* e) {
-                return KJsonReturn(enumRet_Error, e->what()).ToString();
+                return ipcJsonReturn(enumRet_Error, e->what()).ToString();
             }
             catch (std::exception* e)
             {
-                return KJsonReturn(enumRet_Error, e->what()).ToString();
+                return ipcJsonReturn(enumRet_Error, e->what()).ToString();
             }
             catch (...) {
-                return KJsonReturn(enumRet_Error).ToString();
+                return ipcJsonReturn(enumRet_Error).ToString();
             }
         }
 
@@ -1053,7 +1050,7 @@ namespace Ipc
                 Json::Value json_func_name = value[defJsonFuncName];
                 Json::Value json_param_array = value[defJsonParamArray];
 
-                if (json_func_name.isNull()) return KJsonReturn(enumRet_FuncNotFound).ToString();
+                if (json_func_name.isNull()) return ipcJsonReturn(enumRet_FuncNotFound).ToString();
 
                 if (json_inst_id.isNull())
                 {
@@ -1067,18 +1064,18 @@ namespace Ipc
                     {
                         return p_inst->Run(json_func_name.asCString(), json_param_array);
                     }
-                    else return KJsonReturn(enumRet_FuncNotFound).ToString();
+                    else return ipcJsonReturn(enumRet_FuncNotFound).ToString();
                 }
             }
             catch (ipcException* e) {
-                return KJsonReturn(enumRet_Error, e->what()).ToString();
+                return ipcJsonReturn(enumRet_Error, e->what()).ToString();
             }
             catch (std::exception* e)
             {
-                return KJsonReturn(enumRet_Error, e->what()).ToString();
+                return ipcJsonReturn(enumRet_Error, e->what()).ToString();
             }
             catch (...) {
-                return KJsonReturn(enumRet_Error).ToString();
+                return ipcJsonReturn(enumRet_Error).ToString();
             }
         }
 
@@ -1095,7 +1092,7 @@ namespace Ipc
             {
                 return p_global_func->Run(param_array);
             }
-            return KJsonReturn(enumRet_FuncNotFound).ToString();
+            return ipcJsonReturn(enumRet_FuncNotFound).ToString();
         }
 
     protected:
@@ -1245,7 +1242,7 @@ namespace Ipc
         typedef R (Class::*FuncType)(void);
         __ipcAutoAddClassFunc_0(const char* class_name, const char* func_name, FuncType func_ptr)
         {
-            KClassFunc_0<Class, R>* p_class_func = new KClassFunc_0<Class, R>(func_name, func_ptr);
+            ipcClassFunc_0<Class, R>* p_class_func = new ipcClassFunc_0<Class, R>(func_name, func_ptr);
             ipcRemoteRunManager::Inst().Add<Class>(class_name, p_class_func);
         }
     };
@@ -1256,7 +1253,7 @@ namespace Ipc
         typedef R (Class::*FuncType)(P1);
         __ipcAutoAddClassFunc_1(const char* class_name, const char* func_name, FuncType func_ptr)
         {
-            KClassFunc_1<Class, R, P1>* p_class_func = new KClassFunc_1<Class, R, P1>(func_name, func_ptr);
+            ipcClassFunc_1<Class, R, P1>* p_class_func = new ipcClassFunc_1<Class, R, P1>(func_name, func_ptr);
             ipcRemoteRunManager::Inst().Add<Class>(class_name, p_class_func);
         }
     };
@@ -1267,7 +1264,7 @@ namespace Ipc
         typedef R (Class::*FuncType)(P1, P2);
         __ipcAutoAddClassFunc_2(const char* class_name, const char* func_name, FuncType func_ptr)
         {
-            KClassFunc_2<Class, R, P1, P2>* p_class_func = new KClassFunc_2<Class, R, P1, P2>(func_name, func_ptr);
+            ipcClassFunc_2<Class, R, P1, P2>* p_class_func = new ipcClassFunc_2<Class, R, P1, P2>(func_name, func_ptr);
             ipcRemoteRunManager::Inst().Add<Class>(class_name, p_class_func);
         }
     };
@@ -1278,7 +1275,7 @@ namespace Ipc
         typedef R (Class::*FuncType)(P1, P2, P3);
         __ipcAutoAddClassFunc_3(const char* class_name, const char* func_name, FuncType func_ptr)
         {
-            KClassFunc_3<Class, R, P1, P2, P3>* p_class_func = new KClassFunc_3<Class, R, P1, P2, P3>(func_name, func_ptr);
+            ipcClassFunc_3<Class, R, P1, P2, P3>* p_class_func = new ipcClassFunc_3<Class, R, P1, P2, P3>(func_name, func_ptr);
             ipcRemoteRunManager::Inst().Add<Class>(class_name, p_class_func);
         }
     };
@@ -1289,7 +1286,7 @@ namespace Ipc
         typedef R (Class::*FuncType)(P1, P2, P3, P4);
         __ipcAutoAddClassFunc_4(const char* class_name, const char* func_name, FuncType func_ptr)
         {
-            KClassFunc_4<Class, R, P1, P2, P3, P4>* p_class_func = new KClassFunc_4<Class, R, P1, P2, P3, P4>(func_name, func_ptr);
+            ipcClassFunc_4<Class, R, P1, P2, P3, P4>* p_class_func = new ipcClassFunc_4<Class, R, P1, P2, P3, P4>(func_name, func_ptr);
             ipcRemoteRunManager::Inst().Add<Class>(class_name, p_class_func);
         }
     };
@@ -1300,7 +1297,7 @@ namespace Ipc
         typedef R (Class::*FuncType)(P1, P2, P3, P4, P5);
         __ipcAutoAddClassFunc_5(const char* class_name, const char* func_name, FuncType func_ptr)
         {
-            KClassFunc_5<Class, R, P1, P2, P3, P4, P5>* p_class_func = new KClassFunc_5<Class, R, P1, P2, P3, P4, P5>(func_name, func_ptr);
+            ipcClassFunc_5<Class, R, P1, P2, P3, P4, P5>* p_class_func = new ipcClassFunc_5<Class, R, P1, P2, P3, P4, P5>(func_name, func_ptr);
             ipcRemoteRunManager::Inst().Add<Class>(class_name, p_class_func);
         }
     };
@@ -1346,35 +1343,13 @@ namespace Ipc
         zl::Ipc::__ipcAutoAddClassObjectInst<class_name> class_name##temp_inst(id, p_inst, p_func_set); \
     } while(0)
 
-//namespace KJsonRun {
-//class KIdGenerate 
-//{
-//public:
-//	static KIdGenerate& Inst(void)
-//	{
-//		static KIdGenerate _int_gen;
-//		return _int_gen;
-//	}
-//	int Get(){return ::InterlockedIncrement(&int_value_);}
-//
-//protected:
-//	KIdGenerate():int_value_(0){};
-//	~KIdGenerate(){};
-//	KIdGenerate(KIdGenerate&){};
-//	DISNABLE_ASSIGN_OPERATION(KIdGenerate);
-//
-//private:
-//	long int_value_;
-//};
-//}
-
 #define DECLARE_CLASS_CREATE_FUNC(class_name) \
     public: \
     static int __##class_name##_CreateObject(void) \
     { \
         int id; \
         class_name* p_inst = new class_name(); \
-        id = (int)p_inst;/*  = zl::Ipc::KIdGenerate::Inst().Get(); */\
+        id = (int)p_inst;\
         ADD_CLASS_OBJECT_INST(class_name, id, p_inst); \
         return id; \
     }

@@ -45,7 +45,7 @@ std::string ipcJsonProcessor::Process(const char* szBuffer)
 		return ipcRemoteRunManager::Inst().RunFunc(json_value);
 	}
 	
-	return KJsonReturn(enumRet_Error).ToString();
+	return ipcJsonReturn(enumRet_Error).ToString();
 }
 
 void ipcJsonProcessor::Disconnect(void)
