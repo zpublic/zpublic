@@ -192,6 +192,9 @@
     <ClInclude Include="..\..\pellets\ipc\ipcrefcount.h">
       <Filter>pellets\IPC</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\iipccallfilter.h">
+      <Filter>pellets\IPC\JsonParser</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

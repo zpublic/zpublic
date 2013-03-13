@@ -6,7 +6,7 @@
 #include "ipcimsgprocessor.h"
 
 /*
-@ Desc	: KMsgProcessor 消息处理的基本功能，负责处理ipcPipeSvrChannel提供的消息，及错误。更多功能由子类扩充。
+@ Desc	: ipcMsgProcessor 消息处理的基本功能，负责处理ipcPipeSvrChannel提供的消息，及错误。更多功能由子类扩充。
 */
 
 namespace zl

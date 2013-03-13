@@ -20,6 +20,7 @@ namespace Ipc
     #define defJsonFuncName		"func_name"
     #define defJsonParamArray	"param_array"
 
+    #define defJsonPID          "pid"
     #define defJsonOperateRun	"run"
     #define defJsonOperateAlloc	"alloc"
     #define defJsonOperateDealloc "dealloc"

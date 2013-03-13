@@ -4,6 +4,7 @@
 #include "../../../3rdparty/jsonlib/src/json/json.h"
 #include "ipcpublic.h"
 #include "ipclocker.h"
+#include "iipccallfilter.h"
 
 namespace zl
 {
@@ -1046,6 +1047,10 @@ namespace Ipc
         {
             try
             {
+                if (m_pICallFilter && m_pICallFilter->IsNeedFilte(value))
+                {
+                    return ipcJsonReturn(enumRet_BeFilted).ToString();
+                }
                 Json::Value json_inst_id = value[defJsonInstID];
                 Json::Value json_func_name = value[defJsonFuncName];
                 Json::Value json_param_array = value[defJsonParamArray];
@@ -1084,6 +1089,14 @@ namespace Ipc
             return class_func_sets_.GetClassFuncSet(class_name);
         }
         
+        void SetFilter(IIpcCallFilter* pFilter)
+        {
+            if (m_pICallFilter)
+            {
+                delete m_pICallFilter;
+            }
+            m_pICallFilter = pFilter;
+        }
     protected:
         std::string RunGlobalFunc(const char* func_name, Json::Value& param_array)
         {
@@ -1096,13 +1109,16 @@ namespace Ipc
         }
 
     protected:
-        DISNABLE_CONSTRUCT_AND_DECONSTRUCT(ipcRemoteRunManager);
+        ipcRemoteRunManager() : m_pICallFilter(NULL){}
+        ipcRemoteRunManager(ipcRemoteRunManager&){}
+        ~ipcRemoteRunManager(){}
         DISNABLE_ASSIGN_OPERATION(ipcRemoteRunManager);
 
     private:
         ipcGlobalFuncSet	global_func_set_;
         ipcAllClassFuncSets class_func_sets_;
         ipcClassObjectInstSet class_object_inst_set_;
+        IIpcCallFilter* m_pICallFilter;
     };
 
     template <class R>
@@ -1329,6 +1345,9 @@ namespace Ipc
 #define EXPORT_GLOBAL_FUNC_2_R1(func_name, R, RP1, P2) zl::Ipc::__ipcAutoAddGlobalFunc_2_1<R, RP1, P2> func_name##temp_2_1(#func_name, func_name)
 #define EXPORT_GLOBAL_FUNC_3_R1(func_name, R, RP1, P2, P3) zl::Ipc::__ipcAutoAddGlobalFunc_3_1<R, RP1, P2, P3> func_name##temp_3_1(#func_name, func_name)
 
+#define EXPORT_GLOBAL_FUNC_2_R2(func_name, R, RP1, RP2) zl::Ipc::__ipcAutoAddGlobalFunc_2_2<R, RP1, RP2> func_name##temp_2_2(#func_name, func_name)
+#define EXPORT_GLOBAL_FUNC_3_R2(func_name, R, RP1, RP2, P3) zl::Ipc::__ipcAutoAddGlobalFunc_3_2<R, RP1, RP2, P3> func_name##temp_3_2(#func_name, func_name)
+
 #define DECLARE_EXPORT_INTERFACE(class_name) zl::Ipc::__ipcAutoAddClass class_name##auto_add_class(#class_name, class_name::__##class_name##_CreateObject);
 #define EXPORT_CLASS_FUNC_0(class_name, func_name, R) zl::Ipc::__ipcAutoAddClassFunc_0<class_name, R> class_name##func_name##temp_0(#class_name, #func_name, &class_name::func_name)
 #define EXPORT_CLASS_FUNC_1(class_name, func_name, R, P1) zl::Ipc::__ipcAutoAddClassFunc_1<class_name, R, P1> class_name##func_name##temp_1(#class_name, #func_name, &class_name::func_name)
@@ -1349,7 +1368,7 @@ namespace Ipc
     { \
         int id; \
         class_name* p_inst = new class_name(); \
-        id = (int)p_inst;\
+        id = (int)p_inst;/*  = KJsonRun::KIdGenerate::Inst().Get(); */\
         ADD_CLASS_OBJECT_INST(class_name, id, p_inst); \
         return id; \
     }

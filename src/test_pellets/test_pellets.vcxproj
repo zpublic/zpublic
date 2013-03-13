@@ -105,6 +105,7 @@
     <ClInclude Include="..\..\pellets\ipc\ipcpipesvrchannel.h" />
     <ClInclude Include="..\..\pellets\ipc\ipcrefcount.h" />
     <ClInclude Include="..\..\pellets\ipc\ipc_def.h" />
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\iipccallfilter.h" />
     <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcerror.h" />
     <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcexception.h" />
     <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcfuncmgr.h" />

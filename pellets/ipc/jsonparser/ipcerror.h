@@ -14,6 +14,7 @@ namespace Ipc
 		enumRet_Succeed		 = 0,
 		enumRet_Error		 = -1,
 		enumRet_FuncNotFound = -2,
+        enumRet_BeFilted     = -3,
 	};
 }
 }

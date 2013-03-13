@@ -594,6 +594,28 @@ namespace Ipc
             value_[defJsonRetValue] = GetJsonValue(v);
         }
 
+        template<class T, class RP1>
+        ipcJsonReturn(T& v, RP1& rp1, enumReturnValule code = enumRet_Succeed, const char* msg = "")
+        {
+            value_[defJsonRetCode] = code;
+            value_[defJsonRetMessage] = msg;
+            Json::Value ret;
+            ret[defJsonRetValue] = GetJsonValue(v);
+            ret[defJsonRetParam1] = GetJsonValue(rp1);
+            value_[defJsonRetValue] = ret;
+        }
+
+        template<class T, class RP1, class RP2>
+        ipcJsonReturn(T& v, RP1& rp1, RP2& rp2, enumReturnValule code = enumRet_Succeed, const char* msg = "")
+        {
+            value_[defJsonRetCode] = code;
+            value_[defJsonRetMessage] = msg;
+            Json::Value ret;
+            ret[defJsonRetValue] = GetJsonValue(v);
+            ret[defJsonRetParam1] = GetJsonValue(rp1);
+            ret[defJsonRetParam2] = GetJsonValue(rp2);
+            value_[defJsonRetValue] = ret;
+        }
         std::string ToString(void)
         {
             Json::FastWriter writer;
@@ -638,6 +660,41 @@ namespace Ipc
             }
         }
 
+        template <class T, class RP1>
+        bool Value(T& v, RP1& p1){
+            if (code_ < 0) return false;
+
+            try
+            {
+                Json2Value<T> value(value_[defJsonRetValue]);
+                v = value.Value();
+                Json2Value<RP1> valuep1(value_[defJsonRetParam1]);
+                p1 = valuep1.Value();
+                return true;
+            }
+            catch (...) {
+                return false;
+            }
+        }
+
+        template <class T, class RP1, class RP2>
+        bool Value(T& v, RP1& p1, RP2& p2){
+            if (code_ < 0) return false;
+
+            try
+            {
+                Json2Value<T> value(value_[defJsonRetValue]);
+                v = value.Value();
+                Json2Value<RP1> valuep1(value_[defJsonRetParam1]);
+                p1 = valuep1.Value();
+                Json2Value<RP2> valuep2(value_[defJsonRetParam2]);
+                p2 = valuep2.Value();
+                return true;
+            }
+            catch (...) {
+                return false;
+            }
+        }
     protected:
         void GetCode(Json::Value& v)
         {
