@@ -91,7 +91,7 @@ PEStatus CPEFile::Seek64(Define::uint128 nSeekPos, PEFileSeekType peSeek)
     {
         return PEStatus_Err;
     }
-    if (::SetFilePointer(m_File_Ptr, nSeekPos, 0, peSeek) == 0)
+    if (::SetFilePointer(m_File_Ptr, (uint64)nSeekPos, 0, peSeek) == 0)
     {
         return PEStatus_Err;
     }

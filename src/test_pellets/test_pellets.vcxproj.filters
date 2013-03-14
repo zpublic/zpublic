@@ -28,6 +28,15 @@
     <Filter Include="pellets\Peutils">
       <UniqueIdentifier>{801fdacf-4c1e-43cf-9ab0-067a76338303}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\IPC">
+      <UniqueIdentifier>{37cfc376-d252-4104-863e-88081ec50f62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\IPC\JsonParser">
+      <UniqueIdentifier>{9984b245-1d49-4a14-a2f4-5e201c429083}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\IPC\json">
+      <UniqueIdentifier>{ab07fc6a-ece6-467f-997c-fb60cb17d605}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -129,6 +138,63 @@
     <ClInclude Include="..\..\pellets\peutils\peobject.h">
       <Filter>pellets\Peutils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcerror.h">
+      <Filter>pellets\IPC\JsonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcexception.h">
+      <Filter>pellets\IPC\JsonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcfuncmgr.h">
+      <Filter>pellets\IPC\JsonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcjsonconvert.h">
+      <Filter>pellets\IPC\JsonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcjsonparam.h">
+      <Filter>pellets\IPC\JsonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcjsonrun.h">
+      <Filter>pellets\IPC\JsonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipclocation.h">
+      <Filter>pellets\IPC\JsonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipclocker.h">
+      <Filter>pellets\IPC\JsonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcpublic.h">
+      <Filter>pellets\IPC\JsonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\ipcutfconv.h">
+      <Filter>pellets\IPC\JsonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\ipc_def.h">
+      <Filter>pellets\IPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\ipccallclient.h">
+      <Filter>pellets\IPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\ipcimsgprocessor.h">
+      <Filter>pellets\IPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\ipcjsonprocessor.h">
+      <Filter>pellets\IPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\ipcpipecltchannel.h">
+      <Filter>pellets\IPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\ipcpipesvr.h">
+      <Filter>pellets\IPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\ipcpipesvrchannel.h">
+      <Filter>pellets\IPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\ipcrefcount.h">
+      <Filter>pellets\IPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\ipc\jsonparser\iipccallfilter.h">
+      <Filter>pellets\IPC\JsonParser</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -179,5 +245,40 @@
     <ClCompile Include="..\..\pellets\peutils\peimport.cpp">
       <Filter>pellets\Peutils</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_reader.cpp">
+      <Filter>pellets\IPC\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_value.cpp">
+      <Filter>pellets\IPC\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_writer.cpp">
+      <Filter>pellets\IPC\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\ipc\ipccallclient.cpp">
+      <Filter>pellets\IPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\ipc\ipcjsonprocessor.cpp">
+      <Filter>pellets\IPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\ipc\ipcpipecltchannel.cpp">
+      <Filter>pellets\IPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\ipc\ipcpipesvr.cpp">
+      <Filter>pellets\IPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\ipc\ipcpipesvrchannel.cpp">
+      <Filter>pellets\IPC</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\3rdparty\jsonlib\src\json_internalarray.inl">
+      <Filter>pellets\IPC\json</Filter>
+    </None>
+    <None Include="..\..\3rdparty\jsonlib\src\json_internalmap.inl">
+      <Filter>pellets\IPC\json</Filter>
+    </None>
+    <None Include="..\..\3rdparty\jsonlib\src\json_valueiterator.inl">
+      <Filter>pellets\IPC\json</Filter>
+    </None>
   </ItemGroup>
 </Project>
