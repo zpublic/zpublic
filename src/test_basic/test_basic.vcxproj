@@ -117,6 +117,9 @@
     <ClInclude Include="..\..\public\crypt\crc.hpp" />
     <ClInclude Include="..\..\public\crypt\crypt.hpp" />
     <ClInclude Include="..\..\public\crypt\hash.hpp" />
+    <ClInclude Include="..\..\public\design\design_def.h" />
+    <ClInclude Include="..\..\public\design\factory.h" />
+    <ClInclude Include="..\..\public\design\strategy.h" />
     <ClInclude Include="..\..\public\detail\detail.hpp" />
     <ClInclude Include="..\..\public\detail\increase_policy.hpp" />
     <ClInclude Include="..\..\public\memory\allocer.hpp" />
@@ -165,6 +168,8 @@
     <ClCompile Include="..\..\public\application\pluginframework\pluginlist.cpp" />
     <ClCompile Include="..\..\public\application\pluginframework\pluginmanager.cpp" />
     <ClCompile Include="..\..\public\algorithm\indextree.cpp" />
+    <ClCompile Include="..\..\public\design\factory.cpp" />
+    <ClCompile Include="..\..\public\design\strategy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestBasic.cpp" />
     <ClCompile Include="TestCrypt.cpp" />
