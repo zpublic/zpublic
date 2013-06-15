@@ -10,7 +10,12 @@
 #include <stdio.h>
 #include <tchar.h>
 
+#include <assert.h>
 
 
 #include <string>
 #include <iostream>
+#include <memory>
+#include <vector>
+#include <map>
+#include <list>
