@@ -24,6 +24,9 @@
     <ClInclude Include="test_atomic.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="test_chrono.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -39,6 +42,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="test_atomic.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="test_chrono.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
