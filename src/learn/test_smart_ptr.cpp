@@ -1,4 +1,4 @@
-#include <stdafx.h>
+#include "stdafx.h"
 #include "test_smart_ptr.h"
 
 class CTestData
