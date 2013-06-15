@@ -1,8 +1,3 @@
-// stdafx.h : 标准系统包含文件的包含文件，
-// 或是经常使用但不常更改的
-// 特定于项目的包含文件
-//
-
 #pragma once
 
 #include "targetver.h"
@@ -12,13 +7,16 @@
 
 #include <assert.h>
 
+///> zpublic！
 #include "zpublic.hpp"
 
+///> 标准容器
 #include <string>
 #include <vector>
 #include <map>
 #include <list>
 
+///> 输入输出相关
 #include <iomanip>
 #include <iostream>
 
@@ -35,3 +33,6 @@
 #include <chrono>
 #include <ratio>
 #include <ctime>
+
+///> 位操作
+#include <bitset>

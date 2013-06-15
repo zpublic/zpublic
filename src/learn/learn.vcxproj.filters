@@ -27,6 +27,9 @@
     <ClInclude Include="test_chrono.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="test_bitset.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -45,6 +48,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="test_chrono.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="test_bitset.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
