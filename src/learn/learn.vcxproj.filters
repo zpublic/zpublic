@@ -4,6 +4,12 @@
     <Filter Include="src">
       <UniqueIdentifier>{fb9853e9-bb0a-45e1-8bf6-28fcb793f7fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\standard">
+      <UniqueIdentifier>{b142c095-ba23-478b-aae4-0823c84f61f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\boost">
+      <UniqueIdentifier>{58fa3c94-f8cd-4149-8ab8-531777ab6cd7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -15,20 +21,23 @@
     <ClInclude Include="targetver.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="test_smart_ptr.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="test_regex.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="test_atomic.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="test_chrono.h">
-      <Filter>src</Filter>
+      <Filter>src\standard</Filter>
     </ClInclude>
     <ClInclude Include="test_bitset.h">
-      <Filter>src</Filter>
+      <Filter>src\standard</Filter>
+    </ClInclude>
+    <ClInclude Include="test_chrono.h">
+      <Filter>src\standard</Filter>
+    </ClInclude>
+    <ClInclude Include="test_regex.h">
+      <Filter>src\standard</Filter>
+    </ClInclude>
+    <ClInclude Include="test_smart_ptr.h">
+      <Filter>src\standard</Filter>
+    </ClInclude>
+    <ClInclude Include="test_conversion.h">
+      <Filter>src\boost</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -38,20 +47,23 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="test_smart_ptr.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="test_regex.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="test_atomic.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="test_chrono.cpp">
-      <Filter>src</Filter>
+      <Filter>src\standard</Filter>
     </ClCompile>
     <ClCompile Include="test_bitset.cpp">
-      <Filter>src</Filter>
+      <Filter>src\standard</Filter>
+    </ClCompile>
+    <ClCompile Include="test_chrono.cpp">
+      <Filter>src\standard</Filter>
+    </ClCompile>
+    <ClCompile Include="test_regex.cpp">
+      <Filter>src\standard</Filter>
+    </ClCompile>
+    <ClCompile Include="test_smart_ptr.cpp">
+      <Filter>src\standard</Filter>
+    </ClCompile>
+    <ClCompile Include="test_conversion.cpp">
+      <Filter>src\boost</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

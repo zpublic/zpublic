@@ -86,6 +86,7 @@
     <ClInclude Include="test_atomic.h" />
     <ClInclude Include="test_bitset.h" />
     <ClInclude Include="test_chrono.h" />
+    <ClInclude Include="test_conversion.h" />
     <ClInclude Include="test_regex.h" />
     <ClInclude Include="test_smart_ptr.h" />
   </ItemGroup>
@@ -98,6 +99,7 @@
     <ClCompile Include="test_atomic.cpp" />
     <ClCompile Include="test_bitset.cpp" />
     <ClCompile Include="test_chrono.cpp" />
+    <ClCompile Include="test_conversion.cpp" />
     <ClCompile Include="test_regex.cpp" />
     <ClCompile Include="test_smart_ptr.cpp" />
   </ItemGroup>
