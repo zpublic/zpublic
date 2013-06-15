@@ -12,6 +12,8 @@
 
 #include <assert.h>
 
+#include "zpublic.hpp"
+
 
 #include <string>
 #include <iostream>
@@ -20,3 +22,4 @@
 #include <map>
 #include <list>
 #include <regex>
+#include <atomic>

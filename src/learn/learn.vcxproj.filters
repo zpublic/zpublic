@@ -21,6 +21,9 @@
     <ClInclude Include="test_regex.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="test_atomic.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -33,6 +36,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="test_regex.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="test_atomic.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
