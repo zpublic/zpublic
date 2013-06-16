@@ -10,6 +10,7 @@
 #include "test_bitset.h"
 
 #include "test_conversion.h"
+#include "test_string_aogo.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -19,7 +20,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_chrono();
     //test_bitset();
 
-    test_conversion();
+    //test_conversion();
+    test_string_aogo();
 
     getchar();
 	return 0;

@@ -89,6 +89,7 @@
     <ClInclude Include="test_conversion.h" />
     <ClInclude Include="test_regex.h" />
     <ClInclude Include="test_smart_ptr.h" />
+    <ClInclude Include="test_string_aogo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp" />
@@ -102,6 +103,7 @@
     <ClCompile Include="test_conversion.cpp" />
     <ClCompile Include="test_regex.cpp" />
     <ClCompile Include="test_smart_ptr.cpp" />
+    <ClCompile Include="test_string_aogo.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

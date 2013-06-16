@@ -39,6 +39,9 @@
     <ClInclude Include="test_conversion.h">
       <Filter>src\boost</Filter>
     </ClInclude>
+    <ClInclude Include="test_string_aogo.h">
+      <Filter>src\boost</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -63,6 +66,9 @@
       <Filter>src\standard</Filter>
     </ClCompile>
     <ClCompile Include="test_conversion.cpp">
+      <Filter>src\boost</Filter>
+    </ClCompile>
+    <ClCompile Include="test_string_aogo.cpp">
       <Filter>src\boost</Filter>
     </ClCompile>
   </ItemGroup>
