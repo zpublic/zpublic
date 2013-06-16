@@ -21,6 +21,7 @@
 *.lib
 
 Debug
+!/3rdparty/boost/preprocessor/debug/
 Release
 /sln/UpgradeLog.XML
 /sln/UpgradeLog.htm
