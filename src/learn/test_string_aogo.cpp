@@ -97,7 +97,14 @@ void test_find_iterator()
 
 void test_split()
 {
-
+    string str1("hello abc-*-ABC-*-aBc goodbye");
+    std::vector<string> SplitVec;
+    boost::split(SplitVec, str1, boost::is_any_of("-*"), boost::token_compress_on);
+    // SplitVec == { "hello abc","ABC","aBc goodbye" }
+    for each (auto var in SplitVec)
+    {
+        cout<<var<<endl;
+    }
 }
 
 void test_string_aogo()
