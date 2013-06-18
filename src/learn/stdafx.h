@@ -13,6 +13,10 @@
 ///> to use Visual C++ 'Checked Iterators'
 #pragma warning(disable:4996)
 
+///> 该文件包含不能在当前代码页(936)中表示的字符。
+///> 请将该文件保存为 Unicode 格式以防止数据丢失
+#pragma warning(disable:4819)
+
 ///> zpublic！
 #include "zpublic.hpp"
 
@@ -64,4 +68,8 @@ using std::endl;
 ///> context of format, and thus the function call with arbitrary arguments
 ///> is replaced by successive calls to an argument feeding operator%.
 #include <boost/format.hpp>
+
+///> Tokenizer
+///> Break of a string or other character sequence into a series of tokens.
+#include <boost/tokenizer.hpp>
 

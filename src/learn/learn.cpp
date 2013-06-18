@@ -12,6 +12,7 @@
 #include "test_conversion.h"
 #include "test_string_aogo.h"
 #include "test_format.h"
+#include "test_tokenizer.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -23,7 +24,8 @@ int _tmain(int argc, _TCHAR* argv[])
 
     //test_conversion();
     //test_string_aogo();
-    test_format();
+    //test_format();
+    test_tokenizer();
 
     getchar();
 	return 0;
