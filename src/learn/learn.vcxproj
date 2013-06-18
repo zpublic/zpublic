@@ -85,6 +85,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="test_array.h" />
     <ClInclude Include="test_atomic.h" />
+    <ClInclude Include="test_bimap.h" />
     <ClInclude Include="test_bitset.h" />
     <ClInclude Include="test_chrono.h" />
     <ClInclude Include="test_conversion.h" />
@@ -102,6 +103,7 @@
     </ClCompile>
     <ClCompile Include="test_array.cpp" />
     <ClCompile Include="test_atomic.cpp" />
+    <ClCompile Include="test_bimap.cpp" />
     <ClCompile Include="test_bitset.cpp" />
     <ClCompile Include="test_chrono.cpp" />
     <ClCompile Include="test_conversion.cpp" />

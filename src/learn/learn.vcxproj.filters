@@ -13,6 +13,9 @@
     <Filter Include="src\boost\String and text processing">
       <UniqueIdentifier>{991ae735-d086-4f10-a30f-e7f0530f70e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\boost\Containers">
+      <UniqueIdentifier>{2869bed5-b104-4e95-8996-1c71e1b3c5d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -54,6 +57,9 @@
     <ClInclude Include="test_array.h">
       <Filter>src\standard</Filter>
     </ClInclude>
+    <ClInclude Include="test_bimap.h">
+      <Filter>src\boost\Containers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -91,6 +97,9 @@
     </ClCompile>
     <ClCompile Include="test_array.cpp">
       <Filter>src\standard</Filter>
+    </ClCompile>
+    <ClCompile Include="test_bimap.cpp">
+      <Filter>src\boost\Containers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -74,3 +74,7 @@ using std::endl;
 ///> Break of a string or other character sequence into a series of tokens.
 #include <boost/tokenizer.hpp>
 
+///> Bimap
+///> Bidirectional maps library for C++. With Boost.Bimap you can create
+///> associative containers in which both types can be used as key.
+#include <boost/bimap.hpp>
