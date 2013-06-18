@@ -16,6 +16,7 @@
 #include "test_tokenizer.h"
 
 #include "test_bimap.h"
+#include "test_circular_buffer.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -31,7 +32,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_format();
     //test_tokenizer();
 
-    test_bimap();
+    //test_bimap();
+    test_circular_buffer();
 
     getchar();
 	return 0;

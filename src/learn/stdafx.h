@@ -78,3 +78,7 @@ using std::endl;
 ///> Bidirectional maps library for C++. With Boost.Bimap you can create
 ///> associative containers in which both types can be used as key.
 #include <boost/bimap.hpp>
+
+///> Circular Buffer
+///> A STL compliant container also known as ring or cyclic buffer.
+#include <boost/circular_buffer.hpp>

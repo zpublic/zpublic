@@ -60,6 +60,9 @@
     <ClInclude Include="test_bimap.h">
       <Filter>src\boost\Containers</Filter>
     </ClInclude>
+    <ClInclude Include="test_circular_buffer.h">
+      <Filter>src\boost\Containers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -99,6 +102,9 @@
       <Filter>src\standard</Filter>
     </ClCompile>
     <ClCompile Include="test_bimap.cpp">
+      <Filter>src\boost\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="test_circular_buffer.cpp">
       <Filter>src\boost\Containers</Filter>
     </ClCompile>
   </ItemGroup>
