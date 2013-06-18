@@ -11,6 +11,7 @@
 
 #include "test_conversion.h"
 #include "test_string_aogo.h"
+#include "test_format.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -21,7 +22,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_bitset();
 
     //test_conversion();
-    test_string_aogo();
+    //test_string_aogo();
+    test_format();
 
     getchar();
 	return 0;

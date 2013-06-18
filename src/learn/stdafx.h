@@ -54,3 +54,14 @@ using std::endl;
 ///> String Algo
 ///> String algorithms library.
 #include <boost/algorithm/string.hpp>
+
+///> Format
+///> The format library provides a class for formatting arguments 
+///> according to a format-string, as does printf, but with two major 
+///> differences: format sends the arguments to an internal stream, and so
+///> is entirely type-safe and naturally supports all user-defined types; 
+///> the ellipsis (...) can not be used correctly in the strongly typed 
+///> context of format, and thus the function call with arbitrary arguments
+///> is replaced by successive calls to an argument feeding operator%.
+#include <boost/format.hpp>
+

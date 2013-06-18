@@ -87,6 +87,7 @@
     <ClInclude Include="test_bitset.h" />
     <ClInclude Include="test_chrono.h" />
     <ClInclude Include="test_conversion.h" />
+    <ClInclude Include="test_format.h" />
     <ClInclude Include="test_regex.h" />
     <ClInclude Include="test_smart_ptr.h" />
     <ClInclude Include="test_string_aogo.h" />
@@ -101,6 +102,7 @@
     <ClCompile Include="test_bitset.cpp" />
     <ClCompile Include="test_chrono.cpp" />
     <ClCompile Include="test_conversion.cpp" />
+    <ClCompile Include="test_format.cpp" />
     <ClCompile Include="test_regex.cpp" />
     <ClCompile Include="test_smart_ptr.cpp" />
     <ClCompile Include="test_string_aogo.cpp" />
