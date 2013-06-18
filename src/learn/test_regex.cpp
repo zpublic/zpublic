@@ -56,7 +56,7 @@ void test_regex_match()
 void test_regex_search()
 {
     ///> 只能得到一个
-    const std::tr1::regex pattern("(\\w+day)");
+    const std::regex pattern("(\\w+day)");
     std::string weekend = "Saturday and Sunday";
     std::smatch result;
     bool match = std::regex_search(weekend, result, pattern);

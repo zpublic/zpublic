@@ -8,8 +8,17 @@
 #include "test_atomic.h"
 #include "test_chrono.h"
 #include "test_bitset.h"
+#include "test_array.h"
 
 #include "test_conversion.h"
+#include "test_string_aogo.h"
+#include "test_format.h"
+#include "test_tokenizer.h"
+
+#include "test_bimap.h"
+#include "test_circular_buffer.h"
+#include "test_dynamic_bitset.h"
+#include "test_property_tree.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -18,8 +27,17 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_atomic();
     //test_chrono();
     //test_bitset();
+    //test_array();
 
-    test_conversion();
+    //test_conversion();
+    //test_string_aogo();
+    //test_format();
+    //test_tokenizer();
+
+    //test_bimap();
+    //test_circular_buffer();
+    //test_dynamic_bitset();
+    test_property_tree();
 
     getchar();
 	return 0;

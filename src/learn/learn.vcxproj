@@ -83,12 +83,20 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="test_array.h" />
     <ClInclude Include="test_atomic.h" />
+    <ClInclude Include="test_bimap.h" />
     <ClInclude Include="test_bitset.h" />
     <ClInclude Include="test_chrono.h" />
+    <ClInclude Include="test_circular_buffer.h" />
     <ClInclude Include="test_conversion.h" />
+    <ClInclude Include="test_dynamic_bitset.h" />
+    <ClInclude Include="test_format.h" />
+    <ClInclude Include="test_property_tree.h" />
     <ClInclude Include="test_regex.h" />
     <ClInclude Include="test_smart_ptr.h" />
+    <ClInclude Include="test_string_aogo.h" />
+    <ClInclude Include="test_tokenizer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp" />
@@ -96,12 +104,20 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="test_array.cpp" />
     <ClCompile Include="test_atomic.cpp" />
+    <ClCompile Include="test_bimap.cpp" />
     <ClCompile Include="test_bitset.cpp" />
     <ClCompile Include="test_chrono.cpp" />
+    <ClCompile Include="test_circular_buffer.cpp" />
     <ClCompile Include="test_conversion.cpp" />
+    <ClCompile Include="test_dynamic_bitset.cpp" />
+    <ClCompile Include="test_format.cpp" />
+    <ClCompile Include="test_property_tree.cpp" />
     <ClCompile Include="test_regex.cpp" />
     <ClCompile Include="test_smart_ptr.cpp" />
+    <ClCompile Include="test_string_aogo.cpp" />
+    <ClCompile Include="test_tokenizer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
