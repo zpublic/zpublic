@@ -51,6 +51,9 @@
     <ClInclude Include="test_tokenizer.h">
       <Filter>src\boost\String and text processing</Filter>
     </ClInclude>
+    <ClInclude Include="test_array.h">
+      <Filter>src\standard</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -85,6 +88,9 @@
     </ClCompile>
     <ClCompile Include="test_tokenizer.cpp">
       <Filter>src\boost\String and text processing</Filter>
+    </ClCompile>
+    <ClCompile Include="test_array.cpp">
+      <Filter>src\standard</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

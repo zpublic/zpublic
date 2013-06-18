@@ -21,6 +21,7 @@
 #include "zpublic.hpp"
 
 ///> ±ê×¼ÈÝÆ÷
+#include <array>
 #include <string>
 #include <vector>
 #include <map>

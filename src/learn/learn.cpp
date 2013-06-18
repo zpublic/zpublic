@@ -8,6 +8,7 @@
 #include "test_atomic.h"
 #include "test_chrono.h"
 #include "test_bitset.h"
+#include "test_array.h"
 
 #include "test_conversion.h"
 #include "test_string_aogo.h"
@@ -25,7 +26,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_conversion();
     //test_string_aogo();
     //test_format();
-    test_tokenizer();
+    //test_tokenizer();
+    test_array();
 
     getchar();
 	return 0;
