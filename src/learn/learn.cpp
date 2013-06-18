@@ -21,6 +21,8 @@
 #include "test_property_tree.h"
 #include "test_variant.h"
 
+#include "test_searching_algorithms.h"
+
 int _tmain(int argc, _TCHAR* argv[])
 {
     //test_smart_ptr();
@@ -39,7 +41,9 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_circular_buffer();
     //test_dynamic_bitset();
     //test_property_tree();
-    test_variant();
+    //test_variant();
+
+    test_searching_algorithms();
 
     getchar();
 	return 0;

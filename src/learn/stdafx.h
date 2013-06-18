@@ -106,3 +106,9 @@ using std::endl;
 ///> Variant
 ///> Safe, generic, stack-based discriminated union container.
 #include <boost/variant.hpp>
+
+///> Algorithm
+///> A collection of useful generic algorithms.
+#include <boost/algorithm/searching/boyer_moore.hpp>
+#include <boost/algorithm/searching/boyer_moore_horspool.hpp>
+#include <boost/algorithm/searching/knuth_morris_pratt.hpp>

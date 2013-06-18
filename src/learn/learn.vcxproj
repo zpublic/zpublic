@@ -95,6 +95,7 @@
     <ClInclude Include="test_format.h" />
     <ClInclude Include="test_property_tree.h" />
     <ClInclude Include="test_regex.h" />
+    <ClInclude Include="test_searching_algorithms.h" />
     <ClInclude Include="test_smart_ptr.h" />
     <ClInclude Include="test_string_aogo.h" />
     <ClInclude Include="test_tokenizer.h" />
@@ -117,6 +118,7 @@
     <ClCompile Include="test_format.cpp" />
     <ClCompile Include="test_property_tree.cpp" />
     <ClCompile Include="test_regex.cpp" />
+    <ClCompile Include="test_searching_algorithms.cpp" />
     <ClCompile Include="test_smart_ptr.cpp" />
     <ClCompile Include="test_string_aogo.cpp" />
     <ClCompile Include="test_tokenizer.cpp" />
