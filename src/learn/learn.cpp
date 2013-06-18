@@ -18,6 +18,7 @@
 #include "test_bimap.h"
 #include "test_circular_buffer.h"
 #include "test_dynamic_bitset.h"
+#include "test_property_tree.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -35,7 +36,8 @@ int _tmain(int argc, _TCHAR* argv[])
 
     //test_bimap();
     //test_circular_buffer();
-    test_dynamic_bitset();
+    //test_dynamic_bitset();
+    test_property_tree();
 
     getchar();
 	return 0;

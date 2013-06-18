@@ -94,3 +94,11 @@ using std::endl;
 ///> set is specified at runtime via a parameter to the constructor of the
 ///> dynamic_bitset.
 #include <boost/dynamic_bitset.hpp>
+
+///> Property Tree
+///> A tree data structure especially suited to storing configuration data.
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/xml_parser.hpp>
+#include <boost/property_tree/json_parser.hpp>
+#include <boost/property_tree/ini_parser.hpp>
+#include <boost/property_tree/info_parser.hpp>

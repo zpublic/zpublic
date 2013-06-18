@@ -34,3 +34,11 @@ Release
 /src/test_basic/test.zip
 *.ipch
 /src/test_pellets/test_pellets.xml
+
+/src/learn/ptree.info
+
+/src/learn/ptree.ini
+
+/src/learn/ptree.json
+
+/src/learn/ptree.xml
