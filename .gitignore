@@ -22,6 +22,8 @@
 
 Debug
 !/3rdparty/boost/preprocessor/debug/
+!/3rdparty/boost/bimap/detail/debug/
+!/3rdparty/boost/spirit/home/classic/debug/
 Release
 /sln/UpgradeLog.XML
 /sln/UpgradeLog.htm
