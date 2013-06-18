@@ -17,6 +17,9 @@
 ///> 请将该文件保存为 Unicode 格式以防止数据丢失
 #pragma warning(disable:4819)
 
+///> “初始化”: 从“std::streamsize”转换到“size_t”，可能丢失数据
+#pragma warning(disable:4244)
+
 ///> zpublic！
 #include "zpublic.hpp"
 
@@ -82,3 +85,12 @@ using std::endl;
 ///> Circular Buffer
 ///> A STL compliant container also known as ring or cyclic buffer.
 #include <boost/circular_buffer.hpp>
+
+///> Dynamic Bitset
+///> The dynamic_bitset class represents a set of bits. It provides
+///> accesses to the value of individual bits via an operator[] and
+///> provides all of the bitwise operators that one can apply to builtin
+///> integers, such as operator& and operator<<. The number of bits in the
+///> set is specified at runtime via a parameter to the constructor of the
+///> dynamic_bitset.
+#include <boost/dynamic_bitset.hpp>
