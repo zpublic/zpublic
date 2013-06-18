@@ -78,6 +78,9 @@
     <ClInclude Include="test_searching_algorithms.h">
       <Filter>src\boost\Algorithms</Filter>
     </ClInclude>
+    <ClInclude Include="test_clamp.h">
+      <Filter>src\boost\Algorithms</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -132,6 +135,9 @@
       <Filter>src\boost\Containers</Filter>
     </ClCompile>
     <ClCompile Include="test_searching_algorithms.cpp">
+      <Filter>src\boost\Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="test_clamp.cpp">
       <Filter>src\boost\Algorithms</Filter>
     </ClCompile>
   </ItemGroup>

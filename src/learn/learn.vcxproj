@@ -90,6 +90,7 @@
     <ClInclude Include="test_bitset.h" />
     <ClInclude Include="test_chrono.h" />
     <ClInclude Include="test_circular_buffer.h" />
+    <ClInclude Include="test_clamp.h" />
     <ClInclude Include="test_conversion.h" />
     <ClInclude Include="test_dynamic_bitset.h" />
     <ClInclude Include="test_format.h" />
@@ -113,6 +114,7 @@
     <ClCompile Include="test_bitset.cpp" />
     <ClCompile Include="test_chrono.cpp" />
     <ClCompile Include="test_circular_buffer.cpp" />
+    <ClCompile Include="test_clamp.cpp" />
     <ClCompile Include="test_conversion.cpp" />
     <ClCompile Include="test_dynamic_bitset.cpp" />
     <ClCompile Include="test_format.cpp" />
