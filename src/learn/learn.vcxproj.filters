@@ -84,6 +84,9 @@
     <ClInclude Include="test_hex.h">
       <Filter>src\boost\Algorithms</Filter>
     </ClInclude>
+    <ClInclude Include="test_minmax.h">
+      <Filter>src\boost\Algorithms</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -144,6 +147,9 @@
       <Filter>src\boost\Algorithms</Filter>
     </ClCompile>
     <ClCompile Include="test_hex.cpp">
+      <Filter>src\boost\Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="test_minmax.cpp">
       <Filter>src\boost\Algorithms</Filter>
     </ClCompile>
   </ItemGroup>

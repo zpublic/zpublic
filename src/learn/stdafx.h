@@ -24,6 +24,7 @@
 #include "zpublic.hpp"
 
 ///> ±ê×¼ÈÝÆ÷
+#include <tuple>
 #include <array>
 #include <string>
 #include <vector>
@@ -114,3 +115,5 @@ using std::endl;
 #include <boost/algorithm/searching/knuth_morris_pratt.hpp>
 #include <boost/algorithm/clamp.hpp>
 #include <boost/algorithm/hex.hpp>
+#include <boost/algorithm/minmax.hpp>
+#include <boost/algorithm/minmax_element.hpp>
