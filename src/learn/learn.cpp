@@ -23,6 +23,7 @@
 
 #include "test_searching_algorithms.h"
 #include "test_clamp.h"
+#include "test_hex.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -45,7 +46,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_variant();
 
     //test_searching_algorithms();
-    test_clamp();
+    //test_clamp();
+    test_hex();
 
     getchar();
 	return 0;

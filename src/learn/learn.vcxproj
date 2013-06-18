@@ -94,6 +94,7 @@
     <ClInclude Include="test_conversion.h" />
     <ClInclude Include="test_dynamic_bitset.h" />
     <ClInclude Include="test_format.h" />
+    <ClInclude Include="test_hex.h" />
     <ClInclude Include="test_property_tree.h" />
     <ClInclude Include="test_regex.h" />
     <ClInclude Include="test_searching_algorithms.h" />
@@ -118,6 +119,7 @@
     <ClCompile Include="test_conversion.cpp" />
     <ClCompile Include="test_dynamic_bitset.cpp" />
     <ClCompile Include="test_format.cpp" />
+    <ClCompile Include="test_hex.cpp" />
     <ClCompile Include="test_property_tree.cpp" />
     <ClCompile Include="test_regex.cpp" />
     <ClCompile Include="test_searching_algorithms.cpp" />
