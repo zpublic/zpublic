@@ -102,3 +102,7 @@ using std::endl;
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/ini_parser.hpp>
 #include <boost/property_tree/info_parser.hpp>
+
+///> Variant
+///> Safe, generic, stack-based discriminated union container.
+#include <boost/variant.hpp>

@@ -69,6 +69,9 @@
     <ClInclude Include="test_property_tree.h">
       <Filter>src\boost\Containers</Filter>
     </ClInclude>
+    <ClInclude Include="test_variant.h">
+      <Filter>src\boost\Containers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -117,6 +120,9 @@
       <Filter>src\boost\Containers</Filter>
     </ClCompile>
     <ClCompile Include="test_property_tree.cpp">
+      <Filter>src\boost\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="test_variant.cpp">
       <Filter>src\boost\Containers</Filter>
     </ClCompile>
   </ItemGroup>

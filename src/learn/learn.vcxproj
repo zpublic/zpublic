@@ -53,6 +53,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>./../../public;./../../3rdparty</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm110 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -97,6 +98,7 @@
     <ClInclude Include="test_smart_ptr.h" />
     <ClInclude Include="test_string_aogo.h" />
     <ClInclude Include="test_tokenizer.h" />
+    <ClInclude Include="test_variant.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp" />
@@ -118,6 +120,7 @@
     <ClCompile Include="test_smart_ptr.cpp" />
     <ClCompile Include="test_string_aogo.cpp" />
     <ClCompile Include="test_tokenizer.cpp" />
+    <ClCompile Include="test_variant.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
