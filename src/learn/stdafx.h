@@ -122,3 +122,7 @@ using std::endl;
 ///> Optimized Policy-based Numeric Conversions.
 #include <boost/numeric/conversion/converter.hpp>
 #include <boost/numeric/conversion/bounds.hpp>
+
+///> Optional
+///> Discriminated-union wrapper for optional values.
+#include <boost/optional.hpp>

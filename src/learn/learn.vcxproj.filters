@@ -93,6 +93,9 @@
     <ClInclude Include="test_numeric_conversion.h">
       <Filter>src\boost\Miscellaneous</Filter>
     </ClInclude>
+    <ClInclude Include="test_optional.h">
+      <Filter>src\boost\Miscellaneous</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -159,6 +162,9 @@
       <Filter>src\boost\Algorithms</Filter>
     </ClCompile>
     <ClCompile Include="test_numeric_conversion.cpp">
+      <Filter>src\boost\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="test_optional.cpp">
       <Filter>src\boost\Miscellaneous</Filter>
     </ClCompile>
   </ItemGroup>

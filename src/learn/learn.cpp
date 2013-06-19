@@ -26,6 +26,7 @@
 #include "test_hex.h"
 #include "test_minmax.h"
 #include "test_numeric_conversion.h"
+#include "test_optional.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -51,7 +52,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_clamp();
     //test_hex();
     //test_minmax();
-    test_numeric_conversion();
+    //test_numeric_conversion();
+    test_optional();
 
     getchar();
 	return 0;

@@ -98,6 +98,7 @@
     <ClInclude Include="test_hex.h" />
     <ClInclude Include="test_minmax.h" />
     <ClInclude Include="test_numeric_conversion.h" />
+    <ClInclude Include="test_optional.h" />
     <ClInclude Include="test_property_tree.h" />
     <ClInclude Include="test_regex.h" />
     <ClInclude Include="test_searching_algorithms.h" />
@@ -125,6 +126,7 @@
     <ClCompile Include="test_hex.cpp" />
     <ClCompile Include="test_minmax.cpp" />
     <ClCompile Include="test_numeric_conversion.cpp" />
+    <ClCompile Include="test_optional.cpp" />
     <ClCompile Include="test_property_tree.cpp" />
     <ClCompile Include="test_regex.cpp" />
     <ClCompile Include="test_searching_algorithms.cpp" />
