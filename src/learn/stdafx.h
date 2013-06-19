@@ -117,3 +117,8 @@ using std::endl;
 #include <boost/algorithm/hex.hpp>
 #include <boost/algorithm/minmax.hpp>
 #include <boost/algorithm/minmax_element.hpp>
+
+///> Numeric Conversion:
+///> Optimized Policy-based Numeric Conversions.
+#include <boost/numeric/conversion/converter.hpp>
+#include <boost/numeric/conversion/bounds.hpp>

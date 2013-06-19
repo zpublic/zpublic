@@ -19,6 +19,9 @@
     <Filter Include="src\boost\Algorithms">
       <UniqueIdentifier>{f98ea1ab-6424-4626-8321-db07ad4b1e4d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\boost\Miscellaneous">
+      <UniqueIdentifier>{8ae01776-3993-43ab-a226-a272307278e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -87,6 +90,9 @@
     <ClInclude Include="test_minmax.h">
       <Filter>src\boost\Algorithms</Filter>
     </ClInclude>
+    <ClInclude Include="test_numeric_conversion.h">
+      <Filter>src\boost\Miscellaneous</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -151,6 +157,9 @@
     </ClCompile>
     <ClCompile Include="test_minmax.cpp">
       <Filter>src\boost\Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="test_numeric_conversion.cpp">
+      <Filter>src\boost\Miscellaneous</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
