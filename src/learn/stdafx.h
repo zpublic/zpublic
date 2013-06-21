@@ -55,6 +55,7 @@ using std::endl;
 ///> 位操作
 #include <bitset>
 
+
 ///> Conversion
 ///> Polymorphic and lexical casts.
 #include <boost/cast.hpp>
@@ -131,11 +132,17 @@ using std::endl;
 ///> 3-state boolean type library.
 #include <boost/logic/tribool.hpp>
 
-
 ///> Program Options
-///> ▄︻┳═一 need build ▄︻┻═┳一
+///> ▄︻┳═一 need lib ▄︻┻═┳一
 ///> The program_options library allows program developers to obtain
 ///> program options, that is (name, value) pairs from the user, via
 ///> conventional methods such as command line and config file.
 #include <boost/program_options.hpp>
 
+
+///> Protocol Buffers
+#ifdef _DEBUG
+#pragma comment(lib, "libprotobuf_d.lib")
+#else
+#pragma comment(lib, "libprotobuf.lib")
+#endif

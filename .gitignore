@@ -20,6 +20,7 @@
 *.pdb
 *.lib
 !/3rdparty/boost_lib/*.lib
+!/3rdparty/protobuf_lib/*.lib
 
 Debug
 !/3rdparty/boost/preprocessor/debug/
