@@ -53,11 +53,13 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>./../../public;./../../3rdparty</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zm110 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>./../../3rdparty/boost_lib/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -70,13 +72,15 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>./../../public;./../../3rdparty</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zm110 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>./../../3rdparty/boost_lib/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -99,12 +103,14 @@
     <ClInclude Include="test_minmax.h" />
     <ClInclude Include="test_numeric_conversion.h" />
     <ClInclude Include="test_optional.h" />
+    <ClInclude Include="test_program_options.h" />
     <ClInclude Include="test_property_tree.h" />
     <ClInclude Include="test_regex.h" />
     <ClInclude Include="test_searching_algorithms.h" />
     <ClInclude Include="test_smart_ptr.h" />
     <ClInclude Include="test_string_aogo.h" />
     <ClInclude Include="test_tokenizer.h" />
+    <ClInclude Include="test_tribool.h" />
     <ClInclude Include="test_variant.h" />
   </ItemGroup>
   <ItemGroup>
@@ -127,12 +133,14 @@
     <ClCompile Include="test_minmax.cpp" />
     <ClCompile Include="test_numeric_conversion.cpp" />
     <ClCompile Include="test_optional.cpp" />
+    <ClCompile Include="test_program_options.cpp" />
     <ClCompile Include="test_property_tree.cpp" />
     <ClCompile Include="test_regex.cpp" />
     <ClCompile Include="test_searching_algorithms.cpp" />
     <ClCompile Include="test_smart_ptr.cpp" />
     <ClCompile Include="test_string_aogo.cpp" />
     <ClCompile Include="test_tokenizer.cpp" />
+    <ClCompile Include="test_tribool.cpp" />
     <ClCompile Include="test_variant.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

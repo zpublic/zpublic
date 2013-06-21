@@ -126,3 +126,16 @@ using std::endl;
 ///> Optional
 ///> Discriminated-union wrapper for optional values.
 #include <boost/optional.hpp>
+
+///> Tribool
+///> 3-state boolean type library.
+#include <boost/logic/tribool.hpp>
+
+
+///> Program Options
+///> ¨{¦î©×¨TÒ» need build ¨{¦î©ß¨T©×Ò»
+///> The program_options library allows program developers to obtain
+///> program options, that is (name, value) pairs from the user, via
+///> conventional methods such as command line and config file.
+#include <boost/program_options.hpp>
+

@@ -96,6 +96,12 @@
     <ClInclude Include="test_optional.h">
       <Filter>src\boost\Miscellaneous</Filter>
     </ClInclude>
+    <ClInclude Include="test_tribool.h">
+      <Filter>src\boost\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="test_program_options.h">
+      <Filter>src\boost\Miscellaneous</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -165,6 +171,12 @@
       <Filter>src\boost\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="test_optional.cpp">
+      <Filter>src\boost\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="test_tribool.cpp">
+      <Filter>src\boost\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="test_program_options.cpp">
       <Filter>src\boost\Miscellaneous</Filter>
     </ClCompile>
   </ItemGroup>
