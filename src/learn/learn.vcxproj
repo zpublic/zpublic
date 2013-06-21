@@ -53,7 +53,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>./../../public;./../../3rdparty</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zm1000  -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -61,6 +61,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>./../../3rdparty/boost_lib/;./../../3rdparty/protobuf_lib/</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>protoc.exe --cpp_out=./ ./test_proto.proto</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -72,7 +75,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>./../../public;./../../3rdparty</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zm1000  -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -82,6 +85,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>./../../3rdparty/boost_lib/;./../../3rdparty/protobuf_lib/</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>protoc.exe --cpp_out=./ ./test_proto.proto</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -105,6 +111,8 @@
     <ClInclude Include="test_optional.h" />
     <ClInclude Include="test_program_options.h" />
     <ClInclude Include="test_property_tree.h" />
+    <ClInclude Include="test_proto.pb.h" />
+    <ClInclude Include="test_protobuf.h" />
     <ClInclude Include="test_regex.h" />
     <ClInclude Include="test_searching_algorithms.h" />
     <ClInclude Include="test_smart_ptr.h" />
@@ -135,6 +143,11 @@
     <ClCompile Include="test_optional.cpp" />
     <ClCompile Include="test_program_options.cpp" />
     <ClCompile Include="test_property_tree.cpp" />
+    <ClCompile Include="test_proto.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="test_protobuf.cpp" />
     <ClCompile Include="test_regex.cpp" />
     <ClCompile Include="test_searching_algorithms.cpp" />
     <ClCompile Include="test_smart_ptr.cpp" />
@@ -142,6 +155,9 @@
     <ClCompile Include="test_tokenizer.cpp" />
     <ClCompile Include="test_tribool.cpp" />
     <ClCompile Include="test_variant.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="test_proto.proto" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

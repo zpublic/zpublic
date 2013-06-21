@@ -31,6 +31,8 @@
 #include "test_tribool.h"
 #include "test_program_options.h"
 
+#include "test_protobuf.h"
+
 int _tmain(int argc, _TCHAR* argv[])
 {
     //test_smart_ptr();
@@ -60,6 +62,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_optional();
     test_tribool();
     test_program_options();
+
+    test_protobuf();
 
     getchar();
 	return 0;

@@ -22,6 +22,12 @@
     <Filter Include="src\boost\Miscellaneous">
       <UniqueIdentifier>{8ae01776-3993-43ab-a226-a272307278e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\protobuf">
+      <UniqueIdentifier>{ce990ada-7144-4c14-93b8-31264e80d00f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\protobuf\proto">
+      <UniqueIdentifier>{7bbd6010-c314-409f-a383-5766526f51f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -102,6 +108,12 @@
     <ClInclude Include="test_program_options.h">
       <Filter>src\boost\Miscellaneous</Filter>
     </ClInclude>
+    <ClInclude Include="test_protobuf.h">
+      <Filter>src\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="test_proto.pb.h">
+      <Filter>src\protobuf\proto</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -179,5 +191,16 @@
     <ClCompile Include="test_program_options.cpp">
       <Filter>src\boost\Miscellaneous</Filter>
     </ClCompile>
+    <ClCompile Include="test_protobuf.cpp">
+      <Filter>src\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="test_proto.pb.cc">
+      <Filter>src\protobuf\proto</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="test_proto.proto">
+      <Filter>src\protobuf\proto</Filter>
+    </None>
   </ItemGroup>
 </Project>
