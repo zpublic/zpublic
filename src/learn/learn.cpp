@@ -19,6 +19,19 @@
 #include "test_circular_buffer.h"
 #include "test_dynamic_bitset.h"
 #include "test_property_tree.h"
+#include "test_variant.h"
+
+#include "test_searching_algorithms.h"
+#include "test_clamp.h"
+#include "test_hex.h"
+#include "test_minmax.h"
+
+#include "test_numeric_conversion.h"
+#include "test_optional.h"
+#include "test_tribool.h"
+#include "test_program_options.h"
+
+#include "test_protobuf.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -37,7 +50,20 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_bimap();
     //test_circular_buffer();
     //test_dynamic_bitset();
-    test_property_tree();
+    //test_property_tree();
+    //test_variant();
+
+    //test_searching_algorithms();
+    //test_clamp();
+    //test_hex();
+    //test_minmax();
+
+    //test_numeric_conversion();
+    //test_optional();
+    test_tribool();
+    test_program_options();
+
+    test_protobuf();
 
     getchar();
 	return 0;

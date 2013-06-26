@@ -24,6 +24,7 @@
 #include "zpublic.hpp"
 
 ///> 标准容器
+#include <tuple>
 #include <array>
 #include <string>
 #include <vector>
@@ -53,6 +54,7 @@ using std::endl;
 
 ///> 位操作
 #include <bitset>
+
 
 ///> Conversion
 ///> Polymorphic and lexical casts.
@@ -102,3 +104,45 @@ using std::endl;
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/ini_parser.hpp>
 #include <boost/property_tree/info_parser.hpp>
+
+///> Variant
+///> Safe, generic, stack-based discriminated union container.
+#include <boost/variant.hpp>
+
+///> Algorithm
+///> A collection of useful generic algorithms.
+#include <boost/algorithm/searching/boyer_moore.hpp>
+#include <boost/algorithm/searching/boyer_moore_horspool.hpp>
+#include <boost/algorithm/searching/knuth_morris_pratt.hpp>
+#include <boost/algorithm/clamp.hpp>
+#include <boost/algorithm/hex.hpp>
+#include <boost/algorithm/minmax.hpp>
+#include <boost/algorithm/minmax_element.hpp>
+
+///> Numeric Conversion:
+///> Optimized Policy-based Numeric Conversions.
+#include <boost/numeric/conversion/converter.hpp>
+#include <boost/numeric/conversion/bounds.hpp>
+
+///> Optional
+///> Discriminated-union wrapper for optional values.
+#include <boost/optional.hpp>
+
+///> Tribool
+///> 3-state boolean type library.
+#include <boost/logic/tribool.hpp>
+
+///> Program Options
+///> ▄︻┳═一 need lib ▄︻┻═┳一
+///> The program_options library allows program developers to obtain
+///> program options, that is (name, value) pairs from the user, via
+///> conventional methods such as command line and config file.
+#include <boost/program_options.hpp>
+
+
+///> Protocol Buffers
+#ifdef _DEBUG
+#pragma comment(lib, "libprotobuf_d.lib")
+#else
+#pragma comment(lib, "libprotobuf.lib")
+#endif

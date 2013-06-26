@@ -1,0 +1,29 @@
+package test_proto;
+
+// or CODE_SIZE
+option optimize_for = SPEED;
+
+message TestAllTypes
+{
+	message NestedMessage
+	{
+		optional int32 bb = 1;
+	}
+
+	enum NestedEnum
+	{
+		FOO = 1;
+		BAR = 2;
+		BAZ = 3;
+	}
+
+	required     NestedMessage nmsg     = 1;
+	optional    int32 optional_int32    = 2;
+	optional   uint32 optional_uint32   = 3 [default = 123];
+	optional    float optional_float    = 4;
+	optional   string optional_string   = 5;
+
+	optional NestedEnum optional_nested_message  = 6;
+
+	repeated    string repeated_str     = 7;
+}

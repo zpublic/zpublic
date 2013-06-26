@@ -16,6 +16,18 @@
     <Filter Include="src\boost\Containers">
       <UniqueIdentifier>{2869bed5-b104-4e95-8996-1c71e1b3c5d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\boost\Algorithms">
+      <UniqueIdentifier>{f98ea1ab-6424-4626-8321-db07ad4b1e4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\boost\Miscellaneous">
+      <UniqueIdentifier>{8ae01776-3993-43ab-a226-a272307278e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\protobuf">
+      <UniqueIdentifier>{ce990ada-7144-4c14-93b8-31264e80d00f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\protobuf\proto">
+      <UniqueIdentifier>{7bbd6010-c314-409f-a383-5766526f51f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -69,6 +81,39 @@
     <ClInclude Include="test_property_tree.h">
       <Filter>src\boost\Containers</Filter>
     </ClInclude>
+    <ClInclude Include="test_variant.h">
+      <Filter>src\boost\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="test_searching_algorithms.h">
+      <Filter>src\boost\Algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="test_clamp.h">
+      <Filter>src\boost\Algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="test_hex.h">
+      <Filter>src\boost\Algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="test_minmax.h">
+      <Filter>src\boost\Algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="test_numeric_conversion.h">
+      <Filter>src\boost\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="test_optional.h">
+      <Filter>src\boost\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="test_tribool.h">
+      <Filter>src\boost\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="test_program_options.h">
+      <Filter>src\boost\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="test_protobuf.h">
+      <Filter>src\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="test_proto.pb.h">
+      <Filter>src\protobuf\proto</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -119,5 +164,43 @@
     <ClCompile Include="test_property_tree.cpp">
       <Filter>src\boost\Containers</Filter>
     </ClCompile>
+    <ClCompile Include="test_variant.cpp">
+      <Filter>src\boost\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="test_searching_algorithms.cpp">
+      <Filter>src\boost\Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="test_clamp.cpp">
+      <Filter>src\boost\Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="test_hex.cpp">
+      <Filter>src\boost\Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="test_minmax.cpp">
+      <Filter>src\boost\Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="test_numeric_conversion.cpp">
+      <Filter>src\boost\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="test_optional.cpp">
+      <Filter>src\boost\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="test_tribool.cpp">
+      <Filter>src\boost\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="test_program_options.cpp">
+      <Filter>src\boost\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="test_protobuf.cpp">
+      <Filter>src\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="test_proto.pb.cc">
+      <Filter>src\protobuf\proto</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="test_proto.proto">
+      <Filter>src\protobuf\proto</Filter>
+    </None>
   </ItemGroup>
 </Project>

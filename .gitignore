@@ -12,6 +12,7 @@
 *.a
 
 *.exe
+!/src/learn/protoc.exe
 *.ilk
 *.tlog
 *.obj
@@ -19,6 +20,8 @@
 *.idb
 *.pdb
 *.lib
+!/3rdparty/boost_lib/*.lib
+!/3rdparty/protobuf_lib/*.lib
 
 Debug
 !/3rdparty/boost/preprocessor/debug/
@@ -44,3 +47,5 @@ Release
 /src/learn/ptree.json
 
 /src/learn/ptree.xml
+/src/learn/test_proto.pb.h
+/src/learn/test_proto.pb.cc
