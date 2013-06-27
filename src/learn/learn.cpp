@@ -32,6 +32,7 @@
 #include "test_program_options.h"
 
 #include "test_protobuf.h"
+#include "test_libcurl.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -60,10 +61,11 @@ int _tmain(int argc, _TCHAR* argv[])
 
     //test_numeric_conversion();
     //test_optional();
-    test_tribool();
-    test_program_options();
+    //test_tribool();
+    //test_program_options();
 
-    test_protobuf();
+    //test_protobuf();
+    test_libcurl();
 
     getchar();
 	return 0;

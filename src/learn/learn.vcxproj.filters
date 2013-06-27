@@ -28,6 +28,9 @@
     <Filter Include="src\protobuf\proto">
       <UniqueIdentifier>{7bbd6010-c314-409f-a383-5766526f51f6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\libcurl">
+      <UniqueIdentifier>{9286bb95-bc12-46cf-98c6-c5061611af6c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -114,6 +117,15 @@
     <ClInclude Include="test_proto.pb.h">
       <Filter>src\protobuf\proto</Filter>
     </ClInclude>
+    <ClInclude Include="test_libcurl.h">
+      <Filter>src\libcurl</Filter>
+    </ClInclude>
+    <ClInclude Include="zl_crul_file.h">
+      <Filter>src\libcurl</Filter>
+    </ClInclude>
+    <ClInclude Include="zl_crul_http.h">
+      <Filter>src\libcurl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -196,6 +208,15 @@
     </ClCompile>
     <ClCompile Include="test_proto.pb.cc">
       <Filter>src\protobuf\proto</Filter>
+    </ClCompile>
+    <ClCompile Include="test_libcurl.cpp">
+      <Filter>src\libcurl</Filter>
+    </ClCompile>
+    <ClCompile Include="zl_crul_file.cpp">
+      <Filter>src\libcurl</Filter>
+    </ClCompile>
+    <ClCompile Include="zl_crul_http.cpp">
+      <Filter>src\libcurl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

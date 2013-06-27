@@ -146,3 +146,15 @@ using std::endl;
 #else
 #pragma comment(lib, "libprotobuf.lib")
 #endif
+
+///> libcurl
+#ifdef _DEBUG
+#pragma comment(lib, "libcurl_d.lib")
+#else
+#pragma comment(lib, "libcurl.lib")
+#endif
+#define CURL_STATICLIB
+#pragma comment(lib, "wldap32.lib")
+#pragma comment(lib, "ws2_32.lib")
+#pragma comment(lib, "winmm.lib")
+#include "libcurl/curl.h"

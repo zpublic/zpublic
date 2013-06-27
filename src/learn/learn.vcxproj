@@ -59,7 +59,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>./../../3rdparty/boost_lib/;./../../3rdparty/protobuf_lib/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>./../../3rdparty/boost_lib/;./../../3rdparty/protobuf_lib/;./../../3rdparty/libcurl_lib/</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>protoc.exe --cpp_out=./ ./test_proto.proto</Command>
@@ -83,7 +83,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>./../../3rdparty/boost_lib/;./../../3rdparty/protobuf_lib/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>./../../3rdparty/boost_lib/;./../../3rdparty/protobuf_lib/;./../../3rdparty/libcurl_lib/</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>protoc.exe --cpp_out=./ ./test_proto.proto</Command>
@@ -106,6 +106,7 @@
     <ClInclude Include="test_dynamic_bitset.h" />
     <ClInclude Include="test_format.h" />
     <ClInclude Include="test_hex.h" />
+    <ClInclude Include="test_libcurl.h" />
     <ClInclude Include="test_minmax.h" />
     <ClInclude Include="test_numeric_conversion.h" />
     <ClInclude Include="test_optional.h" />
@@ -120,6 +121,8 @@
     <ClInclude Include="test_tokenizer.h" />
     <ClInclude Include="test_tribool.h" />
     <ClInclude Include="test_variant.h" />
+    <ClInclude Include="zl_crul_file.h" />
+    <ClInclude Include="zl_crul_http.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp" />
@@ -138,6 +141,7 @@
     <ClCompile Include="test_dynamic_bitset.cpp" />
     <ClCompile Include="test_format.cpp" />
     <ClCompile Include="test_hex.cpp" />
+    <ClCompile Include="test_libcurl.cpp" />
     <ClCompile Include="test_minmax.cpp" />
     <ClCompile Include="test_numeric_conversion.cpp" />
     <ClCompile Include="test_optional.cpp" />
@@ -155,6 +159,8 @@
     <ClCompile Include="test_tokenizer.cpp" />
     <ClCompile Include="test_tribool.cpp" />
     <ClCompile Include="test_variant.cpp" />
+    <ClCompile Include="zl_crul_file.cpp" />
+    <ClCompile Include="zl_crul_http.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="test_proto.proto" />
