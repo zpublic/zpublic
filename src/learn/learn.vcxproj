@@ -132,6 +132,7 @@
     <ClInclude Include="test_format.h" />
     <ClInclude Include="test_hex.h" />
     <ClInclude Include="test_libcurl.h" />
+    <ClInclude Include="test_lua.h" />
     <ClInclude Include="test_minmax.h" />
     <ClInclude Include="test_numeric_conversion.h" />
     <ClInclude Include="test_optional.h" />
@@ -295,6 +296,7 @@
     <ClCompile Include="test_format.cpp" />
     <ClCompile Include="test_hex.cpp" />
     <ClCompile Include="test_libcurl.cpp" />
+    <ClCompile Include="test_lua.cpp" />
     <ClCompile Include="test_minmax.cpp" />
     <ClCompile Include="test_numeric_conversion.cpp" />
     <ClCompile Include="test_optional.cpp" />

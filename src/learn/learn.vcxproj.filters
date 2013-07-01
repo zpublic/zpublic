@@ -207,6 +207,9 @@
     <ClInclude Include="..\..\3rdparty\luasrc\lzio.h">
       <Filter>src\lua\luasrc</Filter>
     </ClInclude>
+    <ClInclude Include="test_lua.h">
+      <Filter>src\lua</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -394,6 +397,9 @@
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lzio.c">
       <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="test_lua.cpp">
+      <Filter>src\lua</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

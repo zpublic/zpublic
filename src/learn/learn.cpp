@@ -33,6 +33,7 @@
 
 #include "test_protobuf.h"
 #include "test_libcurl.h"
+#include "test_lua.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -65,7 +66,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_program_options();
 
     //test_protobuf();
-    test_libcurl();
+    //test_libcurl();
+    test_lua();
 
     getchar();
 	return 0;
