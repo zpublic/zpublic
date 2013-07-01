@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <tchar.h>
+#include <stdlib.h>
 
 #include <assert.h>
 
@@ -19,6 +20,7 @@
 
 ///> “初始化”: 从“std::streamsize”转换到“size_t”，可能丢失数据
 #pragma warning(disable:4244)
+
 
 ///> zpublic！
 #include "zpublic.hpp"
@@ -157,4 +159,7 @@ using std::endl;
 #pragma comment(lib, "wldap32.lib")
 #pragma comment(lib, "ws2_32.lib")
 #pragma comment(lib, "winmm.lib")
-#include "libcurl/curl.h"
+#include <libcurl/curl.h>
+
+///> lua
+#include <luasrc/lua.hpp>

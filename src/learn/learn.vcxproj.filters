@@ -31,6 +31,12 @@
     <Filter Include="src\libcurl">
       <UniqueIdentifier>{9286bb95-bc12-46cf-98c6-c5061611af6c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\lua">
+      <UniqueIdentifier>{188cf481-d12f-4ed2-81b4-479bd7a43244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lua\luasrc">
+      <UniqueIdentifier>{a83db19f-d5b1-4311-ac28-b127ab4324be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -126,6 +132,81 @@
     <ClInclude Include="zl_crul_http.h">
       <Filter>src\libcurl</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lapi.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lauxlib.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lcode.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lctype.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\ldebug.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\ldo.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lfunc.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lgc.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\llex.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\llimits.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lmem.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lobject.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lopcodes.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lparser.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lstate.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lstring.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\ltable.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\ltm.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lua.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lua.hpp">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\luaconf.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lualib.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lundump.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lvm.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lzio.h">
+      <Filter>src\lua\luasrc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -218,10 +299,109 @@
     <ClCompile Include="zl_crul_http.cpp">
       <Filter>src\libcurl</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lapi.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lauxlib.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lbaselib.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lbitlib.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lcode.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lcorolib.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lctype.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\ldblib.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\ldebug.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\ldo.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\ldump.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lfunc.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lgc.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\linit.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\liolib.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\llex.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lmathlib.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lmem.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\loadlib.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lobject.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lopcodes.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\loslib.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lparser.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lstate.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lstring.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lstrlib.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\ltable.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\ltablib.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\ltm.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lundump.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lvm.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lzio.c">
+      <Filter>src\lua\luasrc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="test_proto.proto">
       <Filter>src\protobuf\proto</Filter>
+    </None>
+    <None Include="..\..\3rdparty\luasrc\Makefile">
+      <Filter>src\lua\luasrc</Filter>
     </None>
   </ItemGroup>
 </Project>
