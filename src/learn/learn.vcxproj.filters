@@ -37,6 +37,15 @@
     <Filter Include="src\lua\luasrc">
       <UniqueIdentifier>{a83db19f-d5b1-4311-ac28-b127ab4324be}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\standard\stream">
+      <UniqueIdentifier>{9bf2c46f-ec93-47d3-9752-2c0f8a1f011c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\standard\c++11">
+      <UniqueIdentifier>{d1abb95d-6ef8-48bc-9e37-9a2bdf31e758}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\standard\c++98|03">
+      <UniqueIdentifier>{c67ec3d8-73a3-4ba5-9f99-5e57517a9b9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -47,21 +56,6 @@
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="test_atomic.h">
-      <Filter>src\standard</Filter>
-    </ClInclude>
-    <ClInclude Include="test_bitset.h">
-      <Filter>src\standard</Filter>
-    </ClInclude>
-    <ClInclude Include="test_chrono.h">
-      <Filter>src\standard</Filter>
-    </ClInclude>
-    <ClInclude Include="test_regex.h">
-      <Filter>src\standard</Filter>
-    </ClInclude>
-    <ClInclude Include="test_smart_ptr.h">
-      <Filter>src\standard</Filter>
     </ClInclude>
     <ClInclude Include="test_conversion.h">
       <Filter>src\boost\String and text processing</Filter>
@@ -74,9 +68,6 @@
     </ClInclude>
     <ClInclude Include="test_tokenizer.h">
       <Filter>src\boost\String and text processing</Filter>
-    </ClInclude>
-    <ClInclude Include="test_array.h">
-      <Filter>src\standard</Filter>
     </ClInclude>
     <ClInclude Include="test_bimap.h">
       <Filter>src\boost\Containers</Filter>
@@ -210,6 +201,36 @@
     <ClInclude Include="test_lua.h">
       <Filter>src\lua</Filter>
     </ClInclude>
+    <ClInclude Include="test_array.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_atomic.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_chrono.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_bitset.h">
+      <Filter>src\standard\c++98|03</Filter>
+    </ClInclude>
+    <ClInclude Include="test_regex.h">
+      <Filter>src\standard\c++98|03</Filter>
+    </ClInclude>
+    <ClInclude Include="test_smart_ptr.h">
+      <Filter>src\standard\c++98|03</Filter>
+    </ClInclude>
+    <ClInclude Include="test_stream.h">
+      <Filter>src\standard\stream</Filter>
+    </ClInclude>
+    <ClInclude Include="test_iostream.h">
+      <Filter>src\standard\stream</Filter>
+    </ClInclude>
+    <ClInclude Include="test_fstream.h">
+      <Filter>src\standard\stream</Filter>
+    </ClInclude>
+    <ClInclude Include="test_strstream.h">
+      <Filter>src\standard\stream</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -217,21 +238,6 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="test_atomic.cpp">
-      <Filter>src\standard</Filter>
-    </ClCompile>
-    <ClCompile Include="test_bitset.cpp">
-      <Filter>src\standard</Filter>
-    </ClCompile>
-    <ClCompile Include="test_chrono.cpp">
-      <Filter>src\standard</Filter>
-    </ClCompile>
-    <ClCompile Include="test_regex.cpp">
-      <Filter>src\standard</Filter>
-    </ClCompile>
-    <ClCompile Include="test_smart_ptr.cpp">
-      <Filter>src\standard</Filter>
     </ClCompile>
     <ClCompile Include="test_conversion.cpp">
       <Filter>src\boost\String and text processing</Filter>
@@ -244,9 +250,6 @@
     </ClCompile>
     <ClCompile Include="test_tokenizer.cpp">
       <Filter>src\boost\String and text processing</Filter>
-    </ClCompile>
-    <ClCompile Include="test_array.cpp">
-      <Filter>src\standard</Filter>
     </ClCompile>
     <ClCompile Include="test_bimap.cpp">
       <Filter>src\boost\Containers</Filter>
@@ -400,6 +403,36 @@
     </ClCompile>
     <ClCompile Include="test_lua.cpp">
       <Filter>src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="test_array.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_atomic.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_chrono.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_bitset.cpp">
+      <Filter>src\standard\c++98|03</Filter>
+    </ClCompile>
+    <ClCompile Include="test_regex.cpp">
+      <Filter>src\standard\c++98|03</Filter>
+    </ClCompile>
+    <ClCompile Include="test_smart_ptr.cpp">
+      <Filter>src\standard\c++98|03</Filter>
+    </ClCompile>
+    <ClCompile Include="test_stream.cpp">
+      <Filter>src\standard\stream</Filter>
+    </ClCompile>
+    <ClCompile Include="test_iostream.cpp">
+      <Filter>src\standard\stream</Filter>
+    </ClCompile>
+    <ClCompile Include="test_fstream.cpp">
+      <Filter>src\standard\stream</Filter>
+    </ClCompile>
+    <ClCompile Include="test_strstream.cpp">
+      <Filter>src\standard\stream</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

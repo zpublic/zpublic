@@ -9,6 +9,7 @@
 #include "test_chrono.h"
 #include "test_bitset.h"
 #include "test_array.h"
+#include "test_stream.h"
 
 #include "test_conversion.h"
 #include "test_string_aogo.h"
@@ -43,6 +44,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_chrono();
     //test_bitset();
     //test_array();
+    test_stream();
 
     //test_conversion();
     //test_string_aogo();
@@ -67,7 +69,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
     //test_protobuf();
     //test_libcurl();
-    test_lua();
+    //test_lua();
 
     getchar();
 	return 0;
