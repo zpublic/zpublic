@@ -38,6 +38,7 @@ using std::string;
 #include <iomanip>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 using std::cout;
 using std::endl;
 

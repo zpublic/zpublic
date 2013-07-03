@@ -130,9 +130,7 @@
     <ClInclude Include="test_conversion.h" />
     <ClInclude Include="test_dynamic_bitset.h" />
     <ClInclude Include="test_format.h" />
-    <ClInclude Include="test_fstream.h" />
     <ClInclude Include="test_hex.h" />
-    <ClInclude Include="test_iostream.h" />
     <ClInclude Include="test_libcurl.h" />
     <ClInclude Include="test_lua.h" />
     <ClInclude Include="test_minmax.h" />
@@ -147,7 +145,6 @@
     <ClInclude Include="test_smart_ptr.h" />
     <ClInclude Include="test_stream.h" />
     <ClInclude Include="test_string_aogo.h" />
-    <ClInclude Include="test_strstream.h" />
     <ClInclude Include="test_tokenizer.h" />
     <ClInclude Include="test_tribool.h" />
     <ClInclude Include="test_variant.h" />
@@ -298,9 +295,7 @@
     <ClCompile Include="test_conversion.cpp" />
     <ClCompile Include="test_dynamic_bitset.cpp" />
     <ClCompile Include="test_format.cpp" />
-    <ClCompile Include="test_fstream.cpp" />
     <ClCompile Include="test_hex.cpp" />
-    <ClCompile Include="test_iostream.cpp" />
     <ClCompile Include="test_libcurl.cpp" />
     <ClCompile Include="test_lua.cpp" />
     <ClCompile Include="test_minmax.cpp" />
@@ -318,7 +313,6 @@
     <ClCompile Include="test_smart_ptr.cpp" />
     <ClCompile Include="test_stream.cpp" />
     <ClCompile Include="test_string_aogo.cpp" />
-    <ClCompile Include="test_strstream.cpp" />
     <ClCompile Include="test_tokenizer.cpp" />
     <ClCompile Include="test_tribool.cpp" />
     <ClCompile Include="test_variant.cpp" />

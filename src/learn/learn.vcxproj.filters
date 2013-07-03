@@ -222,15 +222,6 @@
     <ClInclude Include="test_stream.h">
       <Filter>src\standard\stream</Filter>
     </ClInclude>
-    <ClInclude Include="test_iostream.h">
-      <Filter>src\standard\stream</Filter>
-    </ClInclude>
-    <ClInclude Include="test_fstream.h">
-      <Filter>src\standard\stream</Filter>
-    </ClInclude>
-    <ClInclude Include="test_strstream.h">
-      <Filter>src\standard\stream</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -423,15 +414,6 @@
       <Filter>src\standard\c++98|03</Filter>
     </ClCompile>
     <ClCompile Include="test_stream.cpp">
-      <Filter>src\standard\stream</Filter>
-    </ClCompile>
-    <ClCompile Include="test_iostream.cpp">
-      <Filter>src\standard\stream</Filter>
-    </ClCompile>
-    <ClCompile Include="test_fstream.cpp">
-      <Filter>src\standard\stream</Filter>
-    </ClCompile>
-    <ClCompile Include="test_strstream.cpp">
       <Filter>src\standard\stream</Filter>
     </ClCompile>
   </ItemGroup>
