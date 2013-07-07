@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 
+#ifdef _TEST_BOOST_
 #include "test_smart_ptr.h"
 #include "test_regex.h"
 #include "test_atomic.h"
@@ -31,10 +32,13 @@
 #include "test_optional.h"
 #include "test_tribool.h"
 #include "test_program_options.h"
+#endif // _TEST_BOOST_
 
+#ifdef _TEST_MISC_
 #include "test_protobuf.h"
 #include "test_libcurl.h"
 #include "test_lua.h"
+#endif // _TEST_MISC_
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -44,7 +48,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_chrono();
     //test_bitset();
     //test_array();
-    test_stream();
+    //test_stream();
 
     //test_conversion();
     //test_string_aogo();
