@@ -21,6 +21,12 @@
     <ClInclude Include="test_atl_lock.h">
       <Filter>src\basic</Filter>
     </ClInclude>
+    <ClInclude Include="test_query_interface.h">
+      <Filter>src\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="test_atl_creator.h">
+      <Filter>src\basic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -36,6 +42,12 @@
       <Filter>src\basic</Filter>
     </ClCompile>
     <ClCompile Include="test_atl_lock.cpp">
+      <Filter>src\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="test_query_interface.cpp">
+      <Filter>src\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="test_atl_creator.cpp">
       <Filter>src\basic</Filter>
     </ClCompile>
   </ItemGroup>

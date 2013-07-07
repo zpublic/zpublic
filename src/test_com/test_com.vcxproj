@@ -73,19 +73,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="test_atl_creator.h" />
     <ClInclude Include="test_atl_lock.h" />
     <ClInclude Include="test_atl_type.h" />
     <ClInclude Include="test_guid.h" />
+    <ClInclude Include="test_query_interface.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="test_atl_creator.cpp" />
     <ClCompile Include="test_atl_lock.cpp" />
     <ClCompile Include="test_atl_type.cpp" />
     <ClCompile Include="test_com.cpp" />
     <ClCompile Include="test_guid.cpp" />
+    <ClCompile Include="test_query_interface.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
