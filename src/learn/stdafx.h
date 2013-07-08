@@ -21,7 +21,6 @@
 ///> “初始化”: 从“std::streamsize”转换到“size_t”，可能丢失数据
 #pragma warning(disable:4244)
 
-
 ///> zpublic！
 #include "zpublic.hpp"
 
@@ -59,7 +58,7 @@ using std::endl;
 ///> 位操作
 #include <bitset>
 
-
+#ifdef _TEST_BOOST_
 ///> Conversion
 ///> Polymorphic and lexical casts.
 #include <boost/cast.hpp>
@@ -142,8 +141,9 @@ using std::endl;
 ///> program options, that is (name, value) pairs from the user, via
 ///> conventional methods such as command line and config file.
 #include <boost/program_options.hpp>
+#endif // _TEST_BOOST_
 
-
+#ifdef _TEST_MISC_
 ///> Protocol Buffers
 #ifdef _DEBUG
 #pragma comment(lib, "libprotobuf_d.lib")
@@ -165,3 +165,7 @@ using std::endl;
 
 ///> lua
 #include <luasrc/lua.hpp>
+#endif // _TEST_MISC_
+
+///> ltest
+#include "ltest/ltest.h"

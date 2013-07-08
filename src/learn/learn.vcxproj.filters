@@ -46,6 +46,12 @@
     <Filter Include="src\standard\c++98|03">
       <UniqueIdentifier>{c67ec3d8-73a3-4ba5-9f99-5e57517a9b9b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ltest">
+      <UniqueIdentifier>{3bcd22be-117b-498f-96fa-33f4bb4eedee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ltest">
+      <UniqueIdentifier>{d7e7bc5f-c2f7-49e7-b9d6-199be5a5951c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -221,6 +227,18 @@
     </ClInclude>
     <ClInclude Include="test_stream.h">
       <Filter>src\standard\stream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\ltest\ltest.h">
+      <Filter>ltest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\ltest\ltest_suite.hpp">
+      <Filter>ltest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\ltest\ltest_macros.h">
+      <Filter>ltest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\ltest\ltest_actor.hpp">
+      <Filter>ltest</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
