@@ -93,6 +93,10 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\3rdparty\cipra-1.1\include\cipra.hpp" />
+    <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\counter.hpp" />
+    <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\tap13.hpp" />
+    <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\tests.hpp" />
     <ClInclude Include="..\..\3rdparty\luasrc\lapi.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -207,6 +211,7 @@
     </ClInclude>
     <ClInclude Include="test_bitset.h" />
     <ClInclude Include="test_chrono.h" />
+    <ClInclude Include="test_cipra.h" />
     <ClInclude Include="test_circular_buffer.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -505,6 +510,7 @@
     </ClCompile>
     <ClCompile Include="test_bitset.cpp" />
     <ClCompile Include="test_chrono.cpp" />
+    <ClCompile Include="test_cipra.cpp" />
     <ClCompile Include="test_circular_buffer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -600,6 +606,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\3rdparty\cipra-1.1\include\impl\counter.ipp" />
+    <None Include="..\..\3rdparty\cipra-1.1\include\impl\tap13.ipp" />
+    <None Include="..\..\3rdparty\cipra-1.1\include\impl\tests.ipp" />
     <None Include="..\..\3rdparty\luasrc\Makefile">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>

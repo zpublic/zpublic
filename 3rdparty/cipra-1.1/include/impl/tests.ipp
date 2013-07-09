@@ -128,7 +128,7 @@ namespace cipra {
     {
         // decltype here so we only have to change the type in the
         // class.  No runtime cost.
-        typename decltype(test_counter)::index_type num =
+        typename counter_type::index_type num =
             test_counter.new_test_number();
 
         // static_cast<bool>(expr()) should work
@@ -157,8 +157,7 @@ namespace cipra {
     {
         // decltype here so we only have to change the type in the
         // class.  No runtime cost.
-        typename decltype(test_counter)::index_type num =
-            test_counter.new_test_number();
+        counter_index_type num = test_counter.new_test_number();
 
         // They passed in some value that's boolean.  This is a
         // shortcut for typing something simple that shouldn't throw,
@@ -175,8 +174,7 @@ namespace cipra {
     {
         // decltype here so we only have to change the type in the
         // class.  No runtime cost.
-        typename decltype(test_counter)::index_type num =
-            test_counter.new_test_number();
+        counter_index_type num = test_counter.new_test_number();
 
         if (equals_trait<T, U>::equals(got, expected)) {
             std::cout << tap13::ok(num, name) << std::endl;
@@ -198,8 +196,7 @@ namespace cipra {
     {
         // decltype here so we only have to change the type in the
         // class.  No runtime cost.
-        typename decltype(test_counter)::index_type num =
-            test_counter.new_test_number();
+        counter_index_type num = test_counter.new_test_number();
 
         if (!equals_trait<T, U>::equals(got, expected)) {
             std::cout << tap13::ok(num, name) << std::endl;
@@ -217,8 +214,7 @@ namespace cipra {
     {
         // decltype here so we only have to change the type in the
         // class.  No runtime cost.
-        typename decltype(test_counter)::index_type num =
-            test_counter.new_test_number();
+        counter_index_type num = test_counter.new_test_number();
 
         try {
             (void)expr();
@@ -238,12 +234,11 @@ namespace cipra {
     {
         // decltype here so we only have to change the type in the
         // class.  No runtime cost.
-        typename decltype(test_counter)::index_type num =
-            test_counter.new_test_number();
+        counter_index_type num = test_counter.new_test_number();
         
         try {
             (void)expr();
-        } catch (exceptionT &e) {
+        } catch (exceptionT &) {
             // we expect this exception.
             std::cout << tap13::ok(num, name) << std::endl;
             return;
@@ -266,8 +261,7 @@ namespace cipra {
     {
         // decltype here so we only have to change the type in the
         // class.  No runtime cost.
-        typename decltype(test_counter)::index_type num =
-            test_counter.new_test_number();
+        counter_index_type num = test_counter.new_test_number();
         
         try {
             (void)expr();
@@ -288,12 +282,11 @@ namespace cipra {
     {
         // decltype here so we only have to change the type in the
         // class.  No runtime cost.
-        typename decltype(test_counter)::index_type num =
-            test_counter.new_test_number();
+        counter_index_type num = test_counter.new_test_number();
 
         try {
             (void)expr();
-        } catch (exceptionT &e) {
+        } catch (exceptionT &) {
             // we don't want this exception
             std::cout << tap13::not_ok(num, name) << std::endl;
             return;
@@ -334,8 +327,7 @@ namespace cipra {
     {
         // decltype here so we only have to change the type in the
         // class.  No runtime cost.
-        typename decltype(test_counter)::index_type num =
-            test_counter.new_test_number();
+        counter_index_type num = test_counter.new_test_number();
         
         std::cout << tap13::ok(num, name) << std::endl;
     }
@@ -344,8 +336,7 @@ namespace cipra {
     {
         // decltype here so we only have to change the type in the
         // class.  No runtime cost.
-        typename decltype(test_counter)::index_type num =
-            test_counter.new_test_number();
+        counter_index_type num = test_counter.new_test_number();
         
         std::cout << tap13::not_ok(num, name) << std::endl;
     }

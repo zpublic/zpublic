@@ -48,6 +48,10 @@
 
 namespace cipra {
 
+
+    typedef counter<int> counter_type;
+    typedef counter_type::index_type counter_index_type;
+
     /**
      * A type trait that users can specialize to tell how to equality
      * compare two different types.  Defaults to using `operator==`.
@@ -524,7 +528,7 @@ namespace cipra {
          */
         inline std::string current_exception_name();
 
-        counter<int> test_counter; ///< A counter of unique test indices.
+        counter_type test_counter; ///< A counter of unique test indices.
     };
 }
 

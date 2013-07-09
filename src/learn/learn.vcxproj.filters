@@ -46,11 +46,20 @@
     <Filter Include="src\standard\c++98|03">
       <UniqueIdentifier>{c67ec3d8-73a3-4ba5-9f99-5e57517a9b9b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ltest">
-      <UniqueIdentifier>{3bcd22be-117b-498f-96fa-33f4bb4eedee}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\ltest">
       <UniqueIdentifier>{d7e7bc5f-c2f7-49e7-b9d6-199be5a5951c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{91760d8d-7d67-4193-93a2-75772d4ef713}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\ltest">
+      <UniqueIdentifier>{3bcd22be-117b-498f-96fa-33f4bb4eedee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\cipra">
+      <UniqueIdentifier>{a7e467fa-c11a-48d1-966d-36df23aa0bfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\cipra">
+      <UniqueIdentifier>{7e4932a2-28e8-4928-85a8-d8484a536cac}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -229,16 +238,31 @@
       <Filter>src\standard\stream</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest.h">
-      <Filter>ltest</Filter>
+      <Filter>include\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest_suite.hpp">
-      <Filter>ltest</Filter>
+      <Filter>include\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest_macros.h">
-      <Filter>ltest</Filter>
+      <Filter>include\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest_actor.hpp">
-      <Filter>ltest</Filter>
+      <Filter>include\ltest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cipra-1.1\include\cipra.hpp">
+      <Filter>include\cipra</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\counter.hpp">
+      <Filter>include\cipra</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\tap13.hpp">
+      <Filter>include\cipra</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\tests.hpp">
+      <Filter>include\cipra</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cipra.h">
+      <Filter>src\cipra</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -434,6 +458,9 @@
     <ClCompile Include="test_stream.cpp">
       <Filter>src\standard\stream</Filter>
     </ClCompile>
+    <ClCompile Include="test_cipra.cpp">
+      <Filter>src\cipra</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="test_proto.proto">
@@ -441,6 +468,15 @@
     </None>
     <None Include="..\..\3rdparty\luasrc\Makefile">
       <Filter>src\lua\luasrc</Filter>
+    </None>
+    <None Include="..\..\3rdparty\cipra-1.1\include\impl\counter.ipp">
+      <Filter>include\cipra</Filter>
+    </None>
+    <None Include="..\..\3rdparty\cipra-1.1\include\impl\tap13.ipp">
+      <Filter>include\cipra</Filter>
+    </None>
+    <None Include="..\..\3rdparty\cipra-1.1\include\impl\tests.ipp">
+      <Filter>include\cipra</Filter>
     </None>
   </ItemGroup>
 </Project>
