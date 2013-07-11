@@ -1,0 +1,25 @@
+---
+title: Download
+desc: file releases
+---
+
+File releases
+-------------
+
+Lastest source tarballs can be downloaded from
+[SourceForge Releases](http://sourceforge.net/project/showfiles.php?group_id=69383&package_id=307998)
+
+Development
+-----------
+
+TUT is developed using [Subversion](http://subversion.tigris.org), 
+hosted on browsable [SourceForge Repository](http://tut-framework.svn.sourceforge.net/svnroot/tut-framework/trunk).
+
+You can checkout the code using svn command line client
+
+{coderay:: bash}
+svn co http://tut-framework.svn.sourceforge.net/svnroot/tut-framework/trunk tut-framework
+{coderay}
+
+If you want to participate, please create your patch against latest trunk version and state revision number
+when submitting.

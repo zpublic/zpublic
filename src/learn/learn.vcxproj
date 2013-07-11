@@ -52,7 +52,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>./../../public;./../../3rdparty</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./../../public;./../../3rdparty;./../../3rdparty/tut;</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zm1000  -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -74,7 +74,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>./../../public;./../../3rdparty</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./../../public;./../../3rdparty;./../../3rdparty/tut;</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zm1000  -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -197,6 +197,17 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut.hpp" />
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_assert.hpp" />
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_console_reporter.hpp" />
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_cppunit_reporter.hpp" />
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_exception.hpp" />
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_posix.hpp" />
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_reporter.hpp" />
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_restartable.hpp" />
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_result.hpp" />
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_runner.hpp" />
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_xml_reporter.hpp" />
     <ClInclude Include="..\..\public\ltest\ltest.h" />
     <ClInclude Include="..\..\public\ltest\ltest_actor.hpp" />
     <ClInclude Include="..\..\public\ltest\ltest_macros.h" />
@@ -291,6 +302,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="test_tut.h" />
     <ClInclude Include="test_variant.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -592,6 +604,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="test_tut.cpp" />
     <ClCompile Include="test_variant.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>

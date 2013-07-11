@@ -1,0 +1,7 @@
+CXX=bcc32
+CXXOPTS=-w-8066 -w-8027 -q -v -x -I$(TUT) -DTUT_USE_SEH -c -o
+LNK=bcc32
+LNKOPTS=-e
+SFX=_bcc.exe
+OFX=_bcc.obj
+RM=del

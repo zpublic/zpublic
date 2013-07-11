@@ -1,0 +1,24 @@
+TGT=example$(SFX)
+OBJS=main$(OFX) test_vector$(OFX) test_set$(OFX) test_auto_ptr$(OFX)
+
+HEADERS=../../tut/tut.hpp
+
+all: $(TGT)
+
+clean: 
+	$(RM) $(OBJS) $(TGT)
+
+$(TGT): $(OBJS)
+	$(LNK) $(LNKOPTS)$(TGT) $(OBJS)
+
+test_vector$(OFX) : test_vector.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)test_vector$(OFX) test_vector.cpp 
+
+test_set$(OFX) : test_set.cpp  $(HEADERS)
+	$(CXX) $(CXXOPTS)test_set$(OFX) test_set.cpp 
+
+test_auto_ptr$(OFX) : test_auto_ptr.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)test_auto_ptr$(OFX) test_auto_ptr.cpp 
+
+main$(OFX) : main.cpp  $(HEADERS)
+	$(CXX) $(CXXOPTS)main$(OFX) main.cpp 

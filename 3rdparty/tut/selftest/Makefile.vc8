@@ -1,0 +1,4 @@
+TUT=..
+!include ../Makefile.vc8
+!include Makefile.common
+

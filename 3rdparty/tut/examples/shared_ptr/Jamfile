@@ -1,0 +1,4 @@
+
+exe shared_ptr 
+	: main.cpp test_shared_ptr.cpp
+	: <include>../.. ;

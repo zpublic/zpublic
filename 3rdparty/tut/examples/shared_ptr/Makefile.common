@@ -1,0 +1,19 @@
+TGT=shared_ptr$(SFX)
+OBJS=main$(OFX) test_shared_ptr$(OFX)
+
+HEADERS=../../tut/tut.hpp
+
+all: $(TGT)
+
+clean: 
+	$(RM) $(OBJS) $(TGT)
+
+$(TGT): $(OBJS)
+	$(LNK) $(LNKOPTS)$(TGT) $(OBJS)
+
+test_shared_ptr$(OFX) : test_shared_ptr.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)test_shared_ptr$(OFX) test_shared_ptr.cpp 
+
+main$(OFX) : main.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)main$(OFX) main.cpp 
+

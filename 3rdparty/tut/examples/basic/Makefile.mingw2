@@ -1,0 +1,4 @@
+TUT=../..
+include ../../Makefile.mingw2
+include Makefile.common
+

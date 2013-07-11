@@ -1,0 +1,95 @@
+TGT=selftest$(SFX)
+
+OBJS=main$(OFX) ensure_fork${OFX} teardown_reaper${OFX} runner$(OFX) setup_ex$(OFX) setup_new_copy$(OFX) \
+     teardown_ex$(OFX) callback$(OFX) ensure$(OFX) fail$(OFX) \
+     ensure_equals$(OFX) ensure_distance$(OFX) runtime_exceptions$(OFX) \
+     more_than_50$(OFX) less_than_50$(OFX) same_object_for_dummy$(OFX) \
+     reporter$(OFX) outside$(OFX) ctor_ex$(OFX) constructed_instances$(OFX) \
+     bug_ensure_0_equals_0$(OFX) set_test_name$(OFX) ensure_not$(OFX) test_id$(OFX)
+
+
+HEADERS=../tut/tut.hpp
+
+all: $(TGT) simple${SFX}
+
+clean: 
+	$(RM) $(OBJS) $(TGT) *.tds
+
+$(TGT): $(OBJS)
+	$(LNK) $(LNKOPTS)$(TGT) $(OBJS) 
+
+simple${SFX}: simple.cpp
+	${CXX} $(CXXOPTS)simple${OFX} simple.cpp
+	${LNK} $(LNKOPTS)simple${SFX} simple${OFX}
+
+runner$(OFX) : runner.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)runner$(OFX) runner.cpp 
+
+reporter$(OFX) : reporter.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)reporter$(OFX) reporter.cpp 
+
+setup_ex$(OFX) : setup_ex.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)setup_ex$(OFX) setup_ex.cpp 
+
+teardown_ex$(OFX) : teardown_ex.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)teardown_ex$(OFX) teardown_ex.cpp 
+
+setup_new_copy$(OFX) : setup_new_copy.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)setup_new_copy$(OFX) setup_new_copy.cpp 
+
+callback$(OFX) : callback.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)callback$(OFX) callback.cpp 
+
+ensure$(OFX) : ensure.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)ensure$(OFX) ensure.cpp 
+
+ensure_equals$(OFX) : ensure_equals.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)ensure_equals$(OFX) ensure_equals.cpp 
+
+ensure_distance$(OFX) : ensure_distance.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)ensure_distance$(OFX) ensure_distance.cpp 
+
+fail$(OFX) : fail.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)fail$(OFX) fail.cpp 
+
+ctor_ex$(OFX) : ctor_ex.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)ctor_ex$(OFX) ctor_ex.cpp 
+
+runtime_exceptions$(OFX) : runtime_exceptions.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)runtime_exceptions$(OFX) runtime_exceptions.cpp 
+
+main$(OFX) : main.cpp  $(HEADERS)
+	$(CXX) $(CXXOPTS)main$(OFX) main.cpp
+
+more_than_50$(OFX) : more_than_50.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)more_than_50$(OFX) more_than_50.cpp 
+
+less_than_50$(OFX) : less_than_50.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)less_than_50$(OFX) less_than_50.cpp 
+
+same_object_for_dummy$(OFX) : same_object_for_dummy.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)same_object_for_dummy$(OFX) same_object_for_dummy.cpp 
+
+outside$(OFX) : outside.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)outside$(OFX) outside.cpp 
+
+constructed_instances$(OFX) : constructed_instances.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)constructed_instances$(OFX) constructed_instances.cpp 
+
+bug_ensure_0_equals_0$(OFX) : bug_ensure_0_equals_0.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)bug_ensure_0_equals_0$(OFX) bug_ensure_0_equals_0.cpp 
+
+set_test_name$(OFX) : set_test_name.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)set_test_name$(OFX) set_test_name.cpp 
+
+ensure_not$(OFX) : ensure_not.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)ensure_not$(OFX) ensure_not.cpp 
+
+ensure_fork$(OFX) : ensure_fork.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)ensure_fork$(OFX) ensure_fork.cpp 
+
+teardown_reaper$(OFX) : teardown_reaper.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)teardown_reaper$(OFX) teardown_reaper.cpp 
+
+test_id$(OFX) : test_id.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)test_id$(OFX) test_id.cpp 

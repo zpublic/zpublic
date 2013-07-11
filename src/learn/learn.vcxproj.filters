@@ -52,14 +52,20 @@
     <Filter Include="include">
       <UniqueIdentifier>{91760d8d-7d67-4193-93a2-75772d4ef713}</UniqueIdentifier>
     </Filter>
-    <Filter Include="include\ltest">
-      <UniqueIdentifier>{3bcd22be-117b-498f-96fa-33f4bb4eedee}</UniqueIdentifier>
+    <Filter Include="include\unittest">
+      <UniqueIdentifier>{e466d68a-8f8b-4653-bce5-f6ac0d7bb18e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="include\cipra">
+    <Filter Include="include\unittest\cipra">
       <UniqueIdentifier>{a7e467fa-c11a-48d1-966d-36df23aa0bfe}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\cipra">
+    <Filter Include="include\unittest\ltest">
+      <UniqueIdentifier>{3bcd22be-117b-498f-96fa-33f4bb4eedee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\unittest">
       <UniqueIdentifier>{7e4932a2-28e8-4928-85a8-d8484a536cac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\unittest\tut">
+      <UniqueIdentifier>{492ea6b8-1372-45ae-86e0-8bde294074d8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -238,31 +244,67 @@
       <Filter>src\standard\stream</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest.h">
-      <Filter>include\ltest</Filter>
+      <Filter>include\unittest\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest_suite.hpp">
-      <Filter>include\ltest</Filter>
+      <Filter>include\unittest\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest_macros.h">
-      <Filter>include\ltest</Filter>
+      <Filter>include\unittest\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest_actor.hpp">
-      <Filter>include\ltest</Filter>
+      <Filter>include\unittest\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\cipra.hpp">
-      <Filter>include\cipra</Filter>
+      <Filter>include\unittest\cipra</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\counter.hpp">
-      <Filter>include\cipra</Filter>
+      <Filter>include\unittest\cipra</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\tap13.hpp">
-      <Filter>include\cipra</Filter>
+      <Filter>include\unittest\cipra</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\tests.hpp">
-      <Filter>include\cipra</Filter>
+      <Filter>include\unittest\cipra</Filter>
     </ClInclude>
     <ClInclude Include="test_cipra.h">
-      <Filter>src\cipra</Filter>
+      <Filter>src\unittest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut.hpp">
+      <Filter>include\unittest\tut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_assert.hpp">
+      <Filter>include\unittest\tut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_console_reporter.hpp">
+      <Filter>include\unittest\tut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_cppunit_reporter.hpp">
+      <Filter>include\unittest\tut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_exception.hpp">
+      <Filter>include\unittest\tut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_posix.hpp">
+      <Filter>include\unittest\tut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_reporter.hpp">
+      <Filter>include\unittest\tut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_restartable.hpp">
+      <Filter>include\unittest\tut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_result.hpp">
+      <Filter>include\unittest\tut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_runner.hpp">
+      <Filter>include\unittest\tut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\tut\tut\tut_xml_reporter.hpp">
+      <Filter>include\unittest\tut</Filter>
+    </ClInclude>
+    <ClInclude Include="test_tut.h">
+      <Filter>src\unittest</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -459,7 +501,10 @@
       <Filter>src\standard\stream</Filter>
     </ClCompile>
     <ClCompile Include="test_cipra.cpp">
-      <Filter>src\cipra</Filter>
+      <Filter>src\unittest</Filter>
+    </ClCompile>
+    <ClCompile Include="test_tut.cpp">
+      <Filter>src\unittest</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -470,13 +515,13 @@
       <Filter>src\lua\luasrc</Filter>
     </None>
     <None Include="..\..\3rdparty\cipra-1.1\include\impl\counter.ipp">
-      <Filter>include\cipra</Filter>
+      <Filter>include\unittest\cipra</Filter>
     </None>
     <None Include="..\..\3rdparty\cipra-1.1\include\impl\tap13.ipp">
-      <Filter>include\cipra</Filter>
+      <Filter>include\unittest\cipra</Filter>
     </None>
     <None Include="..\..\3rdparty\cipra-1.1\include\impl\tests.ipp">
-      <Filter>include\cipra</Filter>
+      <Filter>include\unittest\cipra</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -1,0 +1,9 @@
+CXX=cl
+CXXOPTS=-c /Ox /GX /GR /MT -I$(TUT) $(INCLUDES) -DTUT_USE_SEH /Fo
+LNK=link
+LNKOPTS=/link $(LIBS) /OUT:
+SFX=_vc.exe
+OFX=_vc.obj
+RM=del /Q /F 
+
+

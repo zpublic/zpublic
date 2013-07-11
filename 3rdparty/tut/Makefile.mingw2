@@ -1,0 +1,12 @@
+CXX=g++-2
+CXXOPTS=-ftemplate-depth-100 -I$(TUT) -Wall -c -o
+LNK=g++-2
+LNKOPTS=-o
+SFX=_mingw2.exe
+OFX=_mingw2.o
+RM=c:\mingw\bin\rm -f
+
+
+
+
+
