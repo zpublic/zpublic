@@ -39,8 +39,11 @@
 #include "test_libcurl.h"
 #include "test_lua.h"
 #endif // _TEST_MISC_
+
+#ifdef _TEST_UNITTEST_
 #include "test_cipra.h"
 #include "test_tut.h"
+#endif // _TEST_UNITTEST_
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -77,7 +80,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_libcurl();
     //test_lua();
     //test_cipra();
-    test_tut();
+    //test_tut();
 
     getchar();
 	return 0;
