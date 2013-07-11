@@ -44,6 +44,7 @@
 #include "test_cipra.h"
 #include "test_tut.h"
 #endif // _TEST_UNITTEST_
+#include "test_xde.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -81,6 +82,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_lua();
     //test_cipra();
     //test_tut();
+    test_xde();
 
     getchar();
 	return 0;

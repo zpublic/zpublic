@@ -169,3 +169,11 @@ using std::endl;
 
 ///> ltest
 #include "ltest/ltest.h"
+
+///> XDE v1.02
+///> eXtended length disassembler engine, based on LDE/ADE engines
+extern "C"
+{
+#include "xde102/xde.h"
+}
+
