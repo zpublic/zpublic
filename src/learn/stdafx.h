@@ -174,6 +174,10 @@ using std::endl;
 ///> eXtended length disassembler engine, based on LDE/ADE engines
 extern "C"
 {
-#include "xde102/xde.h"
+///> warning C4013: “memset”未定义；假设外部返回 int
+///> warning C4018: “<”: 有符号/无符号不匹配
+#pragma warning(disable:4013 4018)
+#include "xde102/xde.h" 
+#pragma warning(default:4013 4018) ///> 这里没用，关xde.c的警告需单独设置文件
 }
 
