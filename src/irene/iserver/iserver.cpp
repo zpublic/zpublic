@@ -5,6 +5,10 @@ int __stdcall WinMain(HINSTANCE hInstance,
                       LPSTR lpCmdLine,
                       int nShowCmd)
 {
+#if _DEBUG
+    AllocConsole();
+#endif
+
     try
     {
         IOService io_service;
@@ -17,6 +21,10 @@ int __stdcall WinMain(HINSTANCE hInstance,
     {
     
     }
+
+#if _DEBUG
+    FreeConsole();
+#endif
 
     return 0;
 }
