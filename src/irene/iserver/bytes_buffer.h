@@ -1,13 +1,12 @@
 #include <google/protobuf/message.h>
-#include "common_def.h"
 
 #pragma pack(push, 1)
 
-struct PDU
+struct Packet
 {
     int len;
     short opcode;
-    byte body[];
+    unsigned char* message;
 };
 
 #pragma pack(pop)
