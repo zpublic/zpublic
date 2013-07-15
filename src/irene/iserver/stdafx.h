@@ -19,3 +19,7 @@
 
 #include <boost/asio.hpp>
 #include <boost/function.hpp>
+#include <boost/bind.hpp>
+
+#include <functional>
+#include <thread>

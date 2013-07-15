@@ -1,36 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="源文件">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="头文件">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="资源文件">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="stdafx.h">
-      <Filter>头文件</Filter>
+      <Filter>src\main</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>头文件</Filter>
+      <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="local_free_on_destruction.hpp">
+      <Filter>include\asio</Filter>
+    </ClInclude>
+    <ClInclude Include="i_client_operate.h">
+      <Filter>src\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="i_support.h">
+      <Filter>src\interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="iclient.cpp">
-      <Filter>源文件</Filter>
+      <Filter>src\main</Filter>
     </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src\main</Filter>
+    </ClCompile>
+    <ClCompile Include="error_code.cpp">
+      <Filter>include\asio</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{fa9cb705-ee90-459d-87bf-a642258c40ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interface">
+      <UniqueIdentifier>{71a24da8-19b9-45b5-94f1-d8236c31b613}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\plugin">
+      <UniqueIdentifier>{2d27dc77-382f-402a-ba44-d0a9e278c272}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{e74ca938-8040-4a2d-976c-a1ecb5621355}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\asio">
+      <UniqueIdentifier>{efc6221b-d2cb-4a31-8665-e719b5319146}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\main">
+      <UniqueIdentifier>{d0e8cd7d-4116-44e7-8ed9-64ee4b2f2a08}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

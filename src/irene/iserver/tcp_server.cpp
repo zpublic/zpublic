@@ -1,4 +1,4 @@
-#include <boost/asio.hpp>
+#include "stdafx.h"
 #include "inet_address.hpp"
 #include "tcp_server.h"
 #include "common_def.h"

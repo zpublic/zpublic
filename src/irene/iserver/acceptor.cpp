@@ -1,6 +1,4 @@
-﻿#include <functional>
-#include <thread>
-#include <boost/bind.hpp>
+﻿#include "stdafx.h"
 #include "acceptor.h"
 #include "tcp_connection.h"
 #include "common_def.h"

@@ -1,5 +1,4 @@
-#include <boost/asio.hpp>
-#include <boost/bind.hpp>
+#include "stdafx.h"
 #include "tcp_connection.h"
 #include "common_def.h"
 

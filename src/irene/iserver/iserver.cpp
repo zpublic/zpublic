@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "tcp_server.h"
 
 int __stdcall WinMain(HINSTANCE hInstance,
