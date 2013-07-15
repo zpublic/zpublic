@@ -13,6 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{DEBF68AD-211D-484D-B7D1-BA6DA104382D}</ProjectGuid>
     <RootNamespace>iserver</RootNamespace>
+    <ProjectName>shaji</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
