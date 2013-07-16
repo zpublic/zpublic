@@ -74,5 +74,11 @@
     <ClInclude Include="nagle_packet_fragment_codec.h">
       <Filter>src\network</Filter>
     </ClInclude>
+    <ClInclude Include="network_event_proxy.h">
+      <Filter>src\session</Filter>
+    </ClInclude>
+    <ClInclude Include="callbacks.h">
+      <Filter>src\base</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

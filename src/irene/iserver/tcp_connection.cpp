@@ -2,17 +2,20 @@
 #include <byte_buffer.h>
 #include "tcp_connection.h"
 #include "common_def.h"
+#include "nagle_packet_fragment_codec.h"
 
 TcpConnection::TcpConnection(IOService& io_service)
     : _io_service(io_service),
     _strand(io_service.service()),
     _socket(io_service.service())
 {
+    _packetCodec = new NaglePacketFragmentCodec(shared_from_this());
 }
 
 TcpConnection::~TcpConnection()
 {
     close();
+    delete _packetCodec;
     std::cout << "connection destroyed." << std::endl;
 }
 
@@ -62,7 +65,6 @@ void TcpConnection::close()
 {
     _socket.close();
 }
-
 
 tcp::socket& TcpConnection::socket()
 {
@@ -130,9 +132,9 @@ void TcpConnection::handleRead(const boost::system::error_code& error, std::size
         if (_readComplectedCallback)
         {
             ByteBufferPtr read_buffer(new ByteBuffer(_recvBuffer.data(), bytes_transferred));
-            if (_packetCodec.append(read_buffer))
+            if (_packetCodec->append(read_buffer))
             {
-                const ServerPacket* packet = _packetCodec.packet();
+                const ServerPacket* packet = _packetCodec->packet();
                 if (packet != NULL)
                 {
                     uint32_t opcode = packet->opcode;
