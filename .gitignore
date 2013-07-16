@@ -13,6 +13,7 @@
 
 *.exe
 !/src/learn/protoc.exe
+!/src/irene/common/protoc.exe
 *.ilk
 *.tlog
 *.obj
