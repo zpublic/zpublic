@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "inet_address.hpp"
+#include <inet_address.h>
 #include "tcp_server.h"
 #include "common_def.h"
 #include "tcp_connection.h"

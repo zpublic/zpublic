@@ -5,7 +5,7 @@
 
 struct SERVER_DECL ServerPacket
 {
-    const static int MIN_HEADER_LENGTH = sizeof(int);
+    const static int MIN_HEADER_LENGTH = sizeof(size_t);
 
     size_t len;
     uint32_t opcode;
@@ -13,7 +13,7 @@ struct SERVER_DECL ServerPacket
 
     ServerPacket() : message(NULL) {}
 
-    __forceinline size_t byteSize() const 
+    __forceinline size_t byteSize() const
     {
         if (message == NULL)
             return 0;

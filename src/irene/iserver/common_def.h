@@ -1,13 +1,16 @@
 #ifndef common_def_H_
 #define common_def_H_
 
+#include <string>
 #include <stdint.h>
 #include <functional>
 #include <memory>
 #include <thread>
 #include <iostream>
-#include <irene_common.h>
 #include <google/protobuf/message.h>
+
+#include <irene_common.h>
+#include <inet_address.h>
 
 #ifdef _WIN32
 #include <windows.h>
