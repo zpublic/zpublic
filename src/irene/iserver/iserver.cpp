@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "tcp_server.h"
-#include "bytes_buffer.h"
 
 int __stdcall WinMain(HINSTANCE hInstance,
                       HINSTANCE hPrevInstance,
