@@ -16,6 +16,9 @@
     <Filter Include="src\main">
       <UniqueIdentifier>{0c9d6061-7f8e-4ebd-b87d-b0133c17b0cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\base">
+      <UniqueIdentifier>{4d5a68f4-a1ca-4e7c-ab1c-2cbd10ff1c87}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tcp_connection.cpp">
@@ -56,20 +59,20 @@
     <ClInclude Include="acceptor.h">
       <Filter>src\network</Filter>
     </ClInclude>
-    <ClInclude Include="common_def.h">
-      <Filter>src\network</Filter>
-    </ClInclude>
     <ClInclude Include="local_free_on_destruction.hpp">
       <Filter>src\network\asio_error</Filter>
-    </ClInclude>
-    <ClInclude Include="bytes_buffer.h">
-      <Filter>src\network</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>src\main</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="common_def.h">
+      <Filter>src\base</Filter>
+    </ClInclude>
+    <ClInclude Include="nagle_packet_fragment_codec.h">
+      <Filter>src\network</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
