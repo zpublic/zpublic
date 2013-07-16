@@ -3,15 +3,15 @@
 
 #include <byte_buffer.h>
 #include <packet.h>
-#include "common_def.h"
+#include "tcp_connection.h"
 
 class NaglePacketFragmentCodec
 {
     enum CODEC_STATE { S_IDLE, S_PROCESSING } _state;
 
 public:
-    NaglePacketFragmentCodec()
-        : _state(S_IDLE), _packet(NULL)
+    NaglePacketFragmentCodec(const TcpConnectionPtr& connection)
+        : _state(S_IDLE), _packet(NULL), _connection(connection)
     {
     }
 
@@ -43,6 +43,15 @@ public:
         size_t packet_len = 0;
         _buffer >> packet_len;
 
+        if (packet_len >= MAX_RECV_LEN)
+        {
+            std::cout << "Warning: Read packet header length flag " << packet_len << " bytes (which is too large) to a peer socket.\n" << std::endl;
+            std::cout << "  Maybe is an invalid packet :(" << std::endl;
+            reset();
+            _connection->close();
+            return false;
+        }
+
         if (_buffer.size() < packet_len)
         {
             return false;
@@ -50,8 +59,7 @@ public:
         else if (_buffer.size() == packet_len)
         {
             _packet = (ServerPacket*)(reinterpret_cast<const ServerPacket*>(_buffer.buffer()));
-            _state = S_IDLE;
-            _buffer.clear();
+            reset();
             return true;
         }
         else
@@ -67,8 +75,16 @@ public:
     }
 
 private:
+    void reset()
+    {
+        _state = S_IDLE;
+        _buffer.clear();
+    }
+
+private:
     ByteBuffer _buffer;
     ServerPacket* _packet;
+    TcpConnectionPtr _connection;
 };
 
 #endif

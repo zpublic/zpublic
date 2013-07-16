@@ -1,8 +1,8 @@
 #ifndef INET_ADDRESS_H_
 #define INET_ADDRESS_H_
 
-#include <regex>
-#include <boost/asio.hpp>
+#include <string>
+#include <cstdint>
 
 class InetAddress
 {
