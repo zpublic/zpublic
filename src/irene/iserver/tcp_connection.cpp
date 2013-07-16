@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include <byte_buffer.h>
 #include "tcp_connection.h"
 #include "common_def.h"
 
@@ -128,7 +129,26 @@ void TcpConnection::handleRead(const boost::system::error_code& error, std::size
         this->read();
         if (_readComplectedCallback)
         {
-            _readComplectedCallback(shared_from_this(), 1, bytes_transferred);
+            ByteBufferPtr read_buffer(new ByteBuffer(_recvBuffer.data(), bytes_transferred));
+            if (_packetCodec.append(read_buffer))
+            {
+                const ServerPacket* packet = _packetCodec.packet();
+                if (packet != NULL)
+                {
+                    uint32_t opcode = packet->opcode;
+                    google::protobuf::Message* message = packet->message;
+                    if (message == NULL)
+                    {
+                        std::cout << "fatal : NULL proto message!" << std::endl;
+                    }
+
+                    _readComplectedCallback(shared_from_this(), opcode, *message, bytes_transferred);
+                }
+                else
+                {
+                    std::cout << "fatal : NULL Packet!" << std::endl;
+                }
+            }
         }
     }
 }
