@@ -16,6 +16,15 @@
     <ClInclude Include="i_support.h">
       <Filter>src\interface</Filter>
     </ClInclude>
+    <ClInclude Include="protobuf_dispatcher.h">
+      <Filter>src\network</Filter>
+    </ClInclude>
+    <ClInclude Include="tcp_client.h">
+      <Filter>src\network</Filter>
+    </ClInclude>
+    <ClInclude Include="base_support.h">
+      <Filter>src\support</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="iclient.cpp">
@@ -27,6 +36,15 @@
     <ClCompile Include="error_code.cpp">
       <Filter>include\asio</Filter>
     </ClCompile>
+    <ClCompile Include="protobuf_dispatcher.cpp">
+      <Filter>src\network</Filter>
+    </ClCompile>
+    <ClCompile Include="tcp_client.cpp">
+      <Filter>src\network</Filter>
+    </ClCompile>
+    <ClCompile Include="base_support.cpp">
+      <Filter>src\support</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -34,9 +52,6 @@
     </Filter>
     <Filter Include="src\interface">
       <UniqueIdentifier>{71a24da8-19b9-45b5-94f1-d8236c31b613}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\plugin">
-      <UniqueIdentifier>{2d27dc77-382f-402a-ba44-d0a9e278c272}</UniqueIdentifier>
     </Filter>
     <Filter Include="include">
       <UniqueIdentifier>{e74ca938-8040-4a2d-976c-a1ecb5621355}</UniqueIdentifier>
@@ -46,6 +61,15 @@
     </Filter>
     <Filter Include="src\main">
       <UniqueIdentifier>{d0e8cd7d-4116-44e7-8ed9-64ee4b2f2a08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\network">
+      <UniqueIdentifier>{8e9ca19e-9c90-44a7-8c40-b9ff1aa5f3a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\support">
+      <UniqueIdentifier>{e0628722-f677-4aae-b5fe-a32c5cb7021d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\support\plugin">
+      <UniqueIdentifier>{2d27dc77-382f-402a-ba44-d0a9e278c272}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
