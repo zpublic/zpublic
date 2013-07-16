@@ -7,7 +7,7 @@ class NetworkEventProxy
 {
 public:
     NetworkEventProxy(){}
-    virtual ~NetworkEventProxy(){}
+    ~NetworkEventProxy(){}
 
 public:
     void NewConnectionHandler(const TcpConnectionPtr& connection, const InetAddress& peerAddress)

@@ -6,11 +6,10 @@
 #include <boost/array.hpp>
 #include "common_def.h"
 #include "io_service.h"
+#include "nagle_packet_fragment_codec.h"
 
 using namespace boost::asio::ip;
 
-class NaglePacketFragmentCodec;
-class ByteBuffer;
 class TcpConnection
     : private boost::noncopyable, public std::enable_shared_from_this<TcpConnection>
 {
@@ -37,6 +36,20 @@ private:
     void handleRead(const boost::system::error_code& error, std::size_t bytes_transferred);
 
 private:
+    /*nagle handle*/
+    enum CODEC_STATE { S_IDLE, S_PROCESSING } _state;
+
+    bool append_buffer_fragment(const ByteBufferPtr& buffer);
+    void reset()
+    {
+        _state = S_IDLE;
+        _buffer.clear();
+    }
+
+    ByteBuffer _buffer;
+    ServerPacket* _integrity_packet;
+
+private:
     tcp::socket _socket;
     WriteCompletedCallback _writeCompletedCallback;
     ReadCompletedCallback _readComplectedCallback;
@@ -44,7 +57,6 @@ private:
     boost::array<byte, MAX_RECV_LEN> _recvBuffer;
     boost::asio::strand _strand;
     IOService& _io_service;
-    NaglePacketFragmentCodec* _packetCodec;
 };
 
 #endif

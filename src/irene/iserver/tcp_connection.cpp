@@ -9,13 +9,11 @@ TcpConnection::TcpConnection(IOService& io_service)
     _strand(io_service.service()),
     _socket(io_service.service())
 {
-    _packetCodec = new NaglePacketFragmentCodec(shared_from_this());
 }
 
 TcpConnection::~TcpConnection()
 {
     close();
-    delete _packetCodec;
     std::cout << "connection destroyed." << std::endl;
 }
 
@@ -129,27 +127,25 @@ void TcpConnection::handleRead(const boost::system::error_code& error, std::size
         }
 
         this->read();
-        if (_readComplectedCallback)
-        {
-            ByteBufferPtr read_buffer(new ByteBuffer(_recvBuffer.data(), bytes_transferred));
-            if (_packetCodec->append(read_buffer))
-            {
-                const ServerPacket* packet = _packetCodec->packet();
-                if (packet != NULL)
-                {
-                    uint32_t opcode = packet->opcode;
-                    google::protobuf::Message* message = packet->message;
-                    if (message == NULL)
-                    {
-                        std::cout << "fatal : NULL proto message!" << std::endl;
-                    }
 
+        ByteBufferPtr read_buffer(new ByteBuffer(_recvBuffer.data(), bytes_transferred));
+
+        if (append_buffer_fragment(read_buffer))
+        {
+            if (_integrity_packet != NULL)
+            {
+                uint32_t opcode = _integrity_packet->opcode;
+                google::protobuf::Message* message = _integrity_packet->message;
+
+                if (message == NULL)
+                    std::cout << "fatal : NULL proto message!" << std::endl;
+
+                if (_readComplectedCallback)
                     _readComplectedCallback(shared_from_this(), opcode, *message, bytes_transferred);
-                }
-                else
-                {
-                    std::cout << "fatal : NULL Packet!" << std::endl;
-                }
+            }
+            else
+            {
+                std::cout << "fatal : NULL Packet!" << std::endl;
             }
         }
     }
@@ -173,5 +169,55 @@ void TcpConnection::onError(const boost::system::error_code& error)
             }
             break;
         }
+    }
+}
+
+
+bool TcpConnection::append_buffer_fragment(const ByteBufferPtr& buffer)
+{
+    if (_state == S_IDLE && buffer->size() < ServerPacket::MIN_HEADER_LENGTH)
+    {
+        _buffer.append(buffer);
+        _state = S_PROCESSING;
+        return false;
+    }
+    else
+    {
+        _buffer.append(buffer);
+    }
+
+    //检查缓冲区数据是否满足packet的最低字节数
+    if (_buffer.size() <= sizeof(ServerPacket))
+    {
+        std::cout << "buffer size not enough the bytesize of ServerPacket(" << sizeof(ServerPacket) << " bytes)." << std::endl;
+        return false;
+    }
+
+    size_t packet_len = 0;
+    _buffer >> packet_len;
+
+    if (packet_len >= MAX_RECV_LEN)
+    {
+        std::cout << "Warning: Read packet header length " << packet_len << " bytes (which is too large) on peer socket.\n" << std::endl;
+        std::cout << "  Maybe is an invalid packet :(" << std::endl;
+        reset();
+        //close();
+        return false;
+    }
+
+    if (_buffer.size() < packet_len)
+    {
+        return false;
+    }
+    else if (_buffer.size() == packet_len)
+    {
+        _integrity_packet = (ServerPacket*)(reinterpret_cast<const ServerPacket*>(_buffer.buffer()));
+        reset();
+        return true;
+    }
+    else
+    {
+        std::cout << "invalid packet" << std::endl;
+        return false;
     }
 }
