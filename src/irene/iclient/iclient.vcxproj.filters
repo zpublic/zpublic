@@ -25,6 +25,15 @@
     <ClInclude Include="base_support.h">
       <Filter>src\support</Filter>
     </ClInclude>
+    <ClInclude Include="support_plugin_base.h">
+      <Filter>src\support</Filter>
+    </ClInclude>
+    <ClInclude Include="system_info_plugin.h">
+      <Filter>src\support\plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="support_plugin_manager.h">
+      <Filter>src\support</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="iclient.cpp">
@@ -43,6 +52,15 @@
       <Filter>src\network</Filter>
     </ClCompile>
     <ClCompile Include="base_support.cpp">
+      <Filter>src\support</Filter>
+    </ClCompile>
+    <ClCompile Include="support_plugin_base.cpp">
+      <Filter>src\support</Filter>
+    </ClCompile>
+    <ClCompile Include="system_info_plugin.cpp">
+      <Filter>src\support\plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="support_plugin_manager.cpp">
       <Filter>src\support</Filter>
     </ClCompile>
   </ItemGroup>

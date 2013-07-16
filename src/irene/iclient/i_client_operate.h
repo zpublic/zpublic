@@ -1,6 +1,7 @@
 #pragma once
 
 class google::protobuf::Descriptor;
+typedef boost::function<void (google::protobuf::Message* message)> MessageCallback;
 
 class IClientOperate
 {
