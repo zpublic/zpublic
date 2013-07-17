@@ -28,11 +28,14 @@
     <ClInclude Include="support_plugin_base.h">
       <Filter>src\support</Filter>
     </ClInclude>
-    <ClInclude Include="system_info_plugin.h">
-      <Filter>src\support\plugin</Filter>
-    </ClInclude>
     <ClInclude Include="support_plugin_manager.h">
       <Filter>src\support</Filter>
+    </ClInclude>
+    <ClInclude Include="system_info_plugin.h">
+      <Filter>src\support\plugin\system_info</Filter>
+    </ClInclude>
+    <ClInclude Include="file_manage_plugin.h">
+      <Filter>src\support\plugin\file_manage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -57,11 +60,14 @@
     <ClCompile Include="support_plugin_base.cpp">
       <Filter>src\support</Filter>
     </ClCompile>
-    <ClCompile Include="system_info_plugin.cpp">
-      <Filter>src\support\plugin</Filter>
-    </ClCompile>
     <ClCompile Include="support_plugin_manager.cpp">
       <Filter>src\support</Filter>
+    </ClCompile>
+    <ClCompile Include="system_info_plugin.cpp">
+      <Filter>src\support\plugin\system_info</Filter>
+    </ClCompile>
+    <ClCompile Include="file_manage_plugin.cpp">
+      <Filter>src\support\plugin\file_manage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +94,12 @@
     </Filter>
     <Filter Include="src\support\plugin">
       <UniqueIdentifier>{2d27dc77-382f-402a-ba44-d0a9e278c272}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\support\plugin\system_info">
+      <UniqueIdentifier>{04901e35-bfa5-429f-b073-398fb9e33573}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\support\plugin\file_manage">
+      <UniqueIdentifier>{fb276b01-cfb6-4fe1-8bde-84e4b01af195}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

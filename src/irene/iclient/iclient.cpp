@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "tcp_client.h"
 #include "system_info_plugin.h"
+#include "file_manage_plugin.h"
 #include "support_plugin_manager.h"
 #include "base_support.h"
 
@@ -15,9 +16,11 @@ int _tmain(int argc, _TCHAR* argv[])
     assert(pClient != NULL);
 
     CSystemInfoPlugin systemInfoPlugin;
+    CFileManagePlugin fileManagePlugin;
     CSupportPluginManager pluginManager;
     pluginManager.SetClient(pClient);
     pluginManager.AddPlugin(static_cast<CSupportPluginBase*>(&systemInfoPlugin));
+    pluginManager.AddPlugin(static_cast<CSupportPluginBase*>(&fileManagePlugin));
     pluginManager.Load();
 
     CBaseSupport baseSupport;
