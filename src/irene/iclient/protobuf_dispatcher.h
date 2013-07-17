@@ -1,9 +1,9 @@
 #pragma once
+#include "i_client_operate.h"
 
 ///> 参考陈硕的文章：一种自动反射消息类型的 Google Protobuf 网络传输方案
 ///> http://www.cnblogs.com/Solstice/archive/2011/04/03/2004458.html
 
-typedef boost::function<void (google::protobuf::Message* message)> MessageCallback;
 
 /*
 class Callback : boost::noncopyable
