@@ -1,5 +1,4 @@
 #include <google/protobuf/message.h>
-#include "byte_buffer.h"
 
 #pragma pack(push, 1)
 
