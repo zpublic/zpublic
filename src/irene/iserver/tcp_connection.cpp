@@ -2,7 +2,7 @@
 #include <byte_buffer.h>
 #include "tcp_connection.h"
 #include "common_def.h"
-#include "nagle_packet_fragment_codec.h"
+#include "packet.h"
 
 TcpConnection::TcpConnection(IOService& io_service)
     : _io_service(io_service),
@@ -13,7 +13,9 @@ TcpConnection::TcpConnection(IOService& io_service)
 
 TcpConnection::~TcpConnection()
 {
-    close();
+    if (isOpen())
+        _socket.close();
+
     std::cout << "connection destroyed." << std::endl;
 }
 
@@ -57,11 +59,6 @@ void TcpConnection::read()
 void TcpConnection::shutdown()
 {
     _socket.shutdown(boost::asio::socket_base::shutdown_both);
-}
-
-void TcpConnection::close()
-{
-    _socket.close();
 }
 
 tcp::socket& TcpConnection::socket()
@@ -115,38 +112,35 @@ void TcpConnection::handleWrite(
 void TcpConnection::handleRead(const boost::system::error_code& error, std::size_t bytes_transferred)
 {
     if (error)
+        return onError(error);
+
+    if (bytes_transferred == 0)
     {
-        onError(error);
+        std::cout << "oops, connection lost :(" << std::endl;
+        return;
     }
-    else
+    
+    this->read();
+    ByteBufferPtr read_buffer(new ByteBuffer(_recvBuffer.data(), bytes_transferred));
+    if (append_buffer_fragment(read_buffer))
     {
-        if (bytes_transferred == 0)
+        if (_integrity_packet != NULL)
         {
-            std::cout << "oops, connection lost :(" << std::endl;
-            return;
-        }
+            uint32_t opcode = _integrity_packet->opcode;
+            google::protobuf::Message* message = _integrity_packet->message;
 
-        this->read();
-
-        ByteBufferPtr read_buffer(new ByteBuffer(_recvBuffer.data(), bytes_transferred));
-
-        if (append_buffer_fragment(read_buffer))
-        {
-            if (_integrity_packet != NULL)
+            if (message != NULL && _readComplectedCallback)
             {
-                uint32_t opcode = _integrity_packet->opcode;
-                google::protobuf::Message* message = _integrity_packet->message;
-
-                if (message == NULL)
-                    std::cout << "fatal : NULL proto message!" << std::endl;
-
-                if (_readComplectedCallback)
-                    _readComplectedCallback(shared_from_this(), opcode, *message, bytes_transferred);
+                _readComplectedCallback(shared_from_this(), opcode, *message, bytes_transferred);
             }
             else
             {
-                std::cout << "fatal : NULL Packet!" << std::endl;
+                std::cout << "fatal : NULL proto message!" << std::endl;
             }
+        }
+        else
+        {
+            std::cout << "fatal : NULL Packet!" << std::endl;
         }
     }
 }
@@ -177,19 +171,22 @@ bool TcpConnection::append_buffer_fragment(const ByteBufferPtr& buffer)
 {
     if (_state == S_IDLE && buffer->size() < ServerPacket::MIN_HEADER_LENGTH)
     {
-        _buffer.append(buffer);
+        _buffer.append(*buffer);
         _state = S_PROCESSING;
         return false;
     }
     else
     {
-        _buffer.append(buffer);
+        _buffer.append(*buffer);
     }
 
     //检查缓冲区数据是否满足packet的最低字节数
-    if (_buffer.size() <= sizeof(ServerPacket))
+    if (_buffer.size() < sizeof(ServerPacket))
     {
-        std::cout << "buffer size not enough the bytesize of ServerPacket(" << sizeof(ServerPacket) << " bytes)." << std::endl;
+        std::cout 
+            << "buffer size not enough the minimum bytesize of ServerPacket(" 
+            << sizeof(ServerPacket) << " bytes, buffer size = " << _buffer.size() << ")." << std::endl;
+
         return false;
     }
 
@@ -198,15 +195,15 @@ bool TcpConnection::append_buffer_fragment(const ByteBufferPtr& buffer)
 
     if (packet_len >= MAX_RECV_LEN)
     {
-        std::cout << "Warning: Read packet header length " << packet_len << " bytes (which is too large) on peer socket.\n" << std::endl;
-        std::cout << "  Maybe is an invalid packet :(" << std::endl;
+        std::cout << "Warning: Read packet header length " << packet_len << " bytes (which is too large) on peer socket. (Invalid Packet?)" << std::endl;
         reset();
-        //close();
+        shutdown();
         return false;
     }
 
     if (_buffer.size() < packet_len)
     {
+        //收到的内容小于包头指定长度，继续接收
         return false;
     }
     else if (_buffer.size() == packet_len)

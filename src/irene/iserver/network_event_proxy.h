@@ -23,6 +23,7 @@ public:
     void ReadCompletedHandler(const TcpConnectionPtr& connection, uint32_t opcode, const google::protobuf::Message& message, uint32_t bytes_transferred)
     {
         std::cout << "Read complected handler." << std::endl;
+        std::cout << "  opcode = " << opcode << std::endl;
     }
 
     void ConnectionClosed(const TcpConnectionPtr& connection)

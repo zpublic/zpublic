@@ -4,12 +4,13 @@
 #include <boost/noncopyable.hpp>
 #include <boost/asio.hpp>
 #include <boost/array.hpp>
+#include <byte_buffer.h>
 #include "common_def.h"
 #include "io_service.h"
-#include "nagle_packet_fragment_codec.h"
 
 using namespace boost::asio::ip;
 
+struct ServerPacket;
 class TcpConnection
     : private boost::noncopyable, public std::enable_shared_from_this<TcpConnection>
 {
@@ -21,7 +22,6 @@ public:
     void write(const byte* data, size_t size);
     void read();
     void shutdown();
-    void close();
     tcp::socket& socket();
     bool isOpen();
 
