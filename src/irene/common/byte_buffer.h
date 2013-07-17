@@ -9,7 +9,7 @@
 
 class ByteBuffer
 {
-#define USING_BIG_ENDIAN
+//#define USING_BIG_ENDIAN
 
     const static uint32_t EMPTY_BUFFER = 0x0000;
     const static uint32_t DEFAULT_SIZE = 0x1000;
@@ -218,7 +218,7 @@ public:
 #ifdef USING_BIG_ENDIAN
         append<int64_t>(swap64(value));
 #else
-        append<int64>(value);
+        append<int64_t>(value);
 #endif
         return *this;
     }
@@ -320,7 +320,7 @@ public:
 #ifdef USING_BIG_ENDIAN
         value = swap32(read<int32_t>());
 #else
-        value = read<int32>();
+        value = read<int32_t>();
 #endif
         return *this;
     }
@@ -330,7 +330,7 @@ public:
 #ifdef USING_BIG_ENDIAN
         value = swap64(read<uint64_t>());
 #else
-        value = read<int64>();
+        value = read<int64_t>();
 #endif
         return *this;
     }

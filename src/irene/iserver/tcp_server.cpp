@@ -80,26 +80,19 @@ void TcpServer::newConnectionCallback(const TcpConnectionPtr& connection)
 {
     std::cout << "thread id = " << std::this_thread::get_id() << std::endl;
 
-    if (connection->isOpen())
-    {
-        //构造通信地址结构
-        tcp::socket& socket = connection->socket();
-        std::string remote_address = socket.remote_endpoint().address().to_string();
-        uint16_t remote_port = socket.remote_endpoint().port();
-        InetAddress peerAddress(remote_address, remote_port);
+    //构造通信地址结构
+    tcp::socket& socket = connection->socket();
+    std::string remote_address = socket.remote_endpoint().address().to_string();
+    uint16_t remote_port = socket.remote_endpoint().port();
+    InetAddress peerAddress(remote_address, remote_port);
 
-        //设置链接回调
-        connection->setWriteCompletedCallback(_writeCompletedCallback);
-        connection->setReadCompletedCallback(_readCompletedCallback);
-        connection->setConnectionClosedCallback(_connectionClosedCallback);
+    //设置链接回调
+    connection->setWriteCompletedCallback(_writeCompletedCallback);
+    connection->setReadCompletedCallback(_readCompletedCallback);
+    connection->setConnectionClosedCallback(_connectionClosedCallback);
 
-        if (_newConnectionCallback)
-        {
-            _newConnectionCallback(connection, peerAddress);
-        }
-    }
-    else
+    if (_newConnectionCallback)
     {
-        connection->close();
+        _newConnectionCallback(connection, peerAddress);
     }
 }
