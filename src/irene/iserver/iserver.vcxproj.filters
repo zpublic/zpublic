@@ -41,9 +41,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inet_address.hpp">
-      <Filter>src\network</Filter>
-    </ClInclude>
     <ClInclude Include="io_service.h">
       <Filter>src\network</Filter>
     </ClInclude>
@@ -70,9 +67,6 @@
     </ClInclude>
     <ClInclude Include="common_def.h">
       <Filter>src\base</Filter>
-    </ClInclude>
-    <ClInclude Include="nagle_packet_fragment_codec.h">
-      <Filter>src\network</Filter>
     </ClInclude>
     <ClInclude Include="network_event_proxy.h">
       <Filter>src\session</Filter>
