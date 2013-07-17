@@ -214,7 +214,7 @@ bool TcpConnection::append_buffer_fragment(const ByteBufferPtr& buffer)
     }
     else
     {
-        std::cout << "invalid packet" << std::endl;
+        //´¢´æÊ£Óà°ü
         return false;
     }
 }
