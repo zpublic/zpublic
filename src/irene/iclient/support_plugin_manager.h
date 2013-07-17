@@ -5,7 +5,7 @@
 typedef std::map<std::string, CSupportPluginBase*> PluginMap;
 typedef PluginMap::iterator PluginIt;
 
-class CSupportPluginManager
+class CSupportPluginManager : private boost::noncopyable
 {
 public:
     CSupportPluginManager();

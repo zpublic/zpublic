@@ -2,7 +2,9 @@
 #include "protobuf_dispatcher.h"
 #include "i_client_operate.h"
 
-class CTcpClient : public IClientOperate
+class CTcpClient
+    : public IClientOperate
+    , private boost::noncopyable
 {
 public:
     CTcpClient();

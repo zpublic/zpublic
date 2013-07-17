@@ -1,5 +1,6 @@
 #pragma once
 #include "support_plugin_base.h"
+#include "system_info_support.h"
 
 class CSystemInfoPlugin : public CSupportPluginBase
 {
@@ -13,4 +14,6 @@ public:
 
     virtual std::string GetName();
 
+private:
+    CSystemInfoSupport systemInfo_;
 };

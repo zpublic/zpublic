@@ -91,6 +91,7 @@
     <ClInclude Include="support_plugin_base.h" />
     <ClInclude Include="support_plugin_manager.h" />
     <ClInclude Include="system_info_plugin.h" />
+    <ClInclude Include="system_info_support.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="tcp_client.h" />
   </ItemGroup>
@@ -110,6 +111,7 @@
     <ClCompile Include="support_plugin_base.cpp" />
     <ClCompile Include="support_plugin_manager.cpp" />
     <ClCompile Include="system_info_plugin.cpp" />
+    <ClCompile Include="system_info_support.cpp" />
     <ClCompile Include="tcp_client.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -37,6 +37,9 @@
     <ClInclude Include="file_manage_plugin.h">
       <Filter>src\support\plugin\file_manage</Filter>
     </ClInclude>
+    <ClInclude Include="system_info_support.h">
+      <Filter>src\support\plugin\system_info</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="iclient.cpp">
@@ -68,6 +71,9 @@
     </ClCompile>
     <ClCompile Include="file_manage_plugin.cpp">
       <Filter>src\support\plugin\file_manage</Filter>
+    </ClCompile>
+    <ClCompile Include="system_info_support.cpp">
+      <Filter>src\support\plugin\system_info</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
