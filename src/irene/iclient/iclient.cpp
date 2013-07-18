@@ -11,26 +11,36 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-    CTcpClient client;
-    IClientOperate* pClient = static_cast<IClientOperate*>(&client);
-    assert(pClient != NULL);
+    try
+    {
+        boost::asio::io_service io_service;
+        tcp::resolver resolver(io_service);
+        tcp::resolver::query query(tcp::v4(), "127.0.0.1", "36911");
+        tcp::resolver::iterator iterator = resolver.resolve(query);
 
-    CSystemInfoPlugin systemInfoPlugin;
-    CFileManagePlugin fileManagePlugin;
-    CSupportPluginManager pluginManager;
-    pluginManager.SetClient(pClient);
-    pluginManager.AddPlugin(static_cast<CSupportPluginBase*>(&systemInfoPlugin));
-    pluginManager.AddPlugin(static_cast<CSupportPluginBase*>(&fileManagePlugin));
-    pluginManager.Load();
+        CTcpClient client(io_service, iterator);
 
-    CBaseSupport baseSupport;
-    baseSupport.Register(pClient);
+        IClientOperate* pClient = static_cast<IClientOperate*>(&client);
+        assert(pClient != NULL);
+        CSystemInfoPlugin systemInfoPlugin;
+        CFileManagePlugin fileManagePlugin;
+        CSupportPluginManager pluginManager;
+        pluginManager.SetClient(pClient);
+        pluginManager.AddPlugin(static_cast<CSupportPluginBase*>(&systemInfoPlugin));
+        pluginManager.AddPlugin(static_cast<CSupportPluginBase*>(&fileManagePlugin));
+        pluginManager.Load();
+        CBaseSupport baseSupport;
+        baseSupport.Register(pClient);
 
-    ///> loop
+        client.Connect();
 
-    baseSupport.Unregister(pClient);
-    pluginManager.Unload();
-
+        baseSupport.Unregister(pClient);
+        pluginManager.Unload();
+    }
+    catch (...)
+    {
+        std::cout << "An unknown exception occurred." << std::endl;
+    }
 	return 0;
 }
 

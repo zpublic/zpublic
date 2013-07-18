@@ -10,12 +10,17 @@
 #include <stdio.h>
 #include <tchar.h>
 
+#include <iostream>
 #include <memory>
 #include <map>
+#include <queue>
+#include <thread>
 
-#include <boost/asio.hpp>
 #include <boost/function.hpp>
-
+#include <boost/bind.hpp>
+#include <boost/noncopyable.hpp>
+#include <boost/asio.hpp>
+using boost::asio::ip::tcp;
 ///> Protocol Buffers
 #include <google/protobuf/message.h>
 #ifdef _DEBUG
