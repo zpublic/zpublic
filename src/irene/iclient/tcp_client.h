@@ -24,7 +24,6 @@ public:
         const google::protobuf::Descriptor* desc );
 
     void Connect();
-    void Close();
 
 private:
 
@@ -34,6 +33,8 @@ private:
 
     void do_close();
     void handle_connect( const boost::system::error_code& error );
+
+    void Close();
 private:
     ProtobufDispatcher disp_;
     boost::asio::io_service& io_service_;

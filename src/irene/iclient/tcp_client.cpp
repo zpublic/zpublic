@@ -9,18 +9,13 @@ CTcpClient::CTcpClient(
     tcp::resolver::iterator endpoint_iterator)
     : io_service_(io_service)
     , socket_(io_service)
-    , signals_(io_service)
+    , signals_(io_service, SIGINT, SIGTERM)
 {
     boost::asio::async_connect(
         socket_,
         endpoint_iterator,
         boost::bind(&CTcpClient::handle_connect, this, boost::asio::placeholders::error));
 
-    signals_.add(SIGINT);
-    signals_.add(SIGTERM);
-#if defined(SIGQUIT)
-    signals_.add(SIGQUIT);
-#endif
     signals_.async_wait(std::bind(&CTcpClient::Close, this));
 }
 
