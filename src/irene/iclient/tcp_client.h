@@ -32,7 +32,6 @@ private:
     void handle_write(const boost::system::error_code& error);
 
     void do_close();
-    void handle_connect( const boost::system::error_code& error );
 
     void Close();
 private:

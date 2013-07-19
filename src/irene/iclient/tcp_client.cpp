@@ -11,10 +11,20 @@ CTcpClient::CTcpClient(
     , socket_(io_service)
     , signals_(io_service, SIGINT, SIGTERM)
 {
-    boost::asio::async_connect(
-        socket_,
-        endpoint_iterator,
-        boost::bind(&CTcpClient::handle_connect, this, boost::asio::placeholders::error));
+    boost::system::error_code ec;
+    while (true)
+    {
+        boost::asio::connect(
+            socket_,
+            endpoint_iterator,
+            ec);
+        if (!ec)
+        {
+            break;
+        }
+        ///> 如果没连上，30秒重试
+        ::Sleep(30000);
+    }
 
     signals_.async_wait(std::bind(&CTcpClient::Close, this));
 }
@@ -62,18 +72,8 @@ void CTcpClient::Connect()
 {
     std::shared_ptr<std::thread> t(
         new std::thread(boost::bind(&boost::asio::io_service::run, &io_service_)));
+    io_service_.run();
     t->join();
-}
-
-void CTcpClient::handle_connect( const boost::system::error_code& error )
-{
-    if (!error)
-    {
-//             boost::asio::async_read(socket_,
-//                 boost::asio::buffer(read_msg_.data(), chat_message::header_length),
-//                 boost::bind(&CTcpClient::handle_write, this,
-//                 boost::asio::placeholders::error));
-    }
 }
 
 void CTcpClient::do_write(void* pBuf, unsigned int len)
