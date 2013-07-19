@@ -4,8 +4,12 @@
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
 
-CTcpClient::CTcpClient( boost::asio::io_service& io_service, tcp::resolver::iterator endpoint_iterator ) : io_service_(io_service),
-    socket_(io_service)
+CTcpClient::CTcpClient(
+    boost::asio::io_service& io_service,
+    tcp::endpoint& end_point,
+    tcp::resolver::iterator endpoint_iterator)
+    : io_service_(io_service)
+    , socket_(io_service, end_point)
 {
     boost::asio::async_connect(
         socket_,

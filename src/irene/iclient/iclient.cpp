@@ -15,10 +15,11 @@ int _tmain(int argc, _TCHAR* argv[])
     {
         boost::asio::io_service io_service;
         tcp::resolver resolver(io_service);
-        tcp::resolver::query query(tcp::v4(), "127.0.0.1", "36911");
+        tcp::resolver::query query(tcp::v4(), "127.0.0.1", "");
         tcp::resolver::iterator iterator = resolver.resolve(query);
+        tcp::endpoint end_point(tcp::v4(), 36911);
 
-        CTcpClient client(io_service, iterator);
+        CTcpClient client(io_service, end_point, iterator);
 
         IClientOperate* pClient = static_cast<IClientOperate*>(&client);
         assert(pClient != NULL);
