@@ -11,7 +11,6 @@ class CTcpClient
 public:
     CTcpClient(
         boost::asio::io_service& io_service,
-        tcp::endpoint& end_point,
         tcp::resolver::iterator endpoint_iterator);
     ~CTcpClient();
 
@@ -40,4 +39,5 @@ private:
     boost::asio::io_service& io_service_;
     tcp::socket socket_;
     MessageQueue msg_queue_;
+    boost::asio::signal_set signals_;
 };
