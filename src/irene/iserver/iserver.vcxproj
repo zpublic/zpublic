@@ -88,7 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="acceptor.h" />
-    <ClInclude Include="callbacks.h" />
     <ClInclude Include="io_service.h" />
     <ClInclude Include="local_free_on_destruction.hpp" />
     <ClInclude Include="network_event_proxy.h" />
