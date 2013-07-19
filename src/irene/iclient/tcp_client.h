@@ -9,9 +9,7 @@ class CTcpClient
     , private boost::noncopyable
 {
 public:
-    CTcpClient(
-        boost::asio::io_service& io_service,
-        tcp::resolver::iterator endpoint_iterator);
+    CTcpClient(boost::asio::io_service& io_service);
     ~CTcpClient();
 
     virtual int Send(void* pBuf, unsigned int len);
@@ -23,7 +21,7 @@ public:
     virtual int UnregisterMessageCallback(
         const google::protobuf::Descriptor* desc );
 
-    void Connect();
+    void Connect(tcp::resolver::iterator& endpoint_iterator);
 
 private:
 

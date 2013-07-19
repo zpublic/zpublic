@@ -24,7 +24,7 @@ int _tmain(int argc, _TCHAR* argv[])
 //             std::cout << endpoint << std::endl;
 //         }
 
-        CTcpClient client(io_service, iter);
+        CTcpClient client(io_service);
 
         IClientOperate* pClient = static_cast<IClientOperate*>(&client);
         assert(pClient != NULL);
@@ -38,7 +38,7 @@ int _tmain(int argc, _TCHAR* argv[])
         CBaseSupport baseSupport;
         baseSupport.Register(pClient);
 
-        client.Connect();
+        client.Connect(iter);
 
         baseSupport.Unregister(pClient);
         pluginManager.Unload();

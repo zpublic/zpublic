@@ -4,28 +4,11 @@
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
 
-CTcpClient::CTcpClient(
-    boost::asio::io_service& io_service,
-    tcp::resolver::iterator endpoint_iterator)
+CTcpClient::CTcpClient(boost::asio::io_service& io_service)
     : io_service_(io_service)
     , socket_(io_service)
     , signals_(io_service, SIGINT, SIGTERM)
 {
-    boost::system::error_code ec;
-    while (true)
-    {
-        boost::asio::connect(
-            socket_,
-            endpoint_iterator,
-            ec);
-        if (!ec)
-        {
-            break;
-        }
-        ///> 如果没连上，30秒重试
-        ::Sleep(30000);
-    }
-
     signals_.async_wait(std::bind(&CTcpClient::Close, this));
 }
 
@@ -68,8 +51,23 @@ void CTcpClient::Close()
     io_service_.post(std::bind(&CTcpClient::do_close, this));
 }
 
-void CTcpClient::Connect()
+void CTcpClient::Connect(tcp::resolver::iterator& endpoint_iterator)
 {
+    boost::system::error_code ec;
+    while (true)
+    {
+        boost::asio::connect(
+            socket_,
+            endpoint_iterator,
+            ec);
+        if (!ec)
+        {
+            break;
+        }
+        ///> 如果没连上，30秒重试
+        ::Sleep(30000);
+    }
+
     std::shared_ptr<std::thread> t(
         new std::thread(boost::bind(&boost::asio::io_service::run, &io_service_)));
     io_service_.run();
