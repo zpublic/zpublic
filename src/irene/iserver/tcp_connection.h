@@ -46,10 +46,12 @@ private:
     {
         _state = S_IDLE;
         _buffer.clear();
+        _prepare_packet_list.clear();
     }
 
     ByteBuffer _buffer;
     ServerPacket* _integrity_packet;
+    std::vector<ServerPacket *> _prepare_packet_list;
 
 private:
     tcp::socket _socket;
