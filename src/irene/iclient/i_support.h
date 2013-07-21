@@ -1,6 +1,6 @@
 #pragma once
+#include "i_client_operate.h"
 
-class IClientOperate;
 
 class ISupport
 {

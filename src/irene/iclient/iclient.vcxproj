@@ -86,6 +86,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\common\protocol\demo1.pb.h" />
+    <ClInclude Include="..\common\protocol\s2c_auth.pb.h" />
     <ClInclude Include="base_support.h" />
     <ClInclude Include="file_manage_plugin.h" />
     <ClInclude Include="i_client_operate.h" />
@@ -102,6 +103,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\common\protocol\demo1.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\common\protocol\s2c_auth.pb.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>

@@ -43,6 +43,9 @@
     <ClInclude Include="..\common\protocol\demo1.pb.h">
       <Filter>include\msg</Filter>
     </ClInclude>
+    <ClInclude Include="..\common\protocol\s2c_auth.pb.h">
+      <Filter>include\msg</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="iclient.cpp">
@@ -79,6 +82,9 @@
       <Filter>src\support\plugin\system_info</Filter>
     </ClCompile>
     <ClCompile Include="..\common\protocol\demo1.pb.cc">
+      <Filter>include\msg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\protocol\s2c_auth.pb.cc">
       <Filter>include\msg</Filter>
     </ClCompile>
   </ItemGroup>
