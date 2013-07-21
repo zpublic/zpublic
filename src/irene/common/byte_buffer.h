@@ -55,6 +55,23 @@ public:
         return _buffer.size();
     }
 
+    bool erase(size_t start, size_t end)
+    {
+        std::vector<byte>::const_iterator iter = 
+            _buffer.erase(_buffer.begin() + start, _buffer.begin() + end);
+        return (iter != _buffer.end());
+    }
+
+    void set_rpos(size_t rpos)
+    {
+        _rpos = rpos;
+    }
+
+    void set_wpos(size_t wpos)
+    {
+        _wpos = wpos;
+    }
+
     void clear()
     {
         _buffer.clear();

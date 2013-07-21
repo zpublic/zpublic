@@ -1,3 +1,6 @@
+#ifndef PACKET_H_
+#define PACKET_H_
+
 #include <google/protobuf/message.h>
 
 #pragma pack(push, 1)
@@ -8,17 +11,19 @@ struct SERVER_DECL ServerPacket
 
     size_t len;
     uint32_t opcode;
-    google::protobuf::Message* message;
+    byte message[sizeof(google::protobuf::Message)];
 
-    ServerPacket() : message(NULL) {}
-
-    __forceinline size_t byteSize() const
+    const google::protobuf::Message* protoMessage() const
     {
-        if (message == NULL)
-            return 0;
+        return (google::protobuf::Message*)message;
+    }
 
-        return sizeof(len) + sizeof(opcode) + message->ByteSize();
+    ServerPacket() : len(0), opcode(0) 
+    {
+        memset(message, 0, sizeof(google::protobuf::Message));
     }
 };
 
 #pragma pack(pop)
+
+#endif
