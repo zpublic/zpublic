@@ -40,6 +40,9 @@
     <ClInclude Include="system_info_support.h">
       <Filter>src\support\plugin\system_info</Filter>
     </ClInclude>
+    <ClInclude Include="..\common\protocol\demo1.pb.h">
+      <Filter>include\msg</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="iclient.cpp">
@@ -75,6 +78,9 @@
     <ClCompile Include="system_info_support.cpp">
       <Filter>src\support\plugin\system_info</Filter>
     </ClCompile>
+    <ClCompile Include="..\common\protocol\demo1.pb.cc">
+      <Filter>include\msg</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -106,6 +112,9 @@
     </Filter>
     <Filter Include="src\support\plugin\file_manage">
       <UniqueIdentifier>{fb276b01-cfb6-4fe1-8bde-84e4b01af195}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\msg">
+      <UniqueIdentifier>{a74c0d81-0ac9-45f5-a33a-d7e99a53a49b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

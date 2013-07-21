@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "tcp_client.h"
-#include <boost/function.hpp>
-#include <boost/bind.hpp>
-#include <boost/asio.hpp>
+#include "../common/protocol/demo1.pb.h"
 
 CTcpClient::CTcpClient(boost::asio::io_service& io_service)
     : io_service_(io_service)
@@ -17,7 +15,7 @@ CTcpClient::~CTcpClient()
 
 }
 
-int CTcpClient::Send( void* pBuf, unsigned int len )
+int CTcpClient::Send( const char* pBuf, unsigned int len )
 {
     io_service_.post(std::bind(&CTcpClient::do_write, this, pBuf, len));
     return 0;
@@ -68,13 +66,32 @@ void CTcpClient::Connect(tcp::resolver::iterator& endpoint_iterator)
         ::Sleep(30000);
     }
 
+    Demo::demo1 demoMsg;
+    demoMsg.set_demo_str("123");
+    demoMsg.set_demo_int(123);
+    std::string strMsg = demoMsg.SerializePartialAsString();
+//     
+//     struct ServerPacket pack;
+//     pack.len = strMsg.size();
+//     pack.opcode = 0;
+    struct XPacket
+    {
+        size_t len;
+        uint32_t opcode;
+    }pack;
+    pack.len = strMsg.size()  + 8;
+    pack.opcode = 0;
+
+    Send((const char*)&pack, 8);
+    Send(strMsg.c_str(), strMsg.size());
+
     std::shared_ptr<std::thread> t(
         new std::thread(boost::bind(&boost::asio::io_service::run, &io_service_)));
     io_service_.run();
     t->join();
 }
 
-void CTcpClient::do_write(void* pBuf, unsigned int len)
+void CTcpClient::do_write(const char* pBuf, unsigned int len)
 {
     msg_queue_.push_back(std::make_pair(pBuf, len));
 
@@ -88,7 +105,6 @@ void CTcpClient::handle_write(const boost::system::error_code& error)
 {
     if (!error)
     {
-        msg_queue_.pop_front();
         if (!msg_queue_.empty())
         {
             boost::asio::async_write(
@@ -96,6 +112,7 @@ void CTcpClient::handle_write(const boost::system::error_code& error)
                 boost::asio::buffer(msg_queue_.front().first, msg_queue_.front().second),
                 boost::bind(&CTcpClient::handle_write, this, boost::asio::placeholders::error));
         }
+        msg_queue_.pop_front();
     }
     else
     {

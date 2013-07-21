@@ -2,7 +2,7 @@
 #include "protobuf_dispatcher.h"
 #include "i_client_operate.h"
 
-typedef std::deque<std::pair<void*, unsigned int> > MessageQueue;
+typedef std::deque<std::pair<const char*, unsigned int> > MessageQueue;
 
 class CTcpClient
     : public IClientOperate
@@ -12,7 +12,7 @@ public:
     CTcpClient(boost::asio::io_service& io_service);
     ~CTcpClient();
 
-    virtual int Send(void* pBuf, unsigned int len);
+    virtual int Send(const char* pBuf, unsigned int len);
 
     virtual int RegisterMessageCallback(
         const google::protobuf::Descriptor* desc,
@@ -25,7 +25,7 @@ public:
 
 private:
 
-    void do_write(void* pBuf, unsigned int len);
+    void do_write(const char* pBuf, unsigned int len);
 
     void handle_write(const boost::system::error_code& error);
 
