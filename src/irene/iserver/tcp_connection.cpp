@@ -124,12 +124,14 @@ void TcpConnection::handleRead(const boost::system::error_code& error, std::size
     
     this->read();
     ByteBufferPtr read_buffer(new ByteBuffer(_recvBuffer.data(), bytes_transferred));
-    if (append_buffer_fragment_2(read_buffer))
+    if (append_buffer_fragment(read_buffer))
     {
         for (size_t i = 0; i < _prepare_packet_list.size(); ++i)
         {
-            const uint32_t& opcode = _integrity_packet->opcode;
-            google::protobuf::Message* message = _integrity_packet->message;
+            const uint32_t& opcode = _prepare_packet_list[i].opcode;
+            const google::protobuf::Message* message = _prepare_packet_list[i].protoMessage();
+
+            std::cout << "Network Message : [opcode = " <<  opcode << "]" << std::endl;
 
             if (message != NULL && _readComplectedCallback)
             {
@@ -137,7 +139,7 @@ void TcpConnection::handleRead(const boost::system::error_code& error, std::size
             }
             else
             {
-                std::cout << "fatal : NULL proto message!" << std::endl;
+                std::cout << "Warnning : empty proto message!" << std::endl;
             }
         }
     }
@@ -166,77 +168,13 @@ void TcpConnection::onError(const boost::system::error_code& error)
 
 bool TcpConnection::append_buffer_fragment(const ByteBufferPtr& buffer)
 {
-    if (buffer->size() <= ServerPacket::MIN_HEADER_LENGTH)
-    {
-        _buffer.append(*buffer);
-        return false;
-    }
-
-    if (buffer->size() > ServerPacket::MIN_HEADER_LENGTH)
-    {
-        if (_buffer.size() < sizeof(ServerPacket))
-        {
-        
-        }
-    }
-
-    return false;
-}
-bool TcpConnection::append_buffer_fragment_2(const ByteBufferPtr& buffer)
-{
-    /*if (buffer->size() < ServerPacket::MIN_HEADER_LENGTH)
-    {
-        _buffer.append(*buffer);
-        //_state = S_PROCESSING;
-        return false;
-    }
-    else
-    {*/
-        _buffer.append(*buffer);
-    /*}*/
-
-    //检查缓冲区数据是否满足packet的最低字节数
-    /*if (_buffer.size() < sizeof(ServerPacket))
-    {
-        std::cout 
-            << "buffer size not enough the minimum bytesize of ServerPacket(" 
-            << sizeof(ServerPacket) << " bytes, buffer size = " << _buffer.size() << ")." << std::endl;
-
-        return false;
-    }*/
-
-    //size_t packet_len = 0;
-    //_buffer >> packet_len;
-
-    /*if (packet_len >= MAX_RECV_LEN)
-    {
-        std::cout << "Warning: Read packet header length " << packet_len << " bytes (which is too large) on peer socket. (Invalid Packet?)" << std::endl;
-        reset();
-        shutdown();
-        return false;
-    }*/
-
-    /*if (_buffer.size() < packet_len)
-    {
-        //收到的内容小于包头指定长度，继续接收
-        return false;
-    }*/
-    /*else if (_buffer.size() == packet_len)
-    {
-        //_integrity_packet = (ServerPacket*)(reinterpret_cast<const ServerPacket*>(_buffer.buffer()));
-        ServerPacket* firstPacket = (ServerPacket*)(reinterpret_cast<const ServerPacket*>(_buffer.buffer()));
-        _prepare_packet_list.push_back(firstPacket);
-        reset();
-        return true;
-    }*/
-
-    size_t rpos = 0;
+    _buffer.append(*buffer);
     while (_buffer.size() >= sizeof(ServerPacket))
     {
-        //读取长度
         size_t packet_len = 0;
         _buffer >> packet_len;
 
+        //数据包长度大于最大接收长度视为非法，干掉
         if (packet_len >= MAX_RECV_LEN)
         {
             std::cout << "Warning: Read packet header length " << packet_len << " bytes (which is too large) on peer socket. (Invalid Packet?)" << std::endl;
@@ -246,40 +184,25 @@ bool TcpConnection::append_buffer_fragment_2(const ByteBufferPtr& buffer)
 
         if (_buffer.size() < packet_len)
         {
-            //收到的内容小于包头指定长度，继续接收
             return false;
         }
-
-
-        byte* remain_data = new byte[_buffer.size() - rpos];
-        _buffer.read(remain_data, _buffer.size() - rpos);
-
-        ByteBuffer buffer(remain_data, _buffer.size() - rpos);
-        size_t len = 0;
-        buffer >> len;
-
-        //rpos = packet_len;
-
-        /*size_t remain_data_len = _buffer.size() - rpos;
-        while (remain_data_len > ServerPacket::MIN_HEADER_LENGTH)
+        else if (_buffer.size() == packet_len)
         {
-            byte* remain_data = new byte[_buffer.size() - rpos];
-            _buffer.read(remain_data, _buffer.size() - rpos);
+            ServerPacket* packet = 
+                (ServerPacket*)(reinterpret_cast<const ServerPacket*>(_buffer.buffer()));
 
-            ByteBuffer buffer(remain_data, _buffer.size() - rpos);
-            size_t len = 0;
-            buffer >> len;
+            _prepare_packet_list.push_back(*packet);
+            _buffer.clear();
+        }
+        else
+        {
+            ServerPacket* packet = 
+                (ServerPacket*)(reinterpret_cast<const ServerPacket*>(_buffer.buffer()));
 
-            if (remain_data_len >= len)
-            {
-                ServerPacket* packet = (ServerPacket*)(reinterpret_cast<const ServerPacket*>(buffer.read<const byte*>(rpos)));
-                _prepare_packet_list.push_back(packet);
-            }
-
-            rpos += len;
-            remain_data_len = _buffer.size() - rpos;
-            delete [] remain_data;
-        }*/
+            _prepare_packet_list.push_back(*packet);
+            _buffer.erase(0, packet_len);
+            _buffer.set_rpos(0);
+        }
     }
 
     return (_prepare_packet_list.size() > 0);

@@ -6,6 +6,7 @@
 #include <boost/array.hpp>
 #include <boost/circular_buffer.hpp>  
 #include <byte_buffer.h>
+#include <packet.h>
 #include "common_def.h"
 #include "io_service.h"
 
@@ -51,7 +52,7 @@ private:
 
     ByteBuffer _buffer;
     ServerPacket* _integrity_packet;
-    std::vector<ServerPacket *> _prepare_packet_list;
+    std::vector<ServerPacket> _prepare_packet_list;
 
 private:
     tcp::socket _socket;
