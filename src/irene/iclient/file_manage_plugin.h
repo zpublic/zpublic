@@ -1,12 +1,11 @@
 #pragma once
 #include "support_plugin_base.h"
-#include "system_info_support.h"
 
-class CSystemInfoPlugin : public CSupportPluginBase
+class CFileManagePlugin : public CSupportPluginBase
 {
 public:
-    CSystemInfoPlugin();
-    virtual ~CSystemInfoPlugin();
+    CFileManagePlugin();
+    virtual ~CFileManagePlugin();
 
     virtual int Register( IClientOperate* iOper );
 
@@ -14,6 +13,4 @@ public:
 
     virtual std::string GetName();
 
-private:
-    CSystemInfoSupport systemInfo_;
 };

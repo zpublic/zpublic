@@ -54,6 +54,8 @@
       <PreprocessorDefinitions>BOOST_ALL_NO_LIB;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>./../../../public;./../../../3rdparty;</AdditionalIncludeDirectories>
+      <AdditionalOptions>-D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -71,6 +73,8 @@
       <PreprocessorDefinitions>BOOST_ALL_NO_LIB;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>./../../../public;./../../../3rdparty;</AdditionalIncludeDirectories>
+      <AdditionalOptions>-D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -81,7 +85,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\common\protocol\demo1.pb.h" />
     <ClInclude Include="base_support.h" />
+    <ClInclude Include="file_manage_plugin.h" />
     <ClInclude Include="i_client_operate.h" />
     <ClInclude Include="i_support.h" />
     <ClInclude Include="local_free_on_destruction.hpp" />
@@ -90,15 +96,21 @@
     <ClInclude Include="support_plugin_base.h" />
     <ClInclude Include="support_plugin_manager.h" />
     <ClInclude Include="system_info_plugin.h" />
+    <ClInclude Include="system_info_support.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="tcp_client.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\common\protocol\demo1.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="base_support.cpp" />
     <ClCompile Include="error_code.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="file_manage_plugin.cpp" />
     <ClCompile Include="iclient.cpp" />
     <ClCompile Include="protobuf_dispatcher.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -108,6 +120,7 @@
     <ClCompile Include="support_plugin_base.cpp" />
     <ClCompile Include="support_plugin_manager.cpp" />
     <ClCompile Include="system_info_plugin.cpp" />
+    <ClCompile Include="system_info_support.cpp" />
     <ClCompile Include="tcp_client.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

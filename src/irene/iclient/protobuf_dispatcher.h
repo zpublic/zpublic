@@ -35,7 +35,7 @@ private:
 };
 */
 
-class ProtobufDispatcher
+class ProtobufDispatcher : private boost::noncopyable
 {
 public:
     ProtobufDispatcher();

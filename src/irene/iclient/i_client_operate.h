@@ -8,7 +8,7 @@ class IClientOperate
 public:
     virtual ~IClientOperate() {}
 
-    virtual int Send(void* pBuf, unsigned int len) = 0;
+    virtual int Send(const char* pBuf, unsigned int len) = 0;
 
     virtual int RegisterMessageCallback(
         const google::protobuf::Descriptor* desc,
