@@ -66,6 +66,11 @@ void CTcpClient::Connect(tcp::resolver::iterator& endpoint_iterator)
         ::Sleep(30000);
     }
 
+    boost::asio::async_read(
+        socket_,
+        boost::asio::buffer(data_, 1024 * 4),
+        boost::bind(&CTcpClient::handle_read, this, boost::asio::placeholders::error));
+
     Demo::demo1 demoMsg;
     demoMsg.set_demo_str("123");
     demoMsg.set_demo_int(123);
@@ -113,6 +118,23 @@ void CTcpClient::handle_write(const boost::system::error_code& error)
                 boost::bind(&CTcpClient::handle_write, this, boost::asio::placeholders::error));
         }
         msg_queue_.pop_front();
+    }
+    else
+    {
+        do_close();
+    }
+}
+
+void CTcpClient::handle_read(const boost::system::error_code& error)
+{
+    if (!error)
+    {
+        std::cout.write(data_, 1024 * 4);
+        std::cout << "\n";
+        boost::asio::async_read(
+            socket_,
+            boost::asio::buffer(data_, 1024 * 4),
+            boost::bind(&CTcpClient::handle_read, this, boost::asio::placeholders::error));
     }
     else
     {
