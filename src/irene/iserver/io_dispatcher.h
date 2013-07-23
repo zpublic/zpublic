@@ -3,11 +3,11 @@
 
 #include "common_def.h"
 
-class NetworkEventProxy
+class IODispatcher
 {
 public:
-    NetworkEventProxy(){}
-    ~NetworkEventProxy(){}
+    IODispatcher(){}
+    ~IODispatcher(){}
 
 public:
     void NewConnectionHandler(const TcpConnectionPtr& connection, const InetAddress& peerAddress)
@@ -17,12 +17,12 @@ public:
 
     void WriteCompletedHandler(const TcpConnectionPtr& connection, uint32_t bytes_transferred)
     {
-        std::cout << "Write complected handler." << std::endl;
+        std::cout << "Write completed handler." << std::endl;
     }
 
     void ReadCompletedHandler(const TcpConnectionPtr& connection, uint32_t opcode, const google::protobuf::Message& message, uint32_t bytes_transferred)
     {
-        std::cout << "Read complected handler." << std::endl;
+        std::cout << "Read completed handler." << std::endl;
         std::cout << "  opcode = " << opcode << std::endl;
     }
 
