@@ -30,6 +30,7 @@
     <ClInclude Include="inet_address.h">
       <Filter>base</Filter>
     </ClInclude>
+    <ClInclude Include="opcodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

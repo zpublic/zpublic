@@ -19,6 +19,9 @@
     <Filter Include="src\service">
       <UniqueIdentifier>{3fa2dea5-2aa9-482f-b8a2-1af2e833aa50}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\service\session">
+      <UniqueIdentifier>{84f47489-f451-426c-aa3e-a96cfcc064ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tcp_connection.cpp">
@@ -44,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="network_service.cpp">
       <Filter>src\service</Filter>
+    </ClCompile>
+    <ClCompile Include="opcodes_handler.cpp">
+      <Filter>src\service\session</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +91,12 @@
     </ClInclude>
     <ClInclude Include="io_dispatcher.h">
       <Filter>src\service</Filter>
+    </ClInclude>
+    <ClInclude Include="opcodes_handler.h">
+      <Filter>src\service\session</Filter>
+    </ClInclude>
+    <ClInclude Include="broiler_session.h">
+      <Filter>src\service\session</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
