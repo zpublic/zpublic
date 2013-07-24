@@ -21,7 +21,7 @@ struct OpcodeHandler
 class OpcodeTable 
     : public boost::noncopyable
 {
-	typedef std::map<uint32_t, OpcodeHandler> OpcodeHandlerMap;
+	typedef std::hash_map<uint32_t, OpcodeHandler> OpcodeHandlerMap;
 
 private:
     OpcodeTable();
