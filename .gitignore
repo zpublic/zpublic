@@ -13,6 +13,7 @@
 
 *.exe
 !/src/learn/protoc.exe
+!/src/irene/common/protoc.exe
 *.ilk
 *.tlog
 *.obj
@@ -51,3 +52,6 @@ Release
 /src/learn/test_proto.pb.h
 /src/learn/test_proto.pb.cc
 /src/learn/libcurl_test.gif
+
+/src/learn/data.io
+/src/irene/common/protocol

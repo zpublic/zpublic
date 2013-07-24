@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{e5f893f8-3fd4-48ec-9155-f3797827331c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base">
+      <UniqueIdentifier>{c72c058d-87de-49e0-9f8f-a7b4b0b130ad}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="byte_buffer.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="packet.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="irene_common.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="endian.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="inet_address.h">
+      <Filter>base</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

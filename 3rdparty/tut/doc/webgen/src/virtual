@@ -1,0 +1,6 @@
+\--- !omap
+
+- forum.*.html:
+    title: Forum
+    in_menu: true
+    url: 'http://sourceforge.net/forum/forum.php?forum_id=719643'

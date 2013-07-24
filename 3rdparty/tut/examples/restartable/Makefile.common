@@ -1,0 +1,21 @@
+TGT=example$(SFX)
+OBJS=main$(OFX) test_segfaults$(OFX) test_segfaults2$(OFX)
+
+HEADERS=../../tut/tut.hpp ../../tut/tut_restartable.hpp
+
+all: $(TGT)
+
+clean: 
+	$(RM) $(OBJS) $(TGT)
+
+$(TGT): $(OBJS)
+	$(LNK) $(LNKOPTS)$(TGT) $(OBJS)
+
+test_segfaults$(OFX) : test_segfaults.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)test_segfaults$(OFX) test_segfaults.cpp 
+
+test_segfaults2$(OFX) : test_segfaults2.cpp $(HEADERS)
+	$(CXX) $(CXXOPTS)test_segfaults2$(OFX) test_segfaults2.cpp 
+
+main$(OFX) : main.cpp  $(HEADERS)
+	$(CXX) $(CXXOPTS)main$(OFX) main.cpp 

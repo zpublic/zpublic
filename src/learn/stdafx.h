@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <tchar.h>
+#include <stdlib.h>
 
 #include <assert.h>
 
@@ -35,6 +36,8 @@ using std::string;
 ///> 输入输出相关
 #include <iomanip>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 using std::cout;
 using std::endl;
 
@@ -55,7 +58,7 @@ using std::endl;
 ///> 位操作
 #include <bitset>
 
-
+#ifdef _TEST_BOOST_
 ///> Conversion
 ///> Polymorphic and lexical casts.
 #include <boost/cast.hpp>
@@ -138,8 +141,9 @@ using std::endl;
 ///> program options, that is (name, value) pairs from the user, via
 ///> conventional methods such as command line and config file.
 #include <boost/program_options.hpp>
+#endif // _TEST_BOOST_
 
-
+#ifdef _TEST_MISC_
 ///> Protocol Buffers
 #ifdef _DEBUG
 #pragma comment(lib, "libprotobuf_d.lib")
@@ -157,4 +161,23 @@ using std::endl;
 #pragma comment(lib, "wldap32.lib")
 #pragma comment(lib, "ws2_32.lib")
 #pragma comment(lib, "winmm.lib")
-#include "libcurl/curl.h"
+#include <libcurl/curl.h>
+
+///> lua
+#include <luasrc/lua.hpp>
+#endif // _TEST_MISC_
+
+///> ltest
+#include "ltest/ltest.h"
+
+///> XDE v1.02
+///> eXtended length disassembler engine, based on LDE/ADE engines
+extern "C"
+{
+///> warning C4013: “memset”未定义；假设外部返回 int
+///> warning C4018: “<”: 有符号/无符号不匹配
+#pragma warning(disable:4013 4018)
+#include "xde102/xde.h" 
+#pragma warning(default:4013 4018) ///> 这里没用，关xde.c的警告需单独设置文件
+}
+

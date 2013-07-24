@@ -1,0 +1,9 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
+libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
+
+Name: cipra
+Description: C++11 unit testing framework based on Perl's Test::More module.
+Version: @cipra_VERSION@
+URL: https://sourceforge.net/projects/cipra/
+Cflags: -I${includedir}/cipra

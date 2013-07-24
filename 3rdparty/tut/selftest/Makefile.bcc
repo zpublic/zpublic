@@ -1,0 +1,4 @@
+TUT=..
+!include ../Makefile.bcc
+!include Makefile.common
+

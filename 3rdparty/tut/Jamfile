@@ -1,0 +1,45 @@
+using testing ;
+
+SOURCE_DIR = selftest ;
+BUILD_DIR = bin ;
+
+project tut-framework 
+    : source-location
+	  $(SOURCE_DIR)
+	: requirements 
+	  <include>. 
+	  <toolset>msvc:<define>TUT_USE_SEH
+	  <toolset>msvc-7.1:<asynch-exceptions>off
+	  <toolset>msvc-8.0:<asynch-exceptions>on
+	  <toolset>msvc-8.0express:<asynch-exceptions>on
+	  <threading>single 
+	: default-build
+	  release
+	: build-dir
+	  $(BUILD_DIR)
+	;
+
+SOURCES = main.cpp
+         runner.cpp
+         setup_ex.cpp
+         setup_new_copy.cpp
+         teardown_ex.cpp
+         callback.cpp
+         ensure.cpp
+         fail.cpp
+         ensure_equals.cpp
+         ensure_distance.cpp
+         runtime_exceptions.cpp
+         more_than_50.cpp
+         less_than_50.cpp
+         same_object_for_dummy.cpp
+         reporter.cpp
+         outside.cpp
+         ctor_ex.cpp 
+         constructed_instances.cpp
+         bug_ensure_0_equals_0.cpp
+         set_test_name.cpp
+         ensure_not.cpp
+	;
+
+run $(SOURCES) : : : : selftest ;

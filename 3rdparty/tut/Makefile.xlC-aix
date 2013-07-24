@@ -1,0 +1,9 @@
+CXX=xlC
+CXXOPTS=-I$(TUT) -c -o
+LNK=xlC
+LNKOPTS=-o
+SFX=
+OFX=.o
+
+
+

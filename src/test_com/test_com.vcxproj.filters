@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{a7fb2825-a753-4231-9887-72acee5bdc3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\basic">
+      <UniqueIdentifier>{71a1c06f-3527-4ccd-a87b-c73971e8f2e4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="test_guid.h">
+      <Filter>src\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="test_atl_type.h">
+      <Filter>src\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="test_atl_lock.h">
+      <Filter>src\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="test_query_interface.h">
+      <Filter>src\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="test_atl_creator.h">
+      <Filter>src\basic</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="test_com.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="test_guid.cpp">
+      <Filter>src\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="test_atl_type.cpp">
+      <Filter>src\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="test_atl_lock.cpp">
+      <Filter>src\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="test_query_interface.cpp">
+      <Filter>src\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="test_atl_creator.cpp">
+      <Filter>src\basic</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

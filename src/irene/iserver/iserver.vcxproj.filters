@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{16d55143-3972-4949-86d7-bca65f12b796}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\network">
+      <UniqueIdentifier>{08892844-0745-4bc3-b7df-fd7dc627fa5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\network\asio_error">
+      <UniqueIdentifier>{dd5235a1-3fd0-497a-a348-74aec6e9a135}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\session">
+      <UniqueIdentifier>{3fa2dea5-2aa9-482f-b8a2-1af2e833aa50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\main">
+      <UniqueIdentifier>{0c9d6061-7f8e-4ebd-b87d-b0133c17b0cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base">
+      <UniqueIdentifier>{4d5a68f4-a1ca-4e7c-ab1c-2cbd10ff1c87}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="tcp_connection.cpp">
+      <Filter>src\network</Filter>
+    </ClCompile>
+    <ClCompile Include="tcp_server.cpp">
+      <Filter>src\network</Filter>
+    </ClCompile>
+    <ClCompile Include="acceptor.cpp">
+      <Filter>src\network</Filter>
+    </ClCompile>
+    <ClCompile Include="error_code.cpp">
+      <Filter>src\network\asio_error</Filter>
+    </ClCompile>
+    <ClCompile Include="iserver.cpp">
+      <Filter>src\main</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src\main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="io_service.h">
+      <Filter>src\network</Filter>
+    </ClInclude>
+    <ClInclude Include="net_utils.h">
+      <Filter>src\network</Filter>
+    </ClInclude>
+    <ClInclude Include="tcp_connection.h">
+      <Filter>src\network</Filter>
+    </ClInclude>
+    <ClInclude Include="tcp_server.h">
+      <Filter>src\network</Filter>
+    </ClInclude>
+    <ClInclude Include="acceptor.h">
+      <Filter>src\network</Filter>
+    </ClInclude>
+    <ClInclude Include="local_free_on_destruction.hpp">
+      <Filter>src\network\asio_error</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="common_def.h">
+      <Filter>src\base</Filter>
+    </ClInclude>
+    <ClInclude Include="network_event_proxy.h">
+      <Filter>src\session</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

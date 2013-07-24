@@ -1,0 +1,5 @@
+package S2C;
+
+message auth{
+	required string password = 1;
+}

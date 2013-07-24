@@ -15,6 +15,19 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_pellets", "..\src\test
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "learn", "..\src\learn\learn.vcxproj", "{79284941-3A71-4A61-BFE8-56ABBB2AC8F6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_com", "..\src\test_com\test_com.vcxproj", "{20C12463-13ED-47D7-BD49-6DB86CFDA35F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "irene", "irene", "{6BA019DB-BDD3-438A-B417-E171BA253AC9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shaji", "..\src\irene\iserver\iserver.vcxproj", "{DEBF68AD-211D-484D-B7D1-BA6DA104382D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{649D1913-E747-4A71-918D-67DE2185BAC3} = {649D1913-E747-4A71-918D-67DE2185BAC3}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rouji", "..\src\irene\iclient\iclient.vcxproj", "{85D33F90-3070-4DF5-9F68-642162E101D5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "irene_common", "..\src\irene\common\irene_common.vcxproj", "{649D1913-E747-4A71-918D-67DE2185BAC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -37,8 +50,29 @@ Global
 		{79284941-3A71-4A61-BFE8-56ABBB2AC8F6}.Debug|Win32.Build.0 = Debug|Win32
 		{79284941-3A71-4A61-BFE8-56ABBB2AC8F6}.Release|Win32.ActiveCfg = Release|Win32
 		{79284941-3A71-4A61-BFE8-56ABBB2AC8F6}.Release|Win32.Build.0 = Release|Win32
+		{20C12463-13ED-47D7-BD49-6DB86CFDA35F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{20C12463-13ED-47D7-BD49-6DB86CFDA35F}.Debug|Win32.Build.0 = Debug|Win32
+		{20C12463-13ED-47D7-BD49-6DB86CFDA35F}.Release|Win32.ActiveCfg = Release|Win32
+		{20C12463-13ED-47D7-BD49-6DB86CFDA35F}.Release|Win32.Build.0 = Release|Win32
+		{DEBF68AD-211D-484D-B7D1-BA6DA104382D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DEBF68AD-211D-484D-B7D1-BA6DA104382D}.Debug|Win32.Build.0 = Debug|Win32
+		{DEBF68AD-211D-484D-B7D1-BA6DA104382D}.Release|Win32.ActiveCfg = Release|Win32
+		{DEBF68AD-211D-484D-B7D1-BA6DA104382D}.Release|Win32.Build.0 = Release|Win32
+		{85D33F90-3070-4DF5-9F68-642162E101D5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{85D33F90-3070-4DF5-9F68-642162E101D5}.Debug|Win32.Build.0 = Debug|Win32
+		{85D33F90-3070-4DF5-9F68-642162E101D5}.Release|Win32.ActiveCfg = Release|Win32
+		{85D33F90-3070-4DF5-9F68-642162E101D5}.Release|Win32.Build.0 = Release|Win32
+		{649D1913-E747-4A71-918D-67DE2185BAC3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{649D1913-E747-4A71-918D-67DE2185BAC3}.Debug|Win32.Build.0 = Debug|Win32
+		{649D1913-E747-4A71-918D-67DE2185BAC3}.Release|Win32.ActiveCfg = Release|Win32
+		{649D1913-E747-4A71-918D-67DE2185BAC3}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DEBF68AD-211D-484D-B7D1-BA6DA104382D} = {6BA019DB-BDD3-438A-B417-E171BA253AC9}
+		{85D33F90-3070-4DF5-9F68-642162E101D5} = {6BA019DB-BDD3-438A-B417-E171BA253AC9}
+		{649D1913-E747-4A71-918D-67DE2185BAC3} = {6BA019DB-BDD3-438A-B417-E171BA253AC9}
 	EndGlobalSection
 EndGlobal

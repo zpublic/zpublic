@@ -1,0 +1,4 @@
+
+exe restartable 
+	: main.cpp test_segfaults.cpp test_segfaults2.cpp
+	: <include>../.. ;

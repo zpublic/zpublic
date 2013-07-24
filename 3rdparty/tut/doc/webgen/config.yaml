@@ -1,0 +1,7 @@
+default_meta_info:
+    Page:
+        in_menu: true
+
+website.lang: en
+
+tag.coderay.line_numbers: false
