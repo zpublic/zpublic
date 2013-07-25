@@ -56,9 +56,6 @@
     <ClInclude Include="io_service.h">
       <Filter>src\network</Filter>
     </ClInclude>
-    <ClInclude Include="net_utils.h">
-      <Filter>src\network</Filter>
-    </ClInclude>
     <ClInclude Include="tcp_connection.h">
       <Filter>src\network</Filter>
     </ClInclude>
@@ -97,6 +94,12 @@
     </ClInclude>
     <ClInclude Include="broiler_session.h">
       <Filter>src\service\session</Filter>
+    </ClInclude>
+    <ClInclude Include="session_manager.h">
+      <Filter>src\service\session</Filter>
+    </ClInclude>
+    <ClInclude Include="network_utils.h">
+      <Filter>src\base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
