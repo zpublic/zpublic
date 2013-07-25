@@ -10,14 +10,17 @@
     <Filter Include="src\network\asio_error">
       <UniqueIdentifier>{dd5235a1-3fd0-497a-a348-74aec6e9a135}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\session">
-      <UniqueIdentifier>{3fa2dea5-2aa9-482f-b8a2-1af2e833aa50}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\main">
       <UniqueIdentifier>{0c9d6061-7f8e-4ebd-b87d-b0133c17b0cb}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\base">
       <UniqueIdentifier>{4d5a68f4-a1ca-4e7c-ab1c-2cbd10ff1c87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\service">
+      <UniqueIdentifier>{3fa2dea5-2aa9-482f-b8a2-1af2e833aa50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\service\session">
+      <UniqueIdentifier>{84f47489-f451-426c-aa3e-a96cfcc064ff}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -39,12 +42,18 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>src\main</Filter>
     </ClCompile>
+    <ClCompile Include="asio_service_deamon.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="network_service.cpp">
+      <Filter>src\service</Filter>
+    </ClCompile>
+    <ClCompile Include="opcodes_handler.cpp">
+      <Filter>src\service\session</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="io_service.h">
-      <Filter>src\network</Filter>
-    </ClInclude>
-    <ClInclude Include="net_utils.h">
       <Filter>src\network</Filter>
     </ClInclude>
     <ClInclude Include="tcp_connection.h">
@@ -68,8 +77,29 @@
     <ClInclude Include="common_def.h">
       <Filter>src\base</Filter>
     </ClInclude>
-    <ClInclude Include="network_event_proxy.h">
-      <Filter>src\session</Filter>
+    <ClInclude Include="asio_service_deamon.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="service_deamon.h">
+      <Filter>src\base</Filter>
+    </ClInclude>
+    <ClInclude Include="network_service.h">
+      <Filter>src\service</Filter>
+    </ClInclude>
+    <ClInclude Include="io_dispatcher.h">
+      <Filter>src\service</Filter>
+    </ClInclude>
+    <ClInclude Include="opcodes_handler.h">
+      <Filter>src\service\session</Filter>
+    </ClInclude>
+    <ClInclude Include="broiler_session.h">
+      <Filter>src\service\session</Filter>
+    </ClInclude>
+    <ClInclude Include="session_manager.h">
+      <Filter>src\service\session</Filter>
+    </ClInclude>
+    <ClInclude Include="network_utils.h">
+      <Filter>src\base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
