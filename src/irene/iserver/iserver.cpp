@@ -1,6 +1,5 @@
 #include "stdafx.h"
-#include "tcp_server.h"
-#include "network_event_proxy.h"
+#include "asio_service_deamon.h"
 
 int __stdcall WinMain(HINSTANCE hInstance,
                       HINSTANCE hPrevInstance,
@@ -13,29 +12,8 @@ int __stdcall WinMain(HINSTANCE hInstance,
 
     try
     {
-        IOService io_service;
-        InetAddress address(48360);
-        TcpServer server(address, io_service, 4);
-
-        NetworkEventProxy networkEventProxy;
-        server.setNewConnectionCallback(
-            std::bind(&NetworkEventProxy::NewConnectionHandler, &networkEventProxy, std::placeholders::_1, std::placeholders::_2)
-            );
-
-        server.setWriteCompletedCallback(
-            std::bind(&NetworkEventProxy::WriteCompletedHandler, &networkEventProxy, std::placeholders::_1, std::placeholders::_2)
-            );
-
-        server.setReadCompletedCallback(
-            std::bind(&NetworkEventProxy::ReadCompletedHandler, &networkEventProxy, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4)
-            );
-
-        server.setConnectionClosedCallback(
-            std::bind(&NetworkEventProxy::ConnectionClosed, &networkEventProxy, std::placeholders::_1)
-            );
-
-        server.start();
-
+        AsioServiceDeamon serviceEntry;
+        serviceEntry.start("irene_service");
     }
     catch (...)
     {
