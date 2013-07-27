@@ -8,8 +8,7 @@ const static int DEFAULT_CIRCULAR_BUFFER_SIZE = 512;
 TcpConnection::TcpConnection(IOService& io_service)
     : _io_service(io_service),
     _strand(io_service.service()),
-    _socket(io_service.service()),
-    _circular_buffer(DEFAULT_CIRCULAR_BUFFER_SIZE)
+    _socket(io_service.service())
 {
 }
 
