@@ -21,9 +21,9 @@ public:
     virtual ~TcpConnection();
 
 public:
-    __forceinline int handle()
+    __forceinline int handle()  //return native socket handle
     {
-        return _socket.native_handle;
+        return _socket.native_handle();
     }
     void write(const byte* data, size_t size);
     void read();
