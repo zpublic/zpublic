@@ -17,6 +17,7 @@
 #include <iostream>
 #include <stdint.h>
 #include <list>
+#include <queue>
 #include <vector>
 #include <map>
 #include <hash_map>

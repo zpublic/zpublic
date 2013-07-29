@@ -16,8 +16,9 @@ public:
 public:
     void NewConnectionHandler(const TcpConnectionPtr& connection, const InetAddress& peerAddress)
     {
-        BroilerSession* newSession = SessionPool::instance().acquire(connection->handle());
-        SessionManager::instance().add_session(newSession);
+        BroilerSession* session = SessionPool::instance().acquire();
+        session->set_session_id(connection->handle());
+        SessionManager::instance().add_session(session);
 
         std::cout << "New Session [NativeHandle = " << connection->handle() << ", Peer = " << peerAddress.toIpHost() << "]" << std::endl;
     }
