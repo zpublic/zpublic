@@ -21,6 +21,10 @@ public:
     virtual ~TcpConnection();
 
 public:
+    __forceinline int handle()  //return native socket handle
+    {
+        return _socket.native_handle();
+    }
     void write(const byte* data, size_t size);
     void read();
     void shutdown();
@@ -42,7 +46,6 @@ private:
     enum CODEC_STATE { S_IDLE, S_PROCESSING } _state;
 
     bool append_buffer_fragment(const ByteBufferPtr& buffer);
-    bool append_buffer_fragment_2(const ByteBufferPtr& buffer);
     void reset()
     {
         _state = S_IDLE;
@@ -62,8 +65,6 @@ private:
     boost::array<byte, MAX_RECV_LEN> _recvBuffer;
     boost::asio::strand _strand;
     IOService& _io_service;
-
-    boost::circular_buffer<ByteBuffer>  _circular_buffer;
 };
 
 #endif

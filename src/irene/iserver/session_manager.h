@@ -2,6 +2,7 @@
 #define SESSION_MANAGER_H_
 
 #include <irene_common.h>
+#include <object_pool.hpp>
 #include "broiler_session.h"
 
 class SessionPool
@@ -17,19 +18,19 @@ public:
     {
     }
 
-    BroilerSession* acquire(uint64_t session_id)
+    BroilerSession* acquire()
     {
-        return _sessionPool.construct(session_id);
+        return _sessionPool.acquire();
     }
 
-    void destroy(BroilerSession* session)
+    void release(BroilerSession* session)
     {
-        _sessionPool.destroy(session);
+        _sessionPool.release(session);
     }
 
 private:
     SessionPool() {}
-    boost::object_pool<BroilerSession> _sessionPool;
+    ObjectPool<BroilerSession> _sessionPool;
 };
 
 class SessionManager
@@ -56,7 +57,7 @@ public:
 public:
     void add_session(BroilerSession* session)
     {
-        if (get(session->session_id()) != NULL)
+        if (get(session->session_id()) == NULL)
         {
             _sessionList.insert(std::make_pair(session->session_id(), session));
         }
