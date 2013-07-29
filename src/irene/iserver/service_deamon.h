@@ -5,7 +5,8 @@ template <typename ServiceType>
 class ServiceDeamon
 {
 protected:
-    virtual void start(const std::string&) = 0;
+    virtual void start(const std::string&, 
+        const uint32_t&) = 0;
     virtual void stop() = 0;
 
 protected:

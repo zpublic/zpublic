@@ -31,6 +31,9 @@
       <Filter>base</Filter>
     </ClInclude>
     <ClInclude Include="opcodes.h" />
+    <ClInclude Include="object_pool.hpp">
+      <Filter>base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

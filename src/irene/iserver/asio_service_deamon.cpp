@@ -15,7 +15,8 @@ AsioServiceDeamon::~AsioServiceDeamon()
     delete _network_service;
 }
 
-void AsioServiceDeamon::start(const std::string& serviceName)
+void AsioServiceDeamon::start(const std::string& serviceName, 
+                              const uint32_t& threadNum/* = irene::net_params::smart_thread_nums()*/)
 {
     _serviceName = serviceName;
 

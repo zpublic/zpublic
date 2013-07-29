@@ -16,7 +16,9 @@ public:
     virtual ~AsioServiceDeamon();
 
 public:
-    virtual void start(const std::string& serviceName);
+    virtual void start(const std::string& serviceName, 
+        const uint32_t& threadNum = irene::net_params::smart_thread_nums());
+
     virtual void stop();
 
 private:
