@@ -21,12 +21,44 @@ opcodes约定
 基础支持模块相关proto
 =====================
 上线相关proto  
-||*传输方向*||*包名*||*参数*||*作用*||
-||C2S||auth||name||要求验证||
-||S2C||auth||password||传输验证信息||
-||C2S||login||return||验证通过或者失败||
-||S2C||setname||name||修改rouji名||
-||S2C||setpass||password||修改密码||
+<table>
+	<tr>
+		<td>传输方向</td>
+		<td>包名</td>
+		<td>参数</td>
+		<td>作用</td>
+	</tr>
+	<tr>
+		<td>C2S</td>
+		<td>auth</td>
+		<td>name</td>
+		<td>要求验证</td>
+	</tr>
+	<tr>
+		<td>S2C</td>
+		<td>auth</td>
+		<td>password</td>
+		<td>传输验证信息</td>
+	</tr>
+	<tr>
+		<td>C2S</td>
+		<td>login</td>
+		<td>return</td>
+		<td>验证通过或者失败</td>
+	</tr>
+	<tr>
+		<td>S2C</td>
+		<td>setname</td>
+		<td>name</td>
+		<td>修改rouji名</td>
+	</tr>
+	<tr>
+		<td>S2C</td>
+		<td>setpass</td>
+		<td>password</td>
+		<td>修改密码</td>
+	</tr>
+</table>
 
 插件模块相关proto
 =================
