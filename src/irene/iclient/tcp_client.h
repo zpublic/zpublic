@@ -26,10 +26,10 @@ public:
 private:
 
     void do_write(const char* pBuf, unsigned int len);
+    void do_close();
 
     void handle_write(const boost::system::error_code& error);
-
-    void do_close();
+    void handle_read(const boost::system::error_code& error);
 
     void Close();
 private:
@@ -38,4 +38,5 @@ private:
     tcp::socket socket_;
     MessageQueue msg_queue_;
     boost::asio::signal_set signals_;
+    char data_[1024 * 4];
 };
