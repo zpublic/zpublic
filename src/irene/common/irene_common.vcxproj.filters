@@ -7,11 +7,17 @@
     <Filter Include="base">
       <UniqueIdentifier>{c72c058d-87de-49e0-9f8f-a7b4b0b130ad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="network">
+      <UniqueIdentifier>{ac05c237-ef1b-4324-9cce-ee6ca4f800e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network\asio_error">
+      <UniqueIdentifier>{07e1c169-4ea2-44b5-973c-25672026ee02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network\common">
+      <UniqueIdentifier>{6b2d89e3-a62f-444c-9967-a67829a46de6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>main</Filter>
-    </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>main</Filter>
     </ClInclude>
@@ -34,10 +40,43 @@
     <ClInclude Include="object_pool.hpp">
       <Filter>base</Filter>
     </ClInclude>
+    <ClInclude Include="tcp_server.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="acceptor.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="io_service.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="tcp_connection.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="network_common.h">
+      <Filter>network\common</Filter>
+    </ClInclude>
+    <ClInclude Include="local_free_on_destruction.hpp">
+      <Filter>network\asio_error</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="tcp_server.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="acceptor.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="tcp_connection.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="error_code.cpp">
+      <Filter>network\asio_error</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
