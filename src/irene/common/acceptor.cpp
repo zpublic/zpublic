@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "acceptor.h"
 #include "tcp_connection.h"
-#include "common_def.h"
+#include "network_common.h"
 #include "io_service.h"
 
 Acceptor::Acceptor(const InetAddress& listenAddress, IOService& service, uint32_t threadNums)

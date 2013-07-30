@@ -5,9 +5,10 @@
 #include <boost/asio.hpp>
 #include <boost/array.hpp>
 #include <boost/circular_buffer.hpp>  
-#include <byte_buffer.h>
-#include <packet.h>
-#include "common_def.h"
+
+#include "byte_buffer.h"
+#include "packet.h"
+#include "network_common.h"
 #include "io_service.h"
 
 using namespace boost::asio::ip;
