@@ -28,6 +28,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rouji", "..\src\irene\iclie
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "irene_common", "..\src\irene\common\irene_common.vcxproj", "{649D1913-E747-4A71-918D-67DE2185BAC3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{065D63CB-E3AE-4E0D-8D35-B1D0C4CA6035}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sockit", "sockit\sockit.vcxproj", "{B01DF264-EDE0-4D5D-B1B4-6BB5E2DAB4F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -66,6 +70,10 @@ Global
 		{649D1913-E747-4A71-918D-67DE2185BAC3}.Debug|Win32.Build.0 = Debug|Win32
 		{649D1913-E747-4A71-918D-67DE2185BAC3}.Release|Win32.ActiveCfg = Release|Win32
 		{649D1913-E747-4A71-918D-67DE2185BAC3}.Release|Win32.Build.0 = Release|Win32
+		{B01DF264-EDE0-4D5D-B1B4-6BB5E2DAB4F4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B01DF264-EDE0-4D5D-B1B4-6BB5E2DAB4F4}.Debug|Win32.Build.0 = Debug|Win32
+		{B01DF264-EDE0-4D5D-B1B4-6BB5E2DAB4F4}.Release|Win32.ActiveCfg = Release|Win32
+		{B01DF264-EDE0-4D5D-B1B4-6BB5E2DAB4F4}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,5 +82,6 @@ Global
 		{DEBF68AD-211D-484D-B7D1-BA6DA104382D} = {6BA019DB-BDD3-438A-B417-E171BA253AC9}
 		{85D33F90-3070-4DF5-9F68-642162E101D5} = {6BA019DB-BDD3-438A-B417-E171BA253AC9}
 		{649D1913-E747-4A71-918D-67DE2185BAC3} = {6BA019DB-BDD3-438A-B417-E171BA253AC9}
+		{B01DF264-EDE0-4D5D-B1B4-6BB5E2DAB4F4} = {065D63CB-E3AE-4E0D-8D35-B1D0C4CA6035}
 	EndGlobalSection
 EndGlobal

@@ -2,6 +2,7 @@
 #define BROILER_SESSION_H_
 
 #include <irene_common.h>
+#include <network_common.h>
 
 class BroilerSession
 {
@@ -22,9 +23,18 @@ public:
         _sessionId = session_id;
     }
 
+    void set_connection_ptr(const TcpConnectionPtr& connection)
+    {
+        _connection = connection;
+    }
+
     uint64_t session_id() const
     {
         return _sessionId;
+    }
+
+    void send_message(uint32_t opcode, const ::google::protobuf::Message& message)
+    {
     }
 
 public:
@@ -35,6 +45,7 @@ public:
 
 private:
     uint64_t _sessionId;
+    TcpConnectionPtr _connection;
 };
 
 #endif

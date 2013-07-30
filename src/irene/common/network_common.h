@@ -9,8 +9,8 @@
 #include <iostream>
 #include <google/protobuf/message.h>
 
-#include <irene_common.h>
-#include <inet_address.h>
+#include "irene_common.h"
+#include "inet_address.h"
 
 #ifdef _WIN32
 #include <windows.h>
