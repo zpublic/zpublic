@@ -1,7 +1,7 @@
 #ifndef ASIO_SERVICE_DEAMON_H_
 #define ASIO_SERVICE_DEAMON_H_
 
-#include "common_def.h"
+#include <network_common.h>
 #include "service_deamon.h"
 #include "io_service.h"
 

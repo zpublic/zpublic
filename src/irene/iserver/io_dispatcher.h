@@ -1,7 +1,7 @@
 #ifndef NETWORK_EVENT_H_
 #define NETWORK_EVENT_H_
 
-#include "common_def.h"
+#include "network_common.h"
 #include "opcodes_handler.h"
 #include "session_manager.h"
 #include "network_utils.h"

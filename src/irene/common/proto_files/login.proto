@@ -1,0 +1,10 @@
+package Protocol;
+
+message C2SLoginReq {
+	required int32 version = 1;
+	required string password = 2;
+}
+
+message S2CLoginRsp {
+	required bool success = 1;
+}
