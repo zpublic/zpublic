@@ -1,11 +1,10 @@
 #ifndef NETWORK_EVENT_H_
 #define NETWORK_EVENT_H_
 
-#include "network_common.h"
+#include <network_common.h>
+#include <tcp_connection.h>
 #include "opcodes_handler.h"
 #include "session_manager.h"
-#include "network_utils.h"
-#include "tcp_connection.h"
 
 class IODispatcher
 {

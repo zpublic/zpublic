@@ -79,7 +79,6 @@
   <ItemGroup>
     <ClCompile Include="iserver.cpp" />
     <ClCompile Include="asio_service_deamon.cpp" />
-    <ClCompile Include="network_service.cpp" />
     <ClCompile Include="opcodes_handler.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -89,10 +88,8 @@
   <ItemGroup>
     <ClInclude Include="broiler_session.h" />
     <ClInclude Include="io_dispatcher.h" />
-    <ClInclude Include="network_service.h" />
     <ClInclude Include="opcodes_handler.h" />
     <ClInclude Include="service_deamon.h" />
-    <ClInclude Include="network_utils.h" />
     <ClInclude Include="asio_service_deamon.h" />
     <ClInclude Include="session_manager.h" />
     <ClInclude Include="stdafx.h" />
