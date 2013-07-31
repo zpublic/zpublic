@@ -2,8 +2,8 @@
 #define ACCEPTOR_H_
 
 #include <boost/noncopyable.hpp>
-#include <inet_address.h>
-#include "common_def.h"
+#include "inet_address.h"
+#include "network_common.h"
 #include "io_service.h"
 
 using namespace boost::asio;

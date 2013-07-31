@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include <inet_address.h>
+#include "inet_address.h"
 #include "tcp_server.h"
-#include "common_def.h"
+#include "network_common.h"
 #include "tcp_connection.h"
 
 TcpServer::TcpServer(const InetAddress& listenAddress, IOService& service, uint32_t threadNums)
