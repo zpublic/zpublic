@@ -1,7 +1,6 @@
 #include "stdafx.h"
+#include <tcp_server.h>
 #include "asio_service_deamon.h"
-#include "tcp_server.h"
-#include "network_service.h"
 #include "io_dispatcher.h"
 
 AsioServiceDeamon::AsioServiceDeamon()
@@ -12,7 +11,7 @@ AsioServiceDeamon::~AsioServiceDeamon()
 {
     delete _service;
     delete _server;
-    delete _network_service;
+    //delete _network_service;
 }
 
 void AsioServiceDeamon::start(const std::string& serviceName, 
@@ -27,7 +26,7 @@ void AsioServiceDeamon::start(const std::string& serviceName,
     _server = new TcpServer(InetAddress(48360), *_service, 4);
 
     //create network service instance
-    _network_service = new NetworkService();
+    //_network_service = new NetworkService();
 
     //register io events
     IODispatcher io_dispatcher;

@@ -45,7 +45,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);BOOST_ALL_NO_LIB</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>./../../../public;./../../../3rdparty;</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -64,7 +64,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);BOOST_ALL_NO_LIB</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>./../../../public;./../../../3rdparty;</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -81,12 +81,12 @@
   <ItemGroup>
     <ClInclude Include="acceptor.h" />
     <ClInclude Include="byte_buffer.h" />
-    <ClInclude Include="local_free_on_destruction.hpp" />
-    <ClInclude Include="network_common.h" />
     <ClInclude Include="endian.h" />
     <ClInclude Include="inet_address.h" />
     <ClInclude Include="io_service.h" />
     <ClInclude Include="irene_common.h" />
+    <ClInclude Include="local_free_on_destruction.hpp" />
+    <ClInclude Include="network_common.h" />
     <ClInclude Include="object_pool.hpp" />
     <ClInclude Include="opcodes.h" />
     <ClInclude Include="packet.h" />

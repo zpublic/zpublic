@@ -1,12 +1,12 @@
 #ifndef ASIO_SERVICE_DEAMON_H_
 #define ASIO_SERVICE_DEAMON_H_
 
+#include <io_service.h>
 #include <network_common.h>
 #include "service_deamon.h"
-#include "io_service.h"
 
 class TcpServer;
-class NetworkService;
+//class NetworkService;
 
 class AsioServiceDeamon 
     : public ServiceDeamon<IOService>
@@ -24,7 +24,7 @@ public:
 private:
     std::string _serviceName;
     TcpServer* _server;
-    NetworkService* _network_service;
+    //NetworkService* _network_service;
 };
 
 #endif

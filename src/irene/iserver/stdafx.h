@@ -16,5 +16,3 @@
 #else
 #pragma comment(lib, "libprotobuf.lib")
 #endif
-
-#include <irene_common.h>
