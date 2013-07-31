@@ -35,16 +35,66 @@ public:
     {
         try_allocate();
         _Ty* obj = get_free();
-        obj = new(obj)  _Ty();
+        try
+        {
+            new (obj) _Ty();
+        }
+        catch (...)
+        {
+            (free)(obj); throw;
+        }
+
         return obj;
     }
 
     template <typename ArgT0>
-    _Ty* acquire(const ArgT0& arg1)
+    _Ty* acquire(const ArgT0& arg0)
     {
         try_allocate();
         _Ty* obj = get_free();
+        try
+        {
+            new (obj) _Ty(arg0);
+        }
+        catch (...)
+        {
+            (free)(obj); throw;
+        }
 
+        return obj;
+    }
+
+    template <typename ArgT0, typename ArgT1>
+    _Ty* acquire(const ArgT0& arg0, const ArgT1& arg1)
+    {
+        try_allocate();
+        _Ty* obj = get_free();
+        try
+        {
+            new (obj) _Ty(arg0, arg1);
+        }
+        catch (...)
+        {
+            (free)(obj); throw;
+        }
+
+        return obj;
+    }
+
+    template <typename ArgT0, typename ArgT1, typename ArgT2>
+    _Ty* acquire(const ArgT0& arg0, const ArgT1& arg1, const ArgT2& arg2)
+    {
+        try_allocate();
+        _Ty* obj = get_free();
+        try
+        {
+            new (obj) _Ty(arg0, arg1, arg2);
+        }
+        catch (...)
+        {
+            (free)(obj); throw;
+        }
+    
         return obj;
     }
 
