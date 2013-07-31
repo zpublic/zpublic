@@ -81,6 +81,9 @@
     <Filter Include="zpublic\application\pluginframework">
       <UniqueIdentifier>{65fb52b9-f931-4d88-98cc-87d2d74fb908}</UniqueIdentifier>
     </Filter>
+    <Filter Include="zpublic\design">
+      <UniqueIdentifier>{f36775e9-4a02-4117-8848-ac3658e58144}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp">
@@ -318,6 +321,15 @@
     <ClInclude Include="..\..\public\application\pluginframework\pluginlist.h">
       <Filter>zpublic\application\pluginframework</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\public\design\factory.h">
+      <Filter>zpublic\design</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\design\strategy.h">
+      <Filter>zpublic\design</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\design\design_def.h">
+      <Filter>zpublic\design</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\3rdparty\modp_b64\modp_b64.cc">
@@ -346,7 +358,6 @@
       <Filter>zpublic\algorithm</Filter>
     </ClCompile>
     <ClCompile Include="TestCrypt.cpp">
-
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\xzip\XUnzip.cpp">
@@ -363,6 +374,12 @@
     </ClCompile>
     <ClCompile Include="..\..\public\application\pluginframework\pluginlist.cpp">
       <Filter>zpublic\application\pluginframework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\design\factory.cpp">
+      <Filter>zpublic\design</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\design\strategy.cpp">
+      <Filter>zpublic\design</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
