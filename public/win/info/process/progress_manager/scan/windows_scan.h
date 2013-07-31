@@ -43,7 +43,7 @@ private:
     IScanModule* _CreateModuleScan();
 
 private:
-    vecProcessPool* m_vecProcessPool;                ///> 存放扫描到的消息
+    vecProcessPool* m_vecProcessPool;                  ///> 存放扫描到的消息
     IScanProcess* m_pScanProcess;                      ///> 进程扫描器
     IScanThread* m_pScanThread;                        ///> 线程扫描器
     IScanModule* m_pScanModule;                        ///> 模块扫描器

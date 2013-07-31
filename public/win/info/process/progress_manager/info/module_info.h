@@ -40,8 +40,8 @@ public:
     void Clear();
 
 private:
-    DWORD m_dwmodBaseSize;                    ///> 模块大小
-    DWORD m_dwth32ProcessID;                  ///> 进程ID
+    DWORD m_dwmodBaseSize;                  ///> 模块大小
+    DWORD m_dwth32ProcessID;                ///> 进程ID
     CString m_strModuleName;                ///> 模块名
     CString m_strModulePath;                ///> 模块路径
 };
