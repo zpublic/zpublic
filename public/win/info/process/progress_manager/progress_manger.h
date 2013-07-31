@@ -2,7 +2,7 @@
 //  File        :   progress_manger.h
 //  Author      :   Sum
 //  Datet       :   2013/7/29 16:49
-//  Brief       :	
+//  Brief       :   暂时不支持跨模块使用
 //
 // -----------------------------------------------------------------------*/
 #ifndef __PROGRESS_MANGER_H_
