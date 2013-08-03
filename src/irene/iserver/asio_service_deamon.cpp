@@ -23,7 +23,7 @@ void AsioServiceDeamon::start(const std::string& serviceName,
     _service = new IOService;
 
     //create tcp server instance
-    _server = new TcpServer(InetAddress(48360), *_service, 4);
+    _server = new TcpServer(InetAddress(48360), *_service, 1);
 
     //create network service instance
     //_network_service = new NetworkService();

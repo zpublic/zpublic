@@ -8,8 +8,8 @@ template <typename _Ty>
 class ObjectPool 
     : public boost::noncopyable
 {
-    static const uint32_t kDefaultSzie  = 0x00000100;
-    static const uint32_t kIncreaseSize = 0x00000100;
+    static const uint32_t kDefaultSzie  = 0x00001000;
+    static const uint32_t kIncreaseSize = 0x00001000;
 
 public:
     explicit ObjectPool(uint32_t chunk_size = kDefaultSzie, uint32_t increase_size = kIncreaseSize)
@@ -55,6 +55,7 @@ public:
         try
         {
             new (obj) _Ty(arg0);
+            std::cout << "free node = " << _free_objects.size() << ", all nodes = " << _all_objects.size() << std::endl;
         }
         catch (...)
         {

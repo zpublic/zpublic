@@ -7,22 +7,12 @@
 class BroilerSession
 {
 public:
-    BroilerSession()
-        : _sessionId(0)
-    {
-    }
-
-    BroilerSession(uint64_t session_id)
+    BroilerSession(const uint64_t& session_id)
         : _sessionId(session_id)
     {
     }
 
 public:
-    void set_session_id(uint64_t session_id)
-    {
-        _sessionId = session_id;
-    }
-
     void set_connection_ptr(const TcpConnectionPtr& connection)
     {
         _connection = connection;
