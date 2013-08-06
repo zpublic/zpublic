@@ -59,7 +59,9 @@ public:
     {
         if (get(session->session_id()) == NULL)
         {
+            _mutex.lock();
             _sessionList.insert(std::make_pair(session->session_id(), session));
+            _mutex.unlock();
         }
     }
 
@@ -68,7 +70,9 @@ public:
         SessionTable::const_iterator iter = _sessionList.find(session_id);
         if (iter != _sessionList.end())
         {
+            _mutex.lock();
             _sessionList.erase(iter);
+            _mutex.unlock();
         }
     }
 
@@ -91,6 +95,7 @@ public:
 private:
     SessionManager(){}
     SessionTable _sessionList;
+    std::mutex _mutex;
 };
 
 #endif

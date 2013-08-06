@@ -16,7 +16,7 @@ public:
     void NewConnectionHandler(const TcpConnectionPtr& connection, const InetAddress& peerAddress)
     {
         BroilerSession* session = SessionPool::instance().acquire(connection->handle());
-        //SessionManager::instance().add_session(session);
+        SessionManager::instance().add_session(session);
         std::cout << "New Session [NativeHandle = " << connection->handle() << ", Peer = " << peerAddress.toIpHost() << "]" << std::endl;
     }
 
@@ -34,19 +34,20 @@ public:
         std::cout << "Read completed handler." << std::endl;
         std::cout << "  opcode = " << opcode << std::endl;
 
-        /*OpcodeHandler* handler = OpcodeTable::instance()[opcode];
+        OpcodeHandler* handler = OpcodeTable::instance()[opcode];
         if (handler != NULL)
         {
             BroilerSession* session = SessionManager::instance().get(connection->handle());
             if (session != NULL)
                 handler->message_handler(session, message);
-        }*/
+        }
     }
 
     void ConnectionClosed(const TcpConnectionPtr& connection)
     {
         std::cout << "Connection closed handler." << std::endl;
         BroilerSession* session = SessionManager::instance().get(connection->handle());
+        SessionManager::instance().remove_session(session);
         SessionPool::instance().release(session);
     }
 };
