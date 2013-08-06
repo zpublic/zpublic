@@ -8,8 +8,8 @@ template <typename _Ty>
 class ObjectPool 
     : public boost::noncopyable
 {
-    static const uint32_t kDefaultSzie  = 0x00000100;
-    static const uint32_t kIncreaseSize = 0x00000100;
+    static const uint32_t kDefaultSzie  = 0x00000080;   //128
+    static const uint32_t kIncreaseSize = 0x00000400;   //1024
 
 public:
     explicit ObjectPool(uint32_t chunk_size = kDefaultSzie, uint32_t increase_size = kIncreaseSize)
@@ -25,7 +25,8 @@ public:
     {
         std::for_each(_all_objects.begin(), _all_objects.end(), [](_Ty* obj)
             {
-                delete [] obj;
+                obj->~_Ty();
+                free(obj);
             }
         );
     }
@@ -41,7 +42,7 @@ public:
         }
         catch (...)
         {
-            (free)(obj); throw;
+            free(obj); throw;
         }
 
         return obj;
@@ -58,7 +59,7 @@ public:
         }
         catch (...)
         {
-            (free)(obj); throw;
+            free(obj); throw;
         }
 
         return obj;
@@ -75,7 +76,7 @@ public:
         }
         catch (...)
         {
-            (free)(obj); throw;
+            free(obj); throw;
         }
 
         return obj;
@@ -92,7 +93,7 @@ public:
         }
         catch (...)
         {
-            (free)(obj); throw;
+            free(obj); throw;
         }
     
         return obj;
@@ -106,8 +107,10 @@ public:
 private:
     _Ty* get_free()
     {
-        _Ty* obj = _free_objects.front();
+        _Ty* obj = _free_objects.top();
         _free_objects.pop();
+
+        std::cout << "free objects count = " << _free_objects.size() << std::endl;
 
         return obj;
     }
@@ -120,24 +123,19 @@ private:
 
     void allocate(size_t size)
     {
-        _Ty* obj = malloc_obj(size);
-
+        _Ty* obj = static_cast<_Ty*>(malloc(size * sizeof(_Ty)));
         _all_objects.push_back(obj);
-        for (size_t i = 0; i < size; ++i)
-        {
-            _free_objects.push(&obj[i]);
-        }
-    }
 
-    _Ty* malloc_obj(size_t size)
-    {
-        return static_cast<_Ty*>(malloc(size));
+        for (size_t i = 0; i < size; ++i)
+            _free_objects.push(&obj[i]);
+
+        std::cout << "allocated free objects = " << size << ", total bytes = " << size *  sizeof(obj[0]) << std::endl;
     }
 
 private:
     uint32_t _chunk_size;
     uint32_t _increase_size;
-    std::queue<_Ty*> _free_objects;
+    std::stack<_Ty*> _free_objects;
     std::vector<_Ty*> _all_objects;
 };
 
