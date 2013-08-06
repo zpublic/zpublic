@@ -17,9 +17,12 @@
 #include <stdint.h>
 #include <list>
 #include <queue>
+#include <deque>
+#include <stack>
 #include <vector>
 #include <map>
 #include <hash_map>
+#include <mutex>
 
 #include <google/protobuf/message.h>
 
