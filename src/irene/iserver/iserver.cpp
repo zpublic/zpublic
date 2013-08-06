@@ -13,7 +13,7 @@ int __stdcall WinMain(HINSTANCE hInstance,
     try
     {
         AsioServiceDeamon serviceEntry;
-        serviceEntry.start("irene_service");
+        serviceEntry.start("irene_service", 4);
     }
     catch (...)
     {
