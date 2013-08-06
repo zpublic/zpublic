@@ -12,6 +12,10 @@ public:
     {
     }
 
+    ~BroilerSession()
+    {
+    }
+
 public:
     void set_connection_ptr(const TcpConnectionPtr& connection)
     {
