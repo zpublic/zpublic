@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "irene_common", "..\src\irene\common\irene_common.vcxproj", "{649D1913-E747-4A71-918D-67DE2185BAC3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rouji", "..\src\irene\iclient\iclient.vcxproj", "{85D33F90-3070-4DF5-9F68-642162E101D5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shaji", "..\src\irene\iserver\iserver.vcxproj", "{DEBF68AD-211D-484D-B7D1-BA6DA104382D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{649D1913-E747-4A71-918D-67DE2185BAC3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{649D1913-E747-4A71-918D-67DE2185BAC3}.Debug|Win32.Build.0 = Debug|Win32
+		{649D1913-E747-4A71-918D-67DE2185BAC3}.Release|Win32.ActiveCfg = Release|Win32
+		{649D1913-E747-4A71-918D-67DE2185BAC3}.Release|Win32.Build.0 = Release|Win32
+		{85D33F90-3070-4DF5-9F68-642162E101D5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{85D33F90-3070-4DF5-9F68-642162E101D5}.Debug|Win32.Build.0 = Debug|Win32
+		{85D33F90-3070-4DF5-9F68-642162E101D5}.Release|Win32.ActiveCfg = Release|Win32
+		{85D33F90-3070-4DF5-9F68-642162E101D5}.Release|Win32.Build.0 = Release|Win32
+		{DEBF68AD-211D-484D-B7D1-BA6DA104382D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DEBF68AD-211D-484D-B7D1-BA6DA104382D}.Debug|Win32.Build.0 = Debug|Win32
+		{DEBF68AD-211D-484D-B7D1-BA6DA104382D}.Release|Win32.ActiveCfg = Release|Win32
+		{DEBF68AD-211D-484D-B7D1-BA6DA104382D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

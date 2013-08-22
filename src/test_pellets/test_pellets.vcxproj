@@ -90,6 +90,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\3rdparty\detours\src\detours.h" />
+    <ClInclude Include="..\..\3rdparty\detours\src\detver.h" />
     <ClInclude Include="..\..\pellets\data_box\array_data.h" />
     <ClInclude Include="..\..\pellets\data_box\data_box.h" />
     <ClInclude Include="..\..\pellets\data_box\data_box_def.h" />
@@ -97,6 +99,8 @@
     <ClInclude Include="..\..\pellets\data_box\value_data.h" />
     <ClInclude Include="..\..\pellets\data_box\value_data_string.h" />
     <ClInclude Include="..\..\pellets\data_box\value_data_t.hpp" />
+    <ClInclude Include="..\..\pellets\hook\i_zl_hook_container.h" />
+    <ClInclude Include="..\..\pellets\hook\zl_hook_def.h" />
     <ClInclude Include="..\..\pellets\ipc\ipccallclient.h" />
     <ClInclude Include="..\..\pellets\ipc\ipcimsgprocessor.h" />
     <ClInclude Include="..\..\pellets\ipc\ipcjsonprocessor.h" />
@@ -143,6 +147,12 @@
     <ClInclude Include="TestThreadSync.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\3rdparty\detours\src\creatwth.cpp" />
+    <ClCompile Include="..\..\3rdparty\detours\src\detours.cpp" />
+    <ClCompile Include="..\..\3rdparty\detours\src\disasm.cpp" />
+    <ClCompile Include="..\..\3rdparty\detours\src\image.cpp" />
+    <ClCompile Include="..\..\3rdparty\detours\src\modules.cpp" />
+    <ClCompile Include="..\..\3rdparty\detours\src\uimports.cpp" />
     <ClCompile Include="..\..\3rdparty\jsonlib\src\json_reader.cpp" />
     <ClCompile Include="..\..\3rdparty\jsonlib\src\json_value.cpp" />
     <ClCompile Include="..\..\3rdparty\jsonlib\src\json_writer.cpp" />

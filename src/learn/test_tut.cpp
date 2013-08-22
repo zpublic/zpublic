@@ -147,4 +147,3 @@ void test_tut()
     tut::runner.get().set_callback(&visi);
     tut::runner.get().run_tests();
 }
-

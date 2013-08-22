@@ -37,6 +37,15 @@
     <Filter Include="pellets\IPC\json">
       <UniqueIdentifier>{ab07fc6a-ece6-467f-997c-fb60cb17d605}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\Hook">
+      <UniqueIdentifier>{22510bfa-067c-45b3-84d2-82d751c4e047}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty">
+      <UniqueIdentifier>{0bd38adf-5486-41c8-8a3a-990ab16e8a4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\detours">
+      <UniqueIdentifier>{dba356ff-1332-4bda-a6cc-f5066dee3e02}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -195,6 +204,18 @@
     <ClInclude Include="..\..\pellets\ipc\jsonparser\iipccallfilter.h">
       <Filter>pellets\IPC\JsonParser</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\hook\zl_hook_def.h">
+      <Filter>pellets\Hook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\hook\i_zl_hook_container.h">
+      <Filter>pellets\Hook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\detours\src\detours.h">
+      <Filter>3rdparty\detours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\detours\src\detver.h">
+      <Filter>3rdparty\detours</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -268,6 +289,24 @@
     </ClCompile>
     <ClCompile Include="..\..\pellets\ipc\ipcpipesvrchannel.cpp">
       <Filter>pellets\IPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\detours\src\creatwth.cpp">
+      <Filter>3rdparty\detours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\detours\src\detours.cpp">
+      <Filter>3rdparty\detours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\detours\src\disasm.cpp">
+      <Filter>3rdparty\detours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\detours\src\image.cpp">
+      <Filter>3rdparty\detours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\detours\src\modules.cpp">
+      <Filter>3rdparty\detours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\detours\src\uimports.cpp">
+      <Filter>3rdparty\detours</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
