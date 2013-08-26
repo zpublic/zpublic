@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_basic", "..\src\test_b
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_pellets", "..\src\test_pellets\test_pellets.vcxproj", "{10A53A17-956B-4378-93F8-FF12938F11E0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpptest_ext", "..\3rdparty\cpptest_ext\cpptest_ext.vcxproj", "{BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -19,6 +21,10 @@ Global
 		{10A53A17-956B-4378-93F8-FF12938F11E0}.Debug|Win32.Build.0 = Debug|Win32
 		{10A53A17-956B-4378-93F8-FF12938F11E0}.Release|Win32.ActiveCfg = Release|Win32
 		{10A53A17-956B-4378-93F8-FF12938F11E0}.Release|Win32.Build.0 = Release|Win32
+		{BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243}.Debug|Win32.Build.0 = Debug|Win32
+		{BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243}.Release|Win32.ActiveCfg = Release|Win32
+		{BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

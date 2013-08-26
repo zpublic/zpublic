@@ -305,9 +305,6 @@
     <ClCompile Include="..\..\3rdparty\detours\src\modules.cpp">
       <Filter>3rdparty\detours</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\3rdparty\detours\src\uimports.cpp">
-      <Filter>3rdparty\detours</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\3rdparty\jsonlib\src\json_internalarray.inl">

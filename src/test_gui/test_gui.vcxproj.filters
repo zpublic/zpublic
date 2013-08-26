@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{f8c7b94d-cff4-49c6-bc8e-2fc4c797042b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\main">
+      <UniqueIdentifier>{cb5f4932-51f2-4877-b639-6a6c0df9eeac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{20d45be6-136b-4f3b-92a3-7fb0c2632511}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\wtl">
+      <UniqueIdentifier>{6237d40c-c948-43c4-89c2-cd1f67459294}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base">
+      <UniqueIdentifier>{4b87ebf3-50cd-42f7-b7d6-bdcef7a57553}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlapp.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlcrack.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlctrls.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlctrlw.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlctrlx.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlddx.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atldlgs.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atldwm.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlfind.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlframe.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlgdi.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlmisc.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlprint.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlres.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlribbon.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlscrl.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlsplit.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atltheme.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atluser.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\wtl\Include\atlwinx.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="dlg1.h">
+      <Filter>src\base</Filter>
+    </ClInclude>
+    <ClInclude Include="test_basic.h">
+      <Filter>src\base</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src\main</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>src\main</Filter>
+    </ClCompile>
+    <ClCompile Include="test_basic.cpp">
+      <Filter>src\base</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

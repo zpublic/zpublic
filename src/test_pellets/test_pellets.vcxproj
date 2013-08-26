@@ -50,7 +50,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DETOURS_32BIT;DETOURS_X86;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>./../../pellets;./../../3rdparty</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <CallingConvention>Cdecl</CallingConvention>
@@ -74,7 +74,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DETOURS_32BIT;DETOURS_X86;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>./../../pellets;./../../3rdparty</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -152,7 +152,6 @@
     <ClCompile Include="..\..\3rdparty\detours\src\disasm.cpp" />
     <ClCompile Include="..\..\3rdparty\detours\src\image.cpp" />
     <ClCompile Include="..\..\3rdparty\detours\src\modules.cpp" />
-    <ClCompile Include="..\..\3rdparty\detours\src\uimports.cpp" />
     <ClCompile Include="..\..\3rdparty\jsonlib\src\json_reader.cpp" />
     <ClCompile Include="..\..\3rdparty\jsonlib\src\json_value.cpp" />
     <ClCompile Include="..\..\3rdparty\jsonlib\src\json_writer.cpp" />

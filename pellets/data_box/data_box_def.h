@@ -28,8 +28,11 @@ namespace DataBox
 #ifndef IN
 #define IN
 #define OUT
-#define INOUT
 #endif // !IN
+
+#ifndef INOUT
+#define INOUT
+#endif // !INOUT
 
 #ifndef DISALLOW_COPY_AND_ASSIGN
 #define DISALLOW_COPY_AND_ASSIGN(TypeName) \
