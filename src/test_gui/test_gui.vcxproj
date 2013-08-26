@@ -101,6 +101,9 @@
     <ClInclude Include="dlg3.h" />
     <ClInclude Include="dlg4.h" />
     <ClInclude Include="dlg4_handler.h" />
+    <ClInclude Include="frame1.h" />
+    <ClInclude Include="frame2.h" />
+    <ClInclude Include="frame2_view.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="test_basic.h" />

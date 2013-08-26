@@ -3,6 +3,8 @@
 #include "dlg2.h"
 #include "dlg3.h"
 #include "dlg4.h"
+#include "frame1.h"
+#include "frame2.h"
 
 void test_dlg1()
 {
@@ -47,10 +49,48 @@ void test_dlg4()
     assert(IDOK == dlg4.DoModal());
 }
 
+void test_frame1()
+{
+    CFrame1 frame1;
+    MSG msg;
+
+    assert(frame1.CreateEx());
+
+    frame1.CenterWindow();
+    frame1.ShowWindow (SW_SHOW);
+    frame1.UpdateWindow();
+
+    while (::GetMessage (&msg, NULL, 0, 0 ) > 0)
+    {
+        ::TranslateMessage (&msg);
+        ::DispatchMessage (&msg);
+    }
+}
+
+void test_frame2()
+{
+    CFrame2 frame2;
+    MSG msg;
+
+    assert(frame2.CreateEx());
+
+    frame2.CenterWindow();
+    frame2.ShowWindow (SW_SHOW);
+    frame2.UpdateWindow();
+
+    while (::GetMessage (&msg, NULL, 0, 0 ) > 0)
+    {
+        ::TranslateMessage (&msg);
+        ::DispatchMessage (&msg);
+    }
+}
+
 void test_basic()
 {
     //test_dlg1();
     //test_dlg2();
     //test_dlg3();
-    test_dlg4();
+    //test_dlg4();
+    //test_frame1();
+    test_frame2();
 }

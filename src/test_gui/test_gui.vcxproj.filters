@@ -96,6 +96,15 @@
     <ClInclude Include="dlg4_handler.h">
       <Filter>src\base</Filter>
     </ClInclude>
+    <ClInclude Include="frame1.h">
+      <Filter>src\base</Filter>
+    </ClInclude>
+    <ClInclude Include="frame2.h">
+      <Filter>src\base</Filter>
+    </ClInclude>
+    <ClInclude Include="frame2_view.h">
+      <Filter>src\base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
