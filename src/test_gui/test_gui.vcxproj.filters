@@ -42,9 +42,6 @@
     <ClInclude Include="..\..\3rdparty\wtl\Include\atldlgs.h">
       <Filter>include\wtl</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\3rdparty\wtl\Include\atldwm.h">
-      <Filter>include\wtl</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlfind.h">
       <Filter>include\wtl</Filter>
     </ClInclude>
@@ -61,9 +58,6 @@
       <Filter>include\wtl</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlres.h">
-      <Filter>include\wtl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\3rdparty\wtl\Include\atlribbon.h">
       <Filter>include\wtl</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlscrl.h">
@@ -87,6 +81,21 @@
     <ClInclude Include="test_basic.h">
       <Filter>src\base</Filter>
     </ClInclude>
+    <ClInclude Include="dlg2.h">
+      <Filter>src\base</Filter>
+    </ClInclude>
+    <ClInclude Include="dlg3.h">
+      <Filter>src\base</Filter>
+    </ClInclude>
+    <ClInclude Include="dlg4.h">
+      <Filter>src\base</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="dlg4_handler.h">
+      <Filter>src\base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -98,5 +107,10 @@
     <ClCompile Include="test_basic.cpp">
       <Filter>src\base</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="test_gui.rc">
+      <Filter>src\main</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

@@ -85,20 +85,23 @@
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlctrlx.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlddx.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atldlgs.h" />
-    <ClInclude Include="..\..\3rdparty\wtl\Include\atldwm.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlfind.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlframe.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlgdi.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlmisc.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlprint.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlres.h" />
-    <ClInclude Include="..\..\3rdparty\wtl\Include\atlribbon.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlscrl.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlsplit.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atltheme.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atluser.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlwinx.h" />
     <ClInclude Include="dlg1.h" />
+    <ClInclude Include="dlg2.h" />
+    <ClInclude Include="dlg3.h" />
+    <ClInclude Include="dlg4.h" />
+    <ClInclude Include="dlg4_handler.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="test_basic.h" />
   </ItemGroup>
@@ -109,6 +112,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="test_basic.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="test_gui.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

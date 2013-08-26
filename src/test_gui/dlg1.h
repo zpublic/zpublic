@@ -9,7 +9,7 @@ public:
         MSG_WM_CREATE(OnCreate)
     END_MSG_MAP()
 
-public:
+private:
     int OnCreate(LPCREATESTRUCT lpCreateStruct)
     {
         ::MessageBox(0, L"OnCreate", L"", 0);

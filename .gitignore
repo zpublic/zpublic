@@ -21,6 +21,7 @@
 *.idb
 *.pdb
 *.lib
+*.aps
 !/3rdparty/boost_lib/*.lib
 !/3rdparty/protobuf_lib/*.lib
 !/3rdparty/libcurl_lib/*.lib
