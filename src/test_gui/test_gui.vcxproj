@@ -93,7 +93,6 @@
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlres.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlscrl.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlsplit.h" />
-    <ClInclude Include="..\..\3rdparty\wtl\Include\atltheme.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atluser.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlwinx.h" />
     <ClInclude Include="dlg1.h" />

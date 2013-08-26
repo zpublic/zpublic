@@ -66,9 +66,6 @@
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlsplit.h">
       <Filter>include\wtl</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\3rdparty\wtl\Include\atltheme.h">
-      <Filter>include\wtl</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\3rdparty\wtl\Include\atluser.h">
       <Filter>include\wtl</Filter>
     </ClInclude>

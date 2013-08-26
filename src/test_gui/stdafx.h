@@ -96,10 +96,6 @@
  */
 #include "atluser.h"
 /*
- * 系统皮肤风格封装
- */
-#include "atltheme.h"
-/*
  * 窗口分割封装
  */
 #include "atlsplit.h"
@@ -121,4 +117,8 @@
  * requires the Windows 7 SDK or higher
  */
 //#include "atlribbon.h"
+/*
+ * 系统皮肤风格封装
+ */
+//#include "atltheme.h"
 //////////////////////////////////////////////////////////////////////////
