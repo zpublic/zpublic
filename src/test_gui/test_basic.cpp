@@ -92,5 +92,5 @@ void test_basic()
     //test_dlg3();
     //test_dlg4();
     //test_frame1();
-    test_frame2();
+    //test_frame2();
 }

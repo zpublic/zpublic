@@ -26,6 +26,8 @@
 ///> windows¿â
 #include <windows.h>
 
+#include <wingdi.h>
+
 
 ///> zpublic£¡
 //#include "zpublic.hpp"

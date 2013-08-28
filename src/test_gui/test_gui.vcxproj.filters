@@ -13,8 +13,29 @@
     <Filter Include="include\wtl">
       <UniqueIdentifier>{6237d40c-c948-43c4-89c2-cd1f67459294}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\base">
+    <Filter Include="src\atl/wtl">
       <UniqueIdentifier>{4b87ebf3-50cd-42f7-b7d6-bdcef7a57553}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\zlui">
+      <UniqueIdentifier>{0705a34c-d72f-455b-80d1-fdf7cecb1f78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\zlui\misc">
+      <UniqueIdentifier>{fe0940ac-3909-4f0e-8872-d676371c6039}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\zlui\controls">
+      <UniqueIdentifier>{ed813b02-2094-43f2-9d9a-9cd5d2232787}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\zlui\graphics">
+      <UniqueIdentifier>{bbb6d7a5-71d8-4f26-b535-c6ec974d13a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\zlui\native">
+      <UniqueIdentifier>{7a189fbd-8694-456c-88a6-a3fbdca68aa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\zlui\res">
+      <UniqueIdentifier>{5dd914aa-4d8f-4dcd-a612-4a56839b7ae5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\zlui\test">
+      <UniqueIdentifier>{a3138297-7a7b-406f-961a-3838e512af76}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -73,34 +94,43 @@
       <Filter>include\wtl</Filter>
     </ClInclude>
     <ClInclude Include="dlg1.h">
-      <Filter>src\base</Filter>
+      <Filter>src\atl/wtl</Filter>
     </ClInclude>
     <ClInclude Include="test_basic.h">
-      <Filter>src\base</Filter>
+      <Filter>src\atl/wtl</Filter>
     </ClInclude>
     <ClInclude Include="dlg2.h">
-      <Filter>src\base</Filter>
+      <Filter>src\atl/wtl</Filter>
     </ClInclude>
     <ClInclude Include="dlg3.h">
-      <Filter>src\base</Filter>
+      <Filter>src\atl/wtl</Filter>
     </ClInclude>
     <ClInclude Include="dlg4.h">
-      <Filter>src\base</Filter>
+      <Filter>src\atl/wtl</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>src\main</Filter>
     </ClInclude>
     <ClInclude Include="dlg4_handler.h">
-      <Filter>src\base</Filter>
+      <Filter>src\atl/wtl</Filter>
     </ClInclude>
     <ClInclude Include="frame1.h">
-      <Filter>src\base</Filter>
+      <Filter>src\atl/wtl</Filter>
     </ClInclude>
     <ClInclude Include="frame2.h">
-      <Filter>src\base</Filter>
+      <Filter>src\atl/wtl</Filter>
     </ClInclude>
     <ClInclude Include="frame2_view.h">
-      <Filter>src\base</Filter>
+      <Filter>src\atl/wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\zlui\test\test_zlui.h">
+      <Filter>src\zlui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\zlui\res\zl_res_font.h">
+      <Filter>src\zlui\res</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\zlui\res\zl_res.h">
+      <Filter>src\zlui\res</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -111,7 +141,10 @@
       <Filter>src\main</Filter>
     </ClCompile>
     <ClCompile Include="test_basic.cpp">
-      <Filter>src\base</Filter>
+      <Filter>src\atl/wtl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\zlui\test\test_zlui.cpp">
+      <Filter>src\zlui\test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
