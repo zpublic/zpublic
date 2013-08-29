@@ -5,6 +5,7 @@
 #include "dlg4.h"
 #include "frame1.h"
 #include "frame2.h"
+#include "frame3.h"
 
 void test_dlg1()
 {
@@ -85,6 +86,24 @@ void test_frame2()
     }
 }
 
+void test_frame3()
+{
+    CFrame3 frame3;
+    MSG msg;
+
+    assert(frame3.CreateEx());
+
+    frame3.CenterWindow();
+    frame3.ShowWindow (SW_SHOW);
+    frame3.UpdateWindow();
+
+    while (::GetMessage (&msg, NULL, 0, 0 ) > 0)
+    {
+        ::TranslateMessage (&msg);
+        ::DispatchMessage (&msg);
+    }
+}
+
 void test_basic()
 {
     //test_dlg1();
@@ -93,4 +112,5 @@ void test_basic()
     //test_dlg4();
     //test_frame1();
     //test_frame2();
+    test_frame3();
 }

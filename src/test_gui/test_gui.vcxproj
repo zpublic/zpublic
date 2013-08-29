@@ -106,6 +106,9 @@
     <ClInclude Include="frame1.h" />
     <ClInclude Include="frame2.h" />
     <ClInclude Include="frame2_view.h" />
+    <ClInclude Include="frame3.h" />
+    <ClInclude Include="frame3_subview.h" />
+    <ClInclude Include="frame3_view.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="test_basic.h" />

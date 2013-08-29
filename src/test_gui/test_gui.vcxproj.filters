@@ -132,6 +132,15 @@
     <ClInclude Include="..\..\zlui\res\zl_res.h">
       <Filter>src\zlui\res</Filter>
     </ClInclude>
+    <ClInclude Include="frame3.h">
+      <Filter>src\atl/wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="frame3_view.h">
+      <Filter>src\atl/wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="frame3_subview.h">
+      <Filter>src\atl/wtl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
