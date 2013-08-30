@@ -213,6 +213,7 @@ int wmain(int argc, WCHAR* argv[])
 		Mhook_Unhook((PVOID*)&TrueNtClose);
 	}
 
+    getchar();
 	return 0;
 }
 
