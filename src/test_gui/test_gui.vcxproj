@@ -109,9 +109,11 @@
     <ClInclude Include="frame3.h" />
     <ClInclude Include="frame3_subview.h" />
     <ClInclude Include="frame3_view.h" />
+    <ClInclude Include="gdi1.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="test_basic.h" />
+    <ClInclude Include="test_gdi.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\zlui\test\test_zlui.cpp" />
@@ -121,9 +123,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="test_basic.cpp" />
+    <ClCompile Include="test_gdi.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="test_gui.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\1.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

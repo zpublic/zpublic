@@ -26,6 +26,7 @@
 ///> windows¿â
 #include <windows.h>
 
+///> gdi
 #include <wingdi.h>
 
 
@@ -124,3 +125,5 @@
  */
 //#include "atltheme.h"
 //////////////////////////////////////////////////////////////////////////
+
+extern CAppModule g_module;

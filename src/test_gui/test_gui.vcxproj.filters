@@ -37,6 +37,9 @@
     <Filter Include="src\zlui\test">
       <UniqueIdentifier>{a3138297-7a7b-406f-961a-3838e512af76}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\gdi">
+      <UniqueIdentifier>{aa332d2f-45a0-4159-b29b-f9eef708830f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -141,6 +144,12 @@
     <ClInclude Include="frame3_subview.h">
       <Filter>src\atl/wtl</Filter>
     </ClInclude>
+    <ClInclude Include="test_gdi.h">
+      <Filter>src\gdi</Filter>
+    </ClInclude>
+    <ClInclude Include="gdi1.h">
+      <Filter>src\gdi</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -155,10 +164,16 @@
     <ClCompile Include="..\..\zlui\test\test_zlui.cpp">
       <Filter>src\zlui\test</Filter>
     </ClCompile>
+    <ClCompile Include="test_gdi.cpp">
+      <Filter>src\gdi</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="test_gui.rc">
       <Filter>src\main</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\1.bmp" />
   </ItemGroup>
 </Project>
