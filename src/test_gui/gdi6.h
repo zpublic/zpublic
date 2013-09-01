@@ -26,6 +26,7 @@ private:
 
     LRESULT OnAnimate(UINT, WPARAM, LPARAM, BOOL& bHandled)
     {
+        bHandled = TRUE;
         ::AnimateWindow(m_hWnd, 500, AW_HIDE | AW_SLIDE | AW_HOR_POSITIVE);
         ::AnimateWindow(m_hWnd, 500, AW_ACTIVATE | AW_SLIDE | AW_HOR_POSITIVE);
         ::AnimateWindow(m_hWnd, 500, AW_HIDE | AW_SLIDE | AW_VER_POSITIVE);

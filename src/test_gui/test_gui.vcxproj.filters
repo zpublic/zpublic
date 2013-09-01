@@ -168,6 +168,9 @@
     <ClInclude Include="gdi7.h">
       <Filter>src\gdi</Filter>
     </ClInclude>
+    <ClInclude Include="gdi8.h">
+      <Filter>src\gdi</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
