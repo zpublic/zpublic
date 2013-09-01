@@ -111,6 +111,7 @@
     <ClInclude Include="frame3_view.h" />
     <ClInclude Include="gdi1.h" />
     <ClInclude Include="gdi2.h" />
+    <ClInclude Include="gdi3.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="test_basic.h" />
@@ -131,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\1.bmp" />
+    <Image Include="res\2.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

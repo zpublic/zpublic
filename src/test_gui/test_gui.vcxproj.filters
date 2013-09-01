@@ -153,6 +153,9 @@
     <ClInclude Include="gdi2.h">
       <Filter>src\gdi</Filter>
     </ClInclude>
+    <ClInclude Include="gdi3.h">
+      <Filter>src\gdi</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -178,5 +181,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\1.bmp" />
+    <Image Include="res\2.bmp" />
   </ItemGroup>
 </Project>
