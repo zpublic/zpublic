@@ -150,6 +150,9 @@
     <ClInclude Include="gdi1.h">
       <Filter>src\gdi</Filter>
     </ClInclude>
+    <ClInclude Include="gdi2.h">
+      <Filter>src\gdi</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
