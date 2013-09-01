@@ -114,6 +114,7 @@
     <ClInclude Include="gdi3.h" />
     <ClInclude Include="gdi4.h" />
     <ClInclude Include="gdi5.h" />
+    <ClInclude Include="gdi6.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="test_basic.h" />

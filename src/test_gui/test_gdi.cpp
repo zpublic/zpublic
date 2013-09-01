@@ -5,6 +5,7 @@
 #include "gdi3.h"
 #include "gdi4.h"
 #include "gdi5.h"
+#include "gdi6.h"
 
 void test_gdi()
 {
@@ -12,5 +13,6 @@ void test_gdi()
     //gdi2();
     //gdi3();
     //gdi4();
-    gdi5();
+    //gdi5();
+    gdi6();
 }
