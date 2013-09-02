@@ -10,6 +10,7 @@ public:
     BEGIN_MSG_MAP(CGdi9Dlg)
         MSG_WM_INITDIALOG(OnInitDialog)
         MSG_WM_PAINT(OnPaint)
+        MSG_WM_LBUTTONDOWN(OnLButtonDown)
         MESSAGE_HANDLER(WM_DO_ANIMATE, OnAnimate)
         COMMAND_ID_HANDLER(IDOK, OnOk)
     END_MSG_MAP()
@@ -46,6 +47,11 @@ private:
         MoveWindow(0, 0, m_bm.bmWidth, m_bm.bmHeight);
         CenterWindow();
         return TRUE;
+    }
+
+    void OnLButtonDown(UINT nFlags, CPoint point)
+    {
+        PostMessage(WM_DO_ANIMATE);
     }
 
     LRESULT OnAnimate(UINT, WPARAM, LPARAM, BOOL& bHandled)

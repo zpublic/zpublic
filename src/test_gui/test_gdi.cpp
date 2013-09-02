@@ -20,5 +20,5 @@ void test_gdi()
     //gdi6();
     //gdi7();
     //gdi8();
-    gdi9();
+    //gdi9();
 }
