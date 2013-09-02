@@ -63,7 +63,7 @@ private:
 void gdi6()
 {
     HBITMAP hBitmap = (HBITMAP)LoadImage(
-        g_module.m_hInst,
+        _Module.m_hInst,
         MAKEINTRESOURCE(IDB_BITMAP2),
         IMAGE_BITMAP,
         0,

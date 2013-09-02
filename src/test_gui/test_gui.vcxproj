@@ -95,6 +95,7 @@
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlsplit.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atluser.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlwinx.h" />
+    <ClInclude Include="..\..\zlui\lab\3rd\PictureExWnd.h" />
     <ClInclude Include="..\..\zlui\res\zl_res.h" />
     <ClInclude Include="..\..\zlui\res\zl_res_font.h" />
     <ClInclude Include="..\..\zlui\test\test_zlui.h" />
@@ -123,8 +124,10 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="test_basic.h" />
     <ClInclude Include="test_gdi.h" />
+    <ClInclude Include="test_lab.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\zlui\lab\3rd\PictureExWnd.cpp" />
     <ClCompile Include="..\..\zlui\test\test_zlui.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -133,6 +136,7 @@
     </ClCompile>
     <ClCompile Include="test_basic.cpp" />
     <ClCompile Include="test_gdi.cpp" />
+    <ClCompile Include="test_lab.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="test_gui.rc" />

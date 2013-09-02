@@ -40,6 +40,12 @@
     <Filter Include="src\gdi">
       <UniqueIdentifier>{aa332d2f-45a0-4159-b29b-f9eef708830f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\lab">
+      <UniqueIdentifier>{08d0c7de-1545-4310-b3b9-53c3ea8fc731}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab\3rd">
+      <UniqueIdentifier>{822330f9-b648-43c6-86a7-cf0eaaba1834}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -177,6 +183,12 @@
     <ClInclude Include="animate.h">
       <Filter>src\gdi</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\zlui\lab\3rd\PictureExWnd.h">
+      <Filter>src\lab\3rd</Filter>
+    </ClInclude>
+    <ClInclude Include="test_lab.h">
+      <Filter>src\lab</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -193,6 +205,12 @@
     </ClCompile>
     <ClCompile Include="test_gdi.cpp">
       <Filter>src\gdi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\zlui\lab\3rd\PictureExWnd.cpp">
+      <Filter>src\lab\3rd</Filter>
+    </ClCompile>
+    <ClCompile Include="test_lab.cpp">
+      <Filter>src\lab</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
