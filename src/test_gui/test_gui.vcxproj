@@ -95,9 +95,11 @@
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlsplit.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atluser.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlwinx.h" />
+    <ClInclude Include="..\..\zlui\lab\3rd\KThreadCrack.h" />
     <ClInclude Include="..\..\zlui\lab\3rd\PictureExWnd.h" />
     <ClInclude Include="..\..\zlui\lab\publish\gdiplus_init.h" />
     <ClInclude Include="..\..\zlui\lab\publish\gdiplus_resource.h" />
+    <ClInclude Include="..\..\zlui\lab\publish\wh_round_rect_frame.h" />
     <ClInclude Include="..\..\zlui\res\zl_res.h" />
     <ClInclude Include="..\..\zlui\res\zl_res_font.h" />
     <ClInclude Include="..\..\zlui\test\test_zlui.h" />

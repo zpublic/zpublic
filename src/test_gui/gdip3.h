@@ -34,7 +34,7 @@ private:
         CDC hdc = BeginPaint(&ps);
         {
             Graphics    graphics(hdc);
-            Image       *image = LoadSkinImage(IDB_PNG1);
+            Image       *image = zl::LoadSkinImage(IDB_PNG1);
             if (image)
             {
                 TextureBrush  tBrush(image);

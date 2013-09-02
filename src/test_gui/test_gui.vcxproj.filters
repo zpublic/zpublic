@@ -219,6 +219,12 @@
     <ClInclude Include="..\..\zlui\lab\publish\gdiplus_resource.h">
       <Filter>src\lab\publish</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\zlui\lab\publish\wh_round_rect_frame.h">
+      <Filter>src\lab\publish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\zlui\lab\3rd\KThreadCrack.h">
+      <Filter>src\lab\3rd</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

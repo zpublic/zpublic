@@ -8,5 +8,5 @@ void test_gdiplus()
 {
     //gdip1();
     //gdip2();
-    gdip3();
+    //gdip3();
 }

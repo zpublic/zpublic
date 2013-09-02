@@ -15,7 +15,7 @@ int __stdcall WinMain(HINSTANCE hInstance,
             int nShowCmd)
 {
     _Module.Init(0, hInstance);
-    GdiPlusAutoInit init;
+    zl::GdiPlusAutoInit init;
 
     test_basic();
     test_gdi();
