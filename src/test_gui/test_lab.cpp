@@ -4,5 +4,5 @@
 
 void test_lab()
 {
-    Lab1();
+    //Lab1();
 }

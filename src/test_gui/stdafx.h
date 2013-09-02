@@ -29,6 +29,11 @@
 ///> gdi
 #include <wingdi.h>
 
+///> gdi+
+#include <gdiplus.h>
+using namespace Gdiplus;
+#pragma comment(lib, "gdiplus.lib")
+
 
 ///> zpublic£¡
 //#include "zpublic.hpp"

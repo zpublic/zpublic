@@ -46,6 +46,15 @@
     <Filter Include="src\lab\3rd">
       <UniqueIdentifier>{822330f9-b648-43c6-86a7-cf0eaaba1834}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\gdiplus">
+      <UniqueIdentifier>{14bc9e4e-4b79-470e-9a41-e1025a94fc04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{ede192b0-66dd-42d5-81bf-e023aa11ba57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab\publish">
+      <UniqueIdentifier>{ec6643d8-3382-44d1-b082-b3ffae9e7e43}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -116,9 +125,6 @@
     </ClInclude>
     <ClInclude Include="dlg4.h">
       <Filter>src\atl/wtl</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>src\main</Filter>
     </ClInclude>
     <ClInclude Include="dlg4_handler.h">
       <Filter>src\atl/wtl</Filter>
@@ -192,6 +198,18 @@
     <ClInclude Include="lab1.h">
       <Filter>src\lab</Filter>
     </ClInclude>
+    <ClInclude Include="test_gdiplus.h">
+      <Filter>src\gdiplus</Filter>
+    </ClInclude>
+    <ClInclude Include="gdip1.h">
+      <Filter>src\gdiplus</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>res</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\zlui\lab\publish\gdiplus_init.h">
+      <Filter>src\lab\publish</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -215,15 +233,24 @@
     <ClCompile Include="test_lab.cpp">
       <Filter>src\lab</Filter>
     </ClCompile>
+    <ClCompile Include="test_gdiplus.cpp">
+      <Filter>src\gdiplus</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\1.bmp">
+      <Filter>res</Filter>
+    </Image>
+    <Image Include="res\1.gif">
+      <Filter>res</Filter>
+    </Image>
+    <Image Include="res\2.bmp">
+      <Filter>res</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="test_gui.rc">
-      <Filter>src\main</Filter>
+      <Filter>res</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="res\1.bmp" />
-    <Image Include="res\2.bmp" />
-    <Image Include="res\1.gif" />
   </ItemGroup>
 </Project>

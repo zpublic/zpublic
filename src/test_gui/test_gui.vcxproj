@@ -96,6 +96,7 @@
     <ClInclude Include="..\..\3rdparty\wtl\Include\atluser.h" />
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlwinx.h" />
     <ClInclude Include="..\..\zlui\lab\3rd\PictureExWnd.h" />
+    <ClInclude Include="..\..\zlui\lab\publish\gdiplus_init.h" />
     <ClInclude Include="..\..\zlui\res\zl_res.h" />
     <ClInclude Include="..\..\zlui\res\zl_res_font.h" />
     <ClInclude Include="..\..\zlui\test\test_zlui.h" />
@@ -120,11 +121,13 @@
     <ClInclude Include="gdi7.h" />
     <ClInclude Include="gdi8.h" />
     <ClInclude Include="gdi9.h" />
+    <ClInclude Include="gdip1.h" />
     <ClInclude Include="lab1.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="test_basic.h" />
     <ClInclude Include="test_gdi.h" />
+    <ClInclude Include="test_gdiplus.h" />
     <ClInclude Include="test_lab.h" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +140,7 @@
     </ClCompile>
     <ClCompile Include="test_basic.cpp" />
     <ClCompile Include="test_gdi.cpp" />
+    <ClCompile Include="test_gdiplus.cpp" />
     <ClCompile Include="test_lab.cpp" />
   </ItemGroup>
   <ItemGroup>
