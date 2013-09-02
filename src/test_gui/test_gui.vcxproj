@@ -97,6 +97,14 @@
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlwinx.h" />
     <ClInclude Include="..\..\zlui\lab\3rd\KThreadCrack.h" />
     <ClInclude Include="..\..\zlui\lab\3rd\PictureExWnd.h" />
+    <ClInclude Include="..\..\zlui\lab\particle\particle.h" />
+    <ClInclude Include="..\..\zlui\lab\particle\particle_controler.h" />
+    <ClInclude Include="..\..\zlui\lab\particle\particle_helper.h" />
+    <ClInclude Include="..\..\zlui\lab\particle\particle_init_controler.h" />
+    <ClInclude Include="..\..\zlui\lab\particle\particle_init_info.h" />
+    <ClInclude Include="..\..\zlui\lab\particle\particle_def.h" />
+    <ClInclude Include="..\..\zlui\lab\particle\particle_creator.h" />
+    <ClInclude Include="..\..\zlui\lab\particle\particle_item.h" />
     <ClInclude Include="..\..\zlui\lab\publish\gdiplus_init.h" />
     <ClInclude Include="..\..\zlui\lab\publish\gdiplus_resource.h" />
     <ClInclude Include="..\..\zlui\lab\publish\wh_round_rect_frame.h" />
