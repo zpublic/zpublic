@@ -213,6 +213,12 @@
     <ClInclude Include="gdip2.h">
       <Filter>src\gdiplus</Filter>
     </ClInclude>
+    <ClInclude Include="gdip3.h">
+      <Filter>src\gdiplus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\zlui\lab\publish\gdiplus_resource.h">
+      <Filter>src\lab\publish</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -250,6 +256,7 @@
     <Image Include="res\2.bmp">
       <Filter>res</Filter>
     </Image>
+    <Image Include="res\1.png" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="test_gui.rc">

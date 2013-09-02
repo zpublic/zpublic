@@ -97,6 +97,7 @@
     <ClInclude Include="..\..\3rdparty\wtl\Include\atlwinx.h" />
     <ClInclude Include="..\..\zlui\lab\3rd\PictureExWnd.h" />
     <ClInclude Include="..\..\zlui\lab\publish\gdiplus_init.h" />
+    <ClInclude Include="..\..\zlui\lab\publish\gdiplus_resource.h" />
     <ClInclude Include="..\..\zlui\res\zl_res.h" />
     <ClInclude Include="..\..\zlui\res\zl_res_font.h" />
     <ClInclude Include="..\..\zlui\test\test_zlui.h" />
@@ -123,6 +124,7 @@
     <ClInclude Include="gdi9.h" />
     <ClInclude Include="gdip1.h" />
     <ClInclude Include="gdip2.h" />
+    <ClInclude Include="gdip3.h" />
     <ClInclude Include="lab1.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -150,6 +152,7 @@
   <ItemGroup>
     <Image Include="res\1.bmp" />
     <Image Include="res\1.gif" />
+    <Image Include="res\1.png" />
     <Image Include="res\2.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
