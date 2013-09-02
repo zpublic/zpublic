@@ -189,6 +189,9 @@
     <ClInclude Include="test_lab.h">
       <Filter>src\lab</Filter>
     </ClInclude>
+    <ClInclude Include="lab1.h">
+      <Filter>src\lab</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -221,5 +224,6 @@
   <ItemGroup>
     <Image Include="res\1.bmp" />
     <Image Include="res\2.bmp" />
+    <Image Include="res\1.gif" />
   </ItemGroup>
 </Project>
