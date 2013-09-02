@@ -210,6 +210,9 @@
     <ClInclude Include="..\..\zlui\lab\publish\gdiplus_init.h">
       <Filter>src\lab\publish</Filter>
     </ClInclude>
+    <ClInclude Include="gdip2.h">
+      <Filter>src\gdiplus</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

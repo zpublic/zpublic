@@ -35,6 +35,23 @@ private:
             Graphics graphics(hdc);
             Pen      pen(Color(255, 0, 0, 255));
             graphics.DrawLine(&pen, 0, 0, 200, 100);
+            graphics.DrawRectangle(&pen, 100, 100, 100, 50);
+
+            Pen greenPen(Color(255, 0, 255, 0), 10);
+            greenPen.SetAlignment(PenAlignmentCenter);
+            graphics.DrawLine(&greenPen, 10, 100, 100, 50);
+
+            greenPen.SetStartCap(LineCapArrowAnchor);
+            greenPen.SetEndCap(LineCapRoundAnchor);
+            graphics.DrawLine(&greenPen, 500, 175, 50, 300);
+
+            GraphicsPath path;
+            Pen penJoin(Color(255, 0, 0, 255), 8);
+            path.StartFigure();
+            path.AddLine(Point(50, 200), Point(100, 200));
+            path.AddLine(Point(100, 200), Point(100, 250));
+            penJoin.SetLineJoin(LineJoinBevel);
+            graphics.DrawPath(&penJoin, &path);
         }
         EndPaint(&ps);
     }

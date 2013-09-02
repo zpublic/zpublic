@@ -122,6 +122,7 @@
     <ClInclude Include="gdi8.h" />
     <ClInclude Include="gdi9.h" />
     <ClInclude Include="gdip1.h" />
+    <ClInclude Include="gdip2.h" />
     <ClInclude Include="lab1.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
