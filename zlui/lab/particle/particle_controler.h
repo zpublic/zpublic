@@ -1,5 +1,6 @@
 #pragma once
-#include <list>
+
+struct ParticleItem;
 
 template
     <
@@ -9,6 +10,7 @@ template
 class ParticleControler
 {
 public:
+    ParticleControler() {}
     virtual ~ParticleControler() {}
 
     virtual void Update(float fTimeInterval)
@@ -56,10 +58,10 @@ protected:
         for (it = m_listItems.begin(); it != m_listItems.end(); )
         {
             ///> 在这把item的已存活时间加了，有点不科学
-            it->m_fLifeLive += fTimeInterval;
-            if (it->m_fLifeLive > it->m_fLife)
+            (*it)->m_fLifeLive += fTimeInterval;
+            if ((*it)->m_fLifeLive > (*it)->m_fLife)
             {
-                m_Creator.ReleaseItem(pItem);
+                m_Creator.ReleaseItem(*it);
                 it = m_listItems.erase(it);
             }
             else

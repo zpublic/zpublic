@@ -1,5 +1,7 @@
 #pragma once
 
+#include <list>
+
 namespace zl
 {
 
@@ -9,5 +11,6 @@ namespace zl
 #include "particle_creator.h"
 #include "particle_init_info.h"
 #include "particle_init_controler.h"
+#include "particle_controler.h"
 
 }

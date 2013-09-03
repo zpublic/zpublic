@@ -99,6 +99,7 @@
     <ClInclude Include="..\..\zlui\lab\3rd\PictureExWnd.h" />
     <ClInclude Include="..\..\zlui\lab\particle\particle.h" />
     <ClInclude Include="..\..\zlui\lab\particle\particle_controler.h" />
+    <ClInclude Include="..\..\zlui\lab\particle\particle_gdi_base.h" />
     <ClInclude Include="..\..\zlui\lab\particle\particle_helper.h" />
     <ClInclude Include="..\..\zlui\lab\particle\particle_init_controler.h" />
     <ClInclude Include="..\..\zlui\lab\particle\particle_init_info.h" />
@@ -136,6 +137,7 @@
     <ClInclude Include="gdip2.h" />
     <ClInclude Include="gdip3.h" />
     <ClInclude Include="lab1.h" />
+    <ClInclude Include="lab2.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="test_basic.h" />
@@ -164,6 +166,7 @@
     <Image Include="res\1.gif" />
     <Image Include="res\1.png" />
     <Image Include="res\2.bmp" />
+    <Image Include="res\3.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

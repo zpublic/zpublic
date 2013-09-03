@@ -58,6 +58,15 @@
     <Filter Include="src\lab\particle">
       <UniqueIdentifier>{53c40dee-ce55-43f6-ace8-2cccdbcd6e81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\lab\particle\gdi">
+      <UniqueIdentifier>{b08d89e6-81b6-4756-bbee-6e7a5c364748}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab\particle\internal">
+      <UniqueIdentifier>{4a7e7630-8427-42fc-89dc-c057042ede9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab\test">
+      <UniqueIdentifier>{e3c4937b-00c9-4b63-95b3-43b735c0f176}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -195,12 +204,6 @@
     <ClInclude Include="..\..\zlui\lab\3rd\PictureExWnd.h">
       <Filter>src\lab\3rd</Filter>
     </ClInclude>
-    <ClInclude Include="test_lab.h">
-      <Filter>src\lab</Filter>
-    </ClInclude>
-    <ClInclude Include="lab1.h">
-      <Filter>src\lab</Filter>
-    </ClInclude>
     <ClInclude Include="test_gdiplus.h">
       <Filter>src\gdiplus</Filter>
     </ClInclude>
@@ -229,28 +232,40 @@
       <Filter>src\lab\3rd</Filter>
     </ClInclude>
     <ClInclude Include="..\..\zlui\lab\particle\particle.h">
-      <Filter>src\lab\particle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\particle\particle_def.h">
-      <Filter>src\lab\particle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\particle\particle_item.h">
-      <Filter>src\lab\particle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\particle\particle_creator.h">
-      <Filter>src\lab\particle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\particle\particle_init_info.h">
-      <Filter>src\lab\particle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\particle\particle_init_controler.h">
-      <Filter>src\lab\particle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\particle\particle_helper.h">
-      <Filter>src\lab\particle</Filter>
+      <Filter>src\lab\particle\internal</Filter>
     </ClInclude>
     <ClInclude Include="..\..\zlui\lab\particle\particle_controler.h">
-      <Filter>src\lab\particle</Filter>
+      <Filter>src\lab\particle\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\zlui\lab\particle\particle_creator.h">
+      <Filter>src\lab\particle\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\zlui\lab\particle\particle_def.h">
+      <Filter>src\lab\particle\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\zlui\lab\particle\particle_helper.h">
+      <Filter>src\lab\particle\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\zlui\lab\particle\particle_init_controler.h">
+      <Filter>src\lab\particle\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\zlui\lab\particle\particle_init_info.h">
+      <Filter>src\lab\particle\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\zlui\lab\particle\particle_item.h">
+      <Filter>src\lab\particle\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="lab1.h">
+      <Filter>src\lab\test</Filter>
+    </ClInclude>
+    <ClInclude Include="test_lab.h">
+      <Filter>src\lab\test</Filter>
+    </ClInclude>
+    <ClInclude Include="lab2.h">
+      <Filter>src\lab\test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\zlui\lab\particle\particle_gdi_base.h">
+      <Filter>src\lab\particle\gdi</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -272,11 +287,11 @@
     <ClCompile Include="..\..\zlui\lab\3rd\PictureExWnd.cpp">
       <Filter>src\lab\3rd</Filter>
     </ClCompile>
-    <ClCompile Include="test_lab.cpp">
-      <Filter>src\lab</Filter>
-    </ClCompile>
     <ClCompile Include="test_gdiplus.cpp">
       <Filter>src\gdiplus</Filter>
+    </ClCompile>
+    <ClCompile Include="test_lab.cpp">
+      <Filter>src\lab\test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -289,7 +304,12 @@
     <Image Include="res\2.bmp">
       <Filter>res</Filter>
     </Image>
-    <Image Include="res\1.png" />
+    <Image Include="res\1.png">
+      <Filter>res</Filter>
+    </Image>
+    <Image Include="res\3.bmp">
+      <Filter>res</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="test_gui.rc">

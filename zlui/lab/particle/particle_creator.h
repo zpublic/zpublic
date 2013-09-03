@@ -1,7 +1,7 @@
 #pragma once
 
-template<int MaxCount = 10>
-class ParticleCreator
+template<int MaxCount = 300>
+class ParticleCreatorT
 {
 private:
     typedef struct tagParticleItemHold
@@ -36,9 +36,10 @@ public:
                 break;
             }
         }
-        assert(false);
     }
 
 protected:
     ParticleItemHold m_items[MaxCount];
 };
+
+typedef ParticleCreatorT<>  ParticleCreator;

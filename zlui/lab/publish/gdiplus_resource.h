@@ -89,10 +89,10 @@ namespace zl
         }
     };
 
-    Image* LoadSkinImage(DWORD dwResID, LPCWSTR lpType = L"PNG")
+    static Image* LoadSkinImage(DWORD dwResID, LPCWSTR lpType = L"PNG")
     {
         CComPtr<IStream> spStream;
-        zl::GdiPlusResource::Resource2Stream(GetModuleHandle(NULL), MAKEINTRESOURCEW(dwResID), L"PNG", &spStream);
+        zl::GdiPlusResource::Resource2Stream(GetModuleHandle(NULL), MAKEINTRESOURCEW(dwResID), lpType, &spStream);
         if (NULL == spStream)
         {
             return NULL;

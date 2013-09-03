@@ -3,6 +3,7 @@
 class ParticleInitControler_Fixed
 {
 public:
+    ParticleInitControler_Fixed() {}
     ParticleInitControler_Fixed(ParticleItem item)
     {
         memcpy(&m_item, &m_item, sizeof(item));
@@ -21,6 +22,7 @@ private:
 class ParticleInitControler_NomalRandom
 {
 public:
+    ParticleInitControler_NomalRandom() {}
     ParticleInitControler_NomalRandom(ParticleInitInfo info)
     {
         assert(info.dwSize = sizeof(info));
@@ -34,7 +36,7 @@ public:
         assert(info.dwSize = sizeof(info));
         if (info.dwSize = sizeof(info))
         {
-                memcpy(&m_info, &info, sizeof(info));
+            memcpy(&m_info, &info, sizeof(info));
         }
     }
 
