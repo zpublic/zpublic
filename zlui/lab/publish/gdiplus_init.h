@@ -17,7 +17,7 @@ namespace zl
                 {
                     return ;
                 }
-                Gdiplus::GdiplusStartup(&m_gpToken,  &m_gpInput,  NULL); 
+                Gdiplus::GdiplusStartup(&m_gpToken,  &m_gpInput,  NULL);
                 m_bInit = true;
             }
             void UnInit()
@@ -31,8 +31,8 @@ namespace zl
             }
         protected:
             bool m_bInit;
-            GdiplusStartupInput m_gpInput; 
-            ULONG_PTR           m_gpToken; 
+            GdiplusStartupInput m_gpInput;
+            ULONG_PTR           m_gpToken;
         };
     public:
         typedef Inst GdiPlusInit;

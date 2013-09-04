@@ -267,6 +267,9 @@
     <ClInclude Include="..\..\zlui\lab\particle\particle_gdi_base.h">
       <Filter>src\lab\particle\gdi</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\zlui\lab\publish\win_taskbar_position.h">
+      <Filter>src\lab\publish</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

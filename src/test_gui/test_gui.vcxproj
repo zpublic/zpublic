@@ -109,6 +109,7 @@
     <ClInclude Include="..\..\zlui\lab\publish\gdiplus_init.h" />
     <ClInclude Include="..\..\zlui\lab\publish\gdiplus_resource.h" />
     <ClInclude Include="..\..\zlui\lab\publish\wh_round_rect_frame.h" />
+    <ClInclude Include="..\..\zlui\lab\publish\win_taskbar_position.h" />
     <ClInclude Include="..\..\zlui\res\zl_res.h" />
     <ClInclude Include="..\..\zlui\res\zl_res_font.h" />
     <ClInclude Include="..\..\zlui\test\test_zlui.h" />

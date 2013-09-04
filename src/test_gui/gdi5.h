@@ -22,7 +22,7 @@ public:
     {
         if (m_hdcMem)
         {
-            ::DeleteDC(m_hdcMem);  
+            ::DeleteDC(m_hdcMem);
         }
     }
 
@@ -42,13 +42,13 @@ private:
             m_hdcMem = ::CreateCompatibleDC(hdc);
             ::SelectObject(m_hdcMem, hBitmap);
             ::ReleaseDC(wnd, hdc);
-            ::GetObject(hBitmap, sizeof(m_bm), &m_bm); 
+            ::GetObject(hBitmap, sizeof(m_bm), &m_bm);
         }
 
-        SetWindowLong(GWL_EXSTYLE, GetWindowLong(GWL_EXSTYLE) | WS_EX_LAYERED);   
-        ::SetLayeredWindowAttributes(m_hWnd, 0, INIT_TRANSPARENT2, LWA_ALPHA);  
+        SetWindowLong(GWL_EXSTYLE, GetWindowLong(GWL_EXSTYLE) | WS_EX_LAYERED);
+        ::SetLayeredWindowAttributes(m_hWnd, 0, INIT_TRANSPARENT2, LWA_ALPHA);
 
-        ::SendMessage(GetDlgItem(IDC_SLIDER_TRANSPARENT), TBM_SETRANGE, (WPARAM)FALSE, MAKELONG(0, 255));  
+        ::SendMessage(GetDlgItem(IDC_SLIDER_TRANSPARENT), TBM_SETRANGE, (WPARAM)FALSE, MAKELONG(0, 255));
         ::SendMessage(GetDlgItem(IDC_SLIDER_TRANSPARENT), TBM_SETPOS, (WPARAM)TRUE, INIT_TRANSPARENT2);
 
         CenterWindow();

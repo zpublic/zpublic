@@ -16,9 +16,9 @@ public:
         m_pGraphics = NULL;
         zl::ParticleInitInfo initInfo = {sizeof(zl::ParticleInitInfo)};
         initInfo.m_fAngle = 3.14f / 2 * 3;
-        initInfo.m_fFullSpeedMin = 30.0f;
-        initInfo.m_fFullSpeedMax = 200.0f;
-        initInfo.m_fLifeMin = 2.0f;
+        initInfo.m_fFullSpeedMin = 50.0f;
+        initInfo.m_fFullSpeedMax = 500.0f;
+        initInfo.m_fLifeMin = 1.0f;
         initInfo.m_fLifeMax = 5.0f;
         initInfo.m_fSpeedBegin = 0.2f;
         initInfo.m_fxPosMin = 0.0f;
@@ -46,11 +46,16 @@ public:
 
     virtual void Update(float fTimeInterval)
     {
-        zl::ParticleItem* pItem = m_Creator.CreateItem();
-        if (pItem)
+        zl::ParticleItem* pItem = NULL;
+        int nNum = zl::Random_Int(0, 10);
+        for (int i = 0; i <nNum; i++)
         {
-            m_InitControler.InitItem(pItem);
-            m_listItems.push_back(pItem);
+            pItem = m_Creator.CreateItem();
+            if (pItem)
+            {
+                m_InitControler.InitItem(pItem);
+                m_listItems.push_back(pItem);
+            }
         }
         Base::Update(fTimeInterval);
     }

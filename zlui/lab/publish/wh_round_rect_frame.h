@@ -60,7 +60,7 @@ namespace zl
             rgnWindow.CombineRgn(rgnMinus1, RGN_XOR);
             rgnMinus2.OffsetRgn(0, rcClient.bottom -1);
             rgnWindow.CombineRgn(rgnMinus2, RGN_XOR);
-            rgnMinus2.OffsetRgn(2, -2); 
+            rgnMinus2.OffsetRgn(2, -2);
             rgnWindow.CombineRgn(rgnMinus2, RGN_XOR);
 
             //ÍÚ×óÏÂ½Ç
@@ -68,7 +68,7 @@ namespace zl
             rgnWindow.CombineRgn(rgnMinus1, RGN_XOR);
             rgnMinus2.OffsetRgn(-(rcClient.right - 1),  0);
             rgnWindow.CombineRgn(rgnMinus2, RGN_XOR);
-            rgnMinus2.OffsetRgn(2, 2); 
+            rgnMinus2.OffsetRgn(2, 2);
             rgnWindow.CombineRgn(rgnMinus2, RGN_XOR);
 
             pT->SetWindowRgn(rgnWindow);

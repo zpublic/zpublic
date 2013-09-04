@@ -41,7 +41,7 @@ private:
             m_hdcMem.CreateCompatibleDC(dc);
             m_hdcMem.SelectBitmap(hBitmap);
             wnd,ReleaseDC(dc);
-            ::GetObject(hBitmap, sizeof(m_bm), &m_bm); 
+            ::GetObject(hBitmap, sizeof(m_bm), &m_bm);
         }
 
         MoveWindow(0, 0, m_bm.bmWidth, m_bm.bmHeight);

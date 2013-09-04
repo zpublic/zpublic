@@ -23,7 +23,7 @@ public:
     {
         if (m_hdcMem)
         {
-            ::DeleteDC(m_hdcMem);  
+            ::DeleteDC(m_hdcMem);
         }
     }
 
@@ -43,7 +43,7 @@ private:
             m_hdcMem = ::CreateCompatibleDC(hdc);
             ::SelectObject(m_hdcMem, hBitmap);
             ::ReleaseDC(wnd, hdc);
-            ::GetObject(hBitmap, sizeof(m_bm), &m_bm); 
+            ::GetObject(hBitmap, sizeof(m_bm), &m_bm);
         }
 
         SetWindowLong(GWL_EXSTYLE, GetWindowLong(GWL_EXSTYLE) | WS_EX_LAYERED);

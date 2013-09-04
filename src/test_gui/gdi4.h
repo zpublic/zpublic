@@ -46,7 +46,7 @@ private:
         CRect rc;
         GetWindowRect(rc);
         m_hdcMem = ::CreateCompatibleDC(hdc);
-        HBITMAP hbmp = ::CreateCompatibleBitmap(hdc, rc.Width(), rc.Height());  
+        HBITMAP hbmp = ::CreateCompatibleBitmap(hdc, rc.Width(), rc.Height());
         ::SelectObject(m_hdcMem, hbmp);
 
         BITMAP bm;

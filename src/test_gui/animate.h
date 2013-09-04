@@ -14,7 +14,7 @@ void AnimateDraw_StaggeredHorizontal(
         for (j = i; j > 0; j -= 2)
         {
             BitBlt(hdc, 0, j - 1, nWidth, 1, hdcMem, 0, nHeight - (i - j - 1), SRCCOPY);
-            BitBlt(hdc, 0, nHeight - j, nWidth, 1, hdcMem,	0, i - j, SRCCOPY); 
+            BitBlt(hdc, 0, nHeight - j, nWidth, 1, hdcMem,	0, i - j, SRCCOPY);
         }
         Sleep(nIntervalTime);
     }
@@ -34,7 +34,7 @@ void AnimateDraw_StaggeredVertical(
         for (j = i; j > 0; j -= 2)
         {
             BitBlt(hdc, j - 1, 0, 1, nHeight, hdcMem, nWidth - (i - j - 1), 0, SRCCOPY);
-            BitBlt(hdc, nWidth - j, 0, 1, nHeight, hdcMem, i - j, 0, SRCCOPY); 
+            BitBlt(hdc, nWidth - j, 0, 1, nHeight, hdcMem, i - j, 0, SRCCOPY);
         }
         Sleep(nIntervalTime);
     }
@@ -112,7 +112,7 @@ void AnimateDraw_RandomBlocks(
         nDisplayCount++;
         if (nDisplayCount >= nSumBlocks)
             break;
-        Sleep(nIntervalTime); 
+        Sleep(nIntervalTime);
     }
     BitBlt(hdc, 0, 0, nWidth, nHeight, hdcMem, 0, 0, SRCCOPY);
 }
@@ -186,7 +186,7 @@ void AnimateDraw_FlyingLeftToRight(
     {
         for (i = 0; i <= nWidth; i++)
         {
-            BitBlt(hdc, 0, 0, i, nHeight, hdcMem, 0, 0, SRCCOPY); 
+            BitBlt(hdc, 0, 0, i, nHeight, hdcMem, 0, 0, SRCCOPY);
             Sleep(nIntervalTime);
         }
     }
@@ -194,7 +194,7 @@ void AnimateDraw_FlyingLeftToRight(
     {
         for (i = 0; i <= nWidth; i++)
         {
-            BitBlt(hdc, 0, 0, i, nHeight, hdcMem, nWidth - i, 0, SRCCOPY); 
+            BitBlt(hdc, 0, 0, i, nHeight, hdcMem, nWidth - i, 0, SRCCOPY);
             Sleep(nIntervalTime);
         }
     }
