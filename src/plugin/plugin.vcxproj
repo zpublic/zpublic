@@ -79,12 +79,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="cpp11\thread1.h" />
+    <ClInclude Include="cpp11\thread2.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="test\test_cpp11.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpp11\thread1.cpp" />
+    <ClCompile Include="cpp11\thread2.cpp" />
     <ClCompile Include="plugin.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

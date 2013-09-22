@@ -6,6 +6,7 @@
 #pragma once
 
 #include "targetver.h"
+#include <windows.h>
 
 #include <stdio.h>
 #include <tchar.h>
@@ -13,5 +14,8 @@
 
 #include <iostream>
 #include <string>
+using std::cout;
+using std::wcout;
+using std::endl;
 
 #include <thread>
