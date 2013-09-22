@@ -2,11 +2,12 @@
 //
 
 #include "stdafx.h"
+#include "test/test_cpp11.h"
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-    std::cout<<"helloworld!"<<std::endl;
+    test_cpp11();
     getchar();
 	return 0;
 }

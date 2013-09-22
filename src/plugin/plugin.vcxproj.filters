@@ -7,6 +7,21 @@
     <Filter Include="src\main">
       <UniqueIdentifier>{5d329071-5196-4893-b60a-143c950f61fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\cpp11">
+      <UniqueIdentifier>{73f3cb73-04d9-4a9f-954e-d1e1396101b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\task_scheduler">
+      <UniqueIdentifier>{5896f16d-3190-465b-bfe7-3d593c047656}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\timeout_check">
+      <UniqueIdentifier>{61c71bf3-1346-492f-9ed2-ccdd31404a9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\actor">
+      <UniqueIdentifier>{6fc6d9fe-dada-4d4c-a678-c4a1b354fa6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\test">
+      <UniqueIdentifier>{d3865d1c-5b7b-4010-ac9f-aba3d25e7fc6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -15,6 +30,12 @@
     <ClInclude Include="targetver.h">
       <Filter>src\main</Filter>
     </ClInclude>
+    <ClInclude Include="test\test_cpp11.h">
+      <Filter>src\test</Filter>
+    </ClInclude>
+    <ClInclude Include="cpp11\thread1.h">
+      <Filter>src\cpp11</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="plugin.cpp">
@@ -22,6 +43,12 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>src\main</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_cpp11.cpp">
+      <Filter>src\test</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp11\thread1.cpp">
+      <Filter>src\cpp11</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
