@@ -26,16 +26,14 @@ void thread2()
     std::thread t1(f1, n);
     cout << t1.get_id() << endl;
     t1.join();
-    Sleep(100);
+    cout << t1.get_id() << endl;
     cout << n << endl;
 
     std::thread t2(f2, n);
     t2.join();
-    Sleep(100);
     cout << n << endl;
 
     std::thread t3(f2, std::ref(n));
     t3.join();
-    Sleep(100);
     cout << n << endl;
 }
