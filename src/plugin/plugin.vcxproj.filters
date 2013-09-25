@@ -22,6 +22,9 @@
     <Filter Include="src\test">
       <UniqueIdentifier>{d3865d1c-5b7b-4010-ac9f-aba3d25e7fc6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\plugin_gaea">
+      <UniqueIdentifier>{4e81f92f-6353-4ec6-8d18-d2c903408ac8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -39,6 +42,18 @@
     <ClInclude Include="cpp11\thread2.h">
       <Filter>src\cpp11</Filter>
     </ClInclude>
+    <ClInclude Include="plugin1\igaea_plugin.h">
+      <Filter>src\plugin_gaea</Filter>
+    </ClInclude>
+    <ClInclude Include="plugin1\gaea_plugin_base.h">
+      <Filter>src\plugin_gaea</Filter>
+    </ClInclude>
+    <ClInclude Include="plugin1\gaea_plugin_mgr.h">
+      <Filter>src\plugin_gaea</Filter>
+    </ClInclude>
+    <ClInclude Include="test\test_plugin_gaea.h">
+      <Filter>src\test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="plugin.cpp">
@@ -55,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="cpp11\thread2.cpp">
       <Filter>src\cpp11</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_plugin_gaea.cpp">
+      <Filter>src\test</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
