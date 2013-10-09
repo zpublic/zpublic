@@ -1,7 +1,8 @@
 // sample3.cpp : LuaTinker 의 클래스 기능을 알아본다.
 //
 
-#include "lua_tinker_ex.h"
+#include "stdafx.h"
+#include "sample_lua.h"
 
 // 함수 형태가 int(*)(lua_State*) 또는 int(*)(lua_State*,T1) 일 경우만 lua_yield() 를 쓸 수 있다.
 // 함수 인자가 더 필요할 경우 lua_tinker.h 의 "functor (non-managed)" 코멘트 부분을 참고해서 직접 추가할 것

@@ -60,6 +60,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>./../../3rdparty/boost_lib/;./../../3rdparty/protobuf_lib/;./../../3rdparty/libcurl_lib/</AdditionalLibraryDirectories>
+      <AdditionalDependencies />
     </Link>
     <PreBuildEvent>
       <Command>protoc.exe --cpp_out=./ ./test_proto.proto</Command>
@@ -97,6 +98,21 @@
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\counter.hpp" />
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\tap13.hpp" />
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\tests.hpp" />
+    <ClInclude Include="..\..\3rdparty\hp_socket\bufferptr.h" />
+    <ClInclude Include="..\..\3rdparty\hp_socket\CriticalSection.h" />
+    <ClInclude Include="..\..\3rdparty\hp_socket\Event.h" />
+    <ClInclude Include="..\..\3rdparty\hp_socket\FuncHelper.h" />
+    <ClInclude Include="..\..\3rdparty\hp_socket\GeneralHelper.h" />
+    <ClInclude Include="..\..\3rdparty\hp_socket\InitCOM.h" />
+    <ClInclude Include="..\..\3rdparty\hp_socket\PrivateHeap.h" />
+    <ClInclude Include="..\..\3rdparty\hp_socket\SE.h" />
+    <ClInclude Include="..\..\3rdparty\hp_socket\Semaphore.h" />
+    <ClInclude Include="..\..\3rdparty\hp_socket\Singleton.h" />
+    <ClInclude Include="..\..\3rdparty\hp_socket\socket\ClientSocket.h" />
+    <ClInclude Include="..\..\3rdparty\hp_socket\socket\SocketHelper.h" />
+    <ClInclude Include="..\..\3rdparty\hp_socket\STLHelper.h" />
+    <ClInclude Include="..\..\3rdparty\hp_socket\WaitFor.h" />
+    <ClInclude Include="..\..\3rdparty\hp_socket\Win32Helper.h" />
     <ClInclude Include="..\..\3rdparty\luasrc\lapi.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -197,7 +213,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </ClInclude>
-    <ClInclude Include="..\..\3rdparty\lua_tinker\lua_tinker_ex.h" />
+    <ClInclude Include="..\..\3rdparty\lua_tinker\lua_tinker_ex.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut.hpp" />
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_assert.hpp" />
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_console_reporter.hpp" />
@@ -214,6 +232,7 @@
     <ClInclude Include="..\..\public\ltest\ltest_actor.hpp" />
     <ClInclude Include="..\..\public\ltest\ltest_macros.h" />
     <ClInclude Include="..\..\public\ltest\ltest_suite.hpp" />
+    <ClInclude Include="sample_lua.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="test_array.h" />
@@ -249,6 +268,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="test_hp_socket.h" />
     <ClInclude Include="test_libcurl.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -320,6 +340,17 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\3rdparty\hp_socket\bufferptr.cpp" />
+    <ClCompile Include="..\..\3rdparty\hp_socket\CriticalSection.cpp" />
+    <ClCompile Include="..\..\3rdparty\hp_socket\Event.cpp" />
+    <ClCompile Include="..\..\3rdparty\hp_socket\FuncHelper.cpp" />
+    <ClCompile Include="..\..\3rdparty\hp_socket\GeneralHelper.cpp" />
+    <ClCompile Include="..\..\3rdparty\hp_socket\InitCOM.cpp" />
+    <ClCompile Include="..\..\3rdparty\hp_socket\PrivateHeap.cpp" />
+    <ClCompile Include="..\..\3rdparty\hp_socket\Semaphore.cpp" />
+    <ClCompile Include="..\..\3rdparty\hp_socket\socket\ClientSocket.cpp" />
+    <ClCompile Include="..\..\3rdparty\hp_socket\socket\SocketHelper.cpp" />
+    <ClCompile Include="..\..\3rdparty\hp_socket\WaitFor.cpp" />
     <ClCompile Include="..\..\3rdparty\luasrc\lapi.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -513,28 +544,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\lua_tinker\lua_tinker_ex.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="..\..\3rdparty\lua_tinker\sample1.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="..\..\3rdparty\lua_tinker\sample2.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="..\..\3rdparty\lua_tinker\sample3.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="..\..\3rdparty\lua_tinker\sample5.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="..\..\3rdparty\lua_tinker\sample6.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\xde102\xde.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
@@ -543,6 +555,26 @@
       <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4013;4018</DisableSpecificWarnings>
     </ClCompile>
     <ClCompile Include="learn.cpp" />
+    <ClCompile Include="sample1.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="sample2.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="sample3.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="sample5.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="sample6.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -580,6 +612,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="test_hp_socket.cpp" />
     <ClCompile Include="test_libcurl.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -660,6 +693,11 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </None>
+    <None Include="sample1.lua" />
+    <None Include="sample2.lua" />
+    <None Include="sample3.lua" />
+    <None Include="sample5.lua" />
+    <None Include="sample6.lua" />
     <None Include="test_proto.proto">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>

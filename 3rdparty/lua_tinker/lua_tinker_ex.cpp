@@ -6,8 +6,7 @@
 // 
 // please check Licence.txt file for licence and legal issues. 
 
-#include <iostream>
-
+#include "stdafx.h"
 #include "lua_tinker_ex.h"
 
 

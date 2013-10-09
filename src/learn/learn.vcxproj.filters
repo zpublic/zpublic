@@ -76,6 +76,15 @@
     <Filter Include="src\lua\lua_tinker">
       <UniqueIdentifier>{f1094e69-e8e7-4472-81d8-f26a8e43d7ec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\hp_socket">
+      <UniqueIdentifier>{c0cc4a0a-7b58-48ba-898a-0308e1c6a838}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\hp_socket\common">
+      <UniqueIdentifier>{80fbaae7-ac71-402d-acb9-05d35256ea2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\hp_socket\socket">
+      <UniqueIdentifier>{bb8fd27a-4914-4693-ad5c-e8ff8c179253}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -324,6 +333,57 @@
     <ClInclude Include="..\..\3rdparty\lua_tinker\lua_tinker_ex.h">
       <Filter>src\lua\lua_tinker</Filter>
     </ClInclude>
+    <ClInclude Include="test_hp_socket.h">
+      <Filter>src\hp_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\hp_socket\bufferptr.h">
+      <Filter>src\hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\hp_socket\CriticalSection.h">
+      <Filter>src\hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\hp_socket\Event.h">
+      <Filter>src\hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\hp_socket\FuncHelper.h">
+      <Filter>src\hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\hp_socket\GeneralHelper.h">
+      <Filter>src\hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\hp_socket\InitCOM.h">
+      <Filter>src\hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\hp_socket\PrivateHeap.h">
+      <Filter>src\hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\hp_socket\SE.h">
+      <Filter>src\hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\hp_socket\Semaphore.h">
+      <Filter>src\hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\hp_socket\Singleton.h">
+      <Filter>src\hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\hp_socket\STLHelper.h">
+      <Filter>src\hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\hp_socket\WaitFor.h">
+      <Filter>src\hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\hp_socket\Win32Helper.h">
+      <Filter>src\hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="sample_lua.h">
+      <Filter>src\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\hp_socket\socket\ClientSocket.h">
+      <Filter>src\hp_socket\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\hp_socket\socket\SocketHelper.h">
+      <Filter>src\hp_socket\socket</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -533,20 +593,56 @@
     <ClCompile Include="..\..\3rdparty\lua_tinker\lua_tinker_ex.cpp">
       <Filter>src\lua\lua_tinker</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\3rdparty\lua_tinker\sample1.cpp">
-      <Filter>src\lua\lua_tinker</Filter>
+    <ClCompile Include="test_hp_socket.cpp">
+      <Filter>src\hp_socket</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\3rdparty\lua_tinker\sample2.cpp">
-      <Filter>src\lua\lua_tinker</Filter>
+    <ClCompile Include="..\..\3rdparty\hp_socket\bufferptr.cpp">
+      <Filter>src\hp_socket\common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\3rdparty\lua_tinker\sample3.cpp">
-      <Filter>src\lua\lua_tinker</Filter>
+    <ClCompile Include="..\..\3rdparty\hp_socket\CriticalSection.cpp">
+      <Filter>src\hp_socket\common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\3rdparty\lua_tinker\sample5.cpp">
-      <Filter>src\lua\lua_tinker</Filter>
+    <ClCompile Include="..\..\3rdparty\hp_socket\Event.cpp">
+      <Filter>src\hp_socket\common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\3rdparty\lua_tinker\sample6.cpp">
-      <Filter>src\lua\lua_tinker</Filter>
+    <ClCompile Include="..\..\3rdparty\hp_socket\FuncHelper.cpp">
+      <Filter>src\hp_socket\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\hp_socket\GeneralHelper.cpp">
+      <Filter>src\hp_socket\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\hp_socket\InitCOM.cpp">
+      <Filter>src\hp_socket\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\hp_socket\PrivateHeap.cpp">
+      <Filter>src\hp_socket\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\hp_socket\Semaphore.cpp">
+      <Filter>src\hp_socket\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\hp_socket\WaitFor.cpp">
+      <Filter>src\hp_socket\common</Filter>
+    </ClCompile>
+    <ClCompile Include="sample1.cpp">
+      <Filter>src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="sample2.cpp">
+      <Filter>src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="sample3.cpp">
+      <Filter>src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="sample5.cpp">
+      <Filter>src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="sample6.cpp">
+      <Filter>src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\hp_socket\socket\ClientSocket.cpp">
+      <Filter>src\hp_socket\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\hp_socket\socket\SocketHelper.cpp">
+      <Filter>src\hp_socket\socket</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -564,6 +660,21 @@
     </None>
     <None Include="..\..\3rdparty\cipra-1.1\include\impl\tests.ipp">
       <Filter>include\unittest\cipra</Filter>
+    </None>
+    <None Include="sample1.lua">
+      <Filter>src\lua</Filter>
+    </None>
+    <None Include="sample2.lua">
+      <Filter>src\lua</Filter>
+    </None>
+    <None Include="sample3.lua">
+      <Filter>src\lua</Filter>
+    </None>
+    <None Include="sample5.lua">
+      <Filter>src\lua</Filter>
+    </None>
+    <None Include="sample6.lua">
+      <Filter>src\lua</Filter>
     </None>
   </ItemGroup>
 </Project>

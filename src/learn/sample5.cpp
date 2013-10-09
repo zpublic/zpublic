@@ -1,7 +1,8 @@
 // sample5.cpp : Defines the entry point for the console application.
 //
 
-#include "lua_tinker_ex.h"
+#include "stdafx.h"
+#include "sample_lua.h"
 
 void show_error(const char* error)
 {

@@ -1,9 +1,8 @@
 // sample1.cpp : C++ 와 Lua 상호간의 함수 실행을 알아본다.
 //
 
-#include <iostream>
-
-#include "lua_tinker_ex.h"
+#include "stdafx.h"
+#include "sample_lua.h"
 
 int cpp_func(int arg1, int arg2)
 {

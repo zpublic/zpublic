@@ -10,7 +10,6 @@
 #define _LUA_TINKER_H_
 
 #include <new>
-#include <string.h>
 
 extern "C" 
 {

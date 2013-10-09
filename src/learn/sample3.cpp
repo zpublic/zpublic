@@ -1,7 +1,8 @@
 // sample3.cpp : LuaTinker 의 클래스 기능을 알아본다.
 //
 
-#include "lua_tinker_ex.h"
+#include "stdafx.h"
+#include "sample_lua.h"
 
 struct A
 {

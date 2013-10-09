@@ -21,6 +21,11 @@
 ///> “初始化”: 从“std::streamsize”转换到“size_t”，可能丢失数据
 #pragma warning(disable:4244)
 
+// /> hp_socket
+// /> 因为winsock2的缘故，这个包含需要在windows.h之前
+#define _WINSOCK_SUPPORT
+#include "hp_socket/GeneralHelper.h"
+
 ///> zpublic！
 #include "zpublic.hpp"
 
@@ -181,4 +186,3 @@ extern "C"
 #include "xde102/xde.h" 
 #pragma warning(default:4013 4018) ///> 这里没用，关xde.c的警告需单独设置文件
 }
-

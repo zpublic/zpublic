@@ -47,6 +47,8 @@
 #endif // _TEST_UNITTEST_
 #include "test_xde.h"
 
+#include "test_hp_socket.h"
+
 int _tmain(int argc, _TCHAR* argv[])
 {
     //test_smart_ptr();
@@ -80,10 +82,11 @@ int _tmain(int argc, _TCHAR* argv[])
 
     //test_protobuf();
     //test_libcurl();
-    test_lua();
+    //test_lua();
     //test_cipra();
     //test_tut();
     //test_xde();
+    test_hp_socket();
 
     getchar();
     return 0;

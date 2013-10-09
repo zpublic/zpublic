@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "test_lua.h"
+#include "sample_lua.h"
 
 void init_lua_test_file()
 {
