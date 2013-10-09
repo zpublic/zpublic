@@ -37,8 +37,9 @@
 #ifdef _TEST_MISC_
 #include "test_protobuf.h"
 #include "test_libcurl.h"
-#include "test_lua.h"
 #endif // _TEST_MISC_
+
+#include "test_lua.h"
 
 #ifdef _TEST_UNITTEST_
 #include "test_cipra.h"
@@ -79,10 +80,10 @@ int _tmain(int argc, _TCHAR* argv[])
 
     //test_protobuf();
     //test_libcurl();
-    //test_lua();
+    test_lua();
     //test_cipra();
     //test_tut();
-    test_xde();
+    //test_xde();
 
     getchar();
     return 0;

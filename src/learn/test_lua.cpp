@@ -55,4 +55,10 @@ void test_lua()
     lua_State* l = test_lua_init();
     test_lua_export(l);
     test_lua_run(l);
+
+    main_l1();
+    main_l2();
+    main_l3();
+    main_l5();
+    main_l6();
 }

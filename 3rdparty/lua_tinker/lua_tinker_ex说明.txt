@@ -1,0 +1,1 @@
+感谢evilswords，参考资料：http://blog.csdn.net/evilswords/article/details/8669623修改了lua_tinker，使其支持当前最新版lua5.2.2修改点包括：1，使用新方式lua_getglobal、lua_setglobal来获取和设置全局对象；2，修改lua头文件包含路径和位置；3，范例中的luaopen_string改为luaL_requiref；4，lua_resume(L, 0);改为lua_resume(L, 0, 0);5，lua_tinker::table问题太多故去掉{sample4中，table对象作用域超出lua_close，释放时异常的问题；引用计数需要手工+1；析构函数可能导致内存泄漏}

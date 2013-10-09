@@ -73,6 +73,9 @@
     <Filter Include="src\xde">
       <UniqueIdentifier>{6d48cdfd-b8a9-4115-9092-18fb4e51d53b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\lua\lua_tinker">
+      <UniqueIdentifier>{f1094e69-e8e7-4472-81d8-f26a8e43d7ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -318,6 +321,9 @@
     <ClInclude Include="test_xde.h">
       <Filter>src\xde</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\lua_tinker\lua_tinker_ex.h">
+      <Filter>src\lua\lua_tinker</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -523,6 +529,24 @@
     </ClCompile>
     <ClCompile Include="test_xde.cpp">
       <Filter>src\xde</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\lua_tinker\lua_tinker_ex.cpp">
+      <Filter>src\lua\lua_tinker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\lua_tinker\sample1.cpp">
+      <Filter>src\lua\lua_tinker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\lua_tinker\sample2.cpp">
+      <Filter>src\lua\lua_tinker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\lua_tinker\sample3.cpp">
+      <Filter>src\lua\lua_tinker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\lua_tinker\sample5.cpp">
+      <Filter>src\lua\lua_tinker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\lua_tinker\sample6.cpp">
+      <Filter>src\lua\lua_tinker</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

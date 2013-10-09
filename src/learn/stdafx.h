@@ -163,9 +163,10 @@ using std::endl;
 #pragma comment(lib, "winmm.lib")
 #include <libcurl/curl.h>
 
+#endif // _TEST_MISC_
+
 ///> lua
 #include <luasrc/lua.hpp>
-#endif // _TEST_MISC_
 
 ///> ltest
 #include "ltest/ltest.h"
