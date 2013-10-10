@@ -5,8 +5,6 @@
 #include "interface/circe_client_network/circe_client_network.h"
 #include "client_network.h"
 
-
-
 CIRCE_CLIENT_NETWORK_API long circe_client_network_version(void)
 {
     return 2013101001;

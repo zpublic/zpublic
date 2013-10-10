@@ -5,6 +5,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "learn", "..\src\learn\learn
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "circe_client_network", "..\src\circe\circe_client_network\circe_client_network.vcxproj", "{277F7598-9312-46DA-AB12-0F0FB25153A5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C4A850AF-5315-4EF6-BC83-F954B2F7EDD3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "circe_client_network_test", "..\src\circe\circe_client_network_test\circe_client_network_test.vcxproj", "{AC070CAD-D697-4454-8FB2-AD45AAAB8E96}"
+	ProjectSection(ProjectDependencies) = postProject
+		{277F7598-9312-46DA-AB12-0F0FB25153A5} = {277F7598-9312-46DA-AB12-0F0FB25153A5}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -19,8 +26,15 @@ Global
 		{277F7598-9312-46DA-AB12-0F0FB25153A5}.Debug|Win32.Build.0 = Debug|Win32
 		{277F7598-9312-46DA-AB12-0F0FB25153A5}.Release|Win32.ActiveCfg = Release|Win32
 		{277F7598-9312-46DA-AB12-0F0FB25153A5}.Release|Win32.Build.0 = Release|Win32
+		{AC070CAD-D697-4454-8FB2-AD45AAAB8E96}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AC070CAD-D697-4454-8FB2-AD45AAAB8E96}.Debug|Win32.Build.0 = Debug|Win32
+		{AC070CAD-D697-4454-8FB2-AD45AAAB8E96}.Release|Win32.ActiveCfg = Release|Win32
+		{AC070CAD-D697-4454-8FB2-AD45AAAB8E96}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AC070CAD-D697-4454-8FB2-AD45AAAB8E96} = {C4A850AF-5315-4EF6-BC83-F954B2F7EDD3}
 	EndGlobalSection
 EndGlobal
