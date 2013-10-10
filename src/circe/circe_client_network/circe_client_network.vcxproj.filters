@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="interface">
+      <UniqueIdentifier>{c1c10488-c9e2-4fbc-9227-6e35ce5470f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hp_socket">
+      <UniqueIdentifier>{51653f10-e51a-4624-ae79-fd6f3fc47a93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hp_socket\common">
+      <UniqueIdentifier>{2fa7c616-f27c-496a-ad28-4cf83d79a908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hp_socket\socket">
+      <UniqueIdentifier>{b91f37e8-24ff-46a7-8ecf-e42322e22049}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{fc255ca9-5ae0-4d1d-ac6e-9ed6ca20dfe3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\interface\circe_client_network\circe_client_network.h">
+      <Filter>interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\interface\circe_client_network\i_client_network.h">
+      <Filter>interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\hp_socket\bufferptr.h">
+      <Filter>hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\hp_socket\CriticalSection.h">
+      <Filter>hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\hp_socket\Event.h">
+      <Filter>hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\hp_socket\FuncHelper.h">
+      <Filter>hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\hp_socket\GeneralHelper.h">
+      <Filter>hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\hp_socket\InitCOM.h">
+      <Filter>hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\hp_socket\PrivateHeap.h">
+      <Filter>hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\hp_socket\SE.h">
+      <Filter>hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\hp_socket\Semaphore.h">
+      <Filter>hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\hp_socket\Singleton.h">
+      <Filter>hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\hp_socket\STLHelper.h">
+      <Filter>hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\hp_socket\WaitFor.h">
+      <Filter>hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\hp_socket\Win32Helper.h">
+      <Filter>hp_socket\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\hp_socket\socket\ClientSocket.h">
+      <Filter>hp_socket\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\hp_socket\socket\SocketHelper.h">
+      <Filter>hp_socket\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="client_network.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="client_network_listener.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\3rdparty\hp_socket\bufferptr.cpp">
+      <Filter>hp_socket\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\hp_socket\CriticalSection.cpp">
+      <Filter>hp_socket\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\hp_socket\Event.cpp">
+      <Filter>hp_socket\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\hp_socket\FuncHelper.cpp">
+      <Filter>hp_socket\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\hp_socket\GeneralHelper.cpp">
+      <Filter>hp_socket\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\hp_socket\InitCOM.cpp">
+      <Filter>hp_socket\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\hp_socket\PrivateHeap.cpp">
+      <Filter>hp_socket\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\hp_socket\Semaphore.cpp">
+      <Filter>hp_socket\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\hp_socket\WaitFor.cpp">
+      <Filter>hp_socket\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\hp_socket\socket\ClientSocket.cpp">
+      <Filter>hp_socket\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\hp_socket\socket\SocketHelper.cpp">
+      <Filter>hp_socket\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="circe_client_network.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="client_network.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
