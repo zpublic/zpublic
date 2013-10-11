@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{9486123f-7c9b-409f-8b92-cfa04ea043f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\main">
+      <UniqueIdentifier>{634b7675-2442-42a7-a110-6a24b53d63e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\network">
+      <UniqueIdentifier>{ddb0b4ed-090b-4f99-b0cb-30630981556e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="network_mgr.h">
+      <Filter>src\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network_handler.h">
+      <Filter>src\network</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src\main</Filter>
+    </ClCompile>
+    <ClCompile Include="circe_client_console.cpp">
+      <Filter>src\main</Filter>
+    </ClCompile>
+    <ClCompile Include="network_handler.cpp">
+      <Filter>src\network</Filter>
+    </ClCompile>
+    <ClCompile Include="network_mgr.cpp">
+      <Filter>src\network</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
