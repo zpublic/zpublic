@@ -13,11 +13,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "circe_client_network_test",
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "circe_server", "..\src\circe\circe_server\circe_server.vcxproj", "{22517359-0051-48EA-9723-7A4528D8ACEA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{649D1913-E747-4A71-918D-67DE2185BAC3} = {649D1913-E747-4A71-918D-67DE2185BAC3}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "circe_client_console", "..\src\circe\circe_client_console\circe_client_console.vcxproj", "{C22C305C-26A6-41F7-BA00-24A10AFCFFFE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{277F7598-9312-46DA-AB12-0F0FB25153A5} = {277F7598-9312-46DA-AB12-0F0FB25153A5}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "venus_net", "..\src\circe\venus_net\venus_net.vcxproj", "{649D1913-E747-4A71-918D-67DE2185BAC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +50,10 @@ Global
 		{C22C305C-26A6-41F7-BA00-24A10AFCFFFE}.Debug|Win32.Build.0 = Debug|Win32
 		{C22C305C-26A6-41F7-BA00-24A10AFCFFFE}.Release|Win32.ActiveCfg = Release|Win32
 		{C22C305C-26A6-41F7-BA00-24A10AFCFFFE}.Release|Win32.Build.0 = Release|Win32
+		{649D1913-E747-4A71-918D-67DE2185BAC3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{649D1913-E747-4A71-918D-67DE2185BAC3}.Debug|Win32.Build.0 = Debug|Win32
+		{649D1913-E747-4A71-918D-67DE2185BAC3}.Release|Win32.ActiveCfg = Release|Win32
+		{649D1913-E747-4A71-918D-67DE2185BAC3}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
