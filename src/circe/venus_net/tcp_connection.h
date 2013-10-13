@@ -9,11 +9,12 @@
 #include "byte_buffer.h"
 #include "packet.h"
 #include "network_common.h"
-#include "io_service.h"
+#include "socket.h"
 
 using namespace boost::asio::ip;
 
 struct ServerPacket;
+class Socket;
 class TcpConnection
     : private boost::noncopyable, public std::enable_shared_from_this<TcpConnection>
 {
@@ -24,48 +25,48 @@ public:
 public:
     __forceinline int handle()  //return native socket handle
     {
-        return _socket.native_handle();
+        return _socket->handle();
     }
-    void write(const byte* data, size_t size);
-    void read();
+    void setInetAddress(const InetAddress& inetAddress);
+    void connectAsync();
+    void connectAsync(const InetAddress& inetAddress);
     void shutdown();
+    void close();
+    void writeAsync(const byte* data, size_t size);
+    void writeAsync(const uint32& opcode, const byte* data, size_t size);
+    void readAsync();
     tcp::socket& socket();
-    bool isOpen();
+    bool is_open();
 
 public:
+    void setConnectedCallback(const ConnectionConnectedCallback& cb);
     void setWriteCompletedCallback(const WriteCompletedCallback& cb);
     void setReadCompletedCallback(const ReadCompletedCallback& cb);
     void setConnectionClosedCallback(const ConnectionClosedCallback& cb);
 
 private:
-    void onError(const boost::system::error_code& error);
-    void handleWrite(const boost::system::error_code& error, std::size_t bytes_transferred);
-    void handleRead(const boost::system::error_code& error, std::size_t bytes_transferred);
+    void on_connected();
+    void on_write(size_t bytes_transferred);
+    void on_read(const byte* data, size_t bytes_transferred);
+    void on_close();
 
 private:
-    /*nagle handle*/
-    enum CODEC_STATE { S_IDLE, S_PROCESSING } _state;
-
     bool append_buffer_fragment(const ByteBufferPtr& buffer);
     void reset()
     {
-        _state = S_IDLE;
         _buffer.clear();
-        _prepare_packet_list.clear();
     }
 
+private:
+    Socket* _socket;
     ByteBuffer _buffer;
-    ServerPacket* _integrity_packet;
-    std::vector<ServerPacket> _prepare_packet_list;
+    InetAddress _inetAddress;
 
 private:
-    tcp::socket _socket;
+    ConnectionConnectedCallback _connectedCallback;
     WriteCompletedCallback _writeCompletedCallback;
     ReadCompletedCallback _readComplectedCallback;
     ConnectionClosedCallback _connectionClosedCallback;
-    boost::array<byte, MAX_RECV_LEN> _recvBuffer;
-    boost::asio::strand _strand;
-    IOService& _io_service;
 };
 
 #endif

@@ -43,11 +43,11 @@
   <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);BOOST_ALL_NO_LIB</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)../3rdparty</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../3rdparty;</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -58,16 +58,20 @@
       <Command>
       </Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>libprotobuf_d.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../../3rdparty/protobuf_lib</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);BOOST_ALL_NO_LIB</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)../3rdparty</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../3rdparty;</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -80,6 +84,10 @@
       <Command>
       </Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>libprotobuf.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../../3rdparty/protobuf_lib</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="acceptor.h" />
@@ -93,18 +101,23 @@
     <ClInclude Include="object_pool.hpp" />
     <ClInclude Include="opcodes.h" />
     <ClInclude Include="packet.h" />
+    <ClInclude Include="protobuf.h" />
+    <ClInclude Include="socket.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="tcp_client.h" />
     <ClInclude Include="tcp_connection.h" />
     <ClInclude Include="tcp_server.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="acceptor.cpp" />
     <ClCompile Include="error_code.cpp" />
+    <ClCompile Include="socket.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="tcp_client.cpp" />
     <ClCompile Include="tcp_connection.cpp" />
     <ClCompile Include="tcp_server.cpp" />
   </ItemGroup>
