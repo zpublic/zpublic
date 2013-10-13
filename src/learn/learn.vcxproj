@@ -53,7 +53,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>./../../public;./../../3rdparty;./../../3rdparty/tut;</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zm1000  -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zm500  -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -216,6 +216,10 @@
     <ClInclude Include="..\..\3rdparty\lua_tinker\lua_tinker_ex.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\rapidxml-1.13\rapidxml.hpp" />
+    <ClInclude Include="..\..\3rdparty\rapidxml-1.13\rapidxml_iterators.hpp" />
+    <ClInclude Include="..\..\3rdparty\rapidxml-1.13\rapidxml_print.hpp" />
+    <ClInclude Include="..\..\3rdparty\rapidxml-1.13\rapidxml_utils.hpp" />
     <ClInclude Include="..\..\3rdparty\tut\tut\tut.hpp" />
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_assert.hpp" />
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_console_reporter.hpp" />
@@ -305,6 +309,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="test_rapidxml.h" />
     <ClInclude Include="test_regex.h" />
     <ClInclude Include="test_searching_algorithms.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -651,6 +656,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="test_rapidxml.cpp" />
     <ClCompile Include="test_regex.cpp" />
     <ClCompile Include="test_searching_algorithms.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>

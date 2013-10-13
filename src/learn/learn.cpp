@@ -48,6 +48,7 @@
 #include "test_xde.h"
 
 #include "test_hp_socket.h"
+#include "test_rapidxml.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -86,7 +87,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_cipra();
     //test_tut();
     //test_xde();
-    test_hp_socket();
+    //test_hp_socket();
+    test_rapidxml();
 
     getchar();
     return 0;

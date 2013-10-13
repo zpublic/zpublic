@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "network_handler.h"
 
+extern bool g_bLogin;
 
 void _stdcall CNetworkHandler::OnConnect()
 {
@@ -14,6 +15,7 @@ void _stdcall CNetworkHandler::OnClose()
 
 void _stdcall CNetworkHandler::OnReceive( const BYTE* pData, int iLength )
 {
+    g_bLogin = true;
     printf("recv:%s\n", (const char *)pData);
 }
 

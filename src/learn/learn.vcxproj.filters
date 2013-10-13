@@ -85,6 +85,12 @@
     <Filter Include="src\hp_socket\socket">
       <UniqueIdentifier>{bb8fd27a-4914-4693-ad5c-e8ff8c179253}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\rapidxml">
+      <UniqueIdentifier>{91250ff1-62dd-4b92-967d-f241b4ee5a44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\rapidxml\rapidxml">
+      <UniqueIdentifier>{54501f83-8396-45c3-9572-be1a96c6164d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -384,6 +390,21 @@
     <ClInclude Include="..\..\3rdparty\hp_socket\socket\SocketHelper.h">
       <Filter>src\hp_socket\socket</Filter>
     </ClInclude>
+    <ClInclude Include="test_rapidxml.h">
+      <Filter>src\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\rapidxml-1.13\rapidxml.hpp">
+      <Filter>src\rapidxml\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\rapidxml-1.13\rapidxml_iterators.hpp">
+      <Filter>src\rapidxml\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\rapidxml-1.13\rapidxml_print.hpp">
+      <Filter>src\rapidxml\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\rapidxml-1.13\rapidxml_utils.hpp">
+      <Filter>src\rapidxml\rapidxml</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -643,6 +664,9 @@
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\hp_socket\socket\SocketHelper.cpp">
       <Filter>src\hp_socket\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="test_rapidxml.cpp">
+      <Filter>src\rapidxml</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
