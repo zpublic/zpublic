@@ -1,0 +1,6 @@
+package Demo;
+
+message demo2{
+	required string demo_str = 1;
+	required int32 demo_int = 2;
+}

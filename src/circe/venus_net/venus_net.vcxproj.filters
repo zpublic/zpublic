@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{e5f893f8-3fd4-48ec-9155-f3797827331c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base">
+      <UniqueIdentifier>{c72c058d-87de-49e0-9f8f-a7b4b0b130ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network">
+      <UniqueIdentifier>{df8b2053-2381-41a6-89fb-2271f81b3c7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network\common">
+      <UniqueIdentifier>{b766fa07-06cc-4c86-9b57-1f1d4ffec798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network\asio_error">
+      <UniqueIdentifier>{c7047036-3308-4fd4-9458-b60cd0f8b45f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="protocol">
+      <UniqueIdentifier>{6b720557-6133-4f4e-92be-86254e542b4e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="byte_buffer.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="endian.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="inet_address.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="object_pool.hpp">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="acceptor.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="io_service.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="tcp_connection.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="tcp_server.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="network_common.h">
+      <Filter>network\common</Filter>
+    </ClInclude>
+    <ClInclude Include="opcodes.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="packet.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="local_free_on_destruction.hpp">
+      <Filter>network\asio_error</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>base</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="acceptor.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="tcp_connection.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="tcp_server.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="error_code.cpp">
+      <Filter>network\asio_error</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
