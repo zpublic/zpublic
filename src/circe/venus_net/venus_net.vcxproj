@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{649D1913-E747-4A71-918D-67DE2185BAC3}</ProjectGuid>
+    <ProjectGuid>{F839727D-B8EC-4A21-9B7E-BF6C522E8393}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>zeus_common</RootNamespace>
     <ProjectName>venus_net</ProjectName>
