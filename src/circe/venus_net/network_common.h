@@ -1,5 +1,5 @@
-#ifndef common_def_H_
-#define common_def_H_
+#ifndef __COMMON_DEF_H__
+#define __COMMON_DEF_H__
 
 #include <string>
 #include <stdint.h>
@@ -39,20 +39,36 @@ namespace net_params
 }
 }
 
+struct NetworkMessage
+{
+    const byte* data;
+    uint32 len;
+
+    void parse(google::protobuf::Message& message) const
+    {
+        message.ParseFromArray(data, len);
+    }
+};
+
 //forward declarations 
 class TcpConnection;
+class Socket;
 class InetAddress;
 class ByteBuffer;
+struct ServerPacket;
 
 //smart ptr
 typedef std::shared_ptr<std::thread> ThreadPtr;
 typedef std::shared_ptr<TcpConnection> TcpConnectionPtr;
+typedef std::shared_ptr<Socket> SocketPtr;
 typedef std::shared_ptr<ByteBuffer> ByteBufferPtr;
+typedef std::shared_ptr<ServerPacket> ServerPacketPtr;
 
 //callbacks
 typedef std::function<void (const TcpConnectionPtr& connection, uint32_t bytes_transferred)> WriteCompletedCallback;
-typedef std::function<void (const TcpConnectionPtr& connection, uint32_t opcode, const google::protobuf::Message& message, uint32_t bytes_transferred)> ReadCompletedCallback;
+typedef std::function<void (const TcpConnectionPtr& connection, uint32_t opcode, const byte* data, uint32_t bytes_transferred)> ReadCompletedCallback;
 typedef std::function<void (const TcpConnectionPtr& connection)> AcceptedCallback;
+typedef std::function<void (const TcpConnectionPtr& connection)> ConnectionConnectedCallback;
 typedef std::function<void (const TcpConnectionPtr& connection, const InetAddress& address)> NewConnectionCallback;
 typedef std::function<void (const TcpConnectionPtr& connection)> ConnectionClosedCallback;
 

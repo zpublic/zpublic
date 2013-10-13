@@ -28,7 +28,7 @@ TcpServer::TcpServer(const InetAddress& listenAddress, IOService& service, uint3
 
 TcpServer::~TcpServer()
 {
-    
+    _signals.clear();
 }
 
 void TcpServer::start()
@@ -80,13 +80,12 @@ void TcpServer::newConnectionCallback(const TcpConnectionPtr& connection)
 {
     std::cout << "thread id = " << std::this_thread::get_id() << std::endl;
 
-    //构造通信地址结构
     tcp::socket& socket = connection->socket();
     std::string remote_address = socket.remote_endpoint().address().to_string();
-    uint16_t remote_port = socket.remote_endpoint().port();
+    uint16 remote_port = socket.remote_endpoint().port();
     InetAddress peerAddress(remote_address, remote_port);
 
-    //设置链接回调
+    //callbacks
     connection->setWriteCompletedCallback(_writeCompletedCallback);
     connection->setReadCompletedCallback(_readCompletedCallback);
     connection->setConnectionClosedCallback(_connectionClosedCallback);

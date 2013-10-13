@@ -1,11 +1,23 @@
-// circe_server.cpp : 定义控制台应用程序的入口点。
+// center_server.cpp : 定义控制台应用程序的入口点。
 //
 
 #include "stdafx.h"
+#include "asio_service_deamon.h"
 
-
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 {
-	return 0;
+
+    try
+    {
+        AsioServiceDeamon serviceEntry;
+        serviceEntry.start("circe_service", 4);
+    }
+    catch (...)
+    {
+        std::cout << "An unknown exception occurred." << std::endl;
+    }
+
+    system("pause");
+    return 0;
 }
 

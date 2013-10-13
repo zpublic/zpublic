@@ -2,74 +2,90 @@
 #include "byte_buffer.h"
 #include "tcp_connection.h"
 #include "network_common.h"
+#include "inet_address.h"
 #include "packet.h"
+#include "protobuf.h"
 
-const static int DEFAULT_CIRCULAR_BUFFER_SIZE = 512;
 TcpConnection::TcpConnection(IOService& io_service)
-    : _io_service(io_service),
-    _strand(io_service.service()),
-    _socket(io_service.service())
+    : _inetAddress(0)
 {
+    _socket = new Socket(io_service);
+
+    // register socket callbacks
+    _socket->set_connected_callback(std::bind(&TcpConnection::on_connected, this));
+    _socket->set_send_callback(std::bind(&TcpConnection::on_write, this, std::placeholders::_1));
+    _socket->set_receive_callback(std::bind(&TcpConnection::on_read, this, std::placeholders::_1, std::placeholders::_2));
+    _socket->set_close_callback(std::bind(&TcpConnection::on_close, this));
 }
 
 TcpConnection::~TcpConnection()
 {
-    if (isOpen())
-        _socket.close();
+    SAFE_DELETE(_socket);
 
+    _buffer.clear();
     std::cout << "connection destroyed." << std::endl;
 }
 
-void TcpConnection::write(const byte* data, size_t size)
+void TcpConnection::setInetAddress(const InetAddress& inetAddress)
 {
-    if (!data)
+    _inetAddress = inetAddress;
+}
+
+void TcpConnection::connectAsync()
+{
+    _socket->start_connect(_inetAddress.host(), _inetAddress.port());
+}
+
+void TcpConnection::connectAsync(const InetAddress& inetAddress)
+{
+    setInetAddress(inetAddress);
+    connectAsync();
+}
+
+void TcpConnection::shutdown()
+{
+    _socket->shutdown();
+}
+
+void TcpConnection::close()
+{
+    _socket->close();
+}
+
+void TcpConnection::writeAsync(const byte* data, size_t size)
+{
+    _socket->start_send(data, size);
+}
+
+void TcpConnection::writeAsync(const uint32& opcode, const byte* message_data, size_t message_size)
+{
+    if (message_data == nullptr || message_size == 0)
     {
         std::cout << "empty data." << std::endl;
         return;
     }
 
-    boost::asio::async_write(
-        _socket,
-        boost::asio::buffer(data, size),
-        _strand.wrap(
-            boost::bind(
-                &TcpConnection::handleWrite, 
-                shared_from_this(), 
-                boost::asio::placeholders::error, 
-                boost::asio::placeholders::bytes_transferred
-            )
-        )
-    );
+    ByteBuffer buffer;
+    buffer << ServerPacket::HEADER_LENGTH + message_size;
+    buffer << opcode;
+    buffer.append(message_data, message_size);
+
+    writeAsync(buffer.buffer(), buffer.size());
 }
 
-void TcpConnection::read()
+void TcpConnection::readAsync()
 {
-    _socket.async_read_some(
-        boost::asio::buffer(_recvBuffer),
-        _strand.wrap(
-            boost::bind(
-                &TcpConnection::handleRead, 
-                shared_from_this(), 
-                boost::asio::placeholders::error, 
-                boost::asio::placeholders::bytes_transferred
-            )
-        )
-    );
-}
-
-void TcpConnection::shutdown()
-{
-    _socket.shutdown(boost::asio::socket_base::shutdown_both);
+    _socket->start_receive();
 }
 
 tcp::socket& TcpConnection::socket()
 {
-    return _socket;
+    return _socket->socket();
 }
 
-bool TcpConnection::isOpen()
+bool TcpConnection::is_open()
 {
-    return _socket.is_open();
+    return _socket->is_open();
 }
 
 void TcpConnection::setWriteCompletedCallback(const WriteCompletedCallback& cb)
@@ -87,122 +103,109 @@ void TcpConnection::setConnectionClosedCallback(const ConnectionClosedCallback& 
     _connectionClosedCallback = cb;
 }
 
-void TcpConnection::handleWrite(
-    const boost::system::error_code& error, // Result of operation.
+void TcpConnection::setConnectedCallback(const ConnectionConnectedCallback& cb)
+{
+    _connectedCallback = cb;
+}
+
+void TcpConnection::on_connected()
+{
+    std::cout << "connection has been connected." << std::endl;
+
+    readAsync();
+    if (_connectedCallback)
+        _connectedCallback(shared_from_this());
+}
+
+void TcpConnection::on_write(
     std::size_t bytes_transferred           // Number of bytes sent.
 )
 {
-    if (error)
+    std::cout << "bytes_transferred = " << bytes_transferred << std::endl;
+    if (_writeCompletedCallback)
     {
-        onError(error);
+        _writeCompletedCallback(shared_from_this(), bytes_transferred);
     }
     else
     {
-        std::cout << "bytes_transferred = " << bytes_transferred << std::endl;
-        if (_writeCompletedCallback)
-        {
-            _writeCompletedCallback(shared_from_this(), bytes_transferred);
-        }
-        else
-        {
-            std::cout << "write complected." << std::endl;
-        }
+        std::cout << "write complected." << std::endl;
     }
 }
 
-void TcpConnection::handleRead(const boost::system::error_code& error, std::size_t bytes_transferred)
+void TcpConnection::on_read(const byte* data, size_t bytes_transferred)
 {
-    if (error)
-        return onError(error);
+    readAsync();
 
-    if (bytes_transferred == 0)
-    {
-        std::cout << "oops, connection lost :(" << std::endl;
-        return;
-    }
-    
-    this->read();
-    ByteBufferPtr read_buffer(new ByteBuffer(_recvBuffer.data(), bytes_transferred));
-    if (append_buffer_fragment(read_buffer))
-    {
-        for (size_t i = 0; i < _prepare_packet_list.size(); ++i)
-        {
-            const uint32_t& opcode = _prepare_packet_list[i].opcode;
-            const google::protobuf::Message* message = _prepare_packet_list[i].protoMessage();
+    size_t bodyLen = 0;
 
-            std::cout << "Network Message : [opcode = " <<  opcode << "]" << std::endl;
+    ByteBuffer read_buffer(_socket->get_recv_buffer(), bytes_transferred);
+    _buffer.append(read_buffer);
 
-            if (message != NULL && _readComplectedCallback)
-            {
-                _readComplectedCallback(shared_from_this(), opcode, *message, bytes_transferred);
-            }
-            else
-            {
-                std::cout << "Warnning : empty proto message!" << std::endl;
-            }
-        }
-    }
-}
+    std::vector<ServerPacketPtr> packetList;
 
-void TcpConnection::onError(const boost::system::error_code& error)
-{
-    std::cout << "An error occured, code = " << error.value() << ", message = " << error.message() << std::endl;
-    
-    shutdown();
-    switch (error.value())
-    {
-        case boost::asio::error::bad_descriptor:
-        case boost::asio::error::eof:
-        case boost::asio::error::operation_aborted:
-        case boost::asio::error::connection_reset:
-        {
-            if (_connectionClosedCallback)
-            {
-                _connectionClosedCallback(shared_from_this());
-            }
-            break;
-        }
-    }
-}
-
-bool TcpConnection::append_buffer_fragment(const ByteBufferPtr& buffer)
-{
-    _buffer.append(*buffer);
+    _buffer.set_rpos(0);
     while (_buffer.size() >= sizeof(ServerPacket))
     {
         size_t packet_len = 0;
+        uint32 opcode = 0;
+
         _buffer >> packet_len;
+        _buffer >> opcode;
 
         //数据包长度大于最大接收长度视为非法，干掉
-        if (packet_len >= MAX_RECV_LEN)
+        if (packet_len >= MAX_RECV_LEN || read_buffer.size() >= MAX_RECV_LEN || bytes_transferred != packet_len)
         {
             std::cout << "Warning: Read packet header length " << packet_len << " bytes (which is too large) on peer socket. (Invalid Packet?)" << std::endl;
             shutdown();
-            return false;
+            return;
         }
 
         if (_buffer.size() < packet_len)
         {
-            return false;
+            return;
         }
-        else if (_buffer.size() == packet_len)
+        else if (_buffer.size() >= packet_len)
         {
-            ServerPacket* packet = 
-                (ServerPacket*)(reinterpret_cast<const ServerPacket*>(_buffer.buffer()));
+            //取得body长度
+            bodyLen = packet_len - ServerPacket::HEADER_LENGTH;
 
-            _prepare_packet_list.push_back(*packet);
-            _buffer.clear();
-        }
-        else
-        {
-            ServerPacket* packet = 
-                (ServerPacket*)(reinterpret_cast<const ServerPacket*>(_buffer.buffer()));
+            ServerPacketPtr packet(new ServerPacket());
+            packet->len = packet_len;
+            packet->opcode = opcode;
 
-            _prepare_packet_list.push_back(*packet);
+            packet->message = new byte[bodyLen];
+            _buffer.read(packet->message, bodyLen);
+
+            packetList.push_back(packet);
             _buffer.erase(0, packet_len);
             _buffer.set_rpos(0);
+            _buffer.set_wpos(0);
         }
     }
 
-    return (_prepare_packet_list.size() > 0);
+    for (size_t i = 0; i < packetList.size(); ++i)
+    {
+        const ServerPacketPtr& packet = packetList[i];
+        const uint32_t& opcode = packet->opcode;
+
+        if (packet->message != NULL && _readComplectedCallback)
+        {
+            _readComplectedCallback(shared_from_this(), opcode, packet->message, bytes_transferred);
+        }
+        else
+        {
+            std::cout << "Warnning : empty proto message or not set read callback instance." << std::endl;
+        }
+    }
+
+    packetList.clear();
+
+}
+
+void TcpConnection::on_close()
+{
+    if (_connectionClosedCallback)
+    {
+        _connectionClosedCallback(shared_from_this());
+    }
 }

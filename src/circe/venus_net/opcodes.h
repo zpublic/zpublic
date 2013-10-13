@@ -5,8 +5,9 @@
 
 namespace Opcodes
 {
-    //鉴权
-    const uint32_t C2SLoginRequest             = 400;   //肉鸡请求登录
+    //机器人鉴权
+    const uint32_t C2SRobotLoginReq             = 10000;
+    const uint32_t S2CRobotLoginRsp             = 10001;
 }
 
 #endif

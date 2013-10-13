@@ -12,12 +12,36 @@
     <ClInclude Include="targetver.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="io_dispatcher.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="opcodes_handler.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="service_deamon.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="session.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="session_manager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="asio_service_deamon.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="circe_server.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="opcodes_handler.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="asio_service_deamon.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

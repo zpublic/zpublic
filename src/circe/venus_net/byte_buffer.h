@@ -57,7 +57,7 @@ public:
 
     bool erase(size_t start, size_t end)
     {
-        std::vector<byte>::const_iterator iter = 
+        std::vector<byte>::iterator iter = 
             _buffer.erase(_buffer.begin() + start, _buffer.begin() + end);
         return (iter != _buffer.end());
     }

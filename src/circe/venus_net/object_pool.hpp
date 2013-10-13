@@ -133,8 +133,8 @@ private:
     }
 
 private:
-    uint32_t _chunk_size;
-    uint32_t _increase_size;
+    uint32 _chunk_size;
+    uint32 _increase_size;
     std::stack<_Ty*> _free_objects;
     std::vector<_Ty*> _all_objects;
 };
