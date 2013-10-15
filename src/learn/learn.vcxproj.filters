@@ -91,6 +91,9 @@
     <Filter Include="src\rapidxml\rapidxml">
       <UniqueIdentifier>{54501f83-8396-45c3-9572-be1a96c6164d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\linq">
+      <UniqueIdentifier>{f852326a-af1f-4bc9-a451-22515e2e7d7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -405,6 +408,9 @@
     <ClInclude Include="..\..\3rdparty\rapidxml-1.13\rapidxml_utils.hpp">
       <Filter>src\rapidxml\rapidxml</Filter>
     </ClInclude>
+    <ClInclude Include="test_linq.h">
+      <Filter>src\linq</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -667,6 +673,9 @@
     </ClCompile>
     <ClCompile Include="test_rapidxml.cpp">
       <Filter>src\rapidxml</Filter>
+    </ClCompile>
+    <ClCompile Include="test_linq.cpp">
+      <Filter>src\linq</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

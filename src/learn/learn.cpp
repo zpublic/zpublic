@@ -49,6 +49,7 @@
 
 #include "test_hp_socket.h"
 #include "test_rapidxml.h"
+#include "test_linq.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -88,7 +89,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_tut();
     //test_xde();
     //test_hp_socket();
-    test_rapidxml();
+    //test_rapidxml();
+    test_linq();
 
     getchar();
     return 0;
