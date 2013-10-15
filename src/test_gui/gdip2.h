@@ -34,10 +34,31 @@ private:
         {
             Graphics    graphics(hdc);
             SolidBrush  brush(Color(255, 0, 0, 255));
-            FontFamily  fontFamily(L"Times New Roman");
+            FontFamily  fontFamily(L"ËÎÌו");
             Font        font(&fontFamily, 24, FontStyleRegular, UnitPixel);
             PointF      pointF(10.0f, 20.0f);
             graphics.DrawString(L"Hello World!", -1, &font, pointF, &brush);
+
+            Gdiplus::StringFormat format;
+            Gdiplus::RectF layoutRect1(100, 100, 200, 13);
+            Gdiplus::RectF layoutRect2(100, 130, 200, 13);
+            format.SetFormatFlags(Gdiplus::StringFormatFlagsLineLimit);
+            format.SetLineAlignment(Gdiplus::StringAlignmentFar);
+            graphics.DrawString(
+                L"111111",
+                -1,
+                &font,
+                layoutRect1,
+                &format,
+                &brush);
+            format.SetLineAlignment(Gdiplus::StringAlignmentNear);
+            graphics.DrawString(
+                L"111111",
+                -1,
+                &font,
+                layoutRect2,
+                &format,
+                &brush);
         }
         EndPaint(&ps);
     }
