@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{b19e5574-e2ae-4e3d-a0fd-4c20b796dfbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\wtl">
+      <UniqueIdentifier>{926bf78e-1938-4ba8-a56d-c72143abeb18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gui">
+      <UniqueIdentifier>{7b823a45-4778-4626-a167-c4f9e48fd4d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{2f632200-f364-4d5a-b10b-83cc1dac3d06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{a349d63d-c2fb-4163-947e-fa082b1f0936}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AboutDlg.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="MainDlg.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="circe_client.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlcrack.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrls.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrlw.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrlx.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlddx.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atldlgs.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atldwm.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlfind.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlframe.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlgdi.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlmisc.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlprint.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlres.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlresce.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlribbon.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlscrl.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlsplit.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atltheme.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atluser.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwince.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="MainDlg.h">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="AboutDlg.h">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>main</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\circe_client.ico">
+      <Filter>res</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="circe_client.rc">
+      <Filter>res</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

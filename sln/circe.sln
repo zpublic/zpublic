@@ -5,7 +5,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "learn", "..\src\learn\learn
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "circe_client_network", "..\src\circe\circe_client_network\circe_client_network.vcxproj", "{277F7598-9312-46DA-AB12-0F0FB25153A5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C4A850AF-5315-4EF6-BC83-F954B2F7EDD3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unuse", "unuse", "{C4A850AF-5315-4EF6-BC83-F954B2F7EDD3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "circe_client_network_test", "..\src\circe\circe_client_network_test\circe_client_network_test.vcxproj", "{AC070CAD-D697-4454-8FB2-AD45AAAB8E96}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -23,6 +23,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "circe_client_console", "..\
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "venus_net", "..\src\circe\venus_net\venus_net.vcxproj", "{649D1913-E747-4A71-918D-67DE2185BAC3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "circe_client", "..\src\circe\circe_client\circe_client.vcxproj", "{7F2F8075-9EB8-4EEF-BCBF-CB64221B9C8C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_gui", "..\src\test_gui\test_gui.vcxproj", "{6C4E47FE-37AC-400D-9294-CEB18E0B1272}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "x", "x", "{0FAC4456-4B5A-4F4D-BE92-459BB7D808F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,11 +60,23 @@ Global
 		{649D1913-E747-4A71-918D-67DE2185BAC3}.Debug|Win32.Build.0 = Debug|Win32
 		{649D1913-E747-4A71-918D-67DE2185BAC3}.Release|Win32.ActiveCfg = Release|Win32
 		{649D1913-E747-4A71-918D-67DE2185BAC3}.Release|Win32.Build.0 = Release|Win32
+		{7F2F8075-9EB8-4EEF-BCBF-CB64221B9C8C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7F2F8075-9EB8-4EEF-BCBF-CB64221B9C8C}.Debug|Win32.Build.0 = Debug|Win32
+		{7F2F8075-9EB8-4EEF-BCBF-CB64221B9C8C}.Release|Win32.ActiveCfg = Release|Win32
+		{7F2F8075-9EB8-4EEF-BCBF-CB64221B9C8C}.Release|Win32.Build.0 = Release|Win32
+		{6C4E47FE-37AC-400D-9294-CEB18E0B1272}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6C4E47FE-37AC-400D-9294-CEB18E0B1272}.Debug|Win32.Build.0 = Debug|Win32
+		{6C4E47FE-37AC-400D-9294-CEB18E0B1272}.Release|Win32.ActiveCfg = Release|Win32
+		{6C4E47FE-37AC-400D-9294-CEB18E0B1272}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AC070CAD-D697-4454-8FB2-AD45AAAB8E96} = {C4A850AF-5315-4EF6-BC83-F954B2F7EDD3}
+		{C22C305C-26A6-41F7-BA00-24A10AFCFFFE} = {C4A850AF-5315-4EF6-BC83-F954B2F7EDD3}
+		{277F7598-9312-46DA-AB12-0F0FB25153A5} = {C4A850AF-5315-4EF6-BC83-F954B2F7EDD3}
+		{79284941-3A71-4A61-BFE8-56ABBB2AC8F6} = {0FAC4456-4B5A-4F4D-BE92-459BB7D808F2}
+		{6C4E47FE-37AC-400D-9294-CEB18E0B1272} = {0FAC4456-4B5A-4F4D-BE92-459BB7D808F2}
 	EndGlobalSection
 EndGlobal
