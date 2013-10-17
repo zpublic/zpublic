@@ -9,7 +9,7 @@
 
 int computes_a_sum ()
 {
-    using namespace cpplinq;    
+    using namespace cpplinq;
     int ints[] = {3,1,4,1,5,9,2,6,5,4};
 
     // Computes the sum of all even numbers in the sequence above
@@ -22,7 +22,7 @@ int computes_a_sum ()
 
 std::vector<int> creates_a_vector ()
 {
-    using namespace cpplinq;    
+    using namespace cpplinq;
     int ints[] = {3,1,4,1,5,9,2,6,5,4};
 
     // Computes the sum of all even numbers in the sequence above
@@ -35,7 +35,7 @@ std::vector<int> creates_a_vector ()
 
 std::vector<int> creates_a_sorted_vector ()
 {
-    using namespace cpplinq;    
+    using namespace cpplinq;
     int ints[] = {3,1,4,1,5,9,2,6,5,4};
 
     // Computes the sum of all even numbers in the sequence above
@@ -47,6 +47,20 @@ std::vector<int> creates_a_sorted_vector ()
         ;
 }
 
+void union_intersect()
+{
+    using namespace cpplinq;
+    int set1[] = {3,1,4,1,5,9,2,6,5,4};
+    int set2[] = {1,2,3,10};
+
+    auto set3 = from_array(set1) >> union_with(from_array(set2)) >> to_vector();
+    auto set4 = from_array(set1) >> intersect_with(from_array(set2)) >> to_vector();
+    std::cout<<"set3:";
+    for_each(set3.begin(), set3.end(), [](int i){std::cout<<" "<<i;});
+    std::cout<<std::endl<<"set4:";
+    for_each(set4.begin(), set4.end(), [](int i){std::cout<<" "<<i;});
+}
+
 void test_linq()
 {
     assert(computes_a_sum() == 16);
@@ -56,4 +70,5 @@ void test_linq()
     assert(vec2.size() == 4);
     assert(vec2[0] == 2);
     assert(vec2[3] == 6);
+    union_intersect();
 }
