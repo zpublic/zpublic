@@ -1,0 +1,17 @@
+gtest
+1.7.0
+
+boost
+1.53.0
+
+libcurl
+7.30.0
+
+lua
+5.2.2
+
+poco
+1.4.6p2
+
+protobuf
+2.5.0
