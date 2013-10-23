@@ -32,6 +32,8 @@
 #include "test_optional.h"
 #include "test_tribool.h"
 #include "test_program_options.h"
+
+#include "test_preprocessor.h"
 #endif // _TEST_BOOST_
 
 #ifdef _TEST_MISC_
@@ -81,6 +83,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_optional();
     //test_tribool();
     //test_program_options();
+    test_preprocessor();
 
     //test_protobuf();
     //test_libcurl();
@@ -90,7 +93,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_xde();
     //test_hp_socket();
     //test_rapidxml();
-    test_linq();
+    //test_linq();
 
     getchar();
     return 0;

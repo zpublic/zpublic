@@ -94,6 +94,9 @@
     <Filter Include="src\linq">
       <UniqueIdentifier>{f852326a-af1f-4bc9-a451-22515e2e7d7c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\boost\Preprocessor">
+      <UniqueIdentifier>{3e689651-a25b-4250-8d37-82416861988f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -411,6 +414,12 @@
     <ClInclude Include="test_linq.h">
       <Filter>src\linq</Filter>
     </ClInclude>
+    <ClInclude Include="test_preprocessor.h">
+      <Filter>src\boost\Preprocessor</Filter>
+    </ClInclude>
+    <ClInclude Include="test_preprocessor_repetition.h">
+      <Filter>src\boost\Preprocessor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -676,6 +685,12 @@
     </ClCompile>
     <ClCompile Include="test_linq.cpp">
       <Filter>src\linq</Filter>
+    </ClCompile>
+    <ClCompile Include="test_preprocessor.cpp">
+      <Filter>src\boost\Preprocessor</Filter>
+    </ClCompile>
+    <ClCompile Include="test_preprocessor_repetition.cpp">
+      <Filter>src\boost\Preprocessor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

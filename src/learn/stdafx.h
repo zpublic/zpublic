@@ -63,6 +63,7 @@ using std::endl;
 ///> Î»²Ù×÷
 #include <bitset>
 
+#define _TEST_BOOST_
 #ifdef _TEST_BOOST_
 ///> Conversion
 ///> Polymorphic and lexical casts.
@@ -146,6 +147,10 @@ using std::endl;
 ///> program options, that is (name, value) pairs from the user, via
 ///> conventional methods such as command line and config file.
 #include <boost/program_options.hpp>
+
+///> Preprocessor metaprogramming tools including repetition and recursion.
+#include <boost/preprocessor.hpp>
+
 #endif // _TEST_BOOST_
 
 #ifdef _TEST_MISC_
