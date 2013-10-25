@@ -144,7 +144,24 @@ LRESULT CMainFrame::OnFileOpen(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCt
     CFileDialog dlg(TRUE);
     if (dlg.DoModal() == IDOK)
     {
+        m_dbg.AddObserver(static_cast<DbgEventObserver*>(this));
         m_dbg.StartDebug(dlg.m_szFileName);
     }
     return 0;
+}
+
+void CMainFrame::OnProcessExited( const EXIT_PROCESS_DEBUG_INFO* )
+{
+    ::MessageBox(0, L"exit", L"hehe", MB_OK);
+}
+
+void CMainFrame::OnDllLoaded( const LOAD_DLL_DEBUG_INFO* pInfo)
+{
+
+}
+
+void CMainFrame::OnDllUnloaded( const UNLOAD_DLL_DEBUG_INFO* pInfo)
+{
+
+    //::MessageBox(0, param->lpBaseOfDll, L"load", MB_OK);
 }

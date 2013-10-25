@@ -10,6 +10,8 @@ public:
 
     int StartDebug(LPCWSTR lpFilePath);
     int StopDebug();
+    int AddObserver(DbgEventObserver* pObserver);
+    int RemoveObserver(DbgEventObserver* pObserver);
 
 private:
     static unsigned int __stdcall _DebugThreadProc(LPVOID lpParameter);

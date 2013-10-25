@@ -1,5 +1,6 @@
 ///> 负责派发调试事件给观察者
 #pragma once
+#include "dbg_event_observer.h"
 
 /*
 typedef struct _DEBUG_EVENT {
@@ -27,6 +28,8 @@ public:
     ~CDbgEventHandler();
 
     BOOL OnEvent(DEBUG_EVENT& debugEvent);
+    int AddObserver(DbgEventObserver* pObserver);
+    int RemoveObserver(DbgEventObserver* pObserver);
 
 private:
     void OnProcessCreated(const CREATE_PROCESS_DEBUG_INFO*);
@@ -38,4 +41,6 @@ private:
     void OnRipEvent(const RIP_INFO*);
     void OnDllLoaded(const LOAD_DLL_DEBUG_INFO*);
     void OnDllUnloaded(const UNLOAD_DLL_DEBUG_INFO*);
+
+    std::set<DbgEventObserver*> m_Observers;
 };

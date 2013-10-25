@@ -122,3 +122,13 @@ int CDbgMgr::StopDebug()
     _StopThread();
     return 0;
 }
+
+int CDbgMgr::AddObserver( DbgEventObserver* pObserver )
+{
+    return m_dbgEventHandler.AddObserver(pObserver);
+}
+
+int CDbgMgr::RemoveObserver( DbgEventObserver* pObserver )
+{
+    return m_dbgEventHandler.RemoveObserver(pObserver);
+}

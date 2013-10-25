@@ -128,6 +128,7 @@
     <ClInclude Include="AboutDlg.h" />
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="dbg_event_handler.h" />
+    <ClInclude Include="dbg_event_observer.h" />
     <ClInclude Include="dbg_mgr.h" />
     <ClInclude Include="debugerView.h" />
     <ClInclude Include="MainFrm.h" />

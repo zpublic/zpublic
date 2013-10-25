@@ -75,6 +75,9 @@
     <ClInclude Include="dbg_event_handler.h">
       <Filter>src\debug</Filter>
     </ClInclude>
+    <ClInclude Include="dbg_event_observer.h">
+      <Filter>src\debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="debuger.rc">

@@ -4,11 +4,14 @@
 
 #pragma once
 #include "dbg_mgr.h"
+#include "dbg_event_observer.h"
 
 class CMainFrame : 
 	public CMDIFrameWindowImpl<CMainFrame>, 
 	public CUpdateUI<CMainFrame>,
-	public CMessageFilter, public CIdleHandler
+	public CMessageFilter,
+    public CIdleHandler,
+    public DbgEventObserver
 {
 public:
 	DECLARE_FRAME_WND_CLASS(NULL, IDR_MAINFRAME)
@@ -56,6 +59,11 @@ public:
 	LRESULT OnWindowArrangeIcons(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
 
     LRESULT OnFileOpen(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
+
+    ///> DbgEventObserver
+    virtual void OnProcessExited( const EXIT_PROCESS_DEBUG_INFO* );
+    virtual void OnDllLoaded( const LOAD_DLL_DEBUG_INFO* );
+    virtual void OnDllUnloaded( const UNLOAD_DLL_DEBUG_INFO* );
 
 private:
     CDbgMgr m_dbg;
