@@ -13,7 +13,7 @@ class CMainFrame :
 public:
 	DECLARE_FRAME_WND_CLASS(NULL, IDR_MAINFRAME)
 
-	CMDICommandBarCtrl m_CmdBar;
+	//CMDICommandBarCtrl m_CmdBar;
 
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual BOOL OnIdle();

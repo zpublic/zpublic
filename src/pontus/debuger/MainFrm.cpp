@@ -30,29 +30,29 @@ BOOL CMainFrame::OnIdle()
 
 LRESULT CMainFrame::OnCreate(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/)
 {
-	// create command bar window
-	HWND hWndCmdBar = m_CmdBar.Create(m_hWnd, rcDefault, NULL, ATL_SIMPLE_CMDBAR_PANE_STYLE);
-	// attach menu
-	m_CmdBar.AttachMenu(GetMenu());
-	// load command bar images
-	m_CmdBar.LoadImages(IDR_MAINFRAME);
-	// remove old menu
-	SetMenu(NULL);
+// 	// create command bar window
+// 	HWND hWndCmdBar = m_CmdBar.Create(m_hWnd, rcDefault, NULL, ATL_SIMPLE_CMDBAR_PANE_STYLE);
+// 	// attach menu
+// 	m_CmdBar.AttachMenu(GetMenu());
+// 	// load command bar images
+// 	m_CmdBar.LoadImages(IDR_MAINFRAME);
+// 	// remove old menu
+// 	SetMenu(NULL);
+// 
+// 	HWND hWndToolBar = CreateSimpleToolBarCtrl(m_hWnd, IDR_MAINFRAME, FALSE, ATL_SIMPLE_TOOLBAR_PANE_STYLE);
+// 
+// 	CreateSimpleReBar(ATL_SIMPLE_REBAR_NOBORDER_STYLE);
+// 	AddSimpleReBarBand(hWndCmdBar);
+// 	AddSimpleReBarBand(hWndToolBar, NULL, TRUE);
 
-	HWND hWndToolBar = CreateSimpleToolBarCtrl(m_hWnd, IDR_MAINFRAME, FALSE, ATL_SIMPLE_TOOLBAR_PANE_STYLE);
-
-	CreateSimpleReBar(ATL_SIMPLE_REBAR_NOBORDER_STYLE);
-	AddSimpleReBarBand(hWndCmdBar);
-	AddSimpleReBarBand(hWndToolBar, NULL, TRUE);
-
-	CreateSimpleStatusBar();
+	//CreateSimpleStatusBar();
 
 	CreateMDIClient();
-	m_CmdBar.SetMDIClient(m_hWndMDIClient);
+	//m_CmdBar.SetMDIClient(m_hWndMDIClient);
 
-	UIAddToolBar(hWndToolBar);
-	UISetCheck(ID_VIEW_TOOLBAR, 1);
-	UISetCheck(ID_VIEW_STATUS_BAR, 1);
+// 	UIAddToolBar(hWndToolBar);
+// 	UISetCheck(ID_VIEW_TOOLBAR, 1);
+// 	UISetCheck(ID_VIEW_STATUS_BAR, 1);
 
 	// register object for message filtering and idle updates
 	CMessageLoop* pLoop = _Module.GetMessageLoop();
@@ -65,7 +65,7 @@ LRESULT CMainFrame::OnCreate(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/
 
 LRESULT CMainFrame::OnDestroy(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& bHandled)
 {
-		m_CmdBar.AttachMenu(NULL);
+		//m_CmdBar.AttachMenu(NULL);
 
 	// unregister message filtering and idle updates
 	CMessageLoop* pLoop = _Module.GetMessageLoop();
