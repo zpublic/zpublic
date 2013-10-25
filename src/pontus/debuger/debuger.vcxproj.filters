@@ -1,73 +1,95 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{7072166f-6e79-4bc9-b7a3-5c7c19d7d927}</UniqueIdentifier>
-      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    <Filter Include="src">
+      <UniqueIdentifier>{dd0cc2ae-d72a-4c1c-8464-de566c4a7595}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{e683184e-7786-4a0c-81e9-70ee6827a4c8}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
+    <Filter Include="src\gui">
+      <UniqueIdentifier>{3e3d8a2a-42db-4a08-b10c-e04112fca3a7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
+    <Filter Include="src\pe">
+      <UniqueIdentifier>{0b432214-b41d-438b-8f90-3922bd789445}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\process">
+      <UniqueIdentifier>{691170c5-1eea-4f9b-af82-8716ab090939}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\debug">
+      <UniqueIdentifier>{da7c6253-4dab-4339-8986-60d6bfdfe2db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res">
       <UniqueIdentifier>{bcc163f9-22f9-4d72-9b52-88a73ace89ac}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest</Extensions>
     </Filter>
+    <Filter Include="src\main">
+      <UniqueIdentifier>{1b9fd4d5-e7f6-488e-a004-f3cdcb442bd3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="debuger.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MainFrm.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="AboutDlg.cpp">
+      <Filter>src\gui</Filter>
     </ClCompile>
     <ClCompile Include="ChildFrm.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src\gui</Filter>
     </ClCompile>
     <ClCompile Include="debugerView.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src\gui</Filter>
     </ClCompile>
-    <ClCompile Include="AboutDlg.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>src\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="debuger.cpp">
+      <Filter>src\main</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src\main</Filter>
+    </ClCompile>
+    <ClCompile Include="dbg_mgr.cpp">
+      <Filter>src\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="dbg_event_handler.cpp">
+      <Filter>src\debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MainFrm.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="AboutDlg.h">
+      <Filter>src\gui</Filter>
     </ClInclude>
     <ClInclude Include="ChildFrm.h">
-      <Filter>Header Files</Filter>
+      <Filter>src\gui</Filter>
     </ClInclude>
     <ClInclude Include="debugerView.h">
-      <Filter>Header Files</Filter>
+      <Filter>src\gui</Filter>
     </ClInclude>
-    <ClInclude Include="AboutDlg.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="MainFrm.h">
+      <Filter>src\gui</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
+      <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="dbg_mgr.h">
+      <Filter>src\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="dbg_event_handler.h">
+      <Filter>src\debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="debuger.rc">
-      <Filter>Resource Files</Filter>
+      <Filter>res</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\toolbar.bmp">
-      <Filter>Resource Files</Filter>
+      <Filter>res</Filter>
     </Image>
     <Image Include="res\debuger.ico">
-      <Filter>Resource Files</Filter>
+      <Filter>res</Filter>
     </Image>
     <Image Include="res\debugerDoc.ico">
-      <Filter>Resource Files</Filter>
+      <Filter>res</Filter>
     </Image>
   </ItemGroup>
 </Project>

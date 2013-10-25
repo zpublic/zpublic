@@ -11,8 +11,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_pellets", "..\src\test
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_basic", "..\src\test_basic\test_basic.vcxproj", "{D8116073-6948-4FAB-BC31-DAD96D94B7DF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pontus_debuger", "..\src\pontus\pontus_debuger\pontus_debuger.vcxproj", "{E39E0FEE-E1BF-4331-939F-E4BDA3152600}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "debuger", "..\src\pontus\debuger\debuger.vcxproj", "{79330EE5-8ED9-4117-B253-E23CE083E5A7}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{D8116073-6948-4FAB-BC31-DAD96D94B7DF}.Debug|Win32.Build.0 = Debug|Win32
 		{D8116073-6948-4FAB-BC31-DAD96D94B7DF}.Release|Win32.ActiveCfg = Release|Win32
 		{D8116073-6948-4FAB-BC31-DAD96D94B7DF}.Release|Win32.Build.0 = Release|Win32
-		{E39E0FEE-E1BF-4331-939F-E4BDA3152600}.Debug|Win32.ActiveCfg = Debug|Win32
-		{E39E0FEE-E1BF-4331-939F-E4BDA3152600}.Debug|Win32.Build.0 = Debug|Win32
-		{E39E0FEE-E1BF-4331-939F-E4BDA3152600}.Release|Win32.ActiveCfg = Release|Win32
-		{E39E0FEE-E1BF-4331-939F-E4BDA3152600}.Release|Win32.Build.0 = Release|Win32
 		{79330EE5-8ED9-4117-B253-E23CE083E5A7}.Debug|Win32.ActiveCfg = Debug|Win32
 		{79330EE5-8ED9-4117-B253-E23CE083E5A7}.Debug|Win32.Build.0 = Debug|Win32
 		{79330EE5-8ED9-4117-B253-E23CE083E5A7}.Release|Win32.ActiveCfg = Release|Win32

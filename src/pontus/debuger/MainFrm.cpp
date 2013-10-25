@@ -138,3 +138,13 @@ LRESULT CMainFrame::OnWindowArrangeIcons(WORD /*wNotifyCode*/, WORD /*wID*/, HWN
 	MDIIconArrange();
 	return 0;
 }
+
+LRESULT CMainFrame::OnFileOpen(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
+{
+    CFileDialog dlg(TRUE);
+    if (dlg.DoModal() == IDOK)
+    {
+        m_dbg.StartDebug(dlg.m_szFileName);
+    }
+    return 0;
+}
