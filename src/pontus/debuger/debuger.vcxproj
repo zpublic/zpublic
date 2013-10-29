@@ -114,8 +114,10 @@
   <ItemGroup>
     <ClCompile Include="AboutDlg.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
+    <ClCompile Include="dbg_control.cpp" />
     <ClCompile Include="dbg_event_handler.cpp" />
     <ClCompile Include="dbg_mgr.cpp" />
+    <ClCompile Include="dbg_session.cpp" />
     <ClCompile Include="debuger.cpp" />
     <ClCompile Include="debugerView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
@@ -127,9 +129,11 @@
   <ItemGroup>
     <ClInclude Include="AboutDlg.h" />
     <ClInclude Include="ChildFrm.h" />
+    <ClInclude Include="dbg_control.h" />
     <ClInclude Include="dbg_event_handler.h" />
     <ClInclude Include="dbg_event_observer.h" />
     <ClInclude Include="dbg_mgr.h" />
+    <ClInclude Include="dbg_session.h" />
     <ClInclude Include="debugerView.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="resource.h" />

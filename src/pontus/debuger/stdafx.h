@@ -38,3 +38,6 @@ using namespace WTL;
 
 #include <assert.h>
 #include <atlstr.h>
+
+
+#include <DbgHelp.h>
