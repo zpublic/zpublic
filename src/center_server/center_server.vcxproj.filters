@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="io_dispatcher.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="game_service.h" />
+    <ClInclude Include="opcodes_handler.h">
+      <Filter>handler</Filter>
+    </ClInclude>
+    <ClInclude Include="game_service_deamon.h" />
+    <ClInclude Include="game_database_session.h">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="game_sql.h">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="db_player.h">
+      <Filter>data\dbc</Filter>
+    </ClInclude>
+    <ClInclude Include="game_util.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="network_session.h">
+      <Filter>handler</Filter>
+    </ClInclude>
+    <ClInclude Include="game_session.h">
+      <Filter>handler</Filter>
+    </ClInclude>
+    <ClInclude Include="global_instance.h" />
+    <ClInclude Include="session_manager.h">
+      <Filter>manager</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>obj</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="center_server.cpp" />
+    <ClCompile Include="opcodes_handler.cpp">
+      <Filter>handler</Filter>
+    </ClCompile>
+    <ClCompile Include="game_service_deamon.cpp" />
+    <ClCompile Include="game_service.cpp" />
+    <ClCompile Include="game_database_session.cpp">
+      <Filter>data</Filter>
+    </ClCompile>
+    <ClCompile Include="network_session.cpp">
+      <Filter>handler</Filter>
+    </ClCompile>
+    <ClCompile Include="game_session.cpp">
+      <Filter>handler</Filter>
+    </ClCompile>
+    <ClCompile Include="login_handler.cpp">
+      <Filter>handler\login</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="network">
+      <UniqueIdentifier>{46983ab3-028f-4e44-bb4f-e33bf7bbbdcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="handler">
+      <UniqueIdentifier>{d4a463a3-b6ff-4a3f-b51e-ff454c1a783e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data">
+      <UniqueIdentifier>{ebe87f47-529a-4cf1-99a1-98ca8cc4427f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\dbc">
+      <UniqueIdentifier>{313b450e-3572-462c-b8ea-ba83d7e4851d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{272cf44c-a21d-48c1-9afe-899b9432cc93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="handler\login">
+      <UniqueIdentifier>{87ffc5bc-8f6b-46cd-b3cd-c9828f0c31a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="obj">
+      <UniqueIdentifier>{132ee0b1-f56f-4b30-9bef-b935e5a036e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="manager">
+      <UniqueIdentifier>{1b3921b6-a8fb-4043-901a-4593976b57ad}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
