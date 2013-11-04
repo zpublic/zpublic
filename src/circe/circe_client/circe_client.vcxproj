@@ -37,13 +37,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>Debug\</IntDir>
-    <OutDir>Debug\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IntDir>Release\</IntDir>
-    <OutDir>Release\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -55,13 +55,15 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/include;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_ALL_NO_LIB;WIN32;_WINDOWS;STRICT;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../../3rdparty/poco/Foundation/include;../../venus_net;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>venus_net.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutputPath);./../../../3rdparty/boost_lib/;./../../../3rdparty/poco_lib/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ResourceCompile>
       <Culture>0x0409</Culture>
@@ -87,12 +89,14 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <ExceptionHandling />
       <DebugInformationFormat />
-      <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/include;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_ALL_NO_LIB;WIN32;_WINDOWS;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../../3rdparty/poco/Foundation/include;../../venus_net;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalDependencies>venus_net.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutputPath);./../../../3rdparty/boost_lib/;./../../../3rdparty/poco_lib/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ResourceCompile>
       <Culture>0x0409</Culture>
@@ -114,7 +118,10 @@
   <ItemGroup>
     <ClCompile Include="AboutDlg.cpp" />
     <ClCompile Include="circe_client.cpp" />
+    <ClCompile Include="game_session.cpp" />
     <ClCompile Include="MainDlg.cpp" />
+    <ClCompile Include="network_session.cpp" />
+    <ClCompile Include="opcodes_handler.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -144,7 +151,10 @@
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwince.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h" />
     <ClInclude Include="AboutDlg.h" />
+    <ClInclude Include="game_session.h" />
     <ClInclude Include="MainDlg.h" />
+    <ClInclude Include="network_session.h" />
+    <ClInclude Include="opcodes_handler.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>

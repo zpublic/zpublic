@@ -18,6 +18,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "circe_client_console", "..\
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "circe_client", "..\src\circe\circe_client\circe_client.vcxproj", "{7F2F8075-9EB8-4EEF-BCBF-CB64221B9C8C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{649D1913-E747-4A71-918D-67DE2185BAC3} = {649D1913-E747-4A71-918D-67DE2185BAC3}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_gui", "..\src\test_gui\test_gui.vcxproj", "{6C4E47FE-37AC-400D-9294-CEB18E0B1272}"
 EndProject

@@ -16,6 +16,9 @@
     <Filter Include="res">
       <UniqueIdentifier>{a349d63d-c2fb-4163-947e-fa082b1f0936}</UniqueIdentifier>
     </Filter>
+    <Filter Include="net">
+      <UniqueIdentifier>{da8dc1c0-69ab-4ae9-9900-33223649fdbe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AboutDlg.cpp">
@@ -29,6 +32,15 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="opcodes_handler.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="game_session.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="network_session.cpp">
+      <Filter>net</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +121,15 @@
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="opcodes_handler.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="game_session.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="network_session.h">
+      <Filter>net</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
