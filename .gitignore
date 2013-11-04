@@ -25,6 +25,7 @@
 !/3rdparty/boost_lib/*.lib
 !/3rdparty/protobuf_lib/*.lib
 !/3rdparty/libcurl_lib/*.lib
+!/3rdparty/poco_lib/*.lib
 
 Debug
 !/3rdparty/boost/preprocessor/debug/
@@ -57,3 +58,5 @@ Release
 /src/learn/data.io
 /src/irene/common/protocol
 /src/irene/bin
+
+/output/mud_server/game_server.log
