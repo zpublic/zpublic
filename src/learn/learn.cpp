@@ -11,6 +11,7 @@
 #include "test_bitset.h"
 #include "test_array.h"
 #include "test_stream.h"
+#include "test_functional.h"
 
 #include "test_conversion.h"
 #include "test_string_aogo.h"
@@ -62,6 +63,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_bitset();
     //test_array();
     //test_stream();
+    test_functional();
 
     //test_conversion();
     //test_string_aogo();
@@ -83,7 +85,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_optional();
     //test_tribool();
     //test_program_options();
-    test_preprocessor();
+    //test_preprocessor();
 
     //test_protobuf();
     //test_libcurl();

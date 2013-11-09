@@ -420,6 +420,9 @@
     <ClInclude Include="test_preprocessor_repetition.h">
       <Filter>src\boost\Preprocessor</Filter>
     </ClInclude>
+    <ClInclude Include="test_functional.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -691,6 +694,9 @@
     </ClCompile>
     <ClCompile Include="test_preprocessor_repetition.cpp">
       <Filter>src\boost\Preprocessor</Filter>
+    </ClCompile>
+    <ClCompile Include="test_functional.cpp">
+      <Filter>src\standard\c++11</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -63,6 +63,9 @@ using std::endl;
 ///> Î»²Ù×÷
 #include <bitset>
 
+///> functional
+#include <functional>
+
 #define _TEST_BOOST_
 #ifdef _TEST_BOOST_
 ///> Conversion
