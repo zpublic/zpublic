@@ -75,18 +75,6 @@
     <ClInclude Include="tcp_server.h">
       <Filter>network\tcp\tcp_server</Filter>
     </ClInclude>
-    <ClInclude Include="protocol\10002_C2SRegisterReq.pb.h">
-      <Filter>protocol\protobuf</Filter>
-    </ClInclude>
-    <ClInclude Include="protocol\10003_S2CRegisterRsp.pb.h">
-      <Filter>protocol\protobuf</Filter>
-    </ClInclude>
-    <ClInclude Include="protocol\10000_C2SLoginReq.pb.h">
-      <Filter>protocol\protobuf</Filter>
-    </ClInclude>
-    <ClInclude Include="protocol\10001_S2CLoginRsp.pb.h">
-      <Filter>protocol\protobuf</Filter>
-    </ClInclude>
     <ClInclude Include="service.h">
       <Filter>framework\service_template</Filter>
     </ClInclude>
@@ -123,6 +111,36 @@
     <ClInclude Include="manager.h">
       <Filter>framework</Filter>
     </ClInclude>
+    <ClInclude Include="protocol\15000_C2SGetPlayerProfileReq.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\99990_S2CError.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\99991_S2CErrorEx.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\10000_C2SLoginReq.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\10001_S2CLoginRsp.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\10002_C2SRegisterReq.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\10003_S2CRegisterRsp.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\15001_S2CGetPlayerProfileRsp.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\20000_C2SChatMessageReq.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\20001_S2CChatMessageNotify.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="error_code.cpp">
@@ -143,10 +161,13 @@
     <ClCompile Include="tcp_server.cpp">
       <Filter>network\tcp\tcp_server</Filter>
     </ClCompile>
-    <ClCompile Include="protocol\10002_C2SRegisterReq.pb.cc">
+    <ClCompile Include="server_logger.cpp">
+      <Filter>framework\logger</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\99990_S2CError.pb.cc">
       <Filter>protocol\protobuf</Filter>
     </ClCompile>
-    <ClCompile Include="protocol\10003_S2CRegisterRsp.pb.cc">
+    <ClCompile Include="protocol\99991_S2CErrorEx.pb.cc">
       <Filter>protocol\protobuf</Filter>
     </ClCompile>
     <ClCompile Include="protocol\10000_C2SLoginReq.pb.cc">
@@ -155,8 +176,23 @@
     <ClCompile Include="protocol\10001_S2CLoginRsp.pb.cc">
       <Filter>protocol\protobuf</Filter>
     </ClCompile>
-    <ClCompile Include="server_logger.cpp">
-      <Filter>framework\logger</Filter>
+    <ClCompile Include="protocol\10002_C2SRegisterReq.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\10003_S2CRegisterRsp.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\15000_C2SGetPlayerProfileReq.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\15001_S2CGetPlayerProfileRsp.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\20001_S2CChatMessageNotify.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\20000_C2SChatMessageReq.pb.cc">
+      <Filter>protocol\protobuf</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

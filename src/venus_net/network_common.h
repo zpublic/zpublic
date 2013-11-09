@@ -11,6 +11,8 @@
 
 #include "common.h"
 #include "inet_address.h"
+#include "protobuf.h"
+#include "opcodes.h"
 
 #ifdef _WIN32
 #include <windows.h>

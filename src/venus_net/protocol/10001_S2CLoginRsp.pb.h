@@ -110,20 +110,30 @@ class S2CLoginRsp : public ::google::protobuf::Message {
   inline ::std::string* release_failed_reason();
   inline void set_allocated_failed_reason(::std::string* failed_reason);
 
+  // optional uint64 player_id = 3;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 3;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
   // @@protoc_insertion_point(class_scope:Protocol.S2CLoginRsp)
  private:
   inline void set_has_login_result();
   inline void clear_has_login_result();
   inline void set_has_failed_reason();
   inline void clear_has_failed_reason();
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* failed_reason_;
+  ::google::protobuf::uint64 player_id_;
   bool login_result_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_10001_5fS2CLoginRsp_2eproto();
   friend void protobuf_AssignDesc_10001_5fS2CLoginRsp_2eproto();
@@ -229,6 +239,28 @@ inline void S2CLoginRsp::set_allocated_failed_reason(::std::string* failed_reaso
     clear_has_failed_reason();
     failed_reason_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
+}
+
+// optional uint64 player_id = 3;
+inline bool S2CLoginRsp::has_player_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void S2CLoginRsp::set_has_player_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void S2CLoginRsp::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void S2CLoginRsp::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 S2CLoginRsp::player_id() const {
+  return player_id_;
+}
+inline void S2CLoginRsp::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
 }
 
 

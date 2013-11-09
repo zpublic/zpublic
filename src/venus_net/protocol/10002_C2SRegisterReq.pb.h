@@ -127,7 +127,7 @@ class C2SRegisterReq : public ::google::protobuf::Message {
   inline ::std::string* release_nickname();
   inline void set_allocated_nickname(::std::string* nickname);
 
-  // optional int32 gender = 4;
+  // required int32 gender = 4;
   inline bool has_gender() const;
   inline void clear_gender();
   static const int kGenderFieldNumber = 4;
@@ -389,7 +389,7 @@ inline void C2SRegisterReq::set_allocated_nickname(::std::string* nickname) {
   }
 }
 
-// optional int32 gender = 4;
+// required int32 gender = 4;
 inline bool C2SRegisterReq::has_gender() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }

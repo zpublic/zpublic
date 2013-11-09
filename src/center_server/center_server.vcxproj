@@ -50,10 +50,13 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);BOOST_ALL_NO_LIB</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);BOOST_ALL_NO_LIB;_WIN32_WINNT=0x0501</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>../venus_net;../../3rdparty;../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../3rdparty/poco/Foundation/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DisableSpecificWarnings>4099;</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -73,10 +76,12 @@ xcopy /Y /Q "$(TargetPath)" "../../output/mud_server"</Command>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);BOOST_ALL_NO_LIB</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);BOOST_ALL_NO_LIB;_WIN32_WINNT=0x0501</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>../venus_net;../../3rdparty;../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../3rdparty/poco/Foundation/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DisableSpecificWarnings>4099;</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -92,7 +97,8 @@ xcopy /Y /Q "$(TargetPath)" "../../output/mud_server"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="db_player.h" />
+    <ClInclude Include="game_object.h" />
+    <ClInclude Include="player_db.h" />
     <ClInclude Include="game_database_session.h" />
     <ClInclude Include="game_service_deamon.h" />
     <ClInclude Include="game_service.h" />
@@ -104,17 +110,23 @@ xcopy /Y /Q "$(TargetPath)" "../../output/mud_server"</Command>
     <ClInclude Include="io_dispatcher.h" />
     <ClInclude Include="opcodes_handler.h" />
     <ClInclude Include="player.h" />
-    <ClInclude Include="session_manager.h" />
+    <ClInclude Include="game_session_manager.h" />
+    <ClInclude Include="player_manager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="chat_handler.cpp" />
     <ClCompile Include="game_database_session.cpp" />
     <ClCompile Include="game_service.cpp" />
     <ClCompile Include="game_service_deamon.cpp" />
     <ClCompile Include="center_server.cpp" />
     <ClCompile Include="game_session.cpp" />
+    <ClCompile Include="game_session_manager.cpp" />
     <ClCompile Include="login_handler.cpp" />
     <ClCompile Include="opcodes_handler.cpp" />
     <ClCompile Include="network_session.cpp" />
+    <ClCompile Include="player.cpp" />
+    <ClCompile Include="player_handler.cpp" />
+    <ClCompile Include="player_manager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

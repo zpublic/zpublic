@@ -6,6 +6,9 @@
 #include <packet.h>
 #include <tcp_connection.h>
 
+#define PARSE_NETWORK_MESSAGE(message, request) \
+    if (message.data != nullptr) message.parse(request)
+
 class NetworkSession
 {
 public:
@@ -17,7 +20,6 @@ public:
     TcpConnectionPtr& connection();
     uint64 session_id() const;
 
-protected:
     template <typename T> void send_message(uint32 opcode, const T& message)
     {
         if (_connection != nullptr)
@@ -37,6 +39,21 @@ protected:
 
             SAFE_DELETE_ARR(message_data);
         }
+    }
+
+    void send_error(uint32 error_code)
+    {
+        Protocol::S2CError error;
+        error.set_error_code(error_code);
+        send_message<Protocol::S2CError>(Opcodes::S2CError, error);
+    }
+
+    void send_error_ex(uint32 error_code, const std::string& error_reason)
+    {
+        Protocol::S2CErrorEx error_ex;
+        error_ex.set_error_code(error_code);
+        error_ex.set_error_reason(error_reason);
+        send_message<Protocol::S2CErrorEx>(Opcodes::S2CErrorEx, error_ex);
     }
 
 private:

@@ -85,7 +85,7 @@ void protobuf_AddDesc_10002_5fC2SRegisterReq_2eproto() {
     "\n\03210002_C2SRegisterReq.proto\022\010Protocol\"`"
     "\n\016C2SRegisterReq\022\r\n\005email\030\001 \002(\t\022\020\n\010passw"
     "ord\030\002 \002(\t\022\020\n\010nickname\030\003 \002(\014\022\016\n\006gender\030\004 "
-    "\001(\005\022\013\n\003BWH\030\005 \001(\r", 136);
+    "\002(\005\022\013\n\003BWH\030\005 \001(\r", 136);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "10002_C2SRegisterReq.proto", &protobuf_RegisterTypes);
   C2SRegisterReq::default_instance_ = new C2SRegisterReq();
@@ -250,7 +250,7 @@ bool C2SRegisterReq::MergePartialFromCodedStream(
         break;
       }
 
-      // optional int32 gender = 4;
+      // required int32 gender = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -324,7 +324,7 @@ void C2SRegisterReq::SerializeWithCachedSizes(
       3, this->nickname(), output);
   }
 
-  // optional int32 gender = 4;
+  // required int32 gender = 4;
   if (has_gender()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->gender(), output);
   }
@@ -369,7 +369,7 @@ void C2SRegisterReq::SerializeWithCachedSizes(
         3, this->nickname(), target);
   }
 
-  // optional int32 gender = 4;
+  // required int32 gender = 4;
   if (has_gender()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->gender(), target);
   }
@@ -411,7 +411,7 @@ int C2SRegisterReq::ByteSize() const {
           this->nickname());
     }
 
-    // optional int32 gender = 4;
+    // required int32 gender = 4;
     if (has_gender()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -484,7 +484,7 @@ void C2SRegisterReq::CopyFrom(const C2SRegisterReq& from) {
 }
 
 bool C2SRegisterReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
 
   return true;
 }

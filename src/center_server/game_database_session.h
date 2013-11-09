@@ -7,6 +7,8 @@
 #include <Poco/Data/RecordSet.h>
 #include <Poco/Data/SessionFactory.h>
 
+class PlayerDB;
+
 class GameDatabaseSession
     : public Venus::Singleton<GameDatabaseSession>
 {
@@ -30,14 +32,19 @@ public:
 
     //插入新的用户记录
     void insertNewUserRecord(
-        uint64 user_id, 
+        uint64 guid, 
         const std::string& email,
         const std::string& password,
-        uint8 gender,
+        int32 gender,
         const std::string& nickname,
         const std::string& register_ip,
         uint64 register_timestamp
     );
+
+    //====================================================================
+    // 角色相关
+    //====================================================================
+    bool loadPlayerInfo(uint64 guid, PlayerDB* playerDB);
 
 private:
     Poco::Data::Session _db_session;

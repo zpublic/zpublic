@@ -93,7 +93,7 @@ void Acceptor::accept()
 
     //投递一个accept请求到io队列，并回调到acceptHandler
     _acceptor.async_accept(
-        new_connection->socket().socket(),
+        new_connection->rawSocket().socket(),
         _strand.wrap(
             std::bind(&Acceptor::acceptHandler, this, new_connection)
         )

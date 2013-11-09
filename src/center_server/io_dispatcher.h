@@ -4,7 +4,7 @@
 #include <network_common.h>
 #include <tcp_connection.h>
 #include "opcodes_handler.h"
-#include "session_manager.h"
+#include "game_session_manager.h"
 
 class IODispatcher
 {
@@ -15,15 +15,14 @@ public:
 public:
     void NewConnectionHandler(const TcpConnectionPtr& connection, const InetAddress& peerAddress)
     {
-        GameSession* session = SessionPool::getInstance().acquire(connection->handle());
+        GameSession* session = GameSessionManager::getInstance().createSession(connection->handle());
         session->set_connection_ptr(connection);
-        GameSessionManager::getInstance().add(session->session_id(), session);
-        std::cout << "New Session [NativeHandle = " << connection->handle() << ", Peer = " << peerAddress.toIpHost() << "]" << std::endl;
+        debug_log("New Session [NativeHandle = %d, Peer = %s", connection->handle(), peerAddress.toIpHost().c_str());
     }
 
-    void WriteCompletedHandler(const TcpConnectionPtr& connection, uint32_t bytes_transferred)
+    void WriteCompletedHandler(const TcpConnectionPtr& connection, uint32 bytes_transferred)
     {
-        std::cout << "Write completed handler." << std::endl;
+        info_log("Connection [%d] write completed. bytes_transferred = %d", connection->handle(), bytes_transferred);
     }
 
     void ReadCompletedHandler(
@@ -32,13 +31,14 @@ public:
         const byte* data, 
         uint32_t bytes_transferred)
     {
-        std::cout << "Read completed handler." << std::endl;
-        std::cout << "  opcode = " << opcode << std::endl;
+        info_log("received data :");
+        info_log("  bytes_transferred = %d", bytes_transferred);
+        info_log("  opcode = ", opcode);
 
         OpcodeHandler* handler = OpcodeTable::instance()[opcode];
         if (handler != nullptr)
         {
-            GameSession* session = GameSessionManager::getInstance().get(connection->handle());
+            GameSession* session = GameSessionManager::getInstance().getSession(connection->handle());
             if (session != nullptr)
             {
                 NetworkMessage network_message;
@@ -50,17 +50,16 @@ public:
         }
         else
         {
-            std::cout << "No registered event handler for Opcode " << opcode << std::endl;
+            warning_log("No registered event handler for Opcode %d", opcode);
         }
     }
 
     void ConnectionClosed(const TcpConnectionPtr& connection)
     {
         std::cout << "Connection closed handler." << std::endl;
-        GameSession* session = GameSessionManager::getInstance().get(connection->handle());
+        GameSession* session = GameSessionManager::getInstance().getSession(connection->handle());
         session->set_connection_ptr(nullptr);
-        GameSessionManager::getInstance().remove(session->session_id());
-        SessionPool::getInstance().release(session);
+        GameSessionManager::getInstance().destroySession(session);
     }
 
 };

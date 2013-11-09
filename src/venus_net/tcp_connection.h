@@ -27,16 +27,13 @@ public:
     {
         return _socket->handle();
     }
-    void setInetAddress(const InetAddress& inetAddress);
-    const InetAddress& getPeerAddress();
-    void connectAsync();
-    void connectAsync(const InetAddress& inetAddress);
+    InetAddress getPeerAddress();
     void shutdown();
     void close();
     void writeAsync(const byte* data, size_t size);
     void writeAsync(const uint32& opcode, const byte* data, size_t size);
     void readAsync();
-    Socket& socket();
+    Socket& rawSocket();
     bool is_open();
 
 public:

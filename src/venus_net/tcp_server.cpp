@@ -79,10 +79,11 @@ void TcpServer::newConnectionCallback(const TcpConnectionPtr& connection)
 {
     debug_log("thread id = %d", std::this_thread::get_id());
 
-    const Socket& socket = connection->socket();
+    /*const Socket& socket = connection->rawSocket();
+    
     const std::string& remote_address = socket.getPeerAddress().host();
     uint16 remote_port = socket.getPeerAddress().port();
-    InetAddress peerAddress(remote_address, remote_port);
+    InetAddress peerAddress(remote_address, remote_port);*/
 
     //callbacks
     connection->setWriteCompletedCallback(_writeCompletedCallback);
@@ -91,6 +92,6 @@ void TcpServer::newConnectionCallback(const TcpConnectionPtr& connection)
 
     if (_newConnectionCallback)
     {
-        _newConnectionCallback(connection, peerAddress);
+        _newConnectionCallback(connection, connection->getPeerAddress());
     }
 }

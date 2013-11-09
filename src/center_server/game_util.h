@@ -4,10 +4,8 @@
 #include <common.h>
 #include <regex>
 
-class GameUtil
-    : public Venus::Singleton<GameUtil>
+namespace GameUtil
 {
-public:
     //通过邮箱帐号转换为唯一ID
     uint64 toUniqueId(const std::string& email)
     {
@@ -33,6 +31,6 @@ public:
         return std::regex_match(passwordHash, regex);
     }
 
-};
+}
 
 #endif

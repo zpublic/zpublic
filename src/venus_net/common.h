@@ -1,11 +1,11 @@
 #ifndef __COMMON_H_
 #define __COMMON_H_
 
-#ifdef _WIN32
+#if defined(_WIN32)
 	#define SERVER_DECL __declspec(dllexport)
 #endif
 
-//types
+// types
 #if defined(_WIN32)	//for windows
 #ifndef byte
 typedef unsigned __int8    byte;
@@ -34,13 +34,14 @@ typedef unsigned int       uint32;
 typedef unsigned long long uint64;
 #endif
 
-//Lines
+// lines
 #if defined(_WIN32)
 #define NEWLINE "\r\n"
 #else
 #define NEWLINE "\n"
 #endif
 
+// safe delete macro
 #ifndef SAFE_DELETE
 #define SAFE_DELETE(x)	if (nullptr != (x)) { delete (x); (x) = nullptr; }
 #endif
@@ -49,15 +50,29 @@ typedef unsigned long long uint64;
 #define SAFE_DELETE_ARR(x)	if (nullptr != (x)) { delete [] (x); (x) = nullptr; }
 #endif
 
+#ifndef CHECK_NULLPTR
+#define CHECK_NULLPTR(ptr, log) if (nullptr == ptr) error_log(log)
+#endif
+
+#ifndef GETTER_SETTER_MEMBER
+#define GETTER_SETTER_MEMBER(type, name) \
+    private: type _##name; \
+    public: type name() const {return this->m_##name;} \
+    public: void name(type _arg){this->m_##name=_arg;} \
+    private:
+#endif
+
+// boost
 #include <boost/asio.hpp>
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
 #include <boost/noncopyable.hpp>
+
+// std
 #include <string>
 #include <functional>
 #include <thread>
 #include <iostream>
-#include <stdint.h>
 #include <list>
 #include <queue>
 #include <deque>
@@ -66,7 +81,21 @@ typedef unsigned long long uint64;
 #include <map>
 #include <hash_map>
 #include <mutex>
+
+// google
 #include <google/protobuf/message.h>
+
+// adaptive map
+#if defined(_WIN32)
+#include <unordered_map>
+template <typename Key, typename Value>
+class adap_map : public std::unordered_map<Key, Value> {};
+#else
+template <typename Key, typename Value>
+class adap_map : public std::map<Key, Value> {};
+#endif
+
+// venus net
 #include "singleton.h"
 #include "server_logger.h"
 

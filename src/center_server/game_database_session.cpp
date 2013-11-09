@@ -1,4 +1,5 @@
 #include "game_database_session.h"
+#include "player_db.h"
 
 GameDatabaseSession::GameDatabaseSession()
     : _db_session("SQLite", "./data/zeus_mud.db"), _db_stmt(_db_session)
@@ -47,25 +48,43 @@ bool GameDatabaseSession::userAuth(const std::string& email, const std::string& 
 }
 
 void GameDatabaseSession::insertNewUserRecord(
-    uint64 user_id, 
+    uint64 guid, 
     const std::string& email,
     const std::string& password,
-    uint8 gender,
+    int32 gender,
     const std::string& nickname,
     const std::string& register_ip,
-    uint64 register_timestamp
+    uint64 register_time
     )
 {
     _db_stmt = (_db_session << 
-        "INSERT INTO users(user_id, email, password, gender, nickname, register_ip, register_timestamp) "
-        "VALUES(:user_id, :email, :password, :gender, :nickname, :register_ip, :register_timestamp);",
-        Poco::Data::use(user_id),
+        "INSERT INTO users(guid, email, password, gender, nickname, register_ip, register_time) "
+        "VALUES(:guid, :email, :password, :gender, :nickname, :register_ip, :register_time);",
+        Poco::Data::use(guid),
         Poco::Data::use(email),
         Poco::Data::use(password),
         Poco::Data::use(gender),
         Poco::Data::use(nickname),
         Poco::Data::use(register_ip),
-        Poco::Data::use(register_timestamp));
+        Poco::Data::use(register_time));
 
     _db_stmt.execute();
+}
+
+bool GameDatabaseSession::loadPlayerInfo(uint64 guid, PlayerDB* playerDB)
+{
+    _db_stmt = (_db_session 
+        << "SELECT email, gender, nickname, register_ip, register_time, last_login_time "
+           "FROM users WHERE guid = :guid;",
+        Poco::Data::limit(1), 
+        Poco::Data::use(guid),
+        Poco::Data::into(playerDB->email),
+        Poco::Data::into(playerDB->gender),
+        Poco::Data::into(playerDB->nickname),
+        Poco::Data::into(playerDB->register_ip),
+        Poco::Data::into(playerDB->register_time),
+        Poco::Data::into(playerDB->last_login)
+        );
+
+    return (_db_stmt.execute() > 0);
 }
