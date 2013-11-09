@@ -19,6 +19,9 @@
     <Filter Include="net">
       <UniqueIdentifier>{da8dc1c0-69ab-4ae9-9900-33223649fdbe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\gif">
+      <UniqueIdentifier>{33533d9a-cb41-4311-ad03-b3c20d8a1ae4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AboutDlg.cpp">
@@ -41,6 +44,9 @@
     </ClCompile>
     <ClCompile Include="network_session.cpp">
       <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\zlui\lab\3rd\PictureExWnd.cpp">
+      <Filter>include\gif</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,15 +137,22 @@
     <ClInclude Include="network_session.h">
       <Filter>net</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\zlui\lab\3rd\PictureExWnd.h">
+      <Filter>include\gif</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\circe_client.ico">
       <Filter>res</Filter>
     </Image>
+    <Image Include="res\1.gif" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="circe_client.rc">
       <Filter>res</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\gif1.bin" />
   </ItemGroup>
 </Project>

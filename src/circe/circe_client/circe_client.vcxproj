@@ -116,6 +116,7 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\zlui\lab\3rd\PictureExWnd.cpp" />
     <ClCompile Include="AboutDlg.cpp" />
     <ClCompile Include="circe_client.cpp" />
     <ClCompile Include="game_session.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atluser.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwince.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h" />
+    <ClInclude Include="..\..\..\zlui\lab\3rd\PictureExWnd.h" />
     <ClInclude Include="AboutDlg.h" />
     <ClInclude Include="game_session.h" />
     <ClInclude Include="MainDlg.h" />
@@ -165,7 +167,11 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\1.gif" />
     <Image Include="res\circe_client.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\gif1.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

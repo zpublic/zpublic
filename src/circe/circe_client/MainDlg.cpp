@@ -37,6 +37,14 @@ LRESULT CMainDlg::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam
 
 	UIAddChildWindowContainer(m_hWnd);
 
+    HWND hWnd = GetDlgItem(IDC_GIF1);
+    if (hWnd)
+    {
+        m_gifLogo.SubclassWindow(hWnd);
+        if (m_gifLogo.Load(MAKEINTRESOURCE(IDR_GIF1),_T("GIF")))
+            m_gifLogo.Draw();
+    }
+
 	return TRUE;
 }
 
@@ -76,4 +84,3 @@ void CMainDlg::CloseDialog(int nVal)
 	DestroyWindow();
 	::PostQuitMessage(nVal);
 }
-

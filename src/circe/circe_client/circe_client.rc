@@ -77,18 +77,19 @@ BEGIN
     PUSHBUTTON      "取消",IDC_BUTTON1,70,143,50,14
 END
 
-IDD_MAINDLG DIALOGEX 0, 0, 221, 68
+IDD_MAINDLG DIALOGEX 0, 0, 277, 76
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU
 CAPTION "中国好游戏MUD-玩家登陆"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "进入游戏",IDOK,164,47,50,14
-    PUSHBUTTON      "不玩了",IDCANCEL,105,47,50,14
-    PUSHBUTTON      "注册",ID_APP_ABOUT,7,47,50,14
-    LTEXT           "帐号：",IDC_STATIC,7,10,42,11
-    LTEXT           "密码：",IDC_STATIC,7,28,42,11
-    EDITTEXT        IDC_EDIT1,61,7,153,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,61,26,153,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "进入游戏",IDOK,220,55,50,14
+    PUSHBUTTON      "不玩了",IDCANCEL,156,55,50,14
+    PUSHBUTTON      "注册",ID_APP_ABOUT,89,55,50,14
+    LTEXT           "帐号：",IDC_STATIC,89,10,42,11
+    LTEXT           "密码：",IDC_STATIC,89,29,42,11
+    EDITTEXT        IDC_EDIT1,118,7,153,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,118,26,153,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_GIF1,20,12,56,52
 END
 
 
@@ -111,9 +112,9 @@ BEGIN
     IDD_MAINDLG, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 214
+        RIGHTMARGIN, 270
         TOPMARGIN, 7
-        BOTTOMMARGIN, 61
+        BOTTOMMARGIN, 69
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -180,6 +181,13 @@ BEGIN
     END
 END
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// GIF
+//
+
+IDR_GIF1                GIF                     "res\\1.gif"
 
 /////////////////////////////////////////////////////////////////////////////
 //
