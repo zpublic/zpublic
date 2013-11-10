@@ -60,3 +60,5 @@ Release
 /src/irene/bin
 
 /output/mud_server/game_server.log
+
+/output/mud_server/game_client.log

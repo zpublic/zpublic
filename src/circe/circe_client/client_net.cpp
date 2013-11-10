@@ -2,7 +2,7 @@
 #include "client_net.h"
 
 
-ClientNet::ClientNet()
+ClientNet::ClientNet() : m_connected(false)
 {
 
 }
@@ -14,10 +14,15 @@ ClientNet::~ClientNet()
 
 bool ClientNet::Connect( LPCWSTR IPAddress, unsigned int port )
 {
+    if (m_connected)
+    {
+        return true;
+    }
     if (m_net.Init() == 0)
     {
         if (m_net.Start(IPAddress, port) == 0)
         {
+            m_connected = true;
             return true;
         }
         m_net.UnInit();
@@ -27,11 +32,10 @@ bool ClientNet::Connect( LPCWSTR IPAddress, unsigned int port )
 
 void ClientNet::Disconnect()
 {
-    m_net.Stop();
-    m_net.UnInit();
-}
-
-void ClientNet::Send( const byte* buffer, size_t size )
-{
-    m_net.Send(buffer, size);
+    if (m_connected)
+    {
+        m_net.Stop();
+        m_net.UnInit();
+        m_connected = false;
+    }
 }

@@ -74,20 +74,7 @@ LRESULT CMainDlg::OnOK(WORD /*wNotifyCode*/, WORD wID, HWND /*hWndCtl*/, BOOL& /
     Protocol::S2CLoginRsp login_response;
     login_response.set_login_result(false);
     login_response.set_failed_reason("” œ‰’ ∫≈∑«∑®°£");
-
-    size_t messageSize = login_response.ByteSize();
-    size_t packetSize = ServerPacket::HEADER_LENGTH + messageSize;
-
-    ByteBuffer packet_buffer;
-    packet_buffer << packetSize;
-    packet_buffer << Opcodes::S2CLoginRsp;
-
-    byte* message_data = new byte[messageSize];
-    login_response.SerializeToArray(message_data, messageSize);
-    packet_buffer.append(message_data, messageSize);
-
-	NET.Send(packet_buffer.buffer(), packet_buffer.size());
-
+	NET.Send(Opcodes::S2CLoginRsp, login_response);
 
 	//CloseDialog(wID);
 	return 0;

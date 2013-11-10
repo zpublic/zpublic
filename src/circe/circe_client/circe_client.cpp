@@ -7,6 +7,7 @@
 
 #include "aboutdlg.h"
 #include "MainDlg.h"
+#include "server_logger.h"
 
 CAppModule _Module;
 
@@ -48,6 +49,7 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR lp
 	ATLASSERT(SUCCEEDED(hRes));
 
     int nRet = 0;
+    FileChannelLogger::getInstance().initLogger("game_client.log");
     if (!NET.Connect(L"127.0.0.1", 5555))
     {
         ::MessageBox(0, L"Á¬²»ÉÏ£¬ÍæÃ«", L"", 0);

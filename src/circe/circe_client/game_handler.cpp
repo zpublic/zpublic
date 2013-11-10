@@ -8,7 +8,6 @@ namespace GameHandler
         Protocol::S2CLoginRsp msg;
         message.parse(msg);
         std::string s = msg.failed_reason();
-        int a;
     }
 
     void user_register_handler( const NetworkMessage& message )

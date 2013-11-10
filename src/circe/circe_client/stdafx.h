@@ -36,4 +36,3 @@ extern CAppModule _Module;
 #include <assert.h>
 
 #include "client_net.h"
-#define NET ClientNet::Instance()
