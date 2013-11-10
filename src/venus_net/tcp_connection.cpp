@@ -182,7 +182,7 @@ void TcpConnection::on_read(const byte* data, size_t bytes_transferred)
 
         if (_readComplectedCallback)
         {
-            _readComplectedCallback(shared_from_this(), opcode, packet->message, bytes_transferred);
+            _readComplectedCallback(shared_from_this(), packet->opcode, packet->message, packet->len);
         }
         else
         {

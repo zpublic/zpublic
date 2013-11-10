@@ -12,4 +12,5 @@ OpcodeTable::OpcodeTable()
     _opcodeTable[Opcodes::C2SRegisterReq] = MAKE_MESSAGE_HANDLER("C2SRegisterReq", user_register_handler);
     _opcodeTable[Opcodes::C2SGetPlayerProfileReq] = MAKE_MESSAGE_HANDLER("C2SGetPlayerProfileReq", get_player_profile_handler);
     _opcodeTable[Opcodes::C2SChatMessageReq] = MAKE_MESSAGE_HANDLER("C2SChatMessageReq", chat_message_handler);
+    _opcodeTable[Opcodes::C2SRoomCreateReq] = MAKE_MESSAGE_HANDLER("C2SRoomCreateReq", room_create_handler);
 }

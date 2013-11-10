@@ -110,10 +110,22 @@ class C2SChatMessageReq : public ::google::protobuf::Message {
   inline ::std::string* release_chat_content();
   inline void set_allocated_chat_content(::std::string* chat_content);
 
-  // optional uint64 chat_target_guid = 3;
+  // optional string chat_target_nickname = 3;
+  inline bool has_chat_target_nickname() const;
+  inline void clear_chat_target_nickname();
+  static const int kChatTargetNicknameFieldNumber = 3;
+  inline const ::std::string& chat_target_nickname() const;
+  inline void set_chat_target_nickname(const ::std::string& value);
+  inline void set_chat_target_nickname(const char* value);
+  inline void set_chat_target_nickname(const char* value, size_t size);
+  inline ::std::string* mutable_chat_target_nickname();
+  inline ::std::string* release_chat_target_nickname();
+  inline void set_allocated_chat_target_nickname(::std::string* chat_target_nickname);
+
+  // optional uint64 chat_target_guid = 4;
   inline bool has_chat_target_guid() const;
   inline void clear_chat_target_guid();
-  static const int kChatTargetGuidFieldNumber = 3;
+  static const int kChatTargetGuidFieldNumber = 4;
   inline ::google::protobuf::uint64 chat_target_guid() const;
   inline void set_chat_target_guid(::google::protobuf::uint64 value);
 
@@ -123,17 +135,20 @@ class C2SChatMessageReq : public ::google::protobuf::Message {
   inline void clear_has_chat_type();
   inline void set_has_chat_content();
   inline void clear_has_chat_content();
+  inline void set_has_chat_target_nickname();
+  inline void clear_has_chat_target_nickname();
   inline void set_has_chat_target_guid();
   inline void clear_has_chat_target_guid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* chat_content_;
+  ::std::string* chat_target_nickname_;
   ::google::protobuf::uint64 chat_target_guid_;
   ::google::protobuf::int32 chat_type_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_20000_5fC2SChatMessageReq_2eproto();
   friend void protobuf_AssignDesc_20000_5fC2SChatMessageReq_2eproto();
@@ -241,15 +256,85 @@ inline void C2SChatMessageReq::set_allocated_chat_content(::std::string* chat_co
   }
 }
 
-// optional uint64 chat_target_guid = 3;
-inline bool C2SChatMessageReq::has_chat_target_guid() const {
+// optional string chat_target_nickname = 3;
+inline bool C2SChatMessageReq::has_chat_target_nickname() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void C2SChatMessageReq::set_has_chat_target_guid() {
+inline void C2SChatMessageReq::set_has_chat_target_nickname() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void C2SChatMessageReq::clear_has_chat_target_guid() {
+inline void C2SChatMessageReq::clear_has_chat_target_nickname() {
   _has_bits_[0] &= ~0x00000004u;
+}
+inline void C2SChatMessageReq::clear_chat_target_nickname() {
+  if (chat_target_nickname_ != &::google::protobuf::internal::kEmptyString) {
+    chat_target_nickname_->clear();
+  }
+  clear_has_chat_target_nickname();
+}
+inline const ::std::string& C2SChatMessageReq::chat_target_nickname() const {
+  return *chat_target_nickname_;
+}
+inline void C2SChatMessageReq::set_chat_target_nickname(const ::std::string& value) {
+  set_has_chat_target_nickname();
+  if (chat_target_nickname_ == &::google::protobuf::internal::kEmptyString) {
+    chat_target_nickname_ = new ::std::string;
+  }
+  chat_target_nickname_->assign(value);
+}
+inline void C2SChatMessageReq::set_chat_target_nickname(const char* value) {
+  set_has_chat_target_nickname();
+  if (chat_target_nickname_ == &::google::protobuf::internal::kEmptyString) {
+    chat_target_nickname_ = new ::std::string;
+  }
+  chat_target_nickname_->assign(value);
+}
+inline void C2SChatMessageReq::set_chat_target_nickname(const char* value, size_t size) {
+  set_has_chat_target_nickname();
+  if (chat_target_nickname_ == &::google::protobuf::internal::kEmptyString) {
+    chat_target_nickname_ = new ::std::string;
+  }
+  chat_target_nickname_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* C2SChatMessageReq::mutable_chat_target_nickname() {
+  set_has_chat_target_nickname();
+  if (chat_target_nickname_ == &::google::protobuf::internal::kEmptyString) {
+    chat_target_nickname_ = new ::std::string;
+  }
+  return chat_target_nickname_;
+}
+inline ::std::string* C2SChatMessageReq::release_chat_target_nickname() {
+  clear_has_chat_target_nickname();
+  if (chat_target_nickname_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = chat_target_nickname_;
+    chat_target_nickname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void C2SChatMessageReq::set_allocated_chat_target_nickname(::std::string* chat_target_nickname) {
+  if (chat_target_nickname_ != &::google::protobuf::internal::kEmptyString) {
+    delete chat_target_nickname_;
+  }
+  if (chat_target_nickname) {
+    set_has_chat_target_nickname();
+    chat_target_nickname_ = chat_target_nickname;
+  } else {
+    clear_has_chat_target_nickname();
+    chat_target_nickname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint64 chat_target_guid = 4;
+inline bool C2SChatMessageReq::has_chat_target_guid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void C2SChatMessageReq::set_has_chat_target_guid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void C2SChatMessageReq::clear_has_chat_target_guid() {
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void C2SChatMessageReq::clear_chat_target_guid() {
   chat_target_guid_ = GOOGLE_ULONGLONG(0);

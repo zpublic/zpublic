@@ -75,7 +75,7 @@ bool GameDatabaseSession::loadPlayerInfo(uint64 guid, PlayerDB* playerDB)
 {
     _db_stmt = (_db_session 
         << "SELECT email, gender, nickname, register_ip, register_time, last_login_time "
-           "FROM users WHERE guid = :guid;",
+        "FROM users WHERE guid = :guid;",
         Poco::Data::limit(1), 
         Poco::Data::use(guid),
         Poco::Data::into(playerDB->email),

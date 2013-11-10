@@ -40,6 +40,15 @@
     <ClInclude Include="player_manager.h">
       <Filter>manager</Filter>
     </ClInclude>
+    <ClInclude Include="room_manager.h">
+      <Filter>manager</Filter>
+    </ClInclude>
+    <ClInclude Include="room.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="room_pool.h">
+      <Filter>object\obj_pool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="center_server.cpp" />
@@ -57,22 +66,30 @@
     <ClCompile Include="game_session.cpp">
       <Filter>handler</Filter>
     </ClCompile>
+    <ClCompile Include="login_handler.cpp">
+      <Filter>handler\logic</Filter>
+    </ClCompile>
     <ClCompile Include="game_session_manager.cpp">
       <Filter>manager</Filter>
     </ClCompile>
     <ClCompile Include="player.cpp">
       <Filter>object</Filter>
     </ClCompile>
-    <ClCompile Include="login_handler.cpp">
-      <Filter>handler\logic_handler</Filter>
-    </ClCompile>
     <ClCompile Include="player_handler.cpp">
-      <Filter>handler\logic_handler</Filter>
+      <Filter>handler\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="room_manager.cpp">
+      <Filter>manager</Filter>
     </ClCompile>
     <ClCompile Include="chat_handler.cpp">
-      <Filter>handler\logic_handler</Filter>
+      <Filter>handler\logic</Filter>
     </ClCompile>
-    <ClCompile Include="player_manager.cpp" />
+    <ClCompile Include="room_handler.cpp">
+      <Filter>handler\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="player_manager.cpp">
+      <Filter>manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="network">
@@ -99,8 +116,8 @@
     <Filter Include="object\obj_pool">
       <UniqueIdentifier>{fdefb41c-6204-42a3-b506-76ab3e18d3df}</UniqueIdentifier>
     </Filter>
-    <Filter Include="handler\logic_handler">
-      <UniqueIdentifier>{142a9758-5fc8-48f3-9669-06f207001704}</UniqueIdentifier>
+    <Filter Include="handler\logic">
+      <UniqueIdentifier>{87ffc5bc-8f6b-46cd-b3cd-c9828f0c31a4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

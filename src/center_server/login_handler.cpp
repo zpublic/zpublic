@@ -85,10 +85,13 @@ void GameSession::user_login_handler(const NetworkMessage& message)
 
                     //attack player to session
                     attackPlayerPtr(player);
+
+                    //add player to manager
+                    PlayerManager::getInstance().addPlayer(player);
                 }
                 else
                 {
-                    PlayerManager::getInstance().destroyPlayer(player);
+                    PlayerManager::getInstance().removePlayer(player);
                     error_log("Load player from db failed! guid = %ull", guid);
                 }
 

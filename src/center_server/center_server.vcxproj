@@ -110,8 +110,11 @@ xcopy /Y /Q "$(TargetPath)" "../../output/mud_server"</Command>
     <ClInclude Include="io_dispatcher.h" />
     <ClInclude Include="opcodes_handler.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="room.h" />
+    <ClInclude Include="room_manager.h" />
     <ClInclude Include="game_session_manager.h" />
     <ClInclude Include="player_manager.h" />
+    <ClInclude Include="room_pool.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="chat_handler.cpp" />
@@ -127,6 +130,8 @@ xcopy /Y /Q "$(TargetPath)" "../../output/mud_server"</Command>
     <ClCompile Include="player.cpp" />
     <ClCompile Include="player_handler.cpp" />
     <ClCompile Include="player_manager.cpp" />
+    <ClCompile Include="room_handler.cpp" />
+    <ClCompile Include="room_manager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

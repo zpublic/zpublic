@@ -1,5 +1,7 @@
 #include "player_manager.h"
 
+Venus::ObjectPool<Player> PlayerManager::_player_pool;
+
 bool PlayerManager::init()
 {
 	return true;
@@ -15,15 +17,6 @@ Player* PlayerManager::createPlayer(const uint64& guid, GameSession* session)
 	return _player_pool.acquire(guid, session);
 }
 
-void PlayerManager::destroyPlayer(Player* player, bool offlineNotify /*= true*/)
-{
-	if (player != nullptr)
-	{
-		killOffline(player);
-		_player_pool.release(player);
-	}
-}
-
 Player* PlayerManager::getPlayer(const uint64& guid)
 {
 	auto iter = _players.find(guid);
@@ -35,9 +28,44 @@ int32 PlayerManager::playerCount() const
 	return _players.size();
 }
 
-void PlayerManager::killOffline(Player* player)
+void PlayerManager::killOffline(Player* player, bool offlineNotify /*= true*/)
 {
 
 }
 
+bool PlayerManager::addPlayer(Player* player)
+{
+    CHECK_NULLPTR(player, "failed to add player, nullptr.");
+    auto iter = _players.find(player->guid());
+    if (iter != _players.end())
+    {
+        debug_log("player %d already exists.", player->guid());
+        return false;
+    }
 
+    _players.insert(std::make_pair(player->guid(), player));
+
+    return true;
+}
+
+void PlayerManager::removePlayer(Player* player)
+{
+    CHECK_NULLPTR(player, "failed to remove player, nullptr.");
+
+    removePlayer(player->guid());
+}
+
+void PlayerManager::removePlayer(const uint64& guid)
+{
+    auto iter = _players.find(guid);
+    if (iter != _players.end())
+    {
+        _players.erase(guid);
+        destroyPlayer(iter->second);
+    }
+}
+
+void PlayerManager::destroyPlayer(Player* player)
+{
+    _player_pool.release(player);
+}

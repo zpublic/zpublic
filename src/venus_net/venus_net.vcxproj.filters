@@ -141,6 +141,18 @@
     <ClInclude Include="protocol\20001_S2CChatMessageNotify.pb.h">
       <Filter>protocol\protobuf</Filter>
     </ClInclude>
+    <ClInclude Include="protocol\21001_C2SRoomCreateReq.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\21002_S2CRoomCreateRsp.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\21003_C2SGetRoomListReq.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\21004_S2CGetRoomListRsp.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="error_code.cpp">
@@ -188,11 +200,22 @@
     <ClCompile Include="protocol\15001_S2CGetPlayerProfileRsp.pb.cc">
       <Filter>protocol\protobuf</Filter>
     </ClCompile>
-    <ClCompile Include="protocol\20001_S2CChatMessageNotify.pb.cc">
-      <Filter>protocol\protobuf</Filter>
-    </ClCompile>
     <ClCompile Include="protocol\20000_C2SChatMessageReq.pb.cc">
       <Filter>protocol\protobuf</Filter>
     </ClCompile>
-  </ItemGroup>
+    <ClCompile Include="protocol\20001_S2CChatMessageNotify.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\21001_C2SRoomCreateReq.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\21002_S2CRoomCreateRsp.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\21003_C2SGetRoomListReq.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\21004_S2CGetRoomListRsp.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>  </ItemGroup>
 </Project>

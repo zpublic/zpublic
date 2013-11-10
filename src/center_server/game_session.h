@@ -25,9 +25,13 @@ public:
     //聊天模块
     void chat_message_handler(const NetworkMessage& message);
 
+    //房间模块
+    void room_create_handler(const NetworkMessage& message);
+    void get_room_list_handler(const NetworkMessage& message);
+
 private:
     void attackPlayerPtr(Player* player);
-
+    
 private:
     Player* _player;
 };

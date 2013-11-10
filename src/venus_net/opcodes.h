@@ -14,6 +14,10 @@ namespace Opcodes
     const int S2CChatMessageNotify      = 20001;
     const int S2CError                  = 99990;            //注册回应
     const int S2CErrorEx                = 99991;            //注册回应
+    const int C2SRoomCreateReq          = 21001;            
+    const int S2CRoomCreateRsp          = 21002;
+    const int C2SGetRoomListReq         = 21003;
+    const int S2CGetRoomListRsp         = 21004;
 }
 
 #endif
