@@ -47,7 +47,16 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR lp
 	hRes = _Module.Init(NULL, hInstance);
 	ATLASSERT(SUCCEEDED(hRes));
 
-	int nRet = Run(lpstrCmdLine, nCmdShow);
+    int nRet = 0;
+    if (!NET.Connect(L"127.0.0.1", 5555))
+    {
+        ::MessageBox(0, L"Á¬²»ÉÏ£¬ÍæÃ«", L"", 0);
+    }
+    else
+    {
+        nRet = Run(lpstrCmdLine, nCmdShow);
+        NET.Disconnect();
+    }
 
 	_Module.Term();
 	::CoUninitialize();

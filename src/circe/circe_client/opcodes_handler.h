@@ -4,10 +4,9 @@
 #include <common.h>
 #include <network_common.h>
 
-class GameSession;
 struct OpcodeHandler
 {
-    typedef std::function<void (GameSession*, const NetworkMessage&)> MessageHandler;
+    typedef std::function<void (const NetworkMessage&)> MessageHandler;
 
     OpcodeHandler(){}
     OpcodeHandler(const std::string& name, const MessageHandler& handler) :
@@ -45,7 +44,7 @@ public:
         }
         else
         {
-            return nullptr;
+            return NULL;
         }
     }
 

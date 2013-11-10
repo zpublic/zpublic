@@ -7,6 +7,9 @@
 
 #include "aboutdlg.h"
 #include "MainDlg.h"
+#include "protocol\10001_S2CLoginRsp.pb.h"
+#include "opcodes.h"
+#include "packet.h"
 
 BOOL CMainDlg::PreTranslateMessage(MSG* pMsg)
 {
@@ -68,8 +71,25 @@ LRESULT CMainDlg::OnAppAbout(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*
 
 LRESULT CMainDlg::OnOK(WORD /*wNotifyCode*/, WORD wID, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-	// TODO: Add validation code 
-	CloseDialog(wID);
+    Protocol::S2CLoginRsp login_response;
+    login_response.set_login_result(false);
+    login_response.set_failed_reason("” œ‰’ ∫≈∑«∑®°£");
+
+    size_t messageSize = login_response.ByteSize();
+    size_t packetSize = ServerPacket::HEADER_LENGTH + messageSize;
+
+    ByteBuffer packet_buffer;
+    packet_buffer << packetSize;
+    packet_buffer << Opcodes::S2CLoginRsp;
+
+    byte* message_data = new byte[messageSize];
+    login_response.SerializeToArray(message_data, messageSize);
+    packet_buffer.append(message_data, messageSize);
+
+	NET.Send(packet_buffer.buffer(), packet_buffer.size());
+
+
+	//CloseDialog(wID);
 	return 0;
 }
 

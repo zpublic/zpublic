@@ -39,14 +39,20 @@
     <ClCompile Include="opcodes_handler.cpp">
       <Filter>net</Filter>
     </ClCompile>
-    <ClCompile Include="game_session.cpp">
-      <Filter>net</Filter>
-    </ClCompile>
-    <ClCompile Include="network_session.cpp">
-      <Filter>net</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\zlui\lab\3rd\PictureExWnd.cpp">
       <Filter>include\gif</Filter>
+    </ClCompile>
+    <ClCompile Include="client_net.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="network_handler.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="network_mgr.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="game_handler.cpp">
+      <Filter>net</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,28 +137,33 @@
     <ClInclude Include="opcodes_handler.h">
       <Filter>net</Filter>
     </ClInclude>
-    <ClInclude Include="game_session.h">
-      <Filter>net</Filter>
-    </ClInclude>
-    <ClInclude Include="network_session.h">
-      <Filter>net</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\zlui\lab\3rd\PictureExWnd.h">
       <Filter>include\gif</Filter>
+    </ClInclude>
+    <ClInclude Include="client_net.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="network_handler.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="network_mgr.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="game_handler.h">
+      <Filter>net</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\circe_client.ico">
       <Filter>res</Filter>
     </Image>
-    <Image Include="res\1.gif" />
+    <Image Include="res\1.gif">
+      <Filter>res</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="circe_client.rc">
       <Filter>res</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="res\gif1.bin" />
   </ItemGroup>
 </Project>

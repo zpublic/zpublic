@@ -123,7 +123,7 @@ CPictureExWnd::CPictureExWnd()
 	m_PictureSize.cx = m_PictureSize.cy = 0;
 	SetRect(&m_PaintRect,0,0,0,0);
 
-	m_hExitEvent = CreateEvent(NULL,TRUE,FALSE,NULL);
+	m_hExitEvent = CreateEventW(NULL,TRUE,FALSE,NULL);
 }
 
 CPictureExWnd::~CPictureExWnd()
@@ -560,7 +560,7 @@ BOOL CPictureExWnd::Load(LPCTSTR szResourceName, LPCTSTR szResourceType)
 	ATLASSERT(szResourceName);
 	ATLASSERT(szResourceType);
 
-	HRSRC hPicture = FindResource(_Module.GetResourceInstance(),szResourceName,szResourceType);
+	HRSRC hPicture = FindResourceW(_Module.GetResourceInstance(),szResourceName,szResourceType);
 	HGLOBAL hResData;
 	if (!hPicture || !(hResData = LoadResource(_Module.GetResourceInstance(),hPicture)))
 	{

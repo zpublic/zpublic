@@ -55,8 +55,8 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>BOOST_ALL_NO_LIB;WIN32;_WINDOWS;STRICT;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../../3rdparty/poco/Foundation/include;../../venus_net;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/include;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STRICT;BOOST_ALL_NO_LIB;WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../;../../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../../3rdparty/poco/Foundation/include;../../venus_net;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -90,7 +90,7 @@
       <ExceptionHandling />
       <DebugInformationFormat />
       <PreprocessorDefinitions>BOOST_ALL_NO_LIB;WIN32;_WINDOWS;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../../3rdparty/poco/Foundation/include;../../venus_net;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../;../../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../../3rdparty/poco/Foundation/include;../../venus_net;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -119,9 +119,11 @@
     <ClCompile Include="..\..\..\zlui\lab\3rd\PictureExWnd.cpp" />
     <ClCompile Include="AboutDlg.cpp" />
     <ClCompile Include="circe_client.cpp" />
-    <ClCompile Include="game_session.cpp" />
+    <ClCompile Include="client_net.cpp" />
+    <ClCompile Include="game_handler.cpp" />
     <ClCompile Include="MainDlg.cpp" />
-    <ClCompile Include="network_session.cpp" />
+    <ClCompile Include="network_handler.cpp" />
+    <ClCompile Include="network_mgr.cpp" />
     <ClCompile Include="opcodes_handler.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -153,9 +155,11 @@
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h" />
     <ClInclude Include="..\..\..\zlui\lab\3rd\PictureExWnd.h" />
     <ClInclude Include="AboutDlg.h" />
-    <ClInclude Include="game_session.h" />
+    <ClInclude Include="client_net.h" />
+    <ClInclude Include="game_handler.h" />
     <ClInclude Include="MainDlg.h" />
-    <ClInclude Include="network_session.h" />
+    <ClInclude Include="network_handler.h" />
+    <ClInclude Include="network_mgr.h" />
     <ClInclude Include="opcodes_handler.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -169,9 +173,6 @@
   <ItemGroup>
     <Image Include="res\1.gif" />
     <Image Include="res\circe_client.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="res\gif1.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
