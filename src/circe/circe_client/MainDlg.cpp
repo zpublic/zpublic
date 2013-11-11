@@ -7,9 +7,7 @@
 
 #include "aboutdlg.h"
 #include "MainDlg.h"
-#include "protocol\10001_S2CLoginRsp.pb.h"
-#include "opcodes.h"
-#include "packet.h"
+#include "game_handler.h"
 
 BOOL CMainDlg::PreTranslateMessage(MSG* pMsg)
 {
@@ -71,10 +69,16 @@ LRESULT CMainDlg::OnAppAbout(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*
 
 LRESULT CMainDlg::OnOK(WORD /*wNotifyCode*/, WORD wID, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-    Protocol::S2CLoginRsp login_response;
-    login_response.set_login_result(false);
-    login_response.set_failed_reason("” œ‰’ ∫≈∑«∑®°£");
-	NET.Send(Opcodes::S2CLoginRsp, login_response);
+    CString strEmail, strPass;
+    GetDlgItemText(IDC_EDIT1, strEmail);
+    GetDlgItemText(IDC_EDIT2, strPass);
+    if (strEmail.IsEmpty() || strPass.IsEmpty())
+    {
+        MessageBox(L"¬È∑≥ÃÓ∫√’ ∫≈√‹¬Î£°");
+        return 0;
+    }
+    GameHandler::login.SetLoginDlg(m_hWnd);
+    GameHandler::login.SendLogin(strEmail, strPass);
 
 	//CloseDialog(wID);
 	return 0;
@@ -90,4 +94,25 @@ void CMainDlg::CloseDialog(int nVal)
 {
 	DestroyWindow();
 	::PostQuitMessage(nVal);
+}
+
+LRESULT CMainDlg::OnLoginResult(UINT /*uMsg*/, WPARAM wParam, LPARAM lParam, BOOL& /*bHandled*/)
+{
+    int nResult = (int)wParam;
+    if (nResult == 1)
+    {
+        MessageBox(L"µ«¬Ω≥…π¶");
+    }
+    else if (nResult == 2)
+    {
+        LPCSTR lpErr = (LPCSTR)lParam;
+        m_strLoginErr = CA2W(lpErr);
+        PostMessage(msg_login_result, 3);
+    }
+    else if (nResult == 3)
+    {
+        MessageBox(m_strLoginErr);
+    }
+
+    return 0;
 }

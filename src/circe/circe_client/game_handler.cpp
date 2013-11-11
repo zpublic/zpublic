@@ -1,18 +1,24 @@
 #include "stdafx.h"
 #include "game_handler.h"
 
-namespace GameHandler
+LoginHandler GameHandler::login;
+
+void GameHandler::user_login_handler( const NetworkMessage& message )
 {
-    void user_login_handler( const NetworkMessage& message )
+    Protocol::S2CLoginRsp msg;
+    message.parse(msg);
+    if (msg.login_result())
     {
-        Protocol::S2CLoginRsp msg;
-        message.parse(msg);
-        std::string s = msg.failed_reason();
+        login.NotifyResult();
     }
-
-    void user_register_handler( const NetworkMessage& message )
+    else
     {
-
+        std::string strErr = msg.failed_reason();
+        login.NotifyResult(strErr);
     }
+}
 
-};
+void GameHandler::user_register_handler( const NetworkMessage& message )
+{
+
+}

@@ -22,6 +22,7 @@ extern CAppModule _Module;
 #include <atlctrls.h>
 #include <atldlgs.h>
 #include <atlres.h>
+#include <atlstr.h>
 
 #if defined _M_IX86
   #pragma comment(linker, "/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'\"")
@@ -35,4 +36,7 @@ extern CAppModule _Module;
 
 #include <assert.h>
 
+#include "protobuf.h"
+#include "opcodes.h"
+#include "msg_def.h"
 #include "client_net.h"

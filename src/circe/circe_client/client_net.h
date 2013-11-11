@@ -1,6 +1,7 @@
 #pragma once
 #include "boost\noncopyable.hpp"
 #include "network_mgr.h"
+#include "packet.h"
 
 class ClientNet : public boost::noncopyable
 {

@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include "opcodes.h"
 #include "opcodes_handler.h"
 #include "game_handler.h"
 

@@ -22,6 +22,12 @@
     <Filter Include="include\gif">
       <UniqueIdentifier>{33533d9a-cb41-4311-ad03-b3c20d8a1ae4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="logic">
+      <UniqueIdentifier>{71b9b3db-0098-46bd-900e-9dad7bd6a1ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic\login">
+      <UniqueIdentifier>{b57bc68c-e43a-4848-bfe8-f3993466493c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AboutDlg.cpp">
@@ -36,9 +42,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>main</Filter>
     </ClCompile>
-    <ClCompile Include="opcodes_handler.cpp">
-      <Filter>net</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\zlui\lab\3rd\PictureExWnd.cpp">
       <Filter>include\gif</Filter>
     </ClCompile>
@@ -52,7 +55,13 @@
       <Filter>net</Filter>
     </ClCompile>
     <ClCompile Include="game_handler.cpp">
-      <Filter>net</Filter>
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="opcodes_handler.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="login_handler.cpp">
+      <Filter>logic\login</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,9 +143,6 @@
     <ClInclude Include="stdafx.h">
       <Filter>main</Filter>
     </ClInclude>
-    <ClInclude Include="opcodes_handler.h">
-      <Filter>net</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\zlui\lab\3rd\PictureExWnd.h">
       <Filter>include\gif</Filter>
     </ClInclude>
@@ -150,7 +156,16 @@
       <Filter>net</Filter>
     </ClInclude>
     <ClInclude Include="game_handler.h">
-      <Filter>net</Filter>
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="opcodes_handler.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="login_handler.h">
+      <Filter>logic\login</Filter>
+    </ClInclude>
+    <ClInclude Include="msg_def.h">
+      <Filter>main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

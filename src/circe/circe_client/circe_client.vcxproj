@@ -121,6 +121,7 @@
     <ClCompile Include="circe_client.cpp" />
     <ClCompile Include="client_net.cpp" />
     <ClCompile Include="game_handler.cpp" />
+    <ClCompile Include="login_handler.cpp" />
     <ClCompile Include="MainDlg.cpp" />
     <ClCompile Include="network_handler.cpp" />
     <ClCompile Include="network_mgr.cpp" />
@@ -157,7 +158,9 @@
     <ClInclude Include="AboutDlg.h" />
     <ClInclude Include="client_net.h" />
     <ClInclude Include="game_handler.h" />
+    <ClInclude Include="login_handler.h" />
     <ClInclude Include="MainDlg.h" />
+    <ClInclude Include="msg_def.h" />
     <ClInclude Include="network_handler.h" />
     <ClInclude Include="network_mgr.h" />
     <ClInclude Include="opcodes_handler.h" />
