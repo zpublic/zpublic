@@ -4,6 +4,7 @@
 #include <network_common.h>
 #include <packet.h>
 #include "login_handler.h"
+#include "register_handler.h"
 
 class GameHandler
 {
@@ -12,5 +13,6 @@ public:
     static void user_register_handler(const NetworkMessage& message);
 
 public:
-    static LoginHandler login;
+    static LoginHandler     login;
+    static RegisterHandler  reg;
 };

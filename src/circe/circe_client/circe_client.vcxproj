@@ -55,7 +55,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>STRICT;BOOST_ALL_NO_LIB;WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>UNICODE;STRICT;BOOST_ALL_NO_LIB;WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../;../../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../../3rdparty/poco/Foundation/include;../../venus_net;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -89,7 +89,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <ExceptionHandling />
       <DebugInformationFormat />
-      <PreprocessorDefinitions>BOOST_ALL_NO_LIB;WIN32;_WINDOWS;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>UNICODE;BOOST_ALL_NO_LIB;WIN32;_WINDOWS;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../;../../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../../3rdparty/poco/Foundation/include;../../venus_net;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -116,8 +116,9 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\public\crypt\KMD5.cpp" />
     <ClCompile Include="..\..\..\zlui\lab\3rd\PictureExWnd.cpp" />
-    <ClCompile Include="AboutDlg.cpp" />
+    <ClCompile Include="RegDlg.cpp" />
     <ClCompile Include="circe_client.cpp" />
     <ClCompile Include="client_net.cpp" />
     <ClCompile Include="game_handler.cpp" />
@@ -126,10 +127,12 @@
     <ClCompile Include="network_handler.cpp" />
     <ClCompile Include="network_mgr.cpp" />
     <ClCompile Include="opcodes_handler.cpp" />
+    <ClCompile Include="register_handler.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h" />
@@ -154,8 +157,9 @@
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atluser.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwince.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h" />
+    <ClInclude Include="..\..\..\public\crypt\KMD5.h" />
     <ClInclude Include="..\..\..\zlui\lab\3rd\PictureExWnd.h" />
-    <ClInclude Include="AboutDlg.h" />
+    <ClInclude Include="RegDlg.h" />
     <ClInclude Include="client_net.h" />
     <ClInclude Include="game_handler.h" />
     <ClInclude Include="login_handler.h" />
@@ -164,8 +168,10 @@
     <ClInclude Include="network_handler.h" />
     <ClInclude Include="network_mgr.h" />
     <ClInclude Include="opcodes_handler.h" />
+    <ClInclude Include="register_handler.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="circe_client.rc">

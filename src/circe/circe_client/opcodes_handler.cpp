@@ -5,9 +5,12 @@
 #define MAKE_MESSAGE_HANDLER(m, f) \
     OpcodeHandler(m, std::bind(&GameHandler::f, std::placeholders::_1));
 
+#define DEF_HANDLER(x, y) \
+    _opcodeTable[Opcodes::x] = MAKE_MESSAGE_HANDLER(#x, y);
+
 
 OpcodeTable::OpcodeTable()
 {
-    _opcodeTable[Opcodes::S2CLoginRsp] = MAKE_MESSAGE_HANDLER("S2CLoginRsp", user_login_handler);
-    _opcodeTable[Opcodes::C2SRegisterReq] = MAKE_MESSAGE_HANDLER("C2SRegisterReq", user_register_handler);
+    DEF_HANDLER(S2CLoginRsp,    user_login_handler)
+    DEF_HANDLER(S2CRegisterRsp, user_register_handler)
 }

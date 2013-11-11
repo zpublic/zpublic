@@ -5,7 +5,7 @@
 
 #include "resource.h"
 
-#include "aboutdlg.h"
+#include "RegDlg.h"
 #include "MainDlg.h"
 #include "server_logger.h"
 

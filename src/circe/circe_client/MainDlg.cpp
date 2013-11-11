@@ -5,7 +5,7 @@
 #include "stdafx.h"
 #include "resource.h"
 
-#include "aboutdlg.h"
+#include "RegDlg.h"
 #include "MainDlg.h"
 #include "game_handler.h"
 
@@ -62,7 +62,7 @@ LRESULT CMainDlg::OnDestroy(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/,
 
 LRESULT CMainDlg::OnAppAbout(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-	CAboutDlg dlg;
+	CRegDlg dlg;
 	dlg.DoModal();
 	return 0;
 }

@@ -30,9 +30,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AboutDlg.cpp">
-      <Filter>gui</Filter>
-    </ClCompile>
     <ClCompile Include="MainDlg.cpp">
       <Filter>gui</Filter>
     </ClCompile>
@@ -62,6 +59,18 @@
     </ClCompile>
     <ClCompile Include="login_handler.cpp">
       <Filter>logic\login</Filter>
+    </ClCompile>
+    <ClCompile Include="register_handler.cpp">
+      <Filter>logic\login</Filter>
+    </ClCompile>
+    <ClCompile Include="RegDlg.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\public\crypt\KMD5.cpp">
+      <Filter>include</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,9 +143,6 @@
     <ClInclude Include="MainDlg.h">
       <Filter>gui</Filter>
     </ClInclude>
-    <ClInclude Include="AboutDlg.h">
-      <Filter>gui</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>main</Filter>
     </ClInclude>
@@ -165,6 +171,18 @@
       <Filter>logic\login</Filter>
     </ClInclude>
     <ClInclude Include="msg_def.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="register_handler.h">
+      <Filter>logic\login</Filter>
+    </ClInclude>
+    <ClInclude Include="RegDlg.h">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\crypt\KMD5.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
       <Filter>main</Filter>
     </ClInclude>
   </ItemGroup>

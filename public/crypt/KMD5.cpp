@@ -358,7 +358,7 @@ const BYTE* KMD5::GetMD5(const TCHAR *pszFileName, ULONG uSize, PFN_Filter pFilt
         return NULL;
     }
 
-    hFile = ::CreateFile(
+    hFile = ::CreateFileW(
         pszFileName, 
         GENERIC_READ, 
         FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, 
