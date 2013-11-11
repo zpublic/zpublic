@@ -13,7 +13,7 @@ CStringA GetMd5Str( CStringA data )
     char* pChar = sMd5;
     for (int i = 0; i < 16; ++i)
     {
-        sprintf(pChar, "%02x", digest[i]);
+        sprintf(pChar, "%02X", digest[i]);
         pChar += 2;
     }
     sMd5[32] = 0;

@@ -8,6 +8,7 @@
 #include "RegDlg.h"
 #include "MainDlg.h"
 #include "game_handler.h"
+#include "utils.h"
 
 BOOL CMainDlg::PreTranslateMessage(MSG* pMsg)
 {
@@ -78,7 +79,8 @@ LRESULT CMainDlg::OnOK(WORD /*wNotifyCode*/, WORD wID, HWND /*hWndCtl*/, BOOL& /
         return 0;
     }
     GameHandler::login.SetLoginDlg(m_hWnd);
-    GameHandler::login.SendLogin(strEmail, strPass);
+    CStringA pass = CW2A(strPass);
+    GameHandler::login.SendLogin(strEmail, GetMd5Str(pass));
 
 	//CloseDialog(wID);
 	return 0;

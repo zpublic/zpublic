@@ -7,7 +7,7 @@ public:
 
     void SetLoginDlg(HWND hWnd);
 
-    void SendLogin(const CString& email, const CString& pass);
+    void SendLogin(const CString& email, const CStringA& pass);
 
     void NotifyResult();
     void NotifyResult(std::string& strErr);
