@@ -6,7 +6,7 @@
 #include "resource.h"
 
 #include "RegDlg.h"
-#include "MainDlg.h"
+#include "LoginDlg.h"
 #include "server_logger.h"
 
 CAppModule _Module;
@@ -16,7 +16,7 @@ int Run(LPTSTR /*lpstrCmdLine*/ = NULL, int nCmdShow = SW_SHOWDEFAULT)
 	CMessageLoop theLoop;
 	_Module.AddMessageLoop(&theLoop);
 
-	CMainDlg dlgMain;
+	CLoginDlg dlgMain;
 
 	if(dlgMain.Create(NULL) == NULL)
 	{

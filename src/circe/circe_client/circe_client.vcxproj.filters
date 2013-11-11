@@ -30,9 +30,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MainDlg.cpp">
-      <Filter>gui</Filter>
-    </ClCompile>
     <ClCompile Include="circe_client.cpp">
       <Filter>main</Filter>
     </ClCompile>
@@ -71,6 +68,9 @@
     </ClCompile>
     <ClCompile Include="utils.cpp">
       <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginDlg.cpp">
+      <Filter>gui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,9 +140,6 @@
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h">
       <Filter>include\wtl</Filter>
     </ClInclude>
-    <ClInclude Include="MainDlg.h">
-      <Filter>gui</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>main</Filter>
     </ClInclude>
@@ -184,6 +181,9 @@
     </ClInclude>
     <ClInclude Include="utils.h">
       <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginDlg.h">
+      <Filter>gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

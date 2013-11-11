@@ -123,7 +123,7 @@
     <ClCompile Include="client_net.cpp" />
     <ClCompile Include="game_handler.cpp" />
     <ClCompile Include="login_handler.cpp" />
-    <ClCompile Include="MainDlg.cpp" />
+    <ClCompile Include="LoginDlg.cpp" />
     <ClCompile Include="network_handler.cpp" />
     <ClCompile Include="network_mgr.cpp" />
     <ClCompile Include="opcodes_handler.cpp" />
@@ -163,7 +163,7 @@
     <ClInclude Include="client_net.h" />
     <ClInclude Include="game_handler.h" />
     <ClInclude Include="login_handler.h" />
-    <ClInclude Include="MainDlg.h" />
+    <ClInclude Include="LoginDlg.h" />
     <ClInclude Include="msg_def.h" />
     <ClInclude Include="network_handler.h" />
     <ClInclude Include="network_mgr.h" />

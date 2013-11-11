@@ -5,7 +5,7 @@
 #pragma once
 #include "..\zlui\lab\3rd\PictureExWnd.h"
 
-class CMainDlg : public CDialogImpl<CMainDlg>, public CUpdateUI<CMainDlg>,
+class CLoginDlg : public CDialogImpl<CLoginDlg>, public CUpdateUI<CLoginDlg>,
 		public CMessageFilter, public CIdleHandler
 {
 public:
@@ -14,10 +14,10 @@ public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual BOOL OnIdle();
 
-	BEGIN_UPDATE_UI_MAP(CMainDlg)
+	BEGIN_UPDATE_UI_MAP(CLoginDlg)
 	END_UPDATE_UI_MAP()
 
-	BEGIN_MSG_MAP(CMainDlg)
+	BEGIN_MSG_MAP(CLoginDlg)
 		MESSAGE_HANDLER(WM_INITDIALOG, OnInitDialog)
 		MESSAGE_HANDLER(WM_DESTROY, OnDestroy)
         MESSAGE_HANDLER(msg_login_result, OnLoginResult)
