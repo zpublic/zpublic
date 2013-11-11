@@ -178,7 +178,6 @@ void TcpConnection::on_read(const byte* data, size_t bytes_transferred)
     for (size_t i = 0; i < packetList.size(); ++i)
     {
         const ServerPacketPtr& packet = packetList[i];
-        const uint32_t& opcode = packet->opcode;
 
         if (_readComplectedCallback)
         {
