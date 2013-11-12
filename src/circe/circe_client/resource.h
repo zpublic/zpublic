@@ -11,6 +11,7 @@
 #define IDB_BITMAP1                     206
 #define IDD_WORLD_1                     207
 #define IDB_BITMAP2                     208
+#define IDD_WORLD_2                     209
 #define IDC_EDIT1                       1000
 #define IDC_EDIT2                       1001
 #define IDC_EDIT3                       1002
@@ -20,6 +21,7 @@
 #define IDC_CANCEL                      1005
 #define IDC_JUMP                        1005
 #define IDC_W1_ZHILIAO                  1005
+#define IDC_W2_HEHE                     1005
 #define IDC_GIF1                        1006
 #define IDC_REG                         1007
 #define IDC_BUTTON2                     1008
@@ -41,7 +43,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        209
+#define _APS_NEXT_RESOURCE_VALUE        210
 #define _APS_NEXT_COMMAND_VALUE         32775
 #define _APS_NEXT_CONTROL_VALUE         1010
 #define _APS_NEXT_SYMED_VALUE           101

@@ -17,5 +17,6 @@ LRESULT CWorld2Dlg::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHand
 
 LRESULT CWorld2Dlg::OnBnClickedW1Zhiliao(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
+    MessageBox(L"!", L"!");
     return 0;
 }

@@ -123,6 +123,16 @@ BEGIN
     PUSHBUTTON      "继续治疗",IDC_W1_ZHILIAO,305,236,86,14
 END
 
+IDD_WORLD_2 DIALOGEX 0, 0, 316, 184
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "魔法位面！！"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,205,163,50,14
+    PUSHBUTTON      "取消",IDCANCEL,259,163,50,14
+    PUSHBUTTON      "呵呵",IDC_W2_HEHE,146,163,47,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -162,6 +172,14 @@ BEGIN
         RIGHTMARGIN, 418
         TOPMARGIN, 7
         BOTTOMMARGIN, 256
+    END
+
+    IDD_WORLD_2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 177
     END
 END
 #endif    // APSTUDIO_INVOKED
