@@ -9,6 +9,7 @@
 #include "LoginDlg.h"
 #include "game_handler.h"
 #include "utils.h"
+#include "WorldDlg.h"
 
 BOOL CLoginDlg::PreTranslateMessage(MSG* pMsg)
 {
@@ -103,7 +104,7 @@ LRESULT CLoginDlg::OnLoginResult(UINT /*uMsg*/, WPARAM wParam, LPARAM lParam, BO
     int nResult = (int)wParam;
     if (nResult == 1)
     {
-        MessageBox(L"µÇÂ½³É¹¦");
+        PostMessage(msg_goto_world);
     }
     else if (nResult == 2)
     {
@@ -116,5 +117,14 @@ LRESULT CLoginDlg::OnLoginResult(UINT /*uMsg*/, WPARAM wParam, LPARAM lParam, BO
         MessageBox(m_strLoginErr);
     }
 
+    return 0;
+}
+
+LRESULT CLoginDlg::OnGotoWorld(UINT, WPARAM, LPARAM, BOOL&)
+{
+    ShowWindow(SW_HIDE);
+    CWorldDlg dlg;
+    dlg.DoModal();
+    CloseDialog(0);
     return 0;
 }

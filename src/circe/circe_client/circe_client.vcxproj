@@ -133,6 +133,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="utils.cpp" />
+    <ClCompile Include="WorldDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="utils.h" />
+    <ClInclude Include="WorldDlg.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="circe_client.rc">
@@ -180,6 +182,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\res\circe\1.bmp" />
     <Image Include="res\1.gif" />
     <Image Include="res\circe_client.ico" />
   </ItemGroup>

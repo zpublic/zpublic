@@ -72,6 +72,9 @@
     <ClCompile Include="LoginDlg.cpp">
       <Filter>gui</Filter>
     </ClCompile>
+    <ClCompile Include="WorldDlg.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h">
@@ -185,12 +188,18 @@
     <ClInclude Include="LoginDlg.h">
       <Filter>gui</Filter>
     </ClInclude>
+    <ClInclude Include="WorldDlg.h">
+      <Filter>gui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\circe_client.ico">
       <Filter>res</Filter>
     </Image>
     <Image Include="res\1.gif">
+      <Filter>res</Filter>
+    </Image>
+    <Image Include="..\..\..\res\circe\1.bmp">
       <Filter>res</Filter>
     </Image>
   </ItemGroup>

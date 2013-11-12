@@ -60,7 +60,7 @@ IDR_MAINFRAME           ICON                    "res\\circe_client.ico"
 
 IDD_REG_DLG DIALOGEX 0, 0, 187, 164
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
-CAPTION "中国好游戏MUD-注册"
+CAPTION "circe-注册"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "确认",IDC_REG,130,143,50,14
@@ -79,7 +79,7 @@ END
 
 IDD_MAINDLG DIALOGEX 0, 0, 277, 76
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU
-CAPTION "中国好游戏MUD-玩家登陆"
+CAPTION "circe-玩家登陆"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "进入游戏",IDOK,220,55,50,14
@@ -90,6 +90,16 @@ BEGIN
     EDITTEXT        IDC_EDIT1,118,7,153,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,118,26,153,14,ES_AUTOHSCROLL
     LTEXT           "Static",IDC_GIF1,20,12,56,52
+END
+
+IDD_WORLD DIALOGEX 0, 0, 637, 314
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "circe-任意门"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         206,IDC_STATIC,"Static",SS_BITMAP,7,7,624,268
+    LTEXT           "少女，跳下去吧！ -白岩松",IDC_STATIC,201,289,94,8
+    PUSHBUTTON      "跳下去",IDC_JUMP,342,286,50,14
 END
 
 
@@ -115,6 +125,14 @@ BEGIN
         RIGHTMARGIN, 270
         TOPMARGIN, 7
         BOTTOMMARGIN, 69
+    END
+
+    IDD_WORLD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 630
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 307
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -188,6 +206,13 @@ END
 //
 
 IDR_GIF1                GIF                     "res\\1.gif"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP                  "F:\\zPublic\\res\\circe\\1.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
