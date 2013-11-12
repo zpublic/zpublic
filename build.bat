@@ -3,7 +3,7 @@
 @echo ================	Build Client	=================
 @echo =
 @echo =
-"%VS11PATH%\devenv.com" .\sln\zpublic.sln /rebuild "Release"
+"%VS11PATH%\devenv.com" .\sln\base.sln /rebuild "Release"
 if ERRORLEVEL 1 exit /b 1
 @echo =
 @echo =
