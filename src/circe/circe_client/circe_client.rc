@@ -123,14 +123,14 @@ BEGIN
     PUSHBUTTON      "继续治疗",IDC_W1_ZHILIAO,305,236,86,14
 END
 
-IDD_WORLD_2 DIALOGEX 0, 0, 316, 184
+IDD_WORLD_2 DIALOGEX 0, 0, 485, 335
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "魔法位面！！"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "确定",IDOK,205,163,50,14
-    PUSHBUTTON      "取消",IDCANCEL,259,163,50,14
-    PUSHBUTTON      "呵呵",IDC_W2_HEHE,146,163,47,14
+    PUSHBUTTON      "下一页",IDC_W2_HEHE,356,169,47,14
+    CONTROL         210,IDC_STATIC,"Static",SS_BITMAP,7,7,262,321
+    LTEXT           "我来跟你讲述一个带着冒险，勇气，力量的故事",IDC_STATIC,293,120,171,21
 END
 
 
@@ -177,9 +177,9 @@ BEGIN
     IDD_WORLD_2, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 309
+        RIGHTMARGIN, 478
         TOPMARGIN, 7
-        BOTTOMMARGIN, 177
+        BOTTOMMARGIN, 328
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -261,6 +261,7 @@ IDR_GIF1                GIF                     "res\\1.gif"
 
 IDB_BITMAP1             BITMAP                  "..\\..\\..\\res\\circe\\1.bmp"
 IDB_BITMAP2             BITMAP                  "..\\..\\..\\res\\circe\\2.bmp"
+IDB_BITMAP3             BITMAP                  "..\\..\\..\\res\\circe\\3.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //

@@ -193,6 +193,7 @@
   <ItemGroup>
     <Image Include="..\..\..\res\circe\1.bmp" />
     <Image Include="..\..\..\res\circe\2.bmp" />
+    <Image Include="..\..\..\res\circe\3.bmp" />
     <Image Include="res\1.gif" />
     <Image Include="res\circe_client.ico" />
   </ItemGroup>

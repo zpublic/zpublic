@@ -17,6 +17,6 @@ LRESULT CWorld2Dlg::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHand
 
 LRESULT CWorld2Dlg::OnBnClickedW1Zhiliao(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-    MessageBox(L"!", L"!");
+    MessageBox(L"下一页还没写呢", L"下一页还没写呢");
     return 0;
 }

@@ -226,6 +226,7 @@
     <Image Include="..\..\..\res\circe\2.bmp">
       <Filter>res</Filter>
     </Image>
+    <Image Include="..\..\..\res\circe\3.bmp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="circe_client.rc">

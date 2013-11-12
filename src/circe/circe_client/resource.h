@@ -12,6 +12,7 @@
 #define IDD_WORLD_1                     207
 #define IDB_BITMAP2                     208
 #define IDD_WORLD_2                     209
+#define IDB_BITMAP3                     210
 #define IDC_EDIT1                       1000
 #define IDC_EDIT2                       1001
 #define IDC_EDIT3                       1002
