@@ -64,6 +64,8 @@ private:
 
 #define __FILE_NAME__ Poco::Path(__FILE__).getFileName().c_str()
 
+#ifdef VENUS_ENABLE_LOG
+
 #define fatal_log(fmt, ...) \
     __G_LOGGER__.fatal(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
 
@@ -81,6 +83,24 @@ private:
 
 #define trace_log(fmt, ...) \
     __G_LOGGER__.trace(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
+
+#else
+
+#define fatal_log(fmt, ...)
+
+#define error_log(fmt, ...)
+
+#define warning_log(fmt, ...)
+
+#define info_log(fmt, ...)
+
+#define debug_log(fmt, ...)
+
+#define trace_log(fmt, ...)
+
+#endif
+
+
 
 
 #endif // !__LOGGER_H__
