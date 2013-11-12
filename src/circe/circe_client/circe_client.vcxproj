@@ -87,7 +87,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <ExceptionHandling />
+      <ExceptionHandling>Sync</ExceptionHandling>
       <DebugInformationFormat />
       <PreprocessorDefinitions>UNICODE;BOOST_ALL_NO_LIB;WIN32;_WINDOWS;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../;../../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../../3rdparty/poco/Foundation/include;../../venus_net;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/include;</AdditionalIncludeDirectories>
@@ -97,6 +97,7 @@
       <TargetMachine>MachineX86</TargetMachine>
       <AdditionalDependencies>venus_net.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutputPath);./../../../3rdparty/boost_lib/;./../../../3rdparty/poco_lib/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/LTCG %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <ResourceCompile>
       <Culture>0x0409</Culture>
