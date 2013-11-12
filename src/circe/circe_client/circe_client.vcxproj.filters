@@ -84,6 +84,9 @@
     <ClCompile Include="World2Dlg.cpp">
       <Filter>gui\sub_world</Filter>
     </ClCompile>
+    <ClCompile Include="config.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h">
@@ -205,6 +208,9 @@
     </ClInclude>
     <ClInclude Include="World2Dlg.h">
       <Filter>gui\sub_world</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

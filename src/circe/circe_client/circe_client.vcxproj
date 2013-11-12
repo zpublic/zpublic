@@ -121,6 +121,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\public\crypt\KMD5.cpp" />
     <ClCompile Include="..\..\..\zlui\lab\3rd\PictureExWnd.cpp" />
+    <ClCompile Include="config.cpp" />
     <ClCompile Include="RegDlg.cpp" />
     <ClCompile Include="circe_client.cpp" />
     <ClCompile Include="client_net.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h" />
     <ClInclude Include="..\..\..\public\crypt\KMD5.h" />
     <ClInclude Include="..\..\..\zlui\lab\3rd\PictureExWnd.h" />
+    <ClInclude Include="config.h" />
     <ClInclude Include="RegDlg.h" />
     <ClInclude Include="client_net.h" />
     <ClInclude Include="game_handler.h" />
