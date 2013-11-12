@@ -7,8 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_pellets", "..\src\test
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpptest_ext", "..\3rdparty\cpptest_ext\cpptest_ext.vcxproj", "{BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mhook-test", "..\3rdparty\mhook-2.3\mhook-test.vcxproj", "{0E055CAF-C68B-42CB-A302-F775CA5A917F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -35,14 +33,6 @@ Global
 		{BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243}.Release|Win32.ActiveCfg = Release|Win32
 		{BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243}.Release|Win32.Build.0 = Release|Win32
 		{BDCF9C6C-AD3B-4A4A-B8CA-A3F849B68243}.Release|x64.ActiveCfg = Release|Win32
-		{0E055CAF-C68B-42CB-A302-F775CA5A917F}.Debug|Win32.ActiveCfg = Debug|Win32
-		{0E055CAF-C68B-42CB-A302-F775CA5A917F}.Debug|Win32.Build.0 = Debug|Win32
-		{0E055CAF-C68B-42CB-A302-F775CA5A917F}.Debug|x64.ActiveCfg = Debug|x64
-		{0E055CAF-C68B-42CB-A302-F775CA5A917F}.Debug|x64.Build.0 = Debug|x64
-		{0E055CAF-C68B-42CB-A302-F775CA5A917F}.Release|Win32.ActiveCfg = Release|Win32
-		{0E055CAF-C68B-42CB-A302-F775CA5A917F}.Release|Win32.Build.0 = Release|Win32
-		{0E055CAF-C68B-42CB-A302-F775CA5A917F}.Release|x64.ActiveCfg = Release|x64
-		{0E055CAF-C68B-42CB-A302-F775CA5A917F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
