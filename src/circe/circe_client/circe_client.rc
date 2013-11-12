@@ -112,13 +112,13 @@ BEGIN
     PUSHBUTTON      "未来都市平行位面",IDC_WORLD_1,538,299,92,14
 END
 
-IDD_WORLD_1 DIALOGEX 0, 0, 435, 263
+IDD_WORLD_1 DIALOGEX 0, 0, 425, 263
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "circe-未来都市平行位面"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "不要放弃治疗。    -白岩松",IDC_STATIC,39,240,92,8
-    CONTROL         208,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,7,7,624,268
+    CONTROL         208,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,7,7,411,209
     LTEXT           "余额：100",IDC_W1_MONEY,248,240,37,8
     PUSHBUTTON      "继续治疗",IDC_W1_ZHILIAO,305,236,86,14
 END
@@ -159,7 +159,7 @@ BEGIN
     IDD_WORLD_1, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 428
+        RIGHTMARGIN, 418
         TOPMARGIN, 7
         BOTTOMMARGIN, 256
     END
@@ -241,8 +241,8 @@ IDR_GIF1                GIF                     "res\\1.gif"
 // Bitmap
 //
 
-IDB_BITMAP1             BITMAP                  "F:\\zPublic\\res\\circe\\1.bmp"
-IDB_BITMAP2             BITMAP                  "F:\\zPublic\\res\\circe\\2.bmp"
+IDB_BITMAP1             BITMAP                  "..\\..\\..\\res\\circe\\1.bmp"
+IDB_BITMAP2             BITMAP                  "..\\..\\..\\res\\circe\\2.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
