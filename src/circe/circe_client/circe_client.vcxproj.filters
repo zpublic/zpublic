@@ -28,6 +28,9 @@
     <Filter Include="logic\login">
       <UniqueIdentifier>{b57bc68c-e43a-4848-bfe8-f3993466493c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gui\sub_world">
+      <UniqueIdentifier>{26ed382c-9d94-4cdd-b561-53f97bdf571c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="circe_client.cpp">
@@ -76,7 +79,10 @@
       <Filter>gui</Filter>
     </ClCompile>
     <ClCompile Include="World1Dlg.cpp">
-      <Filter>gui</Filter>
+      <Filter>gui\sub_world</Filter>
+    </ClCompile>
+    <ClCompile Include="World2Dlg.cpp">
+      <Filter>gui\sub_world</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -195,7 +201,10 @@
       <Filter>gui</Filter>
     </ClInclude>
     <ClInclude Include="World1Dlg.h">
-      <Filter>gui</Filter>
+      <Filter>gui\sub_world</Filter>
+    </ClInclude>
+    <ClInclude Include="World2Dlg.h">
+      <Filter>gui\sub_world</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

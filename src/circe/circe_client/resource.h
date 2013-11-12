@@ -23,8 +23,10 @@
 #define IDC_GIF1                        1006
 #define IDC_REG                         1007
 #define IDC_BUTTON2                     1008
+#define IDC_                            1008
 #define IDC_BUTTON3                     1009
 #define IDC_W1_MONEY                    1009
+#define IDC_WORLD_2                     1009
 #define IDC_BUTTON4                     1010
 #define IDC_BUTTON5                     1011
 #define IDC_BUTTON6                     1012

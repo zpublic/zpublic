@@ -40,6 +40,7 @@
     <IntDir>$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(projectdir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>$(Configuration)\</IntDir>
@@ -136,6 +137,7 @@
     </ClCompile>
     <ClCompile Include="utils.cpp" />
     <ClCompile Include="World1Dlg.cpp" />
+    <ClCompile Include="World2Dlg.cpp" />
     <ClCompile Include="WorldDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +179,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="utils.h" />
     <ClInclude Include="World1Dlg.h" />
+    <ClInclude Include="World2Dlg.h" />
     <ClInclude Include="WorldDlg.h" />
   </ItemGroup>
   <ItemGroup>
