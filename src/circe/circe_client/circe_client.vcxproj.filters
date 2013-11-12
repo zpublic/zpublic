@@ -75,6 +75,9 @@
     <ClCompile Include="WorldDlg.cpp">
       <Filter>gui</Filter>
     </ClCompile>
+    <ClCompile Include="World1Dlg.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h">
@@ -191,6 +194,9 @@
     <ClInclude Include="WorldDlg.h">
       <Filter>gui</Filter>
     </ClInclude>
+    <ClInclude Include="World1Dlg.h">
+      <Filter>gui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\circe_client.ico">
@@ -200,6 +206,9 @@
       <Filter>res</Filter>
     </Image>
     <Image Include="..\..\..\res\circe\1.bmp">
+      <Filter>res</Filter>
+    </Image>
+    <Image Include="..\..\..\res\circe\2.bmp">
       <Filter>res</Filter>
     </Image>
   </ItemGroup>

@@ -2,6 +2,7 @@
 #include "resource.h"
 
 #include "WorldDlg.h"
+#include "World1Dlg.h"
 
 LRESULT CWorldDlg::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/)
 {
@@ -19,5 +20,15 @@ LRESULT CWorldDlg::OnBnClickedJump(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hW
 {
     // TODO: 在此添加控件通知处理程序代码
 
+    return 0;
+}
+
+
+LRESULT CWorldDlg::OnBnClickedWorld1(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
+{
+    ShowWindow(SW_HIDE);
+    CWorld1Dlg dlg;
+    dlg.DoModal();
+    ShowWindow(SW_SHOW);
     return 0;
 }
