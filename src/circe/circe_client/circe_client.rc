@@ -118,7 +118,7 @@ CAPTION "circe-未来都市平行位面"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "不要放弃治疗。    -白岩松",IDC_STATIC,39,240,92,8
-    CONTROL         208,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,7,7,411,209
+    CONTROL         208,IDC_W1_BG,"Static",SS_BITMAP | SS_REALSIZEIMAGE,7,7,411,209
     LTEXT           "余额：100",IDC_W1_MONEY,248,240,37,8
     PUSHBUTTON      "继续治疗",IDC_W1_ZHILIAO,305,236,86,14
 END

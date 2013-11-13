@@ -31,6 +31,7 @@
 #define IDC_W1_MONEY                    1009
 #define IDC_WORLD_2                     1009
 #define IDC_BUTTON4                     1010
+#define IDC_W1_BG                       1010
 #define IDC_BUTTON5                     1011
 #define IDC_BUTTON6                     1012
 #define IDC_BUTTON7                     1013
@@ -46,7 +47,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        210
 #define _APS_NEXT_COMMAND_VALUE         32775
-#define _APS_NEXT_CONTROL_VALUE         1010
+#define _APS_NEXT_CONTROL_VALUE         1011
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
