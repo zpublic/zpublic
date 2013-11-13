@@ -15,3 +15,6 @@ poco
 
 protobuf
 2.5.0
+
+hge
+1.81

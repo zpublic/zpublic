@@ -26,6 +26,7 @@
 !/3rdparty/protobuf_lib/*.lib
 !/3rdparty/libcurl_lib/*.lib
 !/3rdparty/poco_lib/*.lib
+!/3rdparty/hge/lib/*.lib
 
 Debug
 !/3rdparty/boost/preprocessor/debug/
