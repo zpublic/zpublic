@@ -61,11 +61,8 @@ LRESULT CWorld1Dlg::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lPar
     SetTimer(1, 100);
 
     hwnd = g_pHge->System_GetState(HGE_HWND);
-
-    HMENU hMenu = ::GetSystemMenu(hwnd, 0);
-    int nCount = GetMenuItemCount(hMenu);
-    ::RemoveMenu(hMenu, nCount - 1, MF_DISABLED | MF_BYPOSITION);
-    ::DrawMenuBar(hwnd);
+    long lStyle = ::GetWindowLong(hwnd, GWL_STYLE);
+    ::SetWindowLong(hwnd, GWL_STYLE, lStyle & ~WS_CAPTION);
 
     m_nMoney = 100;
     CenterWindow(GetParent());
