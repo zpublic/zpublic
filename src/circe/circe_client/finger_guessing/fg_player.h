@@ -22,7 +22,7 @@ public:
     UINT GetBoardNum() const;
 
 private:
-    vecFGCard m_vecFGCard;
+    vecFGCard m_vecCard;
     std::wstring m_strPlayerName;
 };
 

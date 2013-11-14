@@ -21,24 +21,24 @@ const std::wstring& CFGPlayer::GetPlayerGame() const
 
 FGCard CFGPlayer::OutBoard(UINT nIndex)
 {
-    FGCard retFGBoard;
+    FGCard retCard;
 
-    if (m_vecFGCard.size() < nIndex)
+    if (m_vecCard.size() < nIndex)
     {
-        return retFGBoard;
+        return retCard;
     }
 
-    retFGBoard = m_vecFGCard[nIndex];
-    m_vecFGCard.erase(m_vecFGCard.begin() + nIndex);
-    return retFGBoard;
+    retCard = m_vecCard[nIndex];
+    m_vecCard.erase(m_vecCard.begin() + nIndex);
+    return retCard;
 }
 
-void CFGPlayer::AddBoard(const FGCard& fgBoard)
+void CFGPlayer::AddBoard(const FGCard& fgCard)
 {
-    m_vecFGCard.push_back(fgBoard);
+    m_vecCard.push_back(fgCard);
 }
 
 UINT CFGPlayer::GetBoardNum() const
 {
-    return m_vecFGCard.size();
+    return m_vecCard.size();
 }
