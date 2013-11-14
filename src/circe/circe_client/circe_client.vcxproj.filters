@@ -102,6 +102,9 @@
     <ClCompile Include="finger_guessing\fg_card.cpp">
       <Filter>logic\finger_guessing</Filter>
     </ClCompile>
+    <ClCompile Include="World3Dlg.cpp">
+      <Filter>gui\sub_world</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h">
@@ -230,9 +233,6 @@
     <ClInclude Include="finger_guessing\fg_game.h">
       <Filter>logic\finger_guessing</Filter>
     </ClInclude>
-    <ClInclude Include="finger_guessing\fg_game_def.h">
-      <Filter>logic\finger_guessing</Filter>
-    </ClInclude>
     <ClInclude Include="finger_guessing\fg_player.h">
       <Filter>logic\finger_guessing</Filter>
     </ClInclude>
@@ -244,6 +244,9 @@
     </ClInclude>
     <ClInclude Include="finger_guessing\fg_card.h">
       <Filter>logic\finger_guessing</Filter>
+    </ClInclude>
+    <ClInclude Include="World3Dlg.h">
+      <Filter>gui\sub_world</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

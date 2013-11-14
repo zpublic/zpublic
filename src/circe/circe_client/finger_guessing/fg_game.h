@@ -1,9 +1,8 @@
 #ifndef __GAME_FG_BOARD_GAME
 #define __GAME_FG_BOARD_GAME
 
-#include "fg_game_def.h"
+#include "fg_player.h"
 
-class CFGPlayer;
 class CFGGame
 {
 public:
@@ -11,14 +10,18 @@ public:
 
     ~CFGGame();
 
-    BOOL Push(CFGPlayer* fgPlayer);
+    BOOL Initialize();
 
-    BOOL Pop(UINT nIndex);
+    BOOL Unitialize();
 
-    BOOL DealBoard(UINT nIndex);
+    BOOL OutCard(UINT nIndex);
 
 private:
-    vecFGPlayerGame m_vecPlayerGame;                ///> 玩家列表
+    BOOL _DealCard(UINT nNum);
+
+private:
+    CFGPlayer m_PlayerSeft;                         ///> 自己
+    CFGPlayer m_PlayerComputer;                     ///> 电脑
 };
 
 #endif

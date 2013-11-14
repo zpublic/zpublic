@@ -10,12 +10,12 @@ FGPlayerBase::~FGPlayerBase()
 {
 }
 
-void FGPlayerBase::AddLift(UINT nLift)
+void FGPlayerBase::AddLift(int nLift)
 {
     m_nLift += nLift;
 }
 
-void FGPlayerBase::SubLift(UINT nLift)
+void FGPlayerBase::SubLift(int nLift)
 {
     m_nLift -= nLift;
 }

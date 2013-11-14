@@ -143,6 +143,7 @@
     <ClCompile Include="utils.cpp" />
     <ClCompile Include="World1Dlg.cpp" />
     <ClCompile Include="World2Dlg.cpp" />
+    <ClCompile Include="World3Dlg.cpp" />
     <ClCompile Include="WorldDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -174,7 +175,6 @@
     <ClInclude Include="finger_guessing\fg_card.h" />
     <ClInclude Include="finger_guessing\fg_card_def.h" />
     <ClInclude Include="finger_guessing\fg_game.h" />
-    <ClInclude Include="finger_guessing\fg_game_def.h" />
     <ClInclude Include="finger_guessing\fg_player.h" />
     <ClInclude Include="finger_guessing\fg_player_base.h" />
     <ClInclude Include="RegDlg.h" />
@@ -192,6 +192,7 @@
     <ClInclude Include="utils.h" />
     <ClInclude Include="World1Dlg.h" />
     <ClInclude Include="World2Dlg.h" />
+    <ClInclude Include="World3Dlg.h" />
     <ClInclude Include="WorldDlg.h" />
   </ItemGroup>
   <ItemGroup>

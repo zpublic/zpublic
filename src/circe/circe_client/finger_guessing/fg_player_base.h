@@ -9,12 +9,12 @@ public:
     FGPlayerBase();
     ~FGPlayerBase();
 
-    void AddLift(UINT nLift);
+    void AddLift(int nLift);
 
-    void SubLift(UINT nLift);
+    void SubLift(int nLift);
 
 private:
-    UINT m_nLift;
+    int m_nLift;
 };
 
 #endif

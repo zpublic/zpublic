@@ -15,11 +15,11 @@ public:
 
     const std::wstring& GetPlayerGame() const;
 
-    FGCard OutBoard(UINT nIndex);
+    BOOL OutCard(UINT nIndex, FGCard& card);
 
-    void AddBoard(const FGCard& fgBoard);
+    void AddCard(const FGCard& fgBoard);
 
-    UINT GetBoardNum() const;
+    UINT GetCardNum() const;
 
 private:
     vecFGCard m_vecCard;
