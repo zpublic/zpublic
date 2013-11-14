@@ -4,6 +4,7 @@
 #include "WorldDlg.h"
 #include "World1Dlg.h"
 #include "World2Dlg.h"
+#include "World3Dlg.h"
 
 LRESULT CWorldDlg::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/)
 {
@@ -39,6 +40,16 @@ LRESULT CWorldDlg::OnBnClickedWorld2(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*
 {
     ShowWindow(SW_HIDE);
     CWorld2Dlg dlg;
+    dlg.DoModal();
+    ShowWindow(SW_SHOW);
+    return 0;
+}
+
+
+LRESULT CWorldDlg::OnBnClickedWorld3(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
+{
+    ShowWindow(SW_HIDE);
+    CWorld3Dlg dlg;
     dlg.DoModal();
     ShowWindow(SW_SHOW);
     return 0;

@@ -19,3 +19,8 @@ void FGPlayerBase::SubLift(int nLift)
 {
     m_nLift -= nLift;
 }
+
+int FGPlayerBase::GetLift() const
+{
+    return m_nLift;
+}

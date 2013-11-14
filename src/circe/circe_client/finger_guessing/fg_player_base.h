@@ -13,6 +13,8 @@ public:
 
     void SubLift(int nLift);
 
+    int GetLift() const;
+
 private:
     int m_nLift;
 };

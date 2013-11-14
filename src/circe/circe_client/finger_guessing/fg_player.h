@@ -17,6 +17,8 @@ public:
 
     BOOL OutCard(UINT nIndex, FGCard& card);
 
+    BOOL GetCardInfo(UINT nIndex, FGCard& card);
+
     void AddCard(const FGCard& fgBoard);
 
     UINT GetCardNum() const;

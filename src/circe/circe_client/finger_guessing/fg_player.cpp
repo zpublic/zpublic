@@ -46,3 +46,19 @@ UINT CFGPlayer::GetCardNum() const
 {
     return m_vecCard.size();
 }
+
+BOOL CFGPlayer::GetCardInfo(UINT nIndex, FGCard& card)
+{
+    BOOL bReturn = FALSE;
+
+    if (m_vecCard.size() < nIndex)
+    {
+        goto Exit;
+    }
+
+    card = m_vecCard[nIndex];
+    bReturn = TRUE;
+Exit:
+
+    return bReturn;
+}

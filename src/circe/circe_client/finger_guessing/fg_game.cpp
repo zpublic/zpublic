@@ -5,6 +5,7 @@
 
 CFGGame::CFGGame()
 {
+    m_iBattleDamageLift = 0;
 }
 
 CFGGame::~CFGGame()
@@ -45,21 +46,66 @@ BOOL CFGGame::OutCard(UINT nIndex)
     int iSelfLife = 0;
     int iComputerLift = 0;
 
-    FGCard outBoard;
-    FGCard outBoardComputer;
+    FGCard outCard;
+    FGCard outCardComputer;
+    FGCard dealCard;
 
-    if (!m_PlayerSeft.OutCard(nIndex, outBoard))
+    if (!m_PlayerSeft.OutCard(nIndex, outCard))
     {
         goto Exit;
     }
 
-    GenerateCard(outBoardComputer);
-    Fight(outBoard, outBoardComputer, iSelfLife, iComputerLift);
+    GenerateCard(outCardComputer);
+    GenerateCard(dealCard);
+    Fight(outCard, outCardComputer, iSelfLife, iComputerLift);
     m_PlayerSeft.AddLift(iSelfLife);
+    m_PlayerSeft.AddCard(dealCard);
     m_PlayerComputer.AddLift(iComputerLift);
+    m_OutComputeyCard = outCardComputer;
+    m_iBattleDamageLift = iSelfLife;
+    bReturn = TRUE;
+Exit:
+
+    return bReturn;
+}
+
+BOOL CFGGame::GetCardList(vecFGCard& vecCard)
+{
+    BOOL bReturn = FALSE;
+    FGCard card;
+
+    for (UINT n = 0; n < m_PlayerSeft.GetCardNum(); ++n)
+    {
+        if (!m_PlayerSeft.GetCardInfo(n, card))
+        {
+            goto Exit;
+        }
+
+        vecCard.push_back(card);
+    }
 
     bReturn = TRUE;
 Exit:
 
     return bReturn;
+}
+
+int CFGGame::GetSeftLift() const
+{
+    return m_PlayerSeft.GetLift();
+}
+
+const FGCard& CFGGame::GetOutComputeyCard() const
+{
+    return m_OutComputeyCard;
+}
+
+int CFGGame::GetBattleDamageLift() const
+{
+    return m_iBattleDamageLift;
+}
+
+int CFGGame::GetComputeyLift() const
+{
+    return m_PlayerComputer.GetLift();
 }

@@ -16,12 +16,24 @@ public:
 
     BOOL OutCard(UINT nIndex);
 
+    BOOL GetCardList(vecFGCard& vecCard);
+
+    int GetSeftLift() const;
+
+    int GetComputeyLift() const;
+
+    int GetBattleDamageLift() const;
+
+    const FGCard& GetOutComputeyCard() const;
+
 private:
     BOOL _DealCard(UINT nNum);
 
 private:
     CFGPlayer m_PlayerSeft;                         ///> 自己
     CFGPlayer m_PlayerComputer;                     ///> 电脑
+    int m_iBattleDamageLift;                        ///> 战损
+    FGCard m_OutComputeyCard;                       ///> 电脑的出牌
 };
 
 #endif

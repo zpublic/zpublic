@@ -30,10 +30,10 @@ struct FGCard
         dwSpecial = 0;
         byPressAttack = 0;
         byCriticalStrike = 0;
-        emCardType = emCardType_Null;
+        emType = emCardType_Null;
     }
 
-    emCardType emCardType;    ///> 牌类型
+    emCardType emType;    ///> 牌类型
     BYTE byRevert;              ///> 回复
     BYTE bySuckBlood;           ///> 吸血
     DWORD dwSpecial;            ///> 特殊附加
