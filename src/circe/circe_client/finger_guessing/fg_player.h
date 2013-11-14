@@ -1,10 +1,10 @@
 #ifndef __GAME_FG_PLAYER_OBJECT_BASE
 #define __GAME_FG_PLAYER_OBJECT_BASE
 
-#include "../player.h"
-#include "game_object\board\fg_board.h"
+#include "fg_card_def.h"
+#include "fg_player_base.h"
 
-class CFGPlayer : public CPlayerGameBase
+class CFGPlayer : public FGPlayerBase
 {
 public:
     CFGPlayer();
@@ -15,14 +15,14 @@ public:
 
     const std::wstring& GetPlayerGame() const;
 
-    FGBoard OutBoard(UINT nIndex);
+    FGCard OutBoard(UINT nIndex);
 
-    void AddBoard(const FGBoard& fgBoard);
+    void AddBoard(const FGCard& fgBoard);
 
     UINT GetBoardNum() const;
 
 private:
-    vecFGBoard m_vecFGBorad;
+    vecFGCard m_vecFGCard;
     std::wstring m_strPlayerName;
 };
 

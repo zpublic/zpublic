@@ -3,12 +3,13 @@
 
 #include "fg_game_def.h"
 
-class CFGBoardGame
+class CFGPlayer;
+class CFGGame
 {
 public:
-    CFGBoardGame();
+    CFGGame();
 
-    ~CFGBoardGame();
+    ~CFGGame();
 
     BOOL Push(CFGPlayer* fgPlayer);
 

@@ -19,26 +19,26 @@ const std::wstring& CFGPlayer::GetPlayerGame() const
     return m_strPlayerName;
 }
 
-FGBoard CFGPlayer::OutBoard(UINT nIndex)
+FGCard CFGPlayer::OutBoard(UINT nIndex)
 {
-    FGBoard retFGBoard;
+    FGCard retFGBoard;
 
-    if (m_vecFGBorad.size() < nIndex)
+    if (m_vecFGCard.size() < nIndex)
     {
         return retFGBoard;
     }
 
-    retFGBoard = m_vecFGBorad[nIndex];
-    m_vecFGBorad.erase(m_vecFGBorad.begin() + nIndex);
+    retFGBoard = m_vecFGCard[nIndex];
+    m_vecFGCard.erase(m_vecFGCard.begin() + nIndex);
     return retFGBoard;
 }
 
-void CFGPlayer::AddBoard(const FGBoard& fgBoard)
+void CFGPlayer::AddBoard(const FGCard& fgBoard)
 {
-    m_vecFGBorad.push_back(fgBoard);
+    m_vecFGCard.push_back(fgBoard);
 }
 
 UINT CFGPlayer::GetBoardNum() const
 {
-    return m_vecFGBorad.size();
+    return m_vecFGCard.size();
 }

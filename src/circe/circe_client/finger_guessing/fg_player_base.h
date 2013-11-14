@@ -3,11 +3,11 @@
 
 #define INITIALIZE_LIFT_VALUE 10
 
-class CPlayerGameBase
+class FGPlayerBase
 {
 public:
-    CPlayerGameBase();
-    ~CPlayerGameBase();
+    FGPlayerBase();
+    ~FGPlayerBase();
 
     void AddLift(UINT nLift);
 
