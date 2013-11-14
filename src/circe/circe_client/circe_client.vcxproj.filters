@@ -257,9 +257,6 @@
     <ClInclude Include="game_object\player\player.h">
       <Filter>logic\game_object\player</Filter>
     </ClInclude>
-    <ClInclude Include="game_object\rule\fg_rule_board.h">
-      <Filter>logic\game_object\rule</Filter>
-    </ClInclude>
     <ClInclude Include="game_object\rule\irule_board.h">
       <Filter>logic\game_object\rule</Filter>
     </ClInclude>
@@ -268,6 +265,9 @@
     </ClInclude>
     <ClInclude Include="game\fg_game_def.h">
       <Filter>logic\game</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object\rule\fg_rule_shuffle.h">
+      <Filter>logic\game_object\rule</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

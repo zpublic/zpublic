@@ -178,7 +178,7 @@
     <ClInclude Include="game_object\board\fg_iboard.h" />
     <ClInclude Include="game_object\player\fg\fg_player.h" />
     <ClInclude Include="game_object\player\player.h" />
-    <ClInclude Include="game_object\rule\fg_rule_board.h" />
+    <ClInclude Include="game_object\rule\fg_rule_shuffle.h" />
     <ClInclude Include="game_object\rule\irule_board.h" />
     <ClInclude Include="RegDlg.h" />
     <ClInclude Include="client_net.h" />

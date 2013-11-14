@@ -8,9 +8,9 @@
     免伤            即使回合失败，也不会掉血
 */
 
-struct CFGBoard
+struct FGBoard
 {
-    CFGBoard()
+    FGBoard()
     {
         Reset();
     }
@@ -27,8 +27,8 @@ struct CFGBoard
 
 public:
     void Fight(
-        const CFGBoard& p1Card,     ///> 玩家1出的牌
-        const CFGBoard& p2Card,     ///> 玩家2出的牌
+        const FGBoard& p1Card,     ///> 玩家1出的牌
+        const FGBoard& p2Card,     ///> 玩家2出的牌
         int& p1Blood,               ///> 战斗后玩家1的血量变化 正数为加血 负数为掉血)
         int& p2Blood                ///> 战斗后玩家2的血量变化
         )
@@ -60,7 +60,7 @@ public:
         }
     }
 
-    void GenerateCard(CFGBoard& card)
+    void GenerateCard(FGBoard& card)
     {
         card.Reset();
 
@@ -112,8 +112,8 @@ public:
 
 private:
     void _FightCalculate(
-        const CFGBoard& WinnerCard,
-        const CFGBoard& LoserCard,
+        const FGBoard& WinnerCard,
+        const FGBoard& LoserCard,
         int& WinnerBlood,
         int& LoserBlood )
     {

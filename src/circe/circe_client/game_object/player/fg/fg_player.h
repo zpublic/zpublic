@@ -3,12 +3,6 @@
 
 #include "../player.h"
 #include "game_object\board\fg_board.h"
-#include <vector>
-#include <string>
-
-typedef std::vector<FGBoard> vecFGBoard;
-typedef std::vector<FGBoard>::iterator vecFGBoardIt;
-typedef std::vector<FGBoard>::const_iterator vecFGBoardConstIt;
 
 class CFGPlayerGame : public CPlayerGameBase
 {

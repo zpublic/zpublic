@@ -3,7 +3,7 @@
 
 #include "game_object\board\fg_board.h"
 #include "game_object\player\fg\fg_player.h"
-#include "game_object\rule\fg_rule_board.h"
+#include "game_object\rule\fg_rule_shuffle.h"
 #include <vector>
 #include <string>
 

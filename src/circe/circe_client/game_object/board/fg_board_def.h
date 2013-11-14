@@ -9,5 +9,12 @@ typedef enum _emBoardType
     emBoardType_Cloth,
 }emBoardType;
 
+#include <vector>
+#include <string>
 
+struct FGBoard;
+
+typedef std::vector<FGBoard> vecFGBoard;
+typedef std::vector<FGBoard>::iterator vecFGBoardIt;
+typedef std::vector<FGBoard>::const_iterator vecFGBoardConstIt;
 #endif
