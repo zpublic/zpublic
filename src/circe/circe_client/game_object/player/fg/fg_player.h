@@ -1,14 +1,14 @@
 #ifndef __GAME_FG_PLAYER_OBJECT_BASE
 #define __GAME_FG_PLAYER_OBJECT_BASE
 
-#include "../player_game.h"
+#include "../player.h"
 #include "game_object\board\fg_board.h"
 #include <vector>
 #include <string>
 
-typedef std::vector<CFGBoard> vecFGBoard;
-typedef std::vector<CFGBoard>::iterator vecFGBoardIt;
-typedef std::vector<CFGBoard>::const_iterator vecFGBoardConstIt;
+typedef std::vector<FGBoard> vecFGBoard;
+typedef std::vector<FGBoard>::iterator vecFGBoardIt;
+typedef std::vector<FGBoard>::const_iterator vecFGBoardConstIt;
 
 class CFGPlayerGame : public CPlayerGameBase
 {
@@ -21,9 +21,9 @@ public:
 
     const std::wstring& GetPlayerGame() const;
 
-    CFGBoard OutBoard(UINT nIndex);
+    FGBoard OutBoard(UINT nIndex);
 
-    void AddBoard(const CFGBoard& fgBoard);
+    void AddBoard(const FGBoard& fgBoard);
 
     UINT GetBoardNum() const;
 

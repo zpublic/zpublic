@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "player_game.h"
+#include "player.h"
 
 CPlayerGameBase::CPlayerGameBase()
     : m_nLift()

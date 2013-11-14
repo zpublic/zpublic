@@ -8,9 +8,9 @@
     免伤            即使回合失败，也不会掉血
 */
 
-struct CFGBoard
+typedef struct _FGBoard
 {
-    CFGBoard()
+    _FGBoard()
     {
         byRevert = 0;
         bySuckBlood = 0;
@@ -26,6 +26,6 @@ struct CFGBoard
     DWORD dwSpecial;            ///> 特殊附加
     BYTE byPressAttack;         ///> 强袭
     BYTE byCriticalStrike;      ///> 暴击
-};
+}FGBoard;
 
 #endif

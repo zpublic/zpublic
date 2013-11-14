@@ -40,13 +40,13 @@
     <Filter Include="logic\game">
       <UniqueIdentifier>{53110154-f482-49b4-9f31-435ba2fe9978}</UniqueIdentifier>
     </Filter>
-    <Filter Include="logic\game_object\player_game">
+    <Filter Include="logic\game_object\player">
       <UniqueIdentifier>{b85c557f-c0c8-4b32-8841-4b4a77900f09}</UniqueIdentifier>
     </Filter>
-    <Filter Include="logic\game_object\player_game\fg">
+    <Filter Include="logic\game_object\player\fg">
       <UniqueIdentifier>{edcf1a17-46f0-4d95-b3bf-82ebfb25be91}</UniqueIdentifier>
     </Filter>
-    <Filter Include="logic\game_object\rule_game">
+    <Filter Include="logic\game_object\rule">
       <UniqueIdentifier>{aedd1daf-e9e1-4e54-bc92-e1869febe080}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -108,14 +108,14 @@
     <ClCompile Include="game_object\board\fg_board.cpp">
       <Filter>logic\game_object\board</Filter>
     </ClCompile>
-    <ClCompile Include="game\fg_board_game.cpp">
+    <ClCompile Include="game_object\player\fg\fg_player.cpp">
+      <Filter>logic\game_object\player\fg</Filter>
+    </ClCompile>
+    <ClCompile Include="game_object\player\player.cpp">
+      <Filter>logic\game_object\player</Filter>
+    </ClCompile>
+    <ClCompile Include="game\fg_game.cpp">
       <Filter>logic\game</Filter>
-    </ClCompile>
-    <ClCompile Include="game_object\player_game\player_game.cpp">
-      <Filter>logic\game_object\player_game</Filter>
-    </ClCompile>
-    <ClCompile Include="game_object\player_game\fg\fg_player_game.cpp">
-      <Filter>logic\game_object\player_game\fg</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -251,23 +251,23 @@
     <ClInclude Include="game_object\board\fg_iboard.h">
       <Filter>logic\game_object\board</Filter>
     </ClInclude>
-    <ClInclude Include="game\fg_board_game.h">
+    <ClInclude Include="game_object\player\fg\fg_player.h">
+      <Filter>logic\game_object\player\fg</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object\player\player.h">
+      <Filter>logic\game_object\player</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object\rule\fg_rule_board.h">
+      <Filter>logic\game_object\rule</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object\rule\irule_board.h">
+      <Filter>logic\game_object\rule</Filter>
+    </ClInclude>
+    <ClInclude Include="game\fg_game.h">
       <Filter>logic\game</Filter>
     </ClInclude>
-    <ClInclude Include="game\fg_board_game_def.h">
+    <ClInclude Include="game\fg_game_def.h">
       <Filter>logic\game</Filter>
-    </ClInclude>
-    <ClInclude Include="game_object\player_game\player_game.h">
-      <Filter>logic\game_object\player_game</Filter>
-    </ClInclude>
-    <ClInclude Include="game_object\player_game\fg\fg_player_game.h">
-      <Filter>logic\game_object\player_game\fg</Filter>
-    </ClInclude>
-    <ClInclude Include="game_object\rule_game\irule_board.h">
-      <Filter>logic\game_object\rule_game</Filter>
-    </ClInclude>
-    <ClInclude Include="game_object\rule_game\fg_rule_board.h">
-      <Filter>logic\game_object\rule_game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

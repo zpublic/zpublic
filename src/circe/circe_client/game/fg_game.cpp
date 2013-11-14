@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "fg_board_game.h"
+#include "fg_game.h"
 
 CFGBoardGame::CFGBoardGame()
 {

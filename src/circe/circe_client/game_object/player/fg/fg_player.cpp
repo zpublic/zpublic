@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "fg_player_game.h"
+#include "fg_player.h"
 
 CFGPlayerGame::CFGPlayerGame()
 {
@@ -19,9 +19,9 @@ const std::wstring& CFGPlayerGame::GetPlayerGame() const
     return m_strPlayerName;
 }
 
-CFGBoard CFGPlayerGame::OutBoard(UINT nIndex)
+FGBoard CFGPlayerGame::OutBoard(UINT nIndex)
 {
-    CFGBoard retFGBoard;
+    FGBoard retFGBoard;
 
     if (m_vecFGBorad.size() < nIndex)
     {
@@ -33,7 +33,7 @@ CFGBoard CFGPlayerGame::OutBoard(UINT nIndex)
     return retFGBoard;
 }
 
-void CFGPlayerGame::AddBoard(const CFGBoard& fgBoard)
+void CFGPlayerGame::AddBoard(const FGBoard& fgBoard)
 {
     m_vecFGBorad.push_back(fgBoard);
 }

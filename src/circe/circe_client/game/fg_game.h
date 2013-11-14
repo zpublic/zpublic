@@ -1,7 +1,7 @@
 #ifndef __GAME_FG_BOARD_GAME
 #define __GAME_FG_BOARD_GAME
 
-#include "fg_board_game_def.h"
+#include "fg_game_def.h"
 
 class CFGBoardGame
 {
