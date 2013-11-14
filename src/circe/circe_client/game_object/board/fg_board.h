@@ -136,6 +136,7 @@ private:
         }
     }
 
+public:
     emBoardType emBoardType;    ///> ÅÆÀàÐÍ
     BYTE byRevert;              ///> »Ø¸´
     BYTE bySuckBlood;           ///> ÎüÑª

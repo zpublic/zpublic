@@ -7,8 +7,8 @@
 #include <vector>
 #include <string>
 
-typedef std::vector<CFGPlayerGame*> vecFGPlayerGame;
-typedef std::vector<CFGPlayerGame*>::iterator vecFGPlayerGameIt;
-typedef std::vector<CFGPlayerGame*>::const_iterator vecFGPlayerGameConstIt;
+typedef std::vector<CFGPlayer*> vecFGPlayerGame;
+typedef std::vector<CFGPlayer*>::iterator vecFGPlayerGameIt;
+typedef std::vector<CFGPlayer*>::const_iterator vecFGPlayerGameConstIt;
 
 #endif

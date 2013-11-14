@@ -4,12 +4,12 @@
 #include "../player.h"
 #include "game_object\board\fg_board.h"
 
-class CFGPlayerGame : public CPlayerGameBase
+class CFGPlayer : public CPlayerGameBase
 {
 public:
-    CFGPlayerGame();
+    CFGPlayer();
 
-    ~CFGPlayerGame();
+    ~CFGPlayer();
 
     void SetPlayerGame(const std::wstring& strName);
 

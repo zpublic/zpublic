@@ -1,25 +1,25 @@
 #include "stdafx.h"
 #include "fg_player.h"
 
-CFGPlayerGame::CFGPlayerGame()
+CFGPlayer::CFGPlayer()
 {
 }
 
-CFGPlayerGame::~CFGPlayerGame()
+CFGPlayer::~CFGPlayer()
 {
 }
 
-void CFGPlayerGame::SetPlayerGame(const std::wstring& strName)
+void CFGPlayer::SetPlayerGame(const std::wstring& strName)
 {
     m_strPlayerName = strName;
 }
 
-const std::wstring& CFGPlayerGame::GetPlayerGame() const
+const std::wstring& CFGPlayer::GetPlayerGame() const
 {
     return m_strPlayerName;
 }
 
-FGBoard CFGPlayerGame::OutBoard(UINT nIndex)
+FGBoard CFGPlayer::OutBoard(UINT nIndex)
 {
     FGBoard retFGBoard;
 
@@ -33,12 +33,12 @@ FGBoard CFGPlayerGame::OutBoard(UINT nIndex)
     return retFGBoard;
 }
 
-void CFGPlayerGame::AddBoard(const FGBoard& fgBoard)
+void CFGPlayer::AddBoard(const FGBoard& fgBoard)
 {
     m_vecFGBorad.push_back(fgBoard);
 }
 
-UINT CFGPlayerGame::GetBoardNum() const
+UINT CFGPlayer::GetBoardNum() const
 {
     return m_vecFGBorad.size();
 }

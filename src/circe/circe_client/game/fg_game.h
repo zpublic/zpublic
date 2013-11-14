@@ -10,7 +10,7 @@ public:
 
     ~CFGBoardGame();
 
-    BOOL Push(CFGPlayerGame* fgPlayerGame);
+    BOOL Push(CFGPlayer* fgPlayer);
 
     BOOL Pop(UINT nIndex);
 
