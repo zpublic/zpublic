@@ -31,6 +31,24 @@
     <Filter Include="gui\sub_world">
       <UniqueIdentifier>{26ed382c-9d94-4cdd-b561-53f97bdf571c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="logic\game_object">
+      <UniqueIdentifier>{5e92af43-24a7-4617-9eb8-81049493f5b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic\game_object\board">
+      <UniqueIdentifier>{b8789383-c08f-4d13-8b38-ae51f2db5cd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic\game">
+      <UniqueIdentifier>{53110154-f482-49b4-9f31-435ba2fe9978}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic\game_object\player_game">
+      <UniqueIdentifier>{b85c557f-c0c8-4b32-8841-4b4a77900f09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic\game_object\player_game\fg">
+      <UniqueIdentifier>{edcf1a17-46f0-4d95-b3bf-82ebfb25be91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic\game_object\rule_game">
+      <UniqueIdentifier>{aedd1daf-e9e1-4e54-bc92-e1869febe080}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="circe_client.cpp">
@@ -86,6 +104,18 @@
     </ClCompile>
     <ClCompile Include="config.cpp">
       <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="game_object\board\fg_board.cpp">
+      <Filter>logic\game_object\board</Filter>
+    </ClCompile>
+    <ClCompile Include="game\fg_board_game.cpp">
+      <Filter>logic\game</Filter>
+    </ClCompile>
+    <ClCompile Include="game_object\player_game\player_game.cpp">
+      <Filter>logic\game_object\player_game</Filter>
+    </ClCompile>
+    <ClCompile Include="game_object\player_game\fg\fg_player_game.cpp">
+      <Filter>logic\game_object\player_game\fg</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +241,33 @@
     </ClInclude>
     <ClInclude Include="config.h">
       <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object\board\fg_board.h">
+      <Filter>logic\game_object\board</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object\board\fg_board_def.h">
+      <Filter>logic\game_object\board</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object\board\fg_iboard.h">
+      <Filter>logic\game_object\board</Filter>
+    </ClInclude>
+    <ClInclude Include="game\fg_board_game.h">
+      <Filter>logic\game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\fg_board_game_def.h">
+      <Filter>logic\game</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object\player_game\player_game.h">
+      <Filter>logic\game_object\player_game</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object\player_game\fg\fg_player_game.h">
+      <Filter>logic\game_object\player_game\fg</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object\rule_game\irule_board.h">
+      <Filter>logic\game_object\rule_game</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object\rule_game\fg_rule_board.h">
+      <Filter>logic\game_object\rule_game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -75,6 +75,7 @@ LRESULT CWorld1Dlg::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHand
     ::ShowWindow(hwnd, SW_HIDE);
     //g_pHge->System_Shutdown();
    // g_pHge->Release();
+
     EndDialog(0);
     return 0;
 }

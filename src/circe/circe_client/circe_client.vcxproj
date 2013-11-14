@@ -122,6 +122,10 @@
     <ClCompile Include="..\..\..\public\crypt\KMD5.cpp" />
     <ClCompile Include="..\..\..\zlui\lab\3rd\PictureExWnd.cpp" />
     <ClCompile Include="config.cpp" />
+    <ClCompile Include="game\fg_board_game.cpp" />
+    <ClCompile Include="game_object\board\fg_board.cpp" />
+    <ClCompile Include="game_object\player_game\fg\fg_player_game.cpp" />
+    <ClCompile Include="game_object\player_game\player_game.cpp" />
     <ClCompile Include="RegDlg.cpp" />
     <ClCompile Include="circe_client.cpp" />
     <ClCompile Include="client_net.cpp" />
@@ -167,6 +171,15 @@
     <ClInclude Include="..\..\..\public\crypt\KMD5.h" />
     <ClInclude Include="..\..\..\zlui\lab\3rd\PictureExWnd.h" />
     <ClInclude Include="config.h" />
+    <ClInclude Include="game\fg_board_game.h" />
+    <ClInclude Include="game\fg_board_game_def.h" />
+    <ClInclude Include="game_object\board\fg_board.h" />
+    <ClInclude Include="game_object\board\fg_board_def.h" />
+    <ClInclude Include="game_object\board\fg_iboard.h" />
+    <ClInclude Include="game_object\player_game\fg\fg_player_game.h" />
+    <ClInclude Include="game_object\player_game\player_game.h" />
+    <ClInclude Include="game_object\rule_game\fg_rule_board.h" />
+    <ClInclude Include="game_object\rule_game\irule_board.h" />
     <ClInclude Include="RegDlg.h" />
     <ClInclude Include="client_net.h" />
     <ClInclude Include="game_handler.h" />
