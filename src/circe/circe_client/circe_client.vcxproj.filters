@@ -34,6 +34,12 @@
     <Filter Include="logic\finger_guessing">
       <UniqueIdentifier>{a3afed74-3107-4064-9e77-3829050b8e34}</UniqueIdentifier>
     </Filter>
+    <Filter Include="3rdparty">
+      <UniqueIdentifier>{98390591-3687-4f88-8055-ce44b6f9c84b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\tingxml">
+      <UniqueIdentifier>{5ade66fa-aabd-4aab-aa4d-64baa2f14a80}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="circe_client.cpp">
@@ -104,6 +110,18 @@
     </ClCompile>
     <ClCompile Include="World3Dlg.cpp">
       <Filter>gui\sub_world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxml.cpp">
+      <Filter>3rdparty\tingxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxmlerror.cpp">
+      <Filter>3rdparty\tingxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxmlparser.cpp">
+      <Filter>3rdparty\tingxml</Filter>
+    </ClCompile>
+    <ClCompile Include="finger_guessing\fg_xml_parse.cpp">
+      <Filter>logic\finger_guessing</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +265,12 @@
     </ClInclude>
     <ClInclude Include="World3Dlg.h">
       <Filter>gui\sub_world</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxml.h">
+      <Filter>3rdparty\tingxml</Filter>
+    </ClInclude>
+    <ClInclude Include="finger_guessing\fg_xml_parse.h">
+      <Filter>logic\finger_guessing</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

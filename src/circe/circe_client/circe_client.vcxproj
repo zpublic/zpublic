@@ -40,7 +40,7 @@
     <IntDir>$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(projectdir);$(IncludePath)</IncludePath>
+    <IncludePath>$(projectdir)/../../../3rdparty/tinyxml-2.6.2/;$(projectdir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>$(Configuration)\</IntDir>
@@ -119,6 +119,15 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxml.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxmlerror.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxmlparser.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="..\..\..\public\crypt\KMD5.cpp" />
     <ClCompile Include="..\..\..\zlui\lab\3rd\PictureExWnd.cpp" />
     <ClCompile Include="config.cpp" />
@@ -126,6 +135,7 @@
     <ClCompile Include="finger_guessing\fg_game.cpp" />
     <ClCompile Include="finger_guessing\fg_player.cpp" />
     <ClCompile Include="finger_guessing\fg_player_base.cpp" />
+    <ClCompile Include="finger_guessing\fg_xml_parse.cpp" />
     <ClCompile Include="RegDlg.cpp" />
     <ClCompile Include="circe_client.cpp" />
     <ClCompile Include="client_net.cpp" />
@@ -147,6 +157,7 @@
     <ClCompile Include="WorldDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxml.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlcrack.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrls.h" />
@@ -177,6 +188,7 @@
     <ClInclude Include="finger_guessing\fg_game.h" />
     <ClInclude Include="finger_guessing\fg_player.h" />
     <ClInclude Include="finger_guessing\fg_player_base.h" />
+    <ClInclude Include="finger_guessing\fg_xml_parse.h" />
     <ClInclude Include="RegDlg.h" />
     <ClInclude Include="client_net.h" />
     <ClInclude Include="game_handler.h" />

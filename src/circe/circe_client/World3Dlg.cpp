@@ -16,7 +16,7 @@ LRESULT CWorld3Dlg::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lPar
     m_FightInfoEdit.Attach(GetDlgItem(IDC_EDIT2));
     m_Game.Initialize();
 
-    vecFGCard seftcard;
+    VECFGCARD seftcard;
     CString csCard;
     CString csSeftLiftValue;
     CString csComputerLiftValue;
@@ -44,7 +44,7 @@ LRESULT CWorld3Dlg::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHand
 
 LRESULT CWorld3Dlg::OnBnClickedOk(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-    vecFGCard seftcard;
+    VECFGCARD seftcard;
     FGCard outComputeyCard;
     CString csCard;
     CString csSeftLiftValue;
