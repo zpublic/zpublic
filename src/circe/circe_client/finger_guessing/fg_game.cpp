@@ -35,11 +35,7 @@ BOOL CFGGame::Initialize()
     m_PlayerSeft.AddLift(10);
     m_PlayerComputer.AddLift(10);
 
-    wchar_t filePath[MAX_PATH] = {0};
-    ::GetModuleFileNameW(0, filePath, MAX_PATH);
-    ::PathRemoveFileSpecW(filePath);
-    ::PathAppendW(filePath, _T("cards.xml"));
-    parsexml.Parse(filePath, vecCard);
+    parsexml.Parse(L".\\data\\cards.xml", vecCard);
     return TRUE;
 }
 
