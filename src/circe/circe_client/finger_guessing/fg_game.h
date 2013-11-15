@@ -16,7 +16,7 @@ public:
 
     BOOL OutCard(UINT nIndex);
 
-    BOOL GetCardList(vecFGCard& vecCard);
+    BOOL GetCardList(VECFGCARD& vecCard);
 
     int GetSeftLift() const;
 

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "fg_game.h"
 #include "fg_card.h"
+#include "fg_xml_parse.h"
 #include <ctime>
 
 CFGGame::CFGGame()
@@ -27,10 +28,18 @@ BOOL CFGGame::_DealCard(UINT nNum)
 
 BOOL CFGGame::Initialize()
 {
+    CFGXMLParse parsexml;
+    VECFGCARD vecCard;
     srand((unsigned int)time(NULL));
     _DealCard(8);
     m_PlayerSeft.AddLift(10);
     m_PlayerComputer.AddLift(10);
+
+    wchar_t filePath[MAX_PATH] = {0};
+    ::GetModuleFileNameW(0, filePath, MAX_PATH);
+    ::PathRemoveFileSpecW(filePath);
+    ::PathAppendW(filePath, _T("cards.xml"));
+    parsexml.Parse(filePath, vecCard);
     return TRUE;
 }
 
@@ -69,7 +78,7 @@ Exit:
     return bReturn;
 }
 
-BOOL CFGGame::GetCardList(vecFGCard& vecCard)
+BOOL CFGGame::GetCardList(VECFGCARD& vecCard)
 {
     BOOL bReturn = FALSE;
     FGCard card;

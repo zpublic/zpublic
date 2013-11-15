@@ -25,6 +25,7 @@ struct FGCard
 
     void Reset()
     {
+        nId = 0;
         byRevert = 0;
         bySuckBlood = 0;
         dwSpecial = 0;
@@ -33,7 +34,10 @@ struct FGCard
         emType = emCardType_Null;
     }
 
-    emCardType emType;    ///> 牌类型
+    UINT nId;
+    std::wstring strName;       ///> 牌名称
+    std::wstring strDecs;       ///> 牌说明
+    emCardType emType;          ///> 牌类型
     BYTE byRevert;              ///> 回复
     BYTE bySuckBlood;           ///> 吸血
     DWORD dwSpecial;            ///> 特殊附加
@@ -41,7 +45,7 @@ struct FGCard
     BYTE byCriticalStrike;      ///> 暴击
 };
 
-typedef std::vector<FGCard> vecFGCard;
-typedef std::vector<FGCard>::iterator vecFGCardIt;
-typedef std::vector<FGCard>::const_iterator vecFGCardConstIt;
+typedef std::vector<FGCard> VECFGCARD;
+typedef std::vector<FGCard>::iterator VECFGCARDIT;
+typedef std::vector<FGCard>::const_iterator VECFGCARDCONSTIT;
 #endif

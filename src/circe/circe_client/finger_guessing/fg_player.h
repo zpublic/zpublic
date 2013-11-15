@@ -24,7 +24,7 @@ public:
     UINT GetCardNum() const;
 
 private:
-    vecFGCard m_vecCard;
+    VECFGCARD m_vecCard;
     std::wstring m_strPlayerName;
 };
 
