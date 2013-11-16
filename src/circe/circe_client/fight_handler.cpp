@@ -27,6 +27,7 @@ void FightHandler::OutCard(UINT nIndex)
 
 void FightHandler::NotifyResult(FightNotifyResult emNotityResult)
 {
+    m_SeftCard_vec.clear();
     m_Game.GetCardList(m_SeftCard_vec);
 
     switch (emNotityResult)
