@@ -64,3 +64,5 @@ Release
 
 /output/mud_server/game_client.log
 /temp
+
+circe_client_network.dll
