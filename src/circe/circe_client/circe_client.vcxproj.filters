@@ -120,7 +120,10 @@
     <ClCompile Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxmlparser.cpp">
       <Filter>3rdparty\tingxml</Filter>
     </ClCompile>
-    <ClCompile Include="finger_guessing\fg_xml_parse.cpp">
+    <ClCompile Include="fg_game_handler.cpp">
+      <Filter>logic\login</Filter>
+    </ClCompile>
+    <ClCompile Include="finger_guessing\fg_card_info.cpp">
       <Filter>logic\finger_guessing</Filter>
     </ClCompile>
   </ItemGroup>
@@ -269,7 +272,10 @@
     <ClInclude Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxml.h">
       <Filter>3rdparty\tingxml</Filter>
     </ClInclude>
-    <ClInclude Include="finger_guessing\fg_xml_parse.h">
+    <ClInclude Include="fg_game_handler.h">
+      <Filter>logic\login</Filter>
+    </ClInclude>
+    <ClInclude Include="finger_guessing\fg_card_info.h">
       <Filter>logic\finger_guessing</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "fg_xml_parse.h"
+#include "fg_card_info.h"
 #include <atlbase.h>
 
 #define FG_XML_CARD_NAME    "name"
@@ -11,17 +11,17 @@
 #define FG_XML_CARD         "card"
 #define FG_XML_ROOT_CARD    "cards"
 
-CFGXMLParse::CFGXMLParse()
+CFGCardInfo::CFGCardInfo()
 {
 
 }
 
-CFGXMLParse::~CFGXMLParse()
+CFGCardInfo::~CFGCardInfo()
 {
 
 }
 
-bool CFGXMLParse::Parse(const std::wstring& strPath,
+bool CFGCardInfo::Parse(const std::wstring& strPath,
     VECFGCARD& vecCard)
 {
     bool bReturn = false;
@@ -63,9 +63,9 @@ bool CFGXMLParse::Parse(const std::wstring& strPath,
         strDecs.clear();
         strAttr.clear();
 
-        strName = pNote->Attribute(FG_XML_CARD_NAME);
-        strDecs = pNote->Attribute(FG_XML_CARD_DECS);
-        strAttr = pNote->Attribute(FG_XML_CARD_ATTR);
+        _GetXMLAttrStr(pNote, FG_XML_CARD_NAME, strName);
+        _GetXMLAttrStr(pNote, FG_XML_CARD_DECS, strDecs);
+        _GetXMLAttrStr(pNote, FG_XML_CARD_ATTR, strAttr);
         pNote->Attribute(FG_XML_CARD_ID, &nId);
         pNote->Attribute(FG_XML_CARD_TYPE, &nType);
 
@@ -86,7 +86,7 @@ Exit:
     return bReturn;
 }
 
-int CFGXMLParse::_SplitString(const std::wstring& strSplit, vecSplitStr& vecString, wchar_t ch)
+int CFGCardInfo::_SplitString(const std::wstring& strSplit, vecSplitStr& vecString, wchar_t ch)
 {
     if (strSplit.empty())
     {
@@ -114,7 +114,7 @@ int CFGXMLParse::_SplitString(const std::wstring& strSplit, vecSplitStr& vecStri
     return vecString.size();
 }
 
-int CFGXMLParse::_ParseAttribute(FGCard& card, const std::wstring& strSplit)
+int CFGCardInfo::_ParseAttribute(FGCard& card, const std::wstring& strSplit)
 {
     if (strSplit.empty())
     {
@@ -142,7 +142,7 @@ int CFGXMLParse::_ParseAttribute(FGCard& card, const std::wstring& strSplit)
     return nAttrNum;
 }
 
-bool CFGXMLParse::_ParseAttrValue(const std::wstring& strParse, std::wstring& strAttrName, int& iValue)
+bool CFGCardInfo::_ParseAttrValue(const std::wstring& strParse, std::wstring& strAttrName, int& iValue)
 {
     bool bReturn = false;
 
@@ -175,7 +175,7 @@ Exit:
 // BYTE byCriticalStrike;      ///> ±©»÷                  a4
 */
 
-bool CFGXMLParse::_ConvertAttrToCard(FGCard& card,
+bool CFGCardInfo::_ConvertAttrToCard(FGCard& card,
     std::wstring& strAttrName,
     int& iValue)
 {
@@ -200,6 +200,28 @@ bool CFGXMLParse::_ConvertAttrToCard(FGCard& card,
     {
         card.byCriticalStrike = (BYTE)iValue;
     }
+
+    return true;
+}
+
+bool CFGCardInfo::_GetXMLAttrStr(TiXmlElement* pElement,
+    const char* lpszAttrName,
+    std::string& strValue)
+{
+    if (!pElement
+        || !lpszAttrName)
+    {
+        return false;
+    }
+
+    const char* lpszValueStr = pElement->Attribute(lpszAttrName);
+
+    if (!lpszValueStr)
+    {
+        return false;
+    }
+
+    strValue = lpszValueStr;
 
     return true;
 }

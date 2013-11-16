@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "fg_game.h"
 #include "fg_card.h"
-#include "fg_xml_parse.h"
+#include "fg_card_info.h"
 #include <ctime>
 
 CFGGame::CFGGame()
@@ -28,7 +28,7 @@ BOOL CFGGame::_DealCard(UINT nNum)
 
 BOOL CFGGame::Initialize()
 {
-    CFGXMLParse parsexml;
+    CFGCardInfo parsexml;
     VECFGCARD vecCard;
     srand((unsigned int)time(NULL));
     _DealCard(8);

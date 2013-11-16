@@ -10,17 +10,21 @@ typedef std::vector<std::wstring> vecSplitStr;
 typedef std::vector<std::wstring>::iterator vecSplitStrIt;
 typedef std::vector<std::wstring>::const_iterator vecSplitStrConstIt;
 
-class CFGXMLParse
+class CFGCardInfo
 {
 public:
-    CFGXMLParse();
+    CFGCardInfo();
 
-    ~CFGXMLParse();
+    ~CFGCardInfo();
 
     bool Parse(const std::wstring& strPath,
         VECFGCARD& vecCard);
 
 private:
+    bool _GetXMLAttrStr(TiXmlElement* pElement,
+        const char* lpszAttrName,
+        std::string& strValue);
+
     int _ParseAttribute(
         FGCard& card,
         const std::wstring& strSplit);
