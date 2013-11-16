@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "resource.h"
-
+#include "game_handler.h"
 #include "World3Dlg.h"
 
 CWorld3Dlg::CWorld3Dlg()
@@ -14,25 +14,9 @@ LRESULT CWorld3Dlg::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lPar
     CenterWindow(GetParent());
     m_SeftCardListBox.Attach(GetDlgItem(IDC_LIST1));
     m_FightInfoEdit.Attach(GetDlgItem(IDC_EDIT2));
-    m_Game.Initialize();
 
-    VECFGCARD seftcard;
-    CString csCard;
-    CString csSeftLiftValue;
-    CString csComputerLiftValue;
-
-    m_Game.GetCardList(seftcard);
-
-    for (UINT n = 0; n < seftcard.size(); ++n)
-    {
-        _ConvertCardToStirng(seftcard[n], csCard);
-        m_SeftCardListBox.AddString(csCard);
-    }
-
-    csSeftLiftValue.Format(L"%d", m_Game.GetSeftLift());
-    csComputerLiftValue.Format(L"%d", m_Game.GetComputeyLift());
-    SetDlgItemText(IDC_STATIC7, csSeftLiftValue);
-    SetDlgItemText(IDC_STATIC6, csComputerLiftValue);
+    GameHandler::fightcard.SetGameDlg(m_hWnd);
+    GameHandler::fightcard.InitializeGame(3, 10);
     return TRUE;
 }
 
@@ -44,48 +28,7 @@ LRESULT CWorld3Dlg::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHand
 
 LRESULT CWorld3Dlg::OnBnClickedOk(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-    VECFGCARD seftcard;
-    FGCard outComputeyCard;
-    CString csCard;
-    CString csSeftLiftValue;
-    CString csComputerLiftValue;
-    CString csComputeyCard;
-    CString csFightInfo;
-
-    int nListCurSel = m_SeftCardListBox.GetCurSel();
-    m_SeftCardListBox.DeleteString(nListCurSel);
-    m_Game.OutCard(nListCurSel);
-    m_Game.GetCardList(seftcard);
-
-    if (seftcard.size() < nListCurSel)
-    {
-        return FALSE;
-    }
-
-    _ConvertCardToStirng(seftcard[nListCurSel], csCard);
-    m_SeftCardListBox.AddString(csCard);
-    m_FightInfoEdit.GetWindowText(csFightInfo);
-
-    if (!csFightInfo.IsEmpty())
-    {
-        csFightInfo += _T("\r\n");
-    }
-
-    outComputeyCard = m_Game.GetOutComputeyCard();
-
-    _ConvertCardToStirng(outComputeyCard, csComputeyCard);
-
-    csFightInfo.AppendFormat(L"对方打出: %s, 损失生命值:%d ",
-        csComputeyCard,
-        m_Game.GetBattleDamageLift());
-
-    csSeftLiftValue.Format(L"%d", m_Game.GetSeftLift());
-    m_FightInfoEdit.SetWindowText(csFightInfo);
-
-    csSeftLiftValue.Format(L"%d", m_Game.GetSeftLift());
-    csComputerLiftValue.Format(L"%d", m_Game.GetComputeyLift());
-    SetDlgItemText(IDC_STATIC7, csSeftLiftValue);
-    SetDlgItemText(IDC_STATIC6, csComputerLiftValue);
+    GameHandler::fightcard.OutCard(m_SeftCardListBox.GetCurSel());
     return 0;
 }
 
@@ -114,4 +57,117 @@ void CWorld3Dlg::_ConvertCardToStirng(const FGCard& card, CString& csConvertStri
         card.dwSpecial,
         card.byPressAttack,
         card.byCriticalStrike);
+}
+
+void CWorld3Dlg::_ConvertDamageToStirng(int iDamageValue, CString& csConvertString)
+{
+    if (iDamageValue > 0)
+    {
+        csConvertString = L"  恢复生命值:";
+    }
+    else
+    {
+        csConvertString = L"  战斗损失生命值:";
+    }
+    
+    csConvertString.AppendFormat(L" %d", iDamageValue);
+}
+
+bool CWorld3Dlg::_PrintFightInfo(const FGFightInfo* pInfo)
+{
+    if (!pInfo)
+    {
+        return false;
+    }
+
+    CString csFightInfo;
+    CString csSelfLiftText;
+    CString csComputeLiftText;
+    CString csComputeyCard;
+    CString csSelfCard;
+
+    m_FightInfoEdit.GetWindowText(csFightInfo);
+
+    if (!csFightInfo.IsEmpty())
+    {
+        csFightInfo += L"\r\n";
+    }
+
+    _ConvertCardToStirng(pInfo->outComputeCard, csComputeyCard);
+    _ConvertCardToStirng(pInfo->outSelfCard, csSelfCard);
+    _ConvertDamageToStirng(pInfo->iComputeDamage, csComputeLiftText);
+    _ConvertDamageToStirng(pInfo->iSeftDamage, csSelfLiftText);
+
+    csFightInfo.AppendFormat(L"对方打出: %s, %s \r\n    你打出: %s, %s ",
+        csComputeyCard,
+        csComputeLiftText,
+        csSelfCard,
+        csSelfLiftText,
+        m_Game.GetSelfDamageLift());
+
+    m_FightInfoEdit.SetWindowText(csFightInfo);
+
+    return true;
+}
+
+LRESULT CWorld3Dlg::OnGameUpdate(UINT uMsg,
+    WPARAM wParam,
+    LPARAM lParam,
+    BOOL& bHandled)
+{
+    VECFGCARD* pSeftcardUpdate = (VECFGCARD*)wParam;
+    FGGameInfo* pGameInfo = (FGGameInfo*)lParam;
+
+    if (!pSeftcardUpdate)
+    {
+        return FALSE;
+    }
+
+    CString csCard;
+    CString csSeftLiftValue;
+    CString csComputerLiftValue;
+
+    for (UINT n = 0; n < pSeftcardUpdate->size(); ++n)
+    {
+        _ConvertCardToStirng((*pSeftcardUpdate)[n], csCard);
+        m_SeftCardListBox.AddString(csCard);
+    }
+
+    csSeftLiftValue.Format(L"%d", pGameInfo->iSeftLift);
+    csComputerLiftValue.Format(L"%d", pGameInfo->iComputeLift);
+
+    SetDlgItemText(IDC_STATIC7, csSeftLiftValue);
+    SetDlgItemText(IDC_STATIC6, csComputerLiftValue);
+    return TRUE;
+}
+
+LRESULT CWorld3Dlg::OnGameFight(UINT uMsg,
+    WPARAM wParam,
+    LPARAM lParam,
+    BOOL& bHandled)
+{
+    VECFGCARD* pSeftcardUpdate = (VECFGCARD*)wParam;
+    FGFightInfo* pFightInfo = (FGFightInfo*)lParam;
+
+    if (!pSeftcardUpdate
+        || !pFightInfo)
+    {
+        return FALSE;
+    }
+
+    CString csPutCard;
+    CString csSeftLiftValue;
+    CString csComputerLiftValue;
+
+    _ConvertCardToStirng((*pSeftcardUpdate)[pFightInfo->iSelfOutCard], csPutCard);
+    m_SeftCardListBox.DeleteString(pFightInfo->iSelfOutCard);
+    m_SeftCardListBox.AddString(csPutCard);
+    _PrintFightInfo(pFightInfo);
+
+    csSeftLiftValue.Format(L"%d", pFightInfo->GameInfo.iSeftLift);
+    csComputerLiftValue.Format(L"%d", pFightInfo->GameInfo.iComputeLift);
+
+    SetDlgItemText(IDC_STATIC7, csSeftLiftValue);
+    SetDlgItemText(IDC_STATIC6, csComputerLiftValue);
+    return TRUE;
 }

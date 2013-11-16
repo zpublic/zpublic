@@ -6,3 +6,9 @@ enum emUserMsg
     msg_register_result,
     msg_goto_world,
 };
+
+enum emGameMsg
+{
+    msg_game_update        = WM_USER + 1000,
+    msg_game_out_card,
+};

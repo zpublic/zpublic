@@ -5,14 +5,17 @@
 #include <packet.h>
 #include "login_handler.h"
 #include "register_handler.h"
+#include "fight_handler.h"
 
 class GameHandler
 {
 public:
     static void user_login_handler(const NetworkMessage& message);
     static void user_register_handler(const NetworkMessage& message);
+    static void game_fight_handler(const NetworkMessage& message);
 
 public:
     static LoginHandler     login;
     static RegisterHandler  reg;
+    static FightHandler   fightcard;
 };

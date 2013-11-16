@@ -131,7 +131,7 @@
     <ClCompile Include="..\..\..\public\crypt\KMD5.cpp" />
     <ClCompile Include="..\..\..\zlui\lab\3rd\PictureExWnd.cpp" />
     <ClCompile Include="config.cpp" />
-    <ClCompile Include="fg_game_handler.cpp" />
+    <ClCompile Include="fight_handler.cpp" />
     <ClCompile Include="finger_guessing\fg_card.cpp" />
     <ClCompile Include="finger_guessing\fg_game.cpp" />
     <ClCompile Include="finger_guessing\fg_player.cpp" />
@@ -184,7 +184,7 @@
     <ClInclude Include="..\..\..\public\crypt\KMD5.h" />
     <ClInclude Include="..\..\..\zlui\lab\3rd\PictureExWnd.h" />
     <ClInclude Include="config.h" />
-    <ClInclude Include="fg_game_handler.h" />
+    <ClInclude Include="fight_handler.h" />
     <ClInclude Include="finger_guessing\fg_card.h" />
     <ClInclude Include="finger_guessing\fg_card_def.h" />
     <ClInclude Include="finger_guessing\fg_game.h" />

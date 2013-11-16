@@ -6,7 +6,8 @@
 
 CFGGame::CFGGame()
 {
-    m_iBattleDamageLift = 0;
+    m_iSelfDamageLift = 0;
+    m_iComputeDamageLift = 0;
 }
 
 CFGGame::~CFGGame()
@@ -20,7 +21,7 @@ BOOL CFGGame::_DealCard(UINT nNum)
     for (UINT n = 0; n < nNum; ++n)
     {
         GenerateCard(card);
-        m_PlayerSeft.AddCard(card);
+        m_PlayerSelf.AddCard(card);
     }
 
     return TRUE;
@@ -32,7 +33,7 @@ BOOL CFGGame::Initialize()
     VECFGCARD vecCard;
     srand((unsigned int)time(NULL));
     _DealCard(8);
-    m_PlayerSeft.AddLift(10);
+    m_PlayerSelf.AddLift(10);
     m_PlayerComputer.AddLift(10);
 
     parsexml.Parse(L".\\data\\cards.xml", vecCard);
@@ -55,19 +56,26 @@ BOOL CFGGame::OutCard(UINT nIndex)
     FGCard outCardComputer;
     FGCard dealCard;
 
-    if (!m_PlayerSeft.OutCard(nIndex, outCard))
+    if (!m_PlayerSelf.OutCard(nIndex, outCard))
     {
         goto Exit;
     }
 
     GenerateCard(outCardComputer);
     GenerateCard(dealCard);
+
     Fight(outCard, outCardComputer, iSelfLife, iComputerLift);
-    m_PlayerSeft.AddLift(iSelfLife);
-    m_PlayerSeft.AddCard(dealCard);
+
+    m_PlayerSelf.AddLift(iSelfLife);
     m_PlayerComputer.AddLift(iComputerLift);
+
+    m_PlayerSelf.AddCard(dealCard);
+
     m_OutComputeyCard = outCardComputer;
-    m_iBattleDamageLift = iSelfLife;
+    m_OutSelfCard = outCard;
+    m_iSelfDamageLift = iSelfLife;
+    m_iComputeDamageLift = iComputerLift;
+
     bReturn = TRUE;
 Exit:
 
@@ -79,9 +87,9 @@ BOOL CFGGame::GetCardList(VECFGCARD& vecCard)
     BOOL bReturn = FALSE;
     FGCard card;
 
-    for (UINT n = 0; n < m_PlayerSeft.GetCardNum(); ++n)
+    for (UINT n = 0; n < m_PlayerSelf.GetCardNum(); ++n)
     {
-        if (!m_PlayerSeft.GetCardInfo(n, card))
+        if (!m_PlayerSelf.GetCardInfo(n, card))
         {
             goto Exit;
         }
@@ -95,9 +103,9 @@ Exit:
     return bReturn;
 }
 
-int CFGGame::GetSeftLift() const
+int CFGGame::GetSelfLift() const
 {
-    return m_PlayerSeft.GetLift();
+    return m_PlayerSelf.GetLift();
 }
 
 const FGCard& CFGGame::GetOutComputeyCard() const
@@ -105,12 +113,22 @@ const FGCard& CFGGame::GetOutComputeyCard() const
     return m_OutComputeyCard;
 }
 
-int CFGGame::GetBattleDamageLift() const
+int CFGGame::GetSelfDamageLift() const
 {
-    return m_iBattleDamageLift;
+    return m_iSelfDamageLift;
 }
 
 int CFGGame::GetComputeyLift() const
 {
     return m_PlayerComputer.GetLift();
+}
+
+int CFGGame::GetComputeDamageLift() const
+{
+    return m_iComputeDamageLift;
+}
+
+const FGCard& CFGGame::GetOutSelfCard() const
+{
+    return m_OutSelfCard;
 }

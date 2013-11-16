@@ -45,6 +45,37 @@ struct FGCard
     BYTE byCriticalStrike;      ///> 暴击
 };
 
+struct FGGameInfo
+{
+    FGGameInfo()
+    {
+        iSeftLift = 0;
+        iComputeLift = 0;
+    }
+
+    int iSeftLift;              ///> 自己的血量
+    int iComputeLift;           ///> 电脑的血量
+};
+
+struct FGFightInfo
+{
+    FGFightInfo()
+    {
+        iSeftDamage = 0;
+        iComputeDamage = 0;
+        iSelfOutCard = 0;
+        iComputeOutCard = 0;
+    }
+
+    int iSelfOutCard;           ///> 自己出牌的索引
+    int iComputeOutCard;        ///> 电脑出牌的索引
+    int iSeftDamage;            ///> 自己战损
+    int iComputeDamage;         ///> 电脑战损
+    FGCard outSelfCard;         ///> 自己的出牌
+    FGCard outComputeCard;      ///> 电脑的出牌
+    FGGameInfo GameInfo;        ///> 游戏信息
+};
+
 typedef std::vector<FGCard> VECFGCARD;
 typedef std::vector<FGCard>::iterator VECFGCARDIT;
 typedef std::vector<FGCard>::const_iterator VECFGCARDCONSTIT;

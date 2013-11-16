@@ -3,6 +3,7 @@
 
 LoginHandler        GameHandler::login;
 RegisterHandler     GameHandler::reg;
+FightHandler      GameHandler::fightcard;
 
 void GameHandler::user_login_handler( const NetworkMessage& message )
 {
@@ -32,4 +33,9 @@ void GameHandler::user_register_handler( const NetworkMessage& message )
         std::string strErr = msg.failed_reason();
         reg.NotifyResult(strErr);
     }
+}
+
+void GameHandler::game_fight_handler(const NetworkMessage& message)
+{
+
 }
