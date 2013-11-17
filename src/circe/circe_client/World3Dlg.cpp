@@ -50,13 +50,41 @@ void CWorld3Dlg::_ConvertCardToStirng(const FGCard& card, CString& csConvertStri
         break;
     }
 
-    csConvertString.Format(L"%s  »Ø¸´Öµ:%d, ÎüÑªÖµ:%d, ÃâÉË:%d, Ç¿Ï®:%d, ±©»÷:%d",
-        cardType,
-        card.byRevert,
-        card.bySuckBlood,
-        card.dwSpecial,
-        card.byPressAttack,
-        card.byCriticalStrike);
+    CString result=L"";
+	CString str=L"%s  ";
+	csConvertString.Format(str,cardType);
+	result+=csConvertString;
+	if((BYTE)0!=card.byRevert)
+	{
+		str=L"»Ø¸´Öµ:%d";
+		csConvertString.Format(str,card.byRevert);
+		result+=csConvertString;
+	}
+	if((BYTE)0!=card.bySuckBlood)
+	{
+		str=L" ÎüÑªÖµ:%d";
+		csConvertString.Format(str,card.bySuckBlood);
+		result+=csConvertString;
+	}
+	if((DWORD)0!=card.dwSpecial)
+	{
+		str=L" ÃâÉË:%d";
+		csConvertString.Format(str,card.dwSpecial);
+		result+=csConvertString;
+	}
+	if((BYTE)0!=card.byPressAttack)
+	{
+		str=L" Ç¿Ï®:%d";
+		csConvertString.Format(str,card.byPressAttack);
+		result+=csConvertString;
+	}
+	if((BYTE)0!=card.byCriticalStrike)
+	{
+		str=L" ±©»÷:%d";
+		csConvertString.Format(str,card.byCriticalStrike);
+		result+=csConvertString;
+	}
+	csConvertString=result;
 }
 
 void CWorld3Dlg::_ConvertDamageToStirng(int iDamageValue, CString& csConvertString)
