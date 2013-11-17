@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="io_dispatcher.h">
-      <Filter>network</Filter>
-    </ClInclude>
     <ClInclude Include="game_service.h" />
     <ClInclude Include="opcodes_handler.h">
       <Filter>handler</Filter>
@@ -49,6 +46,12 @@
     <ClInclude Include="room_pool.h">
       <Filter>object\obj_pool</Filter>
     </ClInclude>
+    <ClInclude Include="network_proxy.h">
+      <Filter>manager</Filter>
+    </ClInclude>
+    <ClInclude Include="game_io_dispatcher.h">
+      <Filter>network</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="center_server.cpp" />
@@ -88,6 +91,9 @@
       <Filter>handler\logic</Filter>
     </ClCompile>
     <ClCompile Include="player_manager.cpp">
+      <Filter>manager</Filter>
+    </ClCompile>
+    <ClCompile Include="network_proxy.cpp">
       <Filter>manager</Filter>
     </ClCompile>
   </ItemGroup>

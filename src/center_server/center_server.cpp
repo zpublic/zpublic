@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
     {
         IOService service;
         GameServiceDeamon serviceEntry("ZeusMud_Service", service);
-        serviceEntry.start(36911);
+        serviceEntry.start(36911, 4);
     }
     catch (...)
     {

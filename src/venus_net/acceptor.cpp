@@ -81,9 +81,9 @@ void Acceptor::stopAccept()
 
 bool Acceptor::listenning() const { return _listenning; }
 
-void Acceptor::setAcceptedCallback(const AcceptedCallback& cb)
+void Acceptor::registerAcceptedEvent(const AcceptedEvent& event)
 {
-    _acceptedCallback = cb;
+    _acceptedEvent = event;
 }
 
 void Acceptor::accept()
@@ -103,7 +103,7 @@ void Acceptor::accept()
 void Acceptor::acceptHandler(const TcpConnectionPtr& connection)
 {
     accept();
-    _acceptedCallback(connection);
+    _acceptedEvent(connection, NO_EVENT_ARGS());
 
     //投递一个读请求
     connection->readAsync();

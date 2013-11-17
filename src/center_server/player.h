@@ -23,6 +23,7 @@ public:
 public:
     bool loadFromDB();
     bool loadFromMemCached();
+	void onLeaveGame();
 
 public:
 	template <typename T> void send_message(uint32 opcode, const T& message)

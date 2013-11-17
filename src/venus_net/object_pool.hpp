@@ -102,6 +102,40 @@ public:
         return obj;
     }
 
+	template <typename ArgT0, typename ArgT1, typename ArgT2, typename ArgT3>
+	_Ty* acquire(const ArgT0& arg0, const ArgT1& arg1, const ArgT2& arg2, const ArgT3& arg3)
+	{
+		try_allocate();
+		_Ty* obj = get_free();
+		try
+		{
+			new (obj) _Ty(arg0, arg1, arg2, arg3);
+		}
+		catch (...)
+		{
+			free(obj); throw;
+		}
+
+		return obj;
+	}
+
+	template <typename ArgT0, typename ArgT1, typename ArgT2, typename ArgT3, typename ArgT4>
+	_Ty* acquire(const ArgT0& arg0, const ArgT1& arg1, const ArgT2& arg2, const ArgT3& arg3, const ArgT3& arg4)
+	{
+		try_allocate();
+		_Ty* obj = get_free();
+		try
+		{
+			new (obj) _Ty(arg0, arg1, arg2, arg3, arg4);
+		}
+		catch (...)
+		{
+			free(obj); throw;
+		}
+
+		return obj;
+	}
+
     void release(_Ty* obj)
     {
         _free_objects.push(obj);

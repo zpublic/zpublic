@@ -12,7 +12,7 @@ public:
     ~GameService();
 
 public:
-    bool initialize();
+    bool init();
     void destroy();
     
 private:

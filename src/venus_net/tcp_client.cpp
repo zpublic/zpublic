@@ -42,22 +42,22 @@ void TcpClient::send(const byte* buffer, size_t size)
 
 }
 
-void TcpClient::setWriteCompletedCallback(const WriteCompletedCallback& cb)
+void TcpClient::registerDataWriteFinishedEvent(const DataWriteFinishedEvent& event)
 {
-    _writeCompletedCallback = cb;
+    _dataWriteFinishedEvent = event;
 }
 
-void TcpClient::setReadCompletedCallback(const ReadCompletedCallback& cb)
+void TcpClient::registerDataReadEvent(const DataReadEvent& event)
 {
-    _readCompletedCallback = cb;
+    _dataReadEvent = event;
 }
 
-void TcpClient::setConnectionClosedCallback(const ConnectionClosedCallback& cb)
+void TcpClient::registerNewConnectionConnectedEvent(const NewConnectionEvent& event)
 {
-    _connectionClosedCallback = cb;
+    _NewConnectionConnectedEvent = event;
 }
 
-void TcpClient::setConnectedCallback(const ConnectionConnectedCallback& cb)
+void TcpClient::registerConnectionClosedEvent(const ConnectionClosedEvent& event)
 {
-    _connectedCallback = cb;
+    _connectionClosedEvent = event;
 }

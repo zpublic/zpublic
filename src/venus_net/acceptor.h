@@ -25,7 +25,7 @@ protected:
     bool listenning() const;
 
 protected:
-    void setAcceptedCallback(const AcceptedCallback& cb);
+    void registerAcceptedEvent(const AcceptedEvent& event);
 
 private:
     void accept();
@@ -35,7 +35,7 @@ private:
     bool _listenning;
     uint32_t _threadNums;
     InetAddress _listenAddr;
-    AcceptedCallback _acceptedCallback;
+    AcceptedEvent _acceptedEvent;
     IOService& _io_service;
     boost::asio::strand _strand;
     boost::asio::ip::tcp::acceptor _acceptor;

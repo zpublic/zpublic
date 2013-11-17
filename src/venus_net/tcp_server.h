@@ -19,24 +19,23 @@ public:
     void stop();
 
 public:
-    void setNewConnectionCallback(const NewConnectionCallback& cb);
-    void setWriteCompletedCallback(const WriteCompletedCallback& cb);
-    void setReadCompletedCallback(const ReadCompletedCallback& cb);
-    void setConnectionClosedCallback(const ConnectionClosedCallback& cb);
+    void registerNewConnectionEvent(const NewConnectionEvent& event);
+    void registerDataWriteFinishedEvent(const DataWriteFinishedEvent& event);
+    void registerDataReadEvent(const DataReadEvent& event);
+    void registerConnectionClosedEvent(const ConnectionClosedEvent& event);
 
 private:
-    void newConnectionCallback(const TcpConnectionPtr& connection);
-    void connectionClosedCallback(const TcpConnection& connection);
+    void acceptedHandler(const TcpConnectionPtr& connection, const EventArgs& args);
 
 private:
     Acceptor _acceptor;
     bool _started;
     boost::asio::signal_set _signals;
 
-    NewConnectionCallback _newConnectionCallback;
-    WriteCompletedCallback _writeCompletedCallback;
-    ReadCompletedCallback _readCompletedCallback;
-    ConnectionClosedCallback _connectionClosedCallback;
+    NewConnectionEvent _newConnectionEvent;
+    DataWriteFinishedEvent _dataWriteFinishedEvent;
+    DataReadEvent _dataReadEvent;
+    ConnectionClosedEvent _connectionClosedEvent;
 
     IOService& _io_service;
 };

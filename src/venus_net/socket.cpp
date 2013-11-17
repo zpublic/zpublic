@@ -110,7 +110,10 @@ void Socket::close(const CloseCallback* callback/* = nullptr*/)
 
 void Socket::shutdown()
 {
-    _socket.shutdown(boost::asio::socket_base::shutdown_both);
+	if (_socket.is_open())
+	{
+		_socket.shutdown(boost::asio::socket_base::shutdown_both);
+	}
 }
 
 tcp::socket& Socket::socket()
@@ -140,7 +143,6 @@ void Socket::on_error(const boost::system::error_code& error)
     error_log("Socket Error : oops, connection lost :(");
     error_log("Socket Error : %s", error.message().c_str());
 
-    shutdown();
     switch (error.value())
     {
     case boost::asio::error::bad_descriptor:
@@ -182,4 +184,6 @@ void Socket::handle_close()
 {
     if (_close_callback)
         _close_callback();
+
+	//shutdown();
 }

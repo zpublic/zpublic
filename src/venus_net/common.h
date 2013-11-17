@@ -50,8 +50,12 @@ typedef unsigned long long uint64;
 #define SAFE_DELETE_ARR(x)	if (nullptr != (x)) { delete [] (x); (x) = nullptr; }
 #endif
 
-#ifndef CHECK_NULLPTR
-#define CHECK_NULLPTR(ptr, log) if (nullptr == ptr) error_log(log)
+#ifndef RETURN_IF_NULLPTR
+#define RETURN_IF_NULLPTR(ptr, log) if (nullptr == ptr){ error_log(log); return; }
+#endif
+
+#ifndef RETURN_IF_NULLPTR_WITH_RESULT
+#define RETURN_IF_NULLPTR_WITH_RESULT(ptr, log, result) if (nullptr == ptr){ error_log(log); return result; }
 #endif
 
 #ifndef GETTER_SETTER_MEMBER
@@ -61,6 +65,9 @@ typedef unsigned long long uint64;
     public: void name(type _arg){this->m_##name=_arg;} \
     private:
 #endif
+
+//platform
+#define ZEUS_EVENT
 
 // boost
 #include <boost/asio.hpp>

@@ -6,6 +6,7 @@
 #include <network_service_deamon.h>
 
 class TcpServer;
+class GameIODataEventHandler;
 class GameServiceDeamon 
     : public Venus::NetworkServiceDeamon
 {
@@ -18,7 +19,7 @@ public:
     void stop();
 
 private:
-    TcpServer* _server;
+    GameIODataEventHandler* _eventHandler;
 };
 
 #endif

@@ -12,7 +12,7 @@ namespace Venus
         virtual ~Service(){}
 
     protected:
-        virtual bool initialize() = 0;
+        virtual bool init() = 0;
         virtual void destroy() = 0;
     };
 }

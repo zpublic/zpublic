@@ -80,14 +80,19 @@ void GameSession::user_login_handler(const NetworkMessage& message)
                     debug_log("Load player from db success. guid = %ull", guid);
                     debug_log("Total online player count = %d", PlayerManager::getInstance().playerCount());
 
-                    //set last-login time to now
-                    player->lastLogin(Poco::Timestamp().epochTime());
+                    //设置上次登录时间
+                    //player->lastLogin(Poco::Timestamp().epochTime());
 
-                    //attack player to session
+                    //把玩家附加到该会话
                     attackPlayerPtr(player);
 
-                    //add player to manager
+                    //把玩家添加到管理器
                     PlayerManager::getInstance().addPlayer(player);
+
+                    debug_log("Player %ull login successful.", guid);
+                    
+                    //启动心跳检查
+                    startHeartbeatCheck();
                 }
                 else
                 {

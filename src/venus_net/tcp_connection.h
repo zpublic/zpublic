@@ -37,10 +37,10 @@ public:
     bool is_open();
 
 public:
-    void setConnectedCallback(const ConnectionConnectedCallback& cb);
-    void setWriteCompletedCallback(const WriteCompletedCallback& cb);
-    void setReadCompletedCallback(const ReadCompletedCallback& cb);
-    void setConnectionClosedCallback(const ConnectionClosedCallback& cb);
+    void registerConnectionConnected(const ConnectionConnectedEvent& event);
+    void registerDataWriteFinishedEvent(const DataWriteFinishedEvent& event);
+    void registerDataReadEvent(const DataReadEvent& event);
+    void registerConnectionClosedEvent(const ConnectionClosedEvent& event);
 
 private:
     void on_connected();
@@ -61,10 +61,10 @@ private:
     InetAddress _inetAddress;
 
 private:
-    ConnectionConnectedCallback _connectedCallback;
-    WriteCompletedCallback _writeCompletedCallback;
-    ReadCompletedCallback _readComplectedCallback;
-    ConnectionClosedCallback _connectionClosedCallback;
+    ConnectionConnectedEvent _connectionConnectedEvent;
+    DataWriteFinishedEvent _dataWriteFinishedEvent;
+    DataReadEvent _dataReadEvent;
+    ConnectionClosedEvent _connectionClosedEvent;
 };
 
 #endif

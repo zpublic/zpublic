@@ -35,7 +35,7 @@ void PlayerManager::killOffline(Player* player, bool offlineNotify /*= true*/)
 
 bool PlayerManager::addPlayer(Player* player)
 {
-    CHECK_NULLPTR(player, "failed to add player, nullptr.");
+    RETURN_IF_NULLPTR_WITH_RESULT(player, "failed to add player, nullptr.", false);
     auto iter = _players.find(player->guid());
     if (iter != _players.end())
     {
@@ -50,8 +50,7 @@ bool PlayerManager::addPlayer(Player* player)
 
 void PlayerManager::removePlayer(Player* player)
 {
-    CHECK_NULLPTR(player, "failed to remove player, nullptr.");
-
+    RETURN_IF_NULLPTR(player, "failed to remove player, nullptr.");
     removePlayer(player->guid());
 }
 
@@ -60,8 +59,11 @@ void PlayerManager::removePlayer(const uint64& guid)
     auto iter = _players.find(guid);
     if (iter != _players.end())
     {
+		Player* player = iter->second;
+		player->onLeaveGame();
+
+		destroyPlayer(iter->second);
         _players.erase(guid);
-        destroyPlayer(iter->second);
     }
 }
 

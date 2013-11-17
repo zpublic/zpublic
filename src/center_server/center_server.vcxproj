@@ -52,7 +52,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);BOOST_ALL_NO_LIB;_WIN32_WINNT=0x0501</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../venus_net;../../3rdparty;../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../3rdparty/poco/Foundation/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../venus_net;../../3rdparty;../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../3rdparty/poco/Foundation/include;../../3rdparty/poco/Util/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DisableSpecificWarnings>4099;</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -78,7 +78,7 @@ xcopy /Y /Q "$(TargetPath)" "../../output/mud_server"</Command>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);BOOST_ALL_NO_LIB;_WIN32_WINNT=0x0501</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../venus_net;../../3rdparty;../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../3rdparty/poco/Foundation/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../venus_net;../../3rdparty;../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../3rdparty/poco/Foundation/include;../../3rdparty/poco/Util/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <DisableSpecificWarnings>4099;</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -98,6 +98,7 @@ xcopy /Y /Q "$(TargetPath)" "../../output/mud_server"</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="game_object.h" />
+    <ClInclude Include="network_proxy.h" />
     <ClInclude Include="player_db.h" />
     <ClInclude Include="game_database_session.h" />
     <ClInclude Include="game_service_deamon.h" />
@@ -107,7 +108,7 @@ xcopy /Y /Q "$(TargetPath)" "../../output/mud_server"</Command>
     <ClInclude Include="game_util.h" />
     <ClInclude Include="global_instance.h" />
     <ClInclude Include="network_session.h" />
-    <ClInclude Include="io_dispatcher.h" />
+    <ClInclude Include="game_io_dispatcher.h" />
     <ClInclude Include="opcodes_handler.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="room.h" />
@@ -125,6 +126,7 @@ xcopy /Y /Q "$(TargetPath)" "../../output/mud_server"</Command>
     <ClCompile Include="game_session.cpp" />
     <ClCompile Include="game_session_manager.cpp" />
     <ClCompile Include="login_handler.cpp" />
+    <ClCompile Include="network_proxy.cpp" />
     <ClCompile Include="opcodes_handler.cpp" />
     <ClCompile Include="network_session.cpp" />
     <ClCompile Include="player.cpp" />

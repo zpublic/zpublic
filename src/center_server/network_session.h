@@ -15,9 +15,13 @@ public:
     NetworkSession(const uint64& session_id);
     virtual ~NetworkSession();
 
+    bool init();
+    void destroy();
+
 public:
     void set_connection_ptr(const TcpConnectionPtr& connection);
     TcpConnectionPtr& connection();
+	void closeSession();
     uint64 session_id() const;
 
     template <typename T> void send_message(uint32 opcode, const T& message)

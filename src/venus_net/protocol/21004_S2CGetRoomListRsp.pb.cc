@@ -53,7 +53,7 @@ void protobuf_AssignDesc_21004_5fS2CGetRoomListRsp_2eproto() {
       sizeof(S2CGetRoomListRsp));
   S2CGetRoomListRsp_RoomInfo_descriptor_ = S2CGetRoomListRsp_descriptor_->nested_type(0);
   static const int S2CGetRoomListRsp_RoomInfo_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2CGetRoomListRsp_RoomInfo, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2CGetRoomListRsp_RoomInfo, room_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2CGetRoomListRsp_RoomInfo, room_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2CGetRoomListRsp_RoomInfo, player_count_),
   };
@@ -103,10 +103,10 @@ void protobuf_AddDesc_21004_5fS2CGetRoomListRsp_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\03521004_S2CGetRoomListRsp.proto\022\010Protoco"
-    "l\"\215\001\n\021S2CGetRoomListRsp\0227\n\troom_list\030\001 \003"
+    "l\"\222\001\n\021S2CGetRoomListRsp\0227\n\troom_list\030\001 \003"
     "(\0132$.Protocol.S2CGetRoomListRsp.RoomInfo"
-    "\032\?\n\010RoomInfo\022\n\n\002id\030\001 \002(\r\022\021\n\troom_name\030\002 "
-    "\002(\t\022\024\n\014player_count\030\003 \002(\r", 185);
+    "\032D\n\010RoomInfo\022\017\n\007room_id\030\001 \002(\r\022\021\n\troom_na"
+    "me\030\002 \002(\t\022\024\n\014player_count\030\003 \002(\r", 190);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "21004_S2CGetRoomListRsp.proto", &protobuf_RegisterTypes);
   S2CGetRoomListRsp::default_instance_ = new S2CGetRoomListRsp();
@@ -126,7 +126,7 @@ struct StaticDescriptorInitializer_21004_5fS2CGetRoomListRsp_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int S2CGetRoomListRsp_RoomInfo::kIdFieldNumber;
+const int S2CGetRoomListRsp_RoomInfo::kRoomIdFieldNumber;
 const int S2CGetRoomListRsp_RoomInfo::kRoomNameFieldNumber;
 const int S2CGetRoomListRsp_RoomInfo::kPlayerCountFieldNumber;
 #endif  // !_MSC_VER
@@ -147,7 +147,7 @@ S2CGetRoomListRsp_RoomInfo::S2CGetRoomListRsp_RoomInfo(const S2CGetRoomListRsp_R
 
 void S2CGetRoomListRsp_RoomInfo::SharedCtor() {
   _cached_size_ = 0;
-  id_ = 0u;
+  room_id_ = 0u;
   room_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   player_count_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -188,7 +188,7 @@ S2CGetRoomListRsp_RoomInfo* S2CGetRoomListRsp_RoomInfo::New() const {
 
 void S2CGetRoomListRsp_RoomInfo::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0u;
+    room_id_ = 0u;
     if (has_room_name()) {
       if (room_name_ != &::google::protobuf::internal::kEmptyString) {
         room_name_->clear();
@@ -206,14 +206,14 @@ bool S2CGetRoomListRsp_RoomInfo::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 id = 1;
+      // required uint32 room_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &id_)));
-          set_has_id();
+                 input, &room_id_)));
+          set_has_room_id();
         } else {
           goto handle_uninterpreted;
         }
@@ -272,9 +272,9 @@ bool S2CGetRoomListRsp_RoomInfo::MergePartialFromCodedStream(
 
 void S2CGetRoomListRsp_RoomInfo::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required uint32 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  // required uint32 room_id = 1;
+  if (has_room_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->room_id(), output);
   }
 
   // required string room_name = 2;
@@ -299,9 +299,9 @@ void S2CGetRoomListRsp_RoomInfo::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* S2CGetRoomListRsp_RoomInfo::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required uint32 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  // required uint32 room_id = 1;
+  if (has_room_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->room_id(), target);
   }
 
   // required string room_name = 2;
@@ -330,11 +330,11 @@ int S2CGetRoomListRsp_RoomInfo::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint32 id = 1;
-    if (has_id()) {
+    // required uint32 room_id = 1;
+    if (has_room_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->id());
+          this->room_id());
     }
 
     // required string room_name = 2;
@@ -378,8 +378,8 @@ void S2CGetRoomListRsp_RoomInfo::MergeFrom(const ::google::protobuf::Message& fr
 void S2CGetRoomListRsp_RoomInfo::MergeFrom(const S2CGetRoomListRsp_RoomInfo& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_room_id()) {
+      set_room_id(from.room_id());
     }
     if (from.has_room_name()) {
       set_room_name(from.room_name());
@@ -411,7 +411,7 @@ bool S2CGetRoomListRsp_RoomInfo::IsInitialized() const {
 
 void S2CGetRoomListRsp_RoomInfo::Swap(S2CGetRoomListRsp_RoomInfo* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
+    std::swap(room_id_, other->room_id_);
     std::swap(room_name_, other->room_name_);
     std::swap(player_count_, other->player_count_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);

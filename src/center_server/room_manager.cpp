@@ -19,7 +19,7 @@ void RoomManager::destory()
     _rooms.clear();
 }
 
-uint32 RoomManager::addRoom(const std::string& roomName, const std::string& password)
+uint32 RoomManager::addRoom(const std::string& roomName, const std::string& password,  uint64 ownerGuid)
 {
     if (_rooms.size() >= MAX_ROOM)
     {
@@ -37,7 +37,7 @@ uint32 RoomManager::addRoom(const std::string& roomName, const std::string& pass
         roomId = _freeIds.back();
         _freeIds.pop_back();
     }
-    _rooms[roomId] = _roomPool.acquire(roomId, roomName, password);
+    _rooms[roomId] = _roomPool.acquire(roomId, roomName, password, ownerGuid);
     return roomId;
 }
 
@@ -64,4 +64,42 @@ void RoomManager::getRooms(adap_map<uint32, Room*>& rooms)
 RoomManager::~RoomManager()
 {
 
+}
+
+Room* RoomManager::getRoom( uint32 id )
+{
+    if (_rooms.find(id) != _rooms.end())
+    {
+        return _rooms[id];
+    }
+    return NULL;
+}
+
+bool RoomManager::enterRoom( uint32 room_id, uint64 player_id )
+{
+    auto it = _rooms.find(room_id);
+    if (it == _rooms.end())
+    {
+        error_log("EnterRoomError: Can't find the specified room.");
+        return false;
+    }
+    if (it->second->getPlayersCount() >= MAX_ROOM_PLAYERS)
+    {
+        error_log("EnterRoomError: The specified room has been full.");
+        return false;
+    }
+    it->second->addMember(player_id);
+    return true;
+}
+
+bool RoomManager::leaveRoom( uint32 room_id, uint64 player_id )
+{
+    auto it = _rooms.find(room_id);
+    if (it == _rooms.end())
+    {
+        error_log("LeaveRoomError: Can't find the specified room.");
+        return false;
+    }
+    it->second->removeMember(player_id);
+    return true;
 }

@@ -20,9 +20,7 @@ TcpServer::TcpServer(const InetAddress& listenAddress, IOService& service, uint3
 #endif
     _signals.async_wait(std::bind(&TcpServer::stop, this));
 
-    _acceptor.setAcceptedCallback(
-        std::bind(&TcpServer::newConnectionCallback, this, std::placeholders::_1)
-       );
+    _acceptor.registerAcceptedEvent(BIND_EVENT_HANDLER(&TcpServer::acceptedHandler, this));
 }
 
 TcpServer::~TcpServer()
@@ -55,43 +53,37 @@ void TcpServer::stop()
     debug_log("Server stopped.");
 }
 
-void TcpServer::setNewConnectionCallback(const NewConnectionCallback& cb)
+void TcpServer::registerNewConnectionEvent(const NewConnectionEvent& event)
 {
-    _newConnectionCallback = cb;
+    _newConnectionEvent = event;
 }
 
-void TcpServer::setWriteCompletedCallback(const WriteCompletedCallback& cb)
+void TcpServer::registerDataWriteFinishedEvent(const DataWriteFinishedEvent& event)
 {
-    _writeCompletedCallback = cb;
+    _dataWriteFinishedEvent = event;
 }
 
-void TcpServer::setReadCompletedCallback(const ReadCompletedCallback& cb)
+void TcpServer::registerDataReadEvent(const DataReadEvent& event)
 {
-    _readCompletedCallback = cb;
+    _dataReadEvent = event;
 }
 
-void TcpServer::setConnectionClosedCallback(const ConnectionClosedCallback& cb)
+void TcpServer::registerConnectionClosedEvent(const ConnectionClosedEvent& event)
 {
-    _connectionClosedCallback = cb;
+    _connectionClosedEvent = event;
 }
 
-void TcpServer::newConnectionCallback(const TcpConnectionPtr& connection)
+void TcpServer::acceptedHandler(const TcpConnectionPtr& connection, const EventArgs& args)
 {
     debug_log("thread id = %d", std::this_thread::get_id());
 
-    /*const Socket& socket = connection->rawSocket();
-    
-    const std::string& remote_address = socket.getPeerAddress().host();
-    uint16 remote_port = socket.getPeerAddress().port();
-    InetAddress peerAddress(remote_address, remote_port);*/
-
     //callbacks
-    connection->setWriteCompletedCallback(_writeCompletedCallback);
-    connection->setReadCompletedCallback(_readCompletedCallback);
-    connection->setConnectionClosedCallback(_connectionClosedCallback);
+    connection->registerDataWriteFinishedEvent(_dataWriteFinishedEvent);
+    connection->registerDataReadEvent(_dataReadEvent);
+    connection->registerConnectionClosedEvent(_connectionClosedEvent);
 
-    if (_newConnectionCallback)
+    if (_newConnectionEvent)
     {
-        _newConnectionCallback(connection, connection->getPeerAddress());
+        _newConnectionEvent(connection, NewConnectionEventArgs(connection->getPeerAddress()));
     }
 }

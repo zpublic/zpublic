@@ -30,6 +30,11 @@ bool Player::loadFromMemCached()
     return true;
 }
 
+void Player::onLeaveGame()
+{
+
+}
+
 void Player::nickname(const std::string& nickname)
 {
     _playerDB->nickname = nickname;

@@ -23,17 +23,18 @@ public:
     void disconnect();
 
 public:
-    void setWriteCompletedCallback(const WriteCompletedCallback& cb);
-    void setReadCompletedCallback(const ReadCompletedCallback& cb);
-    void setConnectedCallback(const ConnectionConnectedCallback& cb);
-    void setConnectionClosedCallback(const ConnectionClosedCallback& cb);
+    void registerDataWriteFinishedEvent(const DataWriteFinishedEvent& event);
+    void registerDataReadEvent(const DataReadEvent& event);
+    void registerNewConnectionConnectedEvent(const NewConnectionEvent& event);
+    void registerConnectionClosedEvent(const ConnectionClosedEvent& event);
 
 private:
     TcpConnection* _connection;
-    WriteCompletedCallback _writeCompletedCallback;
-    ReadCompletedCallback _readCompletedCallback;
-    ConnectionClosedCallback _connectionClosedCallback;
-    ConnectionConnectedCallback _connectedCallback;
+
+    DataWriteFinishedEvent _dataWriteFinishedEvent;
+    DataReadEvent _dataReadEvent;
+    NewConnectionEvent _NewConnectionConnectedEvent;
+    ConnectionClosedEvent _connectionClosedEvent;
     IOService& _io_service;
     InetAddress _inetAddress;
 };

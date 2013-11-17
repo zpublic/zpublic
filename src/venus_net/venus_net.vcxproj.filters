@@ -111,15 +111,6 @@
     <ClInclude Include="manager.h">
       <Filter>framework</Filter>
     </ClInclude>
-    <ClInclude Include="protocol\15000_C2SGetPlayerProfileReq.pb.h">
-      <Filter>protocol\protobuf</Filter>
-    </ClInclude>
-    <ClInclude Include="protocol\99990_S2CError.pb.h">
-      <Filter>protocol\protobuf</Filter>
-    </ClInclude>
-    <ClInclude Include="protocol\99991_S2CErrorEx.pb.h">
-      <Filter>protocol\protobuf</Filter>
-    </ClInclude>
     <ClInclude Include="protocol\10000_C2SLoginReq.pb.h">
       <Filter>protocol\protobuf</Filter>
     </ClInclude>
@@ -130,6 +121,9 @@
       <Filter>protocol\protobuf</Filter>
     </ClInclude>
     <ClInclude Include="protocol\10003_S2CRegisterRsp.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\15000_C2SGetPlayerProfileReq.pb.h">
       <Filter>protocol\protobuf</Filter>
     </ClInclude>
     <ClInclude Include="protocol\15001_S2CGetPlayerProfileRsp.pb.h">
@@ -151,6 +145,51 @@
       <Filter>protocol\protobuf</Filter>
     </ClInclude>
     <ClInclude Include="protocol\21004_S2CGetRoomListRsp.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\21005_C2SRoomCancleReq.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\21006_S2CRoomCancleNotify.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\21007_C2SRoomInfoChangeReq.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\21008_S2CRoomInfoChangeNotify.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\21009_C2SEnterRoomReq.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\21010_S2CEnterRoomRsp.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\21011_C2SLeaveRoomReq.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\21012_S2CPlayerLeaveRoomNotify.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\21013_C2SKickPlayerReq.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\21014_S2CRoomKickedNotify.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\21015_S2CNewRoomAddNotify.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\22001_C2STransferAccountsReq.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\22002_S2CTransferAccountsRsp.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\99990_S2CError.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol\99991_S2CErrorEx.pb.h">
       <Filter>protocol\protobuf</Filter>
     </ClInclude>
   </ItemGroup>
@@ -175,12 +214,6 @@
     </ClCompile>
     <ClCompile Include="server_logger.cpp">
       <Filter>framework\logger</Filter>
-    </ClCompile>
-    <ClCompile Include="protocol\99990_S2CError.pb.cc">
-      <Filter>protocol\protobuf</Filter>
-    </ClCompile>
-    <ClCompile Include="protocol\99991_S2CErrorEx.pb.cc">
-      <Filter>protocol\protobuf</Filter>
     </ClCompile>
     <ClCompile Include="protocol\10000_C2SLoginReq.pb.cc">
       <Filter>protocol\protobuf</Filter>
@@ -217,5 +250,56 @@
     </ClCompile>
     <ClCompile Include="protocol\21004_S2CGetRoomListRsp.pb.cc">
       <Filter>protocol\protobuf</Filter>
-    </ClCompile>  </ItemGroup>
+    </ClCompile>
+    <ClCompile Include="protocol\21005_C2SRoomCancleReq.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\21006_S2CRoomCancleNotify.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\21007_C2SRoomInfoChangeReq.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\21008_S2CRoomInfoChangeNotify.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\21009_C2SEnterRoomReq.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\21010_S2CEnterRoomRsp.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\21011_C2SLeaveRoomReq.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\21012_S2CPlayerLeaveRoomNotify.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\21013_C2SKickPlayerReq.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\21014_S2CRoomKickedNotify.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\21015_S2CNewRoomAddNotify.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\22001_C2STransferAccountsReq.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\22002_S2CTransferAccountsRsp.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\99990_S2CError.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protocol\99991_S2CErrorEx.pb.cc">
+      <Filter>protocol\protobuf</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\protocol\500_C2SHeartbeat.proto">
+      <Filter>protocol\protobuf</Filter>
+    </None>
+  </ItemGroup>
 </Project>

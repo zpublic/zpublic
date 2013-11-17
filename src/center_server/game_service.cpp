@@ -20,7 +20,7 @@ GameService::~GameService()
 }
 
 
-bool GameService::initialize()
+bool GameService::init()
 {
     try
     {
