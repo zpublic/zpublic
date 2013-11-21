@@ -5,7 +5,7 @@
 #include <packet.h>
 #include "login_handler.h"
 #include "register_handler.h"
-#include "fight_handler.h"
+#include "fg_fight_handler.h"
 
 class GameHandler
 {
@@ -17,5 +17,5 @@ public:
 public:
     static LoginHandler     login;
     static RegisterHandler  reg;
-    static FightHandler   fightcard;
+    static CFGFightHandler   fightcard;
 };

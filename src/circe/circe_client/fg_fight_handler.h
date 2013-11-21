@@ -2,17 +2,17 @@
 
 #include "finger_guessing/fg_game.h"
 
-enum FightNotifyResult
+enum FGFightNotifyResult
 {
     emOutCarNotifyResult_Null,
     emOutCarNotifyResult_Update,
     emOutCarNotifyResult_OutCard,
 };
 
-class FightHandler
+class CFGFightHandler
 {
 public:
-    FightHandler();
+    CFGFightHandler();
 
     void SetGameDlg(HWND hWnd);
 
@@ -20,7 +20,7 @@ public:
 
     void OutCard(UINT nIndex);
 
-    void NotifyResult(FightNotifyResult emNotityResult);
+    void NotifyResult(FGFightNotifyResult emNotityResult);
 
     void NotifyResult(std::string& strErr);
 

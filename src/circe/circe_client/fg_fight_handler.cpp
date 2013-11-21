@@ -1,17 +1,17 @@
 #include "stdafx.h"
-#include "fight_handler.h"
+#include "fg_fight_handler.h"
 
-FightHandler::FightHandler()
+CFGFightHandler::CFGFightHandler()
 {
     m_hGameDlg = NULL;
 }
 
-void FightHandler::SetGameDlg(HWND hWnd)
+void CFGFightHandler::SetGameDlg(HWND hWnd)
 {
     m_hGameDlg = hWnd;
 }
 
-void FightHandler::OutCard(UINT nIndex)
+void CFGFightHandler::OutCard(UINT nIndex)
 {
     m_Game.OutCard(nIndex);
     m_FightInfo.iSelfOutCard = nIndex;
@@ -25,7 +25,7 @@ void FightHandler::OutCard(UINT nIndex)
     NotifyResult(emOutCarNotifyResult_OutCard);
 }
 
-void FightHandler::NotifyResult(FightNotifyResult emNotityResult)
+void CFGFightHandler::NotifyResult(FGFightNotifyResult emNotityResult)
 {
     m_SeftCard_vec.clear();
     m_Game.GetCardList(m_SeftCard_vec);
@@ -45,12 +45,12 @@ void FightHandler::NotifyResult(FightNotifyResult emNotityResult)
     }
 }
 
-void FightHandler::NotifyResult(std::string& strErr)
+void CFGFightHandler::NotifyResult(std::string& strErr)
 {
     ::PostMessage(m_hGameDlg, msg_game_update, 3, (LPARAM)strErr.c_str());
 }
 
-void FightHandler::InitializeGame(UINT nCard, UINT nLeft)
+void CFGFightHandler::InitializeGame(UINT nCard, UINT nLeft)
 {
     m_Game.Initialize();
     m_GameInfo.iSeftLift = m_Game.GetSelfLift();
