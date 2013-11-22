@@ -49,26 +49,8 @@
     <Filter Include="src\ltest">
       <UniqueIdentifier>{d7e7bc5f-c2f7-49e7-b9d6-199be5a5951c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="include">
-      <UniqueIdentifier>{91760d8d-7d67-4193-93a2-75772d4ef713}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="include\unittest">
-      <UniqueIdentifier>{e466d68a-8f8b-4653-bce5-f6ac0d7bb18e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="include\unittest\cipra">
-      <UniqueIdentifier>{a7e467fa-c11a-48d1-966d-36df23aa0bfe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="include\unittest\ltest">
-      <UniqueIdentifier>{3bcd22be-117b-498f-96fa-33f4bb4eedee}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\unittest">
       <UniqueIdentifier>{7e4932a2-28e8-4928-85a8-d8484a536cac}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="include\unittest\tut">
-      <UniqueIdentifier>{492ea6b8-1372-45ae-86e0-8bde294074d8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="include\xde">
-      <UniqueIdentifier>{329d531e-6b57-4ff2-83da-8a15a92bb2b5}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\xde">
       <UniqueIdentifier>{6d48cdfd-b8a9-4115-9092-18fb4e51d53b}</UniqueIdentifier>
@@ -96,6 +78,33 @@
     </Filter>
     <Filter Include="src\boost\Preprocessor">
       <UniqueIdentifier>{3e689651-a25b-4250-8d37-82416861988f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\json">
+      <UniqueIdentifier>{d8495282-cee9-4ef0-81a0-3149537a4a6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\unittest\include">
+      <UniqueIdentifier>{e466d68a-8f8b-4653-bce5-f6ac0d7bb18e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\unittest\include\cipra">
+      <UniqueIdentifier>{a7e467fa-c11a-48d1-966d-36df23aa0bfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\unittest\include\ltest">
+      <UniqueIdentifier>{3bcd22be-117b-498f-96fa-33f4bb4eedee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\unittest\include\tut">
+      <UniqueIdentifier>{492ea6b8-1372-45ae-86e0-8bde294074d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\xde\include">
+      <UniqueIdentifier>{329d531e-6b57-4ff2-83da-8a15a92bb2b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\json\json_cpp">
+      <UniqueIdentifier>{696cb9b2-224d-49aa-a4db-d7663bc7e6f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\json\json_cpp\h">
+      <UniqueIdentifier>{2f433d3c-835e-43e9-af23-2e644b23fa09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\json\json_cpp\cpp">
+      <UniqueIdentifier>{a721656f-4fd1-40fd-b181-0bc206238574}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -274,70 +283,70 @@
       <Filter>src\standard\stream</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest.h">
-      <Filter>include\unittest\ltest</Filter>
+      <Filter>src\unittest\include\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest_suite.hpp">
-      <Filter>include\unittest\ltest</Filter>
+      <Filter>src\unittest\include\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest_macros.h">
-      <Filter>include\unittest\ltest</Filter>
+      <Filter>src\unittest\include\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest_actor.hpp">
-      <Filter>include\unittest\ltest</Filter>
+      <Filter>src\unittest\include\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\cipra.hpp">
-      <Filter>include\unittest\cipra</Filter>
+      <Filter>src\unittest\include\cipra</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\counter.hpp">
-      <Filter>include\unittest\cipra</Filter>
+      <Filter>src\unittest\include\cipra</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\tap13.hpp">
-      <Filter>include\unittest\cipra</Filter>
+      <Filter>src\unittest\include\cipra</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\tests.hpp">
-      <Filter>include\unittest\cipra</Filter>
+      <Filter>src\unittest\include\cipra</Filter>
     </ClInclude>
     <ClInclude Include="test_cipra.h">
       <Filter>src\unittest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut.hpp">
-      <Filter>include\unittest\tut</Filter>
+      <Filter>src\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_assert.hpp">
-      <Filter>include\unittest\tut</Filter>
+      <Filter>src\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_console_reporter.hpp">
-      <Filter>include\unittest\tut</Filter>
+      <Filter>src\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_cppunit_reporter.hpp">
-      <Filter>include\unittest\tut</Filter>
+      <Filter>src\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_exception.hpp">
-      <Filter>include\unittest\tut</Filter>
+      <Filter>src\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_posix.hpp">
-      <Filter>include\unittest\tut</Filter>
+      <Filter>src\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_reporter.hpp">
-      <Filter>include\unittest\tut</Filter>
+      <Filter>src\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_restartable.hpp">
-      <Filter>include\unittest\tut</Filter>
+      <Filter>src\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_result.hpp">
-      <Filter>include\unittest\tut</Filter>
+      <Filter>src\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_runner.hpp">
-      <Filter>include\unittest\tut</Filter>
+      <Filter>src\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_xml_reporter.hpp">
-      <Filter>include\unittest\tut</Filter>
+      <Filter>src\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="test_tut.h">
       <Filter>src\unittest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\xde102\xde.h">
-      <Filter>include\xde</Filter>
+      <Filter>src\xde\include</Filter>
     </ClInclude>
     <ClInclude Include="test_xde.h">
       <Filter>src\xde</Filter>
@@ -422,6 +431,33 @@
     </ClInclude>
     <ClInclude Include="test_functional.h">
       <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_json_rpc.h">
+      <Filter>src\json</Filter>
+    </ClInclude>
+    <ClInclude Include="test_json_cpp.h">
+      <Filter>src\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\autolink.h">
+      <Filter>src\json\json_cpp\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\config.h">
+      <Filter>src\json\json_cpp\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\forwards.h">
+      <Filter>src\json\json_cpp\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\json.h">
+      <Filter>src\json\json_cpp\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\reader.h">
+      <Filter>src\json\json_cpp\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\value.h">
+      <Filter>src\json\json_cpp\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\writer.h">
+      <Filter>src\json\json_cpp\h</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -624,7 +660,7 @@
       <Filter>src\unittest</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\xde102\xde.c">
-      <Filter>include\xde</Filter>
+      <Filter>src\xde\include</Filter>
     </ClCompile>
     <ClCompile Include="test_xde.cpp">
       <Filter>src\xde</Filter>
@@ -698,6 +734,21 @@
     <ClCompile Include="test_functional.cpp">
       <Filter>src\standard\c++11</Filter>
     </ClCompile>
+    <ClCompile Include="test_json_rpc.cpp">
+      <Filter>src\json</Filter>
+    </ClCompile>
+    <ClCompile Include="test_json_cpp.cpp">
+      <Filter>src\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_reader.cpp">
+      <Filter>src\json\json_cpp\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_value.cpp">
+      <Filter>src\json\json_cpp\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_writer.cpp">
+      <Filter>src\json\json_cpp\cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="test_proto.proto">
@@ -707,13 +758,13 @@
       <Filter>src\lua\luasrc</Filter>
     </None>
     <None Include="..\..\3rdparty\cipra-1.1\include\impl\counter.ipp">
-      <Filter>include\unittest\cipra</Filter>
+      <Filter>src\unittest\include\cipra</Filter>
     </None>
     <None Include="..\..\3rdparty\cipra-1.1\include\impl\tap13.ipp">
-      <Filter>include\unittest\cipra</Filter>
+      <Filter>src\unittest\include\cipra</Filter>
     </None>
     <None Include="..\..\3rdparty\cipra-1.1\include\impl\tests.ipp">
-      <Filter>include\unittest\cipra</Filter>
+      <Filter>src\unittest\include\cipra</Filter>
     </None>
     <None Include="sample1.lua">
       <Filter>src\lua</Filter>

@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <tchar.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 #include <assert.h>
 
@@ -21,10 +22,14 @@
 ///> “初始化”: 从“std::streamsize”转换到“size_t”，可能丢失数据
 #pragma warning(disable:4244)
 
-// /> hp_socket
-// /> 因为winsock2的缘故，这个包含需要在windows.h之前
+#ifdef _TEST_HP_SOCKET_
+// /> winsock2的包含需要在windows.h之前
+// #include <winsock2.h>
+// #include <ws2tcpip.h>
+// #include <mswsock.h>
 #define _WINSOCK_SUPPORT
 #include "hp_socket/GeneralHelper.h"
+#endif
 
 ///> zpublic！
 #include "zpublic.hpp"
@@ -45,6 +50,7 @@ using std::string;
 #include <sstream>
 using std::cout;
 using std::endl;
+using std::wcout;
 
 ///> 智能指针
 #include <memory>
@@ -194,3 +200,6 @@ extern "C"
 #include "xde102/xde.h" 
 #pragma warning(default:4013 4018) ///> 这里没用，关xde.c的警告需单独设置文件
 }
+
+///> json
+#include <json/json.h>

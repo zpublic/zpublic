@@ -50,9 +50,14 @@
 #endif // _TEST_UNITTEST_
 #include "test_xde.h"
 
+#ifdef _TEST_HP_SOCKET_
 #include "test_hp_socket.h"
+#endif // _TEST_HP_SOCKET_
+
 #include "test_rapidxml.h"
 #include "test_linq.h"
+#include "test_json_rpc.h"
+#include "test_json_cpp.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -63,7 +68,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_bitset();
     //test_array();
     //test_stream();
-    test_functional();
+    //test_functional();
 
     //test_conversion();
     //test_string_aogo();
@@ -96,6 +101,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_hp_socket();
     //test_rapidxml();
     //test_linq();
+    test_json_cpp();
+    test_json_rpc();
 
     getchar();
     return 0;

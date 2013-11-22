@@ -43,7 +43,7 @@ void test_functional()
         }
     };
     X x;
-    function<int(int)> ff = std::bind(&X::foo, &x, std::placeholders::_1);
+    std::function<int(int)> ff = std::bind(&X::foo, &x, std::placeholders::_1);
     assert(ff(6) == 7);
 
     std::list<std::function<void(int)>> flist;
