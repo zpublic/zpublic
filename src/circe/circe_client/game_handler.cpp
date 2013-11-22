@@ -3,7 +3,7 @@
 
 LoginHandler        GameHandler::login;
 RegisterHandler     GameHandler::reg;
-FightHandler      GameHandler::fightcard;
+CFGFightHandler      GameHandler::fightcard;
 
 void GameHandler::user_login_handler( const NetworkMessage& message )
 {

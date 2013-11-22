@@ -123,7 +123,7 @@
     <ClCompile Include="finger_guessing\fg_card_info.cpp">
       <Filter>logic\finger_guessing</Filter>
     </ClCompile>
-    <ClCompile Include="fight_handler.cpp">
+    <ClCompile Include="fg_fight_handler.cpp">
       <Filter>logic\login</Filter>
     </ClCompile>
   </ItemGroup>
@@ -275,7 +275,7 @@
     <ClInclude Include="finger_guessing\fg_card_info.h">
       <Filter>logic\finger_guessing</Filter>
     </ClInclude>
-    <ClInclude Include="fight_handler.h">
+    <ClInclude Include="fg_fight_handler.h">
       <Filter>logic\login</Filter>
     </ClInclude>
   </ItemGroup>
