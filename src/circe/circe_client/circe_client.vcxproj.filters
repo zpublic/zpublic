@@ -25,9 +25,6 @@
     <Filter Include="logic">
       <UniqueIdentifier>{71b9b3db-0098-46bd-900e-9dad7bd6a1ee}</UniqueIdentifier>
     </Filter>
-    <Filter Include="logic\login">
-      <UniqueIdentifier>{b57bc68c-e43a-4848-bfe8-f3993466493c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gui\sub_world">
       <UniqueIdentifier>{26ed382c-9d94-4cdd-b561-53f97bdf571c}</UniqueIdentifier>
     </Filter>
@@ -39,6 +36,9 @@
     </Filter>
     <Filter Include="3rdparty\tingxml">
       <UniqueIdentifier>{5ade66fa-aabd-4aab-aa4d-64baa2f14a80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic\handler">
+      <UniqueIdentifier>{b57bc68c-e43a-4848-bfe8-f3993466493c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -67,10 +67,10 @@
       <Filter>logic</Filter>
     </ClCompile>
     <ClCompile Include="login_handler.cpp">
-      <Filter>logic\login</Filter>
+      <Filter>logic\handler</Filter>
     </ClCompile>
     <ClCompile Include="register_handler.cpp">
-      <Filter>logic\login</Filter>
+      <Filter>logic\handler</Filter>
     </ClCompile>
     <ClCompile Include="RegDlg.cpp">
       <Filter>gui</Filter>
@@ -124,7 +124,13 @@
       <Filter>logic\finger_guessing</Filter>
     </ClCompile>
     <ClCompile Include="fg_fight_handler.cpp">
-      <Filter>logic\login</Filter>
+      <Filter>logic\handler</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerInfoDlg.cpp">
+      <Filter>gui\sub_world</Filter>
+    </ClCompile>
+    <ClCompile Include="player_info_handler.cpp">
+      <Filter>logic\handler</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -219,13 +225,13 @@
       <Filter>logic</Filter>
     </ClInclude>
     <ClInclude Include="login_handler.h">
-      <Filter>logic\login</Filter>
+      <Filter>logic\handler</Filter>
     </ClInclude>
     <ClInclude Include="msg_def.h">
       <Filter>main</Filter>
     </ClInclude>
     <ClInclude Include="register_handler.h">
-      <Filter>logic\login</Filter>
+      <Filter>logic\handler</Filter>
     </ClInclude>
     <ClInclude Include="RegDlg.h">
       <Filter>gui</Filter>
@@ -276,7 +282,13 @@
       <Filter>logic\finger_guessing</Filter>
     </ClInclude>
     <ClInclude Include="fg_fight_handler.h">
-      <Filter>logic\login</Filter>
+      <Filter>logic\handler</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerInfoDlg.h">
+      <Filter>gui\sub_world</Filter>
+    </ClInclude>
+    <ClInclude Include="player_info_handler.h">
+      <Filter>logic\handler</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

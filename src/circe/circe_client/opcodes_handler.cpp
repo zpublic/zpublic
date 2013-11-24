@@ -11,6 +11,7 @@
 
 OpcodeTable::OpcodeTable()
 {
-    DEF_HANDLER(S2CLoginRsp,    user_login_handler)
-    DEF_HANDLER(S2CRegisterRsp, user_register_handler)
+    DEF_HANDLER(S2CLoginRsp,            user_login_handler)
+    DEF_HANDLER(S2CRegisterRsp,         user_register_handler)
+    DEF_HANDLER(S2CGetPlayerProfileRsp, player_info_rsp)
 }

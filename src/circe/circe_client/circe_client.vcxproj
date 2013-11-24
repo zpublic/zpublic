@@ -137,6 +137,8 @@
     <ClCompile Include="finger_guessing\fg_player.cpp" />
     <ClCompile Include="finger_guessing\fg_player_base.cpp" />
     <ClCompile Include="finger_guessing\fg_card_info.cpp" />
+    <ClCompile Include="PlayerInfoDlg.cpp" />
+    <ClCompile Include="player_info_handler.cpp" />
     <ClCompile Include="RegDlg.cpp" />
     <ClCompile Include="circe_client.cpp" />
     <ClCompile Include="client_net.cpp" />
@@ -191,6 +193,8 @@
     <ClInclude Include="finger_guessing\fg_player.h" />
     <ClInclude Include="finger_guessing\fg_player_base.h" />
     <ClInclude Include="finger_guessing\fg_card_info.h" />
+    <ClInclude Include="PlayerInfoDlg.h" />
+    <ClInclude Include="player_info_handler.h" />
     <ClInclude Include="RegDlg.h" />
     <ClInclude Include="client_net.h" />
     <ClInclude Include="game_handler.h" />

@@ -3,7 +3,8 @@
 
 LoginHandler        GameHandler::login;
 RegisterHandler     GameHandler::reg;
-CFGFightHandler      GameHandler::fightcard;
+CFGFightHandler     GameHandler::fightcard;
+PlayerInfoHandler   GameHandler::player_info;
 
 void GameHandler::user_login_handler( const NetworkMessage& message )
 {
@@ -38,4 +39,11 @@ void GameHandler::user_register_handler( const NetworkMessage& message )
 void GameHandler::game_fight_handler(const NetworkMessage& message)
 {
 
+}
+
+void GameHandler::player_info_rsp( const NetworkMessage& message )
+{
+    Protocol::S2CGetPlayerProfileRsp msg;
+    message.parse(msg);
+    player_info.NotifyResult(msg);
 }

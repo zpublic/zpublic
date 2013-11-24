@@ -12,6 +12,7 @@ public:
         COMMAND_HANDLER(IDC_WORLD_1, BN_CLICKED, OnBnClickedWorld1)
         COMMAND_HANDLER(IDC_WORLD_2, BN_CLICKED, OnBnClickedWorld2)
         COMMAND_HANDLER(IDC_WORLD_3, BN_CLICKED, OnBnClickedWorld3)
+        COMMAND_HANDLER(IDC_WORLD_PALYER_INFO, BN_CLICKED, OnBnClickedWorldPalyerInfo)
     END_MSG_MAP()
 
 private:
@@ -23,4 +24,5 @@ public:
     LRESULT OnBnClickedWorld1(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
     LRESULT OnBnClickedWorld2(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
     LRESULT OnBnClickedWorld3(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
+    LRESULT OnBnClickedWorldPalyerInfo(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
 };

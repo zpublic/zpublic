@@ -5,6 +5,7 @@
 #include "World1Dlg.h"
 #include "World2Dlg.h"
 #include "World3Dlg.h"
+#include "PlayerInfoDlg.h"
 
 LRESULT CWorldDlg::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/)
 {
@@ -52,5 +53,13 @@ LRESULT CWorldDlg::OnBnClickedWorld3(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*
     CWorld3Dlg dlg;
     dlg.DoModal();
     ShowWindow(SW_SHOW);
+    return 0;
+}
+
+
+LRESULT CWorldDlg::OnBnClickedWorldPalyerInfo(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
+{
+    CPlayerInfoDlg dlg;
+    dlg.DoModal();
     return 0;
 }
