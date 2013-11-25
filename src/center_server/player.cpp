@@ -99,3 +99,13 @@ const uint64& Player::guildId() const
 {
     return _playerDB->guild_id;
 }
+
+void Player::gold(const uint32& gold)
+{
+
+}
+
+const uint32& Player::gold() const
+{
+    return 5000;
+}

@@ -14,6 +14,7 @@ void GameSession::get_player_profile_handler(const NetworkMessage& message)
     response.set_guild_id(_player->guildId());
     response.set_guild_name(_player->guildName());
     response.set_last_login(_player->lastLogin());
+    response.set_gold(_player->gold());
 
     send_message<Protocol::S2CGetPlayerProfileRsp>(Opcodes::S2CGetPlayerProfileRsp, response);
 }
