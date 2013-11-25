@@ -5,7 +5,6 @@ LoginHandler        GameHandler::login;
 RegisterHandler     GameHandler::reg;
 CFGFightHandler     GameHandler::fightcard;
 PlayerInfoHandler   GameHandler::player_info;
-HearbeatHandler     GameHandler::heartbeat;
 
 void GameHandler::user_login_handler( const NetworkMessage& message )
 {
@@ -47,9 +46,4 @@ void GameHandler::player_info_rsp( const NetworkMessage& message )
     Protocol::S2CGetPlayerProfileRsp msg;
     message.parse(msg);
     player_info.NotifyResult(msg);
-}
-
-void GameHandler::hearbeat_handler(const NetworkMessage& message)
-{
-
 }

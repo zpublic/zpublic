@@ -1,21 +1,24 @@
 #include "stdafx.h"
-#include "hearbast_thread.h"
-#include "game_handler.h"
+#include "heartbeat_thread.h"
 
-#define TIMER_WAIT_HEARBAST 9 * 60 * 1000
+#define TIMER_WAIT_HEARBAST 10000
 
-HearBastThread::HearBastThread()
+HeartbeatThread::HeartbeatThread()
 {
     m_hThread = NULL;
+    m_StopEvent.Initialize(FALSE, FALSE);
+    m_ThreadEvent.Initialize(FALSE, FALSE);
     Start();
 }
 
-HearBastThread::~HearBastThread()
+HeartbeatThread::~HeartbeatThread()
 {
-
+    m_StopEvent.UnInitialize();
+    m_StopEvent.UnInitialize();
+    Stop();
 }
 
-BOOL HearBastThread::Start()
+BOOL HeartbeatThread::Start()
 {
     if (!_IsThreadRuning())
     {
@@ -25,7 +28,7 @@ BOOL HearBastThread::Start()
     return m_hThread != NULL;
 }
 
-BOOL HearBastThread::Stop(DWORD dwWaitTimeOut)
+BOOL HeartbeatThread::Stop(DWORD dwWaitTimeOut)
 {
     BOOL bRet = TRUE;
     if (m_hThread)
@@ -43,30 +46,32 @@ BOOL HearBastThread::Stop(DWORD dwWaitTimeOut)
     return bRet;
 }
 
-unsigned int HearBastThread::_ThreadRoute(LPVOID pRaram)
+unsigned int HeartbeatThread::_ThreadRoute(LPVOID pRaram)
 {
-    HearBastThread* pThis = (HearBastThread*)pRaram;
+    HeartbeatThread* pThis = (HeartbeatThread*)pRaram;
     pThis->WorkThread();
     _endthreadex(0);
     return 0;
 }
 
-void HearBastThread::WorkThread()
+void HeartbeatThread::WorkThread()
 {
     while(TRUE)
     {
         DWORD dwWaitRet = m_ThreadEvent.Wait(TIMER_WAIT_HEARBAST);
 
-        if (dwWaitRet == WAIT_OBJECT_0)
+        if (dwWaitRet == WAIT_TIMEOUT)
+        {
+            _SendHearbeat();
+        }
+        else
         {
             break;
         }
-
-        GameHandler::heartbeat.SendHearbeat();
     }
 }
 
-BOOL HearBastThread::_IsThreadRuning()
+BOOL HeartbeatThread::_IsThreadRuning()
 {
     if (m_hThread)
     {
@@ -80,4 +85,10 @@ BOOL HearBastThread::_IsThreadRuning()
     }
 
     return FALSE;
+}
+
+void HeartbeatThread::_SendHearbeat()
+{
+    Protocol::C2SHeartbeat heartbeat;
+    NET.Send(Opcodes::C2SHeartbeat, heartbeat);
 }

@@ -2,21 +2,23 @@
 
 #include "public/win/thread/thread_event.h"
 
-class HearBastThread
+class HeartbeatThread
 {
 public:
-    HearBastThread();
+    HeartbeatThread();
 
-    ~HearBastThread();
+    ~HeartbeatThread();
 
+private:
     BOOL Start();
 
     BOOL Stop(DWORD dwWaitTimeOut = 900);
 
-private:
     static unsigned int __stdcall _ThreadRoute(LPVOID pRaram);
 
     void WorkThread();
+
+    void _SendHearbeat();
 
     BOOL _IsThreadRuning();
 

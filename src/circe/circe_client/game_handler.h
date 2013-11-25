@@ -7,7 +7,6 @@
 #include "register_handler.h"
 #include "fg_fight_handler.h"
 #include "player_info_handler.h"
-#include "heartbeat_handler.h"
 
 class GameHandler
 {
@@ -16,12 +15,10 @@ public:
     static void user_register_handler(const NetworkMessage& message);
     static void game_fight_handler(const NetworkMessage& message);
     static void player_info_rsp(const NetworkMessage& message);
-    static void hearbeat_handler(const NetworkMessage& message);
 
 public:
     static LoginHandler         login;
     static RegisterHandler      reg;
     static CFGFightHandler      fightcard;
     static PlayerInfoHandler    player_info;
-    static HearbeatHandler      heartbeat;
 };

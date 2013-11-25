@@ -137,8 +137,7 @@
     <ClCompile Include="finger_guessing\fg_player.cpp" />
     <ClCompile Include="finger_guessing\fg_player_base.cpp" />
     <ClCompile Include="finger_guessing\fg_card_info.cpp" />
-    <ClCompile Include="hearbast_thread.cpp" />
-    <ClCompile Include="heartbeat_handler.cpp" />
+    <ClCompile Include="heartbeat_thread.cpp" />
     <ClCompile Include="PlayerInfoDlg.cpp" />
     <ClCompile Include="player_info_handler.cpp" />
     <ClCompile Include="RegDlg.cpp" />
@@ -196,8 +195,7 @@
     <ClInclude Include="finger_guessing\fg_player.h" />
     <ClInclude Include="finger_guessing\fg_player_base.h" />
     <ClInclude Include="finger_guessing\fg_card_info.h" />
-    <ClInclude Include="hearbast_thread.h" />
-    <ClInclude Include="heartbeat_handler.h" />
+    <ClInclude Include="heartbeat_thread.h" />
     <ClInclude Include="PlayerInfoDlg.h" />
     <ClInclude Include="player_info_handler.h" />
     <ClInclude Include="RegDlg.h" />

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "hearbast_thread.h"
+#include "heartbeat_thread.h"
 
 class CWorldDlg : public CDialogImpl<CWorldDlg>
 {
@@ -29,5 +29,5 @@ public:
     LRESULT OnBnClickedWorldPalyerInfo(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
 
 private:
-    HearBastThread m_HeartbestThread;                   /// 发送心跳包
+    HeartbeatThread m_HeartbestThread;                   /// 发送心跳包
 };
