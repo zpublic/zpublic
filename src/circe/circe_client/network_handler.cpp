@@ -22,7 +22,7 @@ void DispatchPacket(const ServerPacketPtr& packet)
     {
         NetworkMessage network_message;
         network_message.data = packet->message;
-        network_message.len = packet->len;
+        network_message.data_len = packet->len;
 
         handler->message_handler(network_message);
     }

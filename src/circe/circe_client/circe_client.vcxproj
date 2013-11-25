@@ -40,7 +40,7 @@
     <IntDir>$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(projectdir)/../../../3rdparty/tinyxml-2.6.2/;$(projectdir);$(IncludePath)</IncludePath>
+    <IncludePath>$(projectdir)/../../..;$(projectdir)/../../../3rdparty/tinyxml-2.6.2/;$(projectdir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>$(Configuration)\</IntDir>
@@ -137,6 +137,8 @@
     <ClCompile Include="finger_guessing\fg_player.cpp" />
     <ClCompile Include="finger_guessing\fg_player_base.cpp" />
     <ClCompile Include="finger_guessing\fg_card_info.cpp" />
+    <ClCompile Include="hearbast_thread.cpp" />
+    <ClCompile Include="heartbeat_handler.cpp" />
     <ClCompile Include="PlayerInfoDlg.cpp" />
     <ClCompile Include="player_info_handler.cpp" />
     <ClCompile Include="RegDlg.cpp" />
@@ -184,6 +186,7 @@
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwince.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h" />
     <ClInclude Include="..\..\..\public\crypt\KMD5.h" />
+    <ClInclude Include="..\..\..\public\win\thread\thread_event.h" />
     <ClInclude Include="..\..\..\zlui\lab\3rd\PictureExWnd.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="fg_fight_handler.h" />
@@ -193,6 +196,8 @@
     <ClInclude Include="finger_guessing\fg_player.h" />
     <ClInclude Include="finger_guessing\fg_player_base.h" />
     <ClInclude Include="finger_guessing\fg_card_info.h" />
+    <ClInclude Include="hearbast_thread.h" />
+    <ClInclude Include="heartbeat_handler.h" />
     <ClInclude Include="PlayerInfoDlg.h" />
     <ClInclude Include="player_info_handler.h" />
     <ClInclude Include="RegDlg.h" />

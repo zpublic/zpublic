@@ -132,6 +132,12 @@
     <ClCompile Include="player_info_handler.cpp">
       <Filter>logic\handler</Filter>
     </ClCompile>
+    <ClCompile Include="heartbeat_handler.cpp">
+      <Filter>logic\handler</Filter>
+    </ClCompile>
+    <ClCompile Include="hearbast_thread.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h">
@@ -289,6 +295,15 @@
     </ClInclude>
     <ClInclude Include="player_info_handler.h">
       <Filter>logic\handler</Filter>
+    </ClInclude>
+    <ClInclude Include="heartbeat_handler.h">
+      <Filter>logic\handler</Filter>
+    </ClInclude>
+    <ClInclude Include="hearbast_thread.h">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\win\thread\thread_event.h">
+      <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
