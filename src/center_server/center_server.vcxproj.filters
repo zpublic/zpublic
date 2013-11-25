@@ -52,6 +52,9 @@
     <ClInclude Include="game_io_dispatcher.h">
       <Filter>network</Filter>
     </ClInclude>
+    <ClInclude Include="session_io.h">
+      <Filter>manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="center_server.cpp" />

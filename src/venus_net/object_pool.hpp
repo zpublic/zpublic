@@ -166,7 +166,7 @@ private:
         for (size_t i = 0; i < size; ++i)
             _free_objects.push(&obj[i]);
 
-        debug_log("allocated free objects = %d, total bytes = %d", size, size *  sizeof(obj[0]));
+        //debug_log("allocated free objects = %d, total bytes = %d", size, size *  sizeof(obj[0]));
     }
 
 private:

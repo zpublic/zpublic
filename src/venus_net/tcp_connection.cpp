@@ -11,7 +11,6 @@ TcpConnection::TcpConnection(IOService& io_service)
     _socket = new Socket(io_service);
 
     // register socket callbacks
-    _socket->set_connected_callback(std::bind(&TcpConnection::on_connected, this));
     _socket->set_send_callback(std::bind(&TcpConnection::on_write, this, std::placeholders::_1));
     _socket->set_receive_callback(std::bind(&TcpConnection::on_read, this, std::placeholders::_1, std::placeholders::_2));
     _socket->set_close_callback(std::bind(&TcpConnection::on_close, this));
@@ -89,22 +88,6 @@ void TcpConnection::registerDataReadEvent(const DataReadEvent& event)
 void TcpConnection::registerConnectionClosedEvent(const ConnectionClosedEvent& event)
 {
     _connectionClosedEvent = event;
-}
-
-void TcpConnection::registerConnectionConnected(const ConnectionConnectedEvent& event)
-{
-    _connectionConnectedEvent = event;
-}
-
-void TcpConnection::on_connected()
-{
-    debug_log("connection has been connected.");
-
-    readAsync();
-    if (_connectionConnectedEvent)
-    {
-        _connectionConnectedEvent(shared_from_this(), NO_EVENT_ARGS());
-    }
 }
 
 void TcpConnection::on_write(

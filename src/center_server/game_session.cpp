@@ -31,11 +31,11 @@ void GameSession::destroy()
 
 void GameSession::heartbeat_handler(const NetworkMessage& message)
 {
-	std::time_t now = Poco::Timestamp().epochTime();
+	std::time_t now = Poco::Timestamp().epochTime() * 1000;
 	int64 interval = now - _heartbeat.last_heartbeat_time;
 
-	if (interval < SessionHeartbeat::DOWN_DEVIATION_VALUE
-		|| interval > SessionHeartbeat::UP_DEVIATION_VALUE)
+	if (//interval < SessionHeartbeat::DOWN_DEVIATION_VALUE || 
+        interval > SessionHeartbeat::UP_DEVIATION_VALUE)
 	{
 		heartbeatFailed();
 	}
@@ -43,6 +43,12 @@ void GameSession::heartbeat_handler(const NetworkMessage& message)
 	{
 		_heartbeat.failed_count = 0;
 		_heartbeat.last_heartbeat_time = now;
+
+        debug_log("[%ull] - > heartbeat successful. failed_count = %d, last_heartbeat_time = %ld", 
+            this->_player->guid(),
+            _heartbeat.failed_count,
+            _heartbeat.last_heartbeat_time
+            );
 	}
 }
 
@@ -58,9 +64,9 @@ void GameSession::attackPlayerPtr(Player* player)
 
 void GameSession::onHeartbeatCheck(Poco::Util::TimerTask& task)
 {
-    info_log("[%ull] - > Check Heartbeat", _player->guid());
+    //info_log("[%ull] - > Check Heartbeat, _heartbeat.failed_count = %d", _player->guid(), _heartbeat.failed_count);
 
-    std::time_t now = Poco::Timestamp().epochTime();
+    std::time_t now = Poco::Timestamp().epochTime() * 1000;
     int64 interval = now - _heartbeat.last_heartbeat_time;
 
     if (interval > SessionHeartbeat::UP_DEVIATION_VALUE)
@@ -72,18 +78,23 @@ void GameSession::onHeartbeatCheck(Poco::Util::TimerTask& task)
     {
         _heartbeat.failed_count = 0;
     }
+
+    debug_log("[%ull] - > Heartbeat checking. _heartbeat.failed_count = %d", _player->guid(), _heartbeat.failed_count);
 }
 
-void GameSession::startHeartbeatCheck(long interval/* = 10000*/)
+void GameSession::startHeartbeatCheck(long interval/* = SessionHeartbeat::CHECK_PERIOD*/)
 {
     //初始化心跳时间
-    _heartbeat.last_heartbeat_time = Poco::Timestamp().epochTime();
+    _heartbeat.last_heartbeat_time = Poco::Timestamp().epochTime() * 1000;
 
     //开始心跳检查
 	Poco::Util::TimerTask::Ptr task 
 		= new Poco::Util::TimerTaskAdapter<GameSession>(*this, &GameSession::onHeartbeatCheck);
 
 	_heartbeat_checker = new Poco::Util::Timer(Poco::Thread::PRIO_NORMAL);
+
+    //登录之后一个心跳周期之后再执行检查
+    //  注：检查周期设置为比心跳周期大1~2秒为佳，避免出现服务端刚执行完检查逻辑后才收到包
 	_heartbeat_checker->schedule(task, interval, interval);
 }
 
@@ -92,9 +103,8 @@ void GameSession::stopHeartbeatCheck()
 	if (_heartbeat_checker != nullptr)
     {
 		_heartbeat_checker->cancel(true);
+        SAFE_DELETE(_heartbeat_checker);
     }
-
-	SAFE_DELETE(_heartbeat_checker);
 }
 
 void GameSession::heartbeatFailed()
@@ -103,7 +113,7 @@ void GameSession::heartbeatFailed()
 	debug_log("Player %ull unormal heartbeat happened, failed_count = %d", _player->guid(), _heartbeat.failed_count);
 
 	//如果连续三次心跳时间异常，则判定为网络不稳定，踢掉
-	if (_heartbeat.failed_count >= 3)
+	if (_heartbeat.failed_count >= SessionHeartbeat::FAILED_COUNT)
 	{
 		debug_log("Player %ull failed heartbeat at the limit, close session.", _player->guid());
 		GameSessionManager::getInstance().destroySession(this);

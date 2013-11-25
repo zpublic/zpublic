@@ -17,7 +17,7 @@ public:
     void destroy();
 
 public:
-    GameSession* createSession(const uint64& session_id);
+    GameSession* createSession();
     void destroySession(GameSession* session);
     GameSession* getSession(const uint64& id);
     int32 sessionCount() const;
@@ -103,6 +103,7 @@ private:
     std::mutex _mutex;
     adap_map<uint64, GameSession*> _sessions;
     Venus::ObjectPool<GameSession> _sessionPool;
+    uint64 _sessionIdSequence;
 };
 
 #endif

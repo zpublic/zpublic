@@ -116,6 +116,7 @@ xcopy /Y /Q "$(TargetPath)" "../../output/mud_server"</Command>
     <ClInclude Include="game_session_manager.h" />
     <ClInclude Include="player_manager.h" />
     <ClInclude Include="room_pool.h" />
+    <ClInclude Include="session_io.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="chat_handler.cpp" />

@@ -10,7 +10,7 @@ bool RoomManager::init()
     return true;
 }
 
-void RoomManager::destory()
+void RoomManager::destroy()
 {
     for (auto i = _rooms.begin(); i != _rooms.end(); ++i)
     {

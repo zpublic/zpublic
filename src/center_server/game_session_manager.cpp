@@ -2,6 +2,7 @@
 
 bool GameSessionManager::init()
 {
+    _sessionIdSequence = 0;
     return true;
 }
 
@@ -22,15 +23,10 @@ void GameSessionManager::destroy()
     _sessions.clear();
 }
 
-GameSession* GameSessionManager::createSession(const uint64& session_id)
+GameSession* GameSessionManager::createSession()
 {
-    if (_sessions.size() >= MAX_SESSIONS) 
-	{
-		warning_log("Session count already at the limit.");
-        return nullptr;
-	}
-
-    GameSession* session = _sessionPool.acquire(session_id);
+    _sessionIdSequence++;
+    GameSession* session = _sessionPool.acquire(_sessionIdSequence);
     if (session != nullptr && add(session))
     {
         return session;
@@ -51,6 +47,12 @@ void GameSessionManager::destroySession(GameSession* session)
 
 bool GameSessionManager::add(GameSession* session)
 {
+    if (_sessions.size() >= MAX_SESSIONS) 
+    {
+        warning_log("Session count already at the limit.");
+        return nullptr;
+    }
+
     if (getSession(session->session_id()) != nullptr)
     {
         return false;

@@ -18,7 +18,7 @@ public:
     ~RoomManager();
 public:
     bool init();
-    void destory();
+    void destroy();
 
     //////////////////////////////////////////////////////////////////////////
     // 描述:添加一个room 按照自然数顺序优先选择未使用id

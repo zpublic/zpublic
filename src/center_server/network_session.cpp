@@ -1,4 +1,5 @@
 #include "network_session.h"
+#include "network_proxy.h"
 
 NetworkSession::NetworkSession(const uint64& session_id)
     : _sessionId(session_id),
@@ -32,8 +33,7 @@ TcpConnectionPtr& NetworkSession::connection()
 
 void NetworkSession::closeSession()
 {
-	_connection->shutdown();
-	_connection->close();
+	NetworkProxy::getInstance().close_connection(_connection);
 }
 
 uint64 NetworkSession::session_id() const

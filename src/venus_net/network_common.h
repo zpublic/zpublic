@@ -33,12 +33,13 @@ namespace Venus
 
 struct NetworkMessage
 {
+    uint32 opcode;
     const byte* data;
-    uint32 len;
+    uint32 data_len;
 
     void parse(google::protobuf::Message& message) const
     {
-        message.ParseFromArray(data, len);
+        message.ParseFromArray(data, data_len);
     }
 };
 
@@ -102,7 +103,6 @@ typedef std::function<void (const TcpConnectionPtr& connection, const DataWriteF
 typedef std::function<void (const TcpConnectionPtr& connection, const DataReadEventArgs& args)> DataReadEvent;
 typedef std::function<void (const TcpConnectionPtr& connection, const EventArgs& args)> AcceptedEvent;
 typedef std::function<void (const TcpConnectionPtr& connection, const EventArgs& args)> ConnectionClosedEvent;
-typedef std::function<void (const TcpConnectionPtr& connection, const EventArgs& args)> ConnectionConnectedEvent;
 
 #define BIND_EVENT_HANDLER(x, y) \
     std::bind(x, y, std::placeholders::_1, std::placeholders::_2)
