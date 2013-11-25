@@ -13,9 +13,9 @@ HeartbeatThread::HeartbeatThread()
 
 HeartbeatThread::~HeartbeatThread()
 {
-    m_StopEvent.UnInitialize();
-    m_StopEvent.UnInitialize();
     Stop();
+    m_StopEvent.UnInitialize();
+    m_ThreadEvent.UnInitialize();
 }
 
 BOOL HeartbeatThread::Start()
