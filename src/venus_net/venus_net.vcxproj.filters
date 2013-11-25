@@ -192,6 +192,9 @@
     <ClInclude Include="protocol\99991_S2CErrorEx.pb.h">
       <Filter>protocol\protobuf</Filter>
     </ClInclude>
+    <ClInclude Include="protocol\500_C2SHeartbeat.pb.h">
+      <Filter>protocol\protobuf</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="error_code.cpp">
@@ -296,10 +299,8 @@
     <ClCompile Include="protocol\99991_S2CErrorEx.pb.cc">
       <Filter>protocol\protobuf</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\protocol\500_C2SHeartbeat.proto">
+    <ClCompile Include="protocol\500_C2SHeartbeat.pb.cc">
       <Filter>protocol\protobuf</Filter>
-    </None>
+    </ClCompile>
   </ItemGroup>
 </Project>

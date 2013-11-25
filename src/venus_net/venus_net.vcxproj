@@ -129,6 +129,7 @@
     <ClInclude Include="protocol\21015_S2CNewRoomAddNotify.pb.h" />
     <ClInclude Include="protocol\22001_C2STransferAccountsReq.pb.h" />
     <ClInclude Include="protocol\22002_S2CTransferAccountsRsp.pb.h" />
+    <ClInclude Include="protocol\500_C2SHeartbeat.pb.h" />
     <ClInclude Include="protocol\99990_S2CError.pb.h" />
     <ClInclude Include="protocol\99991_S2CErrorEx.pb.h" />
     <ClInclude Include="server_logger.h" />
@@ -174,6 +175,7 @@
     <ClCompile Include="protocol\21015_S2CNewRoomAddNotify.pb.cc" />
     <ClCompile Include="protocol\22001_C2STransferAccountsReq.pb.cc" />
     <ClCompile Include="protocol\22002_S2CTransferAccountsRsp.pb.cc" />
+    <ClCompile Include="protocol\500_C2SHeartbeat.pb.cc" />
     <ClCompile Include="protocol\99990_S2CError.pb.cc" />
     <ClCompile Include="protocol\99991_S2CErrorEx.pb.cc" />
     <ClCompile Include="server_logger.cpp" />
@@ -181,9 +183,6 @@
     <ClCompile Include="tcp_client.cpp" />
     <ClCompile Include="tcp_connection.cpp" />
     <ClCompile Include="tcp_server.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\protocol\500_C2SHeartbeat.proto" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
