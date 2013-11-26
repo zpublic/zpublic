@@ -53,23 +53,23 @@ void CWorld3Dlg::_ConvertCardToStirng(const FGCard& card, CString& csConvertStri
     csConvertString.Format(L"%s  ", cardType);
 	if (0 != card.byRevert)
 	{
-	  csConvertString.AppendFormat(L"»Ø¸´Öµ:%d", card.byRevert);
+	    csConvertString.AppendFormat(L"»Ø¸´Öµ:%d", card.byRevert);
 	}
 	if (0 != card.bySuckBlood)
 	{
-	  csConvertString.AppendFormat(L" ÎüÑªÖµ:%d", card.bySuckBlood);
+	    csConvertString.AppendFormat(L" ÎüÑªÖµ:%d", card.bySuckBlood);
 	}
 	if (0 != card.dwSpecial)
 	{
-	  csConvertString.AppendFormat(L" ÃâÉË:%d", card.dwSpecial);
+	    csConvertString.AppendFormat(L" ÃâÉË:%d", card.dwSpecial);
 	}
 	if (0 != card.byPressAttack)
 	{
-	  csConvertString.AppendFormat(L" Ç¿Ï®:%d", card.byPressAttack);
+	    csConvertString.AppendFormat(L" Ç¿Ï®:%d", card.byPressAttack);
 	}
 	if (0 != card.byCriticalStrike)
 	{
-	  csConvertString.AppendFormat(L" ±©»÷:%d", card.byCriticalStrike);
+	    csConvertString.AppendFormat(L" ±©»÷:%d", card.byCriticalStrike);
 	}
 }
 
