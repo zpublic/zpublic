@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "resource.h"
-#include "..\center_server\game_util.h"
 #include "RegDlg.h"
 #include "game_handler.h"
 #include "utils.h"
@@ -17,28 +16,17 @@ LRESULT CRegDlg::OnOk(WORD /*wNotifyCode*/, WORD wID, HWND /*hWndCtl*/, BOOL& /*
     CString email,pass,nickname;
     GetDlgItemText(IDC_EDIT1, email);
     GetDlgItemText(IDC_EDIT2, pass);
-	GetDlgItemText(IDC_EDIT3, nickname);
+    GetDlgItemText(IDC_EDIT3, nickname);
     if (email.IsEmpty() || pass.IsEmpty() || nickname.IsEmpty())
     {
         MessageBox(L"”–µÿ∑Ω√ªÃÓ£°");
         return 0;
     }
-
-	USES_CONVERSION;
-	const std::string Email = T2A(email.GetBuffer());
-	const std::string Psw = T2A(pass.GetBuffer());
-
-	//≈–∂œ” œ‰’ ∫≈∑«∑®
-    if (GameUtil::checkEmailValid(Email) == false)
+    //≈–∂œ” œ‰’ ∫≈∑«∑®
+    std::string sEmail(CW2A(email, CP_UTF8));
+    if (IsEmaiValid(sEmail) == false)
     {
-		MessageBox(L"” œ‰’ ∫≈∑«∑®! ");
-        return 0;
-    }
-
-    //≈–∂œ√‹¬Îhash∑«∑®
-    if (GameUtil::checkPasswordHashValid(Psw) == false)
-    {
-		MessageBox(L"√‹¬Î∑«∑®! ");
+        MessageBox(L"” œ‰’ ∫≈∑«∑®! ");
         return 0;
     }
 
@@ -48,7 +36,7 @@ LRESULT CRegDlg::OnOk(WORD /*wNotifyCode*/, WORD wID, HWND /*hWndCtl*/, BOOL& /*
     GameHandler::reg.SendRegister(email, GetMd5Str(sPass), nickname, gender);
     ::EnableWindow(GetDlgItem(IDC_REG), FALSE);
     ::EnableWindow(GetDlgItem(IDC_CANCEL), FALSE);
-	return 0;
+    return 0;
 }
 
 LRESULT CRegDlg::OnCancel(WORD /*wNotifyCode*/, WORD wID, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
