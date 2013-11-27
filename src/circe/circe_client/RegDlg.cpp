@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "resource.h"
-
+#include "..\center_server\game_util.h"
 #include "RegDlg.h"
 #include "game_handler.h"
 #include "utils.h"
@@ -23,6 +23,25 @@ LRESULT CRegDlg::OnOk(WORD /*wNotifyCode*/, WORD wID, HWND /*hWndCtl*/, BOOL& /*
         MessageBox(L"有地方没填！");
         return 0;
     }
+
+	USES_CONVERSION;
+	const std::string Email = T2A(email.GetBuffer());
+	const std::string Psw = T2A(pass.GetBuffer());
+
+	//判断邮箱帐号非法
+    if (GameUtil::checkEmailValid(Email) == false)
+    {
+		MessageBox(L"邮箱帐号非法! ");
+        return 0;
+    }
+
+    //判断密码hash非法
+    if (GameUtil::checkPasswordHashValid(Psw) == false)
+    {
+		MessageBox(L"密码非法! ");
+        return 0;
+    }
+
     uint32 gender = IsDlgButtonChecked(IDC_RADIO1) ? 1 : 2;
     GameHandler::reg.SetRegisterDlg(m_hWnd);
     CStringA sPass = CW2A(pass);
