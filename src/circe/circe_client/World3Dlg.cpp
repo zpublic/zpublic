@@ -50,13 +50,27 @@ void CWorld3Dlg::_ConvertCardToStirng(const FGCard& card, CString& csConvertStri
         break;
     }
 
-    csConvertString.Format(L"%s  »Ø¸´Öµ:%d, ÎüÑªÖµ:%d, ÃâÉË:%d, Ç¿Ï®:%d, ±©»÷:%d",
-        cardType,
-        card.byRevert,
-        card.bySuckBlood,
-        card.dwSpecial,
-        card.byPressAttack,
-        card.byCriticalStrike);
+    csConvertString.Format(L"%s  ", cardType);
+	if (0 != card.byRevert)
+	{
+	    csConvertString.AppendFormat(L"»Ø¸´Öµ:%d", card.byRevert);
+	}
+	if (0 != card.bySuckBlood)
+	{
+	    csConvertString.AppendFormat(L" ÎüÑªÖµ:%d", card.bySuckBlood);
+	}
+	if (0 != card.dwSpecial)
+	{
+	    csConvertString.AppendFormat(L" ÃâÉË:%d", card.dwSpecial);
+	}
+	if (0 != card.byPressAttack)
+	{
+	    csConvertString.AppendFormat(L" Ç¿Ï®:%d", card.byPressAttack);
+	}
+	if (0 != card.byCriticalStrike)
+	{
+	    csConvertString.AppendFormat(L" ±©»÷:%d", card.byCriticalStrike);
+	}
 }
 
 void CWorld3Dlg::_ConvertDamageToStirng(int iDamageValue, CString& csConvertString)
