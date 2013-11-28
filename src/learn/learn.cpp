@@ -2,6 +2,7 @@
 //
 
 #include "stdafx.h"
+#include "yhh/yhh_test.h"
 
 #ifdef _TEST_BOOST_
 #include "test_smart_ptr.h"
@@ -61,6 +62,7 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+    yhh_test();
     //test_smart_ptr();
     //test_regex();
     //test_atomic();
