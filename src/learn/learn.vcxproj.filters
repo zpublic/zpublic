@@ -106,15 +106,6 @@
     <Filter Include="src\json\json_cpp\cpp">
       <UniqueIdentifier>{a721656f-4fd1-40fd-b181-0bc206238574}</UniqueIdentifier>
     </Filter>
-    <Filter Include="yhh">
-      <UniqueIdentifier>{36c64b44-f8e3-4e0d-b599-dd912d5f0998}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="yhh\property_tree">
-      <UniqueIdentifier>{841b8fba-3e73-44ea-8239-db85e6493fc5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="yhh\test">
-      <UniqueIdentifier>{26df29b6-61d1-4232-8e0e-53fe43ef57b9}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -468,15 +459,6 @@
     <ClInclude Include="..\..\3rdparty\jsonlib\src\json\writer.h">
       <Filter>src\json\json_cpp\h</Filter>
     </ClInclude>
-    <ClInclude Include="yhh\yhh_test.h">
-      <Filter>yhh</Filter>
-    </ClInclude>
-    <ClInclude Include="yhh\test_property_tree.h">
-      <Filter>yhh\test</Filter>
-    </ClInclude>
-    <ClInclude Include="yhh\property_tree.h">
-      <Filter>yhh\property_tree</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -766,15 +748,6 @@
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\jsonlib\src\json_writer.cpp">
       <Filter>src\json\json_cpp\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="yhh\yhh_test.cpp">
-      <Filter>yhh</Filter>
-    </ClCompile>
-    <ClCompile Include="yhh\test_property_tree.cpp">
-      <Filter>yhh\test</Filter>
-    </ClCompile>
-    <ClCompile Include="yhh\property_tree.cpp">
-      <Filter>yhh\property_tree</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
