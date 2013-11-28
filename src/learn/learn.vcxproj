@@ -52,7 +52,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>NOMINMAX;WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>./../../public;./../../3rdparty;./../../3rdparty/tut;./../../3rdparty/jsonlib/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;./../../public;./../../3rdparty;./../../3rdparty/tut;./../../3rdparty/jsonlib/src</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zm500  -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -75,7 +75,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NOMINMAX;WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>./../../public;./../../3rdparty;./../../3rdparty/tut;./../../3rdparty/jsonlib/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;./../../public;./../../3rdparty;./../../3rdparty/tut;./../../3rdparty/jsonlib/src</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zm1000  -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -288,6 +288,9 @@
     <ClInclude Include="..\..\public\ltest\ltest_actor.hpp" />
     <ClInclude Include="..\..\public\ltest\ltest_macros.h" />
     <ClInclude Include="..\..\public\ltest\ltest_suite.hpp" />
+    <ClInclude Include="practice\practice_test.h" />
+    <ClInclude Include="practice\property_tree.h" />
+    <ClInclude Include="practice\test_property_tree.h" />
     <ClInclude Include="sample_lua.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -667,6 +670,9 @@
       <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4013;4018</DisableSpecificWarnings>
     </ClCompile>
     <ClCompile Include="learn.cpp" />
+    <ClCompile Include="practice\practice_test.cpp" />
+    <ClCompile Include="practice\property_tree.cpp" />
+    <ClCompile Include="practice\test_property_tree.cpp" />
     <ClCompile Include="sample1.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
