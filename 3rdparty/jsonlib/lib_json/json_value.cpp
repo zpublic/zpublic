@@ -1,26 +1,28 @@
 #include <iostream>
-#include "json/value.h"
-#include "json/writer.h"
+#include <json/value.h>
+#include <json/writer.h>
 #include <utility>
-#include "assert.h"
+#include <stdexcept>
+#include <cstring>
+#include <cassert>
 #ifdef JSON_USE_CPPTL
 # include <cpptl/conststring.h>
 #endif
-#include <stddef.h>    // size_t
+#include <cstddef>    // size_t
 #ifndef JSON_USE_SIMPLE_INTERNAL_ALLOCATOR
 # include "json_batchallocator.h"
 #endif // #ifndef JSON_USE_SIMPLE_INTERNAL_ALLOCATOR
 
 #define JSON_ASSERT_UNREACHABLE assert( false )
 #define JSON_ASSERT( condition ) assert( condition );  // @todo <= change this into an exception throw
-#define JSON_ASSERT_MESSAGE( condition, message ) assert( condition &&  message );  // @todo <= change this into an exception throw
+#define JSON_ASSERT_MESSAGE( condition, message ) if (!( condition )) throw std::runtime_error( message );
 
 namespace Json {
 
 const Value Value::null;
-const Value::Int Value::minInt = Value::Int( ~(Value::UInt(-1)/2) );
-const Value::Int Value::maxInt = Value::Int( Value::UInt(-1)/2 );
-const Value::UInt Value::maxUInt = Value::UInt(-1);
+const Int Value::minInt = Int( ~(UInt(-1)/2) );
+const Int Value::maxInt = Int( UInt(-1)/2 );
+const UInt Value::maxUInt = UInt(-1);
 
 // A "safe" implementation of strdup. Allow null pointer to be passed. 
 // Also avoid warning on msvc80.
@@ -265,8 +267,8 @@ Value::CZString::isStaticString() const
  */
 Value::Value( ValueType type )
    : type_( type )
-   , comments_( 0 )
    , allocated_( 0 )
+   , comments_( 0 )
 # ifdef JSON_VALUE_USE_INTERNAL_MAP
    , itemIsUsed_( 0 )
 #endif
@@ -348,6 +350,21 @@ Value::Value( const char *value )
 {
    value_.string_ = valueAllocator()->duplicateStringValue( value );
 }
+
+
+Value::Value( const char *beginValue, 
+              const char *endValue )
+   : type_( stringValue )
+   , allocated_( true )
+   , comments_( 0 )
+# ifdef JSON_VALUE_USE_INTERNAL_MAP
+   , itemIsUsed_( 0 )
+#endif
+{
+   value_.string_ = valueAllocator()->duplicateStringValue( beginValue, 
+                                                            UInt(endValue - beginValue) );
+}
+
 
 Value::Value( const std::string &value )
    : type_( stringValue )
@@ -680,7 +697,7 @@ Value::asString() const
    case realValue:
    case arrayValue:
    case objectValue:
-      JSON_ASSERT( "Type is not convertible to double" && false );
+      JSON_ASSERT_MESSAGE( false, "Type is not convertible to string" );
    default:
       JSON_ASSERT_UNREACHABLE;
    }
@@ -705,17 +722,17 @@ Value::asInt() const
    case intValue:
       return value_.int_;
    case uintValue:
-      JSON_ASSERT( value_.uint_ < maxInt  &&  "integer out of signed integer range" );
+      JSON_ASSERT_MESSAGE( value_.uint_ < (unsigned)maxInt, "integer out of signed integer range" );
       return value_.uint_;
    case realValue:
-      JSON_ASSERT( value_.real_ >= minInt  &&  value_.real_ <= maxInt &&  "Real out of signed integer range" );
+      JSON_ASSERT_MESSAGE( value_.real_ >= minInt  &&  value_.real_ <= maxInt, "Real out of signed integer range" );
       return Int( value_.real_ );
    case booleanValue:
       return value_.bool_ ? 1 : 0;
    case stringValue:
    case arrayValue:
    case objectValue:
-      JSON_ASSERT( "Type is not convertible to double" && false );
+      JSON_ASSERT_MESSAGE( false, "Type is not convertible to int" );
    default:
       JSON_ASSERT_UNREACHABLE;
    }
@@ -730,19 +747,19 @@ Value::asUInt() const
    case nullValue:
       return 0;
    case intValue:
-      JSON_ASSERT( value_.int_ >= 0  &&  "Negative integer can not be converted to unsigned integer" );
+      JSON_ASSERT_MESSAGE( value_.int_ >= 0, "Negative integer can not be converted to unsigned integer" );
       return value_.int_;
    case uintValue:
       return value_.uint_;
    case realValue:
-      JSON_ASSERT( value_.real_ >= 0  &&  value_.real_ <= maxUInt &&  "Real out of unsigned integer range" );
+      JSON_ASSERT_MESSAGE( value_.real_ >= 0  &&  value_.real_ <= maxUInt,  "Real out of unsigned integer range" );
       return UInt( value_.real_ );
    case booleanValue:
       return value_.bool_ ? 1 : 0;
    case stringValue:
    case arrayValue:
    case objectValue:
-      JSON_ASSERT( "Type is not convertible to double" && false );
+      JSON_ASSERT_MESSAGE( false, "Type is not convertible to uint" );
    default:
       JSON_ASSERT_UNREACHABLE;
    }
@@ -767,7 +784,7 @@ Value::asDouble() const
    case stringValue:
    case arrayValue:
    case objectValue:
-      JSON_ASSERT( "Type is not convertible to double" && false );
+      JSON_ASSERT_MESSAGE( false, "Type is not convertible to double" );
    default:
       JSON_ASSERT_UNREACHABLE;
    }
@@ -816,7 +833,7 @@ Value::isConvertibleTo( ValueType other ) const
              || other == booleanValue;
    case uintValue:
       return ( other == nullValue  &&  value_.uint_ == 0 )
-             || ( other == intValue  && value_.uint_ <= maxInt )
+             || ( other == intValue  && value_.uint_ <= (unsigned)maxInt )
              || other == uintValue
              || other == realValue
              || other == stringValue
@@ -1499,22 +1516,22 @@ PathArgument::PathArgument()
 
 
 PathArgument::PathArgument( Value::UInt index )
-   : kind_( kindIndex )
-   , index_( index )
+   : index_( index )
+   , kind_( kindIndex )
 {
 }
 
 
 PathArgument::PathArgument( const char *key )
-   : kind_( kindKey )
-   , key_( key )
+   : key_( key )
+   , kind_( kindKey )
 {
 }
 
 
 PathArgument::PathArgument( const std::string &key )
-   : kind_( kindKey )
-   , key_( key.c_str() )
+   : key_( key.c_str() )
+   , kind_( kindKey )
 {
 }
 

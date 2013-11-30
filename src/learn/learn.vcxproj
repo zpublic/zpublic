@@ -52,7 +52,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>NOMINMAX;WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>./;./../../public;./../../3rdparty;./../../3rdparty/tut;./../../3rdparty/jsonlib/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;./../../public;./../../3rdparty;./../../3rdparty/tut;./../../3rdparty/jsonlib</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zm500  -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -75,7 +75,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NOMINMAX;WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>./;./../../public;./../../3rdparty;./../../3rdparty/tut;./../../3rdparty/jsonlib/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;./../../public;./../../3rdparty;./../../3rdparty/tut;./../../3rdparty/jsonlib</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zm1000  -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -158,13 +158,14 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClInclude>
-    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\autolink.h" />
-    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\config.h" />
-    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\forwards.h" />
-    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\json.h" />
-    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\reader.h" />
-    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\value.h" />
-    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\writer.h" />
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\autolink.h" />
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\config.h" />
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\features.h" />
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\forwards.h" />
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\json.h" />
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\reader.h" />
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\value.h" />
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\writer.h" />
     <ClInclude Include="..\..\3rdparty\luasrc\lapi.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -454,15 +455,15 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_reader.cpp">
+    <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_reader.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_value.cpp">
+    <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_value.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_writer.cpp">
+    <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_writer.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>

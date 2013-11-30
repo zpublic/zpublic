@@ -117,10 +117,10 @@ namespace Json {
 # endif
    public:
       typedef std::vector<std::string> Members;
-      typedef int Int;
-      typedef unsigned int UInt;
       typedef ValueIterator iterator;
       typedef ValueConstIterator const_iterator;
+      typedef Json::UInt UInt;
+      typedef Json::Int Int;
       typedef UInt ArrayIndex;
 
       static const Value null;
@@ -186,6 +186,7 @@ namespace Json {
       Value( UInt value );
       Value( double value );
       Value( const char *value );
+      Value( const char *beginValue, const char *endValue );
       /** \brief Constructs a value from a static string.
 
        * Like other value string constructor but do not duplicate the string for
@@ -271,8 +272,12 @@ namespace Json {
       /// Access an array element (zero based index ).
       /// If the array contains less than index element, then null value are inserted
       /// in the array so that its size is index+1.
+      /// (You may need to say 'value[0u]' to get your compiler to distinguish
+      ///  this from the operator[] which takes a string.)
       Value &operator[]( UInt index );
       /// Access an array element (zero based index )
+      /// (You may need to say 'value[0u]' to get your compiler to distinguish
+      ///  this from the operator[] which takes a string.)
       const Value &operator[]( UInt index ) const;
       /// If the array contains at least index+1 elements, returns the element value, 
       /// otherwise returns defaultValue.
@@ -449,7 +454,7 @@ namespace Json {
       friend class Path;
 
       PathArgument();
-      PathArgument( Value::UInt index );
+      PathArgument( UInt index );
       PathArgument( const char *key );
       PathArgument( const std::string &key );
 
@@ -461,7 +466,7 @@ namespace Json {
          kindKey
       };
       std::string key_;
-      Value::UInt index_;
+      UInt index_;
       Kind kind_;
    };
 
@@ -508,7 +513,7 @@ namespace Json {
       Args args_;
    };
 
-   /** \brief Allocator to customize member name and string value memory management done by Value.
+   /** \brief Experimental do not use: Allocator to customize member name and string value memory management done by Value.
     *
     * - makeMemberName() and releaseMemberName() are called to respectively duplicate and
     *   free an Json::objectValue member name.
@@ -518,7 +523,7 @@ namespace Json {
    class ValueAllocator
    {
    public:
-      enum { unknown = -1 };
+      enum { unknown = (unsigned)-1 };
 
       virtual ~ValueAllocator();
 
@@ -633,6 +638,13 @@ namespace Json {
 # ifndef JSONCPP_DOC_EXCLUDE_IMPLEMENTATION
       struct IteratorState
       {
+         IteratorState() 
+            : map_(0)
+            , link_(0)
+            , itemIndex_(0)
+            , bucketIndex_(0) 
+         {
+         }
          ValueInternalMap *map_;
          ValueInternalLink *link_;
          BucketIndex itemIndex_;
@@ -725,6 +737,12 @@ namespace Json {
 # ifndef JSONCPP_DOC_EXCLUDE_IMPLEMENTATION
       struct IteratorState // Must be a POD
       {
+         IteratorState() 
+            : array_(0)
+            , currentPageIndex_(0)
+            , currentItemIndex_(0) 
+         {
+         }
          ValueInternalArray *array_;
          Value **currentPageIndex_;
          unsigned int currentItemIndex_;
@@ -767,7 +785,7 @@ namespace Json {
       PageIndex pageCount_;
    };
 
-   /** \brief Allocator to customize Value internal array.
+   /** \brief Experimental: do not use. Allocator to customize Value internal array.
     * Below is an example of a simple implementation (actual implementation use
     * memory pool).
       \code
@@ -855,7 +873,7 @@ public: // overridden from ValueArrayAllocator
 #endif // #ifdef JSON_VALUE_USE_INTERNAL_MAP
 
 
-   /** \brief Experimental and untested: base class for Value iterators.
+   /** \brief base class for Value iterators.
     *
     */
    class ValueIteratorBase
@@ -892,7 +910,7 @@ public: // overridden from ValueArrayAllocator
       Value key() const;
 
       /// Return the index of the referenced Value. -1 if it is not an arrayValue.
-      Value::UInt index() const;
+      UInt index() const;
 
       /// Return the member name of the referenced Value. "" if it is not an objectValue.
       const char *memberName() const;
@@ -913,6 +931,8 @@ public: // overridden from ValueArrayAllocator
    private:
 #ifndef JSON_VALUE_USE_INTERNAL_MAP
       Value::ObjectValues::iterator current_;
+      // Indicates that iterator is for a null value.
+      bool isNull_;
 #else
       union
       {
@@ -923,7 +943,7 @@ public: // overridden from ValueArrayAllocator
 #endif
    };
 
-   /** \brief Experimental and untested: const iterator for object and array value.
+   /** \brief const iterator for object and array value.
     *
     */
    class ValueConstIterator : public ValueIteratorBase
@@ -982,7 +1002,7 @@ public: // overridden from ValueArrayAllocator
    };
 
 
-   /** \brief Experimental and untested: iterator for object and array value.
+   /** \brief Iterator for object and array value.
     */
    class ValueIterator : public ValueIteratorBase
    {

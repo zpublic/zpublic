@@ -11,13 +11,24 @@
 // //////////////////////////////////////////////////////////////////
 
 ValueIteratorBase::ValueIteratorBase()
+#ifndef JSON_VALUE_USE_INTERNAL_MAP
+   : current_()
+   , isNull_( true )
 {
 }
+#else
+   : isArray_( true )
+   , isNull_( true )
+{
+   iterator_.array_ = ValueInternalArray::IteratorState();
+}
+#endif
 
 
 #ifndef JSON_VALUE_USE_INTERNAL_MAP
 ValueIteratorBase::ValueIteratorBase( const Value::ObjectValues::iterator &current )
    : current_( current )
+   , isNull_( false )
 {
 }
 #else
@@ -81,7 +92,27 @@ ValueIteratorBase::computeDistance( const SelfType &other ) const
 # ifdef JSON_USE_CPPTL_SMALLMAP
    return current_ - other.current_;
 # else
-   return difference_type( std::distance( current_, other.current_ ) );
+   // Iterator for null value are initialized using the default
+   // constructor, which initialize current_ to the default
+   // std::map::iterator. As begin() and end() are two instance 
+   // of the default std::map::iterator, they can not be compared.
+   // To allow this, we handle this comparison specifically.
+   if ( isNull_  &&  other.isNull_ )
+   {
+      return 0;
+   }
+
+
+   // Usage of std::distance is not portable (does not compile with Sun Studio 12 RogueWave STL,
+   // which is the one used by default).
+   // Using a portable hand-made version for non random iterator instead:
+   //   return difference_type( std::distance( current_, other.current_ ) );
+   difference_type myDistance = 0;
+   for ( Value::ObjectValues::iterator it = current_; it != other.current_; ++it )
+   {
+      ++myDistance;
+   }
+   return myDistance;
 # endif
 #else
    if ( isArray_ )
@@ -95,6 +126,10 @@ bool
 ValueIteratorBase::isEqual( const SelfType &other ) const
 {
 #ifndef JSON_VALUE_USE_INTERNAL_MAP
+   if ( isNull_ )
+   {
+      return other.isNull_;
+   }
    return current_ == other.current_;
 #else
    if ( isArray_ )
@@ -141,7 +176,7 @@ ValueIteratorBase::key() const
 }
 
 
-Value::UInt 
+UInt 
 ValueIteratorBase::index() const
 {
 #ifndef JSON_VALUE_USE_INTERNAL_MAP

@@ -1,8 +1,9 @@
-#include "json/reader.h"
-#include "json/value.h"
+#include <json/reader.h>
+#include <json/value.h>
 #include <utility>
-#include <stdio.h>
-#include <assert.h>
+#include <cstdio>
+#include <cassert>
+#include <cstring>
 #include <iostream>
 #include <stdexcept>
 
@@ -11,6 +12,36 @@
 #endif
 
 namespace Json {
+
+// Implementation of class Features
+// ////////////////////////////////
+
+Features::Features()
+   : allowComments_( true )
+   , strictRoot_( false )
+{
+}
+
+
+Features 
+Features::all()
+{
+   return Features();
+}
+
+
+Features 
+Features::strictMode()
+{
+   Features features;
+   features.allowComments_ = false;
+   features.strictRoot_ = true;
+   return features;
+}
+
+// Implementation of class Reader
+// ////////////////////////////////
+
 
 static inline bool 
 in( Reader::Char c, Reader::Char c1, Reader::Char c2, Reader::Char c3, Reader::Char c4 )
@@ -35,13 +66,57 @@ containsNewLine( Reader::Location begin,
    return false;
 }
 
+static std::string codePointToUTF8(unsigned int cp)
+{
+   std::string result;
+   
+   // based on description from http://en.wikipedia.org/wiki/UTF-8
+
+   if (cp <= 0x7f) 
+   {
+      result.resize(1);
+      result[0] = static_cast<char>(cp);
+   } 
+   else if (cp <= 0x7FF) 
+   {
+      result.resize(2);
+      result[1] = static_cast<char>(0x80 | (0x3f & cp));
+      result[0] = static_cast<char>(0xC0 | (0x1f & (cp >> 6)));
+   } 
+   else if (cp <= 0xFFFF) 
+   {
+      result.resize(3);
+      result[2] = static_cast<char>(0x80 | (0x3f & cp));
+      result[1] = 0x80 | static_cast<char>((0x3f & (cp >> 6)));
+      result[0] = 0xE0 | static_cast<char>((0xf & (cp >> 12)));
+   }
+   else if (cp <= 0x10FFFF) 
+   {
+      result.resize(4);
+      result[3] = static_cast<char>(0x80 | (0x3f & cp));
+      result[2] = static_cast<char>(0x80 | (0x3f & (cp >> 6)));
+      result[1] = static_cast<char>(0x80 | (0x3f & (cp >> 12)));
+      result[0] = static_cast<char>(0xF0 | (0x7 & (cp >> 18)));
+   }
+
+   return result;
+}
+
 
 // Class Reader
 // //////////////////////////////////////////////////////////////////
 
 Reader::Reader()
+   : features_( Features::all() )
 {
 }
+
+
+Reader::Reader( const Features &features )
+   : features_( features )
+{
+}
+
 
 bool
 Reader::parse( const std::string &document, 
@@ -53,6 +128,7 @@ Reader::parse( const std::string &document,
    const char *end = begin + document_.length();
    return parse( begin, end, root, collectComments );
 }
+
 
 bool
 Reader::parse( std::istream& sin,
@@ -76,6 +152,11 @@ Reader::parse( const char *beginDoc, const char *endDoc,
                Value &root,
                bool collectComments )
 {
+   if ( !features_.allowComments_ )
+   {
+      collectComments = false;
+   }
+
    begin_ = beginDoc;
    end_ = endDoc;
    collectComments_ = collectComments;
@@ -93,6 +174,19 @@ Reader::parse( const char *beginDoc, const char *endDoc,
    skipCommentTokens( token );
    if ( collectComments_  &&  !commentsBefore_.empty() )
       root.setComment( commentsBefore_, commentAfter );
+   if ( features_.strictRoot_ )
+   {
+      if ( !root.isArray()  &&  !root.isObject() )
+      {
+         // Set error location to start of doc, ideally should be first token found in doc
+         token.type_ = tokenError;
+         token.start_ = beginDoc;
+         token.end_ = endDoc;
+         addError( "A valid JSON document must be either an array or an object value.",
+                   token );
+         return false;
+      }
+   }
    return successful;
 }
 
@@ -151,11 +245,18 @@ Reader::readValue()
 void 
 Reader::skipCommentTokens( Token &token )
 {
-   do
+   if ( features_.allowComments_ )
+   {
+      do
+      {
+         readToken( token );
+      }
+      while ( token.type_ == tokenComment );
+   }
+   else
    {
       readToken( token );
    }
-   while ( token.type_ == tokenComment );
 }
 
 
@@ -456,9 +557,15 @@ Reader::readArray( Token &tokenStart )
          return recoverFromError( tokenArrayEnd );
 
       Token token;
-      if ( !readToken( token ) 
-           ||  ( token.type_ != tokenArraySeparator  &&  
-                 token.type_ != tokenArrayEnd ) )
+      // Accept Comment after last item in the array.
+      ok = readToken( token );
+      while ( token.type_ == tokenComment  &&  ok )
+      {
+         ok = readToken( token );
+      }
+      bool badTokenType = ( token.type_ == tokenArraySeparator  &&  
+                            token.type_ == tokenArrayEnd );
+      if ( !ok  ||  badTokenType )
       {
          return addErrorAndRecover( "Missing ',' or ']' in array declaration", 
                                     token, 
@@ -576,10 +683,9 @@ Reader::decodeString( Token &token, std::string &decoded )
          case 'u':
             {
                unsigned int unicode;
-               if ( !decodeUnicodeEscapeSequence( token, current, end, unicode ) )
+               if ( !decodeUnicodeCodePoint( token, current, end, unicode ) )
                   return false;
-               // @todo encode unicode as utf8.
-	       // @todo remember to alter the writer too.
+               decoded += codePointToUTF8(unicode);
             }
             break;
          default:
@@ -594,6 +700,35 @@ Reader::decodeString( Token &token, std::string &decoded )
    return true;
 }
 
+bool
+Reader::decodeUnicodeCodePoint( Token &token, 
+                                     Location &current, 
+                                     Location end, 
+                                     unsigned int &unicode )
+{
+
+   if ( !decodeUnicodeEscapeSequence( token, current, end, unicode ) )
+      return false;
+   if (unicode >= 0xD800 && unicode <= 0xDBFF)
+   {
+      // surrogate pairs
+      if (end - current < 6)
+         return addError( "additional six characters expected to parse unicode surrogate pair.", token, current );
+      unsigned int surrogatePair;
+      if (*(current++) == '\\' && *(current++)== 'u')
+      {
+         if (decodeUnicodeEscapeSequence( token, current, end, surrogatePair ))
+         {
+            unicode = 0x10000 + ((unicode & 0x3FF) << 10) + (surrogatePair & 0x3FF);
+         } 
+         else
+            return false;
+      } 
+      else
+         return addError( "expecting another \\u token to begin the second half of a unicode surrogate pair", token, current );
+   }
+   return true;
+}
 
 bool 
 Reader::decodeUnicodeEscapeSequence( Token &token, 

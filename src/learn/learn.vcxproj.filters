@@ -447,27 +447,6 @@
     <ClInclude Include="test_json_cpp.h">
       <Filter>src\json</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\autolink.h">
-      <Filter>src\json\json_cpp\h</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\config.h">
-      <Filter>src\json\json_cpp\h</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\forwards.h">
-      <Filter>src\json\json_cpp\h</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\json.h">
-      <Filter>src\json\json_cpp\h</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\reader.h">
-      <Filter>src\json\json_cpp\h</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\value.h">
-      <Filter>src\json\json_cpp\h</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\3rdparty\jsonlib\src\json\writer.h">
-      <Filter>src\json\json_cpp\h</Filter>
-    </ClInclude>
     <ClInclude Include="practice\practice_test.h">
       <Filter>practice\test</Filter>
     </ClInclude>
@@ -476,6 +455,30 @@
     </ClInclude>
     <ClInclude Include="practice\test_property_tree.h">
       <Filter>practice\test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\autolink.h">
+      <Filter>src\json\json_cpp\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\config.h">
+      <Filter>src\json\json_cpp\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\features.h">
+      <Filter>src\json\json_cpp\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\forwards.h">
+      <Filter>src\json\json_cpp\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\json.h">
+      <Filter>src\json\json_cpp\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\reader.h">
+      <Filter>src\json\json_cpp\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\value.h">
+      <Filter>src\json\json_cpp\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\jsonlib\json\writer.h">
+      <Filter>src\json\json_cpp\h</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -758,15 +761,6 @@
     <ClCompile Include="test_json_cpp.cpp">
       <Filter>src\json</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_reader.cpp">
-      <Filter>src\json\json_cpp\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_value.cpp">
-      <Filter>src\json\json_cpp\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_writer.cpp">
-      <Filter>src\json\json_cpp\cpp</Filter>
-    </ClCompile>
     <ClCompile Include="practice\practice_test.cpp">
       <Filter>practice\test</Filter>
     </ClCompile>
@@ -775,6 +769,15 @@
     </ClCompile>
     <ClCompile Include="practice\test_property_tree.cpp">
       <Filter>practice\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_reader.cpp">
+      <Filter>src\json\json_cpp\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_value.cpp">
+      <Filter>src\json\json_cpp\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_writer.cpp">
+      <Filter>src\json\json_cpp\cpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
