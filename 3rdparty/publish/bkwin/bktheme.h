@@ -11,7 +11,13 @@
 
 #include <atlcoll.h>
 #include <Uxtheme.h>
+
+#if WINVER < 0¡Á0600      // tmschema.h not  support vista+
 #include <tmschema.h>
+#else
+#include <vssym32.h>
+#include <SchemaDef.h>
+#endif
 
 class BkWinThemeFunc
 {
