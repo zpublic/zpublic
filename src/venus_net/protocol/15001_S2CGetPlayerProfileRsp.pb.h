@@ -143,6 +143,13 @@ class S2CGetPlayerProfileRsp : public ::google::protobuf::Message {
   inline ::std::string* release_guild_name();
   inline void set_allocated_guild_name(::std::string* guild_name);
 
+  // required uint32 gold = 7;
+  inline bool has_gold() const;
+  inline void clear_gold();
+  static const int kGoldFieldNumber = 7;
+  inline ::google::protobuf::uint32 gold() const;
+  inline void set_gold(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:Protocol.S2CGetPlayerProfileRsp)
  private:
   inline void set_has_guid();
@@ -157,18 +164,21 @@ class S2CGetPlayerProfileRsp : public ::google::protobuf::Message {
   inline void clear_has_guild_id();
   inline void set_has_guild_name();
   inline void clear_has_guild_name();
+  inline void set_has_gold();
+  inline void clear_has_gold();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 guid_;
   ::std::string* nickname_;
   ::google::protobuf::int64 last_login_;
+  ::google::protobuf::int32 gender_;
+  ::google::protobuf::uint32 gold_;
   ::google::protobuf::uint64 guild_id_;
   ::std::string* guild_name_;
-  ::google::protobuf::int32 gender_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_15001_5fS2CGetPlayerProfileRsp_2eproto();
   friend void protobuf_AssignDesc_15001_5fS2CGetPlayerProfileRsp_2eproto();
@@ -410,6 +420,28 @@ inline void S2CGetPlayerProfileRsp::set_allocated_guild_name(::std::string* guil
     clear_has_guild_name();
     guild_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
+}
+
+// required uint32 gold = 7;
+inline bool S2CGetPlayerProfileRsp::has_gold() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void S2CGetPlayerProfileRsp::set_has_gold() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void S2CGetPlayerProfileRsp::clear_has_gold() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void S2CGetPlayerProfileRsp::clear_gold() {
+  gold_ = 0u;
+  clear_has_gold();
+}
+inline ::google::protobuf::uint32 S2CGetPlayerProfileRsp::gold() const {
+  return gold_;
+}
+inline void S2CGetPlayerProfileRsp::set_gold(::google::protobuf::uint32 value) {
+  set_has_gold();
+  gold_ = value;
 }
 
 

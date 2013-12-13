@@ -66,3 +66,6 @@ Release
 /temp
 
 circe_client_network.dll
+!/src/coeus/tools/CoreSword_Editor/CoreSword Editor.exe
+!/src/coeus/tools/CoreSword_Editor/CoreSword Editor.vshost.exe
+!/src/coeus/tools/CoreSword_Editor/Tools/protoc.exe

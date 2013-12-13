@@ -50,6 +50,9 @@ public:
     void guildName(const std::string& guild_name);
     const std::string& guildName() const;
 
+    void gold(const uint32& gold);
+    const uint32& gold() const;
+
 public:
     PlayerDB* DB();
     GameSession* session();

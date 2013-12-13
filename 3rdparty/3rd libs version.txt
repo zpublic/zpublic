@@ -21,3 +21,6 @@ hge
 
 hp_socket
 2.2.2
+
+jsonlib/jsoncpp
+0.6.0-rc2

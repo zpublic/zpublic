@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="yes"?>
+<XMLDataType>
+  <Type VariableType="0" TypeName="double" Description="" />
+  <Type VariableType="0" TypeName="float" Description="" />
+  <Type VariableType="0" TypeName="int8" Description="" />
+  <Type VariableType="0" TypeName="int16" Description="" />
+  <Type VariableType="0" TypeName="int32" Description="" />
+  <Type VariableType="0" TypeName="int64" Description="" />
+  <Type VariableType="0" TypeName="uint8" Description="" />
+  <Type VariableType="0" TypeName="uint16" Description="" />
+  <Type VariableType="0" TypeName="uint32" Description="" />
+  <Type VariableType="0" TypeName="uint64" Description="" />
+  <Type VariableType="0" TypeName="string" Description="" />
+</XMLDataType>

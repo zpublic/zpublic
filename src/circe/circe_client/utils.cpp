@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "utils.h"
 #include "crypt\KMD5.h"
+#include <regex>
 
 CStringA GetMd5Str( CStringA data )
 {
@@ -20,3 +21,8 @@ CStringA GetMd5Str( CStringA data )
     return CStringA(sMd5);
 }
 
+bool IsEmaiValid(const std::string& email)
+{
+    const std::regex pattern("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
+    return std::regex_match(email, pattern);
+}

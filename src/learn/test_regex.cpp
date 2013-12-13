@@ -43,10 +43,12 @@ void test_regex_match()
     std::string email2 = "mariusbancila@domain.com";
     std::string email3 = "marius_b@domain.co.uk";
     std::string email4 = "marius@domain";
+    std::string email5 = "12345@qq.com";
     assert(is_email_valid(email1));
     assert(is_email_valid(email2));
     assert(is_email_valid(email3));
     assert(is_email_valid(email4) == false);
+    assert(is_email_valid(email5));
 
     show_ip_parts("1.22.33.255");
     show_ip_parts("1.22.33.256");
