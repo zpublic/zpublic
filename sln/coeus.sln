@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "coeus_server", "..\src\coeu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "venus_net", "..\src\coeus\venus_net\venus_net.vcxproj", "{AADA5C3B-3D24-411F-A862-947FF73A6BBA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "coeus", "..\src\coeus\client\coeus.vcxproj", "{A2B3C8FB-649D-43D4-859F-4EC4C5D38379}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32

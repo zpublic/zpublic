@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7F2F8075-9EB8-4EEF-BCBF-CB64221B9C8C}</ProjectGuid>
+    <ProjectGuid>{A2B3C8FB-649D-43D4-859F-4EC4C5D38379}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -37,14 +37,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>$(Configuration)\</IntDir>
-    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(projectdir)../../../output/coeus/Debug\</IntDir>
+    <OutDir>$(projectdir)../../../output/coeus/</OutDir>
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(projectdir)/../../..;$(projectdir)/../../../3rdparty/tinyxml-2.6.2/;$(projectdir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IntDir>$(Configuration)\</IntDir>
-    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(projectdir)../../../output/coeus/release\</IntDir>
+    <OutDir>$(projectdir)../../../output/coeus/</OutDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -56,31 +55,28 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>UNICODE;STRICT;BOOST_ALL_NO_LIB;WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../;../../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../../3rdparty/poco/Foundation/include;../../venus_net;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/include;</AdditionalIncludeDirectories>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./;$(projectdir)/../../../3rdparty\publish\bkwin\;$(projectdir)/../../../3rdparty\publish\;$(projectdir)/../../../3rdparty\tinyxml\;$(projectdir)/../../../;$(projectdir)../../../3rdparty\wtl\Include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>venus_net.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutputPath);./../../../3rdparty/boost_lib/;./../../../3rdparty/poco_lib/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ResourceCompile>
       <Culture>0x0409</Culture>
-      <AdditionalIncludeDirectories>./../../../3rdparty/wtl/include;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <TargetEnvironment>Win32</TargetEnvironment>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <HeaderFileName>circe_client.h</HeaderFileName>
-      <InterfaceIdentifierFileName>circe_client_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>circe_client_p.c</ProxyFileName>
+      <HeaderFileName>coeus.h</HeaderFileName>
+      <InterfaceIdentifierFileName>coeus_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>coeus_p.c</ProxyFileName>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(IntDir)/circe_client.tlb</TypeLibraryName>
+      <TypeLibraryName>$(IntDir)/coeus.tlb</TypeLibraryName>
       <DllDataFileName />
     </Midl>
   </ItemDefinitionGroup>
@@ -89,79 +85,112 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExceptionHandling />
       <DebugInformationFormat />
-      <PreprocessorDefinitions>UNICODE;BOOST_ALL_NO_LIB;WIN32;_WINDOWS;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../;../../../3rdparty/poco/Data/SQLite/include;../../3rdparty/poco/Data/include;../../../3rdparty/poco/Foundation/include;../../venus_net;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/include;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./;$(projectdir)/../../../3rdparty\publish\bkwin\;$(projectdir)/../../../3rdparty\publish\;$(projectdir)/../../../3rdparty\tinyxml\;$(projectdir)/../../../;$(projectdir)../../../3rdparty\wtl\Include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalDependencies>venus_net.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutputPath);./../../../3rdparty/boost_lib/;./../../../3rdparty/poco_lib/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>/LTCG %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <ResourceCompile>
       <Culture>0x0409</Culture>
-      <AdditionalIncludeDirectories>./../../../3rdparty/wtl/include;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <TargetEnvironment>Win32</TargetEnvironment>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <HeaderFileName>circe_client.h</HeaderFileName>
-      <InterfaceIdentifierFileName>circe_client_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>circe_client_p.c</ProxyFileName>
+      <HeaderFileName>coeus.h</HeaderFileName>
+      <InterfaceIdentifierFileName>coeus_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>coeus_p.c</ProxyFileName>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(IntDir)/circe_client.tlb</TypeLibraryName>
+      <TypeLibraryName>$(IntDir)/coeus.tlb</TypeLibraryName>
       <DllDataFileName />
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxml.cpp">
+    <ResourceCompile Include="..\..\..\3rdparty\publish\bkres\bkres.rc" />
+    <ResourceCompile Include="coeus.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\coeus.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\3rdparty\publish\tinyxml\tinystr.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxmlerror.cpp">
+    <ClCompile Include="..\..\..\3rdparty\publish\tinyxml\tinyxml.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxmlparser.cpp">
+    <ClCompile Include="..\..\..\3rdparty\publish\tinyxml\tinyxmlerror.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\..\..\public\crypt\KMD5.cpp" />
-    <ClCompile Include="..\..\..\zlui\lab\3rd\PictureExWnd.cpp" />
-    <ClCompile Include="config.cpp" />
-    <ClCompile Include="fg_fight_handler.cpp" />
-    <ClCompile Include="finger_guessing\fg_card.cpp" />
-    <ClCompile Include="finger_guessing\fg_game.cpp" />
-    <ClCompile Include="finger_guessing\fg_player.cpp" />
-    <ClCompile Include="finger_guessing\fg_player_base.cpp" />
-    <ClCompile Include="finger_guessing\fg_card_info.cpp" />
-    <ClCompile Include="heartbeat_thread.cpp" />
-    <ClCompile Include="PlayerInfoDlg.cpp" />
-    <ClCompile Include="player_info_handler.cpp" />
-    <ClCompile Include="RegDlg.cpp" />
-    <ClCompile Include="circe_client.cpp" />
-    <ClCompile Include="client_net.cpp" />
-    <ClCompile Include="game_handler.cpp" />
-    <ClCompile Include="login_handler.cpp" />
-    <ClCompile Include="LoginDlg.cpp" />
-    <ClCompile Include="network_handler.cpp" />
-    <ClCompile Include="network_mgr.cpp" />
-    <ClCompile Include="opcodes_handler.cpp" />
-    <ClCompile Include="register_handler.cpp" />
+    <ClCompile Include="..\..\..\3rdparty\publish\tinyxml\tinyxmlparser.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game_main_dlg.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="utils.cpp" />
-    <ClCompile Include="World1Dlg.cpp" />
-    <ClCompile Include="World2Dlg.cpp" />
-    <ClCompile Include="World3Dlg.cpp" />
-    <ClCompile Include="WorldDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxml.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkbmppool.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkextraresdef.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkfontpool.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkjpgpool.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkpngpool.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkres.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkresutil.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkskinpool.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkstringpool.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkbitmap.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkcolor.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkcustomwnd.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkdlgview.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkimage.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkimgbtnsized.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkimggray.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bklistbox.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bklistview.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkobject.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkrichtext2obj.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkrichtext2wnd.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkshadowwnd.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkskin.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkskinex.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkslider.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bktheme.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwnd.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwndcmnctrl.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwnddlg.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\BkwndExDef.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwndnotify.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwndpanel.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwndrichtxt.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwndstyle.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwndtabctrl.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\cargb.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBkCtrlEx.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBkDialogViewImplEx.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBkDrawShadowText.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBklistImpl.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBkListItem.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBkListScrollBar.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBkListWindow.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBkMsgWnd.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CDwmApi.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\listboxbase.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\tinyxml\tinystr.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\tinyxml\tinyxml.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlcrack.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrls.h" />
@@ -184,57 +213,21 @@
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atluser.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwince.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h" />
-    <ClInclude Include="..\..\..\public\crypt\KMD5.h" />
-    <ClInclude Include="..\..\..\public\win\thread\thread_event.h" />
-    <ClInclude Include="..\..\..\zlui\lab\3rd\PictureExWnd.h" />
-    <ClInclude Include="config.h" />
-    <ClInclude Include="fg_fight_handler.h" />
-    <ClInclude Include="finger_guessing\fg_card.h" />
-    <ClInclude Include="finger_guessing\fg_card_def.h" />
-    <ClInclude Include="finger_guessing\fg_game.h" />
-    <ClInclude Include="finger_guessing\fg_player.h" />
-    <ClInclude Include="finger_guessing\fg_player_base.h" />
-    <ClInclude Include="finger_guessing\fg_card_info.h" />
-    <ClInclude Include="heartbeat_thread.h" />
-    <ClInclude Include="PlayerInfoDlg.h" />
-    <ClInclude Include="player_info_handler.h" />
-    <ClInclude Include="RegDlg.h" />
-    <ClInclude Include="client_net.h" />
-    <ClInclude Include="game_handler.h" />
-    <ClInclude Include="login_handler.h" />
-    <ClInclude Include="LoginDlg.h" />
-    <ClInclude Include="msg_def.h" />
-    <ClInclude Include="network_handler.h" />
-    <ClInclude Include="network_mgr.h" />
-    <ClInclude Include="opcodes_handler.h" />
-    <ClInclude Include="register_handler.h" />
-    <ClInclude Include="resource.h" />
+    <ClInclude Include="bkwinres.h" />
+    <ClInclude Include="coeus.h" />
+    <ClInclude Include="game_main_dlg.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="utils.h" />
-    <ClInclude Include="World1Dlg.h" />
-    <ClInclude Include="World2Dlg.h" />
-    <ClInclude Include="World3Dlg.h" />
-    <ClInclude Include="WorldDlg.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="circe_client.rc">
-      <Culture Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">0x0804</Culture>
-      <Culture Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">0x0804</Culture>
-    </ResourceCompile>
+    <None Include="bkwinres.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\res\circe\1.bmp" />
-    <Image Include="..\..\..\res\circe\2.bmp" />
-    <Image Include="..\..\..\res\circe\3.bmp" />
-    <Image Include="res\1.gif" />
-    <Image Include="res\circe_client.ico" />
+    <Xml Include="res\xml\def_skin.xml" />
+    <Xml Include="res\xml\def_string.xml" />
+    <Xml Include="res\xml\def_style.xml" />
+    <Xml Include="res\xml\dlg_main.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties RESOURCE_FILE="circe_client.rc" />
-    </VisualStudio>
-  </ProjectExtensions>
 </Project>

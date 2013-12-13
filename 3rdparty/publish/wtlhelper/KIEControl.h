@@ -6,7 +6,7 @@
 #include <atlstr.h>
 #include <windows.h>
 #include <tchar.h>
-#include "3rdparty/wtl/atlapp.h"
+#include "atlapp.h"
 #include "ksOleClientSite.h"
 #define NAVIGATECOMPLETE			 252
 #define NAVIGATEERROR                271

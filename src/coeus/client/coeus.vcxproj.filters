@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{c0a38a39-8899-49bd-9b91-e050e944f4b4}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{8c17fff0-f733-4333-8172-7864df19378d}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest</Extensions>
+    </Filter>
+    <Filter Include="source\dlg">
+      <UniqueIdentifier>{4ba4a697-024b-42eb-ad40-b492eaf0c091}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{3f58f7af-8aaa-4714-8267-6c565d09288d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\wtl">
+      <UniqueIdentifier>{276ef7a7-6816-4f37-ae86-48fc811c1dc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\tinyxml">
+      <UniqueIdentifier>{7aa03204-8aba-4c23-a7d0-b39de67be6dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\xml">
+      <UniqueIdentifier>{fb6bcee6-3ea1-4049-b584-857c09ccbbff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\bkwin">
+      <UniqueIdentifier>{f81edd1c-0c27-4321-9f22-6f4fb54f6f3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\bkres">
+      <UniqueIdentifier>{77c69de1-0454-4dae-b79b-2bb39f81a40a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="coeus.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="..\..\..\3rdparty\publish\bkres\bkres.rc">
+      <Filter>include\bkres</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\coeus.ico">
+      <Filter>resource</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game_main_dlg.cpp">
+      <Filter>source\dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\publish\tinyxml\tinystr.cpp">
+      <Filter>include\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\publish\tinyxml\tinyxml.cpp">
+      <Filter>include\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\publish\tinyxml\tinyxmlerror.cpp">
+      <Filter>include\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\publish\tinyxml\tinyxmlparser.cpp">
+      <Filter>include\tinyxml</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="coeus.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game_main_dlg.h">
+      <Filter>source\dlg</Filter>
+    </ClInclude>
+    <ClInclude Include="bkwinres.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlcrack.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrls.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrlw.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrlx.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlddx.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atldlgs.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atldwm.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlfind.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlframe.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlgdi.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlmisc.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlprint.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlres.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlresce.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlribbon.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlscrl.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlsplit.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atltheme.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atluser.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwince.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\tinyxml\tinystr.h">
+      <Filter>include\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\tinyxml\tinyxml.h">
+      <Filter>include\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkbitmap.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkcolor.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkcustomwnd.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkdlgview.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkimage.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkimgbtnsized.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkimggray.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bklistbox.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bklistview.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkobject.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkrichtext2obj.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkrichtext2wnd.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkshadowwnd.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkskin.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkskinex.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkslider.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bktheme.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwnd.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwndcmnctrl.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwnddlg.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\BkwndExDef.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwndnotify.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwndpanel.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwndrichtxt.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwndstyle.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\bkwndtabctrl.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\cargb.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBkCtrlEx.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBkDialogViewImplEx.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBkDrawShadowText.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBklistImpl.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBkListItem.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBkListScrollBar.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBkListWindow.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CBkMsgWnd.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\CDwmApi.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkwin\listboxbase.h">
+      <Filter>include\bkwin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkbmppool.h">
+      <Filter>include\bkres</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkextraresdef.h">
+      <Filter>include\bkres</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkfontpool.h">
+      <Filter>include\bkres</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkjpgpool.h">
+      <Filter>include\bkres</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkpngpool.h">
+      <Filter>include\bkres</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkres.h">
+      <Filter>include\bkres</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkresutil.h">
+      <Filter>include\bkres</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkskinpool.h">
+      <Filter>include\bkres</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkstringpool.h">
+      <Filter>include\bkres</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bkwinres.rc2">
+      <Filter>resource</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="res\xml\dlg_main.xml">
+      <Filter>resource\xml</Filter>
+    </Xml>
+    <Xml Include="res\xml\def_style.xml">
+      <Filter>resource\xml</Filter>
+    </Xml>
+    <Xml Include="res\xml\def_string.xml">
+      <Filter>resource\xml</Filter>
+    </Xml>
+    <Xml Include="res\xml\def_skin.xml">
+      <Filter>resource\xml</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>
