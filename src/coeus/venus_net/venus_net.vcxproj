@@ -163,6 +163,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="connection_factory.h" />
     <ClInclude Include="service_application.h" />
     <ClInclude Include="server_handler.h" />
     <ClInclude Include="tcp_connection.h" />

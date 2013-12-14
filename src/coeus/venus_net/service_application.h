@@ -4,6 +4,7 @@
 #include "Poco/Util/ServerApplication.h"
 #include "Poco/Net/SocketReactor.h"
 #include "Poco/Util/OptionSet.h"
+#include "connection_factory.h"
 
 class ServiceApplication
 	: public Poco::Util::ServerApplication
@@ -17,6 +18,7 @@ public:
 
 private:
 	Poco::Net::SocketReactor _reactor;
+    ConnectionFactory::Ptr _connectionFactoryPtr;
 };
 
 #endif // !__SERVICE_APPLICATION_H__

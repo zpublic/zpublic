@@ -15,6 +15,9 @@
     <ClInclude Include="service_application.h">
       <Filter>network</Filter>
     </ClInclude>
+    <ClInclude Include="connection_factory.h">
+      <Filter>network</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="service_application.cpp">
