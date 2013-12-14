@@ -2027,7 +2027,6 @@ public:
 		m_bLoaded = BkSkinPool::Get(m_uResID, CA2W(m_strFilePath), m_bmpCache, BKRES_PNG_TYPE);
 		if (!m_strAlphaKey.IsEmpty())
 		{
-			m_nAlpha = ::GetPrivateProfileInt(L"alpha", CA2W(m_strAlphaKey), 255, KDubaPath::GetModuleFolder((HMODULE)&__ImageBase) + _T("data\\skin\\skincfg.ini"));
 		}
 
 		if (m_nFlip)

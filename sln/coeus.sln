@@ -8,6 +8,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "coeus_server", "..\src\coeu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "venus_net", "..\src\coeus\venus_net\venus_net.vcxproj", "{9C15937D-8CE0-407D-8A25-82EEDCEA6930}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "coeus", "..\src\coeus\client\coeus.vcxproj", "{A2B3C8FB-649D-43D4-859F-4EC4C5D38379}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -32,6 +34,12 @@ Global
 		{9C15937D-8CE0-407D-8A25-82EEDCEA6930}.Release|Win32.Build.0 = Release|Win32
 		{9C15937D-8CE0-407D-8A25-82EEDCEA6930}.Release|x64.ActiveCfg = Release|x64
 		{9C15937D-8CE0-407D-8A25-82EEDCEA6930}.Release|x64.Build.0 = Release|x64
+		{A2B3C8FB-649D-43D4-859F-4EC4C5D38379}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A2B3C8FB-649D-43D4-859F-4EC4C5D38379}.Debug|Win32.Build.0 = Debug|Win32
+		{A2B3C8FB-649D-43D4-859F-4EC4C5D38379}.Debug|x64.ActiveCfg = Debug|Win32
+		{A2B3C8FB-649D-43D4-859F-4EC4C5D38379}.Release|Win32.ActiveCfg = Release|Win32
+		{A2B3C8FB-649D-43D4-859F-4EC4C5D38379}.Release|Win32.Build.0 = Release|Win32
+		{A2B3C8FB-649D-43D4-859F-4EC4C5D38379}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

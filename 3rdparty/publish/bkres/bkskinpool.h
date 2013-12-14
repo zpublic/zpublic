@@ -7,7 +7,6 @@
 #include <atlcoll.h>
 #include "bkresutil.h"
 #include "bkwin/bkbitmap.h"
-#include "framework/KDubaPath.h"
 
 class BkJpegBufFix
 {
@@ -79,8 +78,6 @@ public:
 	{
 		Gdiplus::GdiplusStartupInput gdiplusStartupInput;
 		Gdiplus::GdiplusStartup(&m_gdiplusToken, &gdiplusStartupInput, NULL);
-
-		m_strInstallPath = KDubaPath::GetModuleFolder((HMODULE)&__ImageBase);
 	}
 	virtual ~BkSkinPool()
 	{
@@ -99,8 +96,6 @@ public:
 		if (NULL == pPairRet)
 		{
 			BkJpegBufFix imageBuf;
-			if (FALSE == LoadImageFromFile(_Instance()->m_strInstallPath + szImagePath, imageBuf, szImageType))
-				LoadImageFromRes(uResID, imageBuf, szImageType);
 
 			pImg = imageBuf.GetImage();
 			if (pImg)
@@ -145,7 +140,6 @@ protected:
 	ULONG_PTR m_gdiplusToken;
 
 	BkSkinMap m_mapPng;
-	CString m_strInstallPath;
 
 	static BkSkinPool* ms_pInstance;
 

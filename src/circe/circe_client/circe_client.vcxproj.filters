@@ -31,11 +31,17 @@
     <Filter Include="logic\finger_guessing">
       <UniqueIdentifier>{a3afed74-3107-4064-9e77-3829050b8e34}</UniqueIdentifier>
     </Filter>
+    <Filter Include="3rdparty">
+      <UniqueIdentifier>{98390591-3687-4f88-8055-ce44b6f9c84b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\tingxml">
+      <UniqueIdentifier>{5ade66fa-aabd-4aab-aa4d-64baa2f14a80}</UniqueIdentifier>
+    </Filter>
     <Filter Include="logic\handler">
       <UniqueIdentifier>{b57bc68c-e43a-4848-bfe8-f3993466493c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="include\tingxml">
-      <UniqueIdentifier>{5ade66fa-aabd-4aab-aa4d-64baa2f14a80}</UniqueIdentifier>
+    <Filter Include="logic\heartbeat_thread">
+      <UniqueIdentifier>{78c9c3bd-37ca-49df-8cfc-1e41d1c84328}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -109,13 +115,13 @@
       <Filter>gui\sub_world</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxml.cpp">
-      <Filter>include\tingxml</Filter>
+      <Filter>3rdparty\tingxml</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxmlerror.cpp">
-      <Filter>include\tingxml</Filter>
+      <Filter>3rdparty\tingxml</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxmlparser.cpp">
-      <Filter>include\tingxml</Filter>
+      <Filter>3rdparty\tingxml</Filter>
     </ClCompile>
     <ClCompile Include="finger_guessing\fg_card_info.cpp">
       <Filter>logic\finger_guessing</Filter>
@@ -128,6 +134,9 @@
     </ClCompile>
     <ClCompile Include="player_info_handler.cpp">
       <Filter>logic\handler</Filter>
+    </ClCompile>
+    <ClCompile Include="heartbeat_thread.cpp">
+      <Filter>logic\heartbeat_thread</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -273,7 +282,7 @@
       <Filter>gui\sub_world</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\3rdparty\tinyxml-2.6.2\tinyxml.h">
-      <Filter>include\tingxml</Filter>
+      <Filter>3rdparty\tingxml</Filter>
     </ClInclude>
     <ClInclude Include="finger_guessing\fg_card_info.h">
       <Filter>logic\finger_guessing</Filter>
@@ -286,6 +295,12 @@
     </ClInclude>
     <ClInclude Include="player_info_handler.h">
       <Filter>logic\handler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\win\thread\thread_event.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="heartbeat_thread.h">
+      <Filter>logic\heartbeat_thread</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

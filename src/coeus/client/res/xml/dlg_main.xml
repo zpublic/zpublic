@@ -1,0 +1,15 @@
+﻿<layer title="GameMainDlg" width="460" height="600" appwin="1">
+    <header width="460" height="55">
+        <!--<imgbtn id="1002" class="linkimage" skin="dlg_main_icon_max" pos="0,0"/>-->
+    </header>
+
+    <!--
+    <footer class="mainfoot" width="full" height="23">
+        <dlgfile pos="0,0,-0,-0" src="508" />
+    </footer>
+    -->
+
+    <body width="full" height="full" crbg="ffffff">
+
+    </body>
+</layer>

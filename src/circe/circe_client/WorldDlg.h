@@ -1,5 +1,7 @@
 #pragma once
 
+#include "heartbeat_thread.h"
+
 class CWorldDlg : public CDialogImpl<CWorldDlg>
 {
 public:
@@ -25,4 +27,7 @@ public:
     LRESULT OnBnClickedWorld2(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
     LRESULT OnBnClickedWorld3(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
     LRESULT OnBnClickedWorldPalyerInfo(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
+
+private:
+    HeartbeatThread m_HeartbestThread;                   /// ·¢ËÍÐÄÌø°ü
 };
