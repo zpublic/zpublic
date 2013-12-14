@@ -2,7 +2,23 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="network">
-      <UniqueIdentifier>{e0d2d27e-f56e-41fb-af0d-bc73352ab6f7}</UniqueIdentifier>
+      <UniqueIdentifier>{944cef42-742f-468f-a65a-d1ec4106d9bf}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="server_handler.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="tcp_connection.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="service_application.h">
+      <Filter>network</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="service_application.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
