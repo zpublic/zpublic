@@ -1,25 +1,25 @@
 #include "message_stream.h"
 
-MessageStream & MessageStream::operator <<(const int8 v)
+MessageStream& MessageStream::operator <<(const int8 v)
 {
 	b.push_back(v);
 
 	return (*this);
 }
 
-MessageStream & MessageStream::operator <<(const uint8 &v)
+MessageStream& MessageStream::operator <<(const uint8&v)
 {
 	b.push_back((int8)v);
 
 	return (*this);
 }
 
-MessageStream & MessageStream::operator <<(const int16 &v)
+MessageStream& MessageStream::operator <<(const int16& v)
 {
 	Container::size_type pos = b.size();
 	resize(pos + sizeof(short));
 	byte* dest = &b[pos];
-#ifdef CDP_BIG_ENDIAN
+#ifdef VENUS_BIG_ENDIAN
 	const byte* src = reinterpret_cast<const byte*>(&v) + sizeof(short) - 1;
 	*dest++ = *src--;
 	*dest = *src;
@@ -32,19 +32,19 @@ MessageStream & MessageStream::operator <<(const int16 &v)
 	return (*this);
 }
 
-MessageStream & MessageStream::operator <<(const uint16 &v)
+MessageStream& MessageStream::operator <<(const uint16& v)
 {
 	(*this) << (int16)v;
 
 	return (*this);
 }
 
-MessageStream & MessageStream::operator <<(const int32 &v)
+MessageStream& MessageStream::operator <<(const int32& v)
 {
 	Container::size_type pos = b.size();
 	resize(pos + sizeof(int32));
 	byte* dest = &b[pos];
-#ifdef CDP_BIG_ENDIAN
+#ifdef VENUS_BIG_ENDIAN
 	const byte* src = (const byte*)(&v) + sizeof(int32) - 1;
 	*dest++ = *src--;
 	*dest++ = *src--;
@@ -61,19 +61,19 @@ MessageStream & MessageStream::operator <<(const int32 &v)
 	return (*this);
 }
 
-MessageStream & MessageStream::operator <<(const uint32 &v)
+MessageStream& MessageStream::operator <<(const uint32&v)
 {
 	(*this) << (int32)v;
 
 	return (*this);
 }
 
-MessageStream & MessageStream::operator <<(const int64 &v)
+MessageStream& MessageStream::operator <<(const int64& v)
 {
     Container::size_type pos = b.size();
     resize(pos + sizeof(int64));
     byte* dest = &b[pos];
-#ifdef CDP_BIG_ENDIAN
+#ifdef VENUS_BIG_ENDIAN
     const byte* src = reinterpret_cast<const byte*>(&v) + sizeof(int64) - 1;
     *dest++ = *src--;
     *dest++ = *src--;
@@ -98,19 +98,19 @@ MessageStream & MessageStream::operator <<(const int64 &v)
     return (*this);
 }
 
-MessageStream & MessageStream::operator <<(const uint64 &v)
+MessageStream& MessageStream::operator <<(const uint64& v)
 {
 	(*this) << (int64)v;
 
 	return (*this);
 }
 
-MessageStream & MessageStream::operator <<(const float &v)
+MessageStream& MessageStream::operator <<(const float& v)
 {
 	Container::size_type pos = b.size();
 	resize(pos + sizeof(float));
 	byte* dest = &b[pos];
-#ifdef CDP_BIG_ENDIAN
+#ifdef VENUS_BIG_ENDIAN
 	const byte* src = reinterpret_cast<const byte*>(&v) + sizeof(float) - 1;
 	*dest++ = *src--;
 	*dest++ = *src--;
@@ -127,12 +127,12 @@ MessageStream & MessageStream::operator <<(const float &v)
 	return (*this);
 }
 
-MessageStream & MessageStream::operator <<(const double &v)
+MessageStream& MessageStream::operator <<(const double& v)
 {
 	Container::size_type pos = b.size();
 	resize(pos + sizeof(double));
 	byte* dest = &b[pos];
-#ifdef CDP_BIG_ENDIAN
+#ifdef VENUS_BIG_ENDIAN
 	const byte* src = reinterpret_cast<const byte*>(&v) + sizeof(double) - 1;
 	*dest++ = *src--;
 	*dest++ = *src--;
@@ -168,7 +168,7 @@ MessageStream & MessageStream::operator <<(const double &v)
 	return (*this);
 }
 
-MessageStream & MessageStream::operator <<(const std::string &v)
+MessageStream& MessageStream::operator <<(const std::string& v)
 {
 	int32 sz = static_cast<int32>(v.size());
 	(*this) << sz;
@@ -182,7 +182,7 @@ MessageStream & MessageStream::operator <<(const std::string &v)
 	return (*this);
 }
 
-MessageStream & MessageStream::operator >>(int8 &v)
+MessageStream& MessageStream::operator >>(int8& v)
 {
 	if(i >= b.end())
 	{
@@ -193,7 +193,7 @@ MessageStream & MessageStream::operator >>(int8 &v)
 	return (*this);
 }
 
-MessageStream & MessageStream::operator >>(uint8 &v)
+MessageStream& MessageStream::operator >>(uint8& v)
 {
 	if(i >= b.end())
 	{
@@ -204,7 +204,7 @@ MessageStream & MessageStream::operator >>(uint8 &v)
 	return (*this);
 }
 
-MessageStream & MessageStream::operator >>(int16 &v)
+MessageStream& MessageStream::operator >>(int16& v)
 {
 	if(b.end() - i < static_cast<int32>(sizeof(int16)))
 	{
@@ -212,7 +212,7 @@ MessageStream & MessageStream::operator >>(int16 &v)
 	}
 	const byte* src = &(*i);
 	i += sizeof(int16);
-#ifdef CDP_BIG_ENDIAN
+#ifdef VENUS_BIG_ENDIAN
 	byte* dest = reinterpret_cast<byte*>(&v) + sizeof(short) - 1;
 	*dest-- = *src++;
 	*dest = *src;
@@ -225,14 +225,14 @@ MessageStream & MessageStream::operator >>(int16 &v)
 	return (*this);
 }
 
-MessageStream & MessageStream::operator >>(uint16 &v)
+MessageStream& MessageStream::operator >>(uint16& v)
 {
 	(*this) >> (int64)v;
 
 	return (*this);
 }
 
-MessageStream & MessageStream::operator >>(int32 &v)
+MessageStream& MessageStream::operator >>(int32& v)
 {
 	if(b.end() - i < static_cast<int32>(sizeof(int32)))
 	{
@@ -240,7 +240,7 @@ MessageStream & MessageStream::operator >>(int32 &v)
 	}
 	const byte* src = &(*i);
 	i += sizeof(int32);
-#ifdef CDP_BIG_ENDIAN
+#ifdef VENUS_BIG_ENDIAN
 	byte* dest = reinterpret_cast<byte*>(&v) + sizeof(int32) - 1;
 	*dest-- = *src++;
 	*dest-- = *src++;
@@ -257,7 +257,7 @@ MessageStream & MessageStream::operator >>(int32 &v)
 	return (*this);
 }
 
-MessageStream & MessageStream::operator >>(uint32 &v)
+MessageStream& MessageStream::operator >>(uint32& v)
 {
 	if(b.end() - i < static_cast<int32>(sizeof(uint32)))
 	{
@@ -265,7 +265,7 @@ MessageStream & MessageStream::operator >>(uint32 &v)
 	}
 	const byte* src = &(*i);
 	i += sizeof(int32);
-#ifdef CDP_BIG_ENDIAN
+#ifdef VENUS_BIG_ENDIAN
 	byte* dest = reinterpret_cast<byte*>(&v) + sizeof(uint32) - 1;
 	*dest-- = *src++;
 	*dest-- = *src++;
@@ -282,7 +282,7 @@ MessageStream & MessageStream::operator >>(uint32 &v)
 	return (*this);
 }
 
-MessageStream & MessageStream::operator >>(const int64 &v)
+MessageStream& MessageStream::operator >>(const int64& v)
 {
 	if(b.end() - i < static_cast<int32>(sizeof(int64)))
 	{
@@ -290,7 +290,7 @@ MessageStream & MessageStream::operator >>(const int64 &v)
 	}
 	const byte* src = &(*i);
 	i += sizeof(int64);
-#ifdef CDP_BIG_ENDIAN
+#ifdef VENUS_BIG_ENDIAN
 	byte* dest = (byte*)(&v) + sizeof(int64) - 1;
 	*dest-- = *src++;
 	*dest-- = *src++;
@@ -315,7 +315,7 @@ MessageStream & MessageStream::operator >>(const int64 &v)
 	return (*this);
 }
 
-MessageStream & MessageStream::operator >>(const uint64 &v)
+MessageStream& MessageStream::operator >>(const uint64& v)
 {
 	if(b.end() - i < static_cast<int32>(sizeof(uint64)))
 	{
@@ -323,7 +323,7 @@ MessageStream & MessageStream::operator >>(const uint64 &v)
 	}
 	const byte* src = &(*i);
 	i += sizeof(int64);
-#ifdef CDP_BIG_ENDIAN
+#ifdef VENUS_BIG_ENDIAN
 	byte* dest = (byte*)(&v) + sizeof(uint64) - 1;
 	*dest-- = *src++;
 	*dest-- = *src++;
@@ -348,7 +348,7 @@ MessageStream & MessageStream::operator >>(const uint64 &v)
 	return (*this);
 }
 
-MessageStream & MessageStream::operator >>(float &v)
+MessageStream& MessageStream::operator >>(float& v)
 {
 	if(b.end() - i < static_cast<int32>(sizeof(float)))
 	{
@@ -356,7 +356,7 @@ MessageStream & MessageStream::operator >>(float &v)
 	}
 	const byte* src = &(*i);
 	i += sizeof(float);
-#ifdef CDP_BIG_ENDIAN
+#ifdef VENUS_BIG_ENDIAN
 	byte* dest = reinterpret_cast<byte*>(&v) + sizeof(float) - 1;
 	*dest-- = *src++;
 	*dest-- = *src++;
@@ -373,7 +373,7 @@ MessageStream & MessageStream::operator >>(float &v)
 	return (*this);
 }
 
-MessageStream & MessageStream::operator >>(double &v)
+MessageStream& MessageStream::operator >>(double& v)
 {
 	if(b.end() - i < static_cast<int32>(sizeof(double)))
 	{
@@ -381,7 +381,7 @@ MessageStream & MessageStream::operator >>(double &v)
 	}
 	const byte* src = &(*i);
 	i += sizeof(double);
-#ifdef CDP_BIG_ENDIAN
+#ifdef VENUS_BIG_ENDIAN
 	byte* dest = reinterpret_cast<byte*>(&v) + sizeof(double) - 1;
 	*dest-- = *src++;
 	*dest-- = *src++;
@@ -417,7 +417,7 @@ MessageStream & MessageStream::operator >>(double &v)
 	return (*this);
 }
 
-MessageStream & MessageStream::operator >>(std::string &v)
+MessageStream& MessageStream::operator >>(std::string& v)
 {
 	int sz = 0;
 	(*this) >> sz;
