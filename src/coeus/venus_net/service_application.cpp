@@ -14,6 +14,9 @@ void ServiceApplication::initialize(Poco::Util::Application& self)
     // load default configuration files, if present
     ServerApplication::loadConfiguration();
     ServerApplication::initialize(self);
+
+    // init logger
+    _logger = &this->logger();
 }
 
 void ServiceApplication::uninitialize()
@@ -58,5 +61,14 @@ int ServiceApplication::main(const std::vector<std::string>& args)
 
     Poco::Util::ServerApplication::waitForTerminationRequest();
 
+    server.stop();
+
+    //for (;;);
+
     return Application::EXIT_OK;
+}
+
+Poco::Logger& ServiceApplication::serviceLogger() const
+{
+    return *_logger;
 }

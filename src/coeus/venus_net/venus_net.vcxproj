@@ -163,13 +163,25 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="basic_stream.h" />
+    <ClInclude Include="buffer.h" />
+    <ClInclude Include="common.h" />
     <ClInclude Include="connection_factory.h" />
+    <ClInclude Include="message_stream.h" />
     <ClInclude Include="service_application.h" />
     <ClInclude Include="server_handler.h" />
+    <ClInclude Include="stream_reader.h" />
+    <ClInclude Include="stream_writer.h" />
     <ClInclude Include="tcp_connection.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="basic_stream.cpp" />
+    <ClCompile Include="buffer.cpp" />
+    <ClCompile Include="message_stream.cpp" />
     <ClCompile Include="service_application.cpp" />
+    <ClCompile Include="stream_reader.cpp" />
+    <ClCompile Include="stream_writer.cpp" />
+    <ClCompile Include="tcp_connection.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

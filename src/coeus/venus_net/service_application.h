@@ -15,9 +15,11 @@ public:
 	void defineOptions(Poco::Util::OptionSet& options);
 	void handleOption(const std::string& name, const std::string& value);
 	int main(const std::vector<std::string>& args);
+    Poco::Logger& serviceLogger() const;
 
 private:
 	Poco::Net::SocketReactor _reactor;
+    Poco::Logger* _logger;
     ConnectionFactory::Ptr _connectionFactoryPtr;
 };
 
