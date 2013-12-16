@@ -2,7 +2,7 @@
 
 int main(int argc, char* argv[])
 {
-    ServiceApplication serverApp;
+    ServiceApplication serverApp("GameServer1");
     return serverApp.run(argc, argv);
 }
 
