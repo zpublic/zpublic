@@ -227,6 +227,7 @@
     <Xml Include="res\xml\def_skin.xml" />
     <Xml Include="res\xml\def_string.xml" />
     <Xml Include="res\xml\def_style.xml" />
+    <Xml Include="res\xml\dlg_login.xml" />
     <Xml Include="res\xml\dlg_main.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

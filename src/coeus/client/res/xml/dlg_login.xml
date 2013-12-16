@@ -1,0 +1,13 @@
+﻿<layer title="Login" width="400" height="150">
+    <header width="400" height="150">
+        <text pos="50,30" font="0100" crtext="44516A">帐号：</text>
+        <realwnd id="400" pos="32,50,-32,163" />
+
+        <text pos="50,100" font="0100" crtext="44516A">密码：</text>
+        <realwnd id="401" pos="32,210,-152,244" />
+
+        <imgbtn id="403" pos="-125,210" skin="submit_btn" crtext="FFFFFF" class="linkimage" font="0104" />
+      </header>
+    <body width="full" height="full" crbg="ffffff">
+    </body>
+</layer>

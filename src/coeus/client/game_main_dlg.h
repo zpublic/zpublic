@@ -18,7 +18,7 @@ class GameMainDlg
 {
 public:
     GameMainDlg()
-        : CBkDialogImpl<GameMainDlg>(IDR_BK_MAIN_DIALOG)
+        : CBkDialogImpl<GameMainDlg>(IDR_BK_LOGIN)
     {
     }
 
