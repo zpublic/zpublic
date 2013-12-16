@@ -4,6 +4,15 @@
     <Filter Include="network">
       <UniqueIdentifier>{944cef42-742f-468f-a65a-d1ec4106d9bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{57b05bdd-5375-4593-a5cc-262c69419722}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="memory">
+      <UniqueIdentifier>{ac099b44-3cb7-4e60-ba2a-00517b6ba4f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="memory\stream">
+      <UniqueIdentifier>{b9931ff5-097d-415a-b8d2-fc1720873aeb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="server_handler.h">
@@ -15,10 +24,49 @@
     <ClInclude Include="service_application.h">
       <Filter>network</Filter>
     </ClInclude>
+    <ClInclude Include="connection_factory.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="buffer.h">
+      <Filter>memory\stream</Filter>
+    </ClInclude>
+    <ClInclude Include="stream_reader.h">
+      <Filter>memory\stream</Filter>
+    </ClInclude>
+    <ClInclude Include="stream_writer.h">
+      <Filter>memory\stream</Filter>
+    </ClInclude>
+    <ClInclude Include="basic_stream.h">
+      <Filter>memory\stream</Filter>
+    </ClInclude>
+    <ClInclude Include="message_stream.h">
+      <Filter>memory\stream</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="service_application.cpp">
       <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="tcp_connection.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="buffer.cpp">
+      <Filter>memory\stream</Filter>
+    </ClCompile>
+    <ClCompile Include="stream_reader.cpp">
+      <Filter>memory\stream</Filter>
+    </ClCompile>
+    <ClCompile Include="stream_writer.cpp">
+      <Filter>memory\stream</Filter>
+    </ClCompile>
+    <ClCompile Include="basic_stream.cpp">
+      <Filter>memory\stream</Filter>
+    </ClCompile>
+    <ClCompile Include="message_stream.cpp">
+      <Filter>memory\stream</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

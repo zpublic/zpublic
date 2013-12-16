@@ -3,4 +3,18 @@
   <ItemGroup>
     <ClCompile Include="server_main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Filter Include="game_logic">
+      <UniqueIdentifier>{fa233c04-0775-41a2-8b5c-c14c64ea92fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_logic\bag_system">
+      <UniqueIdentifier>{1087d424-491d-45af-9741-dba1b4b3baab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_logic\player_system">
+      <UniqueIdentifier>{08a7a91c-a7b1-4c12-a433-4bda64e71928}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_logic\hero_system">
+      <UniqueIdentifier>{65b2d63c-114c-4b05-8988-98e01616025e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
 </Project>
