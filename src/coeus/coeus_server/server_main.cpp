@@ -3,6 +3,6 @@
 int main(int argc, char* argv[])
 {
     ServiceApplication serverApp;
-    return 0;
+    return serverApp.run(argc, argv);
 }
 
