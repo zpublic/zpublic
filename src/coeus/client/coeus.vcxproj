@@ -57,6 +57,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>./;$(projectdir)/../../../3rdparty\publish\bkwin\;$(projectdir)/../../../3rdparty\publish\;$(projectdir)/../../../3rdparty\tinyxml\;$(projectdir)/../../../;$(projectdir)../../../3rdparty\wtl\Include\</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4800;4996;4018;4244</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -89,6 +90,7 @@
       <DebugInformationFormat />
       <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>./;$(projectdir)/../../../3rdparty\publish\bkwin\;$(projectdir)/../../../3rdparty\publish\;$(projectdir)/../../../3rdparty\tinyxml\;$(projectdir)/../../../;$(projectdir)../../../3rdparty\wtl\Include\</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4800;4996;4018;4244</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -225,6 +227,7 @@
     <Xml Include="res\xml\def_skin.xml" />
     <Xml Include="res\xml\def_string.xml" />
     <Xml Include="res\xml\def_style.xml" />
+    <Xml Include="res\xml\dlg_login.xml" />
     <Xml Include="res\xml\dlg_main.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -309,5 +309,8 @@
     <Xml Include="res\xml\def_skin.xml">
       <Filter>resource\xml</Filter>
     </Xml>
+    <Xml Include="res\xml\dlg_login.xml">
+      <Filter>resource\xml</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

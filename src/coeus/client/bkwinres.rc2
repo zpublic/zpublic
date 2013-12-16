@@ -7,6 +7,7 @@ DEFINE_XML(IDR_BK_SKIN_DEF,                             100,                    
 DEFINE_XML(IDR_BK_STYLE_DEF,                            101,                    "res\\xml\\def_style.xml")
 DEFINE_XML(IDR_BK_STRING_DEF,                           102,                    "res\\xml\\def_string.xml")
 DEFINE_XML(IDR_BK_MAIN_DIALOG,                          103,                    "res\\xml\\dlg_main.xml")
+DEFINE_XML(IDR_BK_LOGIN,                                104,                    "res\\xml\\dlg_login.xml")
 
 // //////////////////////////////////////////////////////////////////////////
 // // ICON
