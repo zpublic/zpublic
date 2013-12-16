@@ -10,6 +10,9 @@ class ServiceApplication
 	: public Poco::Util::ServerApplication
 {
 public:
+    ServiceApplication();
+    virtual ~ServiceApplication();
+public:
 	void initialize(Poco::Util::Application& self);
 	void uninitialize();
 	void defineOptions(Poco::Util::OptionSet& options);
@@ -20,7 +23,6 @@ public:
 private:
 	Poco::Net::SocketReactor _reactor;
     Poco::Logger* _logger;
-    ConnectionFactory::Ptr _connectionFactoryPtr;
 };
 
 #endif // !__SERVICE_APPLICATION_H__

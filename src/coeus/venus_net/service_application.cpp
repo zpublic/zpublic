@@ -9,6 +9,16 @@
 #include "Poco/Util/ServerApplication.h"
 #include "Poco/Util/OptionSet.h"
 
+ServiceApplication::ServiceApplication()
+{
+
+}
+
+ServiceApplication::~ServiceApplication()
+{
+
+}
+
 void ServiceApplication::initialize(Poco::Util::Application& self)
 {
     // load default configuration files, if present
@@ -49,18 +59,14 @@ int ServiceApplication::main(const std::vector<std::string>& args)
     //从配置读取服务器信息
     unsigned short port = (unsigned short) config().getInt("port", 36911);
     Poco::Net::ServerSocket socket(port);
-
     Poco::Net::TCPServerParams* serverParams = new Poco::Net::TCPServerParams();
     serverParams->setMaxQueued(64);         //连接队列最大数
-    serverParams->setMaxThreads(8);         //最大IO线程数
+    serverParams->setMaxThreads(2);         //最大IO线程数
     serverParams->setThreadIdleTime(100);   //线程终止时最大等待时间
 
-    _connectionFactoryPtr = new ConnectionFactory();
-    Poco::Net::TCPServer server(_connectionFactoryPtr, socket, serverParams);
+    Poco::Net::TCPServer server(new ConnectionFactory(), socket, serverParams);
     server.start();
-
     Poco::Util::ServerApplication::waitForTerminationRequest();
-
     server.stop();
 
     //for (;;);
