@@ -24,9 +24,15 @@ void TcpConnection::run()
     {
         for (;;)
         {
-            int readable_bytes = _socket.available();
-            if (readable_bytes < 0) return;
-            if (readable_bytes > 0)
+			//enum SelectMode
+			//{
+			//	SELECT_READ  = 1,
+			//	SELECT_WRITE = 2,
+			//	SELECT_ERROR = 4
+			//};
+			bool readable = _socket.poll(0, Poco::Net::Socket::SelectMode::SELECT_READ);
+			//int readable_bytes = _socket.available();
+			if (readable == true /*&& readable_bytes > 0*/)
             {
                 std::memset(_buffer, 0, MAX_RECV_LEN);
                 int bytes_transferred = _socket.receiveBytes(_buffer, MAX_RECV_LEN);
