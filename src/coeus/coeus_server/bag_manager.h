@@ -4,17 +4,17 @@
 #include "common.h"
 #include "bag_common.h"
 
-class role;
+class Role;
 
-class bag_manager
+class BagManager
 {
 public:
-	bag_manager(void);
-	virtual ~bag_manager(void);
+	BagManager(void);
+	virtual ~BagManager(void);
 
-	PROP(role*, m_pOwner, Owner);
-	READONLY_PROP(bag_common, m_Package, Package);		// ±³°ü
-	READONLY_PROP(bag_common, m_Storage, Storage);		// ²Ö¿â
+	PROP(Role*, m_pOwner, Owner);
+	READONLY_PROP(BagCommon, m_Package, Package);		// ±³°ü
+	READONLY_PROP(BagCommon, m_Storage, Storage);		// ²Ö¿â
 };
 
 #endif

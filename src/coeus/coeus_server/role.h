@@ -4,11 +4,11 @@
 #include "common.h"
 #include "bag_manager.h"
 
-class role
+class Role
 {
 public:
-	role(void);
-	virtual ~role(void);
+	Role(void);
+	virtual ~Role(void);
 
 	void initialize();
 	void finalize();
@@ -27,7 +27,7 @@ public:
 	PROP(uint64, m_nRoleId, RoleId);
 	PROP(std::string, m_szRoleName, RoleName);
 	PROP(uint32, m_nSceneId, SceneId);
-	READONLY_PROP(bag_manager, m_BagManager, BagManager);
+	READONLY_PROP(BagManager, m_BagManager, BagManager);
 };
 
 #endif

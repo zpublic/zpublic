@@ -4,11 +4,11 @@
 
 #include "common.h"
 
-class bag_cell
+class BagCell
 {
 public:
-	bag_cell(void);
-	virtual ~bag_cell(void);
+	BagCell(void);
+	virtual ~BagCell(void);
 
 	PROP(uint32, m_nItemId, ItemId);
 	PROP(uint32, m_nItemCount, ItemCount);

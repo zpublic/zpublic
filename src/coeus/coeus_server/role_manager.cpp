@@ -4,7 +4,7 @@
 
 #include "game_define_role.h"
 
-role_manager::role_manager(void)
+RoleManager::RoleManager(void)
 {
 	for (int i = 0; i < ROLE_COUNT_MAX; i++)
 	{
@@ -14,11 +14,11 @@ role_manager::role_manager(void)
 	m_mRolePool.clear();
 }
 
-role_manager::~role_manager(void)
+RoleManager::~RoleManager(void)
 {
 }
 
-uint64 role_manager::getFreeRoleId()
+uint64 RoleManager::getFreeRoleId()
 {
 	if (m_stFreeRoles.empty())
 	{
@@ -31,7 +31,7 @@ uint64 role_manager::getFreeRoleId()
 	return nNewRoleId;
 }
 
-role* role_manager::createNewRole()
+Role* RoleManager::createNewRole()
 {
 	uint64 nNewRoleId = getFreeRoleId();
 	if (INVALID_ROLE_ID == nNewRoleId)
@@ -39,11 +39,11 @@ role* role_manager::createNewRole()
 		return NULL;
 	}
 
-	role* pNewRole = NULL;
-	std::map<uint64, role *>::iterator it = m_mRolePool.find(nNewRoleId);
+	Role* pNewRole = NULL;
+	std::map<uint64, Role *>::iterator it = m_mRolePool.find(nNewRoleId);
 	if (it == m_mRolePool.end()) // 创建新玩家
 	{
-		pNewRole = new role;
+		pNewRole = new Role;
 	}
 	else // 重新初始化玩家池里面的玩家
 	{
@@ -58,7 +58,7 @@ role* role_manager::createNewRole()
 	return pNewRole;
 }
 
-bool role_manager::removeRole( role* pRole )
+bool RoleManager::removeRole( Role* pRole )
 {
 	if (NULL == pRole)
 	{
@@ -66,7 +66,7 @@ bool role_manager::removeRole( role* pRole )
 	}
 
 	uint64 nOldRoleId = pRole->getRoleId();
-	std::map<uint64, role *>::iterator it = m_mRolePool.find(nOldRoleId);
+	std::map<uint64, Role *>::iterator it = m_mRolePool.find(nOldRoleId);
 	if (it == m_mRolePool.end() ||
 		NULL == it->second)
 	{
@@ -79,9 +79,9 @@ bool role_manager::removeRole( role* pRole )
 	return true;
 }
 
-role* role_manager::findRole( uint64 nRoleId ) const
+Role* RoleManager::findRole( uint64 nRoleId ) const
 {
-	std::map<uint64, role *>::const_iterator cit = m_mRolePool.find(nRoleId);
+	std::map<uint64, Role *>::const_iterator cit = m_mRolePool.find(nRoleId);
 	if (cit == m_mRolePool.end())
 	{
 		return NULL;
@@ -90,9 +90,9 @@ role* role_manager::findRole( uint64 nRoleId ) const
 	return cit->second;
 }
 
-role* role_manager::findRole( std::string szRoleName ) const
+Role* RoleManager::findRole( std::string szRoleName ) const
 {
-	std::map<uint64, role *>::const_iterator cit = m_mRolePool.begin();
+	std::map<uint64, Role *>::const_iterator cit = m_mRolePool.begin();
 	for (; cit != m_mRolePool.end(); ++cit)
 	{
 		if (NULL != cit->second &&
@@ -105,7 +105,7 @@ role* role_manager::findRole( std::string szRoleName ) const
 	return NULL;
 }
 
-void role_manager::onRoleLogin( role* pRole )
+void RoleManager::onRoleLogin( Role* pRole )
 {
 	if (NULL == pRole)
 	{
@@ -115,7 +115,7 @@ void role_manager::onRoleLogin( role* pRole )
 	pRole->onLogin();
 }
 
-void role_manager::onRoleLogout( role* pRole )
+void RoleManager::onRoleLogout( Role* pRole )
 {
 	if (NULL == pRole)
 	{
@@ -125,9 +125,9 @@ void role_manager::onRoleLogout( role* pRole )
 	pRole->onLogout();
 }
 
-void role_manager::onUpdate( uint64 nCurTime ) const
+void RoleManager::onUpdate( uint64 nCurTime ) const
 {
-	std::map<uint64, role *>::const_iterator cit = m_mRolePool.begin();
+	std::map<uint64, Role *>::const_iterator cit = m_mRolePool.begin();
 	for (; cit != m_mRolePool.end(); ++cit)
 	{
 		if (NULL != cit->second)

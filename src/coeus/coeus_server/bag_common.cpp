@@ -1,7 +1,7 @@
 
 #include "bag_common.h"
 
-bag_common::bag_common(void)
+BagCommon::BagCommon(void)
 {
 	m_nBagType = enBagType_BEGIN;
 
@@ -9,6 +9,6 @@ bag_common::bag_common(void)
 }
 
 
-bag_common::~bag_common(void)
+BagCommon::~BagCommon(void)
 {
 }

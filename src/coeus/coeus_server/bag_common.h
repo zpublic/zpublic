@@ -5,14 +5,14 @@
 #include "bag_cell.h"
 #include "game_define_item.h"
 
-class bag_common
+class BagCommon
 {
 public:
-	bag_common(void);
-	virtual ~bag_common(void);
+	BagCommon(void);
+	virtual ~BagCommon(void);
 
 	PROP(enBagType, m_nBagType, BagType);
-	READONLY_PROP(std::list<bag_cell>, m_mItems, Items);
+	READONLY_PROP(std::list<BagCell>, m_mItems, Items);
 };
 
 #endif

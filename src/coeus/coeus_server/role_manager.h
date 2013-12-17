@@ -4,33 +4,33 @@
 #include "common.h"
 #include "role_manager.h"
 
-class role;
+class Role;
 
-class role_manager
+class RoleManager
 {
 public:
-	role_manager(void);
-	virtual ~role_manager(void);
+	RoleManager(void);
+	virtual ~RoleManager(void);
 
 private:
 
 	uint64 getFreeRoleId();
 
 public:
-	role* createNewRole();
-	bool removeRole(role* pRole);
+	Role* createNewRole();
+	bool removeRole(Role* pRole);
 
-	role* findRole(uint64 nRoleId) const;
-	role* findRole(std::string szRoleName) const;
+	Role* findRole(uint64 nRoleId) const;
+	Role* findRole(std::string szRoleName) const;
 
-	void onRoleLogin(role* pRole);
-	void onRoleLogout(role* pRole);
+	void onRoleLogin(Role* pRole);
+	void onRoleLogout(Role* pRole);
 	void onUpdate(uint64 nCurTime) const;
 
 	READONLY_PROP(std::set<uint64>, m_stFreeRoles, FreeRoles);
 
 private:
-	std::map<uint64, role *> m_mRolePool;
+	std::map<uint64, Role *> m_mRolePool;
 };
 
 #endif
