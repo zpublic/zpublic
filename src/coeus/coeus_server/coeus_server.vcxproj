@@ -91,7 +91,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\;..\..\..\3rdparty\poco\Foundation\include;..\..\..\3rdparty\poco\Util\include;..\..\..\3rdparty\poco\Net\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\;..\venus_net;..\..\..\3rdparty\poco\Foundation\include;..\..\..\3rdparty\poco\Util\include;..\..\..\3rdparty\poco\Net\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,7 +161,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bag_cell.cpp" />
+    <ClCompile Include="bag_common.cpp" />
+    <ClCompile Include="bag_manager.cpp" />
+    <ClCompile Include="role.cpp" />
+    <ClCompile Include="role_manager.cpp" />
     <ClCompile Include="server_main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bag_cell.h" />
+    <ClInclude Include="bag_common.h" />
+    <ClInclude Include="bag_manager.h" />
+    <ClInclude Include="game_define_item.h" />
+    <ClInclude Include="game_define_role.h" />
+    <ClInclude Include="role.h" />
+    <ClInclude Include="role_manager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
