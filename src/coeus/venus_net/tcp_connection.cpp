@@ -14,19 +14,20 @@ TcpConnection::TcpConnection(const Poco::Net::StreamSocket& socket)
 TcpConnection::~TcpConnection()
 {
     SAFE_DELETE_ARR(_buffer);
-    std::cout << "connection destroyed." << std::endl;
+    debug_log("connection destroyed.");
 }
 
 void TcpConnection::run()
 {
     try
     {
-        Poco::ScopedLock<Poco::Mutex> lock(_mutex);
+		//debug_log("connection established. address = %s", _socket.peerAddress().toString().c_str());
+		debug_log(std::string("aaa").c_str());
+		std::cout << "ddd" << std::endl;
+		printf("xxx");
         for (;;)
         {        
-            debug_log("connection established. address = %s", _socket.peerAddress().toString().c_str());
-
-			bool readable = _socket.poll(0, Poco::Net::Socket::SelectMode::SELECT_READ);
+			bool readable = _socket.poll(10000, Poco::Net::Socket::SelectMode::SELECT_READ);
 			if (readable == true)
             {
                 std::memset(_buffer, 0, MAX_RECV_LEN);
@@ -46,8 +47,4 @@ void TcpConnection::run()
         error_log("connection exception : %s", e.displayText().c_str());
         return;
     }
-}
-
-void TcpConnection::closeConnection()
-{
 }

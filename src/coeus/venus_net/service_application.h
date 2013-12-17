@@ -20,7 +20,7 @@ public:
 	void handleOption(const std::string& name, const std::string& value);
 	int main(const std::vector<std::string>& args);
     static Poco::Logger& serviceLogger();
-    static std::string formatLogString(char* format, ...)
+    static std::string formatLogString(const char* format, ...)
     {
         va_list args; 
         va_start(args, format);

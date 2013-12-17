@@ -14,13 +14,9 @@ public:
     virtual ~TcpConnection();
     void run();
 
-protected:
-    void closeConnection();
-
 private:
     byte* _buffer;
     Poco::Net::StreamSocket& _socket;
-    Poco::Mutex _mutex;
 };
 
 #endif // !__TCP_CONNECTION_H__
