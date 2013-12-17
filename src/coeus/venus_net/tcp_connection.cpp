@@ -14,20 +14,20 @@ TcpConnection::TcpConnection(const Poco::Net::StreamSocket& socket)
 TcpConnection::~TcpConnection()
 {
     SAFE_DELETE_ARR(_buffer);
-    debug_log("connection destroyed.");
+    //debug_log("connection destroyed.");
 }
 
 void TcpConnection::run()
 {
     try
     {
-		//debug_log("connection established. address = %s", _socket.peerAddress().toString().c_str());
-		debug_log(std::string("aaa").c_str());
-		std::cout << "ddd" << std::endl;
-		printf("xxx");
+        const Poco::Net::SocketAddress& address = _socket.peerAddress();
+        debug_log("connection established. peer = %s", address.toString().c_str());
+
+        //sendMessage(123, (const byte*)"hello", 5);
         for (;;)
-        {        
-			bool readable = _socket.poll(10000, Poco::Net::Socket::SelectMode::SELECT_READ);
+        {
+			bool readable = _socket.poll(0, Poco::Net::Socket::SelectMode::SELECT_READ);
 			if (readable == true)
             {
                 std::memset(_buffer, 0, MAX_RECV_LEN);
@@ -45,6 +45,45 @@ void TcpConnection::run()
     catch (Poco::Exception& e)
     {
         error_log("connection exception : %s", e.displayText().c_str());
-        return;
     }
+    catch (...)
+    {
+        error_log("unknown exception.");
+    }
+}
+
+
+void TcpConnection::sendMessage(const BasicStreamPtr& stream)
+{
+    bool writeable = _socket.poll(0, Poco::Net::Socket::SelectMode::SELECT_WRITE);
+    if (writeable)
+    {
+        _socket.sendBytes(stream->b.begin(), stream->b.size(), 0);
+    }
+}
+
+void TcpConnection::sendMessage(int16 opcode, const byte* buff, size_t size)
+{
+    BasicStreamPtr streamPtr(new BasicStream());
+
+    streamPtr->write((int32)0); //³¤¶ÈÔ¤Áô
+    streamPtr->write(opcode);   //²Ù×÷Âë
+
+    streamPtr->append((const byte*)buff, size);
+    streamPtr->rewriteSize(streamPtr->b.size(), streamPtr->b.begin());
+
+    sendMessage(streamPtr);
+}
+
+void TcpConnection::sendMessage(uint16 opcode, Message& message)
+{
+    BasicStreamPtr streamPtr(new BasicStream());
+    streamPtr->write((int32)0);
+    streamPtr->write(opcode);
+
+    streamPtr->resize(Message::kHeaderLength + message.byteSize());
+    message.encode((byte*)streamPtr->b.begin() + Message::kHeaderLength, message.byteSize());
+    streamPtr->rewriteSize(streamPtr->b.size(), streamPtr->b.begin());
+
+    sendMessage(streamPtr);
 }
