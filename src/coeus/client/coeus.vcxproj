@@ -137,6 +137,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\publish\wtlhelper\ksOleClientSite.cpp" />
     <ClCompile Include="game_login_dlg.cpp" />
     <ClCompile Include="game_main_dlg.cpp" />
     <ClCompile Include="main.cpp" />
@@ -194,6 +195,21 @@
     <ClInclude Include="..\..\..\3rdparty\publish\bkwin\listboxbase.h" />
     <ClInclude Include="..\..\..\3rdparty\publish\tinyxml\tinystr.h" />
     <ClInclude Include="..\..\..\3rdparty\publish\tinyxml\tinyxml.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\bkfolderbrowsectrl.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\bkSafeFileDialog.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\bkShutDownHelper.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\iidl.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\KBitmap.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\KDesktopDC.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\KDestopDC.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\KLinearInterpolation.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\KMemDC.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\ksIUnknown.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\ksOleClientSite.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\KUIHelper.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\wh3statecheckimglst.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\whthreadnotify.h" />
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\whwindow.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlcrack.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrls.h" />

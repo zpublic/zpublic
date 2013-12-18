@@ -15,6 +15,7 @@
 
 class GameLoginDlg
     : public CBkDialogImpl<GameLoginDlg>
+    , public CWHRoundRectFrameHelper<GameLoginDlg>
 {
 public:
     GameLoginDlg()
@@ -52,6 +53,7 @@ protected:
     BEGIN_MSG_MAP_EX(GameLoginDlg)
         MSG_BK_NOTIFY(IDC_RICHVIEW_WIN)
         CHAIN_MSG_MAP(CBkDialogImpl<GameLoginDlg>)
+        CHAIN_MSG_MAP(CWHRoundRectFrameHelper<GameLoginDlg>)
         MSG_WM_CLOSE(OnClose)
         MSG_WM_INITDIALOG(OnInitDialog)
         MSG_WM_SYSCOMMAND(OnSysCommand)

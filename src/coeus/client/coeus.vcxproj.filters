@@ -30,6 +30,9 @@
     <Filter Include="include\bkres">
       <UniqueIdentifier>{77c69de1-0454-4dae-b79b-2bb39f81a40a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\wtlhelper">
+      <UniqueIdentifier>{3bdc6049-dbc9-4cbd-b83c-f2eb7390106b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="coeus.rc">
@@ -68,6 +71,9 @@
     </ClCompile>
     <ClCompile Include="game_login_dlg.cpp">
       <Filter>source\dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\publish\wtlhelper\ksOleClientSite.cpp">
+      <Filter>include\wtlhelper</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -301,6 +307,51 @@
     </ClInclude>
     <ClInclude Include="ktipedit3.h">
       <Filter>source\dlg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\bkfolderbrowsectrl.h">
+      <Filter>include\wtlhelper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\bkSafeFileDialog.h">
+      <Filter>include\wtlhelper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\bkShutDownHelper.h">
+      <Filter>include\wtlhelper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\iidl.h">
+      <Filter>include\wtlhelper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\KBitmap.h">
+      <Filter>include\wtlhelper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\KDesktopDC.h">
+      <Filter>include\wtlhelper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\KDestopDC.h">
+      <Filter>include\wtlhelper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\KLinearInterpolation.h">
+      <Filter>include\wtlhelper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\KMemDC.h">
+      <Filter>include\wtlhelper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\ksIUnknown.h">
+      <Filter>include\wtlhelper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\ksOleClientSite.h">
+      <Filter>include\wtlhelper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\KUIHelper.h">
+      <Filter>include\wtlhelper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\wh3statecheckimglst.h">
+      <Filter>include\wtlhelper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\whthreadnotify.h">
+      <Filter>include\wtlhelper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\whwindow.h">
+      <Filter>include\wtlhelper</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
