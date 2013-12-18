@@ -13,7 +13,7 @@
 #include <Uxtheme.h>
 
 // tmschema.h not  support vista+
-#if WINVER > 0x0600
+#if WINVER < 0x0600
 #include <tmschema.h>
 #else
 #include <vssym32.h>
