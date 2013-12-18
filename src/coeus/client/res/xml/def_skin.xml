@@ -46,6 +46,8 @@
   <png name="ignore_tip" src="20013"/>
 
   <png name="btn_close" src="1" subwidth="30" />
+  <png name="img_main_icon" src="2" />
+  <png name="img_small_icon" src="3" />
   <button name="btn_metro_1" border="018287" bg="018287" bgup="018287" bgdown="018287" bguphover="0FB2B9" bgdownhover="0FB2B9" bguppush="2E9398" bgdownpush="2E9398"/>
   <button name="btn_metro_2" border="CCCCCC" bg="CCCCCC" bgup="CCCCCC" bgdown="CCCCCC" bguphover="FEFEFE" bgdownhover="DBEDFE" bguppush="C6E2FD" bgdownpush="FEFEFE"/>
 </skins>

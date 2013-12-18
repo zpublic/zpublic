@@ -24,4 +24,8 @@ DEFINE_XML(IDR_BK_LOGIN,                                104,                    
 // DEFINE_PNG(IDB_CLOSE_BTN,                               50,                     "resource\\win_res\\close_btn.png")
 // DEFINE_BMP(IDB_BK_MAIN_DLG_PNG,                         6,                      "resource\\win_res\\bk_main_dlg.bmp")
 
-DEFINE_PNG(IDP1,                                  1,                     "./../../../res/coeus/btn_close.png")
+DEFINE_PNG(IDP1,    1,      "./../../../res/coeus/btn_close.png")
+DEFINE_PNG(IDP2,    2,      "./../../../res/coeus/main_icon.png")
+DEFINE_PNG(IDP3,    3,      "./../../../res/coeus/small_icon.png")
+
+

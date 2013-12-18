@@ -1,7 +1,10 @@
 ﻿<layer title="Login" width="530" height="259">
-  <header width="530" height="259" crbg="660000">
+  <header width="530" height="259" crbg="660066">
+    <img pos="8,8" skin="img_small_icon" />
     <text pos="42,12" class="text_normal_gray">叫我英雄（coeus）</text>
     <imgbtn id="403" pos="-31,1" skin="btn_close" crtext="FFFFFF" font="0104" />
+
+    <img pos="70,69" skin="img_main_icon" />
 
     <text pos="230,97" class="text_normal_gray">帐号：</text>
     <realwnd id="400" pos="278,94,503,117" />
