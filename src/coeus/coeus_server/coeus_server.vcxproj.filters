@@ -2,5 +2,63 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="server_main.cpp" />
+    <ClCompile Include="bag_manager.cpp">
+      <Filter>game_logic\bag_system</Filter>
+    </ClCompile>
+    <ClCompile Include="role_manager.cpp">
+      <Filter>game_logic\role_system</Filter>
+    </ClCompile>
+    <ClCompile Include="bag_cell.cpp">
+      <Filter>game_logic\bag_system</Filter>
+    </ClCompile>
+    <ClCompile Include="bag_common.cpp">
+      <Filter>game_logic\bag_system</Filter>
+    </ClCompile>
+    <ClCompile Include="role.cpp">
+      <Filter>game_logic\role_system</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="game_logic">
+      <UniqueIdentifier>{fa233c04-0775-41a2-8b5c-c14c64ea92fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_logic\bag_system">
+      <UniqueIdentifier>{1087d424-491d-45af-9741-dba1b4b3baab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_logic\hero_system">
+      <UniqueIdentifier>{65b2d63c-114c-4b05-8988-98e01616025e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_logic\role_system">
+      <UniqueIdentifier>{08a7a91c-a7b1-4c12-a433-4bda64e71928}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_define">
+      <UniqueIdentifier>{94d21f71-776c-41c1-a997-7ae65e66dd29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_logic\room_system">
+      <UniqueIdentifier>{9106343a-a862-43b4-b3ac-50c54634a946}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bag_manager.h">
+      <Filter>game_logic\bag_system</Filter>
+    </ClInclude>
+    <ClInclude Include="role_manager.h">
+      <Filter>game_logic\role_system</Filter>
+    </ClInclude>
+    <ClInclude Include="bag_cell.h">
+      <Filter>game_logic\bag_system</Filter>
+    </ClInclude>
+    <ClInclude Include="bag_common.h">
+      <Filter>game_logic\bag_system</Filter>
+    </ClInclude>
+    <ClInclude Include="game_define_item.h">
+      <Filter>game_define</Filter>
+    </ClInclude>
+    <ClInclude Include="role.h">
+      <Filter>game_logic\role_system</Filter>
+    </ClInclude>
+    <ClInclude Include="game_define_role.h">
+      <Filter>game_define</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

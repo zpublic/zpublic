@@ -1,4 +1,49 @@
 <?xml version="1.0" standalone="yes"?>
 <MSG_CFG>
-  <category CategoryName="注册" />
+  <category CategoryName="注册登录">
+    <msg MsgId="10001" MsgProperty="0" MsgName="CSRegAccount" MsgNote="注册请求" MsgRemark="" ErrorList="">
+      <param DataType="uint8" Purpose="variable" ParamName="m_nAccountLen" ParamNote="帐号长度" />
+      <param DataType="int8" Purpose="array" ParamName="m_szAccountName" ParamNote="帐号名" />
+      <param DataType="uint8" Purpose="variable" ParamName="m_nPasswordLen" ParamNote="密码长度" />
+      <param DataType="int8" Purpose="array" ParamName="m_szPassword" ParamNote="密码" />
+    </msg>
+    <msg MsgId="10101" MsgProperty="1" MsgName="SCRegAccount" MsgNote="注册返回" MsgRemark="" ErrorList="">
+      <param DataType="uint8" Purpose="variable" ParamName="m_nResult" ParamNote="返回码(0 - 成功，&gt; 0 失败原因)" />
+    </msg>
+    <msg MsgId="10002" MsgProperty="0" MsgName="CSPlayerLogin" MsgNote="玩家登录请求" MsgRemark="" ErrorList="">
+      <param DataType="uint8" Purpose="variable" ParamName="m_nAccountLen" ParamNote="帐号长度" />
+      <param DataType="int8" Purpose="variable" ParamName="m_szAccountName" ParamNote="帐号名" />
+      <param DataType="uint8" Purpose="variable" ParamName="m_nPassLen" ParamNote="密码长度" />
+      <param DataType="int8" Purpose="variable" ParamName="m_szPassword" ParamNote="密码" />
+    </msg>
+    <msg MsgId="10102" MsgProperty="1" MsgName="SCPlayerLogin" MsgNote="玩家登录返回" MsgRemark="" ErrorList="">
+      <param DataType="uint8" Purpose="variable" ParamName="m_nResult" ParamNote="返回码(0 - 成功，&gt; 0 失败原因)" />
+    </msg>
+  </category>
+  <category CategoryName="背包">
+    <msg MsgId="20001" MsgProperty="0" MsgName="CSBagList" MsgNote="背包列表请求" MsgRemark="" ErrorList="">
+      <param DataType="uint8" Purpose="variable" ParamName="m_nBagType" ParamNote="背包类型(0 - 包裹，1 - 仓库)" />
+    </msg>
+    <msg MsgId="20101" MsgProperty="1" MsgName="SCBagList" MsgNote="背包列表返回" MsgRemark="" ErrorList="">
+      <param DataType="uint8" Purpose="variable" ParamName="m_nCellNum" ParamNote="格子数量" />
+    </msg>
+    <msg MsgId="20002" MsgProperty="0" MsgName="CSBagResort" MsgNote="整理背包请求" MsgRemark="" ErrorList="">
+      <param DataType="uint8" Purpose="variable" ParamName="m_nBagType" ParamNote="背包类型(0 - 包裹，1 - 仓库)" />
+    </msg>
+    <msg MsgId="20102" MsgProperty="1" MsgName="SCBagResort" MsgNote="整理背包返回" MsgRemark="" ErrorList="">
+      <param DataType="uint8" Purpose="variable" ParamName="m_nResult" ParamNote="返回码(0 - 成功，&gt; 0 失败原因)" />
+    </msg>
+  </category>
+  <category CategoryName="英雄(卡牌)" />
+  <category CategoryName="属性" />
+  <category CategoryName="聊天" />
+  <category CategoryName="任务" />
+  <category CategoryName="战斗" />
+  <category CategoryName="房间" />
+  <category CategoryName="道具" />
+  <category CategoryName="商店" />
+  <category CategoryName="排行榜" />
+  <category CategoryName="公告" />
+  <category CategoryName="称号" />
+  <category CategoryName="VIP" />
 </MSG_CFG>
