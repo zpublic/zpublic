@@ -12,7 +12,8 @@
 #include <atlcoll.h>
 #include <Uxtheme.h>
 
-#if WINVER < 0¡Á0600      // tmschema.h not  support vista+
+// tmschema.h not  support vista+
+#if WINVER > 0x0600
 #include <tmschema.h>
 #else
 #include <vssym32.h>

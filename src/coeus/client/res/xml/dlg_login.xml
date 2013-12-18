@@ -1,0 +1,16 @@
+﻿<layer title="Login" width="530" height="259">
+    <header width="530" height="259" crbg="660000">
+      <text pos="42,12" class="text_normal_gray">叫我英雄（coeus）</text>
+        <text pos="230,102" class="text_normal_gray">帐号：</text>
+        <realwnd id="400" pos="278,94,500,117" />
+
+        <text pos="230,144" class="text_normal_gray">密码：</text>
+        <realwnd id="401" pos="278,140,500,163" />
+
+        <imgbtn id="403" pos="-30,1" skin="btn_close" crtext="FFFFFF" class="linkimage" font="0104" />
+        <check pos="200,179,300,200">记住密码</check>
+        <check pos="0,179,202,511">自动登陆</check>
+        <button crbg="CCCCCC" pos="312,209,402,243">11</button>
+        <button crbg="018287" pos="411,209,503,243">11</button>
+      </header>
+</layer>

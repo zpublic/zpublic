@@ -57,6 +57,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>./;$(projectdir)/../../../3rdparty\publish\bkwin\;$(projectdir)/../../../3rdparty\publish\;$(projectdir)/../../../3rdparty\tinyxml\;$(projectdir)/../../../;$(projectdir)../../../3rdparty\wtl\Include\</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4800;4996;4018;4244</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -89,6 +90,7 @@
       <DebugInformationFormat />
       <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>./;$(projectdir)/../../../3rdparty\publish\bkwin\;$(projectdir)/../../../3rdparty\publish\;$(projectdir)/../../../3rdparty\tinyxml\;$(projectdir)/../../../;$(projectdir)../../../3rdparty\wtl\Include\</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4800;4996;4018;4244</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -135,6 +137,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="game_login_dlg.cpp" />
     <ClCompile Include="game_main_dlg.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -215,7 +218,10 @@
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h" />
     <ClInclude Include="bkwinres.h" />
     <ClInclude Include="coeus.h" />
+    <ClInclude Include="game_login_dlg.h" />
     <ClInclude Include="game_main_dlg.h" />
+    <ClInclude Include="KTipEdit.h" />
+    <ClInclude Include="ktipedit3.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -225,6 +231,7 @@
     <Xml Include="res\xml\def_skin.xml" />
     <Xml Include="res\xml\def_string.xml" />
     <Xml Include="res\xml\def_style.xml" />
+    <Xml Include="res\xml\dlg_login.xml" />
     <Xml Include="res\xml\dlg_main.xml">
       <SubType>Designer</SubType>
     </Xml>
