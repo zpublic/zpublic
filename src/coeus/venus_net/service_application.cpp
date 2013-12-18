@@ -8,17 +8,11 @@
 #include "Poco/Thread.h"
 #include "Poco/Util/ServerApplication.h"
 #include "Poco/Util/OptionSet.h"
-#include "Poco/FormattingChannel.h"
-#include "Poco/PatternFormatter.h"
-#include "Poco/SplitterChannel.h"
-#include "Poco/FileChannel.h"
-#include "Poco/ConsoleChannel.h"
 #include "Poco/File.h"
+#include "logger.h"
 
 ServiceApplication::ServiceApplication(const std::string& serviceName)
-    : _serviceName(serviceName),
-    _file_channel(new Poco::FileChannel),
-    _console_channel(new Poco::ConsoleChannel)
+    : _serviceName(serviceName)
 {
 }
 
@@ -33,25 +27,7 @@ void ServiceApplication::initialize(Poco::Util::Application& self)
     ServerApplication::initialize(self);
 
     // init logger
-    _logger = &this->logger();
-    _logger->setLevel("trace");
-
-    _file_channel->setProperty("path", "server.log");
-    _file_channel->setProperty("rotation", "2 M");
-    _file_channel->setProperty("archive", "timestamp");
-    _file_channel->setProperty("compress", "true");
-
-    Poco::AutoPtr<Poco::PatternFormatter> patternFormatter(new Poco::PatternFormatter());  
-    patternFormatter->setProperty("pattern", "[%Y-%m-%d %H:%M:%S.%i %U:%u] %p : %t");
-
-    Poco::AutoPtr<Poco::Channel> fileChannel(new Poco::FormattingChannel(patternFormatter, _file_channel));
-    Poco::AutoPtr<Poco::Channel> consleChannel(new Poco::FormattingChannel(patternFormatter, _console_channel));
-
-    Poco::AutoPtr<Poco::SplitterChannel> splitterChannel(new Poco::SplitterChannel);
-    splitterChannel->addChannel(fileChannel);
-    splitterChannel->addChannel(consleChannel);
-    _logger->setChannel(splitterChannel);
-
+    Logger::getInstance().init(this->logger());
 }
 
 void ServiceApplication::uninitialize()
@@ -110,10 +86,4 @@ int ServiceApplication::main(const std::vector<std::string>& args)
     server.stop();
 
     return Application::EXIT_OK;
-}
-
-Poco::Logger* ServiceApplication::_logger = nullptr;
-Poco::Logger& ServiceApplication::serviceLogger()
-{
-    return *_logger;
 }

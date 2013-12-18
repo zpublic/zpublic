@@ -167,9 +167,11 @@
     <ClInclude Include="buffer.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="connection_factory.h" />
+    <ClInclude Include="logger.h" />
     <ClInclude Include="message_stream.h" />
     <ClInclude Include="service_application.h" />
     <ClInclude Include="server_handler.h" />
+    <ClInclude Include="singleton.h" />
     <ClInclude Include="stream_reader.h" />
     <ClInclude Include="stream_writer.h" />
     <ClInclude Include="tcp_connection.h" />

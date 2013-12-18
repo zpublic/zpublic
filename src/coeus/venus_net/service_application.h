@@ -33,37 +33,7 @@ public:
 
 private:
 	Poco::Net::SocketReactor _reactor;
-    static Poco::Logger* _logger;
     std::string _serviceName;
-
-    Poco::AutoPtr<Poco::Channel> _file_channel;
-    Poco::AutoPtr<Poco::Channel> _console_channel;
 };
-
-
-#define __APP_LOGGER__ \
-    ServiceApplication::serviceLogger()
-
-#define __FORMAT__(fmt, ...)\
-    ServiceApplication::formatLogString(fmt, __VA_ARGS__)
-
-#define __FILE_NAME__ Poco::Path(__FILE__).getFileName().c_str()
-
-#ifndef VENUS_DISABLE_LOGGER
-#define fatal_log(fmt, ...) __APP_LOGGER__.fatal(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
-#define error_log(fmt, ...) __APP_LOGGER__.error(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
-#define warning_log(fmt, ...) __APP_LOGGER__.warning(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
-#define info_log(fmt, ...) __APP_LOGGER__.information(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
-#define debug_log(fmt, ...) __APP_LOGGER__.debug(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
-#define trace_log(fmt, ...) __APP_LOGGER__.trace(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
-#else
-#define fatal_log(fmt, ...)
-#define error_log(fmt, ...)
-#define warning_log(fmt, ...)
-#define info_log(fmt, ...)
-#define debug_log(fmt, ...)
-#define trace_log(fmt, ...)
-#endif
-
 
 #endif // !__SERVICE_APPLICATION_H__

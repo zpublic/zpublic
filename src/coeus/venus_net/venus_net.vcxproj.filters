@@ -13,6 +13,12 @@
     <Filter Include="memory\stream">
       <UniqueIdentifier>{b9931ff5-097d-415a-b8d2-fc1720873aeb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{1ac59f78-02b6-4e86-9c91-479bb33cab8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logger">
+      <UniqueIdentifier>{ef3dc6d1-621d-4718-b136-3f99f2d1b139}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="server_handler.h">
@@ -44,6 +50,12 @@
     </ClInclude>
     <ClInclude Include="message_stream.h">
       <Filter>memory\stream</Filter>
+    </ClInclude>
+    <ClInclude Include="logger.h">
+      <Filter>logger</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

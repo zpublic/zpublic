@@ -27,6 +27,7 @@ int main(int argc, char** argv)
             //char buffer[1024] = {0};
             //clientConnector.receiveBytes(buffer, 1024, 0);
             //std::cout << " receive : " << buffer << std::endl;
+            clientConnector.sendBytes((const void*)"xxx", 3, 0);
             clientConnector.close();
         }
         std::cout << "finished." << std::endl;
