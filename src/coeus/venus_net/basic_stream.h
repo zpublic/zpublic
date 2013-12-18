@@ -3,14 +3,14 @@
 
 #include "buffer.h"
 #include "common.h"
-
+/*
 template<typename charT> class BasicStringConverter;
 
 typedef BasicStringConverter<char> StringConverter;
-typedef Poco::AutoPtr<StringConverter> StringConverterPtr;
+typedef std::auto_ptr<StringConverter> StringConverterPtr;
 
 typedef BasicStringConverter<wchar_t> WstringConverter;
-typedef Poco::AutoPtr<WstringConverter> WstringConverterPtr;
+typedef std::auto_ptr<WstringConverter> WstringConverterPtr;*/
 
 class BasicStream : public Buffer
 {
@@ -167,6 +167,6 @@ private:
     const Container::size_type _messageSizeMax;
 };
 
-typedef Poco::AutoPtr<BasicStream> BasicStreamPtr;
+typedef std::auto_ptr<BasicStream> BasicStreamPtr;
 
 #endif
