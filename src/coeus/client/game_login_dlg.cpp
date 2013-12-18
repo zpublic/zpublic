@@ -43,7 +43,7 @@ LRESULT GameLoginDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
 
 void GameLoginDlg::OnClose()
 {
-    EndDialog(IDOK);
+    EndDialog(IDCLOSE);
 }
 
 void GameLoginDlg::OnSysCommand(UINT nID, CPoint point)
@@ -52,7 +52,7 @@ void GameLoginDlg::OnSysCommand(UINT nID, CPoint point)
 
     if (nID == SC_CLOSE)
     {
-        EndDialog(IDOK);
+        EndDialog(IDCLOSE);
     }
 }
 
@@ -62,5 +62,5 @@ void GameLoginDlg::OnTimer(UINT_PTR nIDEvent)
 
 void GameLoginDlg::OnBtnClose()
 {
-
+    EndDialog(IDCLOSE);
 }

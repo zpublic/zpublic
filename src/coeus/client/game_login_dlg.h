@@ -24,7 +24,7 @@ public:
 
     enum
     {
-
+        ID_CLOSE_BTN = 403,
     };
 
 protected:
@@ -42,14 +42,14 @@ protected:
     void OnBtnClose();
 
 protected:
-        BK_NOTIFY_MAP(IDC_RICHVIEW_WIN)
-        //BK_NOTIFY_ID_COMMAND(ID_CLOSE_BTN, OnBtnClose)
+    BK_NOTIFY_MAP(IDC_RICHVIEW_WIN)
+        BK_NOTIFY_ID_COMMAND(ID_CLOSE_BTN, OnBtnClose)
         //         BK_NOTIFY_ID_COMMAND(ID_OPEN_DLG, OnBtnOpenDlg)
         //         BK_NOTIFY_ID_COMMAND(ID_BTN_LOGIN, OnBtnLogin)
         //         BK_NOTIFY_ID_COMMAND(ID_BTN_RESET, OnBtnReset)
-        BK_NOTIFY_MAP_END()
+    BK_NOTIFY_MAP_END()
 
-        BEGIN_MSG_MAP_EX(GameLoginDlg)
+    BEGIN_MSG_MAP_EX(GameLoginDlg)
         MSG_BK_NOTIFY(IDC_RICHVIEW_WIN)
         CHAIN_MSG_MAP(CBkDialogImpl<GameLoginDlg>)
         MSG_WM_CLOSE(OnClose)
@@ -57,7 +57,7 @@ protected:
         MSG_WM_SYSCOMMAND(OnSysCommand)
         MSG_WM_TIMER(OnTimer)
         REFLECT_NOTIFICATIONS_EX()
-        END_MSG_MAP()
+    END_MSG_MAP()
 
 private:
     KTipEdit3 m_LoginNameEdit;
