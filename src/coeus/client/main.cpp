@@ -6,7 +6,7 @@
 #include <atlframe.h>
 #include <atlctrls.h>
 #include <atldlgs.h>
-#include "game_main_dlg.h"
+#include "game_login_dlg.h"
 
 #include "resource.h"
 
@@ -14,7 +14,7 @@ CAppModule _Module;
 
 int Run(LPTSTR /*lpstrCmdLine*/ = NULL, int nCmdShow = SW_SHOWDEFAULT)
 {
-    GameMainDlg dlg;
+    GameLoginDlg dlg;
     return dlg.DoModal();
 }
 
