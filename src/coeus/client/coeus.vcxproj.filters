@@ -75,6 +75,9 @@
     <ClCompile Include="..\..\..\3rdparty\publish\wtlhelper\ksOleClientSite.cpp">
       <Filter>include\wtlhelper</Filter>
     </ClCompile>
+    <ClCompile Include="game_register_dlg.cpp">
+      <Filter>source\dlg</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -353,6 +356,9 @@
     <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\whwindow.h">
       <Filter>include\wtlhelper</Filter>
     </ClInclude>
+    <ClInclude Include="game_register_dlg.h">
+      <Filter>source\dlg</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="bkwinres.rc2">
@@ -373,6 +379,9 @@
       <Filter>resource\xml</Filter>
     </Xml>
     <Xml Include="res\xml\dlg_login.xml">
+      <Filter>resource\xml</Filter>
+    </Xml>
+    <Xml Include="res\xml\dlg_register.xml">
       <Filter>resource\xml</Filter>
     </Xml>
   </ItemGroup>
