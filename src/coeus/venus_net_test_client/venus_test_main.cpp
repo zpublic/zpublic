@@ -24,9 +24,9 @@ int main(int argc, char** argv)
         for (int i = 0; i < 100; i++)
         {
             clientConnector.connect(serverAddress);
-            //char buffer[1024] = {0};
-            //clientConnector.receiveBytes(buffer, 1024, 0);
-            //std::cout << " receive : " << buffer << std::endl;
+            char buffer[1024] = {0};
+            int bytes_receive = clientConnector.receiveBytes(buffer, 1024, 0);
+            std::cout << " bytes_receive = " << bytes_receive << std::endl;
             clientConnector.sendBytes((const void*)"xxx", 3, 0);
             clientConnector.close();
         }

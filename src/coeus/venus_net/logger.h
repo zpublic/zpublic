@@ -12,18 +12,6 @@
 class Logger
     : public Venus::Singleton<Logger>
 {
-    enum Priority
-    {
-        PRIO_FATAL = 1,   /// A fatal error. The application will most likely terminate. This is the highest priority.
-        PRIO_CRITICAL,    /// A critical error. The application might not be able to continue running successfully.
-        PRIO_ERROR,       /// An error. An operation did not complete successfully, but the application as a whole is not affected.
-        PRIO_WARNING,     /// A warning. An operation completed with an unexpected result.
-        PRIO_NOTICE,      /// A notice, which is an information with just a higher priority.
-        PRIO_INFORMATION, /// An informational message, usually denoting the successful completion of an operation.
-        PRIO_DEBUG,       /// A debugging message.
-        PRIO_TRACE        /// A tracing message. This is the lowest priority.
-    };
-
 public:
     Logger() 
         : _fileChannel(new Poco::FileChannel), _consoleChannel(new Poco::ConsoleChannel)
@@ -41,6 +29,7 @@ public:
         _fileChannel->setProperty("rotation", "2 M");
         _fileChannel->setProperty("archive", "timestamp");
         _fileChannel->setProperty("compress", "true");
+        _fileChannel->setProperty("flush", "false");
 
         Poco::AutoPtr<Poco::PatternFormatter> patternFormatter(new Poco::PatternFormatter());  
         patternFormatter->setProperty("pattern", "[%Y-%m-%d %H:%M:%S.%i %U:%u] %p : %t");
@@ -49,7 +38,7 @@ public:
         Poco::AutoPtr<Poco::Channel> consleChannel(new Poco::FormattingChannel(patternFormatter, _consoleChannel));
 
         Poco::AutoPtr<Poco::SplitterChannel> splitterChannel(new Poco::SplitterChannel);
-        splitterChannel->addChannel(fileChannel);
+        //splitterChannel->addChannel(fileChannel);
         splitterChannel->addChannel(consleChannel);
         _logger->setChannel(splitterChannel);
 
@@ -58,37 +47,37 @@ public:
 
     void fatal(const std::string& log, const std::string& filename, int line)
     {
-        Poco::ScopedLock<Poco::Mutex> lock(_mutex);
+        Poco::ScopedLock<Poco::FastMutex> lock(_mutex);
         _logger->fatal(log, filename.c_str(), line);
     }
 
     void error(const std::string& log, const std::string& filename, int line)
     {
-        Poco::ScopedLock<Poco::Mutex> lock(_mutex);
+        Poco::ScopedLock<Poco::FastMutex> lock(_mutex);
         _logger->error(log, filename.c_str(), line);
     }
 
     void warning(const std::string& log, const std::string& filename, int line)
     {
-        Poco::ScopedLock<Poco::Mutex> lock(_mutex);
+        Poco::ScopedLock<Poco::FastMutex> lock(_mutex);
         _logger->warning(log, filename.c_str(), line);
     }
 
     void information(const std::string& log, const std::string& filename, int line)
     {
-        Poco::ScopedLock<Poco::Mutex> lock(_mutex);
+        Poco::ScopedLock<Poco::FastMutex> lock(_mutex);
         _logger->information(log, filename.c_str(), line);
     }
 
     void debug(const std::string& log, const std::string& filename, int line)
     {
-        Poco::ScopedLock<Poco::Mutex> lock(_mutex);
+        Poco::ScopedLock<Poco::FastMutex> lock(_mutex);
         _logger->debug(log, filename.c_str(), line);
     }
 
     void trace(const std::string& log, const std::string& filename, int line)
     {
-        Poco::ScopedLock<Poco::Mutex> lock(_mutex);
+        Poco::ScopedLock<Poco::FastMutex> lock(_mutex);
         _logger->trace(log, filename.c_str(), line);
     }
 
@@ -107,7 +96,7 @@ private:
     Poco::Logger* _logger;
     Poco::AutoPtr<Poco::Channel> _fileChannel;
     Poco::AutoPtr<Poco::Channel> _consoleChannel;
-    Poco::Mutex _mutex;
+    Poco::FastMutex _mutex;
 };
 
 

@@ -5,6 +5,7 @@
 #include "basic_stream.h"
 #include "Poco/Net/TCPServerConnection.h"
 #include "Poco/Net/StreamSocket.h"
+#include "Poco/Net/SocketReactor.h"
 
 struct Message
 {
@@ -36,6 +37,7 @@ public:
 private:
     byte* _buffer;
     Poco::Net::StreamSocket& _socket;
+    mutable Poco::FastMutex _mutex;
 };
 
 #endif // !__TCP_CONNECTION_H__
