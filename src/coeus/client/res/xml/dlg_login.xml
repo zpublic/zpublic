@@ -14,7 +14,7 @@
 
     <!--check pos="200,179,300,200">记住密码</check>
     <check pos="0,179,202,511">自动登陆</check-->
-    <button class="btn_metro_2" pos="312,209,402,243">注册</button>
-    <button class="btn_metro_1" pos="411,209,503,243">登陆</button>
+    <button id="10001" class="btn_metro_2" pos="312,209,402,243">注册</button>
+    <button id="10002" class="btn_metro_1" pos="411,209,503,243">登陆</button>
   </header>
 </layer>
