@@ -64,3 +64,16 @@ void GameLoginDlg::OnBtnClose()
 {
     EndDialog(IDCLOSE);
 }
+
+void GameLoginDlg::OnBtnRegister()
+{
+    ShowWindow(SW_HIDE);
+    GameRegisterDlg dlg;
+    dlg.DoModal();
+    ShowWindow(SW_SHOW);
+}
+
+void GameLoginDlg::OnBtnLogin()
+{
+
+}

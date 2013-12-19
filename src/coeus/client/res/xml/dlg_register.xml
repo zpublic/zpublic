@@ -1,0 +1,25 @@
+﻿<layer title="Register" width="529" height="387">
+  <header width="529" height="387" crbg="660066">
+    <img pos="8,8" skin="img_small_icon" />
+    <text pos="42,12" class="text_normal_gray">叫我英雄（coeus）</text>
+
+    <img pos="55,137" skin="img_main_icon" />
+
+    <text pos="237,66" class="text_normal_gray">邮箱：</text>
+    <realwnd id="4000" pos="227,86,489,116" />
+
+    <text pos="237,125" class="text_normal_gray">昵称：</text>
+    <realwnd id="4001" pos="227,145,489,175" />
+
+    <text pos="237,185" class="text_normal_gray">密码：</text>
+    <realwnd id="4002" pos="227,205,489,235" />
+
+    <text pos="237,245" class="text_normal_gray">确认密码：</text>
+    <realwnd id="4003" pos="227,265,489,295" />
+
+    <!--check pos="200,179,300,200">记住密码</check>
+    <check pos="0,179,202,511">自动登陆</check-->
+    <button id="10001" class="btn_metro_2" pos="298,333,388,367">取消</button>
+    <button id="10002" class="btn_metro_1" pos="397,333,489,367">注册</button>
+  </header>
+</layer>
