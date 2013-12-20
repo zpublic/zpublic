@@ -10,8 +10,9 @@
 struct Message
 {
 public:
-    const static uint8 kHeaderLength = 8;
-    const static int32 kMaxMessageLength = 10*65535;
+    const static uint8 kMagicFlagLength = 4;            //消息包最前面表示包总长度的字节数
+    const static uint8 kHeaderLength = 8;               //长度和操作码
+    const static int32 kMaxMessageLength = 10*65535;    //消息最大长度
 
     Message(){}
     virtual ~Message(){}

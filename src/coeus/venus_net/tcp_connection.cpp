@@ -110,7 +110,7 @@ bool TcpConnection::onReadable()
         int32 leftLen = bytes_transferred - readIdx;
 
         //未达到长度的4字节则继续等待
-        if (leftLen < 4 && _pendingStream->b.size() == 0)
+        if (leftLen < Message::kMagicFlagLength && _pendingStream->b.size() == 0)
         {
             //把当前接收到的数据加入缓存
             addPending((const byte*)(_buffer + readIdx), leftLen);
@@ -130,10 +130,10 @@ bool TcpConnection::onReadable()
         if (_pendingStream->b.size() > 0)
         {
             //之前缓存不足4字节
-            if (_pendingStream->b.size() < 4)
+            if (_pendingStream->b.size() < Message::kMagicFlagLength)
             {
-                //现在还不足4字节,继续等
-                if (_pendingStream->b.size() + leftLen < 4)
+                //现在还不足4字节，继续等
+                if (_pendingStream->b.size() + leftLen < Message::kMagicFlagLength)
                 {
                     //添加Pending,并返回
                     addPending((const byte*)(_buffer + readIdx), leftLen);
@@ -141,12 +141,12 @@ bool TcpConnection::onReadable()
                     return true;
                 }
 
-                //如果已足4字节,先把4字节剩下的部分追加到PendingStream中
+                //如果已足4字节，先把4字节剩下的部分追加到PendingStream中
                 int32 srcPendingLen = _pendingStream->b.size();
-                _pendingStream->append((const byte*)_buffer + readIdx, 4 - _pendingStream->b.size());
+                _pendingStream->append((const byte*)_buffer + readIdx, Message::kMagicFlagLength - _pendingStream->b.size());
 
                 //读位置前移
-                readIdx += (4 - srcPendingLen);
+                readIdx += (Message::kMagicFlagLength - srcPendingLen);
 
                 //leftLen修正
                 leftLen = bytes_transferred - readIdx;
@@ -159,11 +159,15 @@ bool TcpConnection::onReadable()
             //检查消息头合法性
             if (checkMessageLen(msgLen) == false) return false;
 
-            //是否满一个包,不满，继续等,并且设置超时
+            //不是完整的包，设置中间的超时时间并继续等待
             if (leftLen < (int32)(msgLen - _pendingStream->b.size()))
             {
-                //添加Pending,并返回
+                //添加Pending，并返回
                 addPending((const byte*)(_buffer + readIdx), leftLen);
+
+                // TODO: 设置下次接收超时时间
+                // ...
+
                 return true;
             }
 
@@ -185,7 +189,7 @@ bool TcpConnection::onReadable()
             //检查消息长度的合法性
             if (checkMessageLen(msgLen) == false) return false;
 
-            //如果剩余的字节流长度不足,则追加到Pending中并返回
+            //如果剩余的字节流长度不足，则追加到Pending中并返回
             if (leftLen < msgLen)
             {
                 addPending((const byte*)(_buffer + readIdx), leftLen);
@@ -199,7 +203,8 @@ bool TcpConnection::onReadable()
         {
             streamPtr->append((const byte*)(_buffer + readIdx), needReadLen);
         }
-        streamPtr->i = streamPtr->b.begin() + 4;
+
+        streamPtr->i = streamPtr->b.begin() + Message::kMagicFlagLength;
         byte comp = 0;
         streamPtr->read(comp);
 
@@ -215,8 +220,8 @@ bool TcpConnection::onReadable()
         {
         }
 
-        //构造网络消息包给应用层
-        //_threadPool->enqueueNetworkMessage(fd(), new NetworkMsgHandler(this, streamPtr));
+        //TODO :构造网络消息包给应用层
+        // ...
 
         readIdx += needReadLen;
     }
