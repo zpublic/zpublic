@@ -75,5 +75,8 @@ void GameLoginDlg::OnBtnRegister()
 
 void GameLoginDlg::OnBtnLogin()
 {
-
+    ShowWindow(SW_HIDE);
+    GameMainDlg dlg;
+    dlg.DoModal();
+    OnClose();
 }

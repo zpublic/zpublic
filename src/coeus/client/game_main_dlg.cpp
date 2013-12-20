@@ -29,7 +29,7 @@ LRESULT GameMainDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
 
 void GameMainDlg::OnClose()
 {
-    EndDialog(IDOK);
+    OnBtnClose();
 }
 
 void GameMainDlg::OnSysCommand(UINT nID, CPoint point)
@@ -48,5 +48,5 @@ void GameMainDlg::OnTimer(UINT_PTR nIDEvent)
 
 void GameMainDlg::OnBtnClose()
 {
-
+    EndDialog(IDOK);
 }

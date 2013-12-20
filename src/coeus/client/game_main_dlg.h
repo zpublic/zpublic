@@ -18,13 +18,13 @@ class GameMainDlg
 {
 public:
     GameMainDlg()
-        : CBkDialogImpl<GameMainDlg>(IDR_BK_LOGIN)
+        : CBkDialogImpl<GameMainDlg>(IDR_BK_MAIN_DIALOG)
     {
     }
 
     enum
     {
-
+        ID_CLOSE_BTN    = 403,
     };
 
 protected:
@@ -43,7 +43,7 @@ protected:
 
 protected:
     BK_NOTIFY_MAP(IDC_RICHVIEW_WIN)
-        //BK_NOTIFY_ID_COMMAND(ID_CLOSE_BTN, OnBtnClose)
+        BK_NOTIFY_ID_COMMAND(ID_CLOSE_BTN, OnBtnClose)
         //         BK_NOTIFY_ID_COMMAND(ID_OPEN_DLG, OnBtnOpenDlg)
         //         BK_NOTIFY_ID_COMMAND(ID_BTN_LOGIN, OnBtnLogin)
         //         BK_NOTIFY_ID_COMMAND(ID_BTN_RESET, OnBtnReset)

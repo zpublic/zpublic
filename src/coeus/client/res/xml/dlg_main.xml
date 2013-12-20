@@ -1,15 +1,10 @@
-﻿<layer title="GameLoginDlg" width="460" height="600" appwin="1">
-    <header width="460" height="55">
-        <!--<imgbtn id="1002" class="linkimage" skin="dlg_main_icon_max" pos="0,0"/>-->
+﻿<layer title="GameLoginDlg" width="800" height="600" appwin="1">
+    <header width="800" height="600" crbg="660066">
+        <img pos="8,8" skin="img_small_icon" />
+        <text pos="42,12" class="text_normal_gray">叫我英雄（coeus）</text>
+        <imgbtn id="403" pos="-31,1" skin="btn_close" crtext="FFFFFF" font="0104" />
     </header>
 
-    <!--
-    <footer class="mainfoot" width="full" height="23">
-        <dlgfile pos="0,0,-0,-0" src="508" />
-    </footer>
-    -->
-
     <body width="full" height="full" crbg="ffffff">
-
     </body>
 </layer>
