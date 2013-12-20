@@ -44,7 +44,7 @@ void TcpConnection::run()
     }
     catch (Poco::Exception& e)
     {
-        onShutdown(ShutdownReason::SR_EXCETION);
+        onShutdown(ShutdownReason::SR_EXCEPTION);
     }
     catch (...)
     {
@@ -238,7 +238,7 @@ void TcpConnection::onShutdown(const ShutdownReason& reason)
             debug_log("connection graceful shutdown from the peer.");
             break;
         }
-    case ShutdownReason::SR_EXCETION:
+    case ShutdownReason::SR_EXCEPTION:
         {
             debug_log("connection exception.");
             break;

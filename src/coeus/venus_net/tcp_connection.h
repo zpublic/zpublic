@@ -40,7 +40,7 @@ private:
     enum ShutdownReason
     {
         SR_GRACEFUL_SHUTDOWN,
-        SR_EXCETION
+        SR_EXCEPTION
     };
 
     bool onReadable();
