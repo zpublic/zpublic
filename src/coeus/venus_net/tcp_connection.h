@@ -11,6 +11,7 @@ struct Message
 {
 public:
     const static uint8 kHeaderLength = 8;
+    const static int32 kMaxMessageLength = 10*65535;
 
     Message(){}
     virtual ~Message(){}
@@ -35,7 +36,20 @@ public:
 	void sendMessage(uint16 opcode, Message& message);
 
 private:
+    enum ShutdownReason
+    {
+        SR_GRACEFUL_SHUTDOWN,
+        SR_EXCETION
+    };
+
+    bool onReadable();
+    void onShutdown(const ShutdownReason& reason);
+    void addPending(const byte* buff, size_t len);
+    bool checkMessageLen(size_t len);
+
+private:
     byte* _buffer;
+    BasicStreamPtr _pendingStream;
     Poco::Net::StreamSocket& _socket;
     mutable Poco::FastMutex _mutex;
 };
