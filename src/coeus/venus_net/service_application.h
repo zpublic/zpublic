@@ -19,20 +19,10 @@ public:
 	void defineOptions(Poco::Util::OptionSet& options);
 	void handleOption(const std::string& name, const std::string& value);
 	int main(const std::vector<std::string>& args);
-    static Poco::Logger& serviceLogger();
-    static std::string formatLogString(const char* format, ...)
-    {
-        va_list args; 
-        va_start(args, format);
-        char buff[1024] = {0};
-        vsprintf(buff, format, args);
-        va_end(args);
-
-        return std::string(buff);
-    }
 
 private:
 	Poco::Net::SocketReactor _reactor;
+    MessageQueue _messageQueue;
     std::string _serviceName;
 };
 

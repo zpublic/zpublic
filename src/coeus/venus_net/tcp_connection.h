@@ -6,35 +6,22 @@
 #include "Poco/Net/TCPServerConnection.h"
 #include "Poco/Net/StreamSocket.h"
 #include "Poco/Net/SocketReactor.h"
-
-struct Message
-{
-public:
-    const static uint8 kMagicFlagLength = 4;            //消息包最前面表示包总长度的字节数
-    const static uint8 kHeaderLength = 8;               //长度和操作码
-    const static int32 kMaxMessageLength = 10*65535;    //消息最大长度
-
-    Message(){}
-    virtual ~Message(){}
-
-    virtual int32 byteSize() = 0;
-    virtual void encode(byte* buffer, size_t size) = 0;
-    virtual void decode(const byte* buffer, size_t size) = 0;
-};
+#include "network_message.h"
+#include "message_queue.h"
 
 class TcpConnection : public Poco::Net::TCPServerConnection
 {
     static const int MAX_RECV_LEN = 1024 * 4;
 
 public:
-    TcpConnection(const Poco::Net::StreamSocket& socket);
+    TcpConnection(const Poco::Net::StreamSocket& socket, MessageQueue& messageQueue);
     virtual ~TcpConnection();
     void run();
 
 public:
     void sendMessage(const BasicStreamPtr& packet);
 	void sendMessage(int16 opcode, const byte* buff, size_t size);
-	void sendMessage(uint16 opcode, Message& message);
+	void sendMessage(uint16 opcode, NetworkMessage& message);
 
 private:
     enum ShutdownReason
@@ -52,6 +39,7 @@ private:
     byte* _buffer;
     BasicStreamPtr _pendingStream;
     Poco::Net::StreamSocket& _socket;
+    MessageQueue& _messageQueue;
     mutable Poco::FastMutex _mutex;
 };
 

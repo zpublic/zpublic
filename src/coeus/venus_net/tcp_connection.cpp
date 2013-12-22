@@ -3,18 +3,18 @@
 #include "Poco/Timespan.h"
 #include "service_application.h"
 #include "logger.h"
+#include "message_notification.h"
 
-//Poco::FastMutex TcpConnection::_mutex;
-TcpConnection::TcpConnection(const Poco::Net::StreamSocket& socket)
+TcpConnection::TcpConnection(const Poco::Net::StreamSocket& socket, MessageQueue& messageQueue)
     : Poco::Net::TCPServerConnection(socket),
     _socket(const_cast<Poco::Net::StreamSocket&>(socket)),
     _buffer(new byte[MAX_RECV_LEN]),
-    _pendingStream(new BasicStream())
+    _pendingStream(new BasicStream()),
+    _messageQueue(messageQueue)
 {
     _socket.setBlocking(false);
-    //_socket.setReuseAddress(true);
-    //_socket.setReusePort(true);
-    //_socket.setKeepAlive(true);
+    _socket.setReuseAddress(true);
+    _socket.setReusePort(true);
 }
 
 TcpConnection::~TcpConnection()
@@ -25,13 +25,14 @@ TcpConnection::~TcpConnection()
 
 void TcpConnection::run()
 {
-    //Poco::ScopedLockWithUnlock<Poco::FastMutex> lock(_mutex);
-
     try
     {
         //Poco::Net::SocketAddress address = _socket.peerAddress();
-        //std::string peer(address.toString());
-        //debug_log("connection established. peer = %s", peer.c_str());
+        //std::string peer(_socket.peerAddress().toString().data());
+
+        //char hostname[48] = {0};
+        //memcpy(hostname, _socket.peerAddress().toString().c_str(), strlen(_socket.peerAddress().toString().c_str()));
+        debug_log("connection established.");
         sendMessage(10001, (const byte*)"hello", 5);
         for (;;)
         {
@@ -79,7 +80,7 @@ void TcpConnection::sendMessage(int16 opcode, const byte* buff, size_t size)
     sendMessage(streamPtr);
 }
 
-void TcpConnection::sendMessage(uint16 opcode, Message& message)
+void TcpConnection::sendMessage(uint16 opcode, NetworkMessage& message)
 {
     BasicStreamPtr streamPtr(new BasicStream());
     streamPtr->write((int32)0);
@@ -87,8 +88,8 @@ void TcpConnection::sendMessage(uint16 opcode, Message& message)
     // ...
     // TODO: 包压缩和加密标志预留
 
-    streamPtr->resize(Message::kHeaderLength + message.byteSize());
-    message.encode((byte*)streamPtr->b.begin() + Message::kHeaderLength, message.byteSize());
+    streamPtr->resize(NetworkMessage::kHeaderLength + message.byteSize());
+    message.encode((byte*)streamPtr->b.begin() + NetworkMessage::kHeaderLength, message.byteSize());
     streamPtr->rewriteSize(streamPtr->b.size(), streamPtr->b.begin());
 
     sendMessage(streamPtr);
@@ -110,7 +111,7 @@ bool TcpConnection::onReadable()
         int32 leftLen = bytes_transferred - readIdx;
 
         //未达到长度的4字节则继续等待
-        if (leftLen < Message::kMagicFlagLength && _pendingStream->b.size() == 0)
+        if (leftLen < NetworkMessage::kMagicFlagLength && _pendingStream->b.size() == 0)
         {
             //把当前接收到的数据加入缓存
             addPending((const byte*)(_buffer + readIdx), leftLen);
@@ -130,10 +131,10 @@ bool TcpConnection::onReadable()
         if (_pendingStream->b.size() > 0)
         {
             //之前缓存不足4字节
-            if (_pendingStream->b.size() < Message::kMagicFlagLength)
+            if (_pendingStream->b.size() < NetworkMessage::kMagicFlagLength)
             {
                 //现在还不足4字节，继续等
-                if (_pendingStream->b.size() + leftLen < Message::kMagicFlagLength)
+                if (_pendingStream->b.size() + leftLen < NetworkMessage::kMagicFlagLength)
                 {
                     //添加Pending,并返回
                     addPending((const byte*)(_buffer + readIdx), leftLen);
@@ -143,10 +144,10 @@ bool TcpConnection::onReadable()
 
                 //如果已足4字节，先把4字节剩下的部分追加到PendingStream中
                 int32 srcPendingLen = _pendingStream->b.size();
-                _pendingStream->append((const byte*)_buffer + readIdx, Message::kMagicFlagLength - _pendingStream->b.size());
+                _pendingStream->append((const byte*)_buffer + readIdx, NetworkMessage::kMagicFlagLength - _pendingStream->b.size());
 
                 //读位置前移
-                readIdx += (Message::kMagicFlagLength - srcPendingLen);
+                readIdx += (NetworkMessage::kMagicFlagLength - srcPendingLen);
 
                 //leftLen修正
                 leftLen = bytes_transferred - readIdx;
@@ -204,7 +205,7 @@ bool TcpConnection::onReadable()
             streamPtr->append((const byte*)(_buffer + readIdx), needReadLen);
         }
 
-        streamPtr->i = streamPtr->b.begin() + Message::kMagicFlagLength;
+        streamPtr->i = streamPtr->b.begin() + NetworkMessage::kMagicFlagLength;
         byte comp = 0;
         streamPtr->read(comp);
 
@@ -220,8 +221,10 @@ bool TcpConnection::onReadable()
         {
         }
 
-        //TODO :构造网络消息包给应用层
+        //构造网络消息包给应用层
         // ...
+        MessageNotification::Ptr notification(new MessageNotification(streamPtr));
+        _messageQueue.enqueueNotification(notification);
 
         readIdx += needReadLen;
     }
@@ -255,13 +258,13 @@ void TcpConnection::addPending(const byte* buff, size_t len)
 
 bool TcpConnection::checkMessageLen(size_t len)
 {
-    if (len > Message::kMaxMessageLength)
+    if (len > NetworkMessage::kMaxMessageLength)
     {
         error_log("message length too big");
         return false;
     }
 
-    if (len < Message::kHeaderLength)
+    if (len < NetworkMessage::kHeaderLength)
     {
         error_log("header length too small");
         return false;

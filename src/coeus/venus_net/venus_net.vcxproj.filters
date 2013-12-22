@@ -19,6 +19,9 @@
     <Filter Include="logger">
       <UniqueIdentifier>{ef3dc6d1-621d-4718-b136-3f99f2d1b139}</UniqueIdentifier>
     </Filter>
+    <Filter Include="notification">
+      <UniqueIdentifier>{4a74c1fa-3669-4a1b-8024-9bd8f5f56d5b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="server_handler.h">
@@ -56,6 +59,15 @@
     </ClInclude>
     <ClInclude Include="singleton.h">
       <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="message_notification.h">
+      <Filter>notification</Filter>
+    </ClInclude>
+    <ClInclude Include="message_queue.h">
+      <Filter>notification</Filter>
+    </ClInclude>
+    <ClInclude Include="network_message.h">
+      <Filter>network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
