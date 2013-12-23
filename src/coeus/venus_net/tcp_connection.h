@@ -37,7 +37,8 @@ private:
 
 private:
     byte* _buffer;
-    BasicStreamPtr _pendingStream;
+    BasicStreamPtr _pendingStream;      //存放接收到的数据
+    BasicStreamPtr _packetStreamPtr;    //存放一个完整的数据包
     Poco::Net::StreamSocket& _socket;
     MessageQueue& _messageQueue;
     mutable Poco::FastMutex _mutex;

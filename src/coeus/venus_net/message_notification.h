@@ -6,6 +6,7 @@
 #include "Poco/Notification.h"
 #include "Poco/NotificationQueue.h"
 #include "message_queue.h"
+#include "logger.h"
 
 class MessageNotification : public Poco::Notification
 {
@@ -16,12 +17,17 @@ public:
     {
     }
 
+    ~MessageNotification()
+    {
+    }
+
     const BasicStreamPtr& message()
     {
         return _message;
     }
 
 private:
+
     const BasicStreamPtr& _message;
 };
 
@@ -32,15 +38,16 @@ public:
 
     void run()  
     {  
-        Poco::Notification::Ptr pNitification(_messageQueue.waitDequeueNotification());
-        while (pNitification)
+        Poco::Notification::Ptr notificationPtr(_messageQueue.waitDequeueNotification());
+        while (notificationPtr)
         {  
-            MessageNotification* messageNotification = static_cast<MessageNotification*>(pNitification.get());
+            MessageNotification* messageNotification = dynamic_cast<MessageNotification*>(notificationPtr.get());
             if (messageNotification != nullptr)
             {
-                std::cout << "notification message alert." << std::endl; 
+                debug_log("notification message alert."); 
             }
-            pNitification = _messageQueue.waitDequeueNotification();  
+
+            notificationPtr = _messageQueue.waitDequeueNotification();
         }  
     }  
 private:  

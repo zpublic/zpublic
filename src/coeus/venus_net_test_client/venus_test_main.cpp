@@ -67,7 +67,7 @@ int main(int argc, char** argv)
             streamPtr->rewriteSize(streamPtr->b.size(), streamPtr->b.begin());
 
             clientConnector.sendBytes(streamPtr->b.begin(), streamPtr->b.size(), 0);
-            clientConnector.close();
+            //clientConnector.close();
         }
         std::cout << "finished." << std::endl;
     }

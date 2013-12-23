@@ -125,7 +125,7 @@ bool TcpConnection::onReadable()
         int32 needReadLen = 0;
 
         //存放该消息的字节流
-        BasicStreamPtr streamPtr = new BasicStream();
+        _packetStreamPtr = new BasicStream();
 
         //如果有缓存包
         if (_pendingStream->b.size() > 0)
@@ -138,7 +138,6 @@ bool TcpConnection::onReadable()
                 {
                     //添加Pending,并返回
                     addPending((const byte*)(_buffer + readIdx), leftLen);
-
                     return true;
                 }
 
@@ -176,7 +175,7 @@ bool TcpConnection::onReadable()
             needReadLen = msgLen - _pendingStream->b.size();
 
             //将PendingStream取出来
-            streamPtr = _pendingStream;
+            _packetStreamPtr = _pendingStream;
 
             //重新开辟一个PendingStream存放残包
             _pendingStream = new BasicStream();
@@ -202,12 +201,12 @@ bool TcpConnection::onReadable()
         //开始读消息体
         if (needReadLen > 0)
         {
-            streamPtr->append((const byte*)(_buffer + readIdx), needReadLen);
+            _packetStreamPtr->append((const byte*)(_buffer + readIdx), needReadLen);
         }
 
-        streamPtr->i = streamPtr->b.begin() + NetworkMessage::kMagicFlagLength;
+        _packetStreamPtr->i = _packetStreamPtr->b.begin() + NetworkMessage::kMagicFlagLength;
         byte comp = 0;
-        streamPtr->read(comp);
+        _packetStreamPtr->read(comp);
 
         //TODO:压缩预留
         if (comp > 0)
@@ -216,14 +215,14 @@ bool TcpConnection::onReadable()
 
         //TODO::包加密预留
         byte encrypt = 0;
-        streamPtr->read(encrypt);
+        _packetStreamPtr->read(encrypt);
         if (encrypt > 0)
         {
         }
 
         //构造网络消息包给应用层
         // ...
-        MessageNotification::Ptr notification(new MessageNotification(streamPtr));
+        Poco::Notification::Ptr notification(new MessageNotification(_packetStreamPtr));
         _messageQueue.enqueueNotification(notification);
 
         readIdx += needReadLen;

@@ -168,6 +168,6 @@ private:
     const Container::size_type _messageSizeMax;
 };
 
-typedef Poco::SharedPtr<BasicStream> BasicStreamPtr;
+typedef Poco::AutoPtr<BasicStream> BasicStreamPtr;
 
 #endif
