@@ -56,7 +56,7 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./;$(projectdir)/../../../3rdparty\publish\bkwin\;$(projectdir)/../../../3rdparty\publish\;$(projectdir)/../../../3rdparty\tinyxml\;$(projectdir)/../../../;$(projectdir)../../../3rdparty\wtl\Include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;$(projectdir)/../../../3rdparty\publish\bkwin\;$(projectdir)/../../../3rdparty\publish\;$(projectdir)/../../../3rdparty\tinyxml\;$(projectdir)/../../../;$(projectdir)../../../3rdparty\wtl\Include\;$(projectdir)/../;$(projectdir)/../../../3rdparty;$(projectdir)/../../../3rdparty/poco/net/include;..\..\..\3rdparty\poco\Foundation\include;..\..\..\3rdparty\poco\Util\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4800;4996;4018;4244</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -89,7 +89,7 @@
       <ExceptionHandling />
       <DebugInformationFormat />
       <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./;$(projectdir)/../../../3rdparty\publish\bkwin\;$(projectdir)/../../../3rdparty\publish\;$(projectdir)/../../../3rdparty\tinyxml\;$(projectdir)/../../../;$(projectdir)../../../3rdparty\wtl\Include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;$(projectdir)/../../../3rdparty\publish\bkwin\;$(projectdir)/../../../3rdparty\publish\;$(projectdir)/../../../3rdparty\tinyxml\;$(projectdir)/../../../;$(projectdir)../../../3rdparty\wtl\Include\;../coeus/;$(projectdir)/../../../3rdparty;$(projectdir)/../../../3rdparty/poco/net/include;..\..\..\3rdparty\poco\Foundation\include;..\..\..\3rdparty\poco\Util\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4800;4996;4018;4244</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -138,10 +138,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\..\..\3rdparty\publish\wtlhelper\ksOleClientSite.cpp" />
+    <ClCompile Include="client_net.cpp" />
     <ClCompile Include="game_login_dlg.cpp" />
     <ClCompile Include="game_main_dlg.cpp" />
     <ClCompile Include="game_register_dlg.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="network_handler.cpp" />
+    <ClCompile Include="network_mgr.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -234,12 +237,15 @@
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwince.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h" />
     <ClInclude Include="bkwinres.h" />
+    <ClInclude Include="client_net.h" />
     <ClInclude Include="coeus.h" />
     <ClInclude Include="game_login_dlg.h" />
     <ClInclude Include="game_main_dlg.h" />
     <ClInclude Include="game_register_dlg.h" />
     <ClInclude Include="KTipEdit.h" />
     <ClInclude Include="ktipedit3.h" />
+    <ClInclude Include="network_handler.h" />
+    <ClInclude Include="network_mgr.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

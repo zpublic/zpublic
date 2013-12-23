@@ -33,6 +33,9 @@
     <Filter Include="include\wtlhelper">
       <UniqueIdentifier>{3bdc6049-dbc9-4cbd-b83c-f2eb7390106b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\net">
+      <UniqueIdentifier>{b198b11a-29c0-4b8c-9028-e1ca0bd9a02a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="coeus.rc">
@@ -77,6 +80,15 @@
     </ClCompile>
     <ClCompile Include="game_register_dlg.cpp">
       <Filter>source\dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="client_net.cpp">
+      <Filter>source\net</Filter>
+    </ClCompile>
+    <ClCompile Include="network_handler.cpp">
+      <Filter>source\net</Filter>
+    </ClCompile>
+    <ClCompile Include="network_mgr.cpp">
+      <Filter>source\net</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -358,6 +370,15 @@
     </ClInclude>
     <ClInclude Include="game_register_dlg.h">
       <Filter>source\dlg</Filter>
+    </ClInclude>
+    <ClInclude Include="client_net.h">
+      <Filter>source\net</Filter>
+    </ClInclude>
+    <ClInclude Include="network_handler.h">
+      <Filter>source\net</Filter>
+    </ClInclude>
+    <ClInclude Include="network_mgr.h">
+      <Filter>source\net</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
