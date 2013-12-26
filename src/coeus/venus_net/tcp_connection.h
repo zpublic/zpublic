@@ -8,6 +8,7 @@
 #include "Poco/Net/SocketReactor.h"
 #include "network_message.h"
 #include "message_queue.h"
+#include "message_block_packetization.h"
 
 class TcpConnection : public Poco::Net::TCPServerConnection
 {
@@ -32,14 +33,11 @@ private:
 
     bool onReadable();
     void onShutdown(const ShutdownReason& reason);
-    void addPending(const byte* buff, size_t len);
-    bool checkMessageLen(size_t len);
 
 private:
     byte* _buffer;
-    BasicStreamPtr _pendingStream;      //存放接收到的数据
-    BasicStreamPtr _packetStreamPtr;    //存放一个完整的数据包
     Poco::Net::StreamSocket& _socket;
+    MessageBlockPacketization _blockPacketization;
     MessageQueue& _messageQueue;
     mutable Poco::FastMutex _mutex;
 };

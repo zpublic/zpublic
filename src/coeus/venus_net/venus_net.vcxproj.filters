@@ -69,6 +69,15 @@
     <ClInclude Include="network_message.h">
       <Filter>network</Filter>
     </ClInclude>
+    <ClInclude Include="message_dispatcher.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="tcp_client.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="message_block_packetization.h">
+      <Filter>network</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="service_application.cpp">
@@ -91,6 +100,12 @@
     </ClCompile>
     <ClCompile Include="message_stream.cpp">
       <Filter>memory\stream</Filter>
+    </ClCompile>
+    <ClCompile Include="message_block_packetization.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="tcp_client.cpp">
+      <Filter>network</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

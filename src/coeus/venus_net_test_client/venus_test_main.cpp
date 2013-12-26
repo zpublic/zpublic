@@ -50,7 +50,7 @@ int main(int argc, char** argv)
     try
     {
         std::cout << "starting.." << std::endl;
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 100; i++)
         {
             clientConnector.connect(serverAddress);
             char buffer[1024] = {0};
@@ -67,7 +67,7 @@ int main(int argc, char** argv)
             streamPtr->rewriteSize(streamPtr->b.size(), streamPtr->b.begin());
 
             clientConnector.sendBytes(streamPtr->b.begin(), streamPtr->b.size(), 0);
-            //clientConnector.close();
+            clientConnector.close();
         }
         std::cout << "finished." << std::endl;
     }
