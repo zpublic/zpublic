@@ -180,7 +180,7 @@
     <ClInclude Include="stream_reader.h" />
     <ClInclude Include="stream_writer.h" />
     <ClInclude Include="tcp_client.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="tcp_connection.h" />
   </ItemGroup>
@@ -193,7 +193,7 @@
     <ClCompile Include="stream_reader.cpp" />
     <ClCompile Include="stream_writer.cpp" />
     <ClCompile Include="tcp_client.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="tcp_connection.cpp" />
   </ItemGroup>

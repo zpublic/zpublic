@@ -84,6 +84,8 @@ public:
 
     std::string formatLogString(const char* format, ...)
     {
+        Poco::ScopedLock<Poco::FastMutex> lock(_mutex);
+
         va_list args; 
         va_start(args, format);
         char buff[1024] = {0};
@@ -91,6 +93,12 @@ public:
         va_end(args);
 
         return buff;
+    }
+
+    std::string filename(const std::string& file)
+    {
+        Poco::ScopedLock<Poco::FastMutex> lock(_mutex);
+        return std::move(Poco::Path(file).getFileName());
     }
 
 private:
@@ -107,7 +115,7 @@ private:
 #define __FORMAT__(fmt, ...)\
     Logger::getInstance().formatLogString(fmt, __VA_ARGS__)
 
-#define __FILE_NAME__ Poco::Path(__FILE__).getFileName().c_str()
+#define __FILE_NAME__ Logger::getInstance().filename(__FILE__)
 
 #ifndef VENUS_DISABLE_LOGGER
 #define fatal_log(fmt, ...) __APP_LOGGER__.fatal(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)

@@ -9,7 +9,7 @@ TcpConnection::TcpConnection(const Poco::Net::StreamSocket& socket, MessageQueue
     : Poco::Net::TCPServerConnection(socket),
     _socket(const_cast<Poco::Net::StreamSocket&>(socket)),
     _buffer(new byte[MAX_RECV_LEN]),
-    _blockPacketization(messageQueue),
+    _blockPacketization(std::bind(&TcpConnection::onMessage, this, std::placeholders::_1)),
     _messageQueue(messageQueue)
 {
     _socket.setBlocking(false);
@@ -27,11 +27,6 @@ void TcpConnection::run()
 {
     try
     {
-        //Poco::Net::SocketAddress address = _socket.peerAddress();
-        //std::string peer(_socket.peerAddress().toString().data());
-
-        //char hostname[48] = {0};
-        //memcpy(hostname, _socket.peerAddress().toString().c_str(), strlen(_socket.peerAddress().toString().c_str()));
         debug_log("connection established.");
         sendMessage(10001, (const byte*)"hello", 5);
         for (;;)
@@ -120,10 +115,18 @@ void TcpConnection::onShutdown(const ShutdownReason& reason)
         }
     case ShutdownReason::SR_EXCEPTION:
         {
-            debug_log("connection exception.");
+            debug_log("connection exception, maybe reset from peer.");
             break;
         }
     default:
         break;
     }
+}
+
+void TcpConnection::onMessage(const BasicStreamPtr& packet)
+{
+    //构造网络消息包给应用层
+    // ...
+    Poco::Notification::Ptr notification(new MessageNotification(packet));
+    _messageQueue.enqueueNotification(notification);
 }

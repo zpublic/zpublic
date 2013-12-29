@@ -3,12 +3,11 @@
 #include "logger.h"
 #include "message_notification.h"
 
-MessageBlockPacketization::MessageBlockPacketization(MessageQueue& messageQueue)
-    : _messageQueue(messageQueue), _pendingStream(new BasicStream())
+MessageBlockPacketization::MessageBlockPacketization(const std::function<void (const BasicStreamPtr&)>& callback)
+    : _pendingStream(new BasicStream())
 {
-
+    _messageCallback = callback;
 }
-
 MessageBlockPacketization::~MessageBlockPacketization()
 {
 
@@ -48,7 +47,7 @@ bool MessageBlockPacketization::appendBlock(const byte* buffer, size_t bytes_tra
                 {
                     //添加Pending,并返回
                     addPending((const byte*)(buffer + readIdx), leftLen);
-                    return true;
+                    return true;;
                 }
 
                 //如果已足4字节，先把4字节剩下的部分追加到PendingStream中
@@ -130,10 +129,8 @@ bool MessageBlockPacketization::appendBlock(const byte* buffer, size_t bytes_tra
         {
         }
 
-        //构造网络消息包给应用层
-        // ...
-        Poco::Notification::Ptr notification(new MessageNotification(_packetStreamPtr));
-        _messageQueue.enqueueNotification(notification);
+        //反馈处理结果
+        onMessage(_packetStreamPtr);
 
         readIdx += needReadLen;
     }
@@ -163,3 +160,7 @@ bool MessageBlockPacketization::checkMessageLen(size_t len)
     return true;
 }
 
+void MessageBlockPacketization::onMessage(const BasicStreamPtr& stream)
+{
+    _messageCallback(stream);
+}

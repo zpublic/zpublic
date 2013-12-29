@@ -4,6 +4,7 @@
 #include "venus_net/basic_stream.h"
 #include "venus_net/stream_writer.h"
 #include "venus_net/stream_reader.h"
+#include "venus_net/tcp_client.h"
 
 struct CSTestPacketReq : public NetworkMessage
 {
@@ -42,18 +43,20 @@ public:
     virtual void run() = 0;
 };
 
+
 int main(int argc, char** argv)
 {
     Poco::Net::SocketAddress serverAddress("127.0.0.1:36911");
-    Poco::Net::StreamSocket clientConnector;
+    //Poco::Net::StreamSocket clientConnector;
+    TcpClient tcpClient;
 
     try
     {
         std::cout << "starting.." << std::endl;
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 1; i++)
         {
-            clientConnector.connect(serverAddress);
-            char buffer[1024] = {0};
+            tcpClient.connect(serverAddress);
+            /*char buffer[1024] = {0};
             int bytes_receive = clientConnector.receiveBytes(buffer, 1024, 0);
             std::cout << " bytes_receive = " << bytes_receive << std::endl;
 
@@ -67,7 +70,7 @@ int main(int argc, char** argv)
             streamPtr->rewriteSize(streamPtr->b.size(), streamPtr->b.begin());
 
             clientConnector.sendBytes(streamPtr->b.begin(), streamPtr->b.size(), 0);
-            clientConnector.close();
+            clientConnector.close();*/
         }
         std::cout << "finished." << std::endl;
     }
