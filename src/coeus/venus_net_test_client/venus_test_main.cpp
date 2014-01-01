@@ -56,6 +56,8 @@ int main(int argc, char** argv)
         for (int i = 0; i < 1; i++)
         {
             tcpClient.connect(serverAddress);
+            tcpClient.sendMessage(10001, (const byte*)"hello", 5);
+            //tcpClient.close();
             /*char buffer[1024] = {0};
             int bytes_receive = clientConnector.receiveBytes(buffer, 1024, 0);
             std::cout << " bytes_receive = " << bytes_receive << std::endl;

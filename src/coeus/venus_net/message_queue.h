@@ -4,7 +4,6 @@
 
 class MessageQueue : public Poco::NotificationQueue
 {
-
 };
 
 #endif // __MESSAGE_QUEUE_H__

@@ -78,6 +78,9 @@
     <ClInclude Include="message_block_packetization.h">
       <Filter>network</Filter>
     </ClInclude>
+    <ClInclude Include="opcode_registry.h">
+      <Filter>network</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="service_application.cpp">
@@ -105,6 +108,9 @@
       <Filter>network</Filter>
     </ClCompile>
     <ClCompile Include="tcp_client.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="opcode_registry.cpp">
       <Filter>network</Filter>
     </ClCompile>
   </ItemGroup>
