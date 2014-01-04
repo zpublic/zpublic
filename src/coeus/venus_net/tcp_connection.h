@@ -33,7 +33,7 @@ private:
 
     bool onReadable();
     void onShutdown(const ShutdownReason& reason);
-    void onMessage(const BasicStreamPtr& packet);
+    void finishedPacketCallback(BasicStreamPtr& packet);
 
 private:
     byte* _buffer;

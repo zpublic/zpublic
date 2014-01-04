@@ -4,12 +4,40 @@
 #include "service_application.h"
 #include "logger.h"
 #include "message_notification.h"
+#include "stream_writer.h"
+#include "stream_reader.h"
+
+
+struct CSTestPacketRsp : public NetworkMessage
+{
+    uint32 uint_value;
+    std::string string_value;
+
+    int byteSize()
+    {
+        return sizeof(uint_value) + (string_value.length() + 2);
+    }
+
+    void encode(byte* buffer, size_t size)
+    {
+        StreamWriter w((char*)buffer, size);
+        w << uint_value;
+        w << string_value;
+    }
+
+    void decode(const byte* buffer, size_t size)
+    {
+        StreamReader r((const char*)buffer, size);
+        r >> uint_value;
+        r >> string_value;
+    }
+};
 
 TcpConnection::TcpConnection(const Poco::Net::StreamSocket& socket, MessageQueue& messageQueue)
     : Poco::Net::TCPServerConnection(socket),
     _socket(const_cast<Poco::Net::StreamSocket&>(socket)),
     _buffer(new byte[MAX_RECV_LEN]),
-    _blockPacketization(std::bind(&TcpConnection::onMessage, this, std::placeholders::_1)),
+    _blockPacketization(std::bind(&TcpConnection::finishedPacketCallback, this, std::placeholders::_1)),
     _messageQueue(messageQueue)
 {
     _socket.setBlocking(false);
@@ -28,7 +56,10 @@ void TcpConnection::run()
     try
     {
         debug_log("connection established.");
-        sendMessage(10001, (const byte*)"hello", 5);
+        CSTestPacketRsp requestMessage;
+        requestMessage.uint_value = 20;
+        requestMessage.string_value = "i am server";
+        sendMessage(22222, requestMessage);
         for (;;)
         {
 			bool readable = _socket.poll(Poco::Timespan(30, 0), Poco::Net::Socket::SelectMode::SELECT_READ);
@@ -83,8 +114,8 @@ void TcpConnection::sendMessage(uint16 opcode, NetworkMessage& message)
     // ...
     // TODO: 包压缩和加密标志预留
 
-    streamPtr->resize(NetworkMessage::kHeaderLength + message.byteSize());
-    message.encode((byte*)streamPtr->b.begin() + NetworkMessage::kHeaderLength, message.byteSize());
+    streamPtr->resize(NetworkParam::kHeaderLength + message.byteSize());
+    message.encode((byte*)streamPtr->b.begin() + NetworkParam::kHeaderLength, message.byteSize());
     streamPtr->rewriteSize(streamPtr->b.size(), streamPtr->b.begin());
 
     sendMessage(streamPtr);
@@ -123,10 +154,16 @@ void TcpConnection::onShutdown(const ShutdownReason& reason)
     }
 }
 
-void TcpConnection::onMessage(const BasicStreamPtr& packet)
+void TcpConnection::finishedPacketCallback(BasicStreamPtr& packet)
 {
+    size_t size = 0;
+    uint16 opcode = 0;
+
+    packet->read(size);
+    packet->read(opcode);
+
     //构造网络消息包给应用层
     // ...
-    Poco::Notification::Ptr notification(new MessageNotification(packet));
-    _messageQueue.enqueueNotification(notification);
+    //Poco::Notification::Ptr notification(new MessageNotification(packetPtr));
+    //_messageQueue.enqueueNotification(notification);
 }

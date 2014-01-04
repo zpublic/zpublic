@@ -31,6 +31,32 @@ struct CSTestPacketReq : public NetworkMessage
     }
 };
 
+struct CSTestPacketRsp : public NetworkMessage
+{
+    uint32 uint_value;
+    std::string string_value;
+
+    int byteSize()
+    {
+        return sizeof(uint_value) + (string_value.length() + 2);
+    }
+
+    void encode(byte* buffer, size_t size)
+    {
+        StreamWriter w((char*)buffer, size);
+        w << uint_value;
+        w << string_value;
+    }
+
+    void decode(const byte* buffer, size_t size)
+    {
+        StreamReader r((const char*)buffer, size);
+        r >> uint_value;
+        r >> string_value;
+    }
+};
+
+
 enum TestCaseType
 {
     TC_CONCURRENCY_TESTING,         //短连接并发测试（建立连接随后断开）
@@ -43,12 +69,34 @@ public:
     virtual void run() = 0;
 };
 
+class GameMessageHandler : public MessageHandler
+{
+public:
+    virtual void onConnected()
+    {
+        printf("client has been connected to server.");
+    }
+
+    virtual void onMessage(uint16 opcode, const NetworkPacket::Ptr& message)
+    {
+        printf("onMessage() : [opcode = %d]\n", opcode);
+        CSTestPacketRsp requestMessage;
+        requestMessage.decode((const byte*)&message->messageBody[0], message->messageBody.size());
+        printf("        [value = %d]\n", requestMessage.uint_value);
+        printf("        [string = %s]\n", requestMessage.string_value.c_str());
+    }
+
+    virtual void onShutdown()
+    {
+        printf("disconnected.");
+    }
+};
 
 int main(int argc, char** argv)
 {
     Poco::Net::SocketAddress serverAddress("127.0.0.1:36911");
-    //Poco::Net::StreamSocket clientConnector;
-    TcpClient tcpClient;
+    GameMessageHandler handler;
+    TcpClient tcpClient(handler);
 
     try
     {
@@ -56,23 +104,28 @@ int main(int argc, char** argv)
         for (int i = 0; i < 1; i++)
         {
             tcpClient.connect(serverAddress);
-            tcpClient.sendMessage(10001, (const byte*)"hello", 5);
+            
+            CSTestPacketReq requestMessage;
+            requestMessage.uint_value = 10;
+            requestMessage.string_value = "SB";
+            //tcpClient.sendMessage(10001, requestMessage);
+            //tcpClient.close();
             //tcpClient.close();
             /*char buffer[1024] = {0};
             int bytes_receive = clientConnector.receiveBytes(buffer, 1024, 0);
-            std::cout << " bytes_receive = " << bytes_receive << std::endl;
+            std::cout << " bytes_receive = " << bytes_receive << std::endl*/
 
             //构造数据包
-            CSTestPacketReq requestMessage;
-            BasicStreamPtr streamPtr(new BasicStream());
-            streamPtr->write((int32)0);
-            streamPtr->write(10001);
-            streamPtr->resize(NetworkMessage::kHeaderLength + 9);
-            requestMessage.encode((byte*)streamPtr->b.begin() + NetworkMessage::kHeaderLength, requestMessage.byteSize());
-            streamPtr->rewriteSize(streamPtr->b.size(), streamPtr->b.begin());
-
-            clientConnector.sendBytes(streamPtr->b.begin(), streamPtr->b.size(), 0);
-            clientConnector.close();*/
+//             CSTestPacketReq requestMessage;
+//             BasicStreamPtr streamPtr(new BasicStream());
+//             streamPtr->write((int32)0);
+//             streamPtr->write(10001);
+//             streamPtr->resize(NetworkMessage::kHeaderLength + 9);
+//             requestMessage.encode((byte*)streamPtr->b.begin() + NetworkMessage::kHeaderLength, requestMessage.byteSize());
+//             streamPtr->rewriteSize(streamPtr->b.size(), streamPtr->b.begin());
+// 
+//             clientConnector.sendBytes(streamPtr->b.begin(), streamPtr->b.size(), 0);
+//             clientConnector.close();
         }
         std::cout << "finished." << std::endl;
     }

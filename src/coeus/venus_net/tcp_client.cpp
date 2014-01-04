@@ -1,35 +1,35 @@
 #include "tcp_client.h"
+#include "message_notification.h"
 
-TcpClient::TcpClient()
-    : _blockPacketization(std::bind(&TcpClient::onMessage, this, std::placeholders::_1)),
-    _buffer(new byte[MAX_RECV_LEN])
+TcpClient::TcpClient(MessageHandler& handler)
+    : _blockPacketization(std::bind(&TcpClient::finishedPacketCallback, this, std::placeholders::_1)),
+    _buffer(new byte[MAX_RECV_LEN]), _handler(handler), _socket(nullptr), _reactor(nullptr), _reactorThread(nullptr)
 {
-    _reactor.addEventHandler(_socket, Poco::NObserver<TcpClient, Poco::Net::WritableNotification>(*this, &TcpClient::onWritable));
-    _reactor.addEventHandler(_socket, Poco::NObserver<TcpClient, Poco::Net::ReadableNotification>(*this, &TcpClient::onReadable));
-    _reactor.addEventHandler(_socket, Poco::NObserver<TcpClient, Poco::Net::ShutdownNotification>(*this, &TcpClient::onShutdown));
+
 }
 
 TcpClient::~TcpClient()
 {
-     _reactor.removeEventHandler(_socket, Poco::NObserver<TcpClient, Poco::Net::WritableNotification>(*this, &TcpClient::onWritable));
-     _reactor.removeEventHandler(_socket, Poco::NObserver<TcpClient, Poco::Net::ReadableNotification>(*this, &TcpClient::onReadable));
-     _reactor.removeEventHandler(_socket, Poco::NObserver<TcpClient, Poco::Net::ShutdownNotification>(*this, &TcpClient::onShutdown));
-     _reactor.stop();
+    resetNetwork();
 }
 
 bool TcpClient::connect(Poco::Net::SocketAddress& address, const Poco::Timespan& timeout/* = Poco::Timespan(50000)*/)
 {
     try
     {
-        if (_reconnectFlag == false)
-        {
-            Poco::Thread thread;
-            thread.start(_reactor);
-        }
+        resetNetwork();
 
-        _socket.close();
-        _socket.connectNB(address);
-        _reconnectFlag = true;
+        _socket = new Poco::Net::StreamSocket;
+        _reactor = new Poco::Net::SocketReactor;
+
+        _reactor->addEventHandler(*_socket, Poco::NObserver<TcpClient, Poco::Net::WritableNotification>(*this, &TcpClient::onWritable));
+        _reactor->addEventHandler(*_socket, Poco::NObserver<TcpClient, Poco::Net::ReadableNotification>(*this, &TcpClient::onReadable));
+        _reactor->addEventHandler(*_socket, Poco::NObserver<TcpClient, Poco::Net::ShutdownNotification>(*this, &TcpClient::onShutdown));
+
+        _reactorThread = new Poco::Thread("default_reactor");
+        _reactorThread->start(*_reactor);
+
+        _socket->connect(address);
     }
     catch (Poco::TimeoutException& e)
     {
@@ -39,28 +39,26 @@ bool TcpClient::connect(Poco::Net::SocketAddress& address, const Poco::Timespan&
     catch (Poco::Exception& e)
     {
         std::cout << e.displayText() << std::endl;
-        Poco::AutoPtr<Poco::Net::ShutdownNotification> notification(new Poco::Net::ShutdownNotification(&_reactor));
-        onShutdown(notification);
         return false;
     }
 
     return true;
 }
 
+
 void TcpClient::close()
 {
-    _socket.shutdown();
-    _socket.close();
+    resetNetwork();
 }
 
 void TcpClient::sendMessage(const BasicStreamPtr& stream)
 {
-    bool writeable = _socket.poll(0, Poco::Net::Socket::SelectMode::SELECT_WRITE);
-    bool error = _socket.poll(0, Poco::Net::Socket::SelectMode::SELECT_ERROR);
+    bool writeable = _socket->poll(0, Poco::Net::Socket::SelectMode::SELECT_WRITE);
+    bool error = _socket->poll(0, Poco::Net::Socket::SelectMode::SELECT_ERROR);
 
     if (writeable && !error)
     {
-        _socket.sendBytes((const void*)stream->b.begin(), stream->b.size());
+        _socket->sendBytes((const void*)stream->b.begin(), stream->b.size());
     }
 }
 
@@ -87,8 +85,8 @@ void TcpClient::sendMessage(uint16 opcode, NetworkMessage& message)
     // ...
     // TODO: 包压缩和加密标志预留
 
-    streamPtr->resize(NetworkMessage::kHeaderLength + message.byteSize());
-    message.encode((byte*)streamPtr->b.begin() + NetworkMessage::kHeaderLength, message.byteSize());
+    streamPtr->resize(NetworkParam::kHeaderLength + message.byteSize());
+    message.encode((byte*)streamPtr->b.begin() + NetworkParam::kHeaderLength, message.byteSize());
     streamPtr->rewriteSize(streamPtr->b.size(), streamPtr->b.begin());
 
     sendMessage(streamPtr);
@@ -96,34 +94,63 @@ void TcpClient::sendMessage(uint16 opcode, NetworkMessage& message)
 
 void TcpClient::onWritable(const Poco::AutoPtr<Poco::Net::WritableNotification>& notification)
 {
-    std::cout << "onWritable()" << std::endl;
 }
 
 void TcpClient::onReadable(const Poco::AutoPtr<Poco::Net::ReadableNotification>& notification)
 {
-    int bytes_transferred = _socket.receiveBytes(_buffer, MAX_RECV_LEN, 0);
+    int bytes_transferred = _socket->receiveBytes(_buffer, MAX_RECV_LEN, 0);
     printf("received %d bytes.", bytes_transferred);
     if (bytes_transferred == 0)
     {
-        _socket.close();
+        _socket->close();
     }
 
     if (_blockPacketization.appendBlock(_buffer, bytes_transferred) == false)
     {
-        _socket.close();
+        _socket->close();
     }
 }
 
 void TcpClient::onShutdown(const Poco::AutoPtr<Poco::Net::ShutdownNotification>& notification)
 {
-    std::cout << "onShutdown()" << std::endl;
-    delete this;
+    _handler.onShutdown();
 }
 
-void TcpClient::onMessage(const BasicStreamPtr& packet)
+void TcpClient::onTimeout(const Poco::AutoPtr<Poco::Net::TimeoutNotification>& notification)
+{
+
+}
+
+void TcpClient::finishedPacketCallback(BasicStreamPtr& packet)
 {
     //构造网络消息包给应用层
-    // ...
-    //Poco::Notification::Ptr notification(new MessageNotification(packet));
-    //_messageQueue.enqueueNotification(notification);
+    uint16 opcode = 0;
+    packet->read(opcode);
+
+    NetworkPacket::Ptr packetPtr(new NetworkPacket);
+    packetPtr->opcode = opcode;
+    packetPtr->messageBody = NetworkPacket::PDU(packet->b.begin() + NetworkParam::kHeaderLength, packet->b.end());
+    _handler.onMessage(opcode, packetPtr);
+}
+
+void TcpClient::resetNetwork()
+{
+    if (_reactor != nullptr)
+    {
+        _reactor->stop();
+    }
+
+    if (_reactorThread != nullptr && _reactorThread->isRunning())
+    {
+        _reactorThread->join();
+    }
+
+    if (_socket != nullptr)
+    {
+        _socket->close();
+    }
+
+    SAFE_DELETE(_socket);
+    SAFE_DELETE(_reactor);
+    SAFE_DELETE(_reactorThread);
 }

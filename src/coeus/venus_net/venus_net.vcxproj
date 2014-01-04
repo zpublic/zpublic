@@ -176,7 +176,6 @@
     <ClInclude Include="network_message.h" />
     <ClInclude Include="opcode_registry.h" />
     <ClInclude Include="service_application.h" />
-    <ClInclude Include="server_handler.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="stream_reader.h" />
     <ClInclude Include="stream_writer.h" />
