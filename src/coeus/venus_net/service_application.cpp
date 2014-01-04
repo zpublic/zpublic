@@ -9,6 +9,7 @@
 #include "Poco/Util/ServerApplication.h"
 #include "Poco/Util/OptionSet.h"
 #include "Poco/File.h"
+#include "Poco/NotificationQueue.h"
 #include "logger.h"
 
 ServiceApplication::ServiceApplication(const std::string& serviceName)
@@ -63,7 +64,7 @@ int ServiceApplication::main(const std::vector<std::string>& args)
     Poco::Net::TCPServerParams* serverParams = new Poco::Net::TCPServerParams();
     serverParams->setMaxQueued(64);         //连接队列最大数
     serverParams->setMaxThreads(1);         //最大IO线程数
-    serverParams->setThreadIdleTime(100);     //线程终止时最大等待时间
+    serverParams->setThreadIdleTime(100);   //线程终止时最大等待时间
 
     info_log(
         "\n"
@@ -78,11 +79,21 @@ int ServiceApplication::main(const std::vector<std::string>& args)
         _serviceName.c_str(), port, serverParams->getMaxThreads(), serverParams->getMaxQueued()
         );
 
-    Poco::Net::TCPServer server(new ConnectionFactory(), socket, serverParams);
-    server.start();
+    //创建消息队列处理线程
+    MessageNotificationQueueWorker queueWorker(_messageQueue);
+    Poco::ThreadPool::defaultPool().start(queueWorker);
 
+    //创建连接工厂
+    ConnectionFactory connectionFactory;
+    connectionFactory.setMessageQueue(_messageQueue);
+
+    //启动TCP服务
+    Poco::Net::TCPServer server(&connectionFactory, socket, serverParams);
+    server.start();
     info_log("Server started.");
     Poco::Util::ServerApplication::waitForTerminationRequest();
+
+    _messageQueue.wakeUpAll();
     server.stop();
 
     return Application::EXIT_OK;

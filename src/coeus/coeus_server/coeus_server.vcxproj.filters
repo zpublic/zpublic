@@ -60,5 +60,6 @@
     <ClInclude Include="game_define_role.h">
       <Filter>game_define</Filter>
     </ClInclude>
+    <ClInclude Include="game_service.h" />
   </ItemGroup>
 </Project>

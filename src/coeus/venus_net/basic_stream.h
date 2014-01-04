@@ -3,6 +3,7 @@
 
 #include "buffer.h"
 #include "common.h"
+#include "Poco/SharedPtr.h"
 /*
 template<typename charT> class BasicStringConverter;
 
@@ -167,6 +168,6 @@ private:
     const Container::size_type _messageSizeMax;
 };
 
-typedef std::auto_ptr<BasicStream> BasicStreamPtr;
+typedef Poco::AutoPtr<BasicStream> BasicStreamPtr;
 
 #endif

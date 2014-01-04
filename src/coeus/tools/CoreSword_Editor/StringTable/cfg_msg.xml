@@ -46,4 +46,14 @@
   <category CategoryName="公告" />
   <category CategoryName="称号" />
   <category CategoryName="VIP" />
+  <category CategoryName="test">
+    <msg MsgId="99991" MsgProperty="0" MsgName="CSTestPacketReq" MsgNote="" MsgRemark="" ErrorList="">
+      <param DataType="uint32" Purpose="variable" ParamName="uint_value" ParamNote="" />
+      <param DataType="string" Purpose="variable" ParamName="string_value" ParamNote="" />
+    </msg>
+    <msg MsgId="99992" MsgProperty="1" MsgName="SCTestPacketRsp" MsgNote="" MsgRemark="" ErrorList="">
+      <param DataType="uint32" Purpose="variable" ParamName="srv_uint_value" ParamNote="" />
+      <param DataType="string" Purpose="variable" ParamName="srv_string_value" ParamNote="" />
+    </msg>
+  </category>
 </MSG_CFG>

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "network_mgr.h"
-#include "../../circe/interface/circe_client_network/circe_client_network.h"
+#include "..\..\circe\interface\circe_client_network\circe_client_network.h"
 
 CNetworkMgr::CNetworkMgr()
     : m_pClient(NULL)
