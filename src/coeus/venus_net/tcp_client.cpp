@@ -30,6 +30,7 @@ bool TcpClient::connect(Poco::Net::SocketAddress& address, const Poco::Timespan&
         _reactorThread->start(*_reactor);
 
         _socket->connect(address);
+        _handler.onConnected();
     }
     catch (Poco::TimeoutException& e)
     {
