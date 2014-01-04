@@ -138,10 +138,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\..\..\3rdparty\publish\wtlhelper\ksOleClientSite.cpp" />
+    <ClCompile Include="unit_create_xmlfunction.cpp" />
     <ClCompile Include="client_net.cpp" />
     <ClCompile Include="game_login_dlg.cpp" />
     <ClCompile Include="game_main_dlg.cpp" />
     <ClCompile Include="game_register_dlg.cpp" />
+    <ClCompile Include="unit_function.cpp" />
+    <ClCompile Include="unit_tinyxml.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="network_handler.cpp" />
     <ClCompile Include="network_mgr.cpp" />
@@ -239,9 +242,14 @@
     <ClInclude Include="bkwinres.h" />
     <ClInclude Include="client_net.h" />
     <ClInclude Include="coeus.h" />
+    <ClInclude Include="game_item_def.h" />
+    <ClInclude Include="unit_create_xmlfunction.h" />
     <ClInclude Include="game_login_dlg.h" />
     <ClInclude Include="game_main_dlg.h" />
     <ClInclude Include="game_register_dlg.h" />
+    <ClInclude Include="unit_function.h" />
+    <ClInclude Include="unit_path_parser.h" />
+    <ClInclude Include="unit_tinyxml.h" />
     <ClInclude Include="KTipEdit.h" />
     <ClInclude Include="ktipedit3.h" />
     <ClInclude Include="network_handler.h" />

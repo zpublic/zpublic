@@ -149,4 +149,12 @@
   <class name="text_normal_gray" font="0200" crtext="CCCCCC"/>
   <class name="btn_metro_1" skin="btn_metro_1" font="0200" crtext="ffffff" crhover="ffffff" textmode="25" x-margin="5"/>
   <class name="btn_metro_2" skin="btn_metro_2" font="0200" crtext="000000" crhover="000000" textmode="25" x-margin="5"/>
+  <class name="btn_metro_3" skin="btn_metro_2" font="0000" crtext="000000" crhover="000000" textmode="25" x-margin="5"/>
+
+  <class name="list_text_softname_center_gdiplus" textmode="8025" gdiplus="1" gdipluscalctxt="1"/>
+  <class name="list_text_head_center_gdiplus" textmode="8025" gdiplus="1" gdipluscalctxt="1"/>
+  <class name="list_item_name" textmode="8024" font="0504" gdiplus="1" gdipluscalctxt="1"/>
+  <class name="list_item_name_de" textmode="8024" font="0000" gdiplus="1" gdipluscalctxt="1"/>
+  <class name="list_item" crbg="FFFFFF"/>
+  <class name="list_item_hover" crbg="DCDCFE"/>
 </style>
