@@ -28,5 +28,3 @@ DEFINE_XML(IDR_BK_REGISTER,                             105,                    
 DEFINE_PNG(IDP1,    1,      "./../../../res/coeus/btn_close.png")
 DEFINE_PNG(IDP2,    2,      "./../../../res/coeus/main_icon.png")
 DEFINE_PNG(IDP3,    3,      "./../../../res/coeus/small_icon.png")
-
-
