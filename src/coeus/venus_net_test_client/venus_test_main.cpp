@@ -74,7 +74,7 @@ class GameMessageHandler : public MessageHandler
 public:
     virtual void onConnected()
     {
-        printf("client has been connected to server.");
+        printf("client has been connected to server.\n");
     }
 
     virtual void onMessage(uint16 opcode, const NetworkPacket::Ptr& message)
@@ -96,37 +96,25 @@ int main(int argc, char** argv)
 {
     Poco::Net::SocketAddress serverAddress("127.0.0.1:36911");
     GameMessageHandler handler;
+
+
+    const int client_count = 100;
     TcpClient tcpClient(handler);
 
     try
     {
         std::cout << "starting.." << std::endl;
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 2; i++)
         {
             tcpClient.connect(serverAddress);
             
             CSTestPacketReq requestMessage;
             requestMessage.uint_value = 10;
             requestMessage.string_value = "SB";
-            //tcpClient.sendMessage(10001, requestMessage);
-            //tcpClient.close();
-            //tcpClient.close();
-            /*char buffer[1024] = {0};
-            int bytes_receive = clientConnector.receiveBytes(buffer, 1024, 0);
-            std::cout << " bytes_receive = " << bytes_receive << std::endl*/
-
-            //构造数据包
-//             CSTestPacketReq requestMessage;
-//             BasicStreamPtr streamPtr(new BasicStream());
-//             streamPtr->write((int32)0);
-//             streamPtr->write(10001);
-//             streamPtr->resize(NetworkMessage::kHeaderLength + 9);
-//             requestMessage.encode((byte*)streamPtr->b.begin() + NetworkMessage::kHeaderLength, requestMessage.byteSize());
-//             streamPtr->rewriteSize(streamPtr->b.size(), streamPtr->b.begin());
-// 
-//             clientConnector.sendBytes(streamPtr->b.begin(), streamPtr->b.size(), 0);
-//             clientConnector.close();
+            tcpClient.sendMessage(10001, requestMessage);
+            tcpClient.close();
         }
+
         std::cout << "finished." << std::endl;
     }
     catch (const Poco::Exception& e)

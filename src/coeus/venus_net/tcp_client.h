@@ -31,11 +31,11 @@ public:
 
     bool connect(Poco::Net::SocketAddress& address, const Poco::Timespan& timeout = Poco::Timespan(50000));
     void close();
-    void sendMessage(const BasicStreamPtr& stream);
     void sendMessage(int16 opcode, const byte* buff, size_t size);
     void sendMessage(uint16 opcode, NetworkMessage& message);
 
 private:
+    void sendMessage(const BasicStreamPtr& stream);
     void resetNetwork();
 
 private:

@@ -49,6 +49,7 @@ bool TcpClient::connect(Poco::Net::SocketAddress& address, const Poco::Timespan&
 
 void TcpClient::close()
 {
+    _socket->shutdown();
     resetNetwork();
 }
 

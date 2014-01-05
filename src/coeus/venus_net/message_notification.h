@@ -12,11 +12,9 @@ class MessageNotification : public Poco::Notification
 {
 public:
     typedef Poco::AutoPtr<MessageNotification> Ptr;
-    MessageNotification(uint16 opcode, NetworkPacket& packet)
-        : _networkPacket(new NetworkPacket())
+    MessageNotification(NetworkPacket::Ptr& packet)
+        : _networkPacket(packet)
     {
-        _networkPacket->opcode = opcode;
-        //_networkPacket->messageBody = stream;
     }
 
     ~MessageNotification()
@@ -50,6 +48,7 @@ public:
                 // TODO
                 // ...
 
+                debug_log("recieved packet, opcode = %d", networkPacket->opcode);
                 debug_log("notification message alert."); 
             }
 

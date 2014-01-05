@@ -20,7 +20,6 @@ public:
     void run();
 
 public:
-    void sendMessage(const BasicStreamPtr& packet);
 	void sendMessage(int16 opcode, const byte* buff, size_t size);
 	void sendMessage(uint16 opcode, NetworkMessage& message);
 
@@ -31,6 +30,7 @@ private:
         SR_EXCEPTION
     };
 
+    void sendMessage(const BasicStreamPtr& packet);
     bool onReadable();
     void onShutdown(const ShutdownReason& reason);
     void finishedPacketCallback(BasicStreamPtr& packet);

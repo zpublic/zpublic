@@ -156,14 +156,16 @@ void TcpConnection::onShutdown(const ShutdownReason& reason)
 
 void TcpConnection::finishedPacketCallback(BasicStreamPtr& packet)
 {
-    size_t size = 0;
+    //构造网络消息包给应用层
     uint16 opcode = 0;
-
-    packet->read(size);
     packet->read(opcode);
+
+    NetworkPacket::Ptr packetPtr(new NetworkPacket);
+    packetPtr->opcode = opcode;
+    packetPtr->messageBody = NetworkPacket::PDU(packet->b.begin() + NetworkParam::kHeaderLength, packet->b.end());
 
     //构造网络消息包给应用层
     // ...
-    //Poco::Notification::Ptr notification(new MessageNotification(packetPtr));
-    //_messageQueue.enqueueNotification(notification);
+    Poco::Notification::Ptr notification(new MessageNotification(packetPtr));
+    _messageQueue.enqueueNotification(notification);
 }
