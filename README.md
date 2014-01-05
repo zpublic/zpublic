@@ -32,5 +32,5 @@ zlui：界面尝试相关的代码
 2，代码整洁规范，文件内保持风格统一  
 3，尽可能少的依赖，KISS  
 
-zpublic（c++、boost、poco、gui等讨论）交流讨论QQ群：240978546  
+zpublic（c++11、boost、poco、gui等讨论）交流讨论QQ群：240978546  
 coeus（火热进行中的游戏）交流讨论群：37723482
