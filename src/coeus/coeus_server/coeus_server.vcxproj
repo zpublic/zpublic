@@ -164,6 +164,8 @@
     <ClCompile Include="bag_cell.cpp" />
     <ClCompile Include="bag_common.cpp" />
     <ClCompile Include="bag_manager.cpp" />
+    <ClCompile Include="game_opcode_registry.cpp" />
+    <ClCompile Include="game_service_application.cpp" />
     <ClCompile Include="role.cpp" />
     <ClCompile Include="role_manager.cpp" />
     <ClCompile Include="server_main.cpp" />
@@ -174,7 +176,9 @@
     <ClInclude Include="bag_manager.h" />
     <ClInclude Include="game_define_item.h" />
     <ClInclude Include="game_define_role.h" />
-    <ClInclude Include="game_service.h" />
+    <ClInclude Include="game_opcode_registry.h" />
+    <ClInclude Include="game_service_application.h" />
+    <ClInclude Include="game_session.h" />
     <ClInclude Include="role.h" />
     <ClInclude Include="role_manager.h" />
   </ItemGroup>

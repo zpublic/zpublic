@@ -17,6 +17,12 @@
     <ClCompile Include="role.cpp">
       <Filter>game_logic\role_system</Filter>
     </ClCompile>
+    <ClCompile Include="game_service_application.cpp">
+      <Filter>service</Filter>
+    </ClCompile>
+    <ClCompile Include="game_opcode_registry.cpp">
+      <Filter>service</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="game_logic">
@@ -36,6 +42,12 @@
     </Filter>
     <Filter Include="game_logic\room_system">
       <UniqueIdentifier>{9106343a-a862-43b4-b3ac-50c54634a946}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="service">
+      <UniqueIdentifier>{81ccd0c6-42e2-4fb3-8601-ed23e475f996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="session">
+      <UniqueIdentifier>{bdd8dd22-a26f-4bdf-9fdf-6e9c002fc626}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +72,14 @@
     <ClInclude Include="game_define_role.h">
       <Filter>game_define</Filter>
     </ClInclude>
-    <ClInclude Include="game_service.h" />
+    <ClInclude Include="game_service_application.h">
+      <Filter>service</Filter>
+    </ClInclude>
+    <ClInclude Include="game_opcode_registry.h">
+      <Filter>service</Filter>
+    </ClInclude>
+    <ClInclude Include="game_session.h">
+      <Filter>session</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

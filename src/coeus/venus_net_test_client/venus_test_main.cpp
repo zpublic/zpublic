@@ -104,7 +104,7 @@ int main(int argc, char** argv)
     try
     {
         std::cout << "starting.." << std::endl;
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 100; i++)
         {
             tcpClient.connect(serverAddress);
             

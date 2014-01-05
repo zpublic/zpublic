@@ -6,6 +6,9 @@
 #include "Poco/Util/OptionSet.h"
 #include "connection_factory.h"
 
+namespace Venus
+{
+
 class ServiceApplication
 	: public Poco::Util::ServerApplication
 {
@@ -15,17 +18,19 @@ public:
 
 public:
 	int main(const std::vector<std::string>& args);
+    virtual void defineOptions(Poco::Util::OptionSet& options);
+    virtual void handleOption(const std::string& name, const std::string& value);
 
-protected:
+private:
     void initialize(Poco::Util::Application& self);
     void uninitialize();
-    void defineOptions(Poco::Util::OptionSet& options);
-    void handleOption(const std::string& name, const std::string& value);
 
 private:
 	Poco::Net::SocketReactor _reactor;
     MessageQueue _messageQueue;
     std::string _serviceName;
 };
+
+}
 
 #endif // !__SERVICE_APPLICATION_H__
