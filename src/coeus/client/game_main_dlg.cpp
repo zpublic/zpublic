@@ -11,13 +11,17 @@
 #include "bkwinres.h"
 #include "unit_create_xmlfunction.h"
 #include "unit_function.h"
+#include "resource.h"
 
 #define LIST_ITEM_HEIGHT 56
+#define TRAY_TIP                            _T("couse")
+#define WM_TRAYMESSAGE                      (WM_USER + 2002)
 
 LRESULT GameMainDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
 {
     LoadIcon(NULL, MAKEINTRESOURCE(IDI_MIN_MAIN));
 
+    _CreateTray(_Module.GetModuleInstance(), IDR_MAINFRAME);
     ListItemData data;
     data.csItemName = L"黑色切割者";
     data.csDescribeName = L"黑色切割者造成减益效果最多叠加五层";
@@ -50,6 +54,7 @@ void GameMainDlg::OnTimer(UINT_PTR nIDEvent)
 
 void GameMainDlg::OnBtnClose()
 {
+    _DeleteTray(_Module.GetModuleInstance(), IDR_MAINFRAME);
     EndDialog(IDOK);
 }
 
@@ -172,4 +177,33 @@ void GameMainDlg::OnListItemMouseHover(int nListItem)
 void GameMainDlg::OnListItemMouseLeave(int nListItem)
 {
     SetListItemAttribute(IDC_LIST_CTRL, nListItem, "class", "list_item");
+}
+
+BOOL GameMainDlg::_CreateTray(HINSTANCE hInst, UINT nIConId)
+{
+    return _SetTray(hInst, nIConId, NIM_ADD);
+}
+
+BOOL GameMainDlg::_ResetTray(HINSTANCE hInst, UINT nIConId)
+{
+    return _SetTray(hInst, nIConId, NIM_MODIFY);
+}
+
+BOOL GameMainDlg::_DeleteTray(HINSTANCE hInst, UINT nIConId)
+{
+    return _SetTray(hInst, nIConId, NIM_DELETE);
+}
+
+BOOL GameMainDlg::_SetTray(HINSTANCE hInst, UINT nIConId, ULONG ulType)
+{
+    UINT nTipLen = lstrlen(TRAY_TIP) + sizeof(TCHAR);
+    NOTIFYICONDATA NotifyICon;
+    NotifyICon.cbSize = sizeof(NOTIFYICONDATA);
+    NotifyICon.hWnd = m_hWnd;
+    NotifyICon.uID = IDR_MAINFRAME;
+    NotifyICon.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
+    NotifyICon.uCallbackMessage = WM_TRAYMESSAGE;
+    NotifyICon.hIcon = ::LoadIcon(hInst, MAKEINTRESOURCE(nIConId));
+    _tcsncpy_s(NotifyICon.szTip, nTipLen, TRAY_TIP, nTipLen - 1);
+    return ::Shell_NotifyIcon(ulType, &NotifyICon);
 }
