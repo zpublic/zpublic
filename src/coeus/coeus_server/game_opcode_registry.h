@@ -4,10 +4,8 @@
 #include "venus_net/opcode_registry.h"
 #include "game_session.h"
 
-class GameOpcodeRegistry
-    : public Venus::OpcodeRegistry<GameSession>
-{
-    void initialize();
-};
+OPCODE_REGISTER_BEGIN(GameOpcodeRegistry, GameSession)
+    REGISTER_HANDLER(10001, loginHandler);
+OPCODE_REGISTER_END()
 
 #endif

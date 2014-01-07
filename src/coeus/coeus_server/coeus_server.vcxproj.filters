@@ -23,6 +23,9 @@
     <ClCompile Include="game_opcode_registry.cpp">
       <Filter>service</Filter>
     </ClCompile>
+    <ClCompile Include="game_session.cpp">
+      <Filter>session</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="game_logic">
