@@ -21,7 +21,7 @@ zlui：界面尝试相关的代码
 1，非成员  
 	fork主干 -> 在自己的分支上修改 -> 提交pull request  
 2，新人开发  
-	push到自己的branch，待核心开发审核后合并到master  
+	push到自己的branch，提交pull request，待核心开发审核后合并到master  
 3，核心开发  
 	一般直接提交到master  
 请自行学习git！
