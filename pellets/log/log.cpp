@@ -2,7 +2,7 @@
 
 #if defined(_WIN32)
 #define  SPRINTF( buffer, sizeOfbuffer, fmt, ... )\
-    sprintf_s( buffer, sizeOfbuffer, fmt, ##__VA_ARGS__ )
+	sprintf_s( buffer, sizeOfbuffer, fmt, ##__VA_ARGS__ )
 #else
 #define SPRINTF( buffer, sizeOfbuffer, fmt, ... )\
 	snprintf( buffer, sizeOfbuffer, fmt, ##__VA_ARGS__ )
@@ -16,16 +16,31 @@ Log::Log()
 
 void Log::init( const std::string& log_name )
 {
-	flag = true;
+	time_t t;
+	struct tm local_time;
+	t = time( NULL );
+#if defined(_WIN32)
+	localtime_s( &local_time, &t );
+#else
+	localtime_r( &t, &local_time );
+#endif
 
-	_log_file.open( log_name.c_str(), std::ios::app );
+	_pool_mutex.lock();
+	char *buff = _pool.acquire();
+	strftime( buff, 1024, "%Y-%m-%d", &local_time );
+	_log_file_time = std::string( buff ) ;
+	_pool.release( buff );
+	_pool_mutex.unlock();
+	_log_file_name = _log_file_time + log_name;
+	_log_file.open( _log_file_name.c_str(), std::ios::app );
+
+	_flag = true;
 	_thread_ptr = std::shared_ptr<std::thread>( new std::thread( &Log::output_log, this ) );
 }
 
 Log::~Log()
 {
-	//最后一次唤醒线程,然后等待IO线程退出
-	flag = false;
+	_flag = false;
 	_cv.notify_one();
 	_thread_ptr->join();
 
@@ -39,7 +54,7 @@ char* Log::format_log( char* fmt, ... )
 	va_start( args, fmt );
 
 	_pool_mutex.lock();
-	char* buff = static_cast<char *>( _pool.acquire() );
+	char* buff = _pool.acquire();
 	_pool_mutex.unlock();
 
 #if defined(_WIN32)
@@ -50,6 +65,39 @@ char* Log::format_log( char* fmt, ... )
 	va_end( args );
 
 	return buff;
+}
+
+char* Log::format_log( wchar_t* fmt, ... )
+{
+
+//	char *test = setlocale(LC_ALL,"");
+	va_list args;
+	va_start( args, fmt );
+
+	_pool_mutex.lock();
+	wchar_t* buff =  _pool.wcacquire();
+	char *buffer =  _pool.acquire();
+	_pool_mutex.unlock();
+//	_vswprintf_s_l( buff, 1024, fmt, LC_ALL, args );
+#if defined(_WIN32)
+	vswprintf_s( buff, 1024, fmt, args );
+#else
+	vswprintf( buff, 1024, fmt, args );
+#endif
+	va_end( args );
+
+	//wchar_t to char
+#if defined(_WIN32)
+	wcstombs_s( NULL, buffer, ( wcslen( buff ) + 1 ), buff,  _TRUNCATE );
+#else
+//	setlocale( LC_CTYPE, "zh_CN.utf8");
+	wcstombs( buffer, buff, 1024 );
+#endif
+	_pool_mutex.lock();
+	_pool.wcrelease( buff );
+	_pool_mutex.unlock();
+
+	return buffer;
 }
 
 std::string Log::get_file_name( const char* path_file_name )
@@ -78,9 +126,10 @@ void Log::write( char* msg, Priority prio, const char* file, int line )
 	localtime_r( &t, &local_time );
 #endif
 	_pool_mutex.lock();
-	char *buff = static_cast<char *>( _pool.acquire() );
-	char *log_message = static_cast<char *>( _pool.acquire() );
+	char *buff = _pool.acquire();
+	char *log_message = _pool.acquire();
 	_pool_mutex.unlock();
+
 	strftime( buff, 1024, "%Y-%m-%d %H:%M:%S", &local_time );
 
 	switch( prio )
@@ -144,13 +193,13 @@ void Log::write( char* msg, Priority prio, const char* file, int line )
 
 void Log::output_log()
 {
-	std::unique_lock<std::mutex> u_lock(_mutex);
+	std::unique_lock<std::mutex> u_lock( _mutex );
 
 	while( true )
 	{
-		if(flag)
+		if( _flag )
 		{
-			_cv.wait(u_lock);
+			_cv.wait( u_lock );
 			read_log();
 		}
 		else
@@ -158,6 +207,20 @@ void Log::output_log()
 			break;
 		}
 	}
+}
+
+
+void  Log::write_to_file( char *msg )
+{
+	_log_file_time = std::string( msg, 2, _log_file_time.size() );
+	if( _log_file_time.compare( 0, _log_file_time.size(), _log_file_name, 0, _log_file_time.size() ) != 0 )
+	{
+		_log_file_name.replace( 0, _log_file_time.size(), _log_file_time );
+		_log_file.close();
+		_log_file.open( _log_file_name.c_str(), std::ios::app );
+	}
+
+	_log_file<<msg<<std::endl;
 }
 
 void Log::read_log()
@@ -168,10 +231,9 @@ void Log::read_log()
 		buffer = _work_queue.front();
 		Log::_work_queue.pop();
 
-		//输出日志信息
-		_log_file<<buffer<<std::endl;
+		write_to_file( buffer );
 		std::cout<<buffer<<std::endl;
-		//回收内存
+
 		_pool.release(buffer);
 	}
 }

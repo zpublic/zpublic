@@ -14,12 +14,13 @@
 #include <fstream>
 #include <mutex>
 #include <ctime>
+#include <stdlib.h>
 #include <condition_variable>
 #include "singleton.h"
 
 class Log : public Singleton<Log>
 {
-    enum Priority
+	enum Priority
 	{
 		PRIO_FATAL = 1,
 		PRIO_CRITICAL,
@@ -47,16 +48,20 @@ public:
 public:
 	void init( const std::string& log_name );
 	char *format_log( char *format, ... );
+	char *format_log( wchar_t *format, ... );
 	std::string get_file_name( const char* path_file_name );
 
 private:
 	void write( char *msg, Priority prio, const char* file, int line );
 	void output_log();
 	void read_log();
+	void write_to_file( char *msg );
 
 private:
-	bool    flag;         
+	bool             _flag;         
 	std::ofstream    _log_file;
+	std::string      _log_file_name;
+	std::string      _log_file_time;
 	MemoryPool       _pool;
 	std::mutex       _pool_mutex;
 	std::shared_ptr<std::thread>  _thread_ptr;
