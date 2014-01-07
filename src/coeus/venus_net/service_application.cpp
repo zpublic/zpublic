@@ -12,6 +12,9 @@
 #include "Poco/NotificationQueue.h"
 #include "logger.h"
 
+namespace Venus
+{
+
 ServiceApplication::ServiceApplication(const std::string& serviceName)
     : _serviceName(serviceName)
 {
@@ -97,4 +100,5 @@ int ServiceApplication::main(const std::vector<std::string>& args)
     server.stop();
 
     return Application::EXIT_OK;
+}
 }

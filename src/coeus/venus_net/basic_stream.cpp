@@ -123,7 +123,7 @@ void BasicStream::write(byte v)
     b.push_back(v);
 }
 
-void BasicStream::write(short v)
+void BasicStream::write(int16 v)
 {
     Container::size_type pos = b.size();
     resize(pos + sizeof(short));
@@ -139,7 +139,12 @@ void BasicStream::write(short v)
 #endif
 }
 
-void BasicStream::read(short& v)
+void BasicStream::write(uint16 v)
+{
+    write((int16)v);
+}
+
+void BasicStream::read(int16& v)
 {
     if(b.end() - i < static_cast<int32>(sizeof(short)))
     {
@@ -156,6 +161,11 @@ void BasicStream::read(short& v)
     *dest++ = *src++;
     *dest = *src;
 #endif
+}
+
+void BasicStream::read(uint16& v)
+{
+    read((int16&)v);
 }
 
 void BasicStream::write(int32 v) // Inlined for performance reasons.
@@ -448,6 +458,7 @@ void BasicStream::read(std::string& v)
 void BasicStream::write(const wstring& v)
 {
 }
+
 
 void BasicStream::read(wstring& v)
 {

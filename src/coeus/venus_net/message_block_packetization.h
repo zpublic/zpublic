@@ -49,7 +49,7 @@
 class MessageBlockPacketization
 {
 public:
-    MessageBlockPacketization(const std::function<void (const BasicStreamPtr&)>& callback);
+    MessageBlockPacketization(const std::function<void (BasicStreamPtr&)>& callback);
     virtual ~MessageBlockPacketization();
 
 public:
@@ -58,10 +58,9 @@ public:
 private:
     void addPending(const byte* buff, size_t len);
     bool checkMessageLen(size_t len);
-    void onMessage(const BasicStreamPtr& stream);
 
 private:
-    std::function<void (const BasicStreamPtr&)> _messageCallback;
+    std::function<void (BasicStreamPtr&)> _messageCallback;
     BasicStreamPtr _pendingStream;      //存放接收到的数据
     BasicStreamPtr _packetStreamPtr;    //存放一个完整的数据包
 };

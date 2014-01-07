@@ -24,9 +24,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="server_handler.h">
-      <Filter>network</Filter>
-    </ClInclude>
     <ClInclude Include="tcp_connection.h">
       <Filter>network</Filter>
     </ClInclude>

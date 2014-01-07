@@ -35,8 +35,10 @@ public:
     void write(bool v);
     void read(bool& v);
 
-    void write(short v);
-    void read(short& v);
+    void write(int16 v);
+    void write(uint16 v);
+    void read(int16& v);
+    void read(uint16& v);
 
     void write(int32 v);
     void write(uint32 v);

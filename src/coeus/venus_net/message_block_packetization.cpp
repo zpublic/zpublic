@@ -3,7 +3,7 @@
 #include "logger.h"
 #include "message_notification.h"
 
-MessageBlockPacketization::MessageBlockPacketization(const std::function<void (const BasicStreamPtr&)>& callback)
+MessageBlockPacketization::MessageBlockPacketization(const std::function<void (BasicStreamPtr&)>& callback)
     : _pendingStream(new BasicStream())
 {
     _messageCallback = callback;
@@ -20,7 +20,7 @@ bool MessageBlockPacketization::appendBlock(const byte* buffer, size_t bytes_tra
         int32 leftLen = bytes_transferred - readIdx;
 
         //未达到长度的4字节则继续等待
-        if (leftLen < NetworkMessage::kMagicFlagLength && _pendingStream->b.size() == 0)
+        if (leftLen < NetworkParam::kMagicFlagLength && _pendingStream->b.size() == 0)
         {
             //把当前接收到的数据加入缓存
             addPending((const byte*)(buffer + readIdx), leftLen);
@@ -40,10 +40,10 @@ bool MessageBlockPacketization::appendBlock(const byte* buffer, size_t bytes_tra
         if (_pendingStream->b.size() > 0)
         {
             //之前缓存不足4字节
-            if (_pendingStream->b.size() < NetworkMessage::kMagicFlagLength)
+            if (_pendingStream->b.size() < NetworkParam::kMagicFlagLength)
             {
                 //现在还不足4字节，继续等
-                if (_pendingStream->b.size() + leftLen < NetworkMessage::kMagicFlagLength)
+                if (_pendingStream->b.size() + leftLen < NetworkParam::kMagicFlagLength)
                 {
                     //添加Pending,并返回
                     addPending((const byte*)(buffer + readIdx), leftLen);
@@ -52,10 +52,10 @@ bool MessageBlockPacketization::appendBlock(const byte* buffer, size_t bytes_tra
 
                 //如果已足4字节，先把4字节剩下的部分追加到PendingStream中
                 int32 srcPendingLen = _pendingStream->b.size();
-                _pendingStream->append((const byte*)buffer + readIdx, NetworkMessage::kMagicFlagLength - _pendingStream->b.size());
+                _pendingStream->append((const byte*)buffer + readIdx, NetworkParam::kMagicFlagLength - _pendingStream->b.size());
 
                 //读位置前移
-                readIdx += (NetworkMessage::kMagicFlagLength - srcPendingLen);
+                readIdx += (NetworkParam::kMagicFlagLength - srcPendingLen);
 
                 //leftLen修正
                 leftLen = bytes_transferred - readIdx;
@@ -113,9 +113,9 @@ bool MessageBlockPacketization::appendBlock(const byte* buffer, size_t bytes_tra
             _packetStreamPtr->append((const byte*)(buffer + readIdx), needReadLen);
         }
 
-        _packetStreamPtr->i = _packetStreamPtr->b.begin() + NetworkMessage::kMagicFlagLength;
+        _packetStreamPtr->i = _packetStreamPtr->b.begin() + NetworkParam::kMagicFlagLength;
         byte comp = 0;
-        _packetStreamPtr->read(comp);
+        //_packetStreamPtr->read(comp);
 
         //TODO:压缩预留
         if (comp > 0)
@@ -124,13 +124,14 @@ bool MessageBlockPacketization::appendBlock(const byte* buffer, size_t bytes_tra
 
         //TODO::包加密预留
         byte encrypt = 0;
-        _packetStreamPtr->read(encrypt);
+        //_packetStreamPtr->read(encrypt);
         if (encrypt > 0)
         {
         }
 
-        //反馈处理结果
-        onMessage(_packetStreamPtr);
+        // 反馈处理结果
+        // 推送出去的包已经没有了长度，第一个2字节就是操作码
+        _messageCallback(_packetStreamPtr);
 
         readIdx += needReadLen;
     }
@@ -145,22 +146,17 @@ void MessageBlockPacketization::addPending(const byte* buff, size_t len)
 
 bool MessageBlockPacketization::checkMessageLen(size_t len)
 {
-    if (len > NetworkMessage::kMaxMessageLength)
+    if (len > NetworkParam::kMaxMessageLength)
     {
         error_log("message length too big");
         return false;
     }
 
-    if (len < NetworkMessage::kHeaderLength)
+    if (len < NetworkParam::kHeaderLength)
     {
         error_log("header length too small");
         return false;
     }
 
     return true;
-}
-
-void MessageBlockPacketization::onMessage(const BasicStreamPtr& stream)
-{
-    _messageCallback(stream);
 }

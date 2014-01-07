@@ -12,8 +12,8 @@ class MessageNotification : public Poco::Notification
 {
 public:
     typedef Poco::AutoPtr<MessageNotification> Ptr;
-    MessageNotification(const BasicStreamPtr& message)
-        : _message(message)
+    MessageNotification(NetworkPacket::Ptr& packet)
+        : _networkPacket(packet)
     {
     }
 
@@ -21,14 +21,13 @@ public:
     {
     }
 
-    const BasicStreamPtr& message()
+    const NetworkPacket::Ptr& packet()
     {
-        return _message;
+        return _networkPacket;
     }
 
 private:
-
-    const BasicStreamPtr& _message;
+    NetworkPacket::Ptr _networkPacket;
 };
 
 class MessageNotificationQueueWorker : public Poco::Runnable
@@ -44,6 +43,12 @@ public:
             MessageNotification* messageNotification = dynamic_cast<MessageNotification*>(notificationPtr.get());
             if (messageNotification != nullptr)
             {
+                const NetworkPacket::Ptr& networkPacket = messageNotification->packet();
+
+                // TODO
+                // ...
+
+                debug_log("recieved packet, opcode = %d", networkPacket->opcode);
                 debug_log("notification message alert."); 
             }
 
