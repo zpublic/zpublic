@@ -112,6 +112,14 @@ protected:
     END_MSG_MAP()
 
 private:
+    BOOL _CreateTray(HINSTANCE hInst, UINT nIConId);
+
+    BOOL _ResetTray(HINSTANCE hInst, UINT nIConId);
+
+    BOOL _DeleteTray(HINSTANCE hInst, UINT nIConId);
+
+
+    BOOL _SetTray(HINSTANCE hInst, UINT nIConId, ULONG ulType);
 };
 
 #endif // __GAME_MAIN_DLG_H_
