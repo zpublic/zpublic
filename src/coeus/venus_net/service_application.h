@@ -6,14 +6,15 @@
 #include "Poco/Util/OptionSet.h"
 #include "connection_factory.h"
 
+class MessageDispatcher;
+
 namespace Venus
 {
-
 class ServiceApplication
 	: public Poco::Util::ServerApplication
 {
 public:
-    ServiceApplication(const std::string& serviceName);
+    ServiceApplication(const std::string& serviceName, MessageDispatcher* messageDispatcher);
     virtual ~ServiceApplication();
 
 public:

@@ -6,7 +6,7 @@
 #include "message_notification.h"
 #include "stream_writer.h"
 #include "stream_reader.h"
-
+#include "message_queue.h"
 
 struct CSTestPacketRsp : public NetworkMessage
 {

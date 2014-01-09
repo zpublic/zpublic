@@ -84,5 +84,8 @@
     <ClInclude Include="game_session.h">
       <Filter>session</Filter>
     </ClInclude>
+    <ClInclude Include="game_message_dispatcher.h">
+      <Filter>service</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

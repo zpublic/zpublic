@@ -22,6 +22,9 @@
     <Filter Include="notification">
       <UniqueIdentifier>{4a74c1fa-3669-4a1b-8024-9bd8f5f56d5b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="model">
+      <UniqueIdentifier>{b477fe3b-2623-4aed-ba17-22707ecf1c62}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tcp_connection.h">
@@ -66,9 +69,6 @@
     <ClInclude Include="network_message.h">
       <Filter>network</Filter>
     </ClInclude>
-    <ClInclude Include="message_dispatcher.h">
-      <Filter>network</Filter>
-    </ClInclude>
     <ClInclude Include="tcp_client.h">
       <Filter>network</Filter>
     </ClInclude>
@@ -76,7 +76,10 @@
       <Filter>network</Filter>
     </ClInclude>
     <ClInclude Include="opcode_registry.h">
-      <Filter>network</Filter>
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="message_dispatcher.h">
+      <Filter>model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -108,7 +111,7 @@
       <Filter>network</Filter>
     </ClCompile>
     <ClCompile Include="opcode_registry.cpp">
-      <Filter>network</Filter>
+      <Filter>model</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
