@@ -42,6 +42,12 @@
     <Filter Include="source\net">
       <UniqueIdentifier>{b198b11a-29c0-4b8c-9028-e1ca0bd9a02a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\hander">
+      <UniqueIdentifier>{ce9b15ed-3104-406b-b8cc-9ab116354856}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\net\vent">
+      <UniqueIdentifier>{7e25c554-cc46-4fcc-9cd1-54d92f621fb1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="coeus.rc">
@@ -95,9 +101,6 @@
     </ClCompile>
     <ClCompile Include="unit_function.cpp">
       <Filter>unit</Filter>
-    </ClCompile>
-    <ClCompile Include="client_net.cpp">
-      <Filter>source\net</Filter>
     </ClCompile>
     <ClCompile Include="network_handler.cpp">
       <Filter>source\net</Filter>
@@ -401,14 +404,17 @@
     <ClInclude Include="unit_function.h">
       <Filter>unit</Filter>
     </ClInclude>
-    <ClInclude Include="client_net.h">
-      <Filter>source\net</Filter>
-    </ClInclude>
     <ClInclude Include="network_handler.h">
       <Filter>source\net</Filter>
     </ClInclude>
     <ClInclude Include="network_mgr.h">
       <Filter>source\net</Filter>
+    </ClInclude>
+    <ClInclude Include="game_hander.h">
+      <Filter>source\hander</Filter>
+    </ClInclude>
+    <ClInclude Include="..\venus_net\tcp_client.h">
+      <Filter>source\net\vent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
