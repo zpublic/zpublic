@@ -11,12 +11,13 @@
 #include "Poco/File.h"
 #include "Poco/NotificationQueue.h"
 #include "logger.h"
+#include "message_dispatcher.h"
 
 namespace Venus
 {
 
-ServiceApplication::ServiceApplication(const std::string& serviceName)
-    : _serviceName(serviceName)
+ServiceApplication::ServiceApplication(const std::string& serviceName, MessageDispatcher* messageDispatcher)
+    : _serviceName(serviceName), _messageQueue(messageDispatcher)
 {
 }
 
@@ -101,4 +102,5 @@ int ServiceApplication::main(const std::vector<std::string>& args)
 
     return Application::EXIT_OK;
 }
+
 }

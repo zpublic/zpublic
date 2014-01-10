@@ -3,6 +3,7 @@
 
 #include "venus_net/service_application.h"
 
+class MessageDispatcher;
 class GameServiceApplication
     : public Venus::ServiceApplication
 {
@@ -13,6 +14,9 @@ public:
 public:
     int start(int argc, char** argv);
     void stop();
+
+private:
+    MessageDispatcher* _messageDispatcher;
 };
 
 #endif // !__GAME_SERVICE_H__

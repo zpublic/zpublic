@@ -7,9 +7,9 @@
 #include "Poco/Net/StreamSocket.h"
 #include "Poco/Net/SocketReactor.h"
 #include "network_message.h"
-#include "message_queue.h"
 #include "message_block_packetization.h"
 
+class MessageQueue;
 class TcpConnection : public Poco::Net::TCPServerConnection
 {
     static const int MAX_RECV_LEN = 1024 * 4;

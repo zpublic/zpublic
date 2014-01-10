@@ -1,18 +1,18 @@
 #ifndef __MESSAGE_DISPATCHER_H__
 #define __MESSAGE_DISPATCHER_H__
 
-#include "tcp_connection.h"
+class TcpConnection;
+struct NetworkMessage;
 
 class MessageDispatcher
 {
 public:
-    MessageDispatcher();
-    virtual ~MessageDispatcher();
+    virtual ~MessageDispatcher() {}
 
 public:
-    virtual void onNewConnection(const TcpConnection& connection) = 0;
-    virtual void onMessage(const TcpConnection& connection, const NetworkMessage& message);
-    virtual void onShutdown(const TcpConnection& connection, const NetworkMessage& message);
+    virtual void onNewConnection(TcpConnection* connection) = 0;
+    virtual void onMessage(TcpConnection* connection, NetworkMessage* message) = 0;
+    virtual void onShutdown(TcpConnection* connection, NetworkMessage* message) = 0;
 };
 
 #endif // __MESSAGE_DISPATCHER_H__

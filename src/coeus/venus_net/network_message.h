@@ -3,6 +3,7 @@
 
 #include "common.h"
 #include "Poco/AutoPtr.h"
+#include "Poco/RefCountedObject.h"
 
 struct NetworkParam
 {
@@ -34,6 +35,9 @@ struct NetworkPacket : Poco::RefCountedObject
     uint16 opcode;
     PDU messageBody;
 };
+
+#define DECODE_MESSAGE(message, data) \
+    message.decode((const byte*)&data->messageBody[0], data->messageBody.size());
 
 
 #endif // !__NETWORK_MESSAGE_H__
