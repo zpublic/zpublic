@@ -14,6 +14,7 @@
 #include "ktipedit3.h"
 #include "game_register_dlg.h"
 #include "game_main_dlg.h"
+#include "network_mgr.h"
 
 class GameLoginDlg
     : public CBkDialogImpl<GameLoginDlg>
@@ -71,6 +72,7 @@ protected:
 private:
     KTipEdit3 m_LoginNameEdit;
     KTipEdit3 m_PasswordEdit;
+    CNetworkMgr m_NetworkMgr;
 };
 
 #endif // __GAME_LOGIN_DLG_H_

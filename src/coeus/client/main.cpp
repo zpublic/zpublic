@@ -10,11 +10,12 @@
 
 #include "resource.h"
 
+#pragma comment(lib, "../lib/venus_net.lib")
+
 CAppModule _Module;
 
 int Run(LPTSTR /*lpstrCmdLine*/ = NULL, int nCmdShow = SW_SHOWDEFAULT)
 {
-    NET.Connect(L"127.0.0.1", 36911);
     GameLoginDlg dlg;
     return dlg.DoModal();
 }
