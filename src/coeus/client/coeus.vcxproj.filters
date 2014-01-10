@@ -416,6 +416,9 @@
     <ClInclude Include="..\venus_net\tcp_client.h">
       <Filter>source\net\vent</Filter>
     </ClInclude>
+    <ClInclude Include="game_network_message.h">
+      <Filter>source\net</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="bkwinres.rc2">

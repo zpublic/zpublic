@@ -244,6 +244,7 @@
     <ClInclude Include="coeus.h" />
     <ClInclude Include="game_hander.h" />
     <ClInclude Include="game_item_def.h" />
+    <ClInclude Include="game_network_message.h" />
     <ClInclude Include="unit_create_xmlfunction.h" />
     <ClInclude Include="game_login_dlg.h" />
     <ClInclude Include="game_main_dlg.h" />

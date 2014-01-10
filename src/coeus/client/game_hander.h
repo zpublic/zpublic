@@ -17,13 +17,8 @@ public:
     {
     }
 
-    virtual void opcodenMessage(uint16 opcode, const NetworkPacket::Ptr& message)
+    virtual void onMessage(uint16 opcode, const NetworkPacket::Ptr& message)
     {
-//         printf("onMessage() : [opcode = %d]\n", opcode);
-//         CSTestPacketRsp requestMessage;
-//         requestMessage.decode((const byte*)&message->messageBody[0], message->messageBody.size());
-//         printf("        [value = %d]\n", requestMessage.uint_value);
-//         printf("        [string = %s]\n", requestMessage.string_value.c_str());
     }
 
     virtual void onShutdown()

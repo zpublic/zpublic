@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "network_mgr.h"
+#include "venus_net/tcp_client.h"
 
 CNetworkMgr::CNetworkMgr()
     : m_pServerAddress(NULL)
@@ -10,7 +11,7 @@ CNetworkMgr::CNetworkMgr()
 
 CNetworkMgr::~CNetworkMgr()
 {
-
+    Close();
 }
 
 BOOL CNetworkMgr::Connect(LPCSTR lpszIPAddress, unsigned int port)
