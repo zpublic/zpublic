@@ -15,10 +15,9 @@ class GameMessageHandler : public MessageHandler
 public:
     virtual void onConnected()
     {
-        MessageBox(0, 0, L"client has been connected to server.\n", 0);
     }
 
-    virtual void onMessage(uint16 opcode, const NetworkPacket::Ptr& message)
+    virtual void opcodenMessage(uint16 opcode, const NetworkPacket::Ptr& message)
     {
 //         printf("onMessage() : [opcode = %d]\n", opcode);
 //         CSTestPacketRsp requestMessage;
@@ -29,7 +28,6 @@ public:
 
     virtual void onShutdown()
     {
-        MessageBox(0, 0, L"disconnected\n", 0);
     }
 };
 
