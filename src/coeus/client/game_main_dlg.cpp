@@ -15,7 +15,6 @@
 
 #define LIST_ITEM_HEIGHT 56
 #define TRAY_TIP                            _T("couse")
-#define WM_TRAYMESSAGE                      (WM_USER + 2002)
 
 LRESULT GameMainDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
 {
@@ -54,8 +53,7 @@ void GameMainDlg::OnTimer(UINT_PTR nIDEvent)
 
 void GameMainDlg::OnBtnClose()
 {
-    _DeleteTray(_Module.GetModuleInstance(), IDR_MAINFRAME);
-    EndDialog(IDOK);
+    ShowWindow(SW_HIDE);
 }
 
 BOOL GameMainDlg::InitItemList()
@@ -206,4 +204,27 @@ BOOL GameMainDlg::_SetTray(HINSTANCE hInst, UINT nIConId, ULONG ulType)
     NotifyICon.hIcon = ::LoadIcon(hInst, MAKEINTRESOURCE(nIConId));
     _tcsncpy_s(NotifyICon.szTip, nTipLen, TRAY_TIP, nTipLen - 1);
     return ::Shell_NotifyIcon(ulType, &NotifyICon);
+}
+
+void GameMainDlg::_Close()
+{
+    _DeleteTray(_Module.GetModuleInstance(), IDR_MAINFRAME);
+    EndDialog(IDOK);
+}
+
+LRESULT GameMainDlg::OnTrayMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+    if (uMsg == WM_TRAYMESSAGE)
+    {
+        switch (lParam)
+        {
+        case WM_LBUTTONUP:
+            ShowWindow(SW_SHOW);
+            break;
+        default:
+            break;
+        }
+    }
+
+    return TRUE;
 }

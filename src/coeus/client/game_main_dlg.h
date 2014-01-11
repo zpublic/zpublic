@@ -15,6 +15,8 @@
 #include "game_item_def.h"
 #include "unit_tinyxml.h"
 
+#define WM_TRAYMESSAGE                      (WM_USER + 2002)
+
 class GameMainDlg
     : public CBkDialogViewEx
     , public CWHRoundRectFrameHelper<GameMainDlg>
@@ -60,6 +62,8 @@ protected:
     void OnListItemMouseHover(int nListItem);
 
     void OnListItemMouseLeave(int nListItem);
+
+    LRESULT OnTrayMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 protected:
     struct ListItemData
@@ -108,6 +112,7 @@ protected:
         MSG_WM_INITDIALOG(OnInitDialog)
         MSG_WM_SYSCOMMAND(OnSysCommand)
         MSG_WM_TIMER(OnTimer)
+        MESSAGE_HANDLER_EX(WM_TRAYMESSAGE, OnTrayMessage)
         REFLECT_NOTIFICATIONS_EX()
     END_MSG_MAP()
 
@@ -119,6 +124,8 @@ private:
     BOOL _DeleteTray(HINSTANCE hInst, UINT nIConId);
 
     BOOL _SetTray(HINSTANCE hInst, UINT nIConId, ULONG ulType);
+
+    void _Close();
 };
 
 #endif // __GAME_MAIN_DLG_H_

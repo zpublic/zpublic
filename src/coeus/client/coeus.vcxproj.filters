@@ -108,6 +108,9 @@
     <ClCompile Include="network_mgr.cpp">
       <Filter>source\net</Filter>
     </ClCompile>
+    <ClCompile Include="game_tray_menu_dlg.cpp">
+      <Filter>source\dlg</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -418,6 +421,9 @@
     </ClInclude>
     <ClInclude Include="game_network_message.h">
       <Filter>source\net</Filter>
+    </ClInclude>
+    <ClInclude Include="game_tray_menu_dlg.h">
+      <Filter>source\dlg</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
