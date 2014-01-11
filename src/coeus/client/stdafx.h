@@ -47,4 +47,3 @@ extern CAppModule _Module;
 
 
 #include "venus_net/common.h"
-#include "client_net.h"

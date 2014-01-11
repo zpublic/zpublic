@@ -118,7 +118,6 @@ private:
 
     BOOL _DeleteTray(HINSTANCE hInst, UINT nIConId);
 
-
     BOOL _SetTray(HINSTANCE hInst, UINT nIConId, ULONG ulType);
 };
 
