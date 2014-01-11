@@ -3,7 +3,7 @@
 
 TcpClient::TcpClient(MessageHandler& handler)
     : _blockPacketization(std::bind(&TcpClient::finishedPacketCallback, this, std::placeholders::_1)),
-    _buffer(new byte[MAX_RECV_LEN]), _handler(handler), _socket(nullptr), _reactor(nullptr), _reactorThread(nullptr)
+    _buffer(new byte[MAX_RECV_LEN]), _handler(handler), _socket(nullptr), _reactor(nullptr), _reactorThread(nullptr), _isConnected(false)
 {
 
 }
@@ -31,6 +31,8 @@ bool TcpClient::connect(Poco::Net::SocketAddress& address, const Poco::Timespan&
 
         _socket->connect(address);
         _handler.onConnected();
+
+        _isConnected = true;
     }
     catch (Poco::TimeoutException& e)
     {
@@ -49,16 +51,18 @@ bool TcpClient::connect(Poco::Net::SocketAddress& address, const Poco::Timespan&
 
 void TcpClient::close()
 {
+    if (_isConnected == false) return;
+
     _socket->shutdown();
     resetNetwork();
+
+    _isConnected = false;
 }
 
 void TcpClient::sendMessage(const BasicStreamPtr& stream)
 {
     bool writeable = _socket->poll(0, Poco::Net::Socket::SelectMode::SELECT_WRITE);
-    bool error = _socket->poll(0, Poco::Net::Socket::SelectMode::SELECT_ERROR);
-
-    if (writeable && !error)
+    if (writeable)
     {
         _socket->sendBytes((const void*)stream->b.begin(), stream->b.size());
     }

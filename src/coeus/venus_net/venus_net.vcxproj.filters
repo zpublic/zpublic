@@ -81,6 +81,9 @@
     <ClInclude Include="message_dispatcher.h">
       <Filter>model</Filter>
     </ClInclude>
+    <ClInclude Include="server_connection.h">
+      <Filter>network</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="service_application.cpp">
@@ -112,6 +115,12 @@
     </ClCompile>
     <ClCompile Include="opcode_registry.cpp">
       <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="server_connection.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="connection_factory.cpp">
+      <Filter>network</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

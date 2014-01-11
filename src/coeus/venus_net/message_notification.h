@@ -47,6 +47,7 @@ public:
 
                 // TODO
                 // ...
+                //_messageQueue.dispatcher()->onMessage(;
 
                 debug_log("recieved packet, opcode = %d", networkPacket->opcode);
                 debug_log("notification message alert."); 

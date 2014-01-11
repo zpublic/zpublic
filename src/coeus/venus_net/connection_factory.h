@@ -11,18 +11,12 @@
 class ConnectionFactory : public Poco::Net::TCPServerConnectionFactory
 {
 public:
-    Poco::Net::TCPServerConnection* createConnection(const Poco::Net::StreamSocket& socket)
-    {
-        return new TcpConnection(socket, *_messageQueue);
-    }
-
-    void setMessageQueue(MessageQueue& messageQueue)
-    {
-        _messageQueue = &messageQueue;
-    }
+    Poco::Net::TCPServerConnection* createConnection(const Poco::Net::StreamSocket& socket);
+    void setMessageQueue(MessageQueue& messageQueue);
 
 private:
     MessageQueue* _messageQueue;
+    static uint32 _connectionSequence;
 };
 
 #endif // !__CONNECTION_FACTORY_H__

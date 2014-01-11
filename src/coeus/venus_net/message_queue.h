@@ -12,6 +12,11 @@ public:
     {
     }
 
+    MessageDispatcher* dispatcher()
+    {
+        return _dispatcher;
+    }
+
 private:
     MessageDispatcher* _dispatcher;
 };

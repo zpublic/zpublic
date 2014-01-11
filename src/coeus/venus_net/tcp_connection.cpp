@@ -33,12 +33,13 @@ struct CSTestPacketRsp : public NetworkMessage
     }
 };
 
-TcpConnection::TcpConnection(const Poco::Net::StreamSocket& socket, MessageQueue& messageQueue)
+TcpConnection::TcpConnection(const Poco::Net::StreamSocket& socket, MessageQueue& messageQueue, uint32 sequence)
     : Poco::Net::TCPServerConnection(socket),
     _socket(const_cast<Poco::Net::StreamSocket&>(socket)),
     _buffer(new byte[MAX_RECV_LEN]),
     _blockPacketization(std::bind(&TcpConnection::finishedPacketCallback, this, std::placeholders::_1)),
-    _messageQueue(messageQueue)
+    _messageQueue(messageQueue),
+    _sequence(sequence)
 {
     _socket.setBlocking(false);
     _socket.setReuseAddress(true);
@@ -55,11 +56,8 @@ void TcpConnection::run()
 {
     try
     {
-        debug_log("connection established.");
-        CSTestPacketRsp requestMessage;
-        requestMessage.uint_value = 20;
-        requestMessage.string_value = "i am server";
-        sendMessage(22222, requestMessage);
+        _messageQueue.dispatcher()->onNewConnection(this);
+        
         for (;;)
         {
 			bool readable = _socket.poll(Poco::Timespan(30, 0), Poco::Net::Socket::SelectMode::SELECT_READ);

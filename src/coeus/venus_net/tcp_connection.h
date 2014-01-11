@@ -15,13 +15,14 @@ class TcpConnection : public Poco::Net::TCPServerConnection
     static const int MAX_RECV_LEN = 1024 * 4;
 
 public:
-    TcpConnection(const Poco::Net::StreamSocket& socket, MessageQueue& messageQueue);
+    TcpConnection(const Poco::Net::StreamSocket& socket, MessageQueue& messageQueue, uint32 sequence);
     virtual ~TcpConnection();
     void run();
 
 public:
 	void sendMessage(int16 opcode, const byte* buff, size_t size);
 	void sendMessage(uint16 opcode, NetworkMessage& message);
+    inline uint32 sequence() const { return _sequence; }
 
 private:
     enum ShutdownReason
@@ -40,6 +41,7 @@ private:
     Poco::Net::StreamSocket& _socket;
     MessageBlockPacketization _blockPacketization;
     MessageQueue& _messageQueue;
+    uint32 _sequence;
     mutable Poco::FastMutex _mutex;
 };
 

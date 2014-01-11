@@ -1,9 +1,9 @@
 #ifndef __GAME_SERVICE_APPLICATION_H__
 #define __GAME_SERVICE_APPLICATION_H__
 
+#include "game_message_dispatcher.h"
 #include "venus_net/service_application.h"
 
-class MessageDispatcher;
 class GameServiceApplication
     : public Venus::ServiceApplication
 {
@@ -16,7 +16,7 @@ public:
     void stop();
 
 private:
-    MessageDispatcher* _messageDispatcher;
+    GameMessageDispatcher _messageDispatcher;
 };
 
 #endif // !__GAME_SERVICE_H__

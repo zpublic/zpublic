@@ -2,7 +2,7 @@
 #define __MESSAGE_DISPATCHER_H__
 
 class TcpConnection;
-struct NetworkMessage;
+class NetworkMessage;
 
 class MessageDispatcher
 {

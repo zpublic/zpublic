@@ -5,7 +5,7 @@
 #include "venus_net/message_dispatcher.h"
 
 GameServiceApplication::GameServiceApplication(const std::string& serviceName)
-    : _messageDispatcher(new GameMessageDispatcher), ServiceApplication(serviceName, _messageDispatcher)
+    : ServiceApplication(serviceName, &_messageDispatcher)
 {
 }
 

@@ -14,7 +14,7 @@ struct NetworkParam
 
 // 所有实例化了的消息类均继承此类
 // 消息类需要重写byteSize/encode/decode三个方法
-struct NetworkMessage
+class NetworkMessage
 {
 public:
     NetworkMessage(){}

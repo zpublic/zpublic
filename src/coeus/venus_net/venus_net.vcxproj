@@ -176,6 +176,7 @@
     <ClInclude Include="network_message.h" />
     <ClInclude Include="opcode_registry.h" />
     <ClInclude Include="service_application.h" />
+    <ClInclude Include="server_connection.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="stream_reader.h" />
     <ClInclude Include="stream_writer.h" />
@@ -187,10 +188,12 @@
   <ItemGroup>
     <ClCompile Include="basic_stream.cpp" />
     <ClCompile Include="buffer.cpp" />
+    <ClCompile Include="connection_factory.cpp" />
     <ClCompile Include="message_block_packetization.cpp" />
     <ClCompile Include="message_stream.cpp" />
     <ClCompile Include="opcode_registry.cpp" />
     <ClCompile Include="service_application.cpp" />
+    <ClCompile Include="server_connection.cpp" />
     <ClCompile Include="stream_reader.cpp" />
     <ClCompile Include="stream_writer.cpp" />
     <ClCompile Include="tcp_client.cpp">

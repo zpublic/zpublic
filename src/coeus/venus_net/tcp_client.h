@@ -30,6 +30,7 @@ public:
     virtual ~TcpClient();
 
     bool connect(Poco::Net::SocketAddress& address, const Poco::Timespan& timeout = Poco::Timespan(50000));
+    inline bool connected() const { return _isConnected; }
     void close();
     void sendMessage(int16 opcode, const byte* buff, size_t size);
     void sendMessage(uint16 opcode, NetworkMessage& message);
@@ -46,6 +47,7 @@ private:
     void finishedPacketCallback(BasicStreamPtr& packet);
 
 private:
+    bool _isConnected;
     Poco::Net::SocketReactor* _reactor;
     Poco::Net::StreamSocket* _socket;
     Poco::Thread* _reactorThread;
