@@ -1,5 +1,4 @@
 #include "message_block_packetization.h"
-#include "network_message.h"
 #include "logger.h"
 #include "message_notification.h"
 
@@ -130,7 +129,7 @@ bool MessageBlockPacketization::appendBlock(const byte* buffer, size_t bytes_tra
         }
 
         // 反馈处理结果
-        // 推送出去的包已经没有了长度，第一个2字节就是操作码
+        // 推送出去的包已经没有了长度，第一个4字节就是操作码
         _messageCallback(_packetStreamPtr);
 
         readIdx += needReadLen;

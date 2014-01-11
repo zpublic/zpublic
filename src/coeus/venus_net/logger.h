@@ -9,6 +9,7 @@
 #include "Poco/FileChannel.h"
 #include "Poco/ConsoleChannel.h"
 #include "Poco/Path.h"
+#include "Poco/AutoPtr.h"
 
 class Logger
     : public Venus::Singleton<Logger>

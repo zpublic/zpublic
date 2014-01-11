@@ -1,5 +1,5 @@
-#ifndef __NETWORK_MESSAGE_H__
-#define __NETWORK_MESSAGE_H__
+#ifndef __NETWORK_COMMON_H__
+#define __NETWORK_COMMON_H__
 
 #include "common.h"
 #include "Poco/AutoPtr.h"
@@ -39,5 +39,14 @@ struct NetworkPacket : Poco::RefCountedObject
 #define DECODE_MESSAGE(message, data) \
     message.decode((const byte*)&data->messageBody[0], data->messageBody.size());
 
+// 网络连接关闭原因
+enum ShutdownReason
+{
+    SR_SERVICE_CLOSE_INITIATIVE, // 服务主动关闭连接（无理由）
+    SR_KICK_OUT,                 // 服务主动踢掉某个连接
+    SR_SERVICE_STOP,             // 服务需要停止
+    SR_PEER_GRACEFUL_SHUTDOWN,   // 客户端安全关闭连接
+    SR_EXCEPTION                 // 发生未知异常（可能是RESET）
+};
 
-#endif // !__NETWORK_MESSAGE_H__
+#endif // !__NETWORK_COMMON_H__

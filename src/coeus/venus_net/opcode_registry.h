@@ -3,7 +3,7 @@
 
 #include "common.h"
 #include "singleton.h"
-#include "network_message.h"
+#include "network_common.h"
 
 namespace Venus
 {

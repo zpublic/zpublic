@@ -12,6 +12,7 @@
 #include "Poco/NotificationQueue.h"
 #include "logger.h"
 #include "message_dispatcher.h"
+#include "message_queue_worker.h"
 
 namespace Venus
 {
@@ -84,7 +85,7 @@ int ServiceApplication::main(const std::vector<std::string>& args)
         );
 
     //创建消息队列处理线程
-    MessageNotificationQueueWorker queueWorker(_messageQueue);
+    MessageQueueWorker queueWorker(_messageQueue);
     Poco::ThreadPool::defaultPool().start(queueWorker);
 
     //创建连接工厂

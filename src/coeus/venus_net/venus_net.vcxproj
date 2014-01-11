@@ -172,8 +172,9 @@
     <ClInclude Include="message_dispatcher.h" />
     <ClInclude Include="message_notification.h" />
     <ClInclude Include="message_queue.h" />
+    <ClInclude Include="message_queue_worker.h" />
     <ClInclude Include="message_stream.h" />
-    <ClInclude Include="network_message.h" />
+    <ClInclude Include="network_common.h" />
     <ClInclude Include="opcode_registry.h" />
     <ClInclude Include="service_application.h" />
     <ClInclude Include="server_connection.h" />
@@ -190,6 +191,8 @@
     <ClCompile Include="buffer.cpp" />
     <ClCompile Include="connection_factory.cpp" />
     <ClCompile Include="message_block_packetization.cpp" />
+    <ClCompile Include="message_notification.cpp" />
+    <ClCompile Include="message_queue_worker.cpp" />
     <ClCompile Include="message_stream.cpp" />
     <ClCompile Include="opcode_registry.cpp" />
     <ClCompile Include="service_application.cpp" />

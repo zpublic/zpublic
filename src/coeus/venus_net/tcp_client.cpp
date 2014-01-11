@@ -17,7 +17,10 @@ bool TcpClient::connect(Poco::Net::SocketAddress& address, const Poco::Timespan&
 {
     try
     {
-        resetNetwork();
+        if (connected())
+        {
+            this->close();
+        }
 
         _socket = new Poco::Net::StreamSocket;
         _reactor = new Poco::Net::SocketReactor;
@@ -44,6 +47,11 @@ bool TcpClient::connect(Poco::Net::SocketAddress& address, const Poco::Timespan&
         std::cout << e.displayText() << std::endl;
         return false;
     }
+    catch (...)
+    {
+        std::cout << "tcp client unknown exception." << std::endl;
+        return false;
+    }
 
     return true;
 }
@@ -52,10 +60,7 @@ bool TcpClient::connect(Poco::Net::SocketAddress& address, const Poco::Timespan&
 void TcpClient::close()
 {
     if (_isConnected == false) return;
-
-    _socket->shutdown();
     resetNetwork();
-
     _isConnected = false;
 }
 
@@ -105,15 +110,17 @@ void TcpClient::onWritable(const Poco::AutoPtr<Poco::Net::WritableNotification>&
 void TcpClient::onReadable(const Poco::AutoPtr<Poco::Net::ReadableNotification>& notification)
 {
     int bytes_transferred = _socket->receiveBytes(_buffer, MAX_RECV_LEN, 0);
-    printf("received %d bytes.", bytes_transferred);
+    //printf("received %d bytes.", bytes_transferred);
     if (bytes_transferred == 0)
     {
-        _socket->close();
+        this->close();
+        return;
     }
 
     if (_blockPacketization.appendBlock(_buffer, bytes_transferred) == false)
     {
-        _socket->close();
+        this->close();
+        return;
     }
 }
 

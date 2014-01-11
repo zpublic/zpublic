@@ -7,31 +7,7 @@
 #include "stream_writer.h"
 #include "stream_reader.h"
 #include "message_queue.h"
-
-struct CSTestPacketRsp : public NetworkMessage
-{
-    uint32 uint_value;
-    std::string string_value;
-
-    int byteSize()
-    {
-        return sizeof(uint_value) + (string_value.length() + 2);
-    }
-
-    void encode(byte* buffer, size_t size)
-    {
-        StreamWriter w((char*)buffer, size);
-        w << uint_value;
-        w << string_value;
-    }
-
-    void decode(const byte* buffer, size_t size)
-    {
-        StreamReader r((const char*)buffer, size);
-        r >> uint_value;
-        r >> string_value;
-    }
-};
+#include "server_connection.h"
 
 TcpConnection::TcpConnection(const Poco::Net::StreamSocket& socket, MessageQueue& messageQueue, uint32 sequence)
     : Poco::Net::TCPServerConnection(socket),
@@ -39,7 +15,8 @@ TcpConnection::TcpConnection(const Poco::Net::StreamSocket& socket, MessageQueue
     _buffer(new byte[MAX_RECV_LEN]),
     _blockPacketization(std::bind(&TcpConnection::finishedPacketCallback, this, std::placeholders::_1)),
     _messageQueue(messageQueue),
-    _sequence(sequence)
+    _sequence(sequence),
+    _serverConnection(nullptr)
 {
     _socket.setBlocking(false);
     _socket.setReuseAddress(true);
@@ -49,6 +26,7 @@ TcpConnection::TcpConnection(const Poco::Net::StreamSocket& socket, MessageQueue
 TcpConnection::~TcpConnection()
 {
     SAFE_DELETE_ARR(_buffer);
+    SAFE_DELETE(_serverConnection);
     debug_log("connection destroyed.");
 }
 
@@ -56,7 +34,8 @@ void TcpConnection::run()
 {
     try
     {
-        _messageQueue.dispatcher()->onNewConnection(this);
+        _serverConnection = new ServerConnection(this);
+        _messageQueue.dispatcher()->onNewConnection(_serverConnection);
         
         for (;;)
         {
@@ -69,11 +48,13 @@ void TcpConnection::run()
     }
     catch (Poco::Exception& e)
     {
+        error_log("Poco::Exception : %s", e.what());
         onShutdown(ShutdownReason::SR_EXCEPTION);
     }
     catch (...)
     {
         error_log("unknown exception.");
+        onShutdown(ShutdownReason::SR_EXCEPTION);
     }
 }
 
@@ -123,10 +104,10 @@ void TcpConnection::sendMessage(uint16 opcode, NetworkMessage& message)
 bool TcpConnection::onReadable()
 {
     int bytes_transferred = _socket.receiveBytes(_buffer, MAX_RECV_LEN, 0);
-    debug_log("received %d bytes.", bytes_transferred);
+    //debug_log("received %d bytes.", bytes_transferred);
     if (bytes_transferred == 0)
     {
-        onShutdown(ShutdownReason::SR_GRACEFUL_SHUTDOWN);
+        onShutdown(ShutdownReason::SR_PEER_GRACEFUL_SHUTDOWN);
         return false;
     }
 
@@ -137,7 +118,12 @@ void TcpConnection::onShutdown(const ShutdownReason& reason)
 {
     switch (reason)
     {
-    case ShutdownReason::SR_GRACEFUL_SHUTDOWN:
+    case ShutdownReason::SR_SERVICE_CLOSE_INITIATIVE:
+        {
+            debug_log("service close connection initiative.");
+            break;
+        }
+    case ShutdownReason::SR_PEER_GRACEFUL_SHUTDOWN:
         {
             debug_log("connection graceful shutdown from the peer.");
             break;
@@ -150,6 +136,10 @@ void TcpConnection::onShutdown(const ShutdownReason& reason)
     default:
         break;
     }
+
+    _messageQueue.dispatcher()->onShutdown(_serverConnection, reason);
+    _socket.shutdown();
+    _socket.close();
 }
 
 void TcpConnection::finishedPacketCallback(BasicStreamPtr& packet)
@@ -164,6 +154,11 @@ void TcpConnection::finishedPacketCallback(BasicStreamPtr& packet)
 
     //构造网络消息包给应用层
     // ...
-    Poco::Notification::Ptr notification(new MessageNotification(packetPtr));
+    Poco::Notification::Ptr notification(new MessageNotification(_serverConnection, packetPtr));
     _messageQueue.enqueueNotification(notification);
+}
+
+void TcpConnection::close(const ShutdownReason& reason)
+{
+    onShutdown(reason);
 }

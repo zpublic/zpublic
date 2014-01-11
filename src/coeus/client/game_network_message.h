@@ -8,7 +8,7 @@
 #ifndef __GAME_NETWORK_MESSAGE_H_
 #define __GAME_NETWORK_MESSAGE_H_
 
-#include "venus_net/network_message.h"
+#include "venus_net/network_common.h"
 
 class GameNetworkMessage : public NetworkMessage
 {

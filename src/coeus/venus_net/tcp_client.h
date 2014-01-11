@@ -10,7 +10,7 @@
 #include "Poco/ThreadPool.h"
 #include "logger.h"
 #include "message_block_packetization.h"
-#include "network_message.h"
+#include "network_common.h"
 
 class TcpClient;
 class MessageHandler

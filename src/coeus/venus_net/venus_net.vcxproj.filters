@@ -19,9 +19,6 @@
     <Filter Include="logger">
       <UniqueIdentifier>{ef3dc6d1-621d-4718-b136-3f99f2d1b139}</UniqueIdentifier>
     </Filter>
-    <Filter Include="notification">
-      <UniqueIdentifier>{4a74c1fa-3669-4a1b-8024-9bd8f5f56d5b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="model">
       <UniqueIdentifier>{b477fe3b-2623-4aed-ba17-22707ecf1c62}</UniqueIdentifier>
     </Filter>
@@ -60,15 +57,6 @@
     <ClInclude Include="singleton.h">
       <Filter>util</Filter>
     </ClInclude>
-    <ClInclude Include="message_notification.h">
-      <Filter>notification</Filter>
-    </ClInclude>
-    <ClInclude Include="message_queue.h">
-      <Filter>notification</Filter>
-    </ClInclude>
-    <ClInclude Include="network_message.h">
-      <Filter>network</Filter>
-    </ClInclude>
     <ClInclude Include="tcp_client.h">
       <Filter>network</Filter>
     </ClInclude>
@@ -82,6 +70,18 @@
       <Filter>model</Filter>
     </ClInclude>
     <ClInclude Include="server_connection.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="network_common.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="message_queue.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="message_notification.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="message_queue_worker.h">
       <Filter>network</Filter>
     </ClInclude>
   </ItemGroup>
@@ -120,6 +120,12 @@
       <Filter>network</Filter>
     </ClCompile>
     <ClCompile Include="connection_factory.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="message_notification.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="message_queue_worker.cpp">
       <Filter>network</Filter>
     </ClCompile>
   </ItemGroup>
