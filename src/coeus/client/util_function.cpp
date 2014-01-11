@@ -1,28 +1,28 @@
 /* -------------------------------------------------------------------------
-//  File        :   unit_function.cpp
+//  File        :   util_function.cpp
 //  Author      :   Sum
-//  Datet       :   2014/1/4 18:09
+//  Datet       :   2014/1/11 14:40
 //  Brief       :   
 //
 // -----------------------------------------------------------------------*/
 //
 #include "stdafx.h"
-#include "unit_function.h"
+#include "util_function.h"
 
-UnitFunction::UnitFunction()
+UtilFunction::UtilFunction()
 {
 }
 
-UnitFunction::~UnitFunction()
+UtilFunction::~UtilFunction()
 {
 }
 
-void UnitFunction::FomatInt(int nValue, CString& csOutValue)
+void UtilFunction::FomatInt(int nValue, CString& csOutValue)
 {
     csOutValue.Format(L"%d", nValue);
 }
 
-void UnitFunction::ConvertItemDataToString(ItemDataType emType, CString& csOutValue)
+void UtilFunction::ConvertItemDataToString(ItemDataType emType, CString& csOutValue)
 {
     switch (emType)
     {

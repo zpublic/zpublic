@@ -1,20 +1,20 @@
 /* -------------------------------------------------------------------------
-//  File        :   unit_path_parser.h
+//  File        :   util_path_parser.h
 //  Author      :   Sum
-//  Datet       :   2014/1/4 15:21
+//  Datet       :   2014/1/11 14:39
 //  Brief       :   
 //
 // -----------------------------------------------------------------------*/
-#ifndef __UNIT_PATH_PARSER_H_
-#define __UNIT_PATH_PARSER_H_
+#ifndef __UTIL_PATH_PARSER_H_
+#define __UTIL_PATH_PARSER_H_
 
 #include <vector>
 
 template <typename T>
-class UnitPathParser
+class UtilPathParser
 {
 public:
-    ~UnitPathParser();
+    ~UtilPathParser();
 
     size_t Size(void);
 
@@ -30,19 +30,19 @@ private:
 };
 
 template <typename T>
-UnitPathParser<T>::~UnitPathParser()
+UtilPathParser<T>::~UtilPathParser()
 {
     this->Clear();
 }
 
 template <typename T>
-size_t UnitPathParser<T>::Size(void)
+size_t UtilPathParser<T>::Size(void)
 {
     return m_vecFolders.size();
 }
 
 template <typename T>
-const T* UnitPathParser<T>::Get(size_t nIndex)
+const T* UtilPathParser<T>::Get(size_t nIndex)
 {
     if (nIndex < m_vecFolders.size())
     {
@@ -54,7 +54,7 @@ const T* UnitPathParser<T>::Get(size_t nIndex)
 
 
 template <typename T>
-BOOL UnitPathParser<T>::Parse(const T* lpszPath)
+BOOL UtilPathParser<T>::Parse(const T* lpszPath)
 {
     BOOL bReturn = FALSE;
     UINT nIndex = 0;
@@ -77,7 +77,7 @@ BOOL UnitPathParser<T>::Parse(const T* lpszPath)
             lpszPath[nIndex + nIndex_t] != tSeperate
             && lpszPath[nIndex + nIndex_t] != tSeperateSecond
             && lpszPath[nIndex + nIndex_t] != 0;
-            ++nIndex_t)
+        ++nIndex_t)
         {
         }
 
@@ -112,7 +112,7 @@ Exit:
 }
 
 template <typename T>
-void UnitPathParser<T>::Clear(void)
+void UtilPathParser<T>::Clear(void)
 {
     T* pTemp = NULL;
     std::vector<T*>::iterator iter;
@@ -132,7 +132,7 @@ void UnitPathParser<T>::Clear(void)
     m_vecFolders.clear();
 }
 
-typedef UnitPathParser<char> UnitPathParserA;
-typedef UnitPathParser<wchar_t> UnitPathParserW;
+typedef UtilPathParser<char> UtilPathParserA;
+typedef UtilPathParser<wchar_t> UtilPathParserW;
 
-#endif // __UNIT_PATH_PARSER_H_
+#endif // __UTIL_PATH_PARSER_H_

@@ -8,9 +8,6 @@
 #ifndef __GAME_REGISTER_DLG_H_
 #define __GAME_REGISTER_DLG_H_
 
-#include <vector>
-#include <wtlhelper/whwindow.h>
-#include <bkres/bkres.h>
 #include "ktipedit3.h"
 
 class GameRegisterDlg

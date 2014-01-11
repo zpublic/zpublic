@@ -1,15 +1,22 @@
-#ifndef __KTinyXml_h__
-#define __KTinyXml_h__
+/* -------------------------------------------------------------------------
+//  File        :   util_tinyxml.h
+//  Author      :   Sum
+//  Datet       :   2014/1/11 14:38
+//  Brief       :   
+//
+// -----------------------------------------------------------------------*/
+#ifndef __UTIL_TINYXML_H_
+#define __UTIL_TINYXML_H_
 
 #include <atlstr.h>
 #include "3rdparty/publish/tinyxml/tinyxml.h"
-#include "unit_path_parser.h"
+#include "util_path_parser.h"
 #include <string>
 
-class UnitTinyXml
+class UtilTinyXml
 {
 public:
-    UnitTinyXml();
+    UtilTinyXml();
 
     BOOL LoadFile(IN LPCSTR szXmlFile);
     BOOL LoadFile(IN LPCWSTR szXmlFile);
@@ -55,10 +62,10 @@ public:
 
 protected:
     TiXmlElement* _Open(TiXmlElement* pParentElement, LPCSTR szPath, BOOL bCreate);
-    TiXmlElement* _Create(TiXmlNode* pParentNode, UnitPathParserA& path, int nPathIndex);
+    TiXmlElement* _Create(TiXmlNode* pParentNode, UtilPathParserA& path, int nPathIndex);
     BOOL _LoadFile(LPCWSTR szPath, CStringA& strXml);
 
-    friend class UnitTinyXmlRemember;
+    friend class UtilTinyXmlRemember;
     void SetElement(TiXmlElement* pOpenElement)
     {
         m_pOpenElement = pOpenElement; 
@@ -69,25 +76,25 @@ private:
     TiXmlElement* m_pOpenElement;
 };
 
-class UnitTinyXmlRemember
+class UtilTinyXmlRemember
 {
 public:
-    UnitTinyXmlRemember(UnitTinyXml& ktinyXml) : m_ktinyXml(ktinyXml)
+    UtilTinyXmlRemember(UtilTinyXml& ktinyXml) : m_ktinyXml(ktinyXml)
     {
         m_pOpenElement = m_ktinyXml.GetElement();
     }
 
-    ~UnitTinyXmlRemember(void)
+    ~UtilTinyXmlRemember(void)
     {
         m_ktinyXml.SetElement(m_pOpenElement);
     }
 
 private:
-    UnitTinyXml&     m_ktinyXml;
+    UtilTinyXml&     m_ktinyXml;
     TiXmlElement* m_pOpenElement;
 };
 
-#define UnitTinyXmlRememberPos(ktinyXml) \
-    UnitTinyXmlRemember __$$_##ktinyXml##__(ktinyXml)
+#define UtilTinyXmlRememberPos(ktinyXml) \
+    UtilTinyXmlRemember __$$_##ktinyXml##__(ktinyXml)
 
-#endif
+#endif // __UTIL_TINYXML_H_

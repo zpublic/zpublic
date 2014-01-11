@@ -1,5 +1,4 @@
 #pragma once
-#include "network_handler.h"
 #include <Poco/Net/SocketConnector.h>
 #include "venus_net/network_message.h"
 #include "game_network_message.h"

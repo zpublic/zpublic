@@ -8,11 +8,11 @@
 #ifndef __GAME_TRAY_MENU_DLG_H_
 #define __GAME_TRAY_MENU_DLG_H_
 
-#include <bkres/bkres.h>
-#include <wtlhelper/whwindow.h>
+#define WM_GAME_QUIT (WM_USER + 2003)
 
 class TrayMenuDlg
-    : public CWHRoundRectFrameHelper<TrayMenuDlg>
+    : public CBkDialogImpl<TrayMenuDlg>
+    , public CWHRoundRectFrameHelper<TrayMenuDlg>
 {
 public:
     TrayMenuDlg();

@@ -12,7 +12,7 @@
 #define TIMER_TOP               1
 
 TrayMenuDlg::TrayMenuDlg()
-    : CBkDialogImpl<TrayMenuDlg>(0)
+    : CBkDialogImpl<TrayMenuDlg>(IDR_BK_TRAYMENU)
     , m_bShowing(FALSE)
 {
     m_hPrentsWnd = NULL;
@@ -24,7 +24,7 @@ TrayMenuDlg::~TrayMenuDlg()
 
 BOOL TrayMenuDlg::PopUp(HWND hPrentsWnd, CPoint point)
 {
-    int nHeight = 140;
+    int nHeight = 62;
     int nWidth = 135;
 
     SetTimer(TIMER_TOP, 200);
@@ -110,8 +110,8 @@ void TrayMenuDlg::OnBtnQuit()
         return;
     }
 
-    ::SendMessage(m_hPrentsWnd, WM_GA_QUIT, NULL, NULL);
-    EndDialog(TRUE);
+    OnClose();
+    ::SendMessage(m_hPrentsWnd, WM_GAME_QUIT, NULL, NULL);
 }
 
 void TrayMenuDlg::OnBtnCallMain()
@@ -152,4 +152,5 @@ void TrayMenuDlg::OnBtnCallMainLeave()
 void TrayMenuDlg::OnClose()
 {
     KillTimer(TIMER_TOP);
+    PostQuitMessage(0);
 }

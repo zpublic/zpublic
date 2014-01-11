@@ -9,6 +9,7 @@ DEFINE_XML(IDR_BK_STRING_DEF,                           102,                    
 DEFINE_XML(IDR_BK_MAIN_DIALOG,                          103,                    "res\\xml\\dlg_main.xml")
 DEFINE_XML(IDR_BK_LOGIN,                                104,                    "res\\xml\\dlg_login.xml")
 DEFINE_XML(IDR_BK_REGISTER,                             105,                    "res\\xml\\dlg_register.xml")
+DEFINE_XML(IDR_BK_TRAYMENU,                             106,                    "res\\xml\\dlg_tray_menu.xml")
 
 // //////////////////////////////////////////////////////////////////////////
 // // ICON

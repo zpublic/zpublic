@@ -8,12 +8,9 @@
 #ifndef __GAME_MAIN_DLG_H_
 #define __GAME_MAIN_DLG_H_
 
-#include <vector>
-#include <wtlhelper/whwindow.h>
-#include <CBkDialogViewImplEx.h>
-#include <bkres/bkres.h>
 #include "game_item_def.h"
-#include "unit_tinyxml.h"
+#include "util_tinyxml.h"
+#include "game_tray_menu_dlg.h"
 
 #define WM_TRAYMESSAGE                      (WM_USER + 2002)
 
@@ -25,6 +22,7 @@ public:
     GameMainDlg()
         : CBkDialogViewEx(IDR_BK_MAIN_DIALOG)
     {
+        m_pTrayMenu = NULL;
     }
 
     enum
@@ -65,6 +63,8 @@ protected:
 
     LRESULT OnTrayMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
 
+    LRESULT OnGameClose(UINT uMsg, WPARAM wParam, LPARAM lParam);
+
 protected:
     struct ListItemData
     {
@@ -87,7 +87,7 @@ protected:
 protected:
     BOOL InitItemList();
 
-    BOOL CreateListItemXml(ListItemData& itemdata, UnitTinyXml& unitTinyXML);
+    BOOL CreateListItemXml(ListItemData& itemdata, UtilTinyXml& unitTinyXML);
 
     BOOL AddOneItemToListWnd(ListItemData& itemdata, UINT nListCtrlId);
 
@@ -106,13 +106,14 @@ protected:
 
     BEGIN_MSG_MAP_EX(GameMainDlg)
         MSG_BK_NOTIFY(IDC_RICHVIEW_WIN_EX)
+        MESSAGE_HANDLER_EX(WM_TRAYMESSAGE, OnTrayMessage)
+        MESSAGE_HANDLER_EX(WM_GAME_QUIT, OnGameClose)
         CHAIN_MSG_MAP(CBkDialogViewEx)
         CHAIN_MSG_MAP(CWHRoundRectFrameHelper<GameMainDlg>)
         MSG_WM_CLOSE(OnClose)
         MSG_WM_INITDIALOG(OnInitDialog)
         MSG_WM_SYSCOMMAND(OnSysCommand)
         MSG_WM_TIMER(OnTimer)
-        MESSAGE_HANDLER_EX(WM_TRAYMESSAGE, OnTrayMessage)
         REFLECT_NOTIFICATIONS_EX()
     END_MSG_MAP()
 
@@ -126,6 +127,11 @@ private:
     BOOL _SetTray(HINSTANCE hInst, UINT nIConId, ULONG ulType);
 
     void _Close();
+
+    void _CreateTrayMenu();
+
+private:
+    TrayMenuDlg* m_pTrayMenu;
 };
 
 #endif // __GAME_MAIN_DLG_H_

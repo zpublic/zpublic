@@ -1,25 +1,25 @@
 /* -------------------------------------------------------------------------
-//  File        :   unit_create_xmlfunction.h
+//  File        :   util_create_xmlfunction.h
 //  Author      :   Sum
-//  Datet       :   2014/1/4 15:36
+//  Datet       :   2014/1/11 14:42
 //  Brief       :   
 //
 // -----------------------------------------------------------------------*/
-#ifndef __UNIT_CREATE_XMLFUNCTION_H_
-#define __UNIT_CREATE_XMLFUNCTION_H_
+#ifndef __UTIL_CREATE_XMLFUNCTION_H_
+#define __UTIL_CREATE_XMLFUNCTION_H_
 
 #include <windows.h>
 #include <atlstr.h>
-#include "unit_tinyxml.h"
+#include "util_tinyxml.h"
 
-class UnitCreateXMLFunction
+class UtilCreateXMLFunction
 {
 public:
-    UnitCreateXMLFunction(UnitTinyXml& unitXML);
+    UtilCreateXMLFunction(UtilTinyXml& unitXML);
 
-    ~UnitCreateXMLFunction();
+    ~UtilCreateXMLFunction();
 
-    UnitTinyXml& operator()()
+    UtilTinyXml& operator()()
     {
         return m_UintTinyXML;
     }
@@ -41,7 +41,7 @@ public:
         LPCSTR szOnlydrawchild = NULL);
 
 private:
-    UnitTinyXml m_UintTinyXML;
+    UtilTinyXml m_UintTinyXML;
 };
 
-#endif // __UNIT_CREATE_XMLFUNCTION_H_
+#endif // __UTIL_CREATE_XMLFUNCTION_H_
