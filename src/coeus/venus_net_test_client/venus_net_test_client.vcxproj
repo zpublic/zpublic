@@ -64,7 +64,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\lib\;..\..\..\3rdparty\poco_lib\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib\;..\..\..\3rdparty\poco\lib\</AdditionalLibraryDirectories>
       <AdditionalDependencies>venus_net.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -86,7 +86,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\lib\;..\..\..\3rdparty\poco_lib\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib\;..\..\..\3rdparty\poco\lib\</AdditionalLibraryDirectories>
       <AdditionalDependencies>venus_net.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

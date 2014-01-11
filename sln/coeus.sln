@@ -9,6 +9,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "venus_net", "..\src\coeus\venus_net\venus_net.vcxproj", "{9C15937D-8CE0-407D-8A25-82EEDCEA6930}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "coeus", "..\src\coeus\client\coeus.vcxproj", "{A2B3C8FB-649D-43D4-859F-4EC4C5D38379}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9C15937D-8CE0-407D-8A25-82EEDCEA6930} = {9C15937D-8CE0-407D-8A25-82EEDCEA6930}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{EC1CA481-2011-4921-844C-23C483350E82}"
 EndProject

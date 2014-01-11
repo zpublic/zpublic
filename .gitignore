@@ -26,6 +26,7 @@
 !/3rdparty/protobuf_lib/*.lib
 !/3rdparty/libcurl_lib/*.lib
 !/3rdparty/poco_lib/*.lib
+!/3rdparty/poco_lib_discarded/*.lib
 !/3rdparty/hge/lib/*.lib
 
 Debug
@@ -70,3 +71,8 @@ circe_client_network.dll
 !/src/coeus/tools/CoreSword_Editor/CoreSword Editor.vshost.exe
 !/src/coeus/tools/CoreSword_Editor/Tools/protoc.exe
 *.user
+
+obj
+/3rdparty/poco/bin
+/3rdparty/poco/lib
+/3rdparty/poco/Foundation/testsuite/bin
