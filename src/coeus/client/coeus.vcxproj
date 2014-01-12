@@ -90,13 +90,12 @@
       <ExceptionHandling />
       <DebugInformationFormat />
       <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./;$(projectdir)/../../../3rdparty\publish\bkwin\;$(projectdir)/../../../3rdparty\publish\;$(projectdir)/../../../3rdparty\tinyxml\;$(projectdir)/../../../;$(projectdir)../../../3rdparty\wtl\Include\;$(projectdir)/../;$(projectdir)/../../../3rdparty;$(projectdir)/../../../3rdparty/poco/net/include;..\..\..\3rdparty\poco\Foundation\include;..\..\..\3rdparty\poco\Util\include;..\..\..\3rdparty\poco\Net\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;$(projectdir)/../../../3rdparty\publish\bkwin\;$(projectdir)/../../../3rdparty\publish\;$(projectdir)/../../../3rdparty\tinyxml\;$(projectdir)/../../../;$(projectdir)../../../3rdparty\wtl\Include\;../coeus/;$(projectdir)/../../../3rdparty;$(projectdir)/../../../3rdparty/poco/net/include;..\..\..\3rdparty\poco\Foundation\include;..\..\..\3rdparty\poco\Util\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4800;4996;4018;4244</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalLibraryDirectories>..\..\..\3rdparty\poco\lib\</AdditionalLibraryDirectories>
     </Link>
     <ResourceCompile>
       <Culture>0x0409</Culture>
@@ -140,14 +139,14 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\..\..\3rdparty\publish\wtlhelper\ksOleClientSite.cpp" />
-    <ClCompile Include="unit_create_xmlfunction.cpp" />
+    <ClCompile Include="game_tray_menu_dlg.cpp" />
+    <ClCompile Include="util_create_xmlfunction.cpp" />
     <ClCompile Include="game_login_dlg.cpp" />
     <ClCompile Include="game_main_dlg.cpp" />
     <ClCompile Include="game_register_dlg.cpp" />
-    <ClCompile Include="unit_function.cpp" />
-    <ClCompile Include="unit_tinyxml.cpp" />
+    <ClCompile Include="util_function.cpp" />
+    <ClCompile Include="util_tinyxml.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="network_handler.cpp" />
     <ClCompile Include="network_mgr.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -240,22 +239,21 @@
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atluser.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwince.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h" />
-    <ClInclude Include="..\venus_net\tcp_client.h" />
     <ClInclude Include="bkwinres.h" />
     <ClInclude Include="coeus.h" />
     <ClInclude Include="game_hander.h" />
     <ClInclude Include="game_item_def.h" />
     <ClInclude Include="game_network_message.h" />
-    <ClInclude Include="unit_create_xmlfunction.h" />
+    <ClInclude Include="game_tray_menu_dlg.h" />
+    <ClInclude Include="util_create_xmlfunction.h" />
     <ClInclude Include="game_login_dlg.h" />
     <ClInclude Include="game_main_dlg.h" />
     <ClInclude Include="game_register_dlg.h" />
-    <ClInclude Include="unit_function.h" />
-    <ClInclude Include="unit_path_parser.h" />
-    <ClInclude Include="unit_tinyxml.h" />
+    <ClInclude Include="util_function.h" />
+    <ClInclude Include="util_path_parser.h" />
+    <ClInclude Include="util_tinyxml.h" />
     <ClInclude Include="KTipEdit.h" />
     <ClInclude Include="ktipedit3.h" />
-    <ClInclude Include="network_handler.h" />
     <ClInclude Include="network_mgr.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -273,6 +271,7 @@
     <Xml Include="res\xml\dlg_register.xml">
       <SubType>Designer</SubType>
     </Xml>
+    <Xml Include="res\xml\dlg_tray_menu.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

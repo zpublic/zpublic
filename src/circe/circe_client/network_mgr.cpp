@@ -6,6 +6,7 @@ CNetworkMgr::CNetworkMgr()
     : m_pClient(NULL)
     , m_hMod(NULL)
     , m_bConnected(FALSE)
+    , m_ServerAddress(m_ServerAddress)
 {
 
 }

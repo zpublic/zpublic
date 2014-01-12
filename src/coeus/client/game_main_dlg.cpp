@@ -9,13 +9,12 @@
 #include "stdafx.h"
 #include "game_main_dlg.h"
 #include "bkwinres.h"
-#include "unit_create_xmlfunction.h"
-#include "unit_function.h"
+#include "util_create_xmlfunction.h"
+#include "util_function.h"
 #include "resource.h"
 
 #define LIST_ITEM_HEIGHT 56
 #define TRAY_TIP                            _T("couse")
-#define WM_TRAYMESSAGE                      (WM_USER + 2002)
 
 LRESULT GameMainDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
 {
@@ -54,8 +53,7 @@ void GameMainDlg::OnTimer(UINT_PTR nIDEvent)
 
 void GameMainDlg::OnBtnClose()
 {
-    _DeleteTray(_Module.GetModuleInstance(), IDR_MAINFRAME);
-    EndDialog(IDOK);
+    ShowWindow(SW_HIDE);
 }
 
 BOOL GameMainDlg::InitItemList()
@@ -63,10 +61,10 @@ BOOL GameMainDlg::InitItemList()
     return TRUE;
 }
 
-BOOL GameMainDlg::CreateListItemXml(ListItemData& itemdata, UnitTinyXml& unitTinyXML)
+BOOL GameMainDlg::CreateListItemXml(ListItemData& itemdata, UtilTinyXml& unitTinyXML)
 {
     BOOL bReturn = FALSE;
-    UnitCreateXMLFunction XmlElFunc(unitTinyXML);
+    UtilCreateXMLFunction XmlElFunc(unitTinyXML);
     CString csNum;
     CString csType;
 
@@ -92,13 +90,13 @@ BOOL GameMainDlg::CreateListItemXml(ListItemData& itemdata, UnitTinyXml& unitTin
     XmlElFunc().Write("tip", itemdata.csDescribeName);
     XmlElFunc().WriteText(itemdata.csDescribeName);
 
-    UnitFunction::FomatInt(itemdata.nNum, csNum);
+    UtilFunction::FomatInt(itemdata.nNum, csNum);
     bReturn = XmlElFunc.AddTinySibling("text", IDC_LIST_CHILD_ITEM_TEXT_NUM, "261,0,340,-0", NULL, NULL, "list_text_softname_center_gdiplus");
     if (FALSE == bReturn) goto Exit0;
     XmlElFunc().Write("crtext", "000000");
     XmlElFunc().WriteText(csNum);
 
-    UnitFunction::ConvertItemDataToString(itemdata.emItemType, csType);
+    UtilFunction::ConvertItemDataToString(itemdata.emItemType, csType);
     bReturn = XmlElFunc.AddTinySibling("text", IDC_LIST_CHILD_ITEM_TEXT_WEAPON, "340,0,424,-0", NULL, NULL, "list_text_softname_center_gdiplus");
     if (FALSE == bReturn) goto Exit0;
     XmlElFunc().Write("crtext", "000000");
@@ -125,7 +123,7 @@ Exit0:
 BOOL GameMainDlg::AddOneItemToListWnd(ListItemData& itemdata, UINT nListCtrlId)
 {
     BOOL bReturn = FALSE;
-    UnitTinyXml tinyXml;
+    UtilTinyXml tinyXml;
 
     do 
     {
@@ -138,7 +136,7 @@ BOOL GameMainDlg::AddOneItemToListWnd(ListItemData& itemdata, UINT nListCtrlId)
 
         if (TRUE)
         {
-            UnitTinyXmlRememberPos(tinyXml);
+            UtilTinyXmlRememberPos(tinyXml);
             bRetCode = CreateListItemXml(itemdata, tinyXml);
         }
 
@@ -206,4 +204,66 @@ BOOL GameMainDlg::_SetTray(HINSTANCE hInst, UINT nIConId, ULONG ulType)
     NotifyICon.hIcon = ::LoadIcon(hInst, MAKEINTRESOURCE(nIConId));
     _tcsncpy_s(NotifyICon.szTip, nTipLen, TRAY_TIP, nTipLen - 1);
     return ::Shell_NotifyIcon(ulType, &NotifyICon);
+}
+
+void GameMainDlg::_Close()
+{
+    _DeleteTray(_Module.GetModuleInstance(), IDR_MAINFRAME);
+
+    if (m_pTrayMenu != NULL)
+    {
+        delete m_pTrayMenu;
+        m_pTrayMenu = NULL;
+    }
+
+    EndDialog(IDOK);
+}
+
+LRESULT GameMainDlg::OnTrayMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+    if (uMsg == WM_TRAYMESSAGE)
+    {
+        switch (lParam)
+        {
+        case WM_LBUTTONUP:
+            ShowWindow(SW_SHOW);
+            break;
+        case WM_RBUTTONUP:
+            _CreateTrayMenu();
+            break;
+        default:
+            break;
+        }
+    }
+
+    if (uMsg == WM_GAME_QUIT)
+    {
+        _Close();
+    }
+
+    return TRUE;
+}
+
+void GameMainDlg::_CreateTrayMenu()
+{
+    CPoint pointCurr;
+    GetCursorPos(&pointCurr);
+
+    if (m_pTrayMenu == NULL)
+    {
+        m_pTrayMenu = new TrayMenuDlg;
+        m_pTrayMenu->Create(m_hWnd);
+    }
+
+    m_pTrayMenu->PopUp(m_hWnd, pointCurr);
+}
+
+LRESULT GameMainDlg::OnGameClose(UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+    if (uMsg == WM_GAME_QUIT)
+    {
+        _Close();
+    }
+
+    return TRUE;
 }

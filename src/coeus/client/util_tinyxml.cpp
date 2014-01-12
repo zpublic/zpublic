@@ -1,13 +1,21 @@
+/* -------------------------------------------------------------------------
+//  File        :   util_tinyxml.cpp
+//  Author      :   Sum
+//  Datet       :   2014/1/11 14:39
+//  Brief       :   
+//
+// -----------------------------------------------------------------------*/
+//
 #include "stdafx.h"
-#include "unit_tinyxml.h"
+#include "util_tinyxml.h"
 #include <atlbase.h>
 
-UnitTinyXml::UnitTinyXml()
+UtilTinyXml::UtilTinyXml()
 {
     m_pOpenElement = NULL;
 }
 
-BOOL UnitTinyXml::LoadFile(IN LPCSTR szXmlFile)
+BOOL UtilTinyXml::LoadFile(IN LPCSTR szXmlFile)
 {
     m_xmlDoc.Clear();
     m_xmlDoc.LoadFile(szXmlFile);
@@ -16,7 +24,7 @@ BOOL UnitTinyXml::LoadFile(IN LPCSTR szXmlFile)
     return TRUE;
 }
 
-BOOL UnitTinyXml::LoadFile(IN LPCWSTR szXmlFile)
+BOOL UtilTinyXml::LoadFile(IN LPCWSTR szXmlFile)
 {
     BOOL bReturn = FALSE;
     BOOL bRetCode = FALSE;
@@ -37,17 +45,17 @@ Exit0:
     return bReturn;
 }
 
-BOOL UnitTinyXml::SaveFile(IN LPCSTR szXmlFile)
+BOOL UtilTinyXml::SaveFile(IN LPCSTR szXmlFile)
 {
     return m_xmlDoc.SaveFile(szXmlFile);
 }
 
-BOOL UnitTinyXml::SaveFile(IN LPCWSTR szXmlFile)
+BOOL UtilTinyXml::SaveFile(IN LPCWSTR szXmlFile)
 {
     return m_xmlDoc.SaveFile(CW2A(szXmlFile));
 }
 
-BOOL UnitTinyXml::Parse(IN LPCSTR szXml)
+BOOL UtilTinyXml::Parse(IN LPCSTR szXml)
 {
     m_xmlDoc.Clear();
     m_xmlDoc.Parse(szXml);
@@ -56,12 +64,12 @@ BOOL UnitTinyXml::Parse(IN LPCSTR szXml)
     return TRUE;
 }
 
-void UnitTinyXml::Clear(void)
+void UtilTinyXml::Clear(void)
 {
     m_xmlDoc.Clear();
 }
 
-BOOL UnitTinyXml::Open(IN LPCSTR szPath, BOOL bCreate /* = FALSE */)
+BOOL UtilTinyXml::Open(IN LPCSTR szPath, BOOL bCreate /* = FALSE */)
 {
     if (!szPath || !szPath[0])
     {
@@ -75,7 +83,7 @@ BOOL UnitTinyXml::Open(IN LPCSTR szPath, BOOL bCreate /* = FALSE */)
     return m_pOpenElement != NULL;
 }
 
-BOOL UnitTinyXml::OpenSubPath(IN LPCSTR szSubPath, BOOL bCreate /* = FALSE */)
+BOOL UtilTinyXml::OpenSubPath(IN LPCSTR szSubPath, BOOL bCreate /* = FALSE */)
 {
     if (!szSubPath || !szSubPath[0])
         return FALSE;
@@ -85,9 +93,9 @@ BOOL UnitTinyXml::OpenSubPath(IN LPCSTR szSubPath, BOOL bCreate /* = FALSE */)
     return m_pOpenElement != NULL;
 }
 
-TiXmlElement* UnitTinyXml::_Open(TiXmlElement* pParentElement, LPCSTR szPath, BOOL bCreate)
+TiXmlElement* UtilTinyXml::_Open(TiXmlElement* pParentElement, LPCSTR szPath, BOOL bCreate)
 {
-    UnitPathParserA path;
+    UtilPathParserA path;
     BOOL bRetCode = FALSE;
     int nPathIndex = 0;
     TiXmlElement* pRetElement = NULL;
@@ -148,7 +156,7 @@ Exit0:
     return pRetElement;
 }
 
-TiXmlElement* UnitTinyXml::_Create(TiXmlNode* pParentNode, UnitPathParserA& path, int nPathIndex)
+TiXmlElement* UtilTinyXml::_Create(TiXmlNode* pParentNode, UtilPathParserA& path, int nPathIndex)
 {
     TiXmlElement* pRetElement = NULL;
 
@@ -163,7 +171,7 @@ TiXmlElement* UnitTinyXml::_Create(TiXmlNode* pParentNode, UnitPathParserA& path
     return pRetElement;
 }
 
-BOOL UnitTinyXml::Write(IN LPCSTR szKey, IN int nValue)
+BOOL UtilTinyXml::Write(IN LPCSTR szKey, IN int nValue)
 {
     if (!m_pOpenElement) return FALSE;
 
@@ -172,7 +180,7 @@ BOOL UnitTinyXml::Write(IN LPCSTR szKey, IN int nValue)
     return TRUE;
 }
 
-BOOL UnitTinyXml::Write(IN LPCSTR szKey, IN LPCSTR szValue)
+BOOL UtilTinyXml::Write(IN LPCSTR szKey, IN LPCSTR szValue)
 {
     if (!m_pOpenElement || !szValue) return FALSE;
 
@@ -181,7 +189,7 @@ BOOL UnitTinyXml::Write(IN LPCSTR szKey, IN LPCSTR szValue)
     return TRUE;
 }
 
-BOOL UnitTinyXml::Write(IN LPCSTR szKey, IN LPCWSTR szValue)
+BOOL UtilTinyXml::Write(IN LPCSTR szKey, IN LPCWSTR szValue)
 {
     if (!m_pOpenElement || !szValue) return FALSE;
 
@@ -190,7 +198,7 @@ BOOL UnitTinyXml::Write(IN LPCSTR szKey, IN LPCWSTR szValue)
     return TRUE;
 }
 
-BOOL UnitTinyXml::Write(IN LPCSTR szKey, IN const std::string& strValue)
+BOOL UtilTinyXml::Write(IN LPCSTR szKey, IN const std::string& strValue)
 {
     if (!m_pOpenElement) return FALSE;
 
@@ -199,7 +207,7 @@ BOOL UnitTinyXml::Write(IN LPCSTR szKey, IN const std::string& strValue)
     return TRUE;
 }
 
-BOOL UnitTinyXml::Write(IN LPCSTR szKey, IN const std::wstring& strValue)
+BOOL UtilTinyXml::Write(IN LPCSTR szKey, IN const std::wstring& strValue)
 {
     if (!m_pOpenElement) return FALSE;
 
@@ -208,7 +216,7 @@ BOOL UnitTinyXml::Write(IN LPCSTR szKey, IN const std::wstring& strValue)
     return TRUE;
 }
 
-BOOL UnitTinyXml::WriteText(IN LPCSTR szText, BOOL bCDATA /* = FALSE */)
+BOOL UtilTinyXml::WriteText(IN LPCSTR szText, BOOL bCDATA /* = FALSE */)
 {
     if (!m_pOpenElement || !szText) return FALSE;
 
@@ -226,7 +234,7 @@ BOOL UnitTinyXml::WriteText(IN LPCSTR szText, BOOL bCDATA /* = FALSE */)
     return TRUE;
 }
 
-BOOL UnitTinyXml::WriteText(IN LPCWSTR szText, BOOL bCDATA /* = FALSE */)
+BOOL UtilTinyXml::WriteText(IN LPCWSTR szText, BOOL bCDATA /* = FALSE */)
 {
     if (!m_pOpenElement || !szText) return FALSE;
 
@@ -245,7 +253,7 @@ BOOL UnitTinyXml::WriteText(IN LPCWSTR szText, BOOL bCDATA /* = FALSE */)
     return TRUE;
 }
 
-BOOL UnitTinyXml::Read(IN LPCSTR szKey, OUT int& nValue)
+BOOL UtilTinyXml::Read(IN LPCSTR szKey, OUT int& nValue)
 {
     if (!m_pOpenElement) return FALSE;
 
@@ -255,7 +263,7 @@ BOOL UnitTinyXml::Read(IN LPCSTR szKey, OUT int& nValue)
     return TRUE;
 }
 
-BOOL UnitTinyXml::Read(IN LPCSTR szKey, OUT CStringA& strValue)
+BOOL UtilTinyXml::Read(IN LPCSTR szKey, OUT CStringA& strValue)
 {
     strValue.Empty();
 
@@ -272,7 +280,7 @@ BOOL UnitTinyXml::Read(IN LPCSTR szKey, OUT CStringA& strValue)
     return FALSE;
 }
 
-BOOL UnitTinyXml::Read(IN LPCSTR szKey, OUT CStringW& strValue)
+BOOL UtilTinyXml::Read(IN LPCSTR szKey, OUT CStringW& strValue)
 {
     strValue.Empty();
 
@@ -289,7 +297,7 @@ BOOL UnitTinyXml::Read(IN LPCSTR szKey, OUT CStringW& strValue)
     return FALSE;
 }
 
-BOOL UnitTinyXml::Read(IN LPCSTR szKey, OUT std::string& strValue)
+BOOL UtilTinyXml::Read(IN LPCSTR szKey, OUT std::string& strValue)
 {
     strValue.clear();
 
@@ -306,7 +314,7 @@ BOOL UnitTinyXml::Read(IN LPCSTR szKey, OUT std::string& strValue)
     return FALSE;
 }
 
-BOOL UnitTinyXml::Read(IN LPCSTR szKey, OUT std::wstring& strValue)
+BOOL UtilTinyXml::Read(IN LPCSTR szKey, OUT std::wstring& strValue)
 {
     strValue.clear();
 
@@ -323,7 +331,7 @@ BOOL UnitTinyXml::Read(IN LPCSTR szKey, OUT std::wstring& strValue)
     return FALSE;
 }
 
-BOOL UnitTinyXml::ReadText(OUT CStringA& strText)
+BOOL UtilTinyXml::ReadText(OUT CStringA& strText)
 {
     TiXmlNode* pFirstChild = NULL;
 
@@ -341,7 +349,7 @@ BOOL UnitTinyXml::ReadText(OUT CStringA& strText)
     return FALSE;
 }
 
-BOOL UnitTinyXml::ReadText(OUT CStringW& strText)
+BOOL UtilTinyXml::ReadText(OUT CStringW& strText)
 {
     TiXmlNode* pFirstChild = NULL;
 
@@ -359,7 +367,7 @@ BOOL UnitTinyXml::ReadText(OUT CStringW& strText)
     return FALSE;
 }
 
-BOOL UnitTinyXml::ReadText(OUT std::string& strText)
+BOOL UtilTinyXml::ReadText(OUT std::string& strText)
 {
     TiXmlNode* pFirstChild = NULL;
 
@@ -377,7 +385,7 @@ BOOL UnitTinyXml::ReadText(OUT std::string& strText)
     return FALSE;
 }
 
-BOOL UnitTinyXml::ReadText(OUT std::wstring& strText)
+BOOL UtilTinyXml::ReadText(OUT std::wstring& strText)
 {
     TiXmlNode* pFirstChild = NULL;
 
@@ -395,7 +403,7 @@ BOOL UnitTinyXml::ReadText(OUT std::wstring& strText)
     return FALSE;
 }
 
-INT UnitTinyXml::ReadInt( void )
+INT UtilTinyXml::ReadInt( void )
 {
     CString strText;
     ReadText(strText);
@@ -403,19 +411,19 @@ INT UnitTinyXml::ReadInt( void )
     return _wtoi(strText);
 }
 
-CStringA UnitTinyXml::ToXml(void)
+CStringA UtilTinyXml::ToXml(void)
 {
     TiXmlPrinter  xmlPrinter;
     m_xmlDoc.Accept(&xmlPrinter);
     return xmlPrinter.CStr();
 }
 
-void UnitTinyXml::RootElement(void)
+void UtilTinyXml::RootElement(void)
 {
     m_pOpenElement = m_xmlDoc.RootElement();
 }
 
-BOOL UnitTinyXml::ParentElement(void)
+BOOL UtilTinyXml::ParentElement(void)
 {
     TiXmlElement* pParentElement = (TiXmlElement*)m_pOpenElement->Parent();
     if (pParentElement)
@@ -427,7 +435,7 @@ BOOL UnitTinyXml::ParentElement(void)
     return FALSE;
 }
 
-BOOL UnitTinyXml::FirstChild(LPCSTR szName /* = NULL */)
+BOOL UtilTinyXml::FirstChild(LPCSTR szName /* = NULL */)
 {
     TiXmlElement* pChildElement = NULL;
 
@@ -451,7 +459,7 @@ BOOL UnitTinyXml::FirstChild(LPCSTR szName /* = NULL */)
     return FALSE;
 }
 
-BOOL UnitTinyXml::NextSibling(LPCSTR szName /* = NULL */)
+BOOL UtilTinyXml::NextSibling(LPCSTR szName /* = NULL */)
 {
     TiXmlElement* pSiblingElement = NULL;
 
@@ -472,7 +480,7 @@ BOOL UnitTinyXml::NextSibling(LPCSTR szName /* = NULL */)
     return FALSE;
 }
 
-BOOL UnitTinyXml::AddSibling(LPCSTR szName, BOOL bOpen /* = FALSE; */)
+BOOL UtilTinyXml::AddSibling(LPCSTR szName, BOOL bOpen /* = FALSE; */)
 {
     TiXmlNode* pParentNode = m_pOpenElement->Parent();
     if (!pParentNode) return FALSE;
@@ -490,7 +498,7 @@ BOOL UnitTinyXml::AddSibling(LPCSTR szName, BOOL bOpen /* = FALSE; */)
     return TRUE;
 }
 
-BOOL UnitTinyXml::AddChild(LPCSTR szName, BOOL bOpen /* = FALSE */)
+BOOL UtilTinyXml::AddChild(LPCSTR szName, BOOL bOpen /* = FALSE */)
 {
     if (!szName || !szName[0])
         return FALSE;
@@ -503,7 +511,7 @@ BOOL UnitTinyXml::AddChild(LPCSTR szName, BOOL bOpen /* = FALSE */)
     return TRUE;
 }
 
-BOOL UnitTinyXml::DeleteCurrentElement(void)
+BOOL UtilTinyXml::DeleteCurrentElement(void)
 {
     TiXmlElement* pParentElement = (TiXmlElement*)m_pOpenElement->Parent();
     if (pParentElement)
@@ -515,7 +523,7 @@ BOOL UnitTinyXml::DeleteCurrentElement(void)
     return FALSE;
 }
 
-BOOL UnitTinyXml::DeleteCurrentElement(LPCSTR szNextSiblingName)
+BOOL UtilTinyXml::DeleteCurrentElement(LPCSTR szNextSiblingName)
 {
     TiXmlElement* pParentElement = (TiXmlElement*)m_pOpenElement->Parent();
     if (pParentElement)
@@ -540,7 +548,7 @@ BOOL UnitTinyXml::DeleteCurrentElement(LPCSTR szNextSiblingName)
     return FALSE;
 }
 
-BOOL UnitTinyXml::_LoadFile(LPCWSTR szPath, CStringA& strXml)
+BOOL UtilTinyXml::_LoadFile(LPCWSTR szPath, CStringA& strXml)
 {
     BOOL bReturn = FALSE;
     BOOL bRetCode = FALSE;

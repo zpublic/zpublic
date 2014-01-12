@@ -1,5 +1,4 @@
 #pragma once
-#include "network_handler.h"
 #include <Poco/Net/SocketConnector.h>
 #include "game_network_message.h"
 #include "game_hander.h"

@@ -1,24 +1,24 @@
 /* -------------------------------------------------------------------------
-//  File        :   unit_create_xmlfunction.cpp
+//  File        :   util_create_xmlfunction.cpp
 //  Author      :   Sum
-//  Datet       :   2014/1/4 15:36
+//  Datet       :   2014/1/11 14:42
 //  Brief       :   
 //
 // -----------------------------------------------------------------------*/
 //
 #include "stdafx.h"
-#include "unit_create_xmlfunction.h"
+#include "util_create_xmlfunction.h"
 
-UnitCreateXMLFunction::UnitCreateXMLFunction(UnitTinyXml& unitXML)
+UtilCreateXMLFunction::UtilCreateXMLFunction(UtilTinyXml& unitXML)
     : m_UintTinyXML(unitXML)
 {
 }
 
-UnitCreateXMLFunction::~UnitCreateXMLFunction()
+UtilCreateXMLFunction::~UtilCreateXMLFunction()
 {
 }
 
-BOOL UnitCreateXMLFunction::AddTinyChild(LPCSTR lpszName,
+BOOL UtilCreateXMLFunction::AddTinyChild(LPCSTR lpszName,
     int nCtrlID /*= 0*/,
     LPCSTR szPos /*= "0,0,0,0"*/,
     LPCSTR szShow /*= NULL*/,
@@ -102,7 +102,7 @@ Exit:
     return bReturn;
 }
 
-BOOL UnitCreateXMLFunction::AddTinySibling(LPCSTR lpszName,
+BOOL UtilCreateXMLFunction::AddTinySibling(LPCSTR lpszName,
     int nCtrlID /*= 0*/,
     LPCSTR szPos /*= "0,0,0,0"*/,
     LPCSTR szShow /*= NULL*/,

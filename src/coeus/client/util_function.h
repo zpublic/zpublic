@@ -1,25 +1,25 @@
 /* -------------------------------------------------------------------------
-//  File        :   unit_function.h
+//  File        :   util_function.h
 //  Author      :   Sum
-//  Datet       :   2014/1/4 18:09
+//  Datet       :   2014/1/11 14:39
 //  Brief       :   
 //
 // -----------------------------------------------------------------------*/
-#ifndef __UNIT_FUNCTION_H_
-#define __UNIT_FUNCTION_H_
+#ifndef __UTIL_FUNCTION_H_
+#define __UTIL_FUNCTION_H_
 
 #include "game_item_def.h"
 
-class UnitFunction
+class UtilFunction
 {
 public:
-    UnitFunction();
+    UtilFunction();
 
-    ~UnitFunction();
+    ~UtilFunction();
 
     static void FomatInt(int nValue, CString& csOutValue);
 
     static void ConvertItemDataToString(ItemDataType emType, CString& csOutValue);
 };
 
-#endif // __UNIT_FUNCTION_H_
+#endif // __UTIL_FUNCTION_H_

@@ -1,0 +1,16 @@
+﻿<layer width="140" height="100" layered="1" appwin="0">
+  <body width="full" height="full">
+      <dlg pos="0,0,-0,-0" crbg="DBE2E8" >
+        <dlgbtn id ="100" pos="1,1,-1,35" class="pop_menu_btn_bg">
+          <img id="10001" skin="tray_menu_callmain" pos="13,10" sub="2"/>
+          <text id="20001" pos="40,6" class="tray_menu_btn_text">打开主界面</text>
+        </dlgbtn>
+
+        <dlgbtn id ="103" pos="1,35,-1,69" class="pop_menu_btn_bg">
+          <img id="10004" skin="tray_menu_close" pos="13,10" sub="2"/>
+          <text id="20004" pos="40,6" class="tray_menu_btn_text">退出</text>
+        </dlgbtn>
+
+      </dlg>
+    </body>
+</layer>

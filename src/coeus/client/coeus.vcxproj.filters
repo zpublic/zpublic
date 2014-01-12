@@ -33,9 +33,6 @@
     <Filter Include="include\wtlhelper">
       <UniqueIdentifier>{3bdc6049-dbc9-4cbd-b83c-f2eb7390106b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="unit">
-      <UniqueIdentifier>{21e248f3-2680-40f5-a1a4-f5ac536f2ec6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source\game">
       <UniqueIdentifier>{b3d1dadc-cbc4-42c9-afa8-aa33d72cfa72}</UniqueIdentifier>
     </Filter>
@@ -45,8 +42,8 @@
     <Filter Include="source\hander">
       <UniqueIdentifier>{ce9b15ed-3104-406b-b8cc-9ab116354856}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\net\vent">
-      <UniqueIdentifier>{7e25c554-cc46-4fcc-9cd1-54d92f621fb1}</UniqueIdentifier>
+    <Filter Include="source\util">
+      <UniqueIdentifier>{21e248f3-2680-40f5-a1a4-f5ac536f2ec6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -93,20 +90,20 @@
     <ClCompile Include="game_register_dlg.cpp">
       <Filter>source\dlg</Filter>
     </ClCompile>
-    <ClCompile Include="unit_tinyxml.cpp">
-      <Filter>unit</Filter>
-    </ClCompile>
-    <ClCompile Include="unit_create_xmlfunction.cpp">
-      <Filter>unit</Filter>
-    </ClCompile>
-    <ClCompile Include="unit_function.cpp">
-      <Filter>unit</Filter>
-    </ClCompile>
-    <ClCompile Include="network_handler.cpp">
-      <Filter>source\net</Filter>
-    </ClCompile>
     <ClCompile Include="network_mgr.cpp">
       <Filter>source\net</Filter>
+    </ClCompile>
+    <ClCompile Include="game_tray_menu_dlg.cpp">
+      <Filter>source\dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="util_tinyxml.cpp">
+      <Filter>source\util</Filter>
+    </ClCompile>
+    <ClCompile Include="util_function.cpp">
+      <Filter>source\util</Filter>
+    </ClCompile>
+    <ClCompile Include="util_create_xmlfunction.cpp">
+      <Filter>source\util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -389,23 +386,8 @@
     <ClInclude Include="game_register_dlg.h">
       <Filter>source\dlg</Filter>
     </ClInclude>
-    <ClInclude Include="unit_path_parser.h">
-      <Filter>unit</Filter>
-    </ClInclude>
-    <ClInclude Include="unit_tinyxml.h">
-      <Filter>unit</Filter>
-    </ClInclude>
-    <ClInclude Include="unit_create_xmlfunction.h">
-      <Filter>unit</Filter>
-    </ClInclude>
     <ClInclude Include="game_item_def.h">
       <Filter>source\game</Filter>
-    </ClInclude>
-    <ClInclude Include="unit_function.h">
-      <Filter>unit</Filter>
-    </ClInclude>
-    <ClInclude Include="network_handler.h">
-      <Filter>source\net</Filter>
     </ClInclude>
     <ClInclude Include="network_mgr.h">
       <Filter>source\net</Filter>
@@ -413,11 +395,23 @@
     <ClInclude Include="game_hander.h">
       <Filter>source\hander</Filter>
     </ClInclude>
-    <ClInclude Include="..\venus_net\tcp_client.h">
-      <Filter>source\net\vent</Filter>
-    </ClInclude>
     <ClInclude Include="game_network_message.h">
       <Filter>source\net</Filter>
+    </ClInclude>
+    <ClInclude Include="game_tray_menu_dlg.h">
+      <Filter>source\dlg</Filter>
+    </ClInclude>
+    <ClInclude Include="util_tinyxml.h">
+      <Filter>source\util</Filter>
+    </ClInclude>
+    <ClInclude Include="util_path_parser.h">
+      <Filter>source\util</Filter>
+    </ClInclude>
+    <ClInclude Include="util_function.h">
+      <Filter>source\util</Filter>
+    </ClInclude>
+    <ClInclude Include="util_create_xmlfunction.h">
+      <Filter>source\util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -442,6 +436,9 @@
       <Filter>resource\xml</Filter>
     </Xml>
     <Xml Include="res\xml\dlg_register.xml">
+      <Filter>resource\xml</Filter>
+    </Xml>
+    <Xml Include="res\xml\dlg_tray_menu.xml">
       <Filter>resource\xml</Filter>
     </Xml>
   </ItemGroup>
