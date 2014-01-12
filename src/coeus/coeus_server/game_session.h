@@ -6,7 +6,7 @@
 class GameSession
 {
 public:
-    GameSession();
+    GameSession(ServerConnection* connection);
     virtual ~GameSession();
 
 public:

@@ -17,9 +17,9 @@ public:
         debug_log("connection established.");
     }
 
-    virtual void onMessage(ServerConnection* connection, NetworkMessage* message)
+    virtual void onMessage(ServerConnection* connection, const NetworkPacket::Ptr& packet)
     {
-        debug_log("connection received message, bytesize = %d", message->byteSize());
+        debug_log("connection received message, bytesize = %d", packet->message.size());
     }
 
     virtual void onShutdown(ServerConnection* connection, const ShutdownReason& reason)

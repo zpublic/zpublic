@@ -81,7 +81,7 @@ public:
     {
         printf("onMessage() : [opcode = %d]\n", opcode);
         CSTestPacketRsp requestMessage;
-        //requestMessage.decode((const byte*)&message->messageBody[0], message->messageBody.size());
+        //requestMessage.decode((const byte*)&message->messageBody[0], message->message.size());
         DECODE_MESSAGE(requestMessage, message);
         printf("        [value = %d]\n", requestMessage.uint_value);
         printf("        [string = %s]\n", requestMessage.string_value.c_str());

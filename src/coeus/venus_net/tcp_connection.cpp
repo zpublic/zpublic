@@ -150,7 +150,7 @@ void TcpConnection::finishedPacketCallback(BasicStreamPtr& packet)
 
     NetworkPacket::Ptr packetPtr(new NetworkPacket);
     packetPtr->opcode = opcode;
-    packetPtr->messageBody = NetworkPacket::PDU(packet->b.begin() + NetworkParam::kHeaderLength, packet->b.end());
+    packetPtr->message = NetworkPacket::PDU(packet->b.begin() + NetworkParam::kHeaderLength, packet->b.end());
 
     //构造网络消息包给应用层
     // ...
