@@ -23,8 +23,15 @@ public:
 
         Protocol::CSLoginReq loginRequest;
         DECODE_MESSAGE(loginRequest, packet);
-
         debug_log("account = %s, password = %s", loginRequest.account.c_str(), loginRequest.password.c_str());
+        if (loginRequest.account == "coeus_user" && loginRequest.password == "coeus_password")
+        {
+            debug_log("Login successful!");
+        }
+        else
+        {
+            debug_log("Login failed.");
+        }
     }
 
     virtual void onShutdown(ServerConnection* connection, const ShutdownReason& reason)

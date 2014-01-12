@@ -56,12 +56,17 @@ int main(int argc, char** argv)
             tcpClient.connect(serverAddress);
             
             Protocol::CSLoginReq loginRequest;
-            loginRequest.account = "SB";
-            loginRequest.password = "SB2";
 
-            //Protocol::CSLoginReq loginRequest;
-            //loginRequest.account();
+            //登录成功的数据
+            loginRequest.account = "coeus_user";
+            loginRequest.password = "coeus_password";
             tcpClient.sendMessage(Opcodes::CSLoginReq, loginRequest);
+
+            //登录失败的数据
+            loginRequest.account = "powman";
+            loginRequest.password = "demaciaaaaa";
+            tcpClient.sendMessage(Opcodes::CSLoginReq, loginRequest);
+
             tcpClient.close();
         }
 
