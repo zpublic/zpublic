@@ -20,3 +20,8 @@ void ServerConnection::close(const ShutdownReason& reason/* = SR_SERVICE_CLOSE_I
 {
     _connection->close(reason);
 }
+
+uint32 ServerConnection::sequence() const
+{
+    return _connection->sequence();
+}

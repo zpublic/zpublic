@@ -3,6 +3,7 @@
 
 #include "venus_net/network_common.h"
 
+class ServerConnection;
 class GameSession
 {
 public:

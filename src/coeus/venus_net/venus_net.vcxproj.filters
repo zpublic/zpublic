@@ -84,6 +84,7 @@
     <ClInclude Include="message_queue_worker.h">
       <Filter>network</Filter>
     </ClInclude>
+    <ClInclude Include="venus_net.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="service_application.cpp">

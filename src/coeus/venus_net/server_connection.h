@@ -19,7 +19,7 @@ public:
 public:
     void sendMessage(uint16 opcode, NetworkMessage& message);
     void close(const ShutdownReason& reason = SR_SERVICE_CLOSE_INITIATIVE);
-    inline uint32 sequence() const { return _connection->sequence(); }
+    uint32 sequence() const;
 
 private:
     TcpConnection* _connection;
