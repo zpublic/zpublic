@@ -40,4 +40,4 @@ zlui：界面尝试相关的代码
 
 zpublic（c++11、boost、poco、gui等讨论）交流讨论QQ群：240978546  
 coeus（火热进行中的游戏）交流讨论群：37723482  
-交流论坛 http://gamediary.org/[http://gamediary.org/]
+交流论坛 [http://gamediary.org/]
