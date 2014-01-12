@@ -63,7 +63,7 @@ Exit:
 void CNetworkMgr::Close()
 {
     if (m_pTcpClient
-        || m_pTcpClient->connected())
+        && m_pTcpClient->connected())
     {
         m_pTcpClient->close();
     }
