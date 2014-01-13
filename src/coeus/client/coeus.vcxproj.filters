@@ -9,9 +9,6 @@
       <UniqueIdentifier>{8c17fff0-f733-4333-8172-7864df19378d}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest</Extensions>
     </Filter>
-    <Filter Include="source\dlg">
-      <UniqueIdentifier>{4ba4a697-024b-42eb-ad40-b492eaf0c091}</UniqueIdentifier>
-    </Filter>
     <Filter Include="include">
       <UniqueIdentifier>{3f58f7af-8aaa-4714-8267-6c565d09288d}</UniqueIdentifier>
     </Filter>
@@ -39,11 +36,26 @@
     <Filter Include="source\net">
       <UniqueIdentifier>{b198b11a-29c0-4b8c-9028-e1ca0bd9a02a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\hander">
-      <UniqueIdentifier>{ce9b15ed-3104-406b-b8cc-9ab116354856}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source\util">
       <UniqueIdentifier>{21e248f3-2680-40f5-a1a4-f5ac536f2ec6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ui">
+      <UniqueIdentifier>{4ba4a697-024b-42eb-ad40-b492eaf0c091}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ui\dlg">
+      <UniqueIdentifier>{70f3bf66-6a63-49de-a660-a4bcf19f61fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ui\control">
+      <UniqueIdentifier>{d20cf5b7-0997-460a-8d0a-e500a5035fc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\public">
+      <UniqueIdentifier>{80631a7b-f9a9-4113-ad52-aad7f78f6695}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\public\protocol">
+      <UniqueIdentifier>{2b539352-12ed-477d-a6b9-a37f8a513819}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\logic">
+      <UniqueIdentifier>{a5437712-3753-482f-bfb9-59f499d8aeee}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -66,9 +78,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="game_main_dlg.cpp">
-      <Filter>source\dlg</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\3rdparty\publish\tinyxml\tinystr.cpp">
       <Filter>include\tinyxml</Filter>
     </ClCompile>
@@ -81,20 +90,11 @@
     <ClCompile Include="..\..\..\3rdparty\publish\tinyxml\tinyxmlparser.cpp">
       <Filter>include\tinyxml</Filter>
     </ClCompile>
-    <ClCompile Include="game_login_dlg.cpp">
-      <Filter>source\dlg</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\3rdparty\publish\wtlhelper\ksOleClientSite.cpp">
       <Filter>include\wtlhelper</Filter>
     </ClCompile>
-    <ClCompile Include="game_register_dlg.cpp">
-      <Filter>source\dlg</Filter>
-    </ClCompile>
     <ClCompile Include="network_mgr.cpp">
       <Filter>source\net</Filter>
-    </ClCompile>
-    <ClCompile Include="game_tray_menu_dlg.cpp">
-      <Filter>source\dlg</Filter>
     </ClCompile>
     <ClCompile Include="util_tinyxml.cpp">
       <Filter>source\util</Filter>
@@ -105,6 +105,24 @@
     <ClCompile Include="util_create_xmlfunction.cpp">
       <Filter>source\util</Filter>
     </ClCompile>
+    <ClCompile Include="game_login_dlg.cpp">
+      <Filter>source\ui\dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="game_main_dlg.cpp">
+      <Filter>source\ui\dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="game_register_dlg.cpp">
+      <Filter>source\ui\dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="game_tray_menu_dlg.cpp">
+      <Filter>source\ui\dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="game_logic.cpp">
+      <Filter>source\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="login_logic.cpp">
+      <Filter>source\logic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -112,9 +130,6 @@
     </ClInclude>
     <ClInclude Include="coeus.h">
       <Filter>source</Filter>
-    </ClInclude>
-    <ClInclude Include="game_main_dlg.h">
-      <Filter>source\dlg</Filter>
     </ClInclude>
     <ClInclude Include="bkwinres.h">
       <Filter>resource</Filter>
@@ -329,15 +344,6 @@
     <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkstringpool.h">
       <Filter>include\bkres</Filter>
     </ClInclude>
-    <ClInclude Include="game_login_dlg.h">
-      <Filter>source\dlg</Filter>
-    </ClInclude>
-    <ClInclude Include="KTipEdit.h">
-      <Filter>source\dlg</Filter>
-    </ClInclude>
-    <ClInclude Include="ktipedit3.h">
-      <Filter>source\dlg</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\bkfolderbrowsectrl.h">
       <Filter>include\wtlhelper</Filter>
     </ClInclude>
@@ -383,23 +389,11 @@
     <ClInclude Include="..\..\..\3rdparty\publish\wtlhelper\whwindow.h">
       <Filter>include\wtlhelper</Filter>
     </ClInclude>
-    <ClInclude Include="game_register_dlg.h">
-      <Filter>source\dlg</Filter>
-    </ClInclude>
     <ClInclude Include="game_item_def.h">
       <Filter>source\game</Filter>
     </ClInclude>
     <ClInclude Include="network_mgr.h">
       <Filter>source\net</Filter>
-    </ClInclude>
-    <ClInclude Include="game_hander.h">
-      <Filter>source\hander</Filter>
-    </ClInclude>
-    <ClInclude Include="game_network_message.h">
-      <Filter>source\net</Filter>
-    </ClInclude>
-    <ClInclude Include="game_tray_menu_dlg.h">
-      <Filter>source\dlg</Filter>
     </ClInclude>
     <ClInclude Include="util_tinyxml.h">
       <Filter>source\util</Filter>
@@ -412,6 +406,45 @@
     </ClInclude>
     <ClInclude Include="util_create_xmlfunction.h">
       <Filter>source\util</Filter>
+    </ClInclude>
+    <ClInclude Include="game_login_dlg.h">
+      <Filter>source\ui\dlg</Filter>
+    </ClInclude>
+    <ClInclude Include="game_main_dlg.h">
+      <Filter>source\ui\dlg</Filter>
+    </ClInclude>
+    <ClInclude Include="game_register_dlg.h">
+      <Filter>source\ui\dlg</Filter>
+    </ClInclude>
+    <ClInclude Include="game_tray_menu_dlg.h">
+      <Filter>source\ui\dlg</Filter>
+    </ClInclude>
+    <ClInclude Include="KTipEdit.h">
+      <Filter>source\ui\control</Filter>
+    </ClInclude>
+    <ClInclude Include="ktipedit3.h">
+      <Filter>source\ui\control</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protocol\game_error.h">
+      <Filter>source\public\protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protocol\opcodes.h">
+      <Filter>source\public\protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protocol\protocol.h">
+      <Filter>source\public\protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="msg_def.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game_logic.h">
+      <Filter>source\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="login_logic.h">
+      <Filter>source\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="game_hander.h">
+      <Filter>source\net</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -22,8 +22,6 @@
 
 LRESULT GameLoginDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
 {
-    m_NetworkMgr.Connect("127.0.0.1", 36911);
-
     LoadIcon(NULL, MAKEINTRESOURCE(IDI_MIN_MAIN));
 
     m_LoginNameEdit.Create( 
@@ -80,8 +78,10 @@ void GameLoginDlg::OnBtnRegister()
 
 void GameLoginDlg::OnBtnLogin()
 {
-    ShowWindow(SW_HIDE);
-    GameMainDlg dlg;
-    dlg.DoModal();
-    OnClose();
+    GameLogic::login.SetLoginDlg(m_hWnd);
+    GameLogic::login.SendLogin(L"xxx", "pass");
+//     ShowWindow(SW_HIDE);
+//     GameMainDlg dlg;
+//     dlg.DoModal();
+//     OnClose();
 }
