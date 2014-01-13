@@ -85,6 +85,9 @@
       <Filter>network</Filter>
     </ClInclude>
     <ClInclude Include="venus_net.h" />
+    <ClInclude Include="object_pool.hpp">
+      <Filter>model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="service_application.cpp">

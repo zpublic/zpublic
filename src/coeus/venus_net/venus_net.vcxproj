@@ -175,6 +175,7 @@
     <ClInclude Include="message_queue_worker.h" />
     <ClInclude Include="message_stream.h" />
     <ClInclude Include="network_common.h" />
+    <ClInclude Include="object_pool.hpp" />
     <ClInclude Include="opcode_registry.h" />
     <ClInclude Include="service_application.h" />
     <ClInclude Include="server_connection.h" />

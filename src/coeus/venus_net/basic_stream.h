@@ -4,14 +4,6 @@
 #include "buffer.h"
 #include "common.h"
 #include "Poco/SharedPtr.h"
-/*
-template<typename charT> class BasicStringConverter;
-
-typedef BasicStringConverter<char> StringConverter;
-typedef std::auto_ptr<StringConverter> StringConverterPtr;
-
-typedef BasicStringConverter<wchar_t> WstringConverter;
-typedef std::auto_ptr<WstringConverter> WstringConverterPtr;*/
 
 class BasicStream : public Buffer
 {
