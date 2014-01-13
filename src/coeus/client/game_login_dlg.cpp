@@ -31,13 +31,16 @@ LRESULT GameLoginDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
         WS_CHILD, 
         0, 400, NULL);
     m_LoginNameEdit.SetBgColor(RGB(255,255,255));
+    m_LoginNameEdit.SetColor(RGB(0,0,0));
     m_LoginNameEdit.SetNotify(m_hWnd);
 
+    m_PasswordEdit.SetStyle(ES_PASSWORD);
     m_PasswordEdit.Create( 
         GetViewHWND(), NULL, NULL, 
         WS_CHILD,
         0, 401, NULL);
     m_PasswordEdit.SetBgColor(RGB(255,255,255));
+    m_PasswordEdit.SetColor(RGB(0,0,0));
     m_PasswordEdit.SetNotify(m_hWnd);
 
     return TRUE;
