@@ -10,5 +10,5 @@
   <Type VariableType="0" TypeName="uint16" Description="" />
   <Type VariableType="0" TypeName="uint32" Description="" />
   <Type VariableType="0" TypeName="uint64" Description="" />
-  <Type VariableType="0" TypeName="string" Description="" />
+  <Type VariableType="0" TypeName="std::string" Description="" />
 </XMLDataType>

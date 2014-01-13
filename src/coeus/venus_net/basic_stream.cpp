@@ -1,7 +1,5 @@
 #include "basic_stream.h"
 
-using namespace std;
-
 BasicStream::BasicStream():
 Buffer(8192),
 _messageSizeMax(8192)
@@ -455,11 +453,11 @@ void BasicStream::read(std::string& v)
 	}
 }
 
-void BasicStream::write(const wstring& v)
+void BasicStream::write(const std::wstring& v)
 {
 }
 
 
-void BasicStream::read(wstring& v)
+void BasicStream::read(std::wstring& v)
 {
 }
