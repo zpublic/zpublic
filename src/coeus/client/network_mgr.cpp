@@ -16,48 +16,26 @@ CNetworkMgr::~CNetworkMgr()
 
 BOOL CNetworkMgr::Connect(LPCSTR lpszIPAddress, unsigned int port)
 {
-    BOOL bReturn = FALSE;
-
-    if (m_pServerAddress == NULL)
-    {
-        m_pServerAddress = new Poco::Net::SocketAddress(lpszIPAddress, port);
-    }
-
     if (m_pTcpClient == NULL)
     {
         m_pTcpClient = new TcpClient(m_GameHandler);
     }
-
-    if (!m_pTcpClient->connect(*m_pServerAddress))
+    Poco::Net::SocketAddress addr(lpszIPAddress, port);
+    if (m_pTcpClient->connect(addr))
     {
-        goto Exit;
+        return TRUE;
     }
-
-    bReturn = TRUE;
-
-Exit:
-    return bReturn;
+    return FALSE;
 }
 
-BOOL CNetworkMgr::SendMessage(GameNetworkMessage* pMessage)
+BOOL CNetworkMgr::SendMessage(uint16 opcode, NetworkMessage& message)
 {
-    BOOL bReturn = FALSE;
-
-    if (pMessage == NULL)
+    if (m_pTcpClient)
     {
-        goto Exit;
+        m_pTcpClient->sendMessage(opcode, message);
+        return TRUE;
     }
-
-    if (m_pTcpClient == NULL)
-    {
-        goto Exit;
-    }
-
-    m_pTcpClient->sendMessage(pMessage->m_nId, *pMessage);
-    bReturn = TRUE;
-
-Exit:
-    return bReturn;
+    return FALSE;
 }
 
 void CNetworkMgr::Close()
@@ -66,5 +44,7 @@ void CNetworkMgr::Close()
         && m_pTcpClient->connected())
     {
         m_pTcpClient->close();
+        delete m_pTcpClient;
+        m_pTcpClient = NULL;
     }
 }

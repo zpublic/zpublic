@@ -22,8 +22,6 @@
 
 LRESULT GameLoginDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
 {
-    m_NetworkMgr.Connect("127.0.0.1", 36911);
-
     LoadIcon(NULL, MAKEINTRESOURCE(IDI_MIN_MAIN));
 
     m_LoginNameEdit.Create( 
@@ -31,13 +29,16 @@ LRESULT GameLoginDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
         WS_CHILD, 
         0, 400, NULL);
     m_LoginNameEdit.SetBgColor(RGB(255,255,255));
+    m_LoginNameEdit.SetColor(RGB(0,0,0));
     m_LoginNameEdit.SetNotify(m_hWnd);
 
+    m_PasswordEdit.SetStyle(ES_PASSWORD);
     m_PasswordEdit.Create( 
         GetViewHWND(), NULL, NULL, 
         WS_CHILD,
         0, 401, NULL);
     m_PasswordEdit.SetBgColor(RGB(255,255,255));
+    m_PasswordEdit.SetColor(RGB(0,0,0));
     m_PasswordEdit.SetNotify(m_hWnd);
 
     return TRUE;
@@ -77,8 +78,10 @@ void GameLoginDlg::OnBtnRegister()
 
 void GameLoginDlg::OnBtnLogin()
 {
-    ShowWindow(SW_HIDE);
-    GameMainDlg dlg;
-    dlg.DoModal();
-    OnClose();
+    GameLogic::login.SetLoginDlg(m_hWnd);
+    GameLogic::login.SendLogin(L"xxx", "pass");
+//     ShowWindow(SW_HIDE);
+//     GameMainDlg dlg;
+//     dlg.DoModal();
+//     OnClose();
 }

@@ -1,10 +1,18 @@
 #include "stream_reader.h"
 
-StreamReader::StreamReader(const char* buff, int size):
+StreamReader::StreamReader(const char* buff, int size) :
 _buff(buff),
 _size(size),
 _offset(0)
 {
+}
+
+StreamReader::StreamReader(const byte* buff, int32 size) :
+    _buff((const char*)buff),
+    _size(size),
+    _offset(0)
+{
+
 }
 
 StreamReader::~StreamReader()
@@ -12,7 +20,7 @@ StreamReader::~StreamReader()
 
 }
 
-StreamReader & StreamReader::read(char* buff, int32 size)
+StreamReader& StreamReader::read(char* buff, int32 size)
 {
 	if(_size - _offset < size)
 	{
@@ -25,7 +33,12 @@ StreamReader & StreamReader::read(char* buff, int32 size)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(int8& v)
+StreamReader& StreamReader::read(byte* buff, int32 size)
+{
+    return read((char*)buff, size);
+}
+
+StreamReader& StreamReader::operator >>(int8& v)
 {
 	if(_size - _offset < static_cast<int32>(sizeof(int8)))
 	{
@@ -37,7 +50,7 @@ StreamReader & StreamReader::operator >>(int8& v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(vector<int8> &v)
+StreamReader& StreamReader::operator >>(vector<int8> &v)
 {
 	int16 sz = 0;
 	(*this) >> sz;
@@ -54,7 +67,7 @@ StreamReader & StreamReader::operator >>(vector<int8> &v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(uint8& v)
+StreamReader& StreamReader::operator >>(uint8& v)
 {
 	if(_size - _offset < static_cast<int32>(sizeof(uint8)))
 	{
@@ -66,7 +79,7 @@ StreamReader & StreamReader::operator >>(uint8& v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(vector<uint8> &v)
+StreamReader& StreamReader::operator >>(vector<uint8> &v)
 {
 	int16 sz = 0;
 	(*this) >> sz;
@@ -84,7 +97,7 @@ StreamReader & StreamReader::operator >>(vector<uint8> &v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(int16& v)
+StreamReader& StreamReader::operator >>(int16& v)
 {
 	if(_size - _offset < static_cast<int32>(sizeof(int16)))
 	{
@@ -106,7 +119,7 @@ StreamReader & StreamReader::operator >>(int16& v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(vector<int16> &v)
+StreamReader& StreamReader::operator >>(vector<int16> &v)
 {
 	int16 sz = 0;
 	(*this) >> sz;
@@ -135,7 +148,7 @@ StreamReader & StreamReader::operator >>(vector<int16> &v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(uint16& v)
+StreamReader& StreamReader::operator >>(uint16& v)
 {
 	if(_size - _offset < static_cast<int32>(sizeof(uint16)))
 	{
@@ -157,7 +170,7 @@ StreamReader & StreamReader::operator >>(uint16& v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(vector<uint16> &v)
+StreamReader& StreamReader::operator >>(vector<uint16> &v)
 {
 	int16 sz = 0;
 	(*this) >> sz;
@@ -186,7 +199,7 @@ StreamReader & StreamReader::operator >>(vector<uint16> &v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(int32& v)
+StreamReader& StreamReader::operator >>(int32& v)
 {
 	if(_size - _offset < static_cast<int32>(sizeof(int32)))
 	{
@@ -212,7 +225,7 @@ StreamReader & StreamReader::operator >>(int32& v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(vector<int32> &v)
+StreamReader& StreamReader::operator >>(vector<int32> &v)
 {
 	int16 sz = 0;
 	(*this) >> sz;
@@ -245,7 +258,7 @@ StreamReader & StreamReader::operator >>(vector<int32> &v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(uint32& v)
+StreamReader& StreamReader::operator >>(uint32& v)
 {
 	if(_size - _offset < static_cast<int32>(sizeof(uint32)))
 	{
@@ -270,7 +283,7 @@ StreamReader & StreamReader::operator >>(uint32& v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(vector<uint32> &v)
+StreamReader& StreamReader::operator >>(vector<uint32> &v)
 {
 	int16 sz = 0;
 	(*this) >> sz;
@@ -303,7 +316,7 @@ StreamReader & StreamReader::operator >>(vector<uint32> &v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(int64& v)
+StreamReader& StreamReader::operator >>(int64& v)
 {
 	if(_size - _offset < static_cast<int32>(sizeof(int64)))
 	{
@@ -336,7 +349,7 @@ StreamReader & StreamReader::operator >>(int64& v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(vector<int64> &v)
+StreamReader& StreamReader::operator >>(vector<int64> &v)
 {
 	int16 sz = 0;
 	(*this) >> sz;
@@ -377,7 +390,7 @@ StreamReader & StreamReader::operator >>(vector<int64> &v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(uint64& v)
+StreamReader& StreamReader::operator >>(uint64& v)
 {
 	if(_size - _offset < static_cast<int32>(sizeof(uint64)))
 	{
@@ -411,7 +424,7 @@ StreamReader & StreamReader::operator >>(uint64& v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(vector<uint64> &v)
+StreamReader& StreamReader::operator >>(vector<uint64> &v)
 {
 	int16 sz = 0;
 	(*this) >> sz;
@@ -452,7 +465,7 @@ StreamReader & StreamReader::operator >>(vector<uint64> &v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(float& v)
+StreamReader& StreamReader::operator >>(float& v)
 {
 	if(_size - _offset < static_cast<int32>(sizeof(float)))
 	{
@@ -478,7 +491,7 @@ StreamReader & StreamReader::operator >>(float& v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(vector<float> &v)
+StreamReader& StreamReader::operator >>(vector<float> &v)
 {
 	int16 sz = 0;
 	(*this) >> sz;
@@ -511,7 +524,7 @@ StreamReader & StreamReader::operator >>(vector<float> &v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(double& v)
+StreamReader& StreamReader::operator >>(double& v)
 {
 	if(_size - _offset < static_cast<int32>(sizeof(double)))
 	{
@@ -555,7 +568,7 @@ StreamReader & StreamReader::operator >>(double& v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(vector<double> &v)
+StreamReader& StreamReader::operator >>(vector<double> &v)
 {
 	int16 sz = 0;
 	(*this) >> sz;
@@ -606,7 +619,7 @@ StreamReader & StreamReader::operator >>(vector<double> &v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(std::string& v)
+StreamReader& StreamReader::operator >>(std::string& v)
 {
 	int16 sz = 0;
 	(*this) >> sz;
@@ -627,7 +640,7 @@ StreamReader & StreamReader::operator >>(std::string& v)
 	return (*this);
 }
 
-StreamReader & StreamReader::operator >>(vector<string> &v)
+StreamReader& StreamReader::operator >>(vector<string> &v)
 {
 	int16 sz = 0;
 	(*this) >> sz;

@@ -1,10 +1,9 @@
 #ifndef __MESSAGE_DISPATCHER_H__
 #define __MESSAGE_DISPATCHER_H__
 
-class ServerConnection;
-class NetworkMessage;
+#include "network_common.h"
 
-enum ShutdownReason;
+class ServerConnection;
 class MessageDispatcher
 {
 public:
@@ -12,7 +11,7 @@ public:
 
 public:
     virtual void onNewConnection(ServerConnection* connection) = 0;
-    virtual void onMessage(ServerConnection* connection, NetworkMessage* message) = 0;
+    virtual void onMessage(ServerConnection* connection, const NetworkPacket::Ptr& packet) = 0;
     virtual void onShutdown(ServerConnection* connection, const ShutdownReason& reason) = 0;
 };
 

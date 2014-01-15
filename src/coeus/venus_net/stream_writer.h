@@ -8,9 +8,11 @@ class StreamWriter
 {
 public:
 	StreamWriter(char* buff, int size);
+    StreamWriter(byte* buff, int size);
 	~StreamWriter();
 
 	void write(const char* buff, int32 size);
+    void write(const byte* buff, int32 size);
 
 	StreamWriter& operator <<(const int8 v);
 	StreamWriter& operator <<(const vector<int8> v);

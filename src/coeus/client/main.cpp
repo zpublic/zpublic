@@ -16,13 +16,17 @@ CAppModule _Module;
 
 int Run(LPTSTR /*lpstrCmdLine*/ = NULL, int nCmdShow = SW_SHOWDEFAULT)
 {
+    NET.Connect("127.0.0.1", 36911);
+
     GameLoginDlg dlg;
-    return dlg.DoModal();
+    int nRet = dlg.DoModal();
+
+    NET.Close();
+    return nRet;
 }
 
 int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR lpstrCmdLine, int nCmdShow)
 {
-
     HRESULT hRes = ::CoInitialize(NULL);
     ATLASSERT(SUCCEEDED(hRes));
 

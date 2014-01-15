@@ -38,6 +38,7 @@ extern CAppModule _Module;
 #include <Windows.h>
 
 #include <vector>
+using namespace std;
 
 #if defined _M_IX86
   #pragma comment(linker, "/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'\"")
@@ -49,5 +50,15 @@ extern CAppModule _Module;
   #pragma comment(linker, "/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 #endif
 
+#include "msg_def.h"
 
+///> NET
 #include "venus_net/common.h"
+#include "venus_net/stream_writer.h"
+#include "venus_net/stream_reader.h"
+#include "protocol/game_error.h"
+#include "protocol/opcodes.h"
+#include "protocol/protocol.h"
+#include "network_mgr.h"
+#include "game_logic.h"
+using namespace Protocol;

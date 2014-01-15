@@ -556,7 +556,7 @@ BOOL UtilTinyXml::_LoadFile(LPCWSTR szPath, CStringA& strXml)
 
     strXml.Empty();
 
-    hFile = ::CreateFile(szPath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+    hFile = ::CreateFileW(szPath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
     if (hFile == INVALID_HANDLE_VALUE) goto Exit0;
 
     DWORD dwFileSize = ::GetFileSize(hFile, NULL);

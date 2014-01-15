@@ -1,61 +1,6 @@
-#include "common.h"
-#include <Poco/Net/SocketConnector.h>
-#include "venus_net/service_application.h"
-#include "venus_net/basic_stream.h"
-#include "venus_net/stream_writer.h"
-#include "venus_net/stream_reader.h"
-#include "venus_net/tcp_client.h"
-
-struct CSTestPacketReq : public NetworkMessage
-{
-    uint32 uint_value;
-    std::string string_value;
-
-    int byteSize()
-    {
-        return sizeof(uint_value) + (string_value.length() + 2);
-    }
-
-    void encode(byte* buffer, size_t size)
-    {
-        StreamWriter w((char*)buffer, size);
-        w << uint_value;
-        w << string_value;
-    }
-
-    void decode(const byte* buffer, size_t size)
-    {
-        StreamReader r((const char*)buffer, size);
-        r >> uint_value;
-        r >> string_value;
-    }
-};
-
-struct CSTestPacketRsp : public NetworkMessage
-{
-    uint32 uint_value;
-    std::string string_value;
-
-    int byteSize()
-    {
-        return sizeof(uint_value) + (string_value.length() + 2);
-    }
-
-    void encode(byte* buffer, size_t size)
-    {
-        StreamWriter w((char*)buffer, size);
-        w << uint_value;
-        w << string_value;
-    }
-
-    void decode(const byte* buffer, size_t size)
-    {
-        StreamReader r((const char*)buffer, size);
-        r >> uint_value;
-        r >> string_value;
-    }
-};
-
+#include "venus_net/venus_net.h"
+#include "protocol/protocol.h"
+#include "protocol/opcodes.h"
 
 enum TestCaseType
 {
@@ -80,11 +25,13 @@ public:
     virtual void onMessage(uint16 opcode, const NetworkPacket::Ptr& message)
     {
         printf("onMessage() : [opcode = %d]\n", opcode);
-        CSTestPacketRsp requestMessage;
-        //requestMessage.decode((const byte*)&message->messageBody[0], message->messageBody.size());
-        DECODE_MESSAGE(requestMessage, message);
-        printf("        [value = %d]\n", requestMessage.uint_value);
-        printf("        [string = %s]\n", requestMessage.string_value.c_str());
+
+
+        //CSTestPacketRsp requestMessage;
+        //loginRequest.decode((const byte*)&message->messageBody[0], message->message.size());
+        //DECODE_MESSAGE(requestMessage, message);
+        //printf("        [value = %d]\n", requestMessage.uint_value);
+        //printf("        [string = %s]\n", requestMessage.string_value.c_str());
     }
 
     virtual void onShutdown()
@@ -98,21 +45,28 @@ int main(int argc, char** argv)
     Poco::Net::SocketAddress serverAddress("127.0.0.1:36911");
     GameMessageHandler handler;
 
-
     const int client_count = 100;
     TcpClient tcpClient(handler);
 
     try
     {
         std::cout << "starting.." << std::endl;
-        for (int i = 0; i < 1000; i++)
+        for (int i = 0; i < 1; i++)
         {
             tcpClient.connect(serverAddress);
             
-            CSTestPacketReq requestMessage;
-            requestMessage.uint_value = 10;
-            requestMessage.string_value = "SB";
-            tcpClient.sendMessage(10001, requestMessage);
+            Protocol::CSLoginReq loginRequest;
+
+            //登录成功的数据
+            loginRequest.account = "coeus_user";
+            loginRequest.password = "coeus_password";
+            tcpClient.sendMessage(Opcodes::CSLoginReq, loginRequest);
+
+            //登录失败的数据
+            loginRequest.account = "powman";
+            loginRequest.password = "demaciaaaaa";
+            tcpClient.sendMessage(Opcodes::CSLoginReq, loginRequest);
+
             tcpClient.close();
         }
 

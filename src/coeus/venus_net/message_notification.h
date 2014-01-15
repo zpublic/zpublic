@@ -18,7 +18,7 @@ public:
 
 private:
     ServerConnection* _serverConnection;
-    NetworkPacket::Ptr& _networkPacket;
+    NetworkPacket::Ptr _networkPacket;
 };
 
 #endif // !__MESSAGE_NOTIFICATION_H__

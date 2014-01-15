@@ -11,7 +11,6 @@ namespace Venus
 template <typename T>
 struct OpcodeHandler
 {
-    //typedef void (T::*MessageHandler)(NetworkMessage&);
     typedef std::function<void (T*, const NetworkPacket::Ptr&)> MessageHandler;
 
     OpcodeHandler(const std::string& message_name, const MessageHandler& message_handler)

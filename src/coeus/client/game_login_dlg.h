@@ -72,7 +72,6 @@ protected:
 private:
     KTipEdit3 m_LoginNameEdit;
     KTipEdit3 m_PasswordEdit;
-    CNetworkMgr m_NetworkMgr;
 };
 
 #endif // __GAME_LOGIN_DLG_H_

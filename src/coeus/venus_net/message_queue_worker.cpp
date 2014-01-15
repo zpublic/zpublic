@@ -16,7 +16,7 @@ void MessageQueueWorker::run()
 
             // TODO
             // ...
-            //_messageQueue.dispatcher()->onMessage(messageNotification->connection(), messageNotification->
+            _messageQueue.dispatcher()->onMessage(messageNotification->connection(), networkPacket);
 
             debug_log("recieved packet, opcode = %d", networkPacket->opcode);
             debug_log("notification message alert."); 

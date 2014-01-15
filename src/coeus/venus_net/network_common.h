@@ -33,11 +33,11 @@ struct NetworkPacket : Poco::RefCountedObject
     typedef std::vector<byte> PDU;
 
     uint16 opcode;
-    PDU messageBody;
+    PDU message;
 };
 
-#define DECODE_MESSAGE(message, data) \
-    message.decode((const byte*)&data->messageBody[0], data->messageBody.size());
+#define DECODE_MESSAGE(network_message, data) \
+    network_message.decode((const byte*)&data->message[0], data->message.size());
 
 // 网络连接关闭原因
 enum ShutdownReason

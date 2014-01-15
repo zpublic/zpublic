@@ -1,6 +1,8 @@
 #include "game_session.h"
+#include "server_connection.h"
 
-GameSession::GameSession()
+GameSession::GameSession(ServerConnection* serverConnection)
+    : NetworkSession(serverConnection)
 {
 
 }

@@ -2,8 +2,8 @@
 <MSG_CFG>
   <category CategoryName="注册登录">
     <msg MsgId="10001" MsgProperty="0" MsgName="CSLoginReq" MsgNote="登录请求" MsgRemark="" ErrorList="">
-      <param DataType="string" Purpose="variable" ParamName="account" ParamNote="登录帐号（邮箱地址）" />
-      <param DataType="string" Purpose="variable" ParamName="password" ParamNote="密码" />
+      <param DataType="std::string" Purpose="variable" ParamName="account" ParamNote="登录帐号（邮箱地址）" />
+      <param DataType="std::string" Purpose="variable" ParamName="password" ParamNote="密码" />
     </msg>
     <msg MsgId="10002" MsgProperty="1" MsgName="SCLoginRsp" MsgNote="登录返回" MsgRemark="" ErrorList="">
       <param DataType="uint16" Purpose="variable" ParamName="login_result" ParamNote="登录结果" />
@@ -39,11 +39,11 @@
   <category CategoryName="test">
     <msg MsgId="99991" MsgProperty="0" MsgName="CSTestPacketReq" MsgNote="" MsgRemark="" ErrorList="">
       <param DataType="uint32" Purpose="variable" ParamName="uint_value" ParamNote="" />
-      <param DataType="string" Purpose="variable" ParamName="string_value" ParamNote="" />
+      <param DataType="std::string" Purpose="variable" ParamName="string_value" ParamNote="" />
     </msg>
     <msg MsgId="99992" MsgProperty="1" MsgName="SCTestPacketRsp" MsgNote="" MsgRemark="" ErrorList="">
       <param DataType="uint32" Purpose="variable" ParamName="srv_uint_value" ParamNote="" />
-      <param DataType="string" Purpose="variable" ParamName="srv_string_value" ParamNote="" />
+      <param DataType="std::string" Purpose="variable" ParamName="srv_string_value" ParamNote="" />
     </msg>
   </category>
 </MSG_CFG>

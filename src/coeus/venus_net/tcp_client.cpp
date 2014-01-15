@@ -142,7 +142,7 @@ void TcpClient::finishedPacketCallback(BasicStreamPtr& packet)
 
     NetworkPacket::Ptr packetPtr(new NetworkPacket);
     packetPtr->opcode = opcode;
-    packetPtr->messageBody = NetworkPacket::PDU(packet->b.begin() + NetworkParam::kHeaderLength, packet->b.end());
+    packetPtr->message = NetworkPacket::PDU(packet->b.begin() + NetworkParam::kHeaderLength, packet->b.end());
     _handler.onMessage(opcode, packetPtr);
 }
 

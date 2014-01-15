@@ -26,6 +26,12 @@
     <ClCompile Include="game_session.cpp">
       <Filter>session</Filter>
     </ClCompile>
+    <ClCompile Include="game_session_manager.cpp">
+      <Filter>session</Filter>
+    </ClCompile>
+    <ClCompile Include="network_session.cpp">
+      <Filter>session</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="game_logic">
@@ -86,6 +92,12 @@
     </ClInclude>
     <ClInclude Include="game_message_dispatcher.h">
       <Filter>service</Filter>
+    </ClInclude>
+    <ClInclude Include="game_session_manager.h">
+      <Filter>session</Filter>
+    </ClInclude>
+    <ClInclude Include="network_session.h">
+      <Filter>session</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
