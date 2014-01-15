@@ -4,8 +4,9 @@
 #include "venus_net/common.h"
 #include "venus_net/object_pool.hpp"
 #include "venus_net/singleton.h"
+#include "game_session.h"
 
-class GameSession;
+class ServerConnection;
 class GameSessionManager
     : public Venus::Singleton<GameSessionManager>
 {
@@ -17,7 +18,7 @@ public:
     void destroy();
 
 public:
-    GameSession* createSession();
+    GameSession* createSession(ServerConnection* serverConnection);
     void destroySession(GameSession* session);
     GameSession* getSession(const uint64& id);
     int32 sessionCount() const;
@@ -78,7 +79,7 @@ private:
 private:
     std::mutex _mutex;
     adap_map<uint64, GameSession*> _sessions;
-    Venus::ObjectPool<GameSession> _sessionPool;
+    static Venus::ObjectPool<GameSession> _sessionPool;
 };
 
 #endif

@@ -2,6 +2,7 @@
 #include "game_session_manager.h"
 #include "game_session.h"
 
+Venus::ObjectPool<GameSession> GameSessionManager::_sessionPool;
 bool GameSessionManager::init()
 {
     return true;
@@ -24,10 +25,9 @@ void GameSessionManager::destroy()
     _sessions.clear();
 }
 
-GameSession* GameSessionManager::createSession()
+GameSession* GameSessionManager::createSession(ServerConnection* serverConnection)
 {
-    _sessionIdSequence++;
-    GameSession* session = _sessionPool.acquire(_sessionIdSequence);
+    GameSession* session = _sessionPool.acquire(serverConnection);
     if (session != nullptr && add(session))
     {
         return session;
@@ -37,10 +37,8 @@ GameSession* GameSessionManager::createSession()
 
 void GameSessionManager::destroySession(GameSession* session)
 {
-    RETURN_IF_NULLPTR(session, "destroy session failed, session == nullptr");
-
     //从管理器移除该session
-    remove(session->session_id());
+    remove(session->sessionId());
 
     //把session还原到内存池
     _sessionPool.release(session);
@@ -54,13 +52,13 @@ bool GameSessionManager::add(GameSession* session)
         return nullptr;
     }
 
-    if (getSession(session->session_id()) != nullptr)
+    if (getSession(session->sessionId()) != nullptr)
     {
         return false;
     }
 
     _mutex.lock();
-    _sessions.insert(std::make_pair(session->session_id(), session));
+    _sessions.insert(std::make_pair(session->sessionId(), session));
     _mutex.unlock();
 
     return true;
@@ -109,7 +107,7 @@ void GameSessionManager::send_error(uint64 guid, uint32 error_code, const std::s
         GameSession* session = iter_session->second;
         if (session != nullptr)
         {
-            session->send_error_ex(error_code, error_reason);
+            session->send_error(error_code, error_reason);
         }
     }
 }

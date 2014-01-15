@@ -5,10 +5,10 @@
 #include "network_session.h"
 
 class ServerConnection;
-class GameSession// : public NetworkSession
+class GameSession : public NetworkSession
 {
 public:
-    GameSession(ServerConnection* connection);
+    GameSession(ServerConnection* serverConnection);
     virtual ~GameSession();
 
 public:
