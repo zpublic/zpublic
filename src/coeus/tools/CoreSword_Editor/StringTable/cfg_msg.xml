@@ -6,8 +6,15 @@
       <param DataType="std::string" Purpose="variable" ParamName="password" ParamNote="密码" />
     </msg>
     <msg MsgId="10002" MsgProperty="1" MsgName="SCLoginRsp" MsgNote="登录返回" MsgRemark="" ErrorList="">
-      <param DataType="uint16" Purpose="variable" ParamName="login_result" ParamNote="登录结果" />
+      <param DataType="uint8" Purpose="variable" ParamName="login_result" ParamNote="登录结果" />
       <param DataType="uint64" Purpose="variable" ParamName="player_id" ParamNote="角色ID" />
+    </msg>
+    <msg MsgId="10003" MsgProperty="0" MsgName="CSRegisterReq" MsgNote="用户注册请求" MsgRemark="" ErrorList="">
+      <param DataType="std::string" Purpose="variable" ParamName="username" ParamNote="要注册的用户名" />
+      <param DataType="std::string" Purpose="variable" ParamName="password" ParamNote="密码" />
+    </msg>
+    <msg MsgId="10004" MsgProperty="1" MsgName="SCRegisterRsp" MsgNote="用户注册返回" MsgRemark="" ErrorList="">
+      <param DataType="uint8" Purpose="variable" ParamName="register_result" ParamNote="注册结果（true-成功， false-失败）" />
     </msg>
   </category>
   <category CategoryName="背包">
@@ -25,17 +32,6 @@
     </msg>
   </category>
   <category CategoryName="英雄(卡牌)" />
-  <category CategoryName="属性" />
-  <category CategoryName="聊天" />
-  <category CategoryName="任务" />
-  <category CategoryName="战斗" />
-  <category CategoryName="房间" />
-  <category CategoryName="道具" />
-  <category CategoryName="商店" />
-  <category CategoryName="排行榜" />
-  <category CategoryName="公告" />
-  <category CategoryName="称号" />
-  <category CategoryName="VIP" />
   <category CategoryName="test">
     <msg MsgId="99991" MsgProperty="0" MsgName="CSTestPacketReq" MsgNote="" MsgRemark="" ErrorList="">
       <param DataType="uint32" Purpose="variable" ParamName="uint_value" ParamNote="" />
