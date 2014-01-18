@@ -1,5 +1,5 @@
-#ifndef SESSION_MANAGER_H_
-#define SESSION_MANAGER_H_
+#ifndef __SESSION_MANAGER_H__
+#define __SESSION_MANAGER_H__
 
 #include "venus_net/common.h"
 #include "venus_net/object_pool.hpp"
@@ -16,11 +16,13 @@ class GameSessionManager
 public:
     bool init();
     void destroy();
+    static GameSession* createSession(ServerConnection* serverConnection);
+    static void destroySession(GameSession* session);
 
 public:
-    GameSession* createSession(ServerConnection* serverConnection);
-    void destroySession(GameSession* session);
-    GameSession* getSession(const uint64& id);
+    bool addSession(GameSession* session);
+    void removeSession(const uint64& guid);
+    GameSession* getSession(const uint64& guid);
     int32 sessionCount() const;
 
     template <typename T> void broadcast(uint32 opcode, const T& message)
@@ -71,10 +73,6 @@ public:
 
     void send_error(uint64 guid, uint32 error_code);
     void send_error(uint64 guid, uint32 error_code, const std::string& error_reason);
-
-private:
-    bool add(GameSession* session);
-    void remove(const uint64& id);
 
 private:
     std::mutex _mutex;

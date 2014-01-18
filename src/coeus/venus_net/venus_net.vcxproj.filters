@@ -88,6 +88,9 @@
     <ClInclude Include="object_pool.hpp">
       <Filter>model</Filter>
     </ClInclude>
+    <ClInclude Include="network_session.h">
+      <Filter>network</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="service_application.cpp">
@@ -120,9 +123,6 @@
     <ClCompile Include="opcode_registry.cpp">
       <Filter>model</Filter>
     </ClCompile>
-    <ClCompile Include="server_connection.cpp">
-      <Filter>network</Filter>
-    </ClCompile>
     <ClCompile Include="connection_factory.cpp">
       <Filter>network</Filter>
     </ClCompile>
@@ -130,6 +130,12 @@
       <Filter>network</Filter>
     </ClCompile>
     <ClCompile Include="message_queue_worker.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="network_session.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="server_connection.cpp">
       <Filter>network</Filter>
     </ClCompile>
   </ItemGroup>

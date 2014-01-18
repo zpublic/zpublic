@@ -17,21 +17,6 @@
       <param DataType="uint8" Purpose="variable" ParamName="register_result" ParamNote="注册结果（true-成功， false-失败）" />
     </msg>
   </category>
-  <category CategoryName="背包">
-    <msg MsgId="20001" MsgProperty="0" MsgName="CSBagList" MsgNote="背包列表请求" MsgRemark="" ErrorList="">
-      <param DataType="uint8" Purpose="variable" ParamName="m_nBagType" ParamNote="背包类型(0 - 包裹，1 - 仓库)" />
-    </msg>
-    <msg MsgId="20101" MsgProperty="1" MsgName="SCBagList" MsgNote="背包列表返回" MsgRemark="" ErrorList="">
-      <param DataType="uint8" Purpose="variable" ParamName="m_nCellNum" ParamNote="格子数量" />
-    </msg>
-    <msg MsgId="20002" MsgProperty="0" MsgName="CSBagResort" MsgNote="整理背包请求" MsgRemark="" ErrorList="">
-      <param DataType="uint8" Purpose="variable" ParamName="m_nBagType" ParamNote="背包类型(0 - 包裹，1 - 仓库)" />
-    </msg>
-    <msg MsgId="20102" MsgProperty="1" MsgName="SCBagResort" MsgNote="整理背包返回" MsgRemark="" ErrorList="">
-      <param DataType="uint8" Purpose="variable" ParamName="m_nResult" ParamNote="返回码(0 - 成功，&gt; 0 失败原因)" />
-    </msg>
-  </category>
-  <category CategoryName="英雄(卡牌)" />
   <category CategoryName="test">
     <msg MsgId="99991" MsgProperty="0" MsgName="CSTestPacketReq" MsgNote="" MsgRemark="" ErrorList="">
       <param DataType="uint32" Purpose="variable" ParamName="uint_value" ParamNote="" />

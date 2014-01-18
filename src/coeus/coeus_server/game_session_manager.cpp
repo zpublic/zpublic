@@ -27,24 +27,15 @@ void GameSessionManager::destroy()
 
 GameSession* GameSessionManager::createSession(ServerConnection* serverConnection)
 {
-    GameSession* session = _sessionPool.acquire(serverConnection);
-    if (session != nullptr && add(session))
-    {
-        return session;
-    }
-    return nullptr;
+    return _sessionPool.acquire(serverConnection);
 }
 
 void GameSessionManager::destroySession(GameSession* session)
 {
-    //从管理器移除该session
-    remove(session->sessionId());
-
-    //把session还原到内存池
     _sessionPool.release(session);
 }
 
-bool GameSessionManager::add(GameSession* session)
+bool GameSessionManager::addSession(GameSession* session)
 {
     if (_sessions.size() >= MAX_SESSIONS) 
     {
@@ -57,27 +48,23 @@ bool GameSessionManager::add(GameSession* session)
         return false;
     }
 
-    _mutex.lock();
     _sessions.insert(std::make_pair(session->sessionId(), session));
-    _mutex.unlock();
 
     return true;
 }
 
-void GameSessionManager::remove(const uint64& id)
+void GameSessionManager::removeSession(const uint64& guid)
 {
-    auto iter = _sessions.find(id);
+    auto iter = _sessions.find(guid);
     if (iter != _sessions.end())
     {
-        _mutex.lock();
         _sessions.erase(iter);
-        _mutex.unlock();
     }
 }
 
-GameSession* GameSessionManager::getSession(const uint64& id)
+GameSession* GameSessionManager::getSession(const uint64& guid)
 {
-    auto iter = _sessions.find(id);
+    auto iter = _sessions.find(guid);
     return iter != _sessions.end() ? iter->second : nullptr;
 }
 

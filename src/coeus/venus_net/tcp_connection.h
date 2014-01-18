@@ -24,7 +24,7 @@ public:
 	void sendMessage(int16 opcode, const byte* buff, size_t size);
 	void sendMessage(uint16 opcode, NetworkMessage& message);
     void close(const ShutdownReason& reason);
-    inline uint32 sequence() const { return _sequence; }
+    inline uint64 sequence() const { return _sequence; }
 
 private:
     void sendMessage(const BasicStreamPtr& packet);
@@ -38,7 +38,7 @@ private:
     Poco::Net::StreamSocket& _socket;
     MessageBlockPacketization _blockPacketization;
     MessageQueue& _messageQueue;
-    uint32 _sequence;
+    uint64 _sequence;
     mutable Poco::FastMutex _mutex;
 };
 
