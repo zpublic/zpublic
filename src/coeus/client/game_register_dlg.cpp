@@ -86,7 +86,6 @@ void GameRegisterDlg::OnBtnRegister()
 
     GameLogic::regis.SetRegisterDlg(m_hWnd);
     GameLogic::regis.SendRegister(csMailName, csPassword);
-    GameLogic::regis.NotifyResult();
 }
 
 void GameRegisterDlg::OnSysCommand(UINT nID, CPoint point)

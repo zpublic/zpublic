@@ -92,7 +92,6 @@ void GameLoginDlg::OnBtnLogin()
 
     GameLogic::login.SetLoginDlg(m_hWnd);
     GameLogic::login.SendLogin(csLoginName, csPassword);
-    GameLogic::login.NotifyResult();
 }
 
 LRESULT GameLoginDlg::OnLoginResult(UINT uMsg,

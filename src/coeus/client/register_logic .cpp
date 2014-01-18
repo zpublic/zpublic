@@ -43,5 +43,5 @@ void RegisterLogic::SendRegister( const CString& strUserName, const CString& csP
 
     registerRequest.username = csUserNameA;
     registerRequest.password = csPasswordA;
-    NET.SendMessage(Opcodes::CSLoginReq, registerRequest);
+    NET.SendMessage(Opcodes::CSRegisterReq, registerRequest);
 }
