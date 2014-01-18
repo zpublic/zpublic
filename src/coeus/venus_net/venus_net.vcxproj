@@ -175,6 +175,7 @@
     <ClInclude Include="message_queue_worker.h" />
     <ClInclude Include="message_stream.h" />
     <ClInclude Include="network_common.h" />
+    <ClInclude Include="network_session.h" />
     <ClInclude Include="object_pool.hpp" />
     <ClInclude Include="opcode_registry.h" />
     <ClInclude Include="service_application.h" />
@@ -196,9 +197,10 @@
     <ClCompile Include="message_notification.cpp" />
     <ClCompile Include="message_queue_worker.cpp" />
     <ClCompile Include="message_stream.cpp" />
+    <ClCompile Include="network_session.cpp" />
     <ClCompile Include="opcode_registry.cpp" />
-    <ClCompile Include="service_application.cpp" />
     <ClCompile Include="server_connection.cpp" />
+    <ClCompile Include="service_application.cpp" />
     <ClCompile Include="stream_reader.cpp" />
     <ClCompile Include="stream_writer.cpp" />
     <ClCompile Include="tcp_client.cpp">

@@ -1,5 +1,5 @@
 #include "network_session.h"
-#include "venus_net/server_connection.h"
+#include "server_connection.h"
 
 NetworkSession::NetworkSession(ServerConnection* serverConnection)
     : _serverConnection(serverConnection)
@@ -20,17 +20,12 @@ void NetworkSession::destroy()
 
 }
 
+uint64 NetworkSession::sessionId() const
+{
+    return _serverConnection->sequence();
+}
+
 void NetworkSession::close()
 {
     _serverConnection->close();
-}
-
-void NetworkSession::send_error(uint32 errorCode)
-{
-
-}
-
-void NetworkSession::send_error(uint32 errorCode, const std::string& reason)
-{
-
 }

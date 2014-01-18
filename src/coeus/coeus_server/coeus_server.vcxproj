@@ -170,9 +170,6 @@
     <ClCompile Include="game_session_manager.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="network_session.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="role.cpp" />
     <ClCompile Include="role_manager.cpp" />
     <ClCompile Include="server_main.cpp" />
@@ -188,9 +185,6 @@
     <ClInclude Include="game_service_application.h" />
     <ClInclude Include="game_session.h" />
     <ClInclude Include="game_session_manager.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="network_session.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="role.h" />

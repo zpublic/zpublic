@@ -37,6 +37,16 @@ public:
 		return _opcodeTable[opcode];
 	}
 
+    void execute(T* target, const NetworkPacket::Ptr& packet)
+    {
+        auto iter = _opcodeTable.find(packet->opcode);
+        if (iter != _opcodeTable.end())
+        {
+            OpcodeHandler<T>& handler = iter->second;
+            handler.handler(target, packet);
+        }
+    }
+
     const std::string& messageName(uint32 opcode)
     {
         return OpcodeHandler<T>[opcode].name;
@@ -53,8 +63,8 @@ private:
 
 #define OPCODE_REGISTER_BEGIN(REGISTRY_NAME, CB_TARGET) \
     class REGISTRY_NAME : public Venus::OpcodeRegistry<CB_TARGET>, public Venus::Singleton<REGISTRY_NAME> \
-    {                                \
-        public: REGISTRY_NAME(){}    \
+    {                                       \
+        public: REGISTRY_NAME(){}           \
         public: template <typename T> void initialize() { 
 
 #define OPCODE_REGISTER_END() }};
@@ -64,6 +74,9 @@ private:
 
 #define REGISTER_HANDLER(m, f) \
     registerMessage(m, MAKE_HANDLER(#m, f))
+
+#define EXECUTE_HANDLER(REGISTRY_NAME, TARGET_OBJECT, PACKET) \
+    REGISTRY_NAME::getInstance().execute(TARGET_OBJECT, PACKET)
 }
 
 #endif

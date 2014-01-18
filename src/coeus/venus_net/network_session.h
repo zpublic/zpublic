@@ -1,9 +1,9 @@
-#ifndef __SESSION_H__
-#define __SESSION_H__
+#ifndef __NETWORK_SESSION_H__
+#define __NETWORK_SESSION_H__
 
-#include "venus_net/common.h"
-#include "venus_net/server_connection.h"
+#include "common.h"
 
+class ServerConnection;
 class NetworkMessage;
 class NetworkSession
 {
@@ -13,16 +13,11 @@ public:
 
     bool init();
     void destroy();
-    inline uint32 sessionId() const
-    {
-        return _serverConnection->sequence();
-    }
+    uint64 sessionId() const;
 
 public:
 	void close();
     void send_message(uint32 opcode, NetworkMessage& message);
-    void send_error(uint32 errorCode);
-    void send_error(uint32 errorCode, const std::string& reason);
 
 private:
     ServerConnection* _serverConnection;

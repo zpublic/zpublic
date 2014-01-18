@@ -1,7 +1,6 @@
 #ifndef __SERVER_SESSION_H__
 #define __SERVER_SESSION_H__
 
-#include "common.h"
 #include "network_common.h"
 #include "tcp_connection.h"
 
@@ -9,7 +8,6 @@
 // 提供基本方法给上层对连接进行操作
 
 class NetworkMessage;
-
 class ServerConnection
 {
 public:
@@ -19,7 +17,7 @@ public:
 public:
     void sendMessage(uint16 opcode, NetworkMessage& message);
     void close(const ShutdownReason& reason = SR_SERVICE_CLOSE_INITIATIVE);
-    uint32 sequence() const;
+    uint64 sequence() const;
 
 private:
     TcpConnection* _connection;
