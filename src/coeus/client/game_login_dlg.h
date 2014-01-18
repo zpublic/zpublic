@@ -14,7 +14,6 @@
 #include "ktipedit3.h"
 #include "game_register_dlg.h"
 #include "game_main_dlg.h"
-#include "network_mgr.h"
 
 class GameLoginDlg
     : public CBkDialogImpl<GameLoginDlg>
@@ -51,6 +50,8 @@ protected:
 
     void OnBtnLogin();
 
+    LRESULT OnLoginResult(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
+
 protected:
     BK_NOTIFY_MAP(IDC_RICHVIEW_WIN)
         BK_NOTIFY_ID_COMMAND(ID_CLOSE_BTN, OnBtnClose)
@@ -66,8 +67,12 @@ protected:
         MSG_WM_INITDIALOG(OnInitDialog)
         MSG_WM_SYSCOMMAND(OnSysCommand)
         MSG_WM_TIMER(OnTimer)
+        MESSAGE_HANDLER(msg_login_result, OnLoginResult)
         REFLECT_NOTIFICATIONS_EX()
     END_MSG_MAP()
+
+private:
+    BOOL _DisposeLoginErr(uint32 nErr);
 
 private:
     KTipEdit3 m_LoginNameEdit;
