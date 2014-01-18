@@ -7,10 +7,10 @@ public:
 
     void SetLoginDlg(HWND hWnd);
 
-    void SendLogin(const CString& email, const CStringA& pass);
+    void SendLogin(const CString& strUserName, const CString& csPassword);
 
     void NotifyResult();
-    void NotifyResult(std::string& strErr);
+    void NotifyResult(uint8 nErr);
 
 private:
     HWND    m_hLoginDlg;

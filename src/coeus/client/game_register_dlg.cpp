@@ -18,6 +18,7 @@ LRESULT GameRegisterDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
         WS_CHILD, 
         0, ID_MAIL_EDIT, NULL);
     m_MailNameEdit.SetBgColor(RGB(255,255,255));
+    m_MailNameEdit.SetColor(RGB(0,0,0));
     m_MailNameEdit.SetNotify(m_hWnd);
 
     m_NickNameEdit.Create( 
@@ -25,6 +26,7 @@ LRESULT GameRegisterDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
         WS_CHILD,
         0, ID_NINCKNAME_EDIT, NULL);
     m_NickNameEdit.SetBgColor(RGB(255,255,255));
+    m_NickNameEdit.SetColor(RGB(0,0,0));
     m_NickNameEdit.SetNotify(m_hWnd);
 
     m_PasswordEdit.Create( 
@@ -32,6 +34,7 @@ LRESULT GameRegisterDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
         WS_CHILD,
         0, ID_PASSWORD_EDIT, NULL);
     m_PasswordEdit.SetBgColor(RGB(255,255,255));
+    m_PasswordEdit.SetColor(RGB(0,0,0));
     m_PasswordEdit.SetNotify(m_hWnd);
 
     m_TruePasswordEdit.Create( 
@@ -39,6 +42,7 @@ LRESULT GameRegisterDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
         WS_CHILD,
         0, ID_TRUEPASSSWORD_EDIT, NULL);
     m_TruePasswordEdit.SetBgColor(RGB(255,255,255));
+    m_TruePasswordEdit.SetColor(RGB(0,0,0));
     m_TruePasswordEdit.SetNotify(m_hWnd);
 
     return TRUE;
@@ -56,7 +60,33 @@ LRESULT GameRegisterDlg::OnEditChanged(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 
 void GameRegisterDlg::OnBtnRegister()
 {
+    CString csMailName;
+    CString csNickName;
+    CString csPassword;
+    CString csTruePassword;
+    m_MailNameEdit.GetText(csMailName);
+    m_NickNameEdit.GetText(csNickName);
+    m_PasswordEdit.GetText(csPassword);
+    m_TruePasswordEdit.GetText(csTruePassword);
 
+    if (csMailName.IsEmpty()
+        || csNickName.IsEmpty()
+        || csPassword.IsEmpty()
+        || csTruePassword.IsEmpty())
+    {
+        MessageBox(L"输入不能为空", L"ceous");
+        return;
+    }
+
+    if (csTruePassword.Compare(csPassword) != 0)
+    {
+        MessageBox(L"密码2次输入不一致", L"ceous");
+        return;
+    }
+
+    GameLogic::regis.SetRegisterDlg(m_hWnd);
+    GameLogic::regis.SendRegister(csMailName, csPassword);
+    GameLogic::regis.NotifyResult();
 }
 
 void GameRegisterDlg::OnSysCommand(UINT nID, CPoint point)
@@ -77,4 +107,24 @@ void GameRegisterDlg::OnTimer(UINT_PTR nIDEvent)
 void GameRegisterDlg::OnBtnCancel()
 {
     EndDialog(IDCLOSE);
+}
+
+LRESULT GameRegisterDlg::OnRegisterResult(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
+{
+    if (uMsg == msg_register_result)
+    {
+        switch (wParam)
+        {
+        case 1:
+            {
+                MessageBox(L"注册成功", L"ceous");
+                OnBtnCancel();
+            }
+            break;
+        default:
+            break;
+        }
+    }
+
+    return TRUE;
 }

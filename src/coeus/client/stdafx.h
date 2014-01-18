@@ -61,4 +61,5 @@ using namespace std;
 #include "protocol/protocol.h"
 #include "network_mgr.h"
 #include "game_logic.h"
+#include "msg_def.h"
 using namespace Protocol;
