@@ -16,6 +16,7 @@ public:
 
 public:
     void loginHandler(const NetworkPacket::Ptr& packet);
+    void registerHandler(const NetworkPacket::Ptr& packet);
 
 private:
 

@@ -29,3 +29,8 @@ void NetworkSession::close()
 {
     _serverConnection->close();
 }
+
+void NetworkSession::send_message(uint32 opcode, NetworkMessage& message)
+{
+    _serverConnection->sendMessage(opcode, message);
+}

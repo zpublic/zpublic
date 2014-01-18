@@ -32,9 +32,33 @@ void GameSession::loginHandler(const NetworkPacket::Ptr& packet)
     if (loginRequest.account == "coeus_user" && loginRequest.password == "coeus_password")
     {
         debug_log("Login successful!");
+        Protocol::SCLoginRsp response;
+        response.login_result = 0;
+        response.player_id = 17289324;
+
+        send_message(Opcodes::SCLoginRsp, response);
     }
     else
     {
         debug_log("Login failed.");
+    }
+}
+
+void GameSession::registerHandler(const NetworkPacket::Ptr& packet)
+{
+    Protocol::CSRegisterReq registerRequest;
+    DECODE_MESSAGE(registerRequest, packet);
+
+    Protocol::SCRegisterRsp response;
+    if (registerRequest.username.empty() != true
+        && registerRequest.password.empty() != true)
+    {
+        response.register_result = 0;
+        send_message(Opcodes::SCRegisterRsp, response);
+    }
+    else
+    {
+        response.register_result = 1;
+        send_message(Opcodes::SCRegisterRsp, response);
     }
 }
