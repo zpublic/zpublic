@@ -8,7 +8,7 @@ void GameLogic::user_login_handler(const NetworkPacket::Ptr& message)
 {
     Protocol::SCLoginRsp msg;
     DECODE_MESSAGE(msg, message);
-    if (msg.login_result)
+    if (msg.login_result == LR_LOGIN_SUCCESS)
     {
         login.NotifyResult();
     }
@@ -22,12 +22,12 @@ void GameLogic::user_register_handler(const NetworkPacket::Ptr& message)
 {
     Protocol::SCRegisterRsp msg;
     DECODE_MESSAGE(msg, message);
-    if (msg.register_result)
+    if (msg.register_result == 0)
     {
-        login.NotifyResult();
+        regis.NotifyResult();
     }
     else
     {
-        login.NotifyResult(msg.register_result);
+        regis.NotifyResult(msg.register_result);
     }
 }
