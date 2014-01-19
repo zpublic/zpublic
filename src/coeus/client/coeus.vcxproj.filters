@@ -123,6 +123,12 @@
     <ClCompile Include="login_logic.cpp">
       <Filter>source\logic</Filter>
     </ClCompile>
+    <ClCompile Include="register_logic .cpp">
+      <Filter>source\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="opcodes_handler.cpp">
+      <Filter>source\net</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -444,6 +450,12 @@
       <Filter>source\logic</Filter>
     </ClInclude>
     <ClInclude Include="game_hander.h">
+      <Filter>source\net</Filter>
+    </ClInclude>
+    <ClInclude Include="register_logic.h">
+      <Filter>source\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="opcodes_handler.h">
       <Filter>source\net</Filter>
     </ClInclude>
   </ItemGroup>

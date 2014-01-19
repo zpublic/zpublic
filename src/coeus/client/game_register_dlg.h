@@ -46,6 +46,8 @@ protected:
 
     void OnBtnCancel();
 
+    LRESULT OnRegisterResult(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
+
 protected:
     BK_NOTIFY_MAP(IDC_RICHVIEW_WIN)
         BK_NOTIFY_ID_COMMAND(ID_CANCEL_BTN, OnBtnCancel)
@@ -59,6 +61,7 @@ protected:
         MSG_WM_CLOSE(OnClose)
         MSG_WM_INITDIALOG(OnInitDialog)
         MSG_WM_SYSCOMMAND(OnSysCommand)
+        MESSAGE_HANDLER(msg_register_result, OnRegisterResult)
         MSG_WM_TIMER(OnTimer)
         REFLECT_NOTIFICATIONS_EX()
     END_MSG_MAP()

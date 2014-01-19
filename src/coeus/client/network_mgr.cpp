@@ -40,7 +40,8 @@ BOOL CNetworkMgr::SendMessage(uint16 opcode, NetworkMessage& message)
 
 void CNetworkMgr::Close()
 {
-    if (m_pTcpClient)
+    if (m_pTcpClient
+        && m_pTcpClient->connected())
     {
         m_pTcpClient->close();
         delete m_pTcpClient;

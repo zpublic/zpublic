@@ -78,10 +78,55 @@ void GameLoginDlg::OnBtnRegister()
 
 void GameLoginDlg::OnBtnLogin()
 {
+    CString csLoginName;
+    CString csPassword;
+    m_LoginNameEdit.GetText(csLoginName);
+    m_PasswordEdit.GetText(csPassword);
+
+    if (csLoginName.IsEmpty()
+        || csPassword.IsEmpty())
+    {
+        MessageBox(L"’À∫≈√‹¬Î≤ªƒ‹Œ™ø’£°", L"ceous");
+        return;
+    }
+
     GameLogic::login.SetLoginDlg(m_hWnd);
-    GameLogic::login.SendLogin(L"xxx", "pass");
-//     ShowWindow(SW_HIDE);
-//     GameMainDlg dlg;
-//     dlg.DoModal();
-//     OnClose();
+    GameLogic::login.SendLogin(csLoginName, csPassword);
+}
+
+LRESULT GameLoginDlg::OnLoginResult(UINT uMsg,
+    WPARAM wParam,
+    LPARAM lParam,
+    BOOL& bHandled)
+{
+    if (uMsg == msg_login_result)
+    {
+        switch (wParam)
+        {
+        case 1:
+            {
+                ShowWindow(SW_HIDE);
+                GameMainDlg dlg;
+                dlg.DoModal();
+                OnClose();
+            }
+            break;
+
+        case 2:
+            {
+                _DisposeLoginErr(lParam);
+            }
+            break;
+
+        default:
+            break;
+        }
+    }
+
+    return TRUE;
+}
+
+BOOL GameLoginDlg::_DisposeLoginErr(uint32 nErr)
+{
+    return TRUE;
 }
