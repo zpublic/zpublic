@@ -36,7 +36,8 @@ void GameSession::loginHandler(const NetworkPacket::Ptr& packet)
         response.login_result = 0;
         response.player_id = 17289324;
 
-        send_message(Opcodes::SCLoginRsp, response);
+        this->send_message(Opcodes::SCLoginRsp, response);
+        //this->close();
     }
     else
     {

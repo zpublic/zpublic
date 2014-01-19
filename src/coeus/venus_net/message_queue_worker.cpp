@@ -9,17 +9,30 @@ void MessageQueueWorker::run()
     Poco::Notification::Ptr notificationPtr(_messageQueue.waitDequeueNotification());
     while (notificationPtr)
     {
-        MessageNotification* messageNotification = dynamic_cast<MessageNotification*>(notificationPtr.get());
-        if (messageNotification != nullptr)
+        NetworkNotification* networkNotification = dynamic_cast<NetworkNotification*>(notificationPtr.get());
+        if (networkNotification != nullptr)
         {
-            const NetworkPacket::Ptr& networkPacket = messageNotification->packet();
-
-            // TODO
-            // ...
-            _messageQueue.dispatcher()->onMessage(messageNotification->connection(), networkPacket);
-
-            debug_log("recieved packet, opcode = %d", networkPacket->opcode);
-            debug_log("notification message alert."); 
+            NotificationType notificationType = networkNotification->notificationType();
+            switch (notificationType)
+            {
+            case None:
+                break;
+            case NT_MessageNotification:
+                {
+                    MessageNotification* notification = dynamic_cast<MessageNotification*>(networkNotification);
+                    const NetworkPacket::Ptr& networkPacket = notification->packet();
+                    _messageQueue.dispatcher()->onMessage(notification->connection(), networkPacket);      
+                    break;
+                }
+            case NT_CloseNotification:
+                {
+                    CloseNotification* notification = dynamic_cast<CloseNotification*>(networkNotification);
+                    _messageQueue.dispatcher()->onShutdown(notification->connection(), notification->shutdownReason());      
+                    break;
+                }
+            default:
+                break;
+            }
         }
 
         notificationPtr = _messageQueue.waitDequeueNotification();

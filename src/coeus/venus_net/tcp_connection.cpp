@@ -16,7 +16,8 @@ TcpConnection::TcpConnection(const Poco::Net::StreamSocket& socket, MessageQueue
     _blockPacketization(std::bind(&TcpConnection::finishedPacketCallback, this, std::placeholders::_1)),
     _messageQueue(messageQueue),
     _sequence(sequence),
-    _serverConnection(nullptr)
+    _serverConnection(nullptr),
+    _state(ConnectionState::None)
 {
     _socket.setBlocking(false);
     _socket.setReuseAddress(true);
@@ -32,6 +33,8 @@ TcpConnection::~TcpConnection()
 
 void TcpConnection::run()
 {
+    _state = ConnectionState::Established;
+
     try
     {
         _serverConnection = new ServerConnection(this);
@@ -39,8 +42,19 @@ void TcpConnection::run()
         
         for (;;)
         {
-			bool readable = _socket.poll(Poco::Timespan(30, 0), Poco::Net::Socket::SelectMode::SELECT_READ);
-			if (readable == true && onReadable() == false)
+			bool readable = _socket.poll(Poco::Timespan(0, 0), Poco::Net::Socket::SelectMode::SELECT_READ);
+            if (_state == ConnectionState::Established)
+            {
+                if (readable == true)
+                {
+                    bool stateResult = onReadable();
+                    if (stateResult == false)
+                    {
+                        _state = ConnectionState::ClosedWait;
+                    }
+                }
+            }
+            else
             {
                 return;
             }
@@ -61,10 +75,7 @@ void TcpConnection::run()
 
 void TcpConnection::sendMessage(const BasicStreamPtr& stream)
 {
-    bool writeable = _socket.poll(0, Poco::Net::Socket::SelectMode::SELECT_WRITE);
-    bool error = _socket.poll(0, Poco::Net::Socket::SelectMode::SELECT_ERROR);
-
-    if (writeable && !error)
+    if (_state == ConnectionState::Established)
     {
         _socket.sendBytes((const void*)stream->b.begin(), stream->b.size());
     }
@@ -104,14 +115,22 @@ void TcpConnection::sendMessage(uint16 opcode, NetworkMessage& message)
 bool TcpConnection::onReadable()
 {
     int bytes_transferred = _socket.receiveBytes(_buffer, MAX_RECV_LEN, 0);
-    //debug_log("received %d bytes.", bytes_transferred);
     if (bytes_transferred == 0)
     {
         onShutdown(ShutdownReason::SR_PEER_GRACEFUL_SHUTDOWN);
         return false;
     }
+    else
+    {
+        bool result = _blockPacketization.appendBlock(_buffer, bytes_transferred);
+        if (result == false)
+        {
+            onShutdown(ShutdownReason::SR_SERVICE_PACKET_FAILURE);
+            return false;
+        }
 
-    return _blockPacketization.appendBlock(_buffer, bytes_transferred);
+        return true;
+    }
 }
 
 void TcpConnection::onShutdown(const ShutdownReason& reason)
@@ -137,8 +156,12 @@ void TcpConnection::onShutdown(const ShutdownReason& reason)
         break;
     }
 
-    _messageQueue.dispatcher()->onShutdown(_serverConnection, reason);
-    _socket.shutdown();
+    //构造关闭连接的消息到应用层
+    Poco::Notification::Ptr notification(new CloseNotification(_serverConnection, reason));
+    _messageQueue.enqueueNotification(notification);
+
+    //_messageQueue.dispatcher()->onShutdown(_serverConnection, reason);
+    //_socket.shutdown();
     _socket.close();
 }
 

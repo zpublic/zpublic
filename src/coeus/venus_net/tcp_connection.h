@@ -15,6 +15,11 @@ class TcpConnection : public Poco::Net::TCPServerConnection
 {
     static const int MAX_RECV_LEN = 1024 * 4;
 
+    enum ConnectionState
+    {
+        None, Established, ClosedWait
+    };
+
 public:
     TcpConnection(const Poco::Net::StreamSocket& socket, MessageQueue& messageQueue, uint32 sequence);
     virtual ~TcpConnection();
@@ -33,6 +38,7 @@ private:
     void finishedPacketCallback(BasicStreamPtr& packet);
 
 private:
+    ConnectionState _state;
     ServerConnection* _serverConnection;
     byte* _buffer;
     Poco::Net::StreamSocket& _socket;

@@ -43,6 +43,7 @@ struct NetworkPacket : Poco::RefCountedObject
 enum ShutdownReason
 {
     SR_SERVICE_CLOSE_INITIATIVE, // 服务主动关闭连接（无理由）
+    SR_SERVICE_PACKET_FAILURE,   // 解包失败
     SR_KICK_OUT,                 // 服务主动踢掉某个连接
     SR_SERVICE_STOP,             // 服务需要停止
     SR_PEER_GRACEFUL_SHUTDOWN,   // 客户端安全关闭连接

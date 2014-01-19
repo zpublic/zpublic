@@ -164,7 +164,6 @@
     <ClCompile Include="bag_cell.cpp" />
     <ClCompile Include="bag_common.cpp" />
     <ClCompile Include="bag_manager.cpp" />
-    <ClCompile Include="game_opcode_registry.cpp" />
     <ClCompile Include="game_service_application.cpp" />
     <ClCompile Include="game_session.cpp" />
     <ClCompile Include="game_session_manager.cpp">
@@ -189,6 +188,7 @@
     </ClInclude>
     <ClInclude Include="role.h" />
     <ClInclude Include="role_manager.h" />
+    <ClInclude Include="user_service.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
