@@ -2,6 +2,7 @@
 #define __VENUS_NET_H__
 
 #include "common.h"
+#include "network_common.h"
 #include "logger.h"
 #include "basic_stream.h"
 #include "stream_writer.h"

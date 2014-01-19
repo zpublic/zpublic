@@ -2,7 +2,7 @@
 #define __SESSION_MANAGER_H__
 
 #include "venus_net/common.h"
-#include "venus_net/object_pool.hpp"
+#include "venus_net/object_pool.h"
 #include "venus_net/singleton.h"
 #include "game_session.h"
 

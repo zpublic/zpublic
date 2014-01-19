@@ -7,20 +7,20 @@
     <Filter Include="common">
       <UniqueIdentifier>{57b05bdd-5375-4593-a5cc-262c69419722}</UniqueIdentifier>
     </Filter>
-    <Filter Include="memory">
-      <UniqueIdentifier>{ac099b44-3cb7-4e60-ba2a-00517b6ba4f0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="memory\stream">
-      <UniqueIdentifier>{b9931ff5-097d-415a-b8d2-fc1720873aeb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="util">
-      <UniqueIdentifier>{1ac59f78-02b6-4e86-9c91-479bb33cab8d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="logger">
       <UniqueIdentifier>{ef3dc6d1-621d-4718-b136-3f99f2d1b139}</UniqueIdentifier>
     </Filter>
     <Filter Include="model">
       <UniqueIdentifier>{b477fe3b-2623-4aed-ba17-22707ecf1c62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="database">
+      <UniqueIdentifier>{c85a3b88-2cd2-4e1c-8f1f-a10250c41c43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="stream">
+      <UniqueIdentifier>{b9931ff5-097d-415a-b8d2-fc1720873aeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{1ac59f78-02b6-4e86-9c91-479bb33cab8d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,25 +37,25 @@
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="buffer.h">
-      <Filter>memory\stream</Filter>
+      <Filter>stream</Filter>
     </ClInclude>
     <ClInclude Include="stream_reader.h">
-      <Filter>memory\stream</Filter>
+      <Filter>stream</Filter>
     </ClInclude>
     <ClInclude Include="stream_writer.h">
-      <Filter>memory\stream</Filter>
+      <Filter>stream</Filter>
     </ClInclude>
     <ClInclude Include="basic_stream.h">
-      <Filter>memory\stream</Filter>
+      <Filter>stream</Filter>
     </ClInclude>
     <ClInclude Include="message_stream.h">
-      <Filter>memory\stream</Filter>
+      <Filter>stream</Filter>
     </ClInclude>
     <ClInclude Include="logger.h">
       <Filter>logger</Filter>
     </ClInclude>
     <ClInclude Include="singleton.h">
-      <Filter>util</Filter>
+      <Filter>utils</Filter>
     </ClInclude>
     <ClInclude Include="tcp_client.h">
       <Filter>network</Filter>
@@ -85,11 +85,14 @@
       <Filter>network</Filter>
     </ClInclude>
     <ClInclude Include="venus_net.h" />
-    <ClInclude Include="object_pool.hpp">
-      <Filter>model</Filter>
-    </ClInclude>
     <ClInclude Include="network_session.h">
       <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="object_pool.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="database.h">
+      <Filter>database</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -100,28 +103,25 @@
       <Filter>network</Filter>
     </ClCompile>
     <ClCompile Include="buffer.cpp">
-      <Filter>memory\stream</Filter>
+      <Filter>stream</Filter>
     </ClCompile>
     <ClCompile Include="stream_reader.cpp">
-      <Filter>memory\stream</Filter>
+      <Filter>stream</Filter>
     </ClCompile>
     <ClCompile Include="stream_writer.cpp">
-      <Filter>memory\stream</Filter>
+      <Filter>stream</Filter>
     </ClCompile>
     <ClCompile Include="basic_stream.cpp">
-      <Filter>memory\stream</Filter>
+      <Filter>stream</Filter>
     </ClCompile>
     <ClCompile Include="message_stream.cpp">
-      <Filter>memory\stream</Filter>
+      <Filter>stream</Filter>
     </ClCompile>
     <ClCompile Include="message_block_packetization.cpp">
       <Filter>network</Filter>
     </ClCompile>
     <ClCompile Include="tcp_client.cpp">
       <Filter>network</Filter>
-    </ClCompile>
-    <ClCompile Include="opcode_registry.cpp">
-      <Filter>model</Filter>
     </ClCompile>
     <ClCompile Include="connection_factory.cpp">
       <Filter>network</Filter>

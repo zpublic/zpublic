@@ -36,8 +36,8 @@ void MessageQueueWorker::run()
         }
 
         notificationPtr = _messageQueue.waitDequeueNotification();
-    }  
-}  
+    }
+}
 
 MessageQueueWorker::MessageQueueWorker(MessageQueue& queue)
     : _messageQueue(queue)
