@@ -12,6 +12,7 @@ public:
 
 private:  
     MessageQueue& _messageQueue;
+    mutable Poco::FastMutex _mutex;
 };
 
 

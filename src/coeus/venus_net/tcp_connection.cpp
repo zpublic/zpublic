@@ -33,6 +33,8 @@ TcpConnection::~TcpConnection()
 
 void TcpConnection::run()
 {
+    info_log("current thread (TcpConnection::run()) = %d", std::this_thread::get_id());
+
     _state = ConnectionState::Established;
 
     try
@@ -156,13 +158,18 @@ void TcpConnection::onShutdown(const ShutdownReason& reason)
         break;
     }
 
-    //构造关闭连接的消息到应用层
-    Poco::Notification::Ptr notification(new CloseNotification(_serverConnection, reason));
-    _messageQueue.enqueueNotification(notification);
+    if (_state == Established)
+    {
+        _socket.shutdown();
 
-    //_messageQueue.dispatcher()->onShutdown(_serverConnection, reason);
-    //_socket.shutdown();
-    _socket.close();
+        //构造关闭连接的消息到应用层
+        Poco::Notification::Ptr notification(new CloseNotification(_serverConnection, reason));
+        _messageQueue.enqueueNotification(notification);
+        _socket.close();
+
+        _state = ConnectionState::ClosedWait;
+    }
+
 }
 
 void TcpConnection::finishedPacketCallback(BasicStreamPtr& packet)

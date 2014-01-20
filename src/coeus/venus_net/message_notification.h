@@ -9,6 +9,7 @@ class ServerConnection;
 enum NotificationType
 {
     None,
+    NT_NewConnectionNotification,
     NT_MessageNotification,
     NT_CloseNotification
 };
@@ -25,6 +26,13 @@ public:
 private:
     NotificationType _notificationType;
     ServerConnection* _serverConnection;
+};
+
+class NewConnectionNotification : public NetworkNotification
+{
+public:
+    typedef Poco::AutoPtr<NewConnectionNotification> Ptr;
+    NewConnectionNotification(ServerConnection* connection);
 };
 
 class MessageNotification : public NetworkNotification

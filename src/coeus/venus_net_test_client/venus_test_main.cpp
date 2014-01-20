@@ -55,10 +55,10 @@ int main(int argc, char** argv)
         {
             tcpClient.connect(serverAddress);
 
-            Protocol::CSRegisterReq registerRequest;
-            registerRequest.username = "coeus_user";
-            registerRequest.password = "coeus_password";
-            tcpClient.sendMessage(Opcodes::CSRegisterReq, registerRequest);
+//             Protocol::CSRegisterReq registerRequest;
+//             registerRequest.username = "coeus_user";
+//             registerRequest.password = "coeus_password";
+//             tcpClient.sendMessage(Opcodes::CSRegisterReq, registerRequest);
 
             
             Protocol::CSLoginReq loginRequest;
