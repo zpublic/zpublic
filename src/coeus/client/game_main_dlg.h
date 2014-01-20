@@ -29,6 +29,8 @@ public:
     {
         ID_CLOSE_BTN    = 403,
         IDC_LIST_CTRL   = 1000,
+        IDM_LB_USERNAME = 2001,
+        IDM_LB_LOCK     = 2002
     };
 
     enum
