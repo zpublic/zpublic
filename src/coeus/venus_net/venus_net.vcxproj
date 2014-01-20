@@ -167,6 +167,7 @@
     <ClInclude Include="buffer.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="connection_factory.h" />
+    <ClInclude Include="database.h" />
     <ClInclude Include="logger.h" />
     <ClInclude Include="message_block_packetization.h" />
     <ClInclude Include="message_dispatcher.h" />
@@ -176,7 +177,7 @@
     <ClInclude Include="message_stream.h" />
     <ClInclude Include="network_common.h" />
     <ClInclude Include="network_session.h" />
-    <ClInclude Include="object_pool.hpp" />
+    <ClInclude Include="object_pool.h" />
     <ClInclude Include="opcode_registry.h" />
     <ClInclude Include="service_application.h" />
     <ClInclude Include="server_connection.h" />
@@ -198,7 +199,6 @@
     <ClCompile Include="message_queue_worker.cpp" />
     <ClCompile Include="message_stream.cpp" />
     <ClCompile Include="network_session.cpp" />
-    <ClCompile Include="opcode_registry.cpp" />
     <ClCompile Include="server_connection.cpp" />
     <ClCompile Include="service_application.cpp" />
     <ClCompile Include="stream_reader.cpp" />

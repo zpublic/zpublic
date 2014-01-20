@@ -54,15 +54,18 @@ int main(int argc, char** argv)
         for (int i = 0; i < 1; i++)
         {
             tcpClient.connect(serverAddress);
+
+            Protocol::CSRegisterReq registerRequest;
+            registerRequest.username = "coeus_user";
+            registerRequest.password = "coeus_password";
+            tcpClient.sendMessage(Opcodes::CSRegisterReq, registerRequest);
+
             
             Protocol::CSLoginReq loginRequest;
-
-            //登录成功的数据
             loginRequest.account = "coeus_user";
             loginRequest.password = "coeus_password";
             tcpClient.sendMessage(Opcodes::CSLoginReq, loginRequest);
 
-            //登录失败的数据
             loginRequest.account = "powman";
             loginRequest.password = "demaciaaaaa";
             tcpClient.sendMessage(Opcodes::CSLoginReq, loginRequest);

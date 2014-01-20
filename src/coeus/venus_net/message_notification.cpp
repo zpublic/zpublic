@@ -3,8 +3,8 @@
 #include "logger.h"
 
 
-NetworkNotification::NetworkNotification(ServerConnection* connection)
-    : _serverConnection(connection), _notificationType(NotificationType::None)
+NetworkNotification::NetworkNotification(ServerConnection* connection, NotificationType notificationType)
+    : _serverConnection(connection), _notificationType(notificationType)
 {
 
 }
@@ -25,7 +25,7 @@ NotificationType NetworkNotification::notificationType()
 }
 
 MessageNotification::MessageNotification(ServerConnection* connection, NetworkPacket::Ptr& packet)
-    : NetworkNotification(connection), _networkPacket(packet)
+    : NetworkNotification(connection, NT_MessageNotification), _networkPacket(packet)
 {
 }
 
@@ -39,7 +39,7 @@ const NetworkPacket::Ptr& MessageNotification::packet()
 }
 
 CloseNotification::CloseNotification(ServerConnection* connection, const ShutdownReason& reason)
-    : NetworkNotification(connection), _closeReason(reason)
+    : NetworkNotification(connection, NT_CloseNotification), _closeReason(reason)
 {
 }
 

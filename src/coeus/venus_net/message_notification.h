@@ -16,7 +16,7 @@ enum NotificationType
 class NetworkNotification : public Poco::Notification
 {
 public:
-    NetworkNotification(ServerConnection* connection);
+    NetworkNotification(ServerConnection* connection, NotificationType notificationType);
     virtual ~NetworkNotification();
 
     ServerConnection* connection();
