@@ -29,6 +29,8 @@ LRESULT GameMainDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
     AddOneItemToListWnd(data, IDC_LIST_CTRL);
     AddOneItemToListWnd(data, IDC_LIST_CTRL);
 
+    SetItemText(IDM_LB_USERNAME, _T("À¿»À"));
+
     return TRUE;
 }
 

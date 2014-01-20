@@ -4,6 +4,20 @@
         <text pos="42,12" class="text_normal_gray">叫我英雄（coeus）</text>
         <imgbtn id="403" pos="-31,1" skin="btn_close" crtext="FFFFFF" font="0104" />
 
+        <dlg pos="0,56">
+          <img  pos="15,80" id="2000" skin="img_main_icon" />
+          <text pos="15,25"   class="text_normal_gray" font="1200">个人信息</text>
+          <text pos="150,80"  class="text_normal_gray">昵称:</text>
+          <text pos="190,80"  class="text_normal_gray" id="2001">用户名</text>
+          <text pos="150,105" class="text_normal_gray" id="2002">已解锁:</text>
+          <text pos="160,135" class="text_normal_gray" id="2003">N个位面</text>
+          <text pos="160,165" class="text_normal_gray" id="2004">N个子世界</text>
+        </dlg>
+
+        <dlg pos="0,200">
+          <button id="2005" pos="0,0">注册</button>
+        </dlg>
+      
         <dlg pos="293,88,990,619" id="50000" crbg="1C1328">
           
           <dlg pos="0,0,-0,28" crbg="000000">
