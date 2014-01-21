@@ -18,6 +18,13 @@ void MessageQueueWorker::run()
             {
             case None:
                 break;
+            case NT_NewConnectionNotification:
+                {
+                    Poco::ScopedLock<Poco::FastMutex> lock(_mutex);
+                    NewConnectionNotification* notification = dynamic_cast<NewConnectionNotification*>(networkNotification);
+                    _messageQueue.dispatcher()->onNewConnection(notification->connection());
+                    break;
+                }
             case NT_MessageNotification:
                 {
                     Poco::ScopedLock<Poco::FastMutex> lock(_mutex);
@@ -30,7 +37,8 @@ void MessageQueueWorker::run()
                 {
                     Poco::ScopedLock<Poco::FastMutex> lock(_mutex);
                     CloseNotification* notification = dynamic_cast<CloseNotification*>(networkNotification);
-                    _messageQueue.dispatcher()->onShutdown(notification->connection(), notification->shutdownReason());      
+                    _messageQueue.dispatcher()->onShutdown(notification->connection(), notification->shutdownReason());
+                    notification->connection()->notifyRelease();
                     break;
                 }
             default:

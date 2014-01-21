@@ -59,7 +59,6 @@ int main(int argc, char** argv)
 //             registerRequest.username = "coeus_user";
 //             registerRequest.password = "coeus_password";
 //             tcpClient.sendMessage(Opcodes::CSRegisterReq, registerRequest);
-
             
             Protocol::CSLoginReq loginRequest;
             loginRequest.account = "coeus_user";

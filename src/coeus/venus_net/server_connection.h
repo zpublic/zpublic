@@ -18,6 +18,7 @@ public:
     void sendMessage(uint16 opcode, NetworkMessage& message);
     void close(const ShutdownReason& reason = SR_SERVICE_CLOSE_INITIATIVE);
     uint64 sequence() const;
+    void notifyRelease();
 
 private:
     TcpConnection* _connection;

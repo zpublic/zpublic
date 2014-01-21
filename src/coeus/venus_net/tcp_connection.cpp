@@ -25,7 +25,9 @@ TcpConnection::TcpConnection(const Poco::Net::StreamSocket& socket, MessageQueue
 }
 
 TcpConnection::~TcpConnection()
-{
+{        
+    _socket.close();
+
     SAFE_DELETE_ARR(_buffer);
     SAFE_DELETE(_serverConnection);
     debug_log("connection destroyed.");
@@ -40,23 +42,18 @@ void TcpConnection::run()
     try
     {
         _serverConnection = new ServerConnection(this);
-        _messageQueue.dispatcher()->onNewConnection(_serverConnection);
+        Poco::Notification::Ptr notification(new NewConnectionNotification(_serverConnection));
+        _messageQueue.enqueueNotification(notification);
         
         for (;;)
         {
-			bool readable = _socket.poll(Poco::Timespan(0, 0), Poco::Net::Socket::SelectMode::SELECT_READ);
             if (_state == ConnectionState::Established)
             {
+                bool readable = _socket.poll(Poco::Timespan(0, 0), Poco::Net::Socket::SelectMode::SELECT_READ);
                 if (readable == true)
-                {
-                    bool stateResult = onReadable();
-                    if (stateResult == false)
-                    {
-                        _state = ConnectionState::ClosedWait;
-                    }
-                }
+                    onReadable();
             }
-            else
+            else if (_state == ConnectionState::Closed)
             {
                 return;
             }
@@ -74,6 +71,10 @@ void TcpConnection::run()
     }
 }
 
+void TcpConnection::releasable()
+{
+    _state = ConnectionState::Closed;
+}
 
 void TcpConnection::sendMessage(const BasicStreamPtr& stream)
 {
@@ -137,6 +138,8 @@ bool TcpConnection::onReadable()
 
 void TcpConnection::onShutdown(const ShutdownReason& reason)
 {
+    if (_state == ClosedWait) return;
+
     switch (reason)
     {
     case ShutdownReason::SR_SERVICE_CLOSE_INITIATIVE:
@@ -160,21 +163,17 @@ void TcpConnection::onShutdown(const ShutdownReason& reason)
 
     if (_state == Established)
     {
-        _socket.shutdown();
-
         //构造关闭连接的消息到应用层
         Poco::Notification::Ptr notification(new CloseNotification(_serverConnection, reason));
         _messageQueue.enqueueNotification(notification);
-        _socket.close();
-
-        _state = ConnectionState::ClosedWait;
+        _socket.shutdown();
     }
 
+    _state = ClosedWait;
 }
 
 void TcpConnection::finishedPacketCallback(BasicStreamPtr& packet)
 {
-    //构造网络消息包给应用层
     uint16 opcode = 0;
     packet->read(opcode);
 
@@ -183,7 +182,6 @@ void TcpConnection::finishedPacketCallback(BasicStreamPtr& packet)
     packetPtr->message = NetworkPacket::PDU(packet->b.begin() + NetworkParam::kHeaderLength, packet->b.end());
 
     //构造网络消息包给应用层
-    // ...
     Poco::Notification::Ptr notification(new MessageNotification(_serverConnection, packetPtr));
     _messageQueue.enqueueNotification(notification);
 }

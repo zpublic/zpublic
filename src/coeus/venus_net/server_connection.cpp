@@ -25,3 +25,8 @@ uint64 ServerConnection::sequence() const
 {
     return _connection->sequence();
 }
+
+void ServerConnection::notifyRelease()
+{
+    _connection->releasable();
+}

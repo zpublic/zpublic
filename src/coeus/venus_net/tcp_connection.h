@@ -17,7 +17,10 @@ class TcpConnection : public Poco::Net::TCPServerConnection
 
     enum ConnectionState
     {
-        None, Established, ClosedWait
+        None,           // 无状态
+        Established,    // 连接正常
+        ClosedWait,     // 等待连接关闭（等待上层逻辑处理完成）
+        Closed          // 连接已关闭
     };
 
 public:
@@ -26,6 +29,7 @@ public:
     void run();
 
 public:
+    void releasable();
 	void sendMessage(int16 opcode, const byte* buff, size_t size);
 	void sendMessage(uint16 opcode, NetworkMessage& message);
     void close(const ShutdownReason& reason);
