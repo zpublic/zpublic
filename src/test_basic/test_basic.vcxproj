@@ -86,6 +86,7 @@
     <ClInclude Include="..\..\public\algorithm\algorithm.hpp" />
     <ClInclude Include="..\..\public\algorithm\indextree.h" />
     <ClInclude Include="..\..\public\algorithm\stringmatch.hpp" />
+    <ClInclude Include="..\..\public\algorithm\stringutils.hpp" />
     <ClInclude Include="..\..\public\application\application.hpp" />
     <ClInclude Include="..\..\public\application\log\log.hpp" />
     <ClInclude Include="..\..\public\application\log\log_file.hpp" />
