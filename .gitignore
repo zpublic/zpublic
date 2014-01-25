@@ -76,3 +76,5 @@ obj
 /3rdparty/poco/bin
 /3rdparty/poco/lib
 /3rdparty/poco/Foundation/testsuite/bin
+
+.idea
