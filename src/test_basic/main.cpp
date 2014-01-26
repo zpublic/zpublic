@@ -6,6 +6,7 @@
 #include "stdio.h"
 #include <string>
 #include <fstream>
+#include "algorithm/stringutils.hpp"
 
 void test_mrumap();
 void test_thread();
@@ -18,6 +19,7 @@ void test_encode();
 void test_hashtable();
 void test_heap();
 void test_indextree();
+void test_splitstring();
 
 zl::CLogQueue* GetTraceInstance()
 {
@@ -146,6 +148,10 @@ int main(int argc, char* argv[])
     zzzz.Open("./test.zip");
     zzzz.ZipFile("./test.xml");
     zzzz.Close();
+
+
+    ///> ËÀÈË×¨Êô
+    test_splitstring();
     
     return 0;
 }
@@ -390,4 +396,19 @@ void test_heap()
 void test_indextree()
 {
 
+}
+
+void test_splitstring()
+{
+    std::vector<std::string>  outputA;
+    StringUtils::SplitStringA("1,2,,3,,,4,", ',', outputA);
+    StringUtils::SplitStringA("1,2,,3,,,4,", ",", outputA, true);
+    StringUtils::SplitStringA("1,2,,3,,,4,", ",", outputA, false);
+
+    std::vector<std::wstring> outputW;
+    StringUtils::SplitStringW(L"1,2,,3,,,4,", L',', outputW);
+    StringUtils::SplitStringW(L"1,2,,3,,,4,", L",", outputW, true);
+    StringUtils::SplitStringW(L"1,2,,3,,,4,", L",", outputW, false);
+
+    StringUtils::SplitStringW(L"ºÇºÇÂ¥Ö÷ÄãºÃºÇºÇÂ¥Ö÷ÔÙ¼ûºÇºÇºÇºÇ", L"ºÇºÇ", outputW, true);
 }

@@ -330,6 +330,9 @@
     <ClInclude Include="..\..\public\design\design_def.h">
       <Filter>zpublic\design</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\public\algorithm\stringutils.hpp">
+      <Filter>zpublic\algorithm</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\3rdparty\modp_b64\modp_b64.cc">
