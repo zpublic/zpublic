@@ -3,7 +3,6 @@
 
 #include "common.h"
 #include "singleton.h"
-#include "network_common.h"
 
 namespace Venus
 {
@@ -69,8 +68,8 @@ private:
 
 #define OPCODE_REGISTER_END() }};
 
-#define MAKE_HANDLER(m, f) \
-    Venus::OpcodeHandler<T>(m, std::bind(&T::f, std::placeholders::_1, std::placeholders::_2))
+#define MAKE_HANDLER(opcode, handler) \
+    Venus::OpcodeHandler<T>(opcode, std::bind(&T::handler, std::placeholders::_1, std::placeholders::_2))
 
 #define REGISTER_HANDLER(m, f) \
     registerMessage(m, MAKE_HANDLER(#m, f))

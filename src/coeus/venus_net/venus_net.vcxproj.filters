@@ -91,9 +91,6 @@
     <ClInclude Include="object_pool.h">
       <Filter>model</Filter>
     </ClInclude>
-    <ClInclude Include="database.h">
-      <Filter>database</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="service_application.cpp">

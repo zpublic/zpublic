@@ -1,7 +1,7 @@
 #ifndef __GAME_SESSION_H__
 #define __GAME_SESSION_H__
 
-#include "venus_net/network_common.h"
+#include "venus_net/venus_net.h"
 #include "venus_net/network_session.h"
 
 class GameSession : public NetworkSession

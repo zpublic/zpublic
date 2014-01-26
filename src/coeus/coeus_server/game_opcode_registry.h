@@ -3,7 +3,6 @@
 
 #include "venus_net/opcode_registry.h"
 #include "protocol/opcodes.h"
-#include "game_session.h"
 
 OPCODE_REGISTER_BEGIN(GameOpcodeRegistry, GameSession)
     REGISTER_HANDLER(Opcodes::CSLoginReq, loginHandler);

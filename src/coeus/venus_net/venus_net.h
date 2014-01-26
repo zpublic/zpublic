@@ -11,5 +11,9 @@
 #include "tcp_client.h"
 #include "server_connection.h"
 #include "message_dispatcher.h"
+#include "opcode_registry.h"
+/*#include "protocol/protocol.h"
+#include "protocol/opcodes.h"
+*/
 
 #endif // __VENUS_NET_H__

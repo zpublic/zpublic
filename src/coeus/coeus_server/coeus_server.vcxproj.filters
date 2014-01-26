@@ -3,19 +3,19 @@
   <ItemGroup>
     <ClCompile Include="server_main.cpp" />
     <ClCompile Include="bag_manager.cpp">
-      <Filter>logic\bag_system</Filter>
+      <Filter>logic\item</Filter>
     </ClCompile>
     <ClCompile Include="role_manager.cpp">
-      <Filter>logic\role_system</Filter>
+      <Filter>logic\player</Filter>
     </ClCompile>
     <ClCompile Include="bag_cell.cpp">
-      <Filter>logic\bag_system</Filter>
+      <Filter>logic\item</Filter>
     </ClCompile>
     <ClCompile Include="bag_common.cpp">
-      <Filter>logic\bag_system</Filter>
+      <Filter>logic\item</Filter>
     </ClCompile>
     <ClCompile Include="role.cpp">
-      <Filter>logic\role_system</Filter>
+      <Filter>logic\player</Filter>
     </ClCompile>
     <ClCompile Include="game_service_application.cpp">
       <Filter>service</Filter>
@@ -25,6 +25,12 @@
     </ClCompile>
     <ClCompile Include="game_session_manager.cpp">
       <Filter>session</Filter>
+    </ClCompile>
+    <ClCompile Include="game_database.cpp">
+      <Filter>data</Filter>
+    </ClCompile>
+    <ClCompile Include="player_db.cpp">
+      <Filter>data\dbc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -37,43 +43,46 @@
     <Filter Include="logic">
       <UniqueIdentifier>{fa233c04-0775-41a2-8b5c-c14c64ea92fd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="logic\bag_system">
-      <UniqueIdentifier>{1087d424-491d-45af-9741-dba1b4b3baab}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="logic\hero_system">
-      <UniqueIdentifier>{65b2d63c-114c-4b05-8988-98e01616025e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="logic\role_system">
-      <UniqueIdentifier>{08a7a91c-a7b1-4c12-a433-4bda64e71928}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="logic\room_system">
-      <UniqueIdentifier>{9106343a-a862-43b4-b3ac-50c54634a946}</UniqueIdentifier>
-    </Filter>
     <Filter Include="define">
       <UniqueIdentifier>{94d21f71-776c-41c1-a997-7ae65e66dd29}</UniqueIdentifier>
     </Filter>
     <Filter Include="logic\user">
       <UniqueIdentifier>{97e0d002-fd82-4bca-9cb3-df023c766847}</UniqueIdentifier>
     </Filter>
+    <Filter Include="data">
+      <UniqueIdentifier>{0774ac02-def7-4eaa-bb24-187a5af261b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\dbc">
+      <UniqueIdentifier>{2c4a58ff-17d0-4e63-be02-a9663ed7c301}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic\item">
+      <UniqueIdentifier>{1087d424-491d-45af-9741-dba1b4b3baab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic\player">
+      <UniqueIdentifier>{08a7a91c-a7b1-4c12-a433-4bda64e71928}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="handler">
+      <UniqueIdentifier>{a93f03ad-ddf5-4f68-9bf5-01eff465b944}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bag_manager.h">
-      <Filter>logic\bag_system</Filter>
+      <Filter>logic\item</Filter>
     </ClInclude>
     <ClInclude Include="role_manager.h">
-      <Filter>logic\role_system</Filter>
+      <Filter>logic\player</Filter>
     </ClInclude>
     <ClInclude Include="bag_cell.h">
-      <Filter>logic\bag_system</Filter>
+      <Filter>logic\item</Filter>
     </ClInclude>
     <ClInclude Include="bag_common.h">
-      <Filter>logic\bag_system</Filter>
+      <Filter>logic\item</Filter>
     </ClInclude>
     <ClInclude Include="game_define_item.h">
       <Filter>define</Filter>
     </ClInclude>
     <ClInclude Include="role.h">
-      <Filter>logic\role_system</Filter>
+      <Filter>logic\player</Filter>
     </ClInclude>
     <ClInclude Include="game_define_role.h">
       <Filter>define</Filter>
@@ -95,6 +104,21 @@
     </ClInclude>
     <ClInclude Include="user_service.h">
       <Filter>logic\user</Filter>
+    </ClInclude>
+    <ClInclude Include="game_database.h">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="player_db.h">
+      <Filter>data\dbc</Filter>
+    </ClInclude>
+    <ClInclude Include="data_cached.h">
+      <Filter>data\dbc</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>logic\player</Filter>
+    </ClInclude>
+    <ClInclude Include="user_service_handler.cpp">
+      <Filter>handler</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
