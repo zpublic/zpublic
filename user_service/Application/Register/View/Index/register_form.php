@@ -26,7 +26,7 @@
 		<label class="checkbox">
 		<input type="checkbox" name="agree" value="1" required="required">
 		我已经阅读并同意
-		<a href="###">《使用协议》</a>
+		<a href="###">《使用协议》（知道你不会看，自动帮你勾上）</a>
 		</label>
 		<div>
 			<button class="btn btn-lg btn-primary col-xs-7" type="submit">确定注册</button>
