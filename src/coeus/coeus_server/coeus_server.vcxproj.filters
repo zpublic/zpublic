@@ -32,6 +32,9 @@
     <ClCompile Include="player_db.cpp">
       <Filter>data\dbc</Filter>
     </ClCompile>
+    <ClCompile Include="user_service_handler.cpp">
+      <Filter>handler</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="service">
@@ -116,9 +119,6 @@
     </ClInclude>
     <ClInclude Include="player.h">
       <Filter>logic\player</Filter>
-    </ClInclude>
-    <ClInclude Include="user_service_handler.cpp">
-      <Filter>handler</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -63,9 +63,6 @@
     <ClInclude Include="message_block_packetization.h">
       <Filter>network</Filter>
     </ClInclude>
-    <ClInclude Include="opcode_registry.h">
-      <Filter>model</Filter>
-    </ClInclude>
     <ClInclude Include="message_dispatcher.h">
       <Filter>model</Filter>
     </ClInclude>
@@ -89,6 +86,9 @@
       <Filter>network</Filter>
     </ClInclude>
     <ClInclude Include="object_pool.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="opcode_registry.h">
       <Filter>model</Filter>
     </ClInclude>
   </ItemGroup>

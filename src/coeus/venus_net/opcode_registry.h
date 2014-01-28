@@ -1,8 +1,7 @@
 #ifndef __OPCODE_REGISTRY_H__
 #define __OPCODE_REGISTRY_H__
 
-#include "common.h"
-#include "singleton.h"
+#include "venus_net.h"
 
 namespace Venus
 {
