@@ -4,6 +4,7 @@
 #include "venus_net/venus_net.h"
 #include "venus_net/network_session.h"
 
+class Player;
 class GameSession : public NetworkSession
 {
 public:
@@ -19,7 +20,7 @@ public:
     void registerHandler(const NetworkPacket::Ptr& packet);
 
 private:
-
+	Player* _player;
 };
 
 #endif

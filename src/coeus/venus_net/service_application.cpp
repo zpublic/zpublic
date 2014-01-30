@@ -31,9 +31,6 @@ void ServiceApplication::initialize(Poco::Util::Application& self)
 {
     ServerApplication::loadConfiguration();
     ServerApplication::initialize(self);
-
-    // init logger
-    Logger::getInstance().init(this->logger());
 }
 
 void ServiceApplication::uninitialize()

@@ -2,7 +2,7 @@
 #ifndef __BAG_CELL_H__
 #define __BAG_CELL_H__
 
-#include "common.h"
+#include "venus_net/venus_net.h"
 
 class BagCell
 {

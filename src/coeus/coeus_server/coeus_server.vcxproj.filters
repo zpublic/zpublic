@@ -29,11 +29,20 @@
     <ClCompile Include="game_database.cpp">
       <Filter>data</Filter>
     </ClCompile>
-    <ClCompile Include="player_db.cpp">
-      <Filter>data\dbc</Filter>
-    </ClCompile>
     <ClCompile Include="user_service_handler.cpp">
       <Filter>handler</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>logic\player</Filter>
+    </ClCompile>
+    <ClCompile Include="data_manager.cpp">
+      <Filter>data</Filter>
+    </ClCompile>
+    <ClCompile Include="player_manager.cpp">
+      <Filter>logic\player</Filter>
+    </ClCompile>
+    <ClCompile Include="game_service.cpp">
+      <Filter>service</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -114,11 +123,23 @@
     <ClInclude Include="player_db.h">
       <Filter>data\dbc</Filter>
     </ClInclude>
-    <ClInclude Include="data_cached.h">
-      <Filter>data\dbc</Filter>
-    </ClInclude>
     <ClInclude Include="player.h">
       <Filter>logic\player</Filter>
+    </ClInclude>
+    <ClInclude Include="player_manager.h">
+      <Filter>logic\player</Filter>
+    </ClInclude>
+    <ClInclude Include="data_manager.h">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="cached_object.h">
+      <Filter>data\dbc</Filter>
+    </ClInclude>
+    <ClInclude Include="item_db.h">
+      <Filter>data\dbc</Filter>
+    </ClInclude>
+    <ClInclude Include="game_service.h">
+      <Filter>service</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

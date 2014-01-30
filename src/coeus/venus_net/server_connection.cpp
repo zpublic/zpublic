@@ -30,3 +30,8 @@ void ServerConnection::notifyRelease()
 {
     _connection->releasable();
 }
+
+std::string& ServerConnection::address() const
+{
+	return _connection->address();
+}

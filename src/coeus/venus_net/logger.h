@@ -21,7 +21,7 @@ public:
     }
 
 public:
-    bool init(Poco::Logger& logger)
+    bool initialize(Poco::Logger& logger)
     {
         _logger = &logger;
 

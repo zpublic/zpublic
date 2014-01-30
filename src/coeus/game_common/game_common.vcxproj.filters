@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="game_define.h" />
+    <ClInclude Include="game_util.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="game_define.h">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="util">
+      <UniqueIdentifier>{8f471e6f-730a-473f-a8e7-f52eba3ec7be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{95e42deb-8208-4bb5-aba9-48e48f865f5e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

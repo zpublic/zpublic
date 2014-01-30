@@ -1,17 +1,19 @@
 #ifndef __DB_PLAYER_H__
 #define __DB_PLAYER_H__
 
-#include <common.h>
+#include "venus_net/venus_net.h"
 #include "game_database.h"
-#include "data_cached.h"
 
-class PlayerDB : public DataCached
+class PlayerDB
 {
 public:
-    bool loadFromDB(uint64 guid);
-    void cleanup();
+	void cleanup()
+	{
+		gender = 0;
+		register_time = 0;
+		last_login = 0;
+	}
 
-public:
     std::string email;          //电子邮箱帐号
     uint8 gender;               //性别
     std::string nickname;       //昵称

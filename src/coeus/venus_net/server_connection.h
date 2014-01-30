@@ -16,6 +16,7 @@ public:
 
 public:
     void sendMessage(uint16 opcode, NetworkMessage& message);
+	std::string& address() const;
     void close(const ShutdownReason& reason = SR_SERVICE_CLOSE_INITIATIVE);
     uint64 sequence() const;
     void notifyRelease();

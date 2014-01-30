@@ -1,7 +1,7 @@
 #ifndef __BAG_COMMON_H__
 #define __BAG_COMMON_H__
 
-#include "common.h"
+#include "venus_net/venus_net.h"
 #include "bag_cell.h"
 #include "game_define_item.h"
 

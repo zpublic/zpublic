@@ -33,9 +33,6 @@
     <ClInclude Include="connection_factory.h">
       <Filter>network</Filter>
     </ClInclude>
-    <ClInclude Include="common.h">
-      <Filter>common</Filter>
-    </ClInclude>
     <ClInclude Include="buffer.h">
       <Filter>stream</Filter>
     </ClInclude>
@@ -90,6 +87,9 @@
     </ClInclude>
     <ClInclude Include="opcode_registry.h">
       <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

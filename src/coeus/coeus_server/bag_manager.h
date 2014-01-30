@@ -1,7 +1,7 @@
 #ifndef __BAG_MANAGER_H__
 #define __BAG_MANAGER_H__
 
-#include "common.h"
+#include "venus_net/venus_net.h"
 #include "bag_common.h"
 
 class Role;

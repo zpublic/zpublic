@@ -1,7 +1,7 @@
 #ifndef __ROLE_MANAGER_H__
 #define __ROLE_MANAGER_H__
 
-#include "common.h"
+#include "venus_net/venus_net.h"
 #include "role_manager.h"
 
 class Role;

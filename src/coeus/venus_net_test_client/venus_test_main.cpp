@@ -55,19 +55,19 @@ int main(int argc, char** argv)
         {
             tcpClient.connect(serverAddress);
 
-//             Protocol::CSRegisterReq registerRequest;
-//             registerRequest.username = "coeus_user";
-//             registerRequest.password = "coeus_password";
-//             tcpClient.sendMessage(Opcodes::CSRegisterReq, registerRequest);
-            
-            Protocol::CSLoginReq loginRequest;
-            loginRequest.account = "coeus_user";
-            loginRequest.password = "coeus_password";
-            tcpClient.sendMessage(Opcodes::CSLoginReq, loginRequest);
+			Protocol::CSRegisterReq registerRequest;
+			registerRequest.username = "138001655_2@qq.com";
+			registerRequest.password = "e10adc3949ba59abbe56e057f20f883e";
+			tcpClient.sendMessage(Opcodes::CSRegisterReq, registerRequest);
 
-            loginRequest.account = "powman";
-            loginRequest.password = "demaciaaaaa";
-            tcpClient.sendMessage(Opcodes::CSLoginReq, loginRequest);
+            //Protocol::CSLoginReq loginRequest;
+            //loginRequest.account = "138001655@qq.com";
+            //loginRequest.password = "e10adc3949ba59abbe56e057f20f883e";
+            //tcpClient.sendMessage(Opcodes::CSLoginReq, loginRequest);
+
+            //loginRequest.account = "powman";
+            //loginRequest.password = "demaciaaaaa";
+            //tcpClient.sendMessage(Opcodes::CSLoginReq, loginRequest);
 
             tcpClient.close();
         }

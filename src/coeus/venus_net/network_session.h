@@ -14,6 +14,7 @@ public:
     bool init();
     void destroy();
     uint64 sessionId() const;
+	std::string& address() const;
 
 public:
 	void close();

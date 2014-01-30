@@ -1,7 +1,7 @@
 #ifndef __GAME_DATABASE_H__
 #define __GAME_DATABASE_H__
 
-#include <common.h>
+#include "venus_net/venus_net.h"
 #include "venus_net/singleton.h"
 #include "Poco/Data/Common.h"
 #include "Poco/Data/SQLite/Connector.h"
@@ -25,9 +25,6 @@ public:
     //检查数据库中一个用户是否存在
     bool checkUserExists(const std::string& email);
 
-    //检查数据库中昵称是否存在
-    bool checkNicknameExists(const std::string& nickname);
-
     //验证帐号和密码是否匹配
     bool userAuth(const std::string& email, const std::string& pass_hash);
 
@@ -36,8 +33,6 @@ public:
         uint64 guid, 
         const std::string& email,
         const std::string& password,
-        int32 gender,
-        const std::string& nickname,
         const std::string& register_ip,
         uint64 register_timestamp
         );
@@ -47,7 +42,6 @@ public:
     //====================================================================
     bool loadPlayerInfo(uint64 guid, PlayerDB* playerDB);
     bool savePlayerInfo(uint64 guid, PlayerDB* playerDB);
-
 
 private:
     Poco::Data::Session _db_session;

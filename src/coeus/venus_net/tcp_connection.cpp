@@ -38,6 +38,7 @@ void TcpConnection::run()
     info_log("current thread (TcpConnection::run()) = %d", std::this_thread::get_id());
 
     _state = ConnectionState::Established;
+	_address = _socket.address().host().toString();
 
     try
     {
@@ -189,4 +190,9 @@ void TcpConnection::finishedPacketCallback(BasicStreamPtr& packet)
 void TcpConnection::close(const ShutdownReason& reason)
 {
     onShutdown(reason);
+}
+
+std::string& TcpConnection::address()
+{
+	return _address;
 }

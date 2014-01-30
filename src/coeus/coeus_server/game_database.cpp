@@ -25,16 +25,6 @@ bool GameDatabase::checkUserExists(const std::string& email)
     return (_db_stmt.execute() > 0);
 }
 
-bool GameDatabase::checkNicknameExists(const std::string& nickname)
-{
-    _db_stmt = (_db_session 
-        << "SELECT nickname FROM users WHERE nickname = :nickname", 
-        Poco::Data::limit(1), 
-        Poco::Data::use(nickname));
-
-    return (_db_stmt.execute() > 0);
-}
-
 bool GameDatabase::userAuth(const std::string& email, const std::string& pass_hash)
 {
     _db_stmt = (_db_session 
@@ -51,8 +41,6 @@ void GameDatabase::insertNewUserRecord(
     uint64 guid, 
     const std::string& email,
     const std::string& password,
-    int32 gender,
-    const std::string& nickname,
     const std::string& register_ip,
     uint64 register_time
     )
@@ -63,8 +51,8 @@ void GameDatabase::insertNewUserRecord(
         Poco::Data::use(guid),
         Poco::Data::use(email),
         Poco::Data::use(password),
-        Poco::Data::use(gender),
-        Poco::Data::use(nickname),
+        Poco::Data::use(1),
+        Poco::Data::use("xxx"),
         Poco::Data::use(register_ip),
         Poco::Data::use(register_time));
 

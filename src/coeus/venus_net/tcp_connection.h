@@ -32,6 +32,7 @@ public:
     void releasable();
 	void sendMessage(int16 opcode, const byte* buff, size_t size);
 	void sendMessage(uint16 opcode, NetworkMessage& message);
+	std::string& address();
     void close(const ShutdownReason& reason);
     inline uint64 sequence() const { return _sequence; }
 
@@ -42,6 +43,7 @@ private:
     void finishedPacketCallback(BasicStreamPtr& packet);
 
 private:
+	std::string _address;
     ConnectionState _state;
     ServerConnection* _serverConnection;
     byte* _buffer;

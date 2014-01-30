@@ -1,5 +1,5 @@
 #include "game_session.h"
-#include "server_connection.h"
+#include "venus_net/server_connection.h"
 #include "protocol/protocol.h"
 #include "protocol/opcodes.h"
 
