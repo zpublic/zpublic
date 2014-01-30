@@ -11,4 +11,8 @@
   <Type VariableType="0" TypeName="uint32" Description="" />
   <Type VariableType="0" TypeName="uint64" Description="" />
   <Type VariableType="0" TypeName="std::string" Description="" />
+  <Type VariableType="2" TypeName="CharacterBaseInfo" Description="角色基本数据">
+    <Member MemberName="nickname" MemberType="std::string" Purpose="variable" MemberNote="角色昵称" />
+    <Member MemberName="character_type" MemberType="uint8" Purpose="variable" MemberNote="角色类型（职业）" />
+  </Type>
 </XMLDataType>

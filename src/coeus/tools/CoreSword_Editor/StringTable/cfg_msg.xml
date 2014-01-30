@@ -16,6 +16,17 @@
     <msg MsgId="10004" MsgProperty="1" MsgName="SCRegisterRsp" MsgNote="用户注册返回" MsgRemark="" ErrorList="">
       <param DataType="uint8" Purpose="variable" ParamName="register_result" ParamNote="注册结果（true-成功， false-失败）" />
     </msg>
+    <msg MsgId="10005" MsgProperty="0" MsgName="CSCharacterCreateReq" MsgNote="角色创建请求" MsgRemark="" ErrorList="">
+      <param DataType="std::string" Purpose="variable" ParamName="nickname" ParamNote="角色昵称" />
+      <param DataType="uint8" Purpose="variable" ParamName="character_type" ParamNote="角色类型（或职业）" />
+    </msg>
+    <msg MsgId="10006" MsgProperty="1" MsgName="SCCharacterCreateRsp" MsgNote="角色创建返回" MsgRemark="" ErrorList="">
+      <param DataType="uint8" Purpose="variable" ParamName="result" ParamNote="创建结果" />
+    </msg>
+    <msg MsgId="10007" MsgProperty="0" MsgName="CSGetChracterListReq" MsgNote="获取角色列表" MsgRemark="" ErrorList="" />
+    <msg MsgId="10008" MsgProperty="1" MsgName="SCCSGetChracterListRsq" MsgNote="获取角色列表返回" MsgRemark="" ErrorList="">
+      <param DataType="CharacterBaseInfo" Purpose="array" ParamName="character_list" ParamNote="角色列表" />
+    </msg>
   </category>
   <category CategoryName="test">
     <msg MsgId="99991" MsgProperty="0" MsgName="CSTestPacketReq" MsgNote="" MsgRemark="" ErrorList="">
