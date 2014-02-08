@@ -7,6 +7,36 @@
     <ClInclude Include="game_define.h">
       <Filter>common</Filter>
     </ClInclude>
+    <ClInclude Include="path_definition.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\lib_json\json_batchallocator.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\json\autolink.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\json\config.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\json\features.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\json\forwards.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\json\json.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\json\reader.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\json\value.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\json\writer.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="util">
@@ -15,5 +45,30 @@
     <Filter Include="common">
       <UniqueIdentifier>{95e42deb-8208-4bb5-aba9-48e48f865f5e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="jsoncpp">
+      <UniqueIdentifier>{eb927ed2-31bb-4aee-af9f-ec307d3855e9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="jsoncpp\lib_json\json_internalarray.inl">
+      <Filter>jsoncpp</Filter>
+    </None>
+    <None Include="jsoncpp\lib_json\json_internalmap.inl">
+      <Filter>jsoncpp</Filter>
+    </None>
+    <None Include="jsoncpp\lib_json\json_valueiterator.inl">
+      <Filter>jsoncpp</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="jsoncpp\lib_json\json_reader.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="jsoncpp\lib_json\json_value.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="jsoncpp\lib_json\json_writer.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

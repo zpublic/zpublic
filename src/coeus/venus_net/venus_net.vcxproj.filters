@@ -10,17 +10,14 @@
     <Filter Include="logger">
       <UniqueIdentifier>{ef3dc6d1-621d-4718-b136-3f99f2d1b139}</UniqueIdentifier>
     </Filter>
-    <Filter Include="model">
-      <UniqueIdentifier>{b477fe3b-2623-4aed-ba17-22707ecf1c62}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="database">
-      <UniqueIdentifier>{c85a3b88-2cd2-4e1c-8f1f-a10250c41c43}</UniqueIdentifier>
-    </Filter>
     <Filter Include="stream">
       <UniqueIdentifier>{b9931ff5-097d-415a-b8d2-fc1720873aeb}</UniqueIdentifier>
     </Filter>
     <Filter Include="utils">
       <UniqueIdentifier>{1ac59f78-02b6-4e86-9c91-479bb33cab8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\model">
+      <UniqueIdentifier>{b477fe3b-2623-4aed-ba17-22707ecf1c62}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -51,9 +48,6 @@
     <ClInclude Include="logger.h">
       <Filter>logger</Filter>
     </ClInclude>
-    <ClInclude Include="singleton.h">
-      <Filter>utils</Filter>
-    </ClInclude>
     <ClInclude Include="tcp_client.h">
       <Filter>network</Filter>
     </ClInclude>
@@ -61,7 +55,7 @@
       <Filter>network</Filter>
     </ClInclude>
     <ClInclude Include="message_dispatcher.h">
-      <Filter>model</Filter>
+      <Filter>utils\model</Filter>
     </ClInclude>
     <ClInclude Include="server_connection.h">
       <Filter>network</Filter>
@@ -83,13 +77,16 @@
       <Filter>network</Filter>
     </ClInclude>
     <ClInclude Include="object_pool.h">
-      <Filter>model</Filter>
+      <Filter>utils\model</Filter>
     </ClInclude>
     <ClInclude Include="opcode_registry.h">
-      <Filter>model</Filter>
+      <Filter>utils\model</Filter>
     </ClInclude>
     <ClInclude Include="common.h">
       <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>utils\model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -37,6 +37,7 @@ public:
     {
         info_log("current thread (GameApp::onShutdown) = %d", std::this_thread::get_id());
         debug_log("connection shutdown, reason = %d", reason);
+
     }
 };
 

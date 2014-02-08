@@ -4,6 +4,7 @@
 #include "game_database.h"
 #include "game_session_manager.h"
 #include "player_manager.h"
+#include "config_manager.h"
 
 #define CHECK_INITIALIZE(result, x, s) \
 	if (result) \
@@ -24,6 +25,7 @@ bool GameService::initialize()
 {
 	try
 	{
+		ConfigManager::getInstance().start();
 		CHECK_INITIALIZE(registerDatabase(), "Database registered OK.", "Database register failed.");
 		CHECK_INITIALIZE(PlayerManager::getInstance().init(), "PlayerManager init OK.", "PlayerManager init failed.");
 		CHECK_INITIALIZE(GameSessionManager::getInstance().init(), "GameSessionManager init OK.", "GameSessionManager init failed.");

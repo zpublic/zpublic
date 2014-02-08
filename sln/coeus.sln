@@ -3,10 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "coeus_server", "..\src\coeus\coeus_server\coeus_server.vcxproj", "{6E347786-412E-46F6-9CFF-A367106C99B0}"
 	ProjectSection(ProjectDependencies) = postProject
+		{23B3DA61-A907-41DD-BAC3-E4F1A68B20B3} = {23B3DA61-A907-41DD-BAC3-E4F1A68B20B3}
 		{9C15937D-8CE0-407D-8A25-82EEDCEA6930} = {9C15937D-8CE0-407D-8A25-82EEDCEA6930}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "venus_net", "..\src\coeus\venus_net\venus_net.vcxproj", "{9C15937D-8CE0-407D-8A25-82EEDCEA6930}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "venus", "..\src\coeus\venus_net\venus_net.vcxproj", "{9C15937D-8CE0-407D-8A25-82EEDCEA6930}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "coeus", "..\src\coeus\client\coeus.vcxproj", "{A2B3C8FB-649D-43D4-859F-4EC4C5D38379}"
 	ProjectSection(ProjectDependencies) = postProject

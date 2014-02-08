@@ -44,6 +44,15 @@
     <ClCompile Include="game_service.cpp">
       <Filter>service</Filter>
     </ClCompile>
+    <ClCompile Include="server_config.cpp">
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="config_manager.cpp">
+      <Filter>config\config_manager</Filter>
+    </ClCompile>
+    <ClCompile Include="config_loader.cpp">
+      <Filter>config\config_manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="service">
@@ -75,6 +84,12 @@
     </Filter>
     <Filter Include="handler">
       <UniqueIdentifier>{a93f03ad-ddf5-4f68-9bf5-01eff465b944}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{67c30c9b-066b-4eaf-a03f-a5a05ed5a82a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\config_manager">
+      <UniqueIdentifier>{251c14f2-6e84-4b38-a63a-f4b38d133d5f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +155,18 @@
     </ClInclude>
     <ClInclude Include="game_service.h">
       <Filter>service</Filter>
+    </ClInclude>
+    <ClInclude Include="server_config.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="config_manager.h">
+      <Filter>config\config_manager</Filter>
+    </ClInclude>
+    <ClInclude Include="configuration.h">
+      <Filter>config\config_manager</Filter>
+    </ClInclude>
+    <ClInclude Include="config_loader.h">
+      <Filter>config\config_manager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,0 +1,27 @@
+{
+	"server" :
+	{
+		"game_service" :
+		{
+			"service_name"   : "GameService1"
+			"listen_address" : "0.0.0.0",
+			"port"           : 36911,
+			"max_queued"     : 64,
+			"max_threads"    : 8
+		},
+		"php_service" :
+		{
+			"service_name"   : "PHPService"
+			"listen_address" : "0.0.0.0",
+			"port"           : 19527
+		},
+		"database" :
+		{
+			"username" : "root",
+			"password" : "%$@!"
+		}
+	},
+	"logger" :
+	{
+	}
+}

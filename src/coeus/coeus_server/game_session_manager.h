@@ -21,8 +21,8 @@ public:
 
 public:
     bool addSession(GameSession* session);
-    void removeSession(const uint64& guid);
-    GameSession* getSession(const uint64& guid);
+    void removeSession(uint64 sessionId);
+    GameSession* getSession(uint64 sessionId);
     int32 sessionCount() const;
 
     template <typename T> void broadcast(uint32 opcode, const T& message)
@@ -38,9 +38,9 @@ public:
         }
     }    
     
-    template <typename T> void send_message(uint64 guid, uint32 opcode, const T& message)
+    template <typename T> void send_message(uint64 sessionId, uint32 opcode, const T& message)
     {
-        auto iter_session = _sessions.find(guid);
+        auto iter_session = _sessions.find(sessionId);
         if (iter_session != _sessions.end())
         {
             GameSession* session = iter_session->second;
@@ -58,8 +58,8 @@ public:
 
         for (auto iter = id_list.begin(); iter != id_list.end(); ++iter)
         {
-            const uint64& guid = *iter;
-            auto iter_session = _sessions.find(guid);
+            const uint64& sessionId = *iter;
+            auto iter_session = _sessions.find(id);
             if (iter_session != _sessions.end())
             {
                 GameSession* session = iter_session->second;
@@ -71,8 +71,8 @@ public:
         }
     }
 
-    void send_error(uint64 guid, uint32 error_code);
-    void send_error(uint64 guid, uint32 error_code, const std::string& error_reason);
+    void send_error(uint64 sessionId, uint32 error_code);
+    void send_error(uint64 sessionId, uint32 error_code, const std::string& error_reason);
 
 private:
     std::mutex _mutex;

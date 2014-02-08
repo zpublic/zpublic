@@ -10,7 +10,7 @@
 
 #include "resource.h"
 
-#pragma comment(lib, "../lib/venus_net.lib")
+#pragma comment(lib, "../lib/venus.lib")
 
 CAppModule _Module;
 

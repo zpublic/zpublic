@@ -53,18 +53,18 @@ bool GameSessionManager::addSession(GameSession* session)
     return true;
 }
 
-void GameSessionManager::removeSession(const uint64& guid)
+void GameSessionManager::removeSession(uint64 sessionId)
 {
-    auto iter = _sessions.find(guid);
+    auto iter = _sessions.find(sessionId);
     if (iter != _sessions.end())
     {
         _sessions.erase(iter);
     }
 }
 
-GameSession* GameSessionManager::getSession(const uint64& guid)
+GameSession* GameSessionManager::getSession(uint64 sessionId)
 {
-    auto iter = _sessions.find(guid);
+    auto iter = _sessions.find(sessionId);
     return iter != _sessions.end() ? iter->second : nullptr;
 }
 
@@ -73,9 +73,9 @@ int32 GameSessionManager::sessionCount() const
     return _sessions.size();
 }
 
-void GameSessionManager::send_error(uint64 guid, uint32 error_code)
+void GameSessionManager::send_error(uint64 sessionId, uint32 error_code)
 {
-    auto iter_session = _sessions.find(guid);
+    auto iter_session = _sessions.find(sessionId);
     if (iter_session != _sessions.end())
     {
         GameSession* session = iter_session->second;
@@ -86,9 +86,9 @@ void GameSessionManager::send_error(uint64 guid, uint32 error_code)
     }
 }
 
-void GameSessionManager::send_error(uint64 guid, uint32 error_code, const std::string& error_reason)
+void GameSessionManager::send_error(uint64 sessionId, uint32 error_code, const std::string& error_reason)
 {
-    auto iter_session = _sessions.find(guid);
+    auto iter_session = _sessions.find(sessionId);
     if (iter_session != _sessions.end())
     {
         GameSession* session = iter_session->second;

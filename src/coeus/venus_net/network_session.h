@@ -5,6 +5,7 @@
 
 class ServerConnection;
 class NetworkMessage;
+class PHPMessage;
 class NetworkSession
 {
 public:
@@ -19,6 +20,7 @@ public:
 public:
 	void close();
     void send_message(uint32 opcode, NetworkMessage& message);
+	//void send_php_message(const PHPMessage& message);
 
 private:
     ServerConnection* _serverConnection;
