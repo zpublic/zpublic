@@ -4,6 +4,7 @@
 
 bool ServerConfig::loadConfig()
 {
+	ConfigFile::ServerConfig;
 
 	return true;
 }
