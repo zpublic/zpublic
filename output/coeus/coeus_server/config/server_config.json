@@ -1,27 +1,20 @@
 {
+	"global":
+	{
+		"php_server_address"   : "127.0.0.1:19527",
+		"logger" :
+		{
+		}
+	},
 	"server" :
 	{
 		"game_service" :
 		{
-			"service_name"   : "GameService1"
-			"listen_address" : "0.0.0.0",
-			"port"           : 36911,
+			"service_name"   : "GameService1",
+			"listen_address" : "0.0.0.0:36911",
 			"max_queued"     : 64,
-			"max_threads"    : 8
-		},
-		"php_service" :
-		{
-			"service_name"   : "PHPService"
-			"listen_address" : "0.0.0.0",
-			"port"           : 19527
-		},
-		"database" :
-		{
-			"username" : "root",
-			"password" : "%$@!"
+			"max_threads"    : 8,
+			"sqlite3_file" : "./data/zeus_mud.db"	//sqlite3数据库文件路径
 		}
-	},
-	"logger" :
-	{
 	}
 }

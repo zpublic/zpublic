@@ -19,6 +19,7 @@ void ConfigManager::registerConfig(Configuration* configuration)
 
 void ConfigManager::start()
 {
+    debug_log("loading server configurations...");
 	std::thread threads[kThreadNums];
 
 	for (int i = 0; i < kThreadNums; ++i)
@@ -41,6 +42,14 @@ void ConfigManager::workerThread()
 		_configurations.pop();
 		_mutex.unlock();
 
-		configuration->loadConfig();
+		bool result = configuration->parse();
+        if (result == false)
+        {
+            error_log("load config ['%s'] failed. server interrupt!", configuration->filename().c_str());
+        }
+        else
+        {
+            debug_log("load config ['%s'] ok.", configuration->filename().c_str());
+        }
 	}
 }

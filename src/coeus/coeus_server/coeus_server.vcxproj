@@ -166,6 +166,7 @@
     <ClCompile Include="bag_cell.cpp" />
     <ClCompile Include="bag_common.cpp" />
     <ClCompile Include="bag_manager.cpp" />
+    <ClCompile Include="configuration.cpp" />
     <ClCompile Include="config_loader.cpp" />
     <ClCompile Include="config_manager.cpp" />
     <ClCompile Include="data_manager.cpp" />

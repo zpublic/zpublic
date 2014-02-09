@@ -53,6 +53,9 @@
     <ClCompile Include="config_loader.cpp">
       <Filter>config\config_manager</Filter>
     </ClCompile>
+    <ClCompile Include="configuration.cpp">
+      <Filter>config\config_manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="service">
