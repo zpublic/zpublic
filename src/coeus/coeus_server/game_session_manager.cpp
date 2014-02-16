@@ -1,6 +1,7 @@
 #include "venus_net/venus_net.h"
 #include "game_session_manager.h"
 #include "game_session.h"
+#include "player_manager.h"
 
 Venus::ObjectPool<GameSession> GameSessionManager::_sessionPool;
 bool GameSessionManager::init()
@@ -97,4 +98,35 @@ void GameSessionManager::send_error(uint64 sessionId, uint32 error_code, const s
             session->send_error(error_code, error_reason);
         }
     }
+}
+
+void GameSessionManager::broadcast(uint32 opcode, NetworkMessage& message)
+{
+    // traverse all objects and send message
+    for (auto iter = _sessions.begin(); iter != _sessions.end(); ++iter)
+    {
+        GameSession* session = iter->second;
+        if (session != nullptr)
+        {
+            session->send_message(opcode, message);
+        }
+    }
+}
+
+void GameSessionManager::send_message(const PlayerIDList& id_list, uint32 opcode, NetworkMessage& message)
+{
+    if (id_list.empty()) return;
+
+    for (auto iter = id_list.begin(); iter != id_list.end(); ++iter)
+    {
+        const uint64& playerId = *iter;
+        this->send_message(playerId, opcode, message);
+    }
+}
+
+void GameSessionManager::send_message(uint64 player_id, uint32 opcode, NetworkMessage& message)
+{
+    Player* player = PlayerManager::getInstance().getPlayer(player_id);
+    if (player != nullptr)
+        player->send_message(opcode, message);
 }

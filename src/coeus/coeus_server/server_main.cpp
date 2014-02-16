@@ -5,4 +5,3 @@ int main(int argc, char* argv[])
     GameServiceApplication serverApp("GameServer1");
     return serverApp.start(argc, argv);
 }
-

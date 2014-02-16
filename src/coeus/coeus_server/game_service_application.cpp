@@ -4,6 +4,7 @@
 #include "game_message_dispatcher.h"
 #include "venus_net/message_dispatcher.h"
 #include "game_service.h"
+#include "server_config.h"
 
 GameServiceApplication::GameServiceApplication(const std::string& serviceName)
     : ServiceApplication(serviceName, &_messageDispatcher)

@@ -26,10 +26,10 @@ public:
 	void setSession(GameSession* session);
 
 public:
-	template <typename T> void send_message(uint32 opcode, const T& message)
+	void send_message(uint32 opcode, NetworkMessage& message)
 	{
 		if (_session != nullptr)
-			_session->send_message<T>(opcode, message);
+			_session->send_message(opcode, message);
 	}
 
 public:
