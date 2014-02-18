@@ -26,11 +26,7 @@ public:
 	void setSession(GameSession* session);
 
 public:
-	void send_message(uint32 opcode, NetworkMessage& message)
-	{
-		if (_session != nullptr)
-			_session->send_message(opcode, message);
-	}
+	void send_message(uint32 opcode, NetworkMessage& message);
 
 public:
 	//properties

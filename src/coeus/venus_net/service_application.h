@@ -10,6 +10,14 @@ class MessageDispatcher;
 
 namespace Venus
 {
+
+struct ServiceApplicationParams
+{
+    std::string listen_address;
+    int max_queued;
+    int max_threads;
+};
+
 class ServiceApplication
 	: public Poco::Util::ServerApplication
 {
@@ -18,6 +26,7 @@ public:
     virtual ~ServiceApplication();
 
 public:
+    int run(int argc, char** argv, Venus::ServiceApplicationParams* params);
 	int main(const std::vector<std::string>& args);
     virtual void defineOptions(Poco::Util::OptionSet& options);
     virtual void handleOption(const std::string& name, const std::string& value);
@@ -27,6 +36,7 @@ private:
     void uninitialize();
 
 private:
+    Venus::ServiceApplicationParams* _applicationParams;
 	Poco::Net::SocketReactor _reactor;
     MessageQueue _messageQueue;
     std::string _serviceName;

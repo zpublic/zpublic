@@ -97,3 +97,9 @@ void Player::setSession( GameSession* session )
 {
 	_session = session;
 }
+
+void Player::send_message(uint32 opcode, NetworkMessage& message)
+{
+    if (_session != nullptr)
+        _session->send_message(opcode, message);
+}

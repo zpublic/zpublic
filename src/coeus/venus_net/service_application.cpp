@@ -62,11 +62,11 @@ int ServiceApplication::main(const std::vector<std::string>& args)
 {
     //从配置读取服务器信息
     unsigned short port = (unsigned short) config().getInt("port", 36911);
-    Poco::Net::ServerSocket socket(port);
+    Poco::Net::SocketAddress listenAddress(_applicationParams->listen_address);
+    Poco::Net::ServerSocket socket(listenAddress);
     Poco::Net::TCPServerParams* serverParams = new Poco::Net::TCPServerParams();
-    serverParams->setMaxQueued(64);         //连接队列最大数
-    serverParams->setMaxThreads(8);         //最大IO线程数
-    serverParams->setThreadIdleTime(100);   //线程终止时最大等待时间
+    serverParams->setMaxQueued(_applicationParams->max_queued);         //连接队列最大数
+    serverParams->setMaxThreads(_applicationParams->max_threads);       //最大IO线程数
 
     info_log(
         "\n"
@@ -101,4 +101,9 @@ int ServiceApplication::main(const std::vector<std::string>& args)
     return Application::EXIT_OK;
 }
 
+int ServiceApplication::run(int argc, char** argv, Venus::ServiceApplicationParams* params)
+{
+    _applicationParams = params;
+    return Poco::Util::ServerApplication::run(argc, argv);
+}
 }

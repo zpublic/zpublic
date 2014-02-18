@@ -21,7 +21,12 @@ int GameServiceApplication::start(int argc, char** argv)
 	GameOpcodeRegistry::getInstance().initialize<GameSession>();
 	GameService::getInstance().initialize();
 
-    return Venus::ServiceApplication::run(argc, argv);
+    Venus::ServiceApplicationParams params;
+    params.listen_address = ServerConfig::getInstance().listenAddress;
+    params.max_queued = ServerConfig::getInstance().maxQueued;
+    params.max_threads = ServerConfig::getInstance().maxThreads;
+
+    return Venus::ServiceApplication::run(argc, argv, &params);
 }
 
 void GameServiceApplication::stop()
