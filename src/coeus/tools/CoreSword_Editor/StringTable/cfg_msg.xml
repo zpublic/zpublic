@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="yes"?>
 <MSG_CFG>
-  <category CategoryName="注册登录">
+  <category CategoryName="登录/注册">
     <msg MsgId="10001" MsgProperty="0" MsgName="CSLoginReq" MsgNote="登录请求" MsgRemark="" ErrorList="">
       <param DataType="std::string" Purpose="variable" ParamName="account" ParamNote="登录帐号（邮箱地址）" />
       <param DataType="std::string" Purpose="variable" ParamName="password" ParamNote="密码" />
@@ -16,26 +16,29 @@
     <msg MsgId="10004" MsgProperty="1" MsgName="SCRegisterRsp" MsgNote="用户注册返回" MsgRemark="" ErrorList="">
       <param DataType="uint8" Purpose="variable" ParamName="register_result" ParamNote="注册结果（true-成功， false-失败）" />
     </msg>
-    <msg MsgId="10005" MsgProperty="0" MsgName="CSCharacterCreateReq" MsgNote="角色创建请求" MsgRemark="" ErrorList="">
-      <param DataType="std::string" Purpose="variable" ParamName="nickname" ParamNote="角色昵称" />
-      <param DataType="uint8" Purpose="variable" ParamName="character_type" ParamNote="角色类型（或职业）" />
-    </msg>
-    <msg MsgId="10006" MsgProperty="1" MsgName="SCCharacterCreateRsp" MsgNote="角色创建返回" MsgRemark="" ErrorList="">
-      <param DataType="uint8" Purpose="variable" ParamName="result" ParamNote="创建结果" />
-    </msg>
-    <msg MsgId="10007" MsgProperty="0" MsgName="CSGetChracterListReq" MsgNote="获取角色列表" MsgRemark="" ErrorList="" />
-    <msg MsgId="10008" MsgProperty="1" MsgName="SCCSGetChracterListRsq" MsgNote="获取角色列表返回" MsgRemark="" ErrorList="">
-      <param DataType="CharacterBaseInfo" Purpose="array" ParamName="character_list" ParamNote="角色列表" />
-    </msg>
   </category>
-  <category CategoryName="test">
-    <msg MsgId="99991" MsgProperty="0" MsgName="CSTestPacketReq" MsgNote="" MsgRemark="" ErrorList="">
-      <param DataType="uint32" Purpose="variable" ParamName="uint_value" ParamNote="" />
-      <param DataType="std::string" Purpose="variable" ParamName="string_value" ParamNote="" />
+  <category CategoryName="角色创号系统">
+    <msg MsgId="11001" MsgProperty="0" MsgName="CSGetRandomNameReq" MsgNote="请求获取一个随机名字" MsgRemark="类别（type）如下：&#xD;&#xA;0.随机类型&#xD;&#xA;1.中二类型&#xD;&#xA;2.非主流型&#xD;&#xA;3.外国风格人名&#xD;&#xA;4.中国风格人名" ErrorList="">
+      <param DataType="uint8" Purpose="variable" ParamName="gender" ParamNote="获取的性别" />
+      <param DataType="uint8" Purpose="variable" ParamName="type" ParamNote="获取的类别" />
     </msg>
-    <msg MsgId="99992" MsgProperty="1" MsgName="SCTestPacketRsp" MsgNote="" MsgRemark="" ErrorList="">
-      <param DataType="uint32" Purpose="variable" ParamName="srv_uint_value" ParamNote="" />
-      <param DataType="std::string" Purpose="variable" ParamName="srv_string_value" ParamNote="" />
+    <msg MsgId="11002" MsgProperty="1" MsgName="SCGetRandomNameRsp" MsgNote="返回一个随机名字" MsgRemark="" ErrorList="">
+      <param DataType="std::string" Purpose="variable" ParamName="random_name" ParamNote="随机名字" />
+    </msg>
+    <msg MsgId="11003" MsgProperty="0" MsgName="CSCreateCharacterReq" MsgNote="发送创建角色的请求" MsgRemark="" ErrorList="">
+      <param DataType="std::string" Purpose="variable" ParamName="nickname" ParamNote="昵称" />
+      <param DataType="uint8" Purpose="variable" ParamName="gender" ParamNote="性别" />
+      <param DataType="uint8" Purpose="variable" ParamName="belief" ParamNote="信仰" />
+      <param DataType="uint8" Purpose="variable" ParamName="character_type" ParamNote="角色类型（职业）" />
+    </msg>
+    <msg MsgId="11004" MsgProperty="1" MsgName="SCCeateCharacterRsp" MsgNote="创建角色返回" MsgRemark="" ErrorList="">
+      <param DataType="uint8" Purpose="variable" ParamName="result" ParamNote="结果" />
+    </msg>
+    <msg MsgId="11005" MsgProperty="0" MsgName="CSCheckNicknameExistReq" MsgNote="请求检查昵称是否存在" MsgRemark="" ErrorList="">
+      <param DataType="std::string" Purpose="variable" ParamName="nickname" ParamNote="昵称" />
+    </msg>
+    <msg MsgId="11006" MsgProperty="1" MsgName="SCCheckNicknameExistRsp" MsgNote="返回昵称检查结果" MsgRemark="result&#xD;&#xA;true - 昵称已经存在&#xD;&#xA;false - 昵称不存在" ErrorList="">
+      <param DataType="uint8" Purpose="variable" ParamName="result" ParamNote="结果" />
     </msg>
   </category>
 </MSG_CFG>
