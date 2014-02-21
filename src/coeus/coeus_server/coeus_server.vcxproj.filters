@@ -47,14 +47,8 @@
     <ClCompile Include="server_config.cpp">
       <Filter>config</Filter>
     </ClCompile>
-    <ClCompile Include="config_manager.cpp">
-      <Filter>config\config_manager</Filter>
-    </ClCompile>
     <ClCompile Include="config_loader.cpp">
-      <Filter>config\config_manager</Filter>
-    </ClCompile>
-    <ClCompile Include="configuration.cpp">
-      <Filter>config\config_manager</Filter>
+      <Filter>config</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,9 +84,6 @@
     </Filter>
     <Filter Include="config">
       <UniqueIdentifier>{67c30c9b-066b-4eaf-a03f-a5a05ed5a82a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="config\config_manager">
-      <UniqueIdentifier>{251c14f2-6e84-4b38-a63a-f4b38d133d5f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -162,14 +153,8 @@
     <ClInclude Include="server_config.h">
       <Filter>config</Filter>
     </ClInclude>
-    <ClInclude Include="config_manager.h">
-      <Filter>config\config_manager</Filter>
-    </ClInclude>
-    <ClInclude Include="configuration.h">
-      <Filter>config\config_manager</Filter>
-    </ClInclude>
     <ClInclude Include="config_loader.h">
-      <Filter>config\config_manager</Filter>
+      <Filter>config</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #ifndef __SERVER_CONFIG_H__
 #define __SERVER_CONFIG_H__
 
-#include "configuration.h"
+#include "game_common/config/configuration.h"
 
 class ServerConfig
 	: public Configuration, public Venus::Singleton<ServerConfig>

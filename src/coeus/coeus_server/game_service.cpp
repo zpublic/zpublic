@@ -5,7 +5,7 @@
 #include "game_session_manager.h"
 #include "player_manager.h"
 #include "config_loader.h"
-#include "config_manager.h"
+#include "game_common/config/config_manager.h"
 
 #define CHECK_INITIALIZE(result, x, s) \
 	if (result) \

@@ -37,6 +37,12 @@
     <ClInclude Include="jsoncpp\json\writer.h">
       <Filter>jsoncpp</Filter>
     </ClInclude>
+    <ClInclude Include="config\config_manager.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="config\configuration.h">
+      <Filter>config</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="util">
@@ -47,6 +53,9 @@
     </Filter>
     <Filter Include="jsoncpp">
       <UniqueIdentifier>{eb927ed2-31bb-4aee-af9f-ec307d3855e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{d6d14767-e97d-4199-b07c-f40082187ebb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +78,12 @@
     </ClCompile>
     <ClCompile Include="jsoncpp\lib_json\json_writer.cpp">
       <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="config\configuration.cpp">
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="config\config_manager.cpp">
+      <Filter>config</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

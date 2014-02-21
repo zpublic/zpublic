@@ -1,5 +1,5 @@
 #include "config_loader.h"
-#include "config_manager.h"
+#include "game_common/config/config_manager.h"
 #include "server_config.h"
 
 void ConfigLoader::initialize(ConfigManager* manager)
