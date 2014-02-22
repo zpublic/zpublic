@@ -6,7 +6,7 @@ RegisterLogic GameLogic::regis;
 
 void GameLogic::user_login_handler(const NetworkPacket::Ptr& message)
 {
-    Protocol::SCLoginRsp msg;
+    SCLoginRsp msg;
     DECODE_MESSAGE(msg, message);
     if (msg.login_result == LR_LOGIN_SUCCESS)
     {
@@ -20,7 +20,7 @@ void GameLogic::user_login_handler(const NetworkPacket::Ptr& message)
 
 void GameLogic::user_register_handler(const NetworkPacket::Ptr& message)
 {
-    Protocol::SCRegisterRsp msg;
+    SCRegisterRsp msg;
     DECODE_MESSAGE(msg, message);
     if ((bool)msg.register_result == true)
     {

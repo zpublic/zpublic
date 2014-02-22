@@ -48,14 +48,17 @@
     <Filter Include="source\ui\control">
       <UniqueIdentifier>{d20cf5b7-0997-460a-8d0a-e500a5035fc3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\game\logic">
+      <UniqueIdentifier>{a5437712-3753-482f-bfb9-59f499d8aeee}</UniqueIdentifier>
+    </Filter>
     <Filter Include="source\public">
       <UniqueIdentifier>{80631a7b-f9a9-4113-ad52-aad7f78f6695}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\public\protocol">
       <UniqueIdentifier>{2b539352-12ed-477d-a6b9-a37f8a513819}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\logic">
-      <UniqueIdentifier>{a5437712-3753-482f-bfb9-59f499d8aeee}</UniqueIdentifier>
+    <Filter Include="source\main">
+      <UniqueIdentifier>{f4c169e8-03ee-4d33-9189-35f0afb4139a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -72,12 +75,6 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\3rdparty\publish\tinyxml\tinystr.cpp">
       <Filter>include\tinyxml</Filter>
     </ClCompile>
@@ -118,25 +115,25 @@
       <Filter>source\ui\dlg</Filter>
     </ClCompile>
     <ClCompile Include="game_logic.cpp">
-      <Filter>source\logic</Filter>
+      <Filter>source\game\logic</Filter>
     </ClCompile>
     <ClCompile Include="login_logic.cpp">
-      <Filter>source\logic</Filter>
+      <Filter>source\game\logic</Filter>
     </ClCompile>
     <ClCompile Include="register_logic .cpp">
-      <Filter>source\logic</Filter>
+      <Filter>source\game\logic</Filter>
     </ClCompile>
     <ClCompile Include="opcodes_handler.cpp">
       <Filter>source\net</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>source\main</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>source\main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>source</Filter>
-    </ClInclude>
-    <ClInclude Include="coeus.h">
-      <Filter>source</Filter>
-    </ClInclude>
     <ClInclude Include="bkwinres.h">
       <Filter>resource</Filter>
     </ClInclude>
@@ -440,23 +437,29 @@
     <ClInclude Include="..\protocol\protocol.h">
       <Filter>source\public\protocol</Filter>
     </ClInclude>
-    <ClInclude Include="msg_def.h">
-      <Filter>source</Filter>
-    </ClInclude>
     <ClInclude Include="game_logic.h">
-      <Filter>source\logic</Filter>
+      <Filter>source\game\logic</Filter>
     </ClInclude>
     <ClInclude Include="login_logic.h">
-      <Filter>source\logic</Filter>
+      <Filter>source\game\logic</Filter>
     </ClInclude>
     <ClInclude Include="game_hander.h">
       <Filter>source\net</Filter>
     </ClInclude>
     <ClInclude Include="register_logic.h">
-      <Filter>source\logic</Filter>
+      <Filter>source\game\logic</Filter>
     </ClInclude>
     <ClInclude Include="opcodes_handler.h">
       <Filter>source\net</Filter>
+    </ClInclude>
+    <ClInclude Include="coeus.h">
+      <Filter>source\main</Filter>
+    </ClInclude>
+    <ClInclude Include="msg_def.h">
+      <Filter>source\main</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>source\main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

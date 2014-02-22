@@ -1,21 +1,6 @@
-/* -------------------------------------------------------------------------
-//  File        :   util_function.cpp
-//  Author      :   Sum
-//  Datet       :   2014/1/11 14:40
-//  Brief       :   
-//
-// -----------------------------------------------------------------------*/
 //
 #include "stdafx.h"
 #include "util_function.h"
-
-UtilFunction::UtilFunction()
-{
-}
-
-UtilFunction::~UtilFunction()
-{
-}
 
 void UtilFunction::FomatInt(int nValue, CString& csOutValue)
 {
