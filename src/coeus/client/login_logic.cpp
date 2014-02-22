@@ -21,19 +21,18 @@ void LoginLogic::NotifyResult( uint8 nErr )
     ::SendMessage(m_hLoginDlg, msg_login_result, 2, (LPARAM)nErr);
 }
 
-void LoginLogic::SendLogin(const CString& strUserName, const CString& csPassword)
+void LoginLogic::SendLogin(const CString& strUserName, const CStringA& csPassword)
 {
     CSLoginReq loginRequest;
-    CStringA csPasswordA = CW2A(csPassword).m_psz;
     CStringA csUserNameA = CW2A(strUserName).m_psz;
 
     if (csUserNameA.IsEmpty()
-        || csPasswordA.IsEmpty())
+        || csPassword.IsEmpty())
     {
         return;
     }
 
     loginRequest.account = csUserNameA;
-    loginRequest.password = csPasswordA;
+    loginRequest.password = csPassword;
     NET.SendMessage(Opcodes::CSLoginReq, loginRequest);
 }

@@ -9,6 +9,7 @@
 #include "stdafx.h"
 #include "game_login_dlg.h"
 #include "bkwinres.h"
+#include "util_function.h"
 
 #define WINDOW_MAX_WIDTH            460
 #define WINDOW_MAX_HEIGHT           465
@@ -90,8 +91,16 @@ void GameLoginDlg::OnBtnLogin()
         return;
     }
 
+    std::string mail = CW2A(csLoginName, CP_UTF8);
+    if (!Util::IsEmailValid(mail))
+    {
+        MessageBox(L"ÕÊºÅ²»·ûºÏ¹æ·¶£¨Ó¦ÎªÓÊÏäµØÖ·£©", L"ceous");
+        return;
+    }
+
+    CStringA pass = CW2A(csPassword, CP_UTF8);
     GameLogic::login.SetLoginDlg(m_hWnd);
-    GameLogic::login.SendLogin(csLoginName, csPassword);
+    GameLogic::login.SendLogin(csLoginName, Util::GetMd5Str(pass));
 }
 
 LRESULT GameLoginDlg::OnLoginResult(UINT uMsg,
@@ -128,5 +137,6 @@ LRESULT GameLoginDlg::OnLoginResult(UINT uMsg,
 
 BOOL GameLoginDlg::_DisposeLoginErr(uint32 nErr)
 {
+    ::MessageBox(0, L"µÇÂ½Ê§°Ü", L"coeus", 0);
     return TRUE;
 }

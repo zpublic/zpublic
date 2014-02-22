@@ -8,7 +8,7 @@ void GameLogic::user_login_handler(const NetworkPacket::Ptr& message)
 {
     SCLoginRsp msg;
     DECODE_MESSAGE(msg, message);
-    if (msg.login_result == LR_LOGIN_SUCCESS)
+    if ((bool)msg.login_result == true)
     {
         login.NotifyResult();
     }
