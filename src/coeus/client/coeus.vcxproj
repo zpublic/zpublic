@@ -140,6 +140,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\..\..\3rdparty\publish\wtlhelper\ksOleClientSite.cpp" />
+    <ClCompile Include="..\..\..\public\crypt\KMD5.cpp" />
     <ClCompile Include="game_logic.cpp" />
     <ClCompile Include="game_tray_menu_dlg.cpp" />
     <ClCompile Include="login_logic.cpp" />
@@ -244,6 +245,7 @@
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atluser.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwince.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h" />
+    <ClInclude Include="..\..\..\public\crypt\KMD5.h" />
     <ClInclude Include="..\protocol\game_error.h" />
     <ClInclude Include="..\protocol\opcodes.h" />
     <ClInclude Include="..\protocol\protocol.h" />

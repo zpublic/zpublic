@@ -14,7 +14,7 @@ public:
     RegisterLogic();
     void SetRegisterDlg(HWND hWnd);
 
-    void SendRegister(const CString& strUserName, const CString& csPassword);
+    void SendRegister(const CString& strUserName, const CStringA& csPassword);
 
     void NotifyResult();
     void NotifyResult(uint8 nErr);

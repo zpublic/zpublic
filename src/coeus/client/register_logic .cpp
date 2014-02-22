@@ -29,19 +29,18 @@ void RegisterLogic::NotifyResult( uint8 nErr )
     ::SendMessage(m_hRegisterDlg, msg_register_result, 2, (LPARAM)nErr);
 }
 
-void RegisterLogic::SendRegister( const CString& strUserName, const CString& csPassword )
+void RegisterLogic::SendRegister( const CString& strUserName, const CStringA& csPassword )
 {
     CSRegisterReq registerRequest;
-    CStringA csPasswordA = CW2A(csPassword).m_psz;
     CStringA csUserNameA = CW2A(strUserName).m_psz;
 
     if (strUserName.IsEmpty()
-        || csPasswordA.IsEmpty())
+        || csPassword.IsEmpty())
     {
         return;
     }
 
     registerRequest.username = csUserNameA;
-    registerRequest.password = csPasswordA;
+    registerRequest.password = csPassword;
     NET.SendMessage(Opcodes::CSRegisterReq, registerRequest);
 }

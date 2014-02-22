@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "game_register_dlg.h"
+#include "util_function.h"
 
 LRESULT GameRegisterDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
 {
@@ -59,14 +60,22 @@ void GameRegisterDlg::OnBtnRegister()
         return;
     }
 
+    std::string mail = CW2A(csMailName, CP_UTF8);
+    if (!Util::IsEmailValid(mail))
+    {
+        MessageBox(L"邮箱名不符合规范", L"ceous");
+        return;
+    }
+
     if (csTruePassword.Compare(csPassword) != 0)
     {
         MessageBox(L"密码2次输入不一致", L"ceous");
         return;
     }
 
+    CStringA pass = CW2A(csPassword, CP_UTF8);
     GameLogic::regis.SetRegisterDlg(m_hWnd);
-    GameLogic::regis.SendRegister(csMailName, csPassword);
+    GameLogic::regis.SendRegister(csMailName, Util::GetMd5Str(pass));
 }
 
 void GameRegisterDlg::OnSysCommand(UINT nID, CPoint point)
@@ -93,15 +102,20 @@ LRESULT GameRegisterDlg::OnRegisterResult(UINT uMsg, WPARAM wParam, LPARAM lPara
 {
     switch (wParam)
     {
-    case 0:
+    case 1:
         {
             MessageBox(L"注册成功", L"ceous");
             OnBtnCancel();
         }
         break;
-    default:
+    case 2:
         {
             MessageBox(L"注册失败", L"ceous");
+        }
+        break;
+    default:
+        {
+            MessageBox(L"异常", L"ceous");
         }
     }
     return S_OK;

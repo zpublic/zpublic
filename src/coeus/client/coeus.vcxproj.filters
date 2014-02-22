@@ -60,6 +60,9 @@
     <Filter Include="source\main">
       <UniqueIdentifier>{f4c169e8-03ee-4d33-9189-35f0afb4139a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\public">
+      <UniqueIdentifier>{994454b7-5bb1-42bc-a7b8-10cef1f7e62d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="coeus.rc">
@@ -131,6 +134,9 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>source\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\public\crypt\KMD5.cpp">
+      <Filter>include\public</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -460,6 +466,9 @@
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>source\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\crypt\KMD5.h">
+      <Filter>include\public</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

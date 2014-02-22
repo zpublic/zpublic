@@ -92,13 +92,13 @@ BOOL GameMainDlg::CreateListItemXml(ListItemData& itemdata, UtilTinyXml& unitTin
     XmlElFunc().Write("tip", itemdata.csDescribeName);
     XmlElFunc().WriteText(itemdata.csDescribeName);
 
-    UtilFunction::FomatInt(itemdata.nNum, csNum);
+    Util::FomatInt(itemdata.nNum, csNum);
     bReturn = XmlElFunc.AddTinySibling("text", IDC_LIST_CHILD_ITEM_TEXT_NUM, "261,0,340,-0", NULL, NULL, "list_text_softname_center_gdiplus");
     if (FALSE == bReturn) goto Exit0;
     XmlElFunc().Write("crtext", "000000");
     XmlElFunc().WriteText(csNum);
 
-    UtilFunction::ConvertItemDataToString(itemdata.emItemType, csType);
+    Util::ConvertItemDataToString(itemdata.emItemType, csType);
     bReturn = XmlElFunc.AddTinySibling("text", IDC_LIST_CHILD_ITEM_TEXT_WEAPON, "340,0,424,-0", NULL, NULL, "list_text_softname_center_gdiplus");
     if (FALSE == bReturn) goto Exit0;
     XmlElFunc().Write("crtext", "000000");
