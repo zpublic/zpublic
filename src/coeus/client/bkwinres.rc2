@@ -10,6 +10,7 @@ DEFINE_XML(IDR_BK_MAIN_DIALOG,                          103,                    
 DEFINE_XML(IDR_BK_LOGIN,                                104,                    "res\\xml\\dlg_login.xml")
 DEFINE_XML(IDR_BK_REGISTER,                             105,                    "res\\xml\\dlg_register.xml")
 DEFINE_XML(IDR_BK_TRAYMENU,                             106,                    "res\\xml\\dlg_tray_menu.xml")
+DEFINE_XML(IDR_BK_CREATEROLE,                           107,                    "res\\xml\\dlg_create_role.xml")
 
 // //////////////////////////////////////////////////////////////////////////
 // // ICON
@@ -29,3 +30,13 @@ DEFINE_XML(IDR_BK_TRAYMENU,                             106,                    
 DEFINE_PNG(IDP1,    1,      "./../../../res/coeus/btn_close.png")
 DEFINE_PNG(IDP2,    2,      "./../../../res/coeus/main_icon.png")
 DEFINE_PNG(IDP3,    3,      "./../../../res/coeus/small_icon.png")
+DEFINE_PNG(IDP5,    5,      "./../../../res/coeus/role_huntsman_man_header.png")
+DEFINE_PNG(IDP6,    6,      "./../../../res/coeus/role_huntsman_man.png")
+DEFINE_PNG(IDP7,    7,      "./../../../res/coeus/role_huntsman_woman.png")
+DEFINE_PNG(IDP8,    8,      "./../../../res/coeus/role_mechanician_man.png")
+DEFINE_PNG(IDP9,    9,      "./../../../res/coeus/role_mechanician_woman.png")
+DEFINE_PNG(IDP10,   10,     "./../../../res/coeus/role_mechanician_man_header.png")
+DEFINE_PNG(IDP11,   11,     "./../../../res/coeus/role_mechanician_woman_header.png")
+DEFINE_PNG(IDP12,   12,     "./../../../res/coeus/force_madman.png")
+DEFINE_PNG(IDP13,   13,     "./../../../res/coeus/force_church.png")
+DEFINE_PNG(IDP14,   14,     "./../../../res/coeus/role_huntsman_woman_header.png")
