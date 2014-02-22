@@ -7,9 +7,17 @@
 class PlayerDB
 {
 public:
+    PlayerDB()
+    {
+        cleanup();
+    }
+
 	void cleanup()
 	{
+        email = "";
 		gender = 0;
+        nickname = "";
+        register_ip = "";
 		register_time = 0;
 		last_login = 0;
 	}
