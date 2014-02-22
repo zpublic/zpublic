@@ -44,8 +44,8 @@ public:
     bool savePlayerInfo(uint64 guid, PlayerDB* playerDB);
 
 private:
-    Poco::Data::Session _db_session;
-    Poco::Data::Statement _db_stmt;
+    Poco::Data::Session* _db_session;
+    Poco::Data::Statement* _db_stmt;
 };
 
 #endif

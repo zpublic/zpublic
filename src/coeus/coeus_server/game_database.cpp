@@ -1,14 +1,21 @@
 #include "game_database.h"
 #include "player_db.h"
+#include "server_config.h"
 
 GameDatabase::GameDatabase()
-    : _db_session("SQLite", "./data/zeus_mud.db"), _db_stmt(_db_session)
 {
+    const std::string& database = ServerConfig::getInstance().sqlite3File;
+
+    _db_session = new Poco::Data::Session("SQLite", database);
+    _db_stmt = new Poco::Data::Statement(*_db_session);
 }
 
 GameDatabase::~GameDatabase()
 {
-    _db_session.close();
+    _db_session->close();
+
+    SAFE_DELETE(_db_session);
+    SAFE_DELETE(_db_stmt);
 }
 
 
@@ -17,24 +24,24 @@ GameDatabase::~GameDatabase()
 //====================================================================
 bool GameDatabase::checkUserExists(const std::string& email)
 {
-    _db_stmt = (_db_session 
+    *_db_stmt = (*_db_session 
         << "SELECT email FROM users WHERE email = :email", 
         Poco::Data::limit(1), 
         Poco::Data::use(email));
 
-    return (_db_stmt.execute() > 0);
+    return (_db_stmt->execute() > 0);
 }
 
 bool GameDatabase::userAuth(const std::string& email, const std::string& pass_hash)
 {
-    _db_stmt = (_db_session 
+    *_db_stmt = (*_db_session 
         << "SELECT email, password FROM users WHERE email = :email and password = :password;", 
         Poco::Data::limit(1), 
         Poco::Data::use(email),
         Poco::Data::use(pass_hash)
         );
 
-    return (_db_stmt.execute() > 0);
+    return (_db_stmt->execute() > 0);
 }
 
 void GameDatabase::insertNewUserRecord(
@@ -45,7 +52,7 @@ void GameDatabase::insertNewUserRecord(
     uint64 register_time
     )
 {
-    _db_stmt = (_db_session << 
+    *_db_stmt = (*_db_session << 
         "INSERT INTO users(guid, email, password, gender, nickname, register_ip, register_time) "
         "VALUES(:guid, :email, :password, :gender, :nickname, :register_ip, :register_time);",
         Poco::Data::use(guid),
@@ -56,12 +63,12 @@ void GameDatabase::insertNewUserRecord(
         Poco::Data::use(register_ip),
         Poco::Data::use(register_time));
 
-    _db_stmt.execute();
+    _db_stmt->execute();
 }
 
 bool GameDatabase::loadPlayerInfo(uint64 guid, PlayerDB* playerDB)
 {
-    _db_stmt = (_db_session 
+    *_db_stmt = (*_db_session 
         << "SELECT email, gender, nickname, register_ip, register_time, last_login_time "
         "FROM users WHERE guid = :guid;",
         Poco::Data::limit(1), 
@@ -74,12 +81,12 @@ bool GameDatabase::loadPlayerInfo(uint64 guid, PlayerDB* playerDB)
         Poco::Data::into(playerDB->last_login)
         );
 
-    return (_db_stmt.execute() > 0);
+    return (_db_stmt->execute() > 0);
 }
 
 bool GameDatabase::savePlayerInfo(uint64 guid, PlayerDB* playerDB)
 {
-    _db_stmt = (_db_session 
+    *_db_stmt = (*_db_session 
         << "UPDATE users SET email = :email, gender = :gender, nickname = :nickname, register_ip = :register_ip, register_time = :register_time, last_login_time = :last_login_time "
         "WHERE guid = :guid;",
         Poco::Data::limit(1), 
@@ -92,5 +99,5 @@ bool GameDatabase::savePlayerInfo(uint64 guid, PlayerDB* playerDB)
         Poco::Data::use(guid)
         );
 
-    return (_db_stmt.execute() > 0);
+    return (_db_stmt->execute() > 0);
 }
