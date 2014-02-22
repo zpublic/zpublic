@@ -141,6 +141,7 @@
     </ClCompile>
     <ClCompile Include="..\..\..\3rdparty\publish\wtlhelper\ksOleClientSite.cpp" />
     <ClCompile Include="..\..\..\public\crypt\KMD5.cpp" />
+    <ClCompile Include="game_create_role_dlg.cpp" />
     <ClCompile Include="game_logic.cpp" />
     <ClCompile Include="game_tray_menu_dlg.cpp" />
     <ClCompile Include="login_logic.cpp" />
@@ -251,6 +252,7 @@
     <ClInclude Include="..\protocol\protocol.h" />
     <ClInclude Include="bkwinres.h" />
     <ClInclude Include="coeus.h" />
+    <ClInclude Include="game_create_role_dlg.h" />
     <ClInclude Include="game_hander.h" />
     <ClInclude Include="game_item_def.h" />
     <ClInclude Include="game_logic.h" />
@@ -278,6 +280,9 @@
     <Xml Include="res\xml\def_skin.xml" />
     <Xml Include="res\xml\def_string.xml" />
     <Xml Include="res\xml\def_style.xml" />
+    <Xml Include="res\xml\dlg_create_role.xml">
+      <SubType>Designer</SubType>
+    </Xml>
     <Xml Include="res\xml\dlg_login.xml" />
     <Xml Include="res\xml\dlg_main.xml">
       <SubType>Designer</SubType>
