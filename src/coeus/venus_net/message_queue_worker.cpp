@@ -38,7 +38,9 @@ void MessageQueueWorker::run()
                     Poco::ScopedLock<Poco::FastMutex> lock(_mutex);
                     CloseNotification* notification = dynamic_cast<CloseNotification*>(networkNotification);
                     _messageQueue.dispatcher()->onShutdown(notification->connection(), notification->shutdownReason());
-                    notification->connection()->notifyRelease();
+                    
+                    ServerConnection* connection = notification->connection();
+                    if (connection != nullptr) connection->notifyRelease();
                     break;
                 }
             default:

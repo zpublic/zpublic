@@ -166,6 +166,7 @@
     <ClCompile Include="bag_cell.cpp" />
     <ClCompile Include="bag_common.cpp" />
     <ClCompile Include="bag_manager.cpp" />
+    <ClCompile Include="character_create_handler.cpp" />
     <ClCompile Include="config_loader.cpp" />
     <ClCompile Include="data_manager.cpp" />
     <ClCompile Include="game_database.cpp" />

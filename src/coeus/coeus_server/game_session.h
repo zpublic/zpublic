@@ -16,8 +16,13 @@ public:
     void send_error(uint32 errorCode, const std::string& reason);
 
 public:
+    //×¢²á && µÇÂ¼
     void loginHandler(const NetworkPacket::Ptr& packet);
     void registerHandler(const NetworkPacket::Ptr& packet);
+
+    //½ÇÉ«´´½¨
+
+
 
 private:
 	Player* _player;

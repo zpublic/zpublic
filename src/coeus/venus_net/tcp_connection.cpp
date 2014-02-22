@@ -25,7 +25,7 @@ TcpConnection::TcpConnection(const Poco::Net::StreamSocket& socket, MessageQueue
 }
 
 TcpConnection::~TcpConnection()
-{        
+{
     _socket.close();
 
     SAFE_DELETE_ARR(_buffer);
@@ -167,6 +167,7 @@ void TcpConnection::onShutdown(const ShutdownReason& reason)
         //构造关闭连接的消息到应用层
         Poco::Notification::Ptr notification(new CloseNotification(_serverConnection, reason));
         _messageQueue.enqueueNotification(notification);
+
         _socket.shutdown();
     }
 

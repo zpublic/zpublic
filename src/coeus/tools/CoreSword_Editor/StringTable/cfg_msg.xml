@@ -8,6 +8,7 @@
     <msg MsgId="10002" MsgProperty="1" MsgName="SCLoginRsp" MsgNote="登录返回" MsgRemark="" ErrorList="">
       <param DataType="uint8" Purpose="variable" ParamName="login_result" ParamNote="登录结果" />
       <param DataType="uint64" Purpose="variable" ParamName="player_id" ParamNote="角色ID" />
+      <param DataType="uint8" Purpose="variable" ParamName="character_create_require" ParamNote="是否需要创建角色" />
     </msg>
     <msg MsgId="10003" MsgProperty="0" MsgName="CSRegisterReq" MsgNote="用户注册请求" MsgRemark="" ErrorList="">
       <param DataType="std::string" Purpose="variable" ParamName="username" ParamNote="要注册的用户名" />

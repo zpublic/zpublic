@@ -50,6 +50,9 @@
     <ClCompile Include="config_loader.cpp">
       <Filter>config</Filter>
     </ClCompile>
+    <ClCompile Include="character_create_handler.cpp">
+      <Filter>handler</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="service">

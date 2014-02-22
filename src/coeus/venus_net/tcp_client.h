@@ -6,6 +6,7 @@
 #include "Poco/Net/TCPServerConnection.h"
 #include "Poco/Net/SocketConnector.h"
 #include "Poco/NObserver.h"
+#include "Poco/Observer.h"
 #include "Poco/Thread.h"
 #include "Poco/ThreadPool.h"
 #include "logger.h"
@@ -40,10 +41,11 @@ private:
     void resetNetwork();
 
 private:
-    void onWritable(const Poco::AutoPtr<Poco::Net::WritableNotification>& notification);
-    void onReadable(const Poco::AutoPtr<Poco::Net::ReadableNotification>& notification);
-    void onShutdown(const Poco::AutoPtr<Poco::Net::ShutdownNotification>& notification);
-    void onTimeout(const Poco::AutoPtr<Poco::Net::TimeoutNotification>& notification);
+    void onWritable(Poco::Net::WritableNotification* notification);
+    void onReadable(Poco::Net::ReadableNotification* notification);
+    void onShutdown(Poco::Net::ShutdownNotification* notification);
+    void onIdle(Poco::Net::IdleNotification* notification);
+    void onTimeout(Poco::Net::TimeoutNotification* notification);
     void finishedPacketCallback(BasicStreamPtr& packet);
 
 private:

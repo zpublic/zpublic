@@ -23,12 +23,13 @@ bool TcpClient::connect(Poco::Net::SocketAddress& address, const Poco::Timespan&
         }
 
         _socket = new Poco::Net::StreamSocket;
+        //_socket->setBlocking(false);
+
         _reactor = new Poco::Net::SocketReactor;
-
-        _reactor->addEventHandler(*_socket, Poco::NObserver<TcpClient, Poco::Net::WritableNotification>(*this, &TcpClient::onWritable));
-        _reactor->addEventHandler(*_socket, Poco::NObserver<TcpClient, Poco::Net::ReadableNotification>(*this, &TcpClient::onReadable));
-        _reactor->addEventHandler(*_socket, Poco::NObserver<TcpClient, Poco::Net::ShutdownNotification>(*this, &TcpClient::onShutdown));
-
+        _reactor->addEventHandler(*_socket, Poco::Observer<TcpClient, Poco::Net::WritableNotification>(*this, &TcpClient::onWritable));
+        _reactor->addEventHandler(*_socket, Poco::Observer<TcpClient, Poco::Net::ReadableNotification>(*this, &TcpClient::onReadable));
+        _reactor->addEventHandler(*_socket, Poco::Observer<TcpClient, Poco::Net::IdleNotification>(*this, &TcpClient::onIdle));
+        _reactor->addEventHandler(*_socket, Poco::Observer<TcpClient, Poco::Net::ShutdownNotification>(*this, &TcpClient::onShutdown));
         _reactorThread = new Poco::Thread("default_reactor");
         _reactorThread->start(*_reactor);
 
@@ -103,11 +104,11 @@ void TcpClient::sendMessage(uint16 opcode, NetworkMessage& message)
     sendMessage(streamPtr);
 }
 
-void TcpClient::onWritable(const Poco::AutoPtr<Poco::Net::WritableNotification>& notification)
+void TcpClient::onWritable(Poco::Net::WritableNotification* notification)
 {
 }
 
-void TcpClient::onReadable(const Poco::AutoPtr<Poco::Net::ReadableNotification>& notification)
+void TcpClient::onReadable(Poco::Net::ReadableNotification* notification)
 {
     int bytes_transferred = _socket->receiveBytes(_buffer, MAX_RECV_LEN, 0);
     //printf("received %d bytes.", bytes_transferred);
@@ -124,12 +125,17 @@ void TcpClient::onReadable(const Poco::AutoPtr<Poco::Net::ReadableNotification>&
     }
 }
 
-void TcpClient::onShutdown(const Poco::AutoPtr<Poco::Net::ShutdownNotification>& notification)
+void TcpClient::onShutdown(Poco::Net::ShutdownNotification* notification)
 {
     _handler.onShutdown();
 }
 
-void TcpClient::onTimeout(const Poco::AutoPtr<Poco::Net::TimeoutNotification>& notification)
+void TcpClient::onIdle(Poco::Net::IdleNotification* notification)
+{
+    Poco::Thread::sleep(1);
+}
+
+void TcpClient::onTimeout(Poco::Net::TimeoutNotification* notification)
 {
 
 }

@@ -48,6 +48,7 @@ private:
     ServerConnection* _serverConnection;
     byte* _buffer;
     Poco::Net::StreamSocket& _socket;
+    Poco::Event _closeEvent;    //保持队列和连接同步
     MessageBlockPacketization _blockPacketization;
     MessageQueue& _messageQueue;
     uint64 _sequence;
