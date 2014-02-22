@@ -1,10 +1,3 @@
-/* -------------------------------------------------------------------------
-//  File        :   game_register_dlg.h
-//  Author      :   Sum
-//  Datet       :   2013/12/19 22:55
-//  Brief       :   
-//
-// -----------------------------------------------------------------------*/
 #ifndef __GAME_REGISTER_DLG_H_
 #define __GAME_REGISTER_DLG_H_
 
@@ -23,7 +16,6 @@ public:
     enum
     {
         ID_MAIL_EDIT             = 4000,
-        ID_NINCKNAME_EDIT        = 4001,
         ID_PASSWORD_EDIT         = 4002,
         ID_TRUEPASSSWORD_EDIT    = 4003,
         ID_CANCEL_BTN            = 10001,
@@ -68,7 +60,6 @@ protected:
 
 private:
     KTipEdit3 m_MailNameEdit;
-    KTipEdit3 m_NickNameEdit;
     KTipEdit3 m_PasswordEdit;
     KTipEdit3 m_TruePasswordEdit;
 };

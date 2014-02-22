@@ -8,7 +8,6 @@
 #ifndef __GAME_TRAY_MENU_DLG_H_
 #define __GAME_TRAY_MENU_DLG_H_
 
-#define WM_GAME_QUIT (WM_USER + 2003)
 
 class TrayMenuDlg
     : public CBkDialogImpl<TrayMenuDlg>

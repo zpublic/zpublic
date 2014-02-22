@@ -202,7 +202,7 @@ BOOL GameMainDlg::_SetTray(HINSTANCE hInst, UINT nIConId, ULONG ulType)
     NotifyICon.hWnd = m_hWnd;
     NotifyICon.uID = IDR_MAINFRAME;
     NotifyICon.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
-    NotifyICon.uCallbackMessage = WM_TRAYMESSAGE;
+    NotifyICon.uCallbackMessage = msg_traymessage;
     NotifyICon.hIcon = ::LoadIcon(hInst, MAKEINTRESOURCE(nIConId));
     _tcsncpy_s(NotifyICon.szTip, nTipLen, TRAY_TIP, nTipLen - 1);
     return ::Shell_NotifyIcon(ulType, &NotifyICon);
@@ -223,7 +223,7 @@ void GameMainDlg::_Close()
 
 LRESULT GameMainDlg::OnTrayMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-    if (uMsg == WM_TRAYMESSAGE)
+    if (uMsg == msg_traymessage)
     {
         switch (lParam)
         {
@@ -238,7 +238,7 @@ LRESULT GameMainDlg::OnTrayMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
         }
     }
 
-    if (uMsg == WM_GAME_QUIT)
+    if (uMsg == msg_game_quit)
     {
         _Close();
     }
@@ -262,7 +262,7 @@ void GameMainDlg::_CreateTrayMenu()
 
 LRESULT GameMainDlg::OnGameClose(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-    if (uMsg == WM_GAME_QUIT)
+    if (uMsg == msg_game_quit)
     {
         _Close();
     }

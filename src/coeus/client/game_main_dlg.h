@@ -12,7 +12,6 @@
 #include "util_tinyxml.h"
 #include "game_tray_menu_dlg.h"
 
-#define WM_TRAYMESSAGE                      (WM_USER + 2002)
 
 class GameMainDlg
     : public CBkDialogViewEx
@@ -108,8 +107,8 @@ protected:
 
     BEGIN_MSG_MAP_EX(GameMainDlg)
         MSG_BK_NOTIFY(IDC_RICHVIEW_WIN_EX)
-        MESSAGE_HANDLER_EX(WM_TRAYMESSAGE, OnTrayMessage)
-        MESSAGE_HANDLER_EX(WM_GAME_QUIT, OnGameClose)
+        MESSAGE_HANDLER_EX(msg_traymessage, OnTrayMessage)
+        MESSAGE_HANDLER_EX(msg_game_quit, OnGameClose)
         CHAIN_MSG_MAP(CBkDialogViewEx)
         CHAIN_MSG_MAP(CWHRoundRectFrameHelper<GameMainDlg>)
         MSG_WM_CLOSE(OnClose)

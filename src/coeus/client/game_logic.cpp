@@ -22,12 +22,12 @@ void GameLogic::user_register_handler(const NetworkPacket::Ptr& message)
 {
     Protocol::SCRegisterRsp msg;
     DECODE_MESSAGE(msg, message);
-    if (msg.register_result == 0)
+    if ((bool)msg.register_result == true)
     {
         regis.NotifyResult();
     }
     else
     {
-        regis.NotifyResult(msg.register_result);
+        regis.NotifyResult(1);
     }
 }

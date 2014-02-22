@@ -111,7 +111,7 @@ void TrayMenuDlg::OnBtnQuit()
     }
 
     OnClose();
-    ::SendMessage(m_hPrentsWnd, WM_GAME_QUIT, NULL, NULL);
+    ::SendMessage(m_hPrentsWnd, msg_game_quit, NULL, NULL);
 }
 
 void TrayMenuDlg::OnBtnCallMain()
