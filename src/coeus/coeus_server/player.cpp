@@ -4,9 +4,8 @@
 #include "player_db.h"
 
 Player::Player(uint64 playerId, GameSession* session)
-	: _playerId(playerId), _playerDB(nullptr), _session(session), _cachedLastLogin(0)
+	: _playerId(playerId), _playerDB(new PlayerDB()), _session(session), _cachedLastLogin(0)
 {
-
 }
 
 Player::~Player()

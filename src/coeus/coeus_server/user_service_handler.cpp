@@ -109,7 +109,7 @@ void GameSession::loginHandler(const NetworkPacket::Ptr& packet)
 
 		//验证帐号和密码是否匹配
 		bool auth_result = GameDatabase::getInstance().userAuth(loginRequest.account, loginRequest.password);
-		login_response.login_result  = auth_result;
+		login_response.login_result = auth_result;
 
 		if (auth_result == false)
 		{
