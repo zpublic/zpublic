@@ -10,6 +10,7 @@
 #include "game_login_dlg.h"
 #include "bkwinres.h"
 #include "util_function.h"
+#include "game_create_role_dlg.h"
 
 #define WINDOW_MAX_WIDTH            460
 #define WINDOW_MAX_HEIGHT           465
@@ -115,8 +116,10 @@ LRESULT GameLoginDlg::OnLoginResult(UINT uMsg,
         case 1:
             {
                 ShowWindow(SW_HIDE);
-                GameMainDlg dlg;
+                GameCreateRoleDlg dlg;
                 dlg.DoModal();
+                GameMainDlg dlgMain;
+                dlgMain.DoModal();
                 OnClose();
             }
             break;

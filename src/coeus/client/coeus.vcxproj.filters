@@ -138,6 +138,9 @@
     <ClCompile Include="..\..\..\public\crypt\KMD5.cpp">
       <Filter>include\public</Filter>
     </ClCompile>
+    <ClCompile Include="game_create_role_dlg.cpp">
+      <Filter>source\ui\dlg</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bkwinres.h">
@@ -470,6 +473,9 @@
     <ClInclude Include="..\..\..\public\crypt\KMD5.h">
       <Filter>include\public</Filter>
     </ClInclude>
+    <ClInclude Include="game_create_role_dlg.h">
+      <Filter>source\ui\dlg</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="bkwinres.rc2">
@@ -496,6 +502,9 @@
       <Filter>resource\xml</Filter>
     </Xml>
     <Xml Include="res\xml\dlg_tray_menu.xml">
+      <Filter>resource\xml</Filter>
+    </Xml>
+    <Xml Include="res\xml\dlg_create_role.xml">
       <Filter>resource\xml</Filter>
     </Xml>
   </ItemGroup>

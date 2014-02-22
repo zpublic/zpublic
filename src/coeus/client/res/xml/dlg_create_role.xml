@@ -1,0 +1,32 @@
+﻿<layer title="GameCreateRoleDlg" width="579" height="402">
+  <header width="579" height="402" crbg="660066">
+    <text pos="10,8" font="0204" class="text_normal_gray">角色创建</text>
+    <imgbtn id="403" pos="-31,1" skin="btn_close" crtext="FFFFFF" font="0104" />
+  
+    <dlg pos="0,30,223,-0">
+      <img id="10000" pos="21,9,304,214" skin="img_role_huntsman_man"/>
+      <img pos="36,24" id="60004" skin="img_force_madman"/>
+      
+      <imgbtn pos="21,320" id="60001" tip="镜子猎人" skin="img_role_hunter_man_header"/>
+      <imgbtn pos="77,320" id="60002" tip="镜子猎人" skin="img_role_hunter_woman_header"/>
+      <imgbtn pos="136,320" id="60003" tip="机械师" skin="img_role_mechanician_man_header"/>
+      <imgbtn pos="190,320" id="60004" tip="机械师" skin="img_role_mechanician_woman_header"/>
+    </dlg>
+  
+    <dlg pos="223,30,-0,-0">
+      <text pos="10,9" id="20001" class="text_large_gray"/>
+      <dlg pos="10,60,-21,191" id="20003">
+        <text pos="0,10,-0,-0" id="20002" class="text_normal_gray_mid"/>
+      </dlg>
+      <dlg pos="0,191,-0,-0">
+        <dlg pos="10,0,-21,1" crbg="CCCCCC"/>
+        <text pos="10,22" class="text_normal_gray">呢称</text>
+        <realwnd id="4000" pos="10,40,196,65" />
+        
+        <button id="60005" class="btn_metro_2" pos="205,40,269,65">随机</button>
+        <button id="60006" class="btn_metro_1" pos="271,40,-21,65">检查</button>
+        <button id="60007" class="btn_metro_1" pos="254,141,-21,167">完成创建</button>
+      </dlg>
+    </dlg>
+  </header>
+</layer>

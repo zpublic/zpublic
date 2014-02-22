@@ -145,8 +145,10 @@
   <class name="onekeybegininst" skin="onekeybegininst" cursor="hand"/>
   <class name="ignore_title" font="0094" crtext="3064A5"/>
   <class name="ignore_line" crbg="a3bad2"/>
-    
+
   <class name="text_normal_gray" font="0200" crtext="CCCCCC"/>
+  <class name="text_normal_gray_mid" font="0200" textmode="10" crtext="CCCCCC"/>
+  <class name="text_large_gray" font="1200" crtext="CCCCCC"/>
   <class name="btn_metro_1" skin="btn_metro_1" font="0200" crtext="ffffff" crhover="ffffff" textmode="25" x-margin="5"/>
   <class name="btn_metro_2" skin="btn_metro_2" font="0200" crtext="000000" crhover="000000" textmode="25" x-margin="5"/>
   <class name="btn_metro_3" skin="btn_metro_2" font="0000" crtext="000000" crhover="000000" textmode="25" x-margin="5"/>

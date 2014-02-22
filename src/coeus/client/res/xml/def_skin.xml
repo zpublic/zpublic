@@ -48,6 +48,16 @@
   <png name="btn_close" src="1" subwidth="30" />
   <png name="img_main_icon" src="2" />
   <png name="img_small_icon" src="3" />
+  <png name="img_role_huntsman_man" src="6" />
+  <png name="img_role_huntsman_woman" src="7" />
+  <png name="img_role_mechanician_man" src="8" />
+  <png name="img_role_mechanician_woman" src="9"/>
+  <png name="img_role_hunter_man_header" src="5" subwidth="32"/>
+  <png name="img_role_hunter_woman_header" src="14" subwidth="32"/>
+  <png name="img_role_mechanician_man_header" src="10" subwidth="32"/>
+  <png name="img_role_mechanician_woman_header" src="11" subwidth="32"/>
+  <png name="img_force_madman" src="12" subwidth="32"/>
+  <png name="img_force_church" src="13" subwidth="32"/>
   <button name="btn_metro_1" border="018287" bg="018287" bgup="018287" bgdown="018287" bguphover="0FB2B9" bgdownhover="0FB2B9" bguppush="2E9398" bgdownpush="2E9398"/>
   <button name="btn_metro_2" border="CCCCCC" bg="CCCCCC" bgup="CCCCCC" bgdown="CCCCCC" bguphover="FEFEFE" bgdownhover="DBEDFE" bguppush="C6E2FD" bgdownpush="FEFEFE"/>
 </skins>
