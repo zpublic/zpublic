@@ -1,6 +1,7 @@
 #include "venus_net/venus_net.h"
 #include "protocol/protocol.h"
 #include "protocol/opcodes.h"
+#include "game_common/game_define.h"
 
 enum TestCaseType
 {
@@ -26,12 +27,18 @@ public:
     {
         printf("onMessage() : [opcode = %d]\n", opcode);
 
-
-        //CSTestPacketRsp requestMessage;
-        //loginRequest.decode((const byte*)&message->messageBody[0], message->message.size());
-        //DECODE_MESSAGE(requestMessage, message);
-        //printf("        [value = %d]\n", requestMessage.uint_value);
-        //printf("        [string = %s]\n", requestMessage.string_value.c_str());
+        switch (opcode)
+        {
+        case Opcodes::SCGetRandomNameRsp:
+            {
+                Protocol::SCGetRandomNameRsp response;
+                DECODE_MESSAGE(response, message);
+                printf("Get random nickname = %s", response.random_name.c_str());
+                break;
+            }
+        default:
+            break;
+        }
     }
 
     virtual void onShutdown()
@@ -55,10 +62,14 @@ int main(int argc, char** argv)
         {
             tcpClient.connect(serverAddress);
 
-			Protocol::CSRegisterReq registerRequest;
+			/*Protocol::CSRegisterReq registerRequest;
 			registerRequest.username = "138001655_2@qq.com";
 			registerRequest.password = "e10adc3949ba59abbe56e057f20f883e";
-			tcpClient.sendMessage(Opcodes::CSRegisterReq, registerRequest);
+			tcpClient.sendMessage(Opcodes::CSRegisterReq, registerRequest);*/
+
+            Protocol::CSGetRandomNameReq getNicknameRequest;
+            getNicknameRequest.gender = GENDER_FEMALE;
+            tcpClient.sendMessage(Opcodes::CSGetRandomNameReq, getNicknameRequest);
 
             //Protocol::CSLoginReq loginRequest;
             //loginRequest.account = "138001655@qq.com";
@@ -69,7 +80,7 @@ int main(int argc, char** argv)
             //loginRequest.password = "demaciaaaaa";
             //tcpClient.sendMessage(Opcodes::CSLoginReq, loginRequest);
 
-            tcpClient.close();
+            //tcpClient.close();
         }
 
         std::cout << "finished." << std::endl;
