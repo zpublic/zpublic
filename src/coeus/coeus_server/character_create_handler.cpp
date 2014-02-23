@@ -8,16 +8,8 @@ void GameSession::getRandomNicknameHandler(const NetworkPacket::Ptr& packet)
     DECODE_MESSAGE(getRandomNicknameRequest, packet);
 
     uint8 gender = getRandomNicknameRequest.gender;
-
     Protocol::SCGetRandomNameRsp nicknameResponse;
-    if (gender == GENDER_FEMALE)
-    {
-        nicknameResponse.random_name = "·ßÅ­µÄÒ¦æ©";
-    }
-    else
-    {
-        nicknameResponse.random_name = "·ßÅ­µÄÅÝÃæ";
-    }
+    nicknameResponse.random_name = (gender == GENDER_FEMALE ? "·ßÅ­µÄÒ¦æ©" : "·ßÅ­µÄÅÝÃæ");
 
     this->send_message(Opcodes::SCGetRandomNameRsp, nicknameResponse);
 }
