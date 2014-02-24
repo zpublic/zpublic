@@ -266,15 +266,6 @@
     <ClCompile Include="..\..\pellets\peutils\peimport.cpp">
       <Filter>pellets\Peutils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_reader.cpp">
-      <Filter>pellets\IPC\json</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_value.cpp">
-      <Filter>pellets\IPC\json</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\3rdparty\jsonlib\src\json_writer.cpp">
-      <Filter>pellets\IPC\json</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\pellets\ipc\ipccallclient.cpp">
       <Filter>pellets\IPC</Filter>
     </ClCompile>
@@ -305,15 +296,24 @@
     <ClCompile Include="..\..\3rdparty\detours\src\modules.cpp">
       <Filter>3rdparty\detours</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_reader.cpp">
+      <Filter>pellets\IPC\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_value.cpp">
+      <Filter>pellets\IPC\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_writer.cpp">
+      <Filter>pellets\IPC\json</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\3rdparty\jsonlib\src\json_internalarray.inl">
+    <None Include="..\..\3rdparty\jsonlib\lib_json\json_internalarray.inl">
       <Filter>pellets\IPC\json</Filter>
     </None>
-    <None Include="..\..\3rdparty\jsonlib\src\json_internalmap.inl">
+    <None Include="..\..\3rdparty\jsonlib\lib_json\json_internalmap.inl">
       <Filter>pellets\IPC\json</Filter>
     </None>
-    <None Include="..\..\3rdparty\jsonlib\src\json_valueiterator.inl">
+    <None Include="..\..\3rdparty\jsonlib\lib_json\json_valueiterator.inl">
       <Filter>pellets\IPC\json</Filter>
     </None>
   </ItemGroup>

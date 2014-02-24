@@ -1,7 +1,7 @@
 #ifndef ZPULIBC_IPC__JSON_IIPCCALLFILTER_H
 #define ZPULIBC_IPC__JSON_IIPCCALLFILTER_H
 
-#include "../../../3rdparty/jsonlib/src/json/json.h"
+#include "json/json.h"
 
 namespace zl
 {

@@ -1,7 +1,7 @@
 #ifndef ZPUBLIC_JSON_PARSER_IPC_CONVERT
 #define ZPUBLIC_JSON_PARSER_IPC_CONVERT
 
-#include "../../../3rdparty/jsonlib/src/json/json.h"
+#include "json/json.h"
 #include "ipcpublic.h"
 #include "ipcutfconv.h"
 #include <tchar.h>

@@ -1,7 +1,7 @@
 #ifndef ZPUBLIC_JSON_PARSER_IPC_FUNCMGR
 #define ZPUBLIC_JSON_PARSER_IPC_FUNCMGR
 
-#include "../../../3rdparty/jsonlib/src/json/json.h"
+#include "json/json.h"
 #include "ipcpublic.h"
 #include "ipclocker.h"
 #include "iipccallfilter.h"
