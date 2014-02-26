@@ -3,6 +3,7 @@
 
 LoginLogic GameLogic::login;
 RegisterLogic GameLogic::regis;
+CreateRoleLogic GameLogic::crole;
 
 void GameLogic::user_login_handler(const NetworkPacket::Ptr& message)
 {
@@ -29,5 +30,38 @@ void GameLogic::user_register_handler(const NetworkPacket::Ptr& message)
     else
     {
         regis.NotifyResult(1);
+    }
+}
+
+void GameLogic::check_nickname_handler(const NetworkPacket::Ptr& message)
+{
+	SCCheckNicknameExistRsp msg;
+    DECODE_MESSAGE(msg, message);
+	if ((bool)msg.result == true)
+    {
+		crole.NotifyCheckNickNameSync(msg.result);
+    }
+    else
+    {
+        crole.NotifyCheckNickName();
+    }
+}
+void GameLogic::rand_nickname_handler(const NetworkPacket::Ptr& message)
+{
+	SCGetRandomNameRsp msg;
+    DECODE_MESSAGE(msg, message);
+	crole.NotifyRandNickNameSync(&msg.random_name);
+}
+void GameLogic::create_role_handler(const NetworkPacket::Ptr& message)
+{
+	SCCreateRoleRsp msg;
+    DECODE_MESSAGE(msg, message);
+	if ((bool)msg.result == true)
+    {
+		crole.NotifyCreateRoleResultSync(msg.result);
+    }
+    else
+    {
+        crole.NotifyCreateRoleResult();
     }
 }
