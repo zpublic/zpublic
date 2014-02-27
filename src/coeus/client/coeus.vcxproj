@@ -141,6 +141,7 @@
     </ClCompile>
     <ClCompile Include="..\..\..\3rdparty\publish\wtlhelper\ksOleClientSite.cpp" />
     <ClCompile Include="..\..\..\public\crypt\KMD5.cpp" />
+    <ClCompile Include="create_role_logic.cpp" />
     <ClCompile Include="game_create_role_dlg.cpp" />
     <ClCompile Include="game_logic.cpp" />
     <ClCompile Include="game_tray_menu_dlg.cpp" />
@@ -252,6 +253,7 @@
     <ClInclude Include="..\protocol\protocol.h" />
     <ClInclude Include="bkwinres.h" />
     <ClInclude Include="coeus.h" />
+    <ClInclude Include="create_role_logic.h" />
     <ClInclude Include="game_create_role_dlg.h" />
     <ClInclude Include="game_hander.h" />
     <ClInclude Include="game_item_def.h" />

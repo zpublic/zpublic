@@ -141,6 +141,9 @@
     <ClCompile Include="game_create_role_dlg.cpp">
       <Filter>source\ui\dlg</Filter>
     </ClCompile>
+    <ClCompile Include="create_role_logic.cpp">
+      <Filter>source\game\logic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bkwinres.h">
@@ -475,6 +478,9 @@
     </ClInclude>
     <ClInclude Include="game_create_role_dlg.h">
       <Filter>source\ui\dlg</Filter>
+    </ClInclude>
+    <ClInclude Include="create_role_logic.h">
+      <Filter>source\game\logic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

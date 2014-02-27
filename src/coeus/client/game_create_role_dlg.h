@@ -25,7 +25,11 @@ public:
         ID_SELECT_HUNTSMAN_WOMAN_BTN    = 60002,
         ID_SELECT_MECHANICIAN_MAN_BTN   = 60003,
         ID_SELECT_MECHANICIAN_WOMAN_BTN = 60004,
+
+        ID_RAND_NICK_BTN = 60005,
+        ID_CHECK_NICK_BTN = 60006,
         ID_OK_BTN                       = 60007,
+
         ID_ROLE_IMG                     = 10000,
         ID_ROLE_NAME                    = 20001,
         ID_ROLE_EXPLAIN                 = 20002,
@@ -46,6 +50,10 @@ protected:
 
     void OnBtnClose();
 
+    void OnBtnRandNickname();
+
+    void OnBtnCheckNickname();
+
     void OnBtnOK();
 
     void OnSelectHuntsmanMan();
@@ -59,10 +67,14 @@ protected:
     void SelectRole(UINT nBtnId, UINT nImgId, const CStringA& csSkinName);
 
     LRESULT OnRoleResult(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
+    LRESULT OnRandResult(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
+    LRESULT OnCheckResult(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 
 protected:
     BK_NOTIFY_MAP(IDC_RICHVIEW_WIN)
         BK_NOTIFY_ID_COMMAND(ID_CLOSE_BTN, OnBtnClose)
+        BK_NOTIFY_ID_COMMAND(ID_RAND_NICK_BTN, OnBtnRandNickname)
+        BK_NOTIFY_ID_COMMAND(ID_CHECK_NICK_BTN, OnBtnCheckNickname)
         BK_NOTIFY_ID_COMMAND(ID_OK_BTN, OnBtnOK)
         BK_NOTIFY_ID_COMMAND(ID_SELECT_HUNTSMAN_MAN_BTN, OnSelectHuntsmanMan)
         BK_NOTIFY_ID_COMMAND(ID_SELECT_HUNTSMAN_WOMAN_BTN, OnSelectHuntsmanWoMan)
@@ -78,10 +90,13 @@ protected:
         MSG_WM_INITDIALOG(OnInitDialog)
         MSG_WM_SYSCOMMAND(OnSysCommand)
         MSG_WM_TIMER(OnTimer)
-        MESSAGE_HANDLER(msg_login_result, OnRoleResult)
+        MESSAGE_HANDLER(msg_create_role_result, OnRoleResult)
+        MESSAGE_HANDLER(msg_get_rand_name_result, OnRandResult)
+        MESSAGE_HANDLER(msg_check_nickname_result, OnCheckResult)
         REFLECT_NOTIFICATIONS_EX()
         END_MSG_MAP()
 private:
     KTipEdit3 m_NickNameEdit;
+	uint8 m_bSelectedGender;
 };
 #endif // __GAME_CREATE_ROLE_DLG_H_
