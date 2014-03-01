@@ -2,7 +2,7 @@
 #define COMMON_H_
 
 #ifdef _WIN32
-	#define SERVER_DECL __declspec(dllexport)
+    #define SERVER_DECL __declspec(dllexport)
 #endif
 
 #include <boost/asio.hpp>

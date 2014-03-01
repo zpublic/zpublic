@@ -2,7 +2,7 @@
 #define __COMMON_H_
 
 #if defined(_WIN32)
-	#define SERVER_DECL __declspec(dllexport)
+    #define SERVER_DECL __declspec(dllexport)
 #endif
 
 // types

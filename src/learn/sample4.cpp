@@ -7,11 +7,11 @@
 
 int main_l4()
 {
-	// Lua 를 초기화 한다.
-	lua_State* L = lua_open();
+    // Lua 를 초기화 한다.
+    lua_State* L = lua_open();
 
-	// Lua 기본 함수들을 로드한다.- print() 사용
-	luaopen_base(L);
+    // Lua 기본 함수들을 로드한다.- print() 사용
+    luaopen_base(L);
 
     {
         // Lua 테이블을 생성하고 스택에 푸쉬한다.
@@ -50,9 +50,9 @@ int main_l4()
         printf("ret.name =\t%s\n", ret.get<const char*>("name"));
     }
 
-	// 프로그램 종료
-	lua_close(L);
+    // 프로그램 종료
+    lua_close(L);
 
-	return 0;
+    return 0;
 }
 

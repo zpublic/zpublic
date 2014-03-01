@@ -32,28 +32,28 @@ static T64 swap64(const T64& v)
 static float swapfloat(const float& p)
 {
     union { float asfloat; unsigned char asbytes[4]; } u1, u2;
-	u1.asfloat = p;
-	u2.asbytes[0] = u1.asbytes[3];
-	u2.asbytes[1] = u1.asbytes[2];
-	u2.asbytes[2] = u1.asbytes[1];
-	u2.asbytes[3] = u1.asbytes[0];
-	//*p = u2.asfloat;
+    u1.asfloat = p;
+    u2.asbytes[0] = u1.asbytes[3];
+    u2.asbytes[1] = u1.asbytes[2];
+    u2.asbytes[2] = u1.asbytes[1];
+    u2.asbytes[3] = u1.asbytes[0];
+    //*p = u2.asfloat;
     return u2.asfloat;
 }
 
 static double swapdouble(const double& p)
 {
-	union { double asdouble; unsigned char asbytes[8]; } u1, u2;
-	u1.asdouble = p;
-	u2.asbytes[0] = u1.asbytes[7];
-	u2.asbytes[1] = u1.asbytes[6];
-	u2.asbytes[2] = u1.asbytes[5];
-	u2.asbytes[3] = u1.asbytes[4];
-	u2.asbytes[4] = u1.asbytes[3];
-	u2.asbytes[5] = u1.asbytes[2];
-	u2.asbytes[6] = u1.asbytes[1];
-	u2.asbytes[7] = u1.asbytes[0];
-	//*p = u2.asfloat;
+    union { double asdouble; unsigned char asbytes[8]; } u1, u2;
+    u1.asdouble = p;
+    u2.asbytes[0] = u1.asbytes[7];
+    u2.asbytes[1] = u1.asbytes[6];
+    u2.asbytes[2] = u1.asbytes[5];
+    u2.asbytes[3] = u1.asbytes[4];
+    u2.asbytes[4] = u1.asbytes[3];
+    u2.asbytes[5] = u1.asbytes[2];
+    u2.asbytes[6] = u1.asbytes[1];
+    u2.asbytes[7] = u1.asbytes[0];
+    //*p = u2.asfloat;
     return u2.asdouble;
 }
 

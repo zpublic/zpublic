@@ -47,6 +47,6 @@ int _tmain(int argc, _TCHAR* argv[])
     {
         std::cout << "An unknown exception occurred." << std::endl;
     }
-	return 0;
+    return 0;
 }
 
