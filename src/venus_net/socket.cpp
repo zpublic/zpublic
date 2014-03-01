@@ -110,10 +110,10 @@ void Socket::close(const CloseCallback* callback/* = nullptr*/)
 
 void Socket::shutdown()
 {
-	if (_socket.is_open())
-	{
-		_socket.shutdown(boost::asio::socket_base::shutdown_both);
-	}
+    if (_socket.is_open())
+    {
+        _socket.shutdown(boost::asio::socket_base::shutdown_both);
+    }
 }
 
 tcp::socket& Socket::socket()
@@ -185,5 +185,5 @@ void Socket::handle_close()
     if (_close_callback)
         _close_callback();
 
-	//shutdown();
+    //shutdown();
 }

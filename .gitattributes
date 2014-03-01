@@ -1,0 +1,26 @@
+# Auto detect text files and perform LF normalization
+# 自动转换文本文件行开头的TAB为4个空格
+/3rdparty export-ignore
+
+* text=auto
+
+# cpp和h文件行尾用VS默认的CRLF
+*.cpp    eol=crlf whitespace=tab-in-indent,tabwidth=4
+*.h      eol=crlf whitespace=tab-in-indent,tabwidth=4
+
+# Custom for Visual Studio
+*.sln    merge=union
+*.vcxproj merge=union
+
+
+# Standard to msysgit
+#*.doc	 diff=astextplain
+#*.DOC	 diff=astextplain
+#*.docx diff=astextplain
+#*.DOCX diff=astextplain
+#*.dot  diff=astextplain
+#*.DOT  diff=astextplain
+#*.pdf  diff=astextplain
+#*.PDF	 diff=astextplain
+#*.rtf	 diff=astextplain
+#*.RTF	 diff=astextplain

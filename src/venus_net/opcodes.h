@@ -3,7 +3,7 @@
 
 namespace Opcodes
 {
-	const int C2SHeartbeat              = 500;				//心跳请求
+    const int C2SHeartbeat              = 500;				//心跳请求
     const int C2SLoginReq               = 10000;			//登录请求
     const int S2CLoginRsp               = 10001;			//登录回应
     const int C2SRegisterReq            = 10002;            //注册请求

@@ -12,20 +12,20 @@
 
 BOOL CMainFrame::PreTranslateMessage(MSG* pMsg)
 {
-	if(CMDIFrameWindowImpl<CMainFrame>::PreTranslateMessage(pMsg))
-		return TRUE;
+    if(CMDIFrameWindowImpl<CMainFrame>::PreTranslateMessage(pMsg))
+        return TRUE;
 
-	HWND hWnd = MDIGetActive();
-	if(hWnd != NULL)
-		return (BOOL)::SendMessage(hWnd, WM_FORWARDMSG, 0, (LPARAM)pMsg);
+    HWND hWnd = MDIGetActive();
+    if(hWnd != NULL)
+        return (BOOL)::SendMessage(hWnd, WM_FORWARDMSG, 0, (LPARAM)pMsg);
 
-	return FALSE;
+    return FALSE;
 }
 
 BOOL CMainFrame::OnIdle()
 {
-	UIUpdateToolBar();
-	return FALSE;
+    UIUpdateToolBar();
+    return FALSE;
 }
 
 LRESULT CMainFrame::OnCreate(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/)
@@ -45,98 +45,98 @@ LRESULT CMainFrame::OnCreate(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/
 // 	AddSimpleReBarBand(hWndCmdBar);
 // 	AddSimpleReBarBand(hWndToolBar, NULL, TRUE);
 
-	//CreateSimpleStatusBar();
+    //CreateSimpleStatusBar();
 
-	CreateMDIClient();
-	//m_CmdBar.SetMDIClient(m_hWndMDIClient);
+    CreateMDIClient();
+    //m_CmdBar.SetMDIClient(m_hWndMDIClient);
 
 // 	UIAddToolBar(hWndToolBar);
 // 	UISetCheck(ID_VIEW_TOOLBAR, 1);
 // 	UISetCheck(ID_VIEW_STATUS_BAR, 1);
 
-	// register object for message filtering and idle updates
-	CMessageLoop* pLoop = _Module.GetMessageLoop();
-	ATLASSERT(pLoop != NULL);
-	pLoop->AddMessageFilter(this);
-	pLoop->AddIdleHandler(this);
+    // register object for message filtering and idle updates
+    CMessageLoop* pLoop = _Module.GetMessageLoop();
+    ATLASSERT(pLoop != NULL);
+    pLoop->AddMessageFilter(this);
+    pLoop->AddIdleHandler(this);
 
-	return 0;
+    return 0;
 }
 
 LRESULT CMainFrame::OnDestroy(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& bHandled)
 {
-		//m_CmdBar.AttachMenu(NULL);
+        //m_CmdBar.AttachMenu(NULL);
 
-	// unregister message filtering and idle updates
-	CMessageLoop* pLoop = _Module.GetMessageLoop();
-	ATLASSERT(pLoop != NULL);
-	pLoop->RemoveMessageFilter(this);
-	pLoop->RemoveIdleHandler(this);
+    // unregister message filtering and idle updates
+    CMessageLoop* pLoop = _Module.GetMessageLoop();
+    ATLASSERT(pLoop != NULL);
+    pLoop->RemoveMessageFilter(this);
+    pLoop->RemoveIdleHandler(this);
 
-	bHandled = FALSE;
-	return 1;
+    bHandled = FALSE;
+    return 1;
 }
 
 LRESULT CMainFrame::OnFileExit(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-	PostMessage(WM_CLOSE);
-	return 0;
+    PostMessage(WM_CLOSE);
+    return 0;
 }
 
 LRESULT CMainFrame::OnFileNew(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-	CChildFrame* pChild = new CChildFrame;
-	pChild->CreateEx(m_hWndClient);
+    CChildFrame* pChild = new CChildFrame;
+    pChild->CreateEx(m_hWndClient);
 
-	// TODO: add code to initialize document
+    // TODO: add code to initialize document
 
-	return 0;
+    return 0;
 }
 
 LRESULT CMainFrame::OnViewToolBar(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-	static BOOL bVisible = TRUE;	// initially visible
-	bVisible = !bVisible;
-	CReBarCtrl rebar = m_hWndToolBar;
-	int nBandIndex = rebar.IdToIndex(ATL_IDW_BAND_FIRST + 1);	// toolbar is 2nd added band
-	rebar.ShowBand(nBandIndex, bVisible);
-	UISetCheck(ID_VIEW_TOOLBAR, bVisible);
-	UpdateLayout();
-	return 0;
+    static BOOL bVisible = TRUE;	// initially visible
+    bVisible = !bVisible;
+    CReBarCtrl rebar = m_hWndToolBar;
+    int nBandIndex = rebar.IdToIndex(ATL_IDW_BAND_FIRST + 1);	// toolbar is 2nd added band
+    rebar.ShowBand(nBandIndex, bVisible);
+    UISetCheck(ID_VIEW_TOOLBAR, bVisible);
+    UpdateLayout();
+    return 0;
 }
 
 LRESULT CMainFrame::OnViewStatusBar(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-	BOOL bVisible = !::IsWindowVisible(m_hWndStatusBar);
-	::ShowWindow(m_hWndStatusBar, bVisible ? SW_SHOWNOACTIVATE : SW_HIDE);
-	UISetCheck(ID_VIEW_STATUS_BAR, bVisible);
-	UpdateLayout();
-	return 0;
+    BOOL bVisible = !::IsWindowVisible(m_hWndStatusBar);
+    ::ShowWindow(m_hWndStatusBar, bVisible ? SW_SHOWNOACTIVATE : SW_HIDE);
+    UISetCheck(ID_VIEW_STATUS_BAR, bVisible);
+    UpdateLayout();
+    return 0;
 }
 
 LRESULT CMainFrame::OnAppAbout(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-	CAboutDlg dlg;
-	dlg.DoModal();
-	return 0;
+    CAboutDlg dlg;
+    dlg.DoModal();
+    return 0;
 }
 
 LRESULT CMainFrame::OnWindowCascade(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-	MDICascade();
-	return 0;
+    MDICascade();
+    return 0;
 }
 
 LRESULT CMainFrame::OnWindowTile(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-	MDITile();
-	return 0;
+    MDITile();
+    return 0;
 }
 
 LRESULT CMainFrame::OnWindowArrangeIcons(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-	MDIIconArrange();
-	return 0;
+    MDIIconArrange();
+    return 0;
 }
 
 LRESULT CMainFrame::OnFileOpen(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)

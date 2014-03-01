@@ -132,11 +132,11 @@ int main(int argc, char* argv[])
     test_ptr();
 
     ///> èº¸ç×¨Êô
-	test_heap();
-	test_hashtable();
+    test_heap();
+    test_hashtable();
     test_vector();
     test_indextree();
-	teststring();
+    teststring();
 
 
     ///> zap×¨Êô
@@ -229,7 +229,7 @@ void test_ptr()
 
 void test_vector()
 {
-	zl::CSimpleVector<int> vecInt(2);
+    zl::CSimpleVector<int> vecInt(2);
     vecInt.Add(1);
     vecInt.Add(2);
     vecInt.Add(1);
@@ -250,26 +250,26 @@ void test_vector()
 
 void teststring()
 {
-	zl::CArrayVariable<zl::basic_string*> stringlist;
-	zl::basic_string a = "hello kevin fuck you kevin yes true";
-	zl::basic_string sub;
-	zl::basic_string b;
-	zl::CSimpleVector<zl::basic_string *> vecSplit;
-	a.split(" ", vecSplit);
+    zl::CArrayVariable<zl::basic_string*> stringlist;
+    zl::basic_string a = "hello kevin fuck you kevin yes true";
+    zl::basic_string sub;
+    zl::basic_string b;
+    zl::CSimpleVector<zl::basic_string *> vecSplit;
+    a.split(" ", vecSplit);
 
-	b = a + " fuck you";
-	printf("%s\n",b.c_str());
+    b = a + " fuck you";
+    printf("%s\n",b.c_str());
 
-	b = a.GetSub(6,5);
-	zl::basic_string x;
-	b.swap(x);
-	printf("%s\n",x.c_str());
-	b = a.replace("kevin", "()");
+    b = a.GetSub(6,5);
+    zl::basic_string x;
+    b.swap(x);
+    printf("%s\n",x.c_str());
+    b = a.replace("kevin", "()");
 
-	zl::basic_string str1 = "kzvin";
-	zl::basic_string str2 = "kevin";
-	printf("%d", str1 <= str2);
-	//stringlist[0] = &a;
+    zl::basic_string str1 = "kzvin";
+    zl::basic_string str2 = "kevin";
+    printf("%d", str1 <= str2);
+    //stringlist[0] = &a;
 //     zl::basic_string a = "hello kevin";
 //     zl::basic_string sub;
 //     if(a.GetSub(&sub, 6, 5))
@@ -322,62 +322,62 @@ void test_encode()
 
 void test_hashtable()
 {
-	struct st 
-	{
-		int key;
-		int value;
-	};
+    struct st 
+    {
+        int key;
+        int value;
+    };
 
-	struct st_equal
-	{
-		bool operator() (const st& first, const st& second) const
-		{
-			return first.value == second.value;
-		}
-	};
+    struct st_equal
+    {
+        bool operator() (const st& first, const st& second) const
+        {
+            return first.value == second.value;
+        }
+    };
 
-	struct st_hash
-	{
-		unsigned long operator() (const st& first, const unsigned long n) const
-		{
-			return first.value % n;
-		}
-	};
+    struct st_hash
+    {
+        unsigned long operator() (const st& first, const unsigned long n) const
+        {
+            return first.value % n;
+        }
+    };
 
-	zl::HashTable<st, st_hash, st_equal> myHashTable(10);
-	st tmp;
-	int count = 0;
-	for(unsigned long i = 0; i<100; i++)
-	{
-		tmp.key = 10;
-		tmp.value = i;
-		myHashTable.insert_unique(tmp);
-	}
-	tmp.value = 10;
-	myHashTable.find(tmp);
-	tmp.key = 21;
-	tmp.value = 64;
-	myHashTable.find(tmp);
+    zl::HashTable<st, st_hash, st_equal> myHashTable(10);
+    st tmp;
+    int count = 0;
+    for(unsigned long i = 0; i<100; i++)
+    {
+        tmp.key = 10;
+        tmp.value = i;
+        myHashTable.insert_unique(tmp);
+    }
+    tmp.value = 10;
+    myHashTable.find(tmp);
+    tmp.key = 21;
+    tmp.value = 64;
+    myHashTable.find(tmp);
 }
 
 void test_heap()
 {
-	zl::Heap<zl::basic_string> heap;
+    zl::Heap<zl::basic_string> heap;
     zl::Heap<int> heap2;
-	int array[11] = {68, 32, 19, 21, 16, 31, 50, 24, 13, 26, 65};
-	char str[10][20] = {"kevin", "lily", "david", "zapline", "lafeng", "laopan", "animal", "dachu", "moster"};
-	//int array[11] = {31, 65, 68};
-	zl::basic_string x;
+    int array[11] = {68, 32, 19, 21, 16, 31, 50, 24, 13, 26, 65};
+    char str[10][20] = {"kevin", "lily", "david", "zapline", "lafeng", "laopan", "animal", "dachu", "moster"};
+    //int array[11] = {31, 65, 68};
+    zl::basic_string x;
     
-	for(int i=0; i<9; i++)
-		heap.push(str[i]);
+    for(int i=0; i<9; i++)
+        heap.push(str[i]);
     //heap.print_heap();
-	printf("\n");
+    printf("\n");
     for(int i = 0; i < 9; i++)
-	{
-		if(heap.pop(x))
+    {
+        if(heap.pop(x))
             printf("%s ", x.c_str());
-	}
+    }
 
     int b;
     for(int i = 0; i < 11; i++)
@@ -390,7 +390,7 @@ void test_heap()
     }
    
     
-	//heap.print_heap();
+    //heap.print_heap();
 }
 
 void test_indextree()

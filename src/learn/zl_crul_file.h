@@ -9,8 +9,8 @@ namespace zl
 class CWriteCurlMemFile
 {
 public:
-	CWriteCurlMemFile(std::string &strWrite);
-	~CWriteCurlMemFile();
+    CWriteCurlMemFile(std::string &strWrite);
+    ~CWriteCurlMemFile();
 
     void Write(BYTE* pbyBuf, u_int uSize);
 
