@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "game_create_role_dlg.h"
+#include "window_manager.h"
 
 #define WINDOW_MAX_WIDTH            460
 #define WINDOW_MAX_HEIGHT           465
@@ -27,7 +28,7 @@ LRESULT GameCreateRoleDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
 
 void GameCreateRoleDlg::OnClose()
 {
-    EndDialog(IDCLOSE);
+    EndDialog(GWIN_ID_EXIT);
 }
 
 void GameCreateRoleDlg::OnSysCommand(UINT nID, CPoint point)
@@ -36,7 +37,7 @@ void GameCreateRoleDlg::OnSysCommand(UINT nID, CPoint point)
 
     if (nID == SC_CLOSE)
     {
-        EndDialog(IDCLOSE);
+        EndDialog(GWIN_ID_EXIT);
     }
 }
 
@@ -46,7 +47,7 @@ void GameCreateRoleDlg::OnTimer(UINT_PTR nIDEvent)
 
 void GameCreateRoleDlg::OnBtnClose()
 {
-    EndDialog(IDCLOSE);
+    EndDialog(GWIN_ID_EXIT);
 }
 
 LRESULT GameCreateRoleDlg::OnRoleResult(UINT uMsg,
@@ -146,5 +147,5 @@ void GameCreateRoleDlg::OnBtnCheckNickname()
 
 void GameCreateRoleDlg::OnBtnOK()
 {
-    EndDialog(IDOK);
+    EndDialog(GWIN_ID_MAIN);
 }

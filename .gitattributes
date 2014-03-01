@@ -1,0 +1,11 @@
+* text=auto
+
+# 强制这些文件用4个空格进行缩进，并且行尾是CRLF
+*.cpp text eol=crlf whitespace=tab-in-indent,tabwidth=4
+*.h text eol=crlf whitespace=tab-in-indent,tabwidth=4
+
+*.sln text eol=crlf whitespace=tab-in-indent,tabwidth=4
+*.vcxproj text eol=crlf whitespace=tab-in-indent,tabwidth=4
+*.vcxproj.filters text eol=crlf whitespace=tab-in-indent,tabwidth=4
+
+

@@ -6,7 +6,7 @@
 #include <atlframe.h>
 #include <atlctrls.h>
 #include <atldlgs.h>
-#include "game_login_dlg.h"
+#include "window_manager.h"
 
 #include "resource.h"
 
@@ -18,11 +18,23 @@ int Run(LPTSTR /*lpstrCmdLine*/ = NULL, int nCmdShow = SW_SHOWDEFAULT)
 {
     NET.Connect("127.0.0.1", 36911);
 
-    GameLoginDlg dlg;
-    int nRet = dlg.DoModal();
-
+    int hasError=0;
+    UINT_PTR current_main_window = STARTUP_WINDOW;
+    UINT_PTR nRet;
+    while(nRet = GameWindowControl::start(current_main_window)){
+        if(nRet == GWIN_ID_SUCCESS_EXIT){
+            break;
+        }
+        if(nRet == GWIN_ID_EXIT){
+            hasError=1;
+            break;
+        }
+        current_main_window = nRet;
+    }
+    
+    // x@x.x
     NET.Close();
-    return nRet;
+    return hasError;
 }
 
 int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR lpstrCmdLine, int nCmdShow)

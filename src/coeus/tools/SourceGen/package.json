@@ -1,0 +1,8 @@
+{
+	"name"        : "SourceGen",
+	"version"     : "v0.0.0",
+	"description" : "一些小脚本，用来生成各种源码。",
+	"dependencies": {
+		"minimatch": ""
+	}
+}

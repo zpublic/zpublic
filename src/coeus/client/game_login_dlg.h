@@ -12,8 +12,6 @@
 #include <wtlhelper/whwindow.h>
 #include <bkres/bkres.h>
 #include "ktipedit3.h"
-#include "game_register_dlg.h"
-#include "game_main_dlg.h"
 
 class GameLoginDlg
     : public CBkDialogImpl<GameLoginDlg>

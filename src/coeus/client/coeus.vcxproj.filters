@@ -63,6 +63,9 @@
     <Filter Include="include\public">
       <UniqueIdentifier>{994454b7-5bb1-42bc-a7b8-10cef1f7e62d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\ui\manager">
+      <UniqueIdentifier>{6ebf4ed7-d37b-4e47-9693-c125cc52ad92}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="coeus.rc">
@@ -143,6 +146,9 @@
     </ClCompile>
     <ClCompile Include="create_role_logic.cpp">
       <Filter>source\game\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="window_manager.cpp">
+      <Filter>source\ui\manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -481,6 +487,9 @@
     </ClInclude>
     <ClInclude Include="create_role_logic.h">
       <Filter>source\game\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="window_manager.h">
+      <Filter>source\ui\manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

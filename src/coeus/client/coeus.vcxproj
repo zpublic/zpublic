@@ -160,6 +160,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="window_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\3rdparty\publish\bkres\bkbmppool.h" />
@@ -274,6 +275,7 @@
     <ClInclude Include="ktipedit3.h" />
     <ClInclude Include="network_mgr.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="window_manager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bkwinres.rc2" />

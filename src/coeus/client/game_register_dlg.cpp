@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "game_register_dlg.h"
 #include "util_function.h"
+#include "window_manager.h"
 
 LRESULT GameRegisterDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
 {
@@ -84,7 +85,7 @@ void GameRegisterDlg::OnSysCommand(UINT nID, CPoint point)
 
     if (nID == SC_CLOSE)
     {
-        EndDialog(IDCLOSE);
+        EndDialog(GWIN_ID_EXIT);
     }
 }
 
@@ -95,7 +96,7 @@ void GameRegisterDlg::OnTimer(UINT_PTR nIDEvent)
 
 void GameRegisterDlg::OnBtnCancel()
 {
-    EndDialog(IDCLOSE);
+    EndDialog(GWIN_ID_EXIT);
 }
 
 LRESULT GameRegisterDlg::OnRegisterResult(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
@@ -105,7 +106,7 @@ LRESULT GameRegisterDlg::OnRegisterResult(UINT uMsg, WPARAM wParam, LPARAM lPara
     case 1:
         {
             MessageBox(L"×¢²á³É¹¦", L"ceous");
-            OnBtnCancel();
+            EndDialog(GWIN_ID_SUCCESS_EXIT);
         }
         break;
     case 2:
