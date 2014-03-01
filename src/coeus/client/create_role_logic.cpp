@@ -13,14 +13,14 @@ void CreateRoleLogic::SetCreateRoleDlg( HWND hWnd )
 
 void CreateRoleLogic::SendCreateRole(const CString& strNickname, const uint8& gender, const uint8& belief, const uint8& characterType)
 {
-	CSCreateRoleReq cr_req;
+	CSCreateCharacterReq cr_req;
 	
 	cr_req.nickname = CW2A(strNickname).m_psz;
 	cr_req.gender = gender;
 	cr_req.belief = belief;
 	cr_req.character_type = characterType;
 	
-    NET.SendMessage(Opcodes::CSCreateRoleReq, cr_req);
+    NET.SendMessage(Opcodes::CSCreateCharacterReq, cr_req);
 }
 void CreateRoleLogic::SendRandNickName(const uint8& gender, const uint8& type)
 {

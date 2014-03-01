@@ -26,13 +26,13 @@
     <msg MsgId="11002" MsgProperty="1" MsgName="SCGetRandomNameRsp" MsgNote="返回一个随机名字" MsgRemark="" ErrorList="">
       <param DataType="std::string" Purpose="variable" ParamName="random_name" ParamNote="随机名字" />
     </msg>
-    <msg MsgId="11003" MsgProperty="0" MsgName="CSCreateRoleReq" MsgNote="发送创建角色的请求" MsgRemark="" ErrorList="">
+    <msg MsgId="11003" MsgProperty="0" MsgName="CSCreateCharacterReq" MsgNote="发送创建角色的请求" MsgRemark="" ErrorList="">
       <param DataType="std::string" Purpose="variable" ParamName="nickname" ParamNote="昵称" />
       <param DataType="uint8" Purpose="variable" ParamName="gender" ParamNote="性别" />
       <param DataType="uint8" Purpose="variable" ParamName="belief" ParamNote="信仰" />
       <param DataType="uint8" Purpose="variable" ParamName="character_type" ParamNote="角色类型（职业）" />
     </msg>
-    <msg MsgId="11004" MsgProperty="1" MsgName="SCCreateRoleRsp" MsgNote="创建角色返回" MsgRemark="" ErrorList="">
+    <msg MsgId="11004" MsgProperty="1" MsgName="SCCreateCharacterRsp" MsgNote="创建角色返回" MsgRemark="" ErrorList="">
       <param DataType="uint8" Purpose="variable" ParamName="result" ParamNote="结果" />
     </msg>
     <msg MsgId="11005" MsgProperty="0" MsgName="CSCheckNicknameExistReq" MsgNote="请求检查昵称是否存在" MsgRemark="" ErrorList="">

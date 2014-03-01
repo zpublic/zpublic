@@ -15,5 +15,5 @@ OpcodeTable::OpcodeTable()
     DEF_HANDLER(SCRegisterRsp,           user_register_handler)
 	DEF_HANDLER(SCCheckNicknameExistRsp, check_nickname_handler)
 	DEF_HANDLER(SCGetRandomNameRsp,      rand_nickname_handler)
-	DEF_HANDLER(SCCreateRoleRsp,         create_role_handler)
+	DEF_HANDLER(SCCreateCharacterRsp,         create_role_handler)
 }

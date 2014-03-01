@@ -23,14 +23,14 @@ public:
     //====================================================================
 
     //检查数据库中一个用户是否存在
-    bool checkUserExists(const std::string& username);
+    bool isUserExists(const std::string& username);
 
     //验证帐号和密码是否匹配
     bool userAuth(const std::string& username, const std::string& password);
 
     //插入新的用户记录
     void insertNewUserRecord(
-        uint64 guid, 
+        uint64 user_guid, 
         const std::string& username,
         const std::string& password,
         const std::string& register_ip,
@@ -42,10 +42,11 @@ public:
     //====================================================================
 
     //检查该昵称是否存在
-    bool checkNicknameExist(const std::string& nickname);
-
-    bool loadPlayerInfo(uint64 guid, PlayerDB* playerDB);
-    bool savePlayerInfo(uint64 guid, PlayerDB* playerDB);
+    //对应的账户下是否存在角色
+    bool isCharacterExist(uint64 user_guid);
+    bool isNicknameExist(const std::string& nickname);
+    bool loadPlayerInfo(uint64 user_guid, PlayerDB* playerDB);
+    bool savePlayerInfo(uint64 user_guid, PlayerDB* playerDB);
 private:
     Poco::Data::Session* _db_session;
     Poco::Data::Statement* _db_stmt;

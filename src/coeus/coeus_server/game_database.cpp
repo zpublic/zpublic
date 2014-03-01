@@ -22,7 +22,7 @@ GameDatabase::~GameDatabase()
 //====================================================================
 // 登录系统
 //====================================================================
-bool GameDatabase::checkUserExists(const std::string& username)
+bool GameDatabase::isUserExists(const std::string& username)
 {
     *_db_stmt = (*_db_session 
         << "SELECT username FROM users WHERE username = :username", 
@@ -31,7 +31,6 @@ bool GameDatabase::checkUserExists(const std::string& username)
 
     return (_db_stmt->execute() > 0);
 }
-
 
 
 bool GameDatabase::userAuth(const std::string& username, const std::string& password)
@@ -47,7 +46,7 @@ bool GameDatabase::userAuth(const std::string& username, const std::string& pass
 }
 
 void GameDatabase::insertNewUserRecord(
-    uint64 guid, 
+    uint64 user_guid, 
     const std::string& username,
     const std::string& password,
     const std::string& register_ip,
@@ -55,9 +54,9 @@ void GameDatabase::insertNewUserRecord(
     )
 {
     *_db_stmt = (*_db_session << 
-        "INSERT INTO users(guid, username, password, register_ip, register_time) "
-        "VALUES (:guid, :username, :password, :register_ip, :register_time);",
-        Poco::Data::use(guid),
+        "INSERT INTO users(user_guid, username, password, register_ip, register_time) "
+        "VALUES (:user_guid, :username, :password, :register_ip, :register_time);",
+        Poco::Data::use(user_guid),
         Poco::Data::use(username),
         Poco::Data::use(password),
         Poco::Data::use(register_ip),
@@ -66,7 +65,19 @@ void GameDatabase::insertNewUserRecord(
     _db_stmt->execute();
 }
 
-bool GameDatabase::checkNicknameExist(const std::string& nickname)
+//对应的账户下是否存在角色
+bool GameDatabase::isCharacterExist(uint64 user_guid)
+{
+    *_db_stmt = (*_db_session 
+        << "SELECT user_guid FROM player_character WHERE user_guid = :user_guid;",
+        Poco::Data::limit(1), 
+        Poco::Data::into(user_guid)
+        );
+
+    return (_db_stmt->execute() > 0);
+}
+
+bool GameDatabase::isNicknameExist(const std::string& nickname)
 {
     return true;
 }

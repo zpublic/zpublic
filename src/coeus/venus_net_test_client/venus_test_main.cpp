@@ -33,7 +33,7 @@ public:
             {
                 Protocol::SCGetRandomNameRsp response;
                 DECODE_MESSAGE(response, message);
-                printf("Get random nickname = %s", response.random_name.c_str());
+                //printf("Get random nickname = %s", response.random_name.c_str());
                 break;
             }
         default:
@@ -71,10 +71,10 @@ int main(int argc, char** argv)
             getNicknameRequest.gender = GENDER_FEMALE;
             tcpClient.sendMessage(Opcodes::CSGetRandomNameReq, getNicknameRequest);
 
-            //Protocol::CSLoginReq loginRequest;
-            //loginRequest.account = "138001655@qq.com";
-            //loginRequest.password = "e10adc3949ba59abbe56e057f20f883e";
-            //tcpClient.sendMessage(Opcodes::CSLoginReq, loginRequest);
+            Protocol::CSLoginReq loginRequest;
+            loginRequest.account = "138001655@qq.com";
+            loginRequest.password = "e10adc3949ba59abbe56e057f20f883e";
+            tcpClient.sendMessage(Opcodes::CSLoginReq, loginRequest);
 
             //loginRequest.account = "powman";
             //loginRequest.password = "demaciaaaaa";

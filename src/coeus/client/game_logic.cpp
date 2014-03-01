@@ -54,7 +54,7 @@ void GameLogic::rand_nickname_handler(const NetworkPacket::Ptr& message)
 }
 void GameLogic::create_role_handler(const NetworkPacket::Ptr& message)
 {
-	SCCreateRoleRsp msg;
+	SCCreateCharacterRsp msg;
     DECODE_MESSAGE(msg, message);
 	if ((bool)msg.result == true)
     {
