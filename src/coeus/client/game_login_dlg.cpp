@@ -10,7 +10,7 @@
 #include "game_login_dlg.h"
 #include "bkwinres.h"
 #include "util_function.h"
-#include "game_create_role_dlg.h"
+#include "window_manager.h"
 
 #define WINDOW_MAX_WIDTH            460
 #define WINDOW_MAX_HEIGHT           465
@@ -48,7 +48,7 @@ LRESULT GameLoginDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
 
 void GameLoginDlg::OnClose()
 {
-    EndDialog(IDCLOSE);
+    EndDialog(GWIN_ID_EXIT);
 }
 
 void GameLoginDlg::OnSysCommand(UINT nID, CPoint point)
@@ -57,7 +57,7 @@ void GameLoginDlg::OnSysCommand(UINT nID, CPoint point)
 
     if (nID == SC_CLOSE)
     {
-        EndDialog(IDCLOSE);
+        EndDialog(GWIN_ID_EXIT);
     }
 }
 
@@ -67,14 +67,17 @@ void GameLoginDlg::OnTimer(UINT_PTR nIDEvent)
 
 void GameLoginDlg::OnBtnClose()
 {
-    EndDialog(IDCLOSE);
+    EndDialog(GWIN_ID_EXIT);
 }
 
 void GameLoginDlg::OnBtnRegister()
 {
     ShowWindow(SW_HIDE);
-    GameRegisterDlg dlg;
-    dlg.DoModal();
+    UINT_PTR uRet = GameWindowControl::start(GWIN_ID_REGISTER);
+    if(uRet==GWIN_ID_SUCCESS_EXIT){
+        GameWindowControl::destroy_register_dialog();
+        GameWindowControl::get_register_dialog();
+    }
     ShowWindow(SW_SHOW);
 }
 
@@ -109,30 +112,22 @@ LRESULT GameLoginDlg::OnLoginResult(UINT uMsg,
     LPARAM lParam,
     BOOL& bHandled)
 {
-    if (uMsg == msg_login_result)
+    switch (wParam)
     {
-        switch (wParam)
+    case 1:
         {
-        case 1:
-            {
-                ShowWindow(SW_HIDE);
-                GameCreateRoleDlg dlg;
-                dlg.DoModal();
-                GameMainDlg dlgMain;
-                dlgMain.DoModal();
-                OnClose();
-            }
-            break;
-
-        case 2:
-            {
-                _DisposeLoginErr(lParam);
-            }
-            break;
-
-        default:
-            break;
+            EndDialog(GWIN_ID_CREATE_ROLE);
         }
+        break;
+
+    case 2:
+        {
+            _DisposeLoginErr(lParam);
+        }
+        break;
+
+    default:
+        break;
     }
 
     return TRUE;
