@@ -83,7 +83,7 @@ LRESULT GameCreateRoleDlg::OnCheckResult(UINT uMsg,
 
 void GameCreateRoleDlg::OnSelectHuntsmanMan()
 {
-	m_bSelectedGender = GENDER_MALE;
+	m_bSelectedGender = Gender::Male;
     SelectRole(ID_SELECT_HUNTSMAN_MAN_BTN, ID_ROLE_IMG, "img_role_huntsman_man");
     SetItemText(ID_ROLE_NAME, L"镜子猎人");
     SetItemText(ID_ROLE_EXPLAIN, L"镜子猎人热衷于收集自然界中各种能反光的石头");
@@ -92,7 +92,7 @@ void GameCreateRoleDlg::OnSelectHuntsmanMan()
 
 void GameCreateRoleDlg::OnSelectHuntsmanWoMan()
 {
-	m_bSelectedGender = GENDER_FEMALE;
+	m_bSelectedGender = Gender::Female;
     SelectRole(ID_SELECT_HUNTSMAN_WOMAN_BTN, ID_ROLE_IMG, "img_role_huntsman_woman");
     SetItemText(ID_ROLE_NAME, L"镜子猎人");
     SetItemText(ID_ROLE_EXPLAIN, L"镜子猎人热衷于收集自然界中各种能反光的石头");
@@ -101,7 +101,7 @@ void GameCreateRoleDlg::OnSelectHuntsmanWoMan()
 
 void GameCreateRoleDlg::OnSelectMechanicianMan()
 {
-	m_bSelectedGender = GENDER_MALE;
+	m_bSelectedGender = Gender::Male;
     SelectRole(ID_SELECT_MECHANICIAN_MAN_BTN, ID_ROLE_IMG, "img_role_mechanician_man");
     SetItemText(ID_ROLE_NAME, L"机械师");
     SetItemText(ID_ROLE_EXPLAIN, L"狂热的发明家，机械制造爱好者，用先进的技术和超高的智商置人于死地");
@@ -110,7 +110,7 @@ void GameCreateRoleDlg::OnSelectMechanicianMan()
 
 void GameCreateRoleDlg::OnSelectMechanicianWoMan()
 {
-	m_bSelectedGender = GENDER_FEMALE;
+	m_bSelectedGender = Gender::Female;
     SelectRole(ID_SELECT_MECHANICIAN_WOMAN_BTN, ID_ROLE_IMG, "img_role_mechanician_woman");
     SetItemText(ID_ROLE_NAME, L"机械师");
     SetItemText(ID_ROLE_EXPLAIN, L"狂热的发明家，机械制造爱好者，用先进的技术和超高的智商置人于死地");

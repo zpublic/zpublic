@@ -35,9 +35,11 @@ public:
     //=======================================================
     // 游戏角色相关
     //=======================================================
-    uint64 player_id;           //角色唯一ID
-    uint8 gender;               //性别
+    uint64 player_id;        //角色唯一ID
+    uint8 character_type;       //角色类型（职业）
     std::string nickname;       //昵称
+    uint8 belief;               //信仰
+    uint8 gender;               //性别
 };
 
 #endif

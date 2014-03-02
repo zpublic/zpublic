@@ -178,8 +178,6 @@
     </ClCompile>
     <ClCompile Include="player.cpp" />
     <ClCompile Include="player_manager.cpp" />
-    <ClCompile Include="role.cpp" />
-    <ClCompile Include="role_manager.cpp" />
     <ClCompile Include="server_config.cpp" />
     <ClCompile Include="server_main.cpp" />
     <ClCompile Include="user_service_handler.cpp" />
@@ -206,8 +204,6 @@
     <ClInclude Include="player.h" />
     <ClInclude Include="player_db.h" />
     <ClInclude Include="player_manager.h" />
-    <ClInclude Include="role.h" />
-    <ClInclude Include="role_manager.h" />
     <ClInclude Include="server_config.h" />
     <ClInclude Include="user_service.h" />
   </ItemGroup>

@@ -8,6 +8,8 @@ OPCODE_REGISTER_BEGIN(GameOpcodeRegistry, GameSession)
 	REGISTER_HANDLER(Opcodes::CSRegisterReq, registerHandler);
 	REGISTER_HANDLER(Opcodes::CSLoginReq, loginHandler);
     REGISTER_HANDLER(Opcodes::CSGetRandomNameReq, getRandomNicknameHandler);
+    REGISTER_HANDLER(Opcodes::CSCheckNicknameExistReq, checkNicknameExist);
+    REGISTER_HANDLER(Opcodes::CSCreateCharacterReq, characterCreateHandler);
 OPCODE_REGISTER_END()
 
 #endif

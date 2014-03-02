@@ -19,7 +19,7 @@ void ConfigManager::registerConfig(Configuration* configuration)
 
 void ConfigManager::start()
 {
-    debug_log("loading server configurations...");
+    debug_log("loading configurations...");
 	std::thread threads[kThreadNums];
 
 	for (int i = 0; i < kThreadNums; ++i)
@@ -30,26 +30,42 @@ void ConfigManager::start()
 
 void ConfigManager::wait()
 {
+    while (!_configurations.empty())
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+}
 
+Configuration* ConfigManager::getConfiguration()
+{
+    _mutex.lock();
+
+    Configuration* configuration = nullptr;
+    if (!_configurations.empty())
+    {
+        configuration = _configurations.front();
+        _configurations.pop();
+    }
+
+    _mutex.unlock();
+
+    return configuration;
 }
 
 void ConfigManager::workerThread()
 {
-	for (int i = 0; i < _configurations.size(); ++i)
+    Configuration* configuration = getConfiguration();
+	while (configuration)
 	{
-		_mutex.lock();
-		Configuration* configuration = _configurations.front();
-		_configurations.pop();
-		_mutex.unlock();
-
-		bool result = configuration->parse();
-        if (result == false)
+        if (!configuration->parse())
         {
-            error_log("load config ['%s'] failed. server interrupt!", configuration->filename().c_str());
+            error_log("load config ['%s'] failed. Application interrupt!", configuration->filename().c_str());
         }
         else
         {
             debug_log("load config ['%s'] ok.", configuration->filename().c_str());
         }
+
+        configuration = getConfiguration();
 	}
 }

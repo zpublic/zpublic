@@ -4,8 +4,23 @@
 
 enum Gender
 {
-    GENDER_FEMALE,   // 女性
-    GENDER_MALE      // 男性
+    Female = 0,   // 女性
+    Male          // 男性
+};
+
+enum Belief
+{
+    Holy = 0,           // 神圣教廷
+    TechHarbinger,      // 科技先驱
+    DarkBoundary,       // 黑暗边界
+    BeliefMax
+};
+
+enum CharacterCareer
+{
+    MirrorHunter = 0,   // 镜子猎人
+    Mechanic,           // 机械师
+    CharacterCareerMax
 };
 
 enum LoginResult

@@ -19,6 +19,7 @@ public:
 	void wait();
 
 private:
+    Configuration* getConfiguration();
 	void workerThread();
 
 private:

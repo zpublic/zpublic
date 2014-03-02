@@ -2,9 +2,11 @@
 #define __DATA_MANAGER_H__
 
 #include "venus_net/common.h"
+#include "venus_net/singleton.h"
 
 class PlayerDB;
 class DataManager
+    : public Venus::Singleton<DataManager>
 {
 public:
 	DataManager();

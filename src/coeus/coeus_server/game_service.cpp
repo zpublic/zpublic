@@ -28,6 +28,7 @@ bool GameService::initialize()
 	{
         ConfigLoader::getInstance().initialize(ConfigManager::getInstancePtr());
 		ConfigManager::getInstance().start();
+        ConfigManager::getInstance().wait();
 		CHECK_INITIALIZE(registerDatabase(), "Database registered OK.", "Database register failed.");
 		CHECK_INITIALIZE(PlayerManager::getInstance().init(), "PlayerManager init OK.", "PlayerManager init failed.");
 		CHECK_INITIALIZE(GameSessionManager::getInstance().init(), "GameSessionManager init OK.", "GameSessionManager init failed.");

@@ -17,18 +17,12 @@ Player* PlayerManager::createPlayer(uint64 playerId, GameSession* session)
 {
 	if (session != nullptr)
 	{
-		//检查缓存
-		Player* player = loadFromCache(playerId);
-		if (player == nullptr)
-		{
-			player = _player_pool.acquire(playerId, session);
+        Player* player = _player_pool.acquire(playerId, session);
+        if (player != nullptr)
+        {
+		    addPlayer(player);
+        }
 
-			//从数据库加载数据
-			PlayerDB* playerDB = player->DB();
-			_dataManager->loadPlayerData(playerId, playerDB);
-		}
-
-		addPlayer(player);
 		return player;
 	}
 

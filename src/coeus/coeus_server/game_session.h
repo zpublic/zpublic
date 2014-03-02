@@ -7,6 +7,12 @@
 class Player;
 class GameSession : public NetworkSession
 {
+    enum SessionState
+    {
+        NotLoggedIn,    //建立连接但未登录成功
+        LoginSuccess    //登录（鉴权）成功
+    };
+
 public:
     GameSession(ServerConnection* serverConnection);
     virtual ~GameSession();
@@ -22,10 +28,17 @@ public:
 
     //角色创建
     void getRandomNicknameHandler(const NetworkPacket::Ptr& packet);
+    void checkNicknameExist(const NetworkPacket::Ptr& packet);
+    void characterCreateHandler(const NetworkPacket::Ptr& packer);
 
+private:
+    void setContext(Player* player);
+    bool loadPlayer();
 
 private:
 	Player* _player;
+    uint64 _userGuid;
+    SessionState _sessionState;
 };
 
 #endif
