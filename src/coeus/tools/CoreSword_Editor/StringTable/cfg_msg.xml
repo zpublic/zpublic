@@ -42,4 +42,5 @@
       <param DataType="uint8" Purpose="variable" ParamName="result" ParamNote="结果" />
     </msg>
   </category>
+  <category CategoryName="PHP后台" />
 </MSG_CFG>
