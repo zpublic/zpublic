@@ -19,7 +19,7 @@ bool Configuration::loadConfig(const std::string& filename, Json::Value& value)
     }
 
     fs.seekg(0, ios::end);
-    std::streamsize filesize = fs.tellg();
+    size_t filesize = static_cast<size_t>(fs.tellg());
     fs.seekg(0, ios::beg);
 
     char* configBuffer = new char[filesize];
