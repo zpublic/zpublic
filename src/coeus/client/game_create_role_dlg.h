@@ -97,6 +97,6 @@ protected:
         END_MSG_MAP()
 private:
     KTipEdit3 m_NickNameEdit;
-	uint8 m_bSelectedGender;
+    uint8 m_bSelectedGender;
 };
 #endif // __GAME_CREATE_ROLE_DLG_H_

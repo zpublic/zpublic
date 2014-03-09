@@ -21,9 +21,9 @@ public:
 	Player* getPlayer(uint64 playerId);
 	int32 playerCount() const;
 	void killOffline(Player* player, bool offlineNotify = true);
+	Player* loadFromCache(uint64 playerId);
 
 private:
-	Player* loadFromCache(uint64 playerId);
 	bool addPlayer(Player* player);
 	void removePlayer(Player* player);
 	void removePlayer(uint64 playerId);

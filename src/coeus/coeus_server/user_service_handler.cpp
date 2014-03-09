@@ -100,7 +100,7 @@ void GameSession::loginHandler(const NetworkPacket::Ptr& packet)
 	Protocol::SCLoginRsp login_response;
 	bool user_exists = GameDatabase::getInstance().isUserExists(loginRequest.account);
 
-	uint64 userGuid = GameUtil::toUniqueId(loginRequest.account);
+	_userGuid = GameUtil::toUniqueId(loginRequest.account);
 	login_response.player_id = 0;
 
 	if (user_exists == true)
@@ -121,40 +121,27 @@ void GameSession::loginHandler(const NetworkPacket::Ptr& packet)
 		{
 			debug_log("email('%s') and password('%s') matched, authentication success.", 
 				loginRequest.account.c_str(), loginRequest.password.c_str());
+            login_response.login_result = true;
+            _sessionState = SessionState::LoginSuccess;
 
             //是否存在角色
-            bool charExist = GameDatabase::getInstance().isCharacterExist(userGuid);
-
-            login_response.character_create_require = charExist;
-            login_response.login_result = true;
-
+            bool charExist = GameDatabase::getInstance().hasCharacter(_userGuid);
+            login_response.character_create_require = !charExist;
+            
+            //存在角色则加载
             if (charExist)
             {
-			    Player* player = PlayerManager::getInstance().createPlayer(userGuid, this);
-			    if (player != nullptr)
-			    {
-				    debug_log("Load player success. user_guid = %ull", userGuid);
-				    debug_log("Total online player count = %d", PlayerManager::getInstance().playerCount());
+                //加载角色相关数据
+                if (this->loadPlayer())
+                {
+                    //保存本次登录时间
+                    _player->cachedLastLogin(Poco::Timestamp().epochTime());
 
-				    //save login time
-				    player->cachedLastLogin(Poco::Timestamp().epochTime());
-				    player->setSession(this);
-
-				    _player = player;
-
-				    debug_log("Player %ull login successful.", userGuid);
-
-				    //启动心跳检查
-				    //startHeartbeatCheck();
-
-				    login_response.login_result = true;
-			    }
-			    else
-			    {
-				    login_response.login_result = false;
-				    error_log("Acquire free player object failed in player pool. player == nullptr.");
-			    }
+                    debug_log("Player %ull login successful.", _userGuid);
+                    debug_log("Total online player count = %d", PlayerManager::getInstance().playerCount());
+                }
             }
+          
 		}
 	}
 	else

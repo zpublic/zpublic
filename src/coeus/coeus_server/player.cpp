@@ -15,7 +15,8 @@ Player::~Player()
 
 void Player::onLogin()
 {
-
+    // TODO: Æô¶¯ÐÄÌø¼ì²é
+    // ...
 }
 
 void Player::onLogout()

@@ -5,17 +5,11 @@
     <ClCompile Include="bag_manager.cpp">
       <Filter>logic\item</Filter>
     </ClCompile>
-    <ClCompile Include="role_manager.cpp">
-      <Filter>logic\player</Filter>
-    </ClCompile>
     <ClCompile Include="bag_cell.cpp">
       <Filter>logic\item</Filter>
     </ClCompile>
     <ClCompile Include="bag_common.cpp">
       <Filter>logic\item</Filter>
-    </ClCompile>
-    <ClCompile Include="role.cpp">
-      <Filter>logic\player</Filter>
     </ClCompile>
     <ClCompile Include="game_service_application.cpp">
       <Filter>service</Filter>
@@ -93,9 +87,6 @@
     <ClInclude Include="bag_manager.h">
       <Filter>logic\item</Filter>
     </ClInclude>
-    <ClInclude Include="role_manager.h">
-      <Filter>logic\player</Filter>
-    </ClInclude>
     <ClInclude Include="bag_cell.h">
       <Filter>logic\item</Filter>
     </ClInclude>
@@ -104,9 +95,6 @@
     </ClInclude>
     <ClInclude Include="game_define_item.h">
       <Filter>define</Filter>
-    </ClInclude>
-    <ClInclude Include="role.h">
-      <Filter>logic\player</Filter>
     </ClInclude>
     <ClInclude Include="game_define_role.h">
       <Filter>define</Filter>

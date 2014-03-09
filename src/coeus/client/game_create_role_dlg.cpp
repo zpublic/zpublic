@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "game_create_role_dlg.h"
 #include "role_config.h"
+#include "game_common\game_define.h"
 
 LRESULT GameCreateRoleDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
 {
@@ -83,7 +84,8 @@ void GameCreateRoleDlg::OnSelectHuntsmanMan()
     CStringA csImgSkin;
     RoleConfig::get_mutable_instance().gainRoleConfigInfo(0, 0, csName, csDecs, csImgSkin);
 
-    m_bSelectedGender = GENDER_MALE;
+    //m_bSelectedGender = GENDER_MALE;
+    m_bSelectedGender = Gender::Male;
     SelectRole(ID_SELECT_HUNTSMAN_MAN_BTN, ID_ROLE_IMG, csImgSkin);
     SetItemText(ID_ROLE_NAME, csName);
     SetItemText(ID_ROLE_EXPLAIN, csDecs);
@@ -97,7 +99,8 @@ void GameCreateRoleDlg::OnSelectHuntsmanWoMan()
     CStringA csImgSkin;
     RoleConfig::get_mutable_instance().gainRoleConfigInfo(0, 1, csName, csDecs, csImgSkin);
 
-    m_bSelectedGender = GENDER_FEMALE;
+    //m_bSelectedGender = GENDER_FEMALE;
+    m_bSelectedGender = Gender::Female;
     SelectRole(ID_SELECT_HUNTSMAN_WOMAN_BTN, ID_ROLE_IMG, csImgSkin);
     SetItemText(ID_ROLE_NAME, csName);
     SetItemText(ID_ROLE_EXPLAIN, csDecs);
@@ -111,7 +114,8 @@ void GameCreateRoleDlg::OnSelectMechanicianMan()
     CStringA csImgSkin;
     RoleConfig::get_mutable_instance().gainRoleConfigInfo(1, 0, csName, csDecs, csImgSkin);
 
-    m_bSelectedGender = GENDER_MALE;
+    //m_bSelectedGender = GENDER_MALE;
+    m_bSelectedGender = Gender::Male;
     SelectRole(ID_SELECT_MECHANICIAN_MAN_BTN, ID_ROLE_IMG, csImgSkin);
     SetItemText(ID_ROLE_NAME, csName);
     SetItemText(ID_ROLE_EXPLAIN, csDecs);
@@ -125,7 +129,8 @@ void GameCreateRoleDlg::OnSelectMechanicianWoMan()
     CStringA csImgSkin;
     RoleConfig::get_mutable_instance().gainRoleConfigInfo(1, 1, csName, csDecs, csImgSkin);
 
-    m_bSelectedGender = GENDER_FEMALE;
+    //m_bSelectedGender = GENDER_FEMALE;
+    m_bSelectedGender = Gender::Female;
     SelectRole(ID_SELECT_MECHANICIAN_WOMAN_BTN, ID_ROLE_IMG, csImgSkin);
     SetItemText(ID_ROLE_NAME, csName);
     SetItemText(ID_ROLE_EXPLAIN, csDecs);
