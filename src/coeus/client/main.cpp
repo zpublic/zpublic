@@ -7,8 +7,12 @@
 #include <atlctrls.h>
 #include <atldlgs.h>
 #include "game_login_dlg.h"
+#include "config_loader.h"
+#include "res_img_pool.h"
+#include "game_common\config\config_manager.h"
 
 #include "resource.h"
+#include "game_create_role_dlg.h"
 
 #pragma comment(lib, "../lib/venus.lib")
 
@@ -17,6 +21,15 @@ CAppModule _Module;
 int Run(LPTSTR /*lpstrCmdLine*/ = NULL, int nCmdShow = SW_SHOWDEFAULT)
 {
     NET.Connect("127.0.0.1", 36911);
+
+    ConfigLoader::get_mutable_instance().initialize(ConfigManager::getInstancePtr());
+    ConfigManager::getInstance().start();
+    ConfigManager::getInstance().wait();
+
+    if (ResImgPool::get_mutable_instance().Initialize())
+    {
+        ResImgPool::get_mutable_instance().Load();
+    }
 
     GameLoginDlg dlg;
     int nRet = dlg.DoModal();

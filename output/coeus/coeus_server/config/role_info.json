@@ -1,0 +1,17 @@
+{
+    "characters":
+    [
+        {
+            "char_name"   : "镜子猎人",
+            "char_desc"   : "镜子猎人喜欢收集宝石",
+            "char_cg"     : ["image/cg/mirror_hunter_female.png", "image/cg/mirror_hunter_male.png"],
+            "char_avatar" : ["image/avatar/mirror_hunter_female.png", "image/avatar/mirror_hunter_male.png"]
+        },
+        {
+            "char_name"   : "机械师",
+            "char_desc"   : "机械师喜欢战斗",
+            "char_cg"     : ["image/cg/machinist_female.png", "image/cg/machinist_male.png"],
+            "char_avatar" : ["image/avatar/machinist_female.png", "image/avatar/machinist_male.png"]
+        }
+    ]
+}

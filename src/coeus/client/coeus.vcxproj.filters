@@ -63,6 +63,15 @@
     <Filter Include="include\public">
       <UniqueIdentifier>{994454b7-5bb1-42bc-a7b8-10cef1f7e62d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\common">
+      <UniqueIdentifier>{3aaffc86-acf1-44de-bdaa-0ec941e0504a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\common\config">
+      <UniqueIdentifier>{71d2e271-4664-4db0-9be7-41c1b3612af7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\common\pool">
+      <UniqueIdentifier>{ea88ad07-2503-4241-b0d2-e771231eb649}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="coeus.rc">
@@ -143,6 +152,21 @@
     </ClCompile>
     <ClCompile Include="create_role_logic.cpp">
       <Filter>source\game\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="role_config.cpp">
+      <Filter>source\common\config</Filter>
+    </ClCompile>
+    <ClCompile Include="belief_config.cpp">
+      <Filter>source\common\config</Filter>
+    </ClCompile>
+    <ClCompile Include="config_loader.cpp">
+      <Filter>source\common\config</Filter>
+    </ClCompile>
+    <ClCompile Include="img_config.cpp">
+      <Filter>source\common\config</Filter>
+    </ClCompile>
+    <ClCompile Include="res_img_pool.cpp">
+      <Filter>source\common\pool</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -481,6 +505,24 @@
     </ClInclude>
     <ClInclude Include="create_role_logic.h">
       <Filter>source\game\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="role_config.h">
+      <Filter>source\common\config</Filter>
+    </ClInclude>
+    <ClInclude Include="belief_config.h">
+      <Filter>source\common\config</Filter>
+    </ClInclude>
+    <ClInclude Include="config_loader.h">
+      <Filter>source\common\config</Filter>
+    </ClInclude>
+    <ClInclude Include="img_config.h">
+      <Filter>source\common\config</Filter>
+    </ClInclude>
+    <ClInclude Include="config_defind.h">
+      <Filter>source\common\config</Filter>
+    </ClInclude>
+    <ClInclude Include="res_img_pool.h">
+      <Filter>source\common\pool</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,17 @@
+{
+    "characters":
+    [
+        {
+            "char_name"   : "镜子猎人",
+            "char_desc"   : "镜子猎人喜欢收集宝石",
+            "char_cg"     : ["img_role_huntsman_man", "img_role_huntsman_woman"],
+            "char_avatar" : ["img_role_hunter_man_header", "img_role_hunter_woman_header"]
+        },
+        {
+            "char_name"   : "机械师",
+            "char_desc"   : "呵呵呵",
+            "char_cg"     : ["img_role_mechanician_man", "img_role_mechanician_woman"],
+            "char_avatar" : ["img_role_mechanician_man_header", "img_role_mechanician_woman_header"]
+        }
+    ]
+}
