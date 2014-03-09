@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="yes"?>
 <MSG_CFG>
-  <category CategoryName="登录/注册">
+  <category CategoryName="登录&amp;注册">
     <msg MsgId="10001" MsgProperty="0" MsgName="CSLoginReq" MsgNote="登录请求" MsgRemark="" ErrorList="">
       <param DataType="std::string" Purpose="variable" ParamName="account" ParamNote="登录帐号（邮箱地址）" />
       <param DataType="std::string" Purpose="variable" ParamName="password" ParamNote="密码" />
@@ -43,4 +43,13 @@
     </msg>
   </category>
   <category CategoryName="PHP后台" />
+  <category CategoryName="系统">
+    <msg MsgId="500" MsgProperty="1" MsgName="SCErrorNotify" MsgNote="错误通知" MsgRemark="错误码通知" ErrorList="">
+      <param DataType="uint32" Purpose="variable" ParamName="error_code" ParamNote="错误码" />
+    </msg>
+    <msg MsgId="501" MsgProperty="1" MsgName="SCErrorExNotify" MsgNote="扩展的错误通知" MsgRemark="错误码通知（带字符串描述）" ErrorList="">
+      <param DataType="uint32" Purpose="variable" ParamName="error_code" ParamNote="错误码" />
+      <param DataType="std::string" Purpose="variable" ParamName="content" ParamNote="错误内容文字描述" />
+    </msg>
+  </category>
 </MSG_CFG>
