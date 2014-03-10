@@ -1,15 +1,7 @@
 #include "stdafx.h"
 #include "game_create_role_dlg.h"
-
-#define WINDOW_MAX_WIDTH            460
-#define WINDOW_MAX_HEIGHT           465
-
-#define WINDOW_MIN_WIDTH            460
-#define WINDOW_MIN_HEIGHT           55
-
-#define TIMER_BUTTON_MOVE           1
-
-#define NUM_BUFFER_MAX              260
+#include "role_config.h"
+#include "game_common\game_define.h"
 
 LRESULT GameCreateRoleDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
 {
@@ -62,9 +54,9 @@ LRESULT GameCreateRoleDlg::OnRandResult(UINT uMsg,
     LPARAM lParam,
     BOOL& bHandled)
 {
-	std::string const * nick = (std::string const *)lParam;
-	CString cstr(nick->c_str());
-	m_NickNameEdit.SetText(cstr);
+    std::string const * nick = (std::string const *)lParam;
+    CString cstr(nick->c_str());
+    m_NickNameEdit.SetText(cstr);
     return TRUE;
 }
 
@@ -73,47 +65,75 @@ LRESULT GameCreateRoleDlg::OnCheckResult(UINT uMsg,
     LPARAM lParam,
     BOOL& bHandled)
 {
-	if(exists) {
-		::MessageBox(m_hWnd, L"角色已经存在，请重试。", L"coeus", 0);
-	} else {
-		::MessageBox(m_hWnd, L"角色没有被注册。", L"coeus", 0);
-	}
+    if(exists)
+    {
+        ::MessageBox(m_hWnd, L"角色已经存在，请重试。", L"coeus", 0);
+    }
+    else
+    {
+        ::MessageBox(m_hWnd, L"角色没有被注册。", L"coeus", 0);
+    }
+
     return TRUE;
 }
 
 void GameCreateRoleDlg::OnSelectHuntsmanMan()
 {
-	m_bSelectedGender = Gender::Male;
-    SelectRole(ID_SELECT_HUNTSMAN_MAN_BTN, ID_ROLE_IMG, "img_role_huntsman_man");
-    SetItemText(ID_ROLE_NAME, L"镜子猎人");
-    SetItemText(ID_ROLE_EXPLAIN, L"镜子猎人热衷于收集自然界中各种能反光的石头");
+    CString csName;
+    CString csDecs;
+    CStringA csImgSkin;
+    RoleConfig::get_mutable_instance().gainRoleConfigInfo(0, 0, csName, csDecs, csImgSkin);
+
+    //m_bSelectedGender = GENDER_MALE;
+    m_bSelectedGender = Gender::Male;
+    SelectRole(ID_SELECT_HUNTSMAN_MAN_BTN, ID_ROLE_IMG, csImgSkin);
+    SetItemText(ID_ROLE_NAME, csName);
+    SetItemText(ID_ROLE_EXPLAIN, csDecs);
     SetItemVisible(ID_ROLE_EXPLAIN_DLG, TRUE);
 }
 
 void GameCreateRoleDlg::OnSelectHuntsmanWoMan()
 {
-	m_bSelectedGender = Gender::Female;
-    SelectRole(ID_SELECT_HUNTSMAN_WOMAN_BTN, ID_ROLE_IMG, "img_role_huntsman_woman");
-    SetItemText(ID_ROLE_NAME, L"镜子猎人");
-    SetItemText(ID_ROLE_EXPLAIN, L"镜子猎人热衷于收集自然界中各种能反光的石头");
+    CString csName;
+    CString csDecs;
+    CStringA csImgSkin;
+    RoleConfig::get_mutable_instance().gainRoleConfigInfo(0, 1, csName, csDecs, csImgSkin);
+
+    //m_bSelectedGender = GENDER_FEMALE;
+    m_bSelectedGender = Gender::Female;
+    SelectRole(ID_SELECT_HUNTSMAN_WOMAN_BTN, ID_ROLE_IMG, csImgSkin);
+    SetItemText(ID_ROLE_NAME, csName);
+    SetItemText(ID_ROLE_EXPLAIN, csDecs);
     SetItemVisible(ID_ROLE_EXPLAIN_DLG, TRUE);
 }
 
 void GameCreateRoleDlg::OnSelectMechanicianMan()
 {
-	m_bSelectedGender = Gender::Male;
-    SelectRole(ID_SELECT_MECHANICIAN_MAN_BTN, ID_ROLE_IMG, "img_role_mechanician_man");
-    SetItemText(ID_ROLE_NAME, L"机械师");
-    SetItemText(ID_ROLE_EXPLAIN, L"狂热的发明家，机械制造爱好者，用先进的技术和超高的智商置人于死地");
+    CString csName;
+    CString csDecs;
+    CStringA csImgSkin;
+    RoleConfig::get_mutable_instance().gainRoleConfigInfo(1, 0, csName, csDecs, csImgSkin);
+
+    //m_bSelectedGender = GENDER_MALE;
+    m_bSelectedGender = Gender::Male;
+    SelectRole(ID_SELECT_MECHANICIAN_MAN_BTN, ID_ROLE_IMG, csImgSkin);
+    SetItemText(ID_ROLE_NAME, csName);
+    SetItemText(ID_ROLE_EXPLAIN, csDecs);
     SetItemVisible(ID_ROLE_EXPLAIN_DLG, TRUE);
 }
 
 void GameCreateRoleDlg::OnSelectMechanicianWoMan()
 {
-	m_bSelectedGender = Gender::Female;
-    SelectRole(ID_SELECT_MECHANICIAN_WOMAN_BTN, ID_ROLE_IMG, "img_role_mechanician_woman");
-    SetItemText(ID_ROLE_NAME, L"机械师");
-    SetItemText(ID_ROLE_EXPLAIN, L"狂热的发明家，机械制造爱好者，用先进的技术和超高的智商置人于死地");
+    CString csName;
+    CString csDecs;
+    CStringA csImgSkin;
+    RoleConfig::get_mutable_instance().gainRoleConfigInfo(1, 1, csName, csDecs, csImgSkin);
+
+    //m_bSelectedGender = GENDER_FEMALE;
+    m_bSelectedGender = Gender::Female;
+    SelectRole(ID_SELECT_MECHANICIAN_WOMAN_BTN, ID_ROLE_IMG, csImgSkin);
+    SetItemText(ID_ROLE_NAME, csName);
+    SetItemText(ID_ROLE_EXPLAIN, csDecs);
     SetItemVisible(ID_ROLE_EXPLAIN_DLG, TRUE);
 }
 
@@ -125,22 +145,22 @@ void GameCreateRoleDlg::SelectRole(UINT nBtnId, UINT nImgId, const CStringA& csS
 
 void GameCreateRoleDlg::OnBtnRandNickname()
 {
-	GameLogic::crole.SetCreateRoleDlg(m_hWnd);
-	GameLogic::crole.SendRandNickName(m_bSelectedGender, 0);
+    GameLogic::crole.SetCreateRoleDlg(m_hWnd);
+    GameLogic::crole.SendRandNickName(m_bSelectedGender, 0);
 }
 
 void GameCreateRoleDlg::OnBtnCheckNickname()
 {
     CString csNickname;
-	m_NickNameEdit.GetText(csNickname);
+    m_NickNameEdit.GetText(csNickname);
 
     if (csNickname.IsEmpty())
     {
-		m_NickNameEdit.SetFocus();
+        m_NickNameEdit.SetFocus();
         return;
     }
 
-	GameLogic::crole.SetCreateRoleDlg(m_hWnd);
+    GameLogic::crole.SetCreateRoleDlg(m_hWnd);
     GameLogic::crole.SendCheckNickName(csNickname);
 }
 

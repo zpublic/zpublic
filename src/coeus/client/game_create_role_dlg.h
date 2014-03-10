@@ -80,7 +80,7 @@ protected:
         BK_NOTIFY_ID_COMMAND(ID_SELECT_HUNTSMAN_WOMAN_BTN, OnSelectHuntsmanWoMan)
         BK_NOTIFY_ID_COMMAND(ID_SELECT_MECHANICIAN_MAN_BTN, OnSelectMechanicianMan)
         BK_NOTIFY_ID_COMMAND(ID_SELECT_MECHANICIAN_WOMAN_BTN, OnSelectMechanicianWoMan)
-        BK_NOTIFY_MAP_END()
+    BK_NOTIFY_MAP_END()
 
         BEGIN_MSG_MAP_EX(GameCreateRoleDlg)
         MSG_BK_NOTIFY(IDC_RICHVIEW_WIN)
@@ -97,6 +97,6 @@ protected:
         END_MSG_MAP()
 private:
     KTipEdit3 m_NickNameEdit;
-	uint8 m_bSelectedGender;
+    uint8 m_bSelectedGender;
 };
 #endif // __GAME_CREATE_ROLE_DLG_H_

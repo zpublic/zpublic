@@ -28,6 +28,7 @@ extern CAppModule _Module;
 #include <atldlgs.h>
 #include <atlcrack.h>
 #include <atlframe.h>
+#include <atlbase.h>
 
 #include <tinyxml/tinyxml.h>
 #include <bkwin/bkdlgview.h>

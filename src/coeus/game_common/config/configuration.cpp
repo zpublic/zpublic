@@ -1,4 +1,5 @@
 #include "configuration.h"
+#include <windows.h>
 
 void Configuration::initialize(ConfigManager* manager)
 {
@@ -14,7 +15,7 @@ bool Configuration::loadConfig(const std::string& filename, Json::Value& value)
     fs.open(filename, std::ios::in);
     if (!fs.is_open())
     {
-        error_log("failed to open configuration file : %s", filename.c_str());
+        //error_log("failed to open configuration file : %s", filename.c_str());
         return false;
     }
 
