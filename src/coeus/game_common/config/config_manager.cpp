@@ -14,18 +14,18 @@ ConfigManager::~ConfigManager()
 
 void ConfigManager::registerConfig(Configuration* configuration)
 {
-	_configurations.push(configuration);
+    _configurations.push(configuration);
 }
 
 void ConfigManager::start()
 {
-    debug_log("loading configurations...");
-	std::thread threads[kThreadNums];
+    //debug_log("loading configurations...");
+    std::thread threads[kThreadNums];
 
-	for (int i = 0; i < kThreadNums; ++i)
-		threads[i] = std::thread(&ConfigManager::workerThread, this);
+    for (int i = 0; i < kThreadNums; ++i)
+        threads[i] = std::thread(&ConfigManager::workerThread, this);
 
-	for (auto& thread : threads) thread.join();
+    for (auto& thread : threads) thread.join();
 }
 
 void ConfigManager::wait()
@@ -55,17 +55,17 @@ Configuration* ConfigManager::getConfiguration()
 void ConfigManager::workerThread()
 {
     Configuration* configuration = getConfiguration();
-	while (configuration)
-	{
+    while (configuration)
+    {
         if (!configuration->parse())
         {
-            error_log("load config ['%s'] failed. Application interrupt!", configuration->filename().c_str());
+            //error_log("load config ['%s'] failed. Application interrupt!", configuration->filename().c_str());
         }
         else
         {
-            debug_log("load config ['%s'] ok.", configuration->filename().c_str());
+            //debug_log("load config ['%s'] ok.", configuration->filename().c_str());
         }
 
         configuration = getConfiguration();
-	}
+    }
 }
