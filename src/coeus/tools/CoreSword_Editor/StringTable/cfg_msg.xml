@@ -49,7 +49,7 @@
     </msg>
     <msg MsgId="501" MsgProperty="1" MsgName="SCErrorExNotify" MsgNote="扩展的错误通知" MsgRemark="错误码通知（带字符串描述）" ErrorList="">
       <param DataType="uint32" Purpose="variable" ParamName="error_code" ParamNote="错误码" />
-      <param DataType="std::string" Purpose="variable" ParamName="content" ParamNote="错误内容文字描述" />
+      <param DataType="std::string" Purpose="variable" ParamName="reason" ParamNote="错误原因" />
     </msg>
   </category>
   <category CategoryName="角色属性">
