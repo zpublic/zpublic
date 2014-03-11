@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="yes"?>
 <MSG_CFG>
-  <category CategoryName="登录/注册">
+  <category CategoryName="登录&amp;注册">
     <msg MsgId="10001" MsgProperty="0" MsgName="CSLoginReq" MsgNote="登录请求" MsgRemark="" ErrorList="">
       <param DataType="std::string" Purpose="variable" ParamName="account" ParamNote="登录帐号（邮箱地址）" />
       <param DataType="std::string" Purpose="variable" ParamName="password" ParamNote="密码" />
@@ -43,4 +43,21 @@
     </msg>
   </category>
   <category CategoryName="PHP后台" />
+  <category CategoryName="系统">
+    <msg MsgId="500" MsgProperty="1" MsgName="SCErrorNotify" MsgNote="错误通知" MsgRemark="错误码通知" ErrorList="">
+      <param DataType="uint32" Purpose="variable" ParamName="error_code" ParamNote="错误码" />
+    </msg>
+    <msg MsgId="501" MsgProperty="1" MsgName="SCErrorExNotify" MsgNote="扩展的错误通知" MsgRemark="错误码通知（带字符串描述）" ErrorList="">
+      <param DataType="uint32" Purpose="variable" ParamName="error_code" ParamNote="错误码" />
+      <param DataType="std::string" Purpose="variable" ParamName="reason" ParamNote="错误原因" />
+    </msg>
+  </category>
+  <category CategoryName="角色属性">
+    <msg MsgId="15000" MsgProperty="0" MsgName="CSPropertiesReq" MsgNote="请求玩家属性" MsgRemark="" ErrorList="" />
+    <msg MsgId="15001" MsgProperty="1" MsgName="SCPropertiesRsp" MsgNote="玩家属性返回" MsgRemark="财富：&#xD;&#xA;财富是综合所有不同世界的货币算出来的价值。可以用于普通消费。" ErrorList="">
+      <param DataType="uint64" Purpose="variable" ParamName="coins" ParamNote="宇宙币" />
+      <param DataType="uint32" Purpose="variable" ParamName="level" ParamNote="等级" />
+      <param DataType="uint32" Purpose="variable" ParamName="exp" ParamNote="宇宙气（经验值）" />
+    </msg>
+  </category>
 </MSG_CFG>

@@ -78,3 +78,4 @@ obj
 /3rdparty/poco/Foundation/testsuite/bin
 
 .idea
+*.db
