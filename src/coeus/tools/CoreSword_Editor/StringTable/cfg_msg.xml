@@ -49,7 +49,15 @@
     </msg>
     <msg MsgId="501" MsgProperty="1" MsgName="SCErrorExNotify" MsgNote="扩展的错误通知" MsgRemark="错误码通知（带字符串描述）" ErrorList="">
       <param DataType="uint32" Purpose="variable" ParamName="error_code" ParamNote="错误码" />
-      <param DataType="std::string" Purpose="variable" ParamName="content" ParamNote="错误内容文字描述" />
+      <param DataType="std::string" Purpose="variable" ParamName="reason" ParamNote="错误原因" />
+    </msg>
+  </category>
+  <category CategoryName="角色属性">
+    <msg MsgId="15000" MsgProperty="0" MsgName="CSPropertiesReq" MsgNote="请求玩家属性" MsgRemark="" ErrorList="" />
+    <msg MsgId="15001" MsgProperty="1" MsgName="SCPropertiesRsp" MsgNote="玩家属性返回" MsgRemark="财富：&#xD;&#xA;财富是综合所有不同世界的货币算出来的价值。可以用于普通消费。" ErrorList="">
+      <param DataType="uint64" Purpose="variable" ParamName="coins" ParamNote="宇宙币" />
+      <param DataType="uint32" Purpose="variable" ParamName="level" ParamNote="等级" />
+      <param DataType="uint32" Purpose="variable" ParamName="exp" ParamNote="宇宙气（经验值）" />
     </msg>
   </category>
 </MSG_CFG>

@@ -18,12 +18,19 @@ GameSession::~GameSession()
 
 void GameSession::send_error(uint32 errorCode)
 {
+    Protocol::SCErrorNotify errorNotify;
+    errorNotify.error_code = errorCode;
 
+    send_message(Opcodes::SCErrorNotify, errorNotify);
 }
 
 void GameSession::send_error(uint32 errorCode, const std::string& reason)
 {
+    Protocol::SCErrorExNotify errorExNotify;
+    errorExNotify.error_code = errorCode;
+    errorExNotify.reason = reason;
 
+    send_message(Opcodes::SCErrorExNotify, errorExNotify);
 }
 
 void GameSession::setContext(Player* player)
