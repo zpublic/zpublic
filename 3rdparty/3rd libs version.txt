@@ -24,3 +24,6 @@ hp_socket
 
 jsonlib/jsoncpp
 0.6.0-rc2
+
+stlsoft
+1.9.117
