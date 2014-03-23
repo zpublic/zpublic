@@ -12,13 +12,8 @@
 
 bool RoleConfig::parse()
 {
-    WCHAR szFilePath[MAX_PATH + 1] = {0};
-    ::GetModuleFileNameW(0, szFilePath, MAX_PATH);
-    ::PathRemoveFileSpecW(szFilePath);
-    ::PathAppend(szFilePath, CA2W(ConfigFile::RoleConfigPath.c_str(), CP_UTF8));
-
     Json::Value value;
-    LOAD_CONFIG(std::string(CW2A(szFilePath, CP_UTF8)), value);
+    LOAD_CLIENT_CONFIG(ConfigFile::RoleConfigPath, value);
 
     Json::Value jsonRoot = value["characters"];
 
