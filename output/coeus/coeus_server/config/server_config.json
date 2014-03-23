@@ -14,7 +14,9 @@
 			"listen_address" : "0.0.0.0:36911",
 			"max_queued"     : 64,
 			"max_threads"    : 8,
-			"sqlite3_file" : "./data/coeus_main.db"	//sqlite3数据库文件路径
+			"sqlite3_file"   : "./data/coeus_main.db",	//sqlite3数据库文件路径
+			"mysql_server"   : "0.0.0.0:3306",
+			"mysql_database" : "coeus_game"
 		}
 	}
 }
