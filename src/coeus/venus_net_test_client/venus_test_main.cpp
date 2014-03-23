@@ -62,9 +62,21 @@ public:
                     createRequest.gender = 0;
                     createRequest.nickname = "ÎðÔÚ¸¡É³Öþ¸ßÌ¨";
                     g_tcpClient->sendMessage(Opcodes::CSCreateCharacterReq, createRequest);
+
+                    Protocol::CSPropertiesReq propertiesRequest;
+                    g_tcpClient->sendMessage(Opcodes::CSPropertiesReq, propertiesRequest);
                 }
 
                 break;
+            }
+        case Opcodes::SCPropertiesRsp:
+            {
+                Protocol::SCPropertiesRsp response;
+                DECODE_MESSAGE(response, message);
+
+                printf("SCPropertiesRsp (coins = %d, level = %d, exp = %d)", response.coins, response.level, response.exp);
+
+                break;;
             }
         default:
             break;

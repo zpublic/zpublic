@@ -47,6 +47,9 @@
     <ClCompile Include="character_create_handler.cpp">
       <Filter>handler</Filter>
     </ClCompile>
+    <ClCompile Include="properties_handler.cpp">
+      <Filter>handler</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="service">
