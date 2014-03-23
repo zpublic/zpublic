@@ -31,6 +31,9 @@ public:
     void checkNicknameExist(const NetworkPacket::Ptr& packet);
     void characterCreateHandler(const NetworkPacket::Ptr& packer);
 
+    // Ù–‘œ‡πÿ
+    void getPropertiesHandler(const NetworkPacket::Ptr& packet);
+
 private:
     void setContext(Player* player);
     bool loadPlayer();

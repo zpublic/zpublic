@@ -178,6 +178,7 @@
     </ClCompile>
     <ClCompile Include="player.cpp" />
     <ClCompile Include="player_manager.cpp" />
+    <ClCompile Include="properties_handler.cpp" />
     <ClCompile Include="server_config.cpp" />
     <ClCompile Include="server_main.cpp" />
     <ClCompile Include="user_service_handler.cpp" />

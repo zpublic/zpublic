@@ -10,6 +10,7 @@ OPCODE_REGISTER_BEGIN(GameOpcodeRegistry, GameSession)
     REGISTER_HANDLER(Opcodes::CSGetRandomNameReq, getRandomNicknameHandler);
     REGISTER_HANDLER(Opcodes::CSCheckNicknameExistReq, checkNicknameExist);
     REGISTER_HANDLER(Opcodes::CSCreateCharacterReq, characterCreateHandler);
+    REGISTER_HANDLER(Opcodes::CSPropertiesReq, getPropertiesHandler);
 OPCODE_REGISTER_END()
 
 #endif
