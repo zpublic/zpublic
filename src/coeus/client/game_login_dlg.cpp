@@ -12,16 +12,6 @@
 #include "util_function.h"
 #include "game_create_role_dlg.h"
 
-#define WINDOW_MAX_WIDTH            460
-#define WINDOW_MAX_HEIGHT           465
-
-#define WINDOW_MIN_WIDTH            460
-#define WINDOW_MIN_HEIGHT           55
-
-#define TIMER_BUTTON_MOVE           1
-
-#define NUM_BUFFER_MAX              260
-
 LRESULT GameLoginDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
 {
     LoadIcon(NULL, MAKEINTRESOURCE(IDI_MIN_MAIN));
