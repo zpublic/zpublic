@@ -26,7 +26,7 @@ public:
 
     virtual void onMessage(uint16 opcode, const NetworkPacket::Ptr& message)
     {
-        printf("onMessage() : [opcode = %d]\n", opcode);
+        //printf("onMessage() : [opcode = %d]\n", opcode);
 
         switch (opcode)
         {
@@ -34,14 +34,14 @@ public:
             {
                 Protocol::SCGetRandomNameRsp response;
                 DECODE_MESSAGE(response, message);
-                printf("GetRandomNickname (Nickname = %s)", response.random_name.c_str());
+                printf("GetRandomNickname (Nickname = %s)\n", response.random_name.c_str());
                 break;
             }
         case Opcodes::SCLoginRsp:
             {
                 Protocol::SCLoginRsp response;
                 DECODE_MESSAGE(response, message);
-                printf("Login (result = %d, character_create_require = %d, player_id = %d)", 
+                printf("Login (result = %d, character_create_require = %d, player_id = %d)\n", 
                     response.login_result, 
                     response.character_create_require, 
                     response.player_id);
@@ -74,7 +74,7 @@ public:
                 Protocol::SCPropertiesRsp response;
                 DECODE_MESSAGE(response, message);
 
-                printf("SCPropertiesRsp (coins = %d, level = %d, exp = %d)", response.coins, response.level, response.exp);
+                printf("SCPropertiesRsp (coins = %d, level = %d, exp = %d)\n", response.coins, response.level, response.exp);
 
                 break;;
             }

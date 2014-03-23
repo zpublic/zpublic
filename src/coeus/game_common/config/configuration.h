@@ -30,4 +30,20 @@ private:
 #define LOAD_CONFIG(config_file, value) \
     if (!Configuration::loadConfig(config_file, value)) return false
 
+#define LOAD_CLIENT_CONFIG(config_file, value)                              \
+    do                                                                      \
+    {                                                                       \
+        WCHAR szFilePath[MAX_PATH + 1] = {0};                               \
+        ::GetModuleFileNameW(0, szFilePath, MAX_PATH);                      \
+        ::PathRemoveFileSpecW(szFilePath);                                  \
+        ::PathAppend(                                                       \
+            szFilePath,                                                     \
+            CA2W(config_file.c_str(),CP_UTF8));                             \
+        if (!Configuration::loadConfig(                                     \
+            std::string(CW2A(szFilePath,CP_UTF8)), value))                  \
+        {                                                                   \
+            return false;                                                   \
+        }                                                                   \
+    } while (false);
+
 #endif

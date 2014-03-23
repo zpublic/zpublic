@@ -13,7 +13,7 @@
 bool RoleConfig::parse()
 {
     Json::Value value;
-    LOAD_CONFIG(ConfigFile::RoleConfigPath, value);
+    LOAD_CLIENT_CONFIG(ConfigFile::RoleConfigPath, value);
 
     Json::Value jsonRoot = value["characters"];
 

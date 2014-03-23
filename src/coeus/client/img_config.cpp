@@ -13,7 +13,7 @@
 bool ImgConfig::parse()
 {
     Json::Value value;
-    LOAD_CONFIG(ConfigFile::ImgConfigPath, value);
+    LOAD_CLIENT_CONFIG(ConfigFile::ImgConfigPath, value);
 
     Json::Value jsonRoot = value["resimg"];
 

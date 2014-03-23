@@ -91,7 +91,7 @@ bool GameDatabase::isNicknameExist(const std::string& nickname)
 bool GameDatabase::loadCharacterInfo(uint64 userGuid, PlayerDB* playerDB)
 {
     *_db_stmt = (*_db_session 
-        << "SELECT character_id, character_type, nickname, gender, belief FROM player_character WHERE userGuid = :userGuid;",
+        << "SELECT character_id, character_type, nickname, gender, belief FROM player_characters WHERE userGuid = :userGuid;",
         Poco::Data::limit(1), 
         Poco::Data::use(userGuid),
         Poco::Data::into(userGuid),

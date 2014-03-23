@@ -13,7 +13,7 @@
 bool BeliefConfig::parse()
 {
     Json::Value value;
-    LOAD_CONFIG(ConfigFile::BadgeConfigPath, value);
+    LOAD_CLIENT_CONFIG(ConfigFile::BadgeConfigPath, value);
 
     Json::Value jsonRoot = value["belief"];
 
