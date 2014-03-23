@@ -37,7 +37,7 @@ struct NetworkPacket : Poco::RefCountedObject
 };
 
 #define DECODE_MESSAGE(network_message, data) \
-    network_message.decode((const byte*)&data->message[0], data->message.size());
+    if (!data->message.empty()) network_message.decode((const byte*)&data->message[0], data->message.size());
 
 // 网络连接关闭原因
 enum ShutdownReason
