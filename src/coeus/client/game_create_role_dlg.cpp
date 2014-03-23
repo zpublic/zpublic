@@ -82,7 +82,12 @@ void GameCreateRoleDlg::OnSelectHuntsmanMan()
     CString csName;
     CString csDecs;
     CStringA csImgSkin;
-    RoleConfig::get_mutable_instance().gainRoleConfigInfo(0, 0, csName, csDecs, csImgSkin);
+
+    RoleConfig::get_mutable_instance().gainRoleConfigInfo(enumRoleNameType_Hunts,
+        enumRoleGenderType_Man,
+        csName,
+        csDecs,
+        csImgSkin);
 
     //m_bSelectedGender = GENDER_MALE;
     m_bSelectedGender = Gender::Male;
@@ -97,7 +102,12 @@ void GameCreateRoleDlg::OnSelectHuntsmanWoMan()
     CString csName;
     CString csDecs;
     CStringA csImgSkin;
-    RoleConfig::get_mutable_instance().gainRoleConfigInfo(0, 1, csName, csDecs, csImgSkin);
+
+    RoleConfig::get_mutable_instance().gainRoleConfigInfo(enumRoleNameType_Hunts,
+        enumRoleGenderType_Woman,
+        csName,
+        csDecs,
+        csImgSkin);
 
     //m_bSelectedGender = GENDER_FEMALE;
     m_bSelectedGender = Gender::Female;
@@ -112,7 +122,12 @@ void GameCreateRoleDlg::OnSelectMechanicianMan()
     CString csName;
     CString csDecs;
     CStringA csImgSkin;
-    RoleConfig::get_mutable_instance().gainRoleConfigInfo(1, 0, csName, csDecs, csImgSkin);
+
+    RoleConfig::get_mutable_instance().gainRoleConfigInfo(enumRoleNameType_Mechanician,
+        enumRoleGenderType_Man,
+        csName,
+        csDecs,
+        csImgSkin);
 
     //m_bSelectedGender = GENDER_MALE;
     m_bSelectedGender = Gender::Male;
@@ -127,7 +142,12 @@ void GameCreateRoleDlg::OnSelectMechanicianWoMan()
     CString csName;
     CString csDecs;
     CStringA csImgSkin;
-    RoleConfig::get_mutable_instance().gainRoleConfigInfo(1, 1, csName, csDecs, csImgSkin);
+
+    RoleConfig::get_mutable_instance().gainRoleConfigInfo(enumRoleNameType_Mechanician,
+        enumRoleGenderType_Woman,
+        csName,
+        csDecs,
+        csImgSkin);
 
     //m_bSelectedGender = GENDER_FEMALE;
     m_bSelectedGender = Gender::Female;

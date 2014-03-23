@@ -13,6 +13,18 @@
 #include "game_common/config/config_manager.h"
 #include "config_defind.h"
 
+typedef enum _RoleNameType
+{
+    enumRoleNameType_Hunts,
+    enumRoleNameType_Mechanician,
+}RoleNameType;
+
+typedef enum _RoleGenderType
+{
+    enumRoleGenderType_Man,
+    enumRoleGenderType_Woman,
+}RoleGenderType;
+
 struct GameRoleConfigOb
 {
     CString csName;
