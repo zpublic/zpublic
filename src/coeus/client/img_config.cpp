@@ -12,8 +12,13 @@
 
 bool ImgConfig::parse()
 {
+    WCHAR szFilePath[MAX_PATH + 1] = {0};
+    ::GetModuleFileNameW(0, szFilePath, MAX_PATH);
+    ::PathRemoveFileSpecW(szFilePath);
+    ::PathAppend(szFilePath, CA2W(ConfigFile::ImgConfigPath.c_str(), CP_UTF8));
+
     Json::Value value;
-    LOAD_CONFIG(ConfigFile::ImgConfigPath, value);
+    LOAD_CONFIG(std::string(CW2A(szFilePath, CP_UTF8)), value);
 
     Json::Value jsonRoot = value["resimg"];
 
