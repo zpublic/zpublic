@@ -17,13 +17,13 @@ typedef enum _RoleNameType
 {
     enumRoleNameType_Hunts,
     enumRoleNameType_Mechanician,
-};
+}RoleNameType;
 
 typedef enum _RoleGenderType
 {
     enumRoleGenderType_Man,
     enumRoleGenderType_Woman,
-};
+}RoleGenderType;
 
 struct GameRoleConfigOb
 {
