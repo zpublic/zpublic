@@ -4,6 +4,7 @@
 LoginLogic GameLogic::login;
 RegisterLogic GameLogic::regis;
 CreateRoleLogic GameLogic::crole;
+CharacterInfo GameLogic::character_info;
 
 void GameLogic::user_login_handler(const NetworkPacket::Ptr& message)
 {
@@ -64,4 +65,11 @@ void GameLogic::create_role_handler(const NetworkPacket::Ptr& message)
     {
         crole.NotifyCreateRoleResult();
     }
+}
+
+void GameLogic::properties_handler( const NetworkPacket::Ptr& message )
+{
+    SCPropertiesRsp msg;
+    DECODE_MESSAGE(msg, message);
+    character_info.NotifyProperties(msg.coins, msg.exp, msg.level);
 }

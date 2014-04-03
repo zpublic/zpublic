@@ -11,4 +11,5 @@ enum emUserMsg
     msg_player_info,
     msg_traymessage,                                ///> 托盘消息
     msg_game_quit,                                  ///> 退出游戏
+    msg_character_info,                             ///> 获取到角色信息
 };

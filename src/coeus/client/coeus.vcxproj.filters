@@ -165,6 +165,9 @@
     <ClCompile Include="res_img_pool.cpp">
       <Filter>source\game\pool</Filter>
     </ClCompile>
+    <ClCompile Include="character_info.cpp">
+      <Filter>source\game\logic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bkwinres.h">
@@ -520,6 +523,9 @@
     </ClInclude>
     <ClInclude Include="res_img_pool.h">
       <Filter>source\game\pool</Filter>
+    </ClInclude>
+    <ClInclude Include="character_info.h">
+      <Filter>source\game\logic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

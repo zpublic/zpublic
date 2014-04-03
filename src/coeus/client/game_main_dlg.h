@@ -66,6 +66,8 @@ protected:
 
     LRESULT OnGameClose(UINT uMsg, WPARAM wParam, LPARAM lParam);
 
+    LRESULT OnPropertiesRsp(UINT uMsg, WPARAM wParam, LPARAM lParam);
+
 protected:
     struct ListItemData
     {
@@ -109,6 +111,7 @@ protected:
         MSG_BK_NOTIFY(IDC_RICHVIEW_WIN_EX)
         MESSAGE_HANDLER_EX(msg_traymessage, OnTrayMessage)
         MESSAGE_HANDLER_EX(msg_game_quit, OnGameClose)
+        MESSAGE_HANDLER_EX(msg_character_info, OnPropertiesRsp)
         CHAIN_MSG_MAP(CBkDialogViewEx)
         CHAIN_MSG_MAP(CWHRoundRectFrameHelper<GameMainDlg>)
         MSG_WM_CLOSE(OnClose)

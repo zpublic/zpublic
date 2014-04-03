@@ -31,6 +31,9 @@ LRESULT GameMainDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
 
     SetItemText(IDM_LB_USERNAME, _T("ËÀÈË"));
 
+    GameLogic::character_info.SetCallbackDlg(m_hWnd);
+    GameLogic::character_info.PropertiesReq();
+
     return TRUE;
 }
 
@@ -268,4 +271,11 @@ LRESULT GameMainDlg::OnGameClose(UINT uMsg, WPARAM wParam, LPARAM lParam)
     }
 
     return TRUE;
+}
+
+LRESULT GameMainDlg::OnPropertiesRsp( UINT uMsg, WPARAM wParam, LPARAM lParam )
+{
+    CharacterInfo::Properties *pp = (CharacterInfo::Properties*)wParam;
+    pp->coins;
+    return S_OK;
 }

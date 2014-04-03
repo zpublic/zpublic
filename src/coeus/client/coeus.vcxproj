@@ -143,6 +143,7 @@
     <ClCompile Include="..\..\..\3rdparty\publish\wtlhelper\ksOleClientSite.cpp" />
     <ClCompile Include="..\..\..\public\crypt\KMD5.cpp" />
     <ClCompile Include="belief_config.cpp" />
+    <ClCompile Include="character_info.cpp" />
     <ClCompile Include="config_loader.cpp" />
     <ClCompile Include="create_role_logic.cpp" />
     <ClCompile Include="game_create_role_dlg.cpp" />
@@ -259,6 +260,7 @@
     <ClInclude Include="..\protocol\protocol.h" />
     <ClInclude Include="belief_config.h" />
     <ClInclude Include="bkwinres.h" />
+    <ClInclude Include="character_info.h" />
     <ClInclude Include="coeus.h" />
     <ClInclude Include="config_defind.h" />
     <ClInclude Include="config_loader.h" />
