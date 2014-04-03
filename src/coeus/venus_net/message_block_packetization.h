@@ -53,11 +53,11 @@ public:
     virtual ~MessageBlockPacketization();
 
 public:
-    bool appendBlock(const byte* buffer, size_t size);
+    bool appendBlock(const byte* buffer, int32 size);
 
 private:
-    void addPending(const byte* buff, size_t len);
-    bool checkMessageLen(size_t len);
+    void addPending(const byte* buff, int32 len);
+    bool checkMessageLen(int32 len);
 
 private:
     std::function<void (BasicStreamPtr&)> _messageCallback;

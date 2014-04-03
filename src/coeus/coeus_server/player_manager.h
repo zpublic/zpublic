@@ -10,7 +10,7 @@ class PlayerManager
 	: public Venus::Singleton<PlayerManager>
 {
 public:
-	bool init();
+	bool initialize();
 	void destroy();
 
 public:
@@ -19,7 +19,7 @@ public:
 
 public:
 	Player* getPlayer(uint64 playerId);
-	int32 playerCount() const;
+	size_t playerCount() const;
 	void killOffline(Player* player, bool offlineNotify = true);
 	Player* loadFromCache(uint64 playerId);
 

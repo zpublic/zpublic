@@ -30,7 +30,7 @@ public:
 
 public:
     void releasable();
-	void sendMessage(int16 opcode, const byte* buff, size_t size);
+	void sendMessage(int16 opcode, const byte* buff, uint32 size);
 	void sendMessage(uint16 opcode, NetworkMessage& message);
 	std::string& address();
     void close(const ShutdownReason& reason);

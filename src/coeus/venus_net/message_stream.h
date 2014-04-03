@@ -34,7 +34,7 @@ public:
 	MessageStream& operator >>(std::string& v);
 
 private:
-	void resize(uint32 sz);
+	void resize(size_t sz);
 };
 
 #endif

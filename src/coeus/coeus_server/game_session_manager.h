@@ -15,7 +15,7 @@ class GameSessionManager
     typedef std::vector<uint64> PlayerIDList;
 
 public:
-    bool init();
+    bool initialize();
     void destroy();
     static GameSession* createSession(ServerConnection* serverConnection);
     static void destroySession(GameSession* session);
@@ -24,7 +24,7 @@ public:
     bool addSession(GameSession* session);
     void removeSession(uint64 sessionId);
     GameSession* getSession(uint64 sessionId);
-    int32 sessionCount() const;
+    size_t sessionCount() const;
 
     void broadcast(uint32 opcode, NetworkMessage& message);
     void send_message(uint64 player_id, uint32 opcode, NetworkMessage& message);

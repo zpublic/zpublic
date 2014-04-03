@@ -5,7 +5,7 @@ void Buffer::swapBuffer(Buffer& other)
     std::swap(i, other.i);
 }
 
-Buffer::Container::Container(size_type maxCapacity) :
+Buffer::Container::Container(size_t maxCapacity) :
 _buf(0),
 _size(0),
 _capacity(0),
@@ -42,13 +42,13 @@ void Buffer::Container::clear()
     _capacity = 0;
 }
 
-void Buffer::Container::reserve(size_type n)
+void Buffer::Container::reserve(size_t n)
 {
-    size_type c = _capacity;
+    size_t c = _capacity;
     if(n > _capacity)
     {
-        _capacity = std::max<size_type>(n, min(2 * _capacity, _maxCapacity));
-        _capacity = std::max<size_type>(static_cast<size_type>(240), _capacity);
+        _capacity = std::max<size_t>(n, min(2 * _capacity, _maxCapacity));
+        _capacity = std::max<size_t>(static_cast<int>(240), _capacity);
     }
     else if(n < _capacity)
     {

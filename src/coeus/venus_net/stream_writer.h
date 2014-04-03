@@ -7,12 +7,12 @@ using namespace std;
 class StreamWriter
 {
 public:
-	StreamWriter(char* buff, int size);
-    StreamWriter(byte* buff, int size);
+	StreamWriter(char* buff, size_t size);
+    StreamWriter(byte* buff, size_t size);
 	~StreamWriter();
 
-	void write(const char* buff, int32 size);
-    void write(const byte* buff, int32 size);
+	void write(const char* buff, size_t size);
+    void write(const byte* buff, size_t size);
 
 	StreamWriter& operator <<(const int8 v);
 	StreamWriter& operator <<(const vector<int8> v);
@@ -39,8 +39,8 @@ public:
 
 public:
 	char* _buff;
-	int32 _size;
-	int32 _offset;
+	size_t _size;
+	size_t _offset;
 };
 
 #endif

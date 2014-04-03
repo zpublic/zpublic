@@ -1,13 +1,13 @@
 #include "stream_writer.h"
 
-StreamWriter::StreamWriter(char* buff, int size) :
+StreamWriter::StreamWriter(char* buff, size_t size) :
 _buff(buff),
 _size(size),
 _offset(0)
 {
 }
 
-StreamWriter::StreamWriter(byte* buff, int size) :
+StreamWriter::StreamWriter(byte* buff, size_t size) :
     _buff((char*)buff),
     _size(size),
     _offset(0)
@@ -18,7 +18,7 @@ StreamWriter::~StreamWriter()
 {
 }
 
-void StreamWriter::write(const char* buff, int32 size)
+void StreamWriter::write(const char* buff, size_t size)
 {
 	if ((_size - _offset) < size)
 	{
@@ -29,7 +29,7 @@ void StreamWriter::write(const char* buff, int32 size)
 	_offset += size;
 }
 
-void StreamWriter::write(const byte* buff, int32 size)
+void StreamWriter::write(const byte* buff, size_t size)
 {
     write((const char*)buff, size);
 }
