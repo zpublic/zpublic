@@ -17,8 +17,8 @@
 			"sqlite3_file"   : "./data/coeus_main.db",	//sqlite3数据库文件路径
 			"mysql_server"   : "0.0.0.0:3306",
 			"mysql_database" : "coeus_game",
-			"mysql_user"     : "root",
-			"mysql_password" : "root"
+			"mysql_user"     : "coeus_game",
+			"mysql_password" : "coeus_game"
 		}
 	}
 }
