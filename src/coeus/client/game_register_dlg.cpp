@@ -14,6 +14,7 @@ LRESULT GameRegisterDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
     m_MailNameEdit.SetColor(RGB(0,0,0));
     m_MailNameEdit.SetNotify(m_hWnd);
 
+    m_PasswordEdit.SetStyle(ES_PASSWORD);
     m_PasswordEdit.Create( 
         GetViewHWND(), NULL, NULL, 
         WS_CHILD,
@@ -22,6 +23,7 @@ LRESULT GameRegisterDlg::OnInitDialog(HWND hWnd, LPARAM lParam)
     m_PasswordEdit.SetColor(RGB(0,0,0));
     m_PasswordEdit.SetNotify(m_hWnd);
 
+    m_TruePasswordEdit.SetStyle(ES_PASSWORD);
     m_TruePasswordEdit.Create( 
         GetViewHWND(), NULL, NULL, 
         WS_CHILD,
