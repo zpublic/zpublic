@@ -1,7 +1,6 @@
 #include "game_service.h"
-#include "db_define.h"
-
 #include <Poco/Data/Common.h>
+#include <Poco/Data/SQLite/Connector.h>
 #include "game_database.h"
 #include "game_session_manager.h"
 #include "player_manager.h"
@@ -30,9 +29,9 @@ bool GameService::initialize()
         ConfigLoader::getInstance().initialize(ConfigManager::getInstancePtr());
 		ConfigManager::getInstance().start();
         ConfigManager::getInstance().wait();
-		CHECK_INITIALIZE(GameDatabase::getInstance().initialize(), "Database init OK.", "Database init failed.");
-		CHECK_INITIALIZE(PlayerManager::getInstance().initialize(), "PlayerManager init OK.", "PlayerManager init failed.");
-		CHECK_INITIALIZE(GameSessionManager::getInstance().initialize(), "GameSessionManager init OK.", "GameSessionManager init failed.");
+		CHECK_INITIALIZE(registerDatabase(), "Database registered OK.", "Database register failed.");
+		CHECK_INITIALIZE(PlayerManager::getInstance().init(), "PlayerManager init OK.", "PlayerManager init failed.");
+		CHECK_INITIALIZE(GameSessionManager::getInstance().init(), "GameSessionManager init OK.", "GameSessionManager init failed.");
 	}
 	catch (...)
 	{
@@ -47,5 +46,16 @@ void GameService::destroy()
 {
 	GameSessionManager::getInstance().destroy();
 	PlayerManager::getInstance().destroy();
-	GameDatabase::getInstance().destroy();
+	unregisterDatabase();
+}
+
+bool GameService::registerDatabase()
+{
+	Poco::Data::SQLite::Connector::registerConnector();
+	return true;
+}
+
+void GameService::unregisterDatabase()
+{
+	Poco::Data::SQLite::Connector::unregisterConnector();
 }

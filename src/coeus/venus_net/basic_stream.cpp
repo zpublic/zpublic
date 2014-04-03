@@ -23,9 +23,9 @@ void BasicStream::swap(BasicStream& other)
     swapBuffer(other);
 }
 
-void BasicStream::resize(size_t sz)
+void BasicStream::resize(Container::size_type sz)
 {
-    size_t iPos = 0;
+    int iPos = 0;
     if (0 != i)
     {
         iPos = i - b.begin();
@@ -76,7 +76,7 @@ inline void BasicStream::writeSize(int32 v)
     }
 }
 
-void BasicStream::rewriteSize(size_t v, Container::iterator dest)
+void BasicStream::rewriteSize(int32 v, Container::iterator dest)
 {
 #ifdef VENUS_BIG_ENDIAN
 	const byte* src = reinterpret_cast<const byte*>(&v) + sizeof(int32) - 1;
@@ -123,7 +123,7 @@ void BasicStream::write(byte v)
 
 void BasicStream::write(int16 v)
 {
-    size_t pos = b.size();
+    Container::size_type pos = b.size();
     resize(pos + sizeof(short));
     byte* dest = &b[pos];
 #ifdef VENUS_BIG_ENDIAN
@@ -168,7 +168,7 @@ void BasicStream::read(uint16& v)
 
 void BasicStream::write(int32 v) // Inlined for performance reasons.
 {
-	size_t pos = b.size();
+	Container::size_type pos = b.size();
 	resize(pos + sizeof(int32));
 	byte* dest = &b[pos];
 #ifdef VENUS_BIG_ENDIAN
@@ -239,7 +239,7 @@ void BasicStream::read(uint32& v)
 
 void BasicStream::write(int64 v)
 {
-    size_t pos = b.size();
+    Container::size_type pos = b.size();
     resize(pos + sizeof(int64));
     byte* dest = &b[pos];
 #ifdef VENUS_BIG_ENDIAN
@@ -298,7 +298,7 @@ void BasicStream::read(int64& v)
 
 void BasicStream::write(float v)
 {
-    size_t pos = b.size();
+    Container::size_type pos = b.size();
     resize(pos + sizeof(float));
     byte* dest = &b[pos];
 #ifdef VENUS_BIG_ENDIAN
@@ -341,7 +341,7 @@ void BasicStream::read(float& v)
 
 void BasicStream::write(double v)
 {
-    size_t pos = b.size();
+    Container::size_type pos = b.size();
     resize(pos + sizeof(double));
     byte* dest = &b[pos];
 #ifdef VENUS_BIG_ENDIAN
@@ -427,7 +427,7 @@ void BasicStream::write(const std::string& v)
 	write(sz);
 	if(sz > 0)
 	{
-		size_t pos = b.size();
+		Container::size_type pos = b.size();
 		resize(pos + sz);
 		memcpy(&b[pos], v.data(), sz);
 	}

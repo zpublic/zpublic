@@ -70,7 +70,7 @@ void TcpClient::sendMessage(const BasicStreamPtr& stream)
     bool writeable = _socket->poll(0, Poco::Net::Socket::SelectMode::SELECT_WRITE);
     if (writeable)
     {
-        _socket->sendBytes((const void*)stream->b.begin(), static_cast<int32>(stream->b.size()));
+        _socket->sendBytes((const void*)stream->b.begin(), stream->b.size());
     }
 }
 

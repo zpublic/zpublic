@@ -16,7 +16,7 @@ MessageStream& MessageStream::operator <<(const uint8&v)
 
 MessageStream& MessageStream::operator <<(const int16& v)
 {
-	size_t pos = b.size();
+	Container::size_type pos = b.size();
 	resize(pos + sizeof(short));
 	byte* dest = &b[pos];
 #ifdef VENUS_BIG_ENDIAN
@@ -41,7 +41,7 @@ MessageStream& MessageStream::operator <<(const uint16& v)
 
 MessageStream& MessageStream::operator <<(const int32& v)
 {
-	size_t pos = b.size();
+	Container::size_type pos = b.size();
 	resize(pos + sizeof(int32));
 	byte* dest = &b[pos];
 #ifdef VENUS_BIG_ENDIAN
@@ -70,7 +70,7 @@ MessageStream& MessageStream::operator <<(const uint32&v)
 
 MessageStream& MessageStream::operator <<(const int64& v)
 {
-    size_t pos = b.size();
+    Container::size_type pos = b.size();
     resize(pos + sizeof(int64));
     byte* dest = &b[pos];
 #ifdef VENUS_BIG_ENDIAN
@@ -107,7 +107,7 @@ MessageStream& MessageStream::operator <<(const uint64& v)
 
 MessageStream& MessageStream::operator <<(const float& v)
 {
-	size_t pos = b.size();
+	Container::size_type pos = b.size();
 	resize(pos + sizeof(float));
 	byte* dest = &b[pos];
 #ifdef VENUS_BIG_ENDIAN
@@ -129,7 +129,7 @@ MessageStream& MessageStream::operator <<(const float& v)
 
 MessageStream& MessageStream::operator <<(const double& v)
 {
-	size_t pos  = b.size();
+	Container::size_type pos = b.size();
 	resize(pos + sizeof(double));
 	byte* dest = &b[pos];
 #ifdef VENUS_BIG_ENDIAN
@@ -174,7 +174,7 @@ MessageStream& MessageStream::operator <<(const std::string& v)
 	(*this) << sz;
 	if(sz > 0)
 	{
-		size_t pos  = b.size();
+		Container::size_type pos = b.size();
 		resize(pos + sz);
 		memcpy(&b[pos], v.data(), sz);
 	}
@@ -438,12 +438,12 @@ MessageStream& MessageStream::operator >>(std::string& v)
 	return (*this);
 }
 
-void MessageStream::resize(size_t sz)
+void MessageStream::resize(uint32 sz)
 {
 	int iPos = 0;
 	if (0 != i)
 	{
-		iPos = static_cast<int>(i - b.begin());
+		iPos = i - b.begin();
 	}
 
 	b.resize(sz);

@@ -15,11 +15,11 @@ public:
 
     void swap(BasicStream& other);
 
-    void resize(size_t sz);
+    void resize(Container::size_type sz);
 
     void readSize(int32& v);
     void writeSize(int32 v);
-    void rewriteSize(size_t v, Container::iterator dest);
+    void rewriteSize(int32 v, Container::iterator dest);
 
     void write(byte v);
     void read(byte& v);
@@ -53,12 +53,12 @@ public:
     void write(const std::wstring& v);
     void read(std::wstring& v);
 
-    size_t left_size()
+    unsigned left_size()
     {
         return b.end() - i;
     }
 
-    size_t pass_size()
+    int32 pass_size()
     {
         return (i - b.begin());
     }
@@ -153,13 +153,13 @@ public:
     void append(const byte* ptr, size_t n)
 	{
     	if (n <= 0) return;
-		size_t size = b.size();
+		int size = b.size();
 		resize(size + n);
 		memcpy(b.begin() + size, ptr, n);
 	}
 
 private:
-    const int _messageSizeMax;
+    const Container::size_type _messageSizeMax;
 };
 
 typedef Poco::AutoPtr<BasicStream> BasicStreamPtr;

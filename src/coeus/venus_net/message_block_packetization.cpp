@@ -12,7 +12,7 @@ MessageBlockPacketization::~MessageBlockPacketization()
 
 }
 
-bool MessageBlockPacketization::appendBlock(const byte* buffer, int32 bytes_transferred)
+bool MessageBlockPacketization::appendBlock(const byte* buffer, size_t bytes_transferred)
 {
     for (int32 readIdx = 0; readIdx < bytes_transferred; )
     {
@@ -50,7 +50,7 @@ bool MessageBlockPacketization::appendBlock(const byte* buffer, int32 bytes_tran
                 }
 
                 //如果已足4字节，先把4字节剩下的部分追加到PendingStream中
-                int32 srcPendingLen = static_cast<int32>(_pendingStream->b.size());
+                int32 srcPendingLen = _pendingStream->b.size();
                 _pendingStream->append((const byte*)buffer + readIdx, NetworkParam::kMagicFlagLength - _pendingStream->b.size());
 
                 //读位置前移
@@ -68,7 +68,7 @@ bool MessageBlockPacketization::appendBlock(const byte* buffer, int32 bytes_tran
             if (checkMessageLen(msgLen) == false) return false;
 
             //不是完整的包，设置中间的超时时间并继续等待
-            if (leftLen < (uint32)(msgLen - _pendingStream->b.size()))
+            if (leftLen < (int32)(msgLen - _pendingStream->b.size()))
             {
                 //添加Pending，并返回
                 addPending((const byte*)(buffer + readIdx), leftLen);
@@ -80,7 +80,7 @@ bool MessageBlockPacketization::appendBlock(const byte* buffer, int32 bytes_tran
             }
 
             //剩下要读的数据长度
-            needReadLen = msgLen - static_cast<int32>(_pendingStream->b.size());
+            needReadLen = msgLen - _pendingStream->b.size();
 
             //将PendingStream取出来
             _packetStreamPtr = _pendingStream;
@@ -138,12 +138,12 @@ bool MessageBlockPacketization::appendBlock(const byte* buffer, int32 bytes_tran
     return true;
 }
 
-void MessageBlockPacketization::addPending(const byte* buff, int32 len)
+void MessageBlockPacketization::addPending(const byte* buff, size_t len)
 {
     _pendingStream->append(buff, len);
 }
 
-bool MessageBlockPacketization::checkMessageLen(int32 len)
+bool MessageBlockPacketization::checkMessageLen(size_t len)
 {
     if (len > NetworkParam::kMaxMessageLength)
     {

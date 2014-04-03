@@ -13,6 +13,10 @@ public:
 public:
 	bool initialize();
 	void destroy();
+
+private:
+	bool registerDatabase();
+	void unregisterDatabase();
 };
 
 #endif

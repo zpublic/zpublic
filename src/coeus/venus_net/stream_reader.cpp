@@ -1,13 +1,13 @@
 #include "stream_reader.h"
 
-StreamReader::StreamReader(const char* buff, size_t size) :
+StreamReader::StreamReader(const char* buff, int size) :
 _buff(buff),
 _size(size),
 _offset(0)
 {
 }
 
-StreamReader::StreamReader(const byte* buff, size_t size) :
+StreamReader::StreamReader(const byte* buff, int32 size) :
     _buff((const char*)buff),
     _size(size),
     _offset(0)
@@ -20,7 +20,7 @@ StreamReader::~StreamReader()
 
 }
 
-StreamReader& StreamReader::read(char* buff, size_t size)
+StreamReader& StreamReader::read(char* buff, int32 size)
 {
 	if(_size - _offset < size)
 	{
@@ -33,7 +33,7 @@ StreamReader& StreamReader::read(char* buff, size_t size)
 	return (*this);
 }
 
-StreamReader& StreamReader::read(byte* buff, size_t size)
+StreamReader& StreamReader::read(byte* buff, int32 size)
 {
     return read((char*)buff, size);
 }

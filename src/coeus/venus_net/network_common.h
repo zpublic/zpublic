@@ -20,7 +20,7 @@ public:
     NetworkMessage(){}
     virtual ~NetworkMessage(){}
 
-    virtual size_t byteSize() = 0;
+    virtual int32 byteSize() = 0;
     virtual void encode(byte* buffer, size_t size) = 0;
     virtual void decode(const byte* buffer, size_t size) = 0;
 };

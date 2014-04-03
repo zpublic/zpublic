@@ -7,12 +7,12 @@ using namespace std;
 class StreamReader
 {
 public:
-	StreamReader(const char* buff, size_t size);
-    StreamReader(const byte* buff, size_t size);
+	StreamReader(const char* buff, int32 size);
+    StreamReader(const byte* buff, int32 size);
 	~StreamReader();
 
-	StreamReader& read(char* buff, size_t size);
-    StreamReader& read(byte* buff, size_t size);
+	StreamReader& read(char* buff, int32 size);
+    StreamReader& read(byte* buff, int32 size);
 
 	StreamReader& operator >>(int8& v);
 	StreamReader& operator >>(vector<int8> &v);
@@ -39,8 +39,8 @@ public:
 
 public:
 	const char* _buff;
-	size_t _size;
-	size_t _offset;
+	int32 _size;
+	int32 _offset;
 };
 
 #endif

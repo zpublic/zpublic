@@ -150,8 +150,5 @@
     <ClInclude Include="config_loader.h">
       <Filter>config</Filter>
     </ClInclude>
-    <ClInclude Include="db_define.h">
-      <Filter>data</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

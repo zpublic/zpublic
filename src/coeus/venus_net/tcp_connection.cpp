@@ -81,11 +81,11 @@ void TcpConnection::sendMessage(const BasicStreamPtr& stream)
 {
     if (_state == ConnectionState::Established)
     {
-        _socket.sendBytes((const void*)stream->b.begin(), static_cast<int32>(stream->b.size()));
+        _socket.sendBytes((const void*)stream->b.begin(), stream->b.size());
     }
 }
 
-void TcpConnection::sendMessage(int16 opcode, const byte* buff, uint32 size)
+void TcpConnection::sendMessage(int16 opcode, const byte* buff, size_t size)
 {
     BasicStreamPtr streamPtr(new BasicStream());
 
