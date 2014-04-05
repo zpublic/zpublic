@@ -88,7 +88,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_DB_USE_TYPE=0x1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_DB_USE_TYPE=0x2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>..\;..\game_common\jsoncpp;..\..\..\3rdparty\poco\Foundation\include;..\..\..\3rdparty\poco\Util\include;..\..\..\3rdparty\poco\Net\include;..\..\..\3rdparty\poco\Data\SQLite\include;..\..\..\3rdparty\poco\Data\MySQL\include;..\..\..\3rdparty\poco\Data\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>

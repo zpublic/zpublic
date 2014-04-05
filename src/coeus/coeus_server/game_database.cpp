@@ -6,8 +6,10 @@
 
 #if (_DB_USE_TYPE == DB_TYPE_SQLITE)
 #include <Poco/Data/SQLite/Connector.h>
+#include <Poco/Data/SQLite/SQLiteException.h>
 #else   // for mysql
 #include <Poco/Data/MySQL/Connector.h>
+#include <Poco/Data/MySQL/MySQLException.h>
 #endif
 
 GameDatabase::GameDatabase()
@@ -25,7 +27,7 @@ GameDatabase::~GameDatabase()
 bool GameDatabase::isUserExists(const std::string& username)
 {
     *_db_stmt = (*_db_session 
-        << "SELECT username FROM users WHERE username = :username;", 
+        << "SELECT username FROM users WHERE username = ?;", 
         Poco::Data::limit(1), 
         Poco::Data::use(username));
 
@@ -36,7 +38,7 @@ bool GameDatabase::isUserExists(const std::string& username)
 bool GameDatabase::userAuth(const std::string& username, const std::string& password)
 {
     *_db_stmt = (*_db_session 
-        << "SELECT username, password FROM users WHERE username = :username and password = :password;", 
+        << "SELECT username, password FROM users WHERE username = ? and password = ?;", 
         Poco::Data::limit(1), 
         Poco::Data::use(username),
         Poco::Data::use(password)
@@ -55,7 +57,7 @@ void GameDatabase::insertNewUserRecord(
 {
     *_db_stmt = (*_db_session << 
         "INSERT INTO users(user_guid, username, password, register_ip, register_time) "
-        "VALUES (:user_guid, :username, :password, :register_ip, :register_time);",
+        "VALUES (?, ?, ?, ?, ?);",
         Poco::Data::use(user_guid),
         Poco::Data::use(username),
         Poco::Data::use(password),
@@ -69,7 +71,7 @@ void GameDatabase::insertNewUserRecord(
 bool GameDatabase::hasCharacter(uint64 user_guid)
 {
     *_db_stmt = (*_db_session 
-        << "SELECT user_guid FROM player_characters WHERE user_guid = :user_guid",
+        << "SELECT user_guid FROM player_characters WHERE user_guid = ?",
         Poco::Data::limit(1),
         Poco::Data::use(user_guid)
         );
@@ -80,7 +82,7 @@ bool GameDatabase::hasCharacter(uint64 user_guid)
 bool GameDatabase::isNicknameExist(const std::string& nickname)
 {
     *_db_stmt = (*_db_session 
-        << "SELECT nickname FROM player_characters WHERE nickname = :nickname",
+        << "SELECT nickname FROM player_characters WHERE nickname = ?",
         Poco::Data::limit(1),
         Poco::Data::use(nickname)
         );
@@ -91,7 +93,7 @@ bool GameDatabase::isNicknameExist(const std::string& nickname)
 bool GameDatabase::loadCharacterInfo(uint64 userGuid, PlayerDB* playerDB)
 {
     *_db_stmt = (*_db_session 
-        << "SELECT character_id, character_type, nickname, gender, belief FROM player_characters WHERE userGuid = :userGuid;",
+        << "SELECT character_id, character_type, nickname, gender, belief FROM player_characters WHERE userGuid = ?;",
         Poco::Data::limit(1), 
         Poco::Data::use(userGuid),
         Poco::Data::into(userGuid),
@@ -108,7 +110,7 @@ bool GameDatabase::createCharacter(uint64 userGuid, uint8 characterType, const s
 {
     *_db_stmt = (*_db_session 
         << "INSERT INTO player_characters(user_guid, character_id, character_type, nickname, gender, belief)"
-        << "VALUES (:user_guid, :character_id, :character_type, :nickname, :gender, :belief);",
+        << "VALUES (?, ?, ?, ?, ?, ?);",
         Poco::Data::use(userGuid),
         Poco::Data::use(userGuid),
         Poco::Data::use(characterType),
@@ -126,7 +128,7 @@ bool GameDatabase::saveCharacterInfo(uint64 userGuid, PlayerDB* playerDB)
 {
     *_db_stmt = (*_db_session 
         << "REPLACE INTO player_characters(user_guid, character_id, character_type, nickname, gender, belief)"
-        << "VALUES (:user_guid, :character_id, :character_type, :nickname, :gender, :belief);",
+        << "VALUES (?, ?, ?, ?, ?, ?);",
         Poco::Data::limit(1), 
         Poco::Data::use(userGuid),
         Poco::Data::use(userGuid),
@@ -145,6 +147,7 @@ bool GameDatabase::initialize()
 
 #if (_DB_USE_TYPE == DB_TYPE_SQLITE)
 
+    debug_log("Current database type is [SQLite].");
     Poco::Data::SQLite::Connector::registerConnector();
     const std::string& connectionString = ServerConfig::getInstance().sqlite3File;
     _db_session = new Poco::Data::Session(
@@ -152,11 +155,25 @@ bool GameDatabase::initialize()
 
 #else   // for mysql
 
-    Poco::Data::MySQL::Connector::registerConnector();
-    const std::string& connectionString = 
-        "host=powman.org;user=coeus_game;password=coeus_game;db=coeus_game;compress=true;auto-reconnect=true";
-    _db_session = new Poco::Data::Session(
-        Poco::Data::SessionFactory::instance().create(Poco::Data::MySQL::Connector::KEY, connectionString));
+    try
+    {
+        debug_log("Current database type is [MySQL].");
+        Poco::Data::MySQL::Connector::registerConnector();
+        const std::string& connectionString = 
+            "host=powman.org;user=coeus_game;password=coeus_game;db=coeus_game;auto-reconnect=true;default-character-set=utf8";
+        _db_session = new Poco::Data::Session(Poco::Data::MySQL::Connector::KEY, connectionString);
+    }
+    catch (Poco::Data::MySQL::ConnectionException& e)
+    {
+        error_log(e.what());
+        return false;
+    }
+    catch(Poco::Data::MySQL::StatementException& e)
+    {
+        error_log(e.what());
+        return false;
+    }
+
 #endif
 
     _db_stmt = new Poco::Data::Statement(*_db_session);

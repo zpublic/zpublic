@@ -35,7 +35,7 @@ public:
     void getPropertiesHandler(const NetworkPacket::Ptr& packet);
 
 private:
-    void setContext(Player* player);
+    void setPlayerContext(Player* player);
     bool loadPlayer();
 
 private:

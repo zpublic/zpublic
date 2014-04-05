@@ -33,30 +33,28 @@ void GameSession::send_error(uint32 errorCode, const std::string& reason)
     send_message(Opcodes::SCErrorExNotify, errorExNotify);
 }
 
-void GameSession::setContext(Player* player)
+void GameSession::setPlayerContext(Player* player)
 {
     _player = player;
-    player->setSession(this);
+    player->setSessionContext(this);
 }
 
 bool GameSession::loadPlayer()
 {
-    Player* player = PlayerManager::getInstance().createPlayer(_userGuid, this);
-    if (player != nullptr)
+    Player* player = PlayerManager::getInstance().loadFromCache(_userGuid);
+    if (player == nullptr)
     {
-        //检查缓存
-        Player* player = PlayerManager::getInstance().loadFromCache(_userGuid);
-        if (player == nullptr)
+        Player* player = PlayerManager::getInstance().createPlayer(_userGuid, this);
+        if (player != nullptr)
         {
-            //从数据库加载数据
             PlayerDB* playerDB = player->DB();
-            DataManager::getInstance().loadPlayerData(_userGuid, playerDB);
+            if (playerDB != nullptr)
+            {
+                DataManager::getInstance().loadPlayerData(_userGuid, playerDB);
+                this->setPlayerContext(player);
+                return true;
+            }
         }
-
-        //会话与玩家绑定
-        this->setContext(player);
-
-        return true;
     }
 
     error_log("Acquire free player object failed in player pool. player == nullptr.");

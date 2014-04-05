@@ -23,7 +23,7 @@ public:
 public:
 	void onLogout();
 	void onLogin();
-	void setSession(GameSession* session);
+	void setSessionContext(GameSession* session);
 
 public:
 	void send_message(uint32 opcode, NetworkMessage& message);

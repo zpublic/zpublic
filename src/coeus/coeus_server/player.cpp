@@ -93,7 +93,7 @@ uint32 Player::gold() const
 	return 5000;
 }
 
-void Player::setSession( GameSession* session )
+void Player::setSessionContext(GameSession* session)
 {
 	_session = session;
 }
