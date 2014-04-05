@@ -1,21 +1,21 @@
+#include "Poco/Data/MySQL/Connector.h"
 #include "game_database.h"
 #include "player_db.h"
 #include "server_config.h"
+#include "db_define.h"
+
+#if (_DB_USE_TYPE == DB_TYPE_SQLITE)
+#include <Poco/Data/SQLite/Connector.h>
+#else   // for mysql
+#include <Poco/Data/MySQL/Connector.h>
+#endif
 
 GameDatabase::GameDatabase()
 {
-    const std::string& database = ServerConfig::getInstance().sqlite3File;
-
-    _db_session = new Poco::Data::Session("SQLite", database);
-    _db_stmt = new Poco::Data::Statement(*_db_session);
 }
 
 GameDatabase::~GameDatabase()
 {
-    _db_session->close();
-
-    SAFE_DELETE(_db_session);
-    SAFE_DELETE(_db_stmt);
 }
 
 
@@ -25,7 +25,7 @@ GameDatabase::~GameDatabase()
 bool GameDatabase::isUserExists(const std::string& username)
 {
     *_db_stmt = (*_db_session 
-        << "SELECT username FROM users WHERE username = :username", 
+        << "SELECT username FROM users WHERE username = :username;", 
         Poco::Data::limit(1), 
         Poco::Data::use(username));
 
@@ -137,4 +137,44 @@ bool GameDatabase::saveCharacterInfo(uint64 userGuid, PlayerDB* playerDB)
         );
 
     return (_db_stmt->execute() > 0);
+}
+
+bool GameDatabase::initialize()
+{
+    debug_log("Connecting to database...");
+
+#if (_DB_USE_TYPE == DB_TYPE_SQLITE)
+
+    Poco::Data::SQLite::Connector::registerConnector();
+    const std::string& connectionString = ServerConfig::getInstance().sqlite3File;
+    _db_session = new Poco::Data::Session(
+        Poco::Data::SessionFactory::instance().create(Poco::Data::SQLite::Connector::KEY, connectionString));
+
+#else   // for mysql
+
+    Poco::Data::MySQL::Connector::registerConnector();
+    const std::string& connectionString = 
+        "host=powman.org;user=coeus_game;password=coeus_game;db=coeus_game;compress=true;auto-reconnect=true";
+    _db_session = new Poco::Data::Session(
+        Poco::Data::SessionFactory::instance().create(Poco::Data::MySQL::Connector::KEY, connectionString));
+#endif
+
+    _db_stmt = new Poco::Data::Statement(*_db_session);
+    debug_log("Database connection successful.");
+
+    return true;
+}
+
+void GameDatabase::destroy()
+{
+    _db_session->close();
+
+    SAFE_DELETE(_db_session);
+    SAFE_DELETE(_db_stmt);
+
+#if (_DB_USE_TYPE == DB_TYPE_SQLITE)
+    Poco::Data::SQLite::Connector::unregisterConnector();
+#else   // for mysql
+    Poco::Data::MySQL::Connector::unregisterConnector();
+#endif
 }

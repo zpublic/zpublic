@@ -4,7 +4,7 @@
 #include "player_manager.h"
 
 Venus::ObjectPool<GameSession> GameSessionManager::_sessionPool;
-bool GameSessionManager::init()
+bool GameSessionManager::initialize()
 {
     return true;
 }
@@ -69,7 +69,7 @@ GameSession* GameSessionManager::getSession(uint64 sessionId)
     return iter != _sessions.end() ? iter->second : nullptr;
 }
 
-int32 GameSessionManager::sessionCount() const
+size_t GameSessionManager::sessionCount() const
 {
     return _sessions.size();
 }

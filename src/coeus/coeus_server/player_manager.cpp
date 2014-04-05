@@ -2,7 +2,7 @@
 #include "player.h"
 #include "data_manager.h"
 
-bool PlayerManager::init()
+bool PlayerManager::initialize()
 {
 	_dataManager = new DataManager();
 	return true;
@@ -49,7 +49,7 @@ Player* PlayerManager::getPlayer(uint64 playerId)
 	return iter != _players.end() ? iter->second : nullptr;
 }
 
-int32 PlayerManager::playerCount() const
+size_t PlayerManager::playerCount() const
 {
 	return _players.size();
 }
