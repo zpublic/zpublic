@@ -50,6 +50,9 @@
     <ClCompile Include="properties_handler.cpp">
       <Filter>handler</Filter>
     </ClCompile>
+    <ClCompile Include="prepare_statement_manager.cpp">
+      <Filter>data</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="service">
@@ -151,6 +154,9 @@
       <Filter>config</Filter>
     </ClInclude>
     <ClInclude Include="db_define.h">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="prepare_statement_manager.h">
       <Filter>data</Filter>
     </ClInclude>
   </ItemGroup>

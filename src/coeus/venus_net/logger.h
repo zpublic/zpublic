@@ -118,20 +118,20 @@ private:
 
 #define __FILE_NAME__ Logger::getInstance().filename(__FILE__)
 
-#ifndef VENUS_DISABLE_LOGGER
-#define fatal_log(fmt, ...) __APP_LOGGER__.fatal(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
-#define error_log(fmt, ...) __APP_LOGGER__.error(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
-#define warning_log(fmt, ...) __APP_LOGGER__.warning(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
-#define info_log(fmt, ...) __APP_LOGGER__.information(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
-#define debug_log(fmt, ...) __APP_LOGGER__.debug(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
-#define trace_log(fmt, ...) __APP_LOGGER__.trace(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
-#else
+#ifdef VENUS_DISABLE_LOGGER
 #define fatal_log(fmt, ...)
 #define error_log(fmt, ...)
 #define warning_log(fmt, ...)
 #define info_log(fmt, ...)
 #define debug_log(fmt, ...)
 #define trace_log(fmt, ...)
+#else
+#define fatal_log(fmt, ...) __APP_LOGGER__.fatal(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
+#define error_log(fmt, ...) __APP_LOGGER__.error(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
+#define warning_log(fmt, ...) __APP_LOGGER__.warning(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
+#define info_log(fmt, ...) __APP_LOGGER__.information(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
+#define debug_log(fmt, ...) __APP_LOGGER__.debug(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
+#define trace_log(fmt, ...) __APP_LOGGER__.trace(__FORMAT__(fmt, __VA_ARGS__), __FILE_NAME__, __LINE__)
 #endif
 
 

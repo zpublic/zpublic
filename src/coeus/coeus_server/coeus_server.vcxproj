@@ -182,6 +182,7 @@
     <ClCompile Include="properties_handler.cpp" />
     <ClCompile Include="server_config.cpp" />
     <ClCompile Include="server_main.cpp" />
+    <ClCompile Include="prepare_statement_manager.cpp" />
     <ClCompile Include="user_service_handler.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +209,7 @@
     <ClInclude Include="player_db.h" />
     <ClInclude Include="player_manager.h" />
     <ClInclude Include="server_config.h" />
+    <ClInclude Include="prepare_statement_manager.h" />
     <ClInclude Include="user_service.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

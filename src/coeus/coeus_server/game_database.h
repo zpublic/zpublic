@@ -9,7 +9,7 @@
 #include "Poco/Data/SessionFactory.h"
 
 class PlayerDB;
-
+class PrepareStatementManager;
 class GameDatabase
     : public Venus::Singleton<GameDatabase>
 {
@@ -23,7 +23,7 @@ public:
 
 public:
     //====================================================================
-    // 用户系统系统
+    // 用户系统
     //====================================================================
 
     //检查数据库中一个用户是否存在
@@ -63,6 +63,7 @@ public:
 private:
     Poco::Data::Session* _db_session;
     Poco::Data::Statement* _db_stmt;
+    PrepareStatementManager* _prepareStatementManager;
 };
 
 #endif

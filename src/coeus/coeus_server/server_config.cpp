@@ -17,10 +17,11 @@ bool ServerConfig::parse()
         maxQueued = gameServiceValue["max_queued"].asInt();
         maxThreads = gameServiceValue["max_threads"].asInt();
         sqlite3File = gameServiceValue["sqlite3_file"].asString();
-        mysql_server = gameServiceValue["mysql_server"].asString();
+        mysql_host = gameServiceValue["mysql_host"].asString();
+        mysql_port = gameServiceValue["mysql_port"].asString();
         mysql_database = gameServiceValue["mysql_database"].asString();
-        mysql_user = gameServiceValue["coeus_game"].asString();
-        mysql_password = gameServiceValue["coeus_game"].asString();
+        mysql_user = gameServiceValue["mysql_user"].asString();
+        mysql_password = gameServiceValue["mysql_password"].asString();
     }
     else
     {
