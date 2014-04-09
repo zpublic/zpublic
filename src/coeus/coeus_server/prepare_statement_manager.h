@@ -35,6 +35,8 @@ public:
     inline const std::string& sql() const { return _sql; }
     uint32 execute()
     {
+        debug_log("Excuting SQL statement : %s", _statement.toString().c_str());
+
         // execute the statement
         uint32 result = _statement.execute();
 
@@ -43,6 +45,9 @@ public:
         // reset() allowing to reuse statement with another SQL, we use original sql string to create the statement
         _statement.swap(Poco::Data::Statement(_session.createStatementImpl()));
         _statement << _sql;
+
+        debug_log("Excuted SQL statement, result = %d", result);
+
         return result;
     }
 
