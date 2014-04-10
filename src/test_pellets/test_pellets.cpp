@@ -7,6 +7,7 @@
 #include "TestThreadSync.h"
 #include "TestSerialize.h"
 #include "TestPeutils.h"
+#include "TestThreadPool.h"
 
 void AddTest(Suite& ts)
 {
@@ -14,6 +15,7 @@ void AddTest(Suite& ts)
     ts.add(std::auto_ptr<Suite>(new CTestThreadSync));
     ts.add(std::auto_ptr<Suite>(new CTestSerialize));
     ts.add(std::auto_ptr<Suite>(new CTestPeutils));
+    ts.add(std::auto_ptr<Suite>(new CTestThreadPool));
 }
 
 void UniTest()

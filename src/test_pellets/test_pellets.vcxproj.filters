@@ -46,6 +46,9 @@
     <Filter Include="3rdparty\detours">
       <UniqueIdentifier>{dba356ff-1332-4bda-a6cc-f5066dee3e02}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\z_thread_pool">
+      <UniqueIdentifier>{15ad6b43-d982-475d-892a-28e89d8ec74d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -216,6 +219,30 @@
     <ClInclude Include="..\..\3rdparty\detours\src\detver.h">
       <Filter>3rdparty\detours</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_thread_pool\z_mutex.h">
+      <Filter>pellets\z_thread_pool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_thread_pool\z_task.h">
+      <Filter>pellets\z_thread_pool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_thread_pool\z_task_queue.h">
+      <Filter>pellets\z_thread_pool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_thread_pool\z_thread.h">
+      <Filter>pellets\z_thread_pool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_thread_pool\z_thread_list.h">
+      <Filter>pellets\z_thread_pool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_thread_pool\z_thread_pool.h">
+      <Filter>pellets\z_thread_pool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_thread_pool\z_thread_stack.h">
+      <Filter>pellets\z_thread_pool</Filter>
+    </ClInclude>
+    <ClInclude Include="TestThreadPool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -304,6 +331,30 @@
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_writer.cpp">
       <Filter>pellets\IPC\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_thread_pool\z_mutex.cpp">
+      <Filter>pellets\z_thread_pool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_thread_pool\z_task.cpp">
+      <Filter>pellets\z_thread_pool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_thread_pool\z_task_queue.cpp">
+      <Filter>pellets\z_thread_pool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_thread_pool\z_thread.cpp">
+      <Filter>pellets\z_thread_pool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_thread_pool\z_thread_list.cpp">
+      <Filter>pellets\z_thread_pool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_thread_pool\z_thread_pool.cpp">
+      <Filter>pellets\z_thread_pool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_thread_pool\z_thread_stack.cpp">
+      <Filter>pellets\z_thread_pool</Filter>
+    </ClCompile>
+    <ClCompile Include="TestThreadPool.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
