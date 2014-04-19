@@ -101,6 +101,8 @@
     <ClInclude Include="..\..\pellets\data_box\value_data_t.hpp" />
     <ClInclude Include="..\..\pellets\design_pattern\observer\observable.h" />
     <ClInclude Include="..\..\pellets\design_pattern\observer\observer.h" />
+    <ClInclude Include="..\..\pellets\design_pattern\strategy\strategy.h" />
+    <ClInclude Include="..\..\pellets\design_pattern\strategy\strategy_context.h" />
     <ClInclude Include="..\..\pellets\hook\i_zl_hook_container.h" />
     <ClInclude Include="..\..\pellets\hook\zl_hook_def.h" />
     <ClInclude Include="..\..\pellets\ipc\ipccallclient.h" />

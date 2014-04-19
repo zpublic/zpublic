@@ -1,11 +1,12 @@
 #include "stdafx.h"
 #include "TestDesignPattern.h"
 
-int gObserverNum = 0;
+int gDesignPatternTestNum = 0;
 
 CTestDesignPattern::CTestDesignPattern(void)
 {
     TEST_ADD(CTestDesignPattern::testObserver);
+    TEST_ADD(CTestDesignPattern::testStrategy);
 }
 
 

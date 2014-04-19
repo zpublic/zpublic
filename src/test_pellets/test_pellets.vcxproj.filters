@@ -55,6 +55,9 @@
     <Filter Include="pellets\design_pattern\observer">
       <UniqueIdentifier>{8febf59d-3af2-4966-95a2-50e1b2c54f29}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\design_pattern\strategy">
+      <UniqueIdentifier>{e06385e0-c552-4479-9f6b-4bb82de68dea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -257,6 +260,12 @@
     </ClInclude>
     <ClInclude Include="TestDesignPattern.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\design_pattern\strategy\strategy_context.h">
+      <Filter>pellets\design_pattern\strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\design_pattern\strategy\strategy.h">
+      <Filter>pellets\design_pattern\strategy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
