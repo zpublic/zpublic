@@ -8,14 +8,16 @@
 #include "TestSerialize.h"
 #include "TestPeutils.h"
 #include "TestThreadPool.h"
+#include "TestDesignPattern.h"
 
 void AddTest(Suite& ts)
 {
-    ts.add(std::auto_ptr<Suite>(new CTestDataBox));
-    ts.add(std::auto_ptr<Suite>(new CTestThreadSync));
-    ts.add(std::auto_ptr<Suite>(new CTestSerialize));
-    ts.add(std::auto_ptr<Suite>(new CTestPeutils));
-    ts.add(std::auto_ptr<Suite>(new CTestThreadPool));
+//     ts.add(std::auto_ptr<Suite>(new CTestDataBox));
+//     ts.add(std::auto_ptr<Suite>(new CTestThreadSync));
+//     ts.add(std::auto_ptr<Suite>(new CTestSerialize));
+//     ts.add(std::auto_ptr<Suite>(new CTestPeutils));
+//     ts.add(std::auto_ptr<Suite>(new CTestThreadPool));
+    ts.add(std::auto_ptr<Suite>(new CTestDesignPattern));
 }
 
 void UniTest()

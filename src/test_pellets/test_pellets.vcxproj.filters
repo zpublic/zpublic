@@ -49,6 +49,12 @@
     <Filter Include="pellets\z_thread_pool">
       <UniqueIdentifier>{15ad6b43-d982-475d-892a-28e89d8ec74d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\design_pattern">
+      <UniqueIdentifier>{5bbd22a1-8527-4bd3-b463-aa88d0fbe4f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\design_pattern\observer">
+      <UniqueIdentifier>{8febf59d-3af2-4966-95a2-50e1b2c54f29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -243,6 +249,15 @@
     <ClInclude Include="TestThreadPool.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\design_pattern\observer\observable.h">
+      <Filter>pellets\design_pattern\observer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\design_pattern\observer\observer.h">
+      <Filter>pellets\design_pattern\observer</Filter>
+    </ClInclude>
+    <ClInclude Include="TestDesignPattern.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -354,6 +369,9 @@
       <Filter>pellets\z_thread_pool</Filter>
     </ClCompile>
     <ClCompile Include="TestThreadPool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TestDesignPattern.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

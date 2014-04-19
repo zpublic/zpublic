@@ -99,6 +99,8 @@
     <ClInclude Include="..\..\pellets\data_box\value_data.h" />
     <ClInclude Include="..\..\pellets\data_box\value_data_string.h" />
     <ClInclude Include="..\..\pellets\data_box\value_data_t.hpp" />
+    <ClInclude Include="..\..\pellets\design_pattern\observer\observable.h" />
+    <ClInclude Include="..\..\pellets\design_pattern\observer\observer.h" />
     <ClInclude Include="..\..\pellets\hook\i_zl_hook_container.h" />
     <ClInclude Include="..\..\pellets\hook\zl_hook_def.h" />
     <ClInclude Include="..\..\pellets\ipc\ipccallclient.h" />
@@ -149,6 +151,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TestDataBox.h" />
+    <ClInclude Include="TestDesignPattern.h" />
     <ClInclude Include="TestPeutils.h" />
     <ClInclude Include="TestSerialize.h" />
     <ClInclude Include="TestThreadPool.h" />
@@ -190,6 +193,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TestDataBox.cpp" />
+    <ClCompile Include="TestDesignPattern.cpp" />
     <ClCompile Include="TestPeutils.cpp" />
     <ClCompile Include="TestSerialize.cpp" />
     <ClCompile Include="TestThreadPool.cpp" />
