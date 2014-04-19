@@ -1,5 +1,17 @@
 #pragma once
-#include "strategy.h"
+
+class StrategyContext;
+
+class Strategy
+{
+public:
+    virtual ~Strategy()
+    {
+
+    }
+
+    virtual void* Operate(StrategyContext* p, void* lpData) = 0;
+};
 
 class StrategyContext
 {

@@ -1,8 +1,8 @@
 #pragma once
 
 #include "def.h"
-#include "design_pattern/observer/observable.h"
-#include "design_pattern/strategy/strategy_context.h"
+#include "design_pattern/observer.h"
+#include "design_pattern/strategy.h"
 
 
 extern int gDesignPatternTestNum;

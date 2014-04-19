@@ -1,6 +1,18 @@
 #pragma once
 #include <set>
-#include "observer.h"
+
+class Observable;
+class Observer
+{
+public:
+    virtual ~Observer()
+    {
+
+    }
+
+    virtual void update(Observable* p, void* lpData) = 0;
+};
+
 
 class Observable
 {
