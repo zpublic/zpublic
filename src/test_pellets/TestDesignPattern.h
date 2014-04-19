@@ -4,6 +4,7 @@
 #include "design_pattern/observer.h"
 #include "design_pattern/strategy.h"
 #include "design_pattern/decorator.h"
+#include "design_pattern/factory.h"
 
 
 extern int gDesignPatternTestNum;
@@ -80,6 +81,23 @@ public:
     }
 };
 
+///> SimpleFactory ¼òµ¥¹¤³§
+class Product
+{
+public:
+    virtual ~Product() {}
+    virtual int GetX() = 0;
+};
+class Product1 : public Product
+{
+    virtual int GetX() {return 100;}
+};
+class Product2 : public Product
+{
+    virtual int GetX() {return 200;}
+};
+
+
 class CTestDesignPattern : public Suite
 {
 public:
@@ -141,4 +159,19 @@ public:
         d2.Operation((void*)&n);
         TEST_ASSERT(n == 4);
     }
+
+    void testSimpleFactory()
+    {
+        SimpleFactory<Product> f;
+        SimpleFactory<Product>::fnCreateObject fn = CreateObject<Product, Product1>;
+        f.AddCreator(1, fn);
+        f.AddCreator(2, CreateObject<Product, Product2>);
+        Product* p1 = f.CreateObject(1);
+        TEST_ASSERT(p1->GetX() == 100);
+        Product* p2 = f.CreateObject(1);
+        TEST_ASSERT(p1->GetX() == 100);
+        Product* p3 = f.CreateObject(3);
+        TEST_ASSERT(p3 == NULL);
+    }
+
 };
