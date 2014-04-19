@@ -255,6 +255,9 @@
     <ClInclude Include="..\..\pellets\design_pattern\strategy.h">
       <Filter>pellets\design_pattern</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\design_pattern\decorator.h">
+      <Filter>pellets\design_pattern</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

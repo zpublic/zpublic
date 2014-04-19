@@ -7,6 +7,7 @@ CTestDesignPattern::CTestDesignPattern(void)
 {
     TEST_ADD(CTestDesignPattern::testObserver);
     TEST_ADD(CTestDesignPattern::testStrategy);
+    TEST_ADD(CTestDesignPattern::testDecorator);
 }
 
 

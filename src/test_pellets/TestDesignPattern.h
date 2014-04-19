@@ -3,11 +3,12 @@
 #include "def.h"
 #include "design_pattern/observer.h"
 #include "design_pattern/strategy.h"
+#include "design_pattern/decorator.h"
 
 
 extern int gDesignPatternTestNum;
 
-///> observer 观察者模式
+///> Observer 观察者模式
 class Observer1 : public Observer
 {
 public:
@@ -28,7 +29,7 @@ class ObservableX : public Observable
 {
 };
 
-///> strategy 策略模式
+///> Strategy 策略模式
 class Strategy1 : public Strategy
 {
 public:
@@ -49,6 +50,34 @@ public:
 };
 class StrategyContextX : public StrategyContext
 {
+};
+
+///> Decorator 装饰模式
+class ConcreteComponentX : public ConcreteComponent
+{
+public:
+    virtual void Operation(void* lpData)
+    {
+        *(int*)lpData = 1;
+    }
+};
+class Decorator1 : public Decorator
+{
+public:
+    virtual void Operation(void* lpData)
+    {
+        m_pComponent->Operation(lpData);
+        *(int*)lpData += 1;
+    }
+};
+class Decorator2 : public Decorator
+{
+public:
+    virtual void Operation(void* lpData)
+    {
+        m_pComponent->Operation(lpData);
+        *(int*)lpData += 2;
+    }
 };
 
 class CTestDesignPattern : public Suite
@@ -92,5 +121,24 @@ public:
         x.SetStrategy(static_cast<Strategy*>(&s2));
         ret = x.Operate(0);
         TEST_ASSERT((int)ret == 2);
+    }
+
+    void testDecorator()
+    {
+        ConcreteComponentX x;
+        Decorator1 d1;
+        Decorator2 d2;
+        int n = 0;
+        x.Operation((void*)&n);
+        TEST_ASSERT(n == 1);
+        d1.Decorate(static_cast<DecoratorComponent*>(&x));
+        d1.Operation((void*)&n);
+        TEST_ASSERT(n == 2);
+        d2.Decorate(static_cast<DecoratorComponent*>(&x));
+        d2.Operation((void*)&n);
+        TEST_ASSERT(n == 3);
+        d2.Decorate(static_cast<DecoratorComponent*>(&d1));
+        d2.Operation((void*)&n);
+        TEST_ASSERT(n == 4);
     }
 };

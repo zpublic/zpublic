@@ -1,7 +1,6 @@
 #pragma once
 
 class StrategyContext;
-
 class Strategy
 {
 public:

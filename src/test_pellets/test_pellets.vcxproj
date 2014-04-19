@@ -99,6 +99,7 @@
     <ClInclude Include="..\..\pellets\data_box\value_data.h" />
     <ClInclude Include="..\..\pellets\data_box\value_data_string.h" />
     <ClInclude Include="..\..\pellets\data_box\value_data_t.hpp" />
+    <ClInclude Include="..\..\pellets\design_pattern\decorator.h" />
     <ClInclude Include="..\..\pellets\design_pattern\observer.h" />
     <ClInclude Include="..\..\pellets\design_pattern\strategy.h" />
     <ClInclude Include="..\..\pellets\hook\i_zl_hook_container.h" />
