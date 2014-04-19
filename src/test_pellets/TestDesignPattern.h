@@ -168,8 +168,8 @@ public:
         f.AddCreator(2, CreateObject<Product, Product2>);
         Product* p1 = f.CreateObject(1);
         TEST_ASSERT(p1->GetX() == 100);
-        Product* p2 = f.CreateObject(1);
-        TEST_ASSERT(p1->GetX() == 100);
+        Product* p2 = f.CreateObject(2);
+        TEST_ASSERT(p1->GetX() == 200);
         Product* p3 = f.CreateObject(3);
         TEST_ASSERT(p3 == NULL);
     }
