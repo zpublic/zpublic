@@ -5,6 +5,7 @@
 #include "design_pattern/strategy.h"
 #include "design_pattern/decorator.h"
 #include "design_pattern/factory.h"
+#include "design_pattern/singleton.h"
 
 
 extern int gDesignPatternTestNum;
@@ -97,6 +98,16 @@ class Product2 : public Product
     virtual int GetX() {return 200;}
 };
 
+///> Singleton µ¥ÀýÄ£Ê½
+class SingletonXX
+{
+public:
+    int Out()
+    {
+        return 1;
+    }
+};
+typedef Singleton<SingletonXX> SingletonX;
 
 class CTestDesignPattern : public Suite
 {
@@ -172,6 +183,12 @@ public:
         TEST_ASSERT(p1->GetX() == 200);
         Product* p3 = f.CreateObject(3);
         TEST_ASSERT(p3 == NULL);
+    }
+
+    void testSingleton()
+    {
+        // SingletonX x; err
+        TEST_ASSERT(SingletonX::Instance().Out() == 1)
     }
 
 };

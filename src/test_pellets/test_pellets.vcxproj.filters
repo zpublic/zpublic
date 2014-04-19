@@ -261,6 +261,9 @@
     <ClInclude Include="..\..\pellets\design_pattern\factory.h">
       <Filter>pellets\design_pattern</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\design_pattern\singleton.h">
+      <Filter>pellets\design_pattern</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
