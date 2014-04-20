@@ -13,6 +13,7 @@ CTestDesignPattern::CTestDesignPattern(void)
     TEST_ADD(CTestDesignPattern::testCommand);
     TEST_ADD(CTestDesignPattern::testAdapter);
     TEST_ADD(CTestDesignPattern::testFacade);
+    TEST_ADD(CTestDesignPattern::testTemplateMethod);
 }
 
 

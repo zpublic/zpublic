@@ -190,6 +190,48 @@ private:
 };
 
 
+///> TemplateMethod 模板方法模式
+class AbstractClass
+{
+public:
+    virtual ~AbstractClass() {}
+    void TemplateMethod()
+    {
+        PrimitiveOperation1();
+        PrimitiveOperation2();
+    }
+    virtual void PrimitiveOperation1()=0;
+    virtual void PrimitiveOperation2()=0;
+
+protected:
+    AbstractClass() {}
+};
+class ConcreteClass1 : public AbstractClass
+{
+public:
+    virtual void PrimitiveOperation1()
+    {
+        gDesignPatternTestNum = 0;
+    }
+    virtual void PrimitiveOperation2()
+    {
+        gDesignPatternTestNum++;
+    }
+};
+class ConcreteClass2 : public AbstractClass
+{
+public:
+    virtual void PrimitiveOperation1()
+    {
+        gDesignPatternTestNum = 0;
+    }
+    virtual void PrimitiveOperation2()
+    {
+        gDesignPatternTestNum += 2;
+    }
+};
+
+
 class CTestDesignPattern : public Suite
 {
 public:
@@ -328,6 +370,18 @@ public:
     {
         Facade f;
         f.Run();
+    }
+
+    void testTemplateMethod()
+    {
+        AbstractClass* p = new ConcreteClass1;
+        p->TemplateMethod();
+        delete p;
+        TEST_ASSERT(gDesignPatternTestNum == 1);
+        p = new ConcreteClass2;
+        p->TemplateMethod();
+        delete p;
+        TEST_ASSERT(gDesignPatternTestNum == 2);
     }
 
 };
