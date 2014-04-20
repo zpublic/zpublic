@@ -6,6 +6,7 @@
 #include "design_pattern/decorator.h"
 #include "design_pattern/factory.h"
 #include "design_pattern/singleton.h"
+#include "design_pattern/command.h"
 
 
 extern int gDesignPatternTestNum;
@@ -109,6 +110,27 @@ public:
 };
 typedef Singleton<SingletonXX> SingletonX;
 
+///> Command ÃüÁîÄ£Ê½
+class CommandAdd1 : public CommandBase
+{
+public:
+    virtual void* Execute(void* lpData)
+    {
+        gDesignPatternTestNum += 1;
+        return 0;
+    }
+};
+class CommandAdd10 : public CommandBase
+{
+public:
+    virtual void* Execute(void* lpData)
+    {
+        gDesignPatternTestNum += 10;
+        return 0;
+    }
+};
+
+
 class CTestDesignPattern : public Suite
 {
 public:
@@ -204,6 +226,34 @@ public:
     {
         // SingletonX x; err
         TEST_ASSERT(SingletonX::Instance().Out() == 1)
+    }
+
+    void testCommand()
+    {
+        CommandInvoker invoker;
+        CommandAdd1 c1;
+        CommandAdd10 c10;
+        gDesignPatternTestNum = 0;
+        invoker.SetCommand(&c1);
+        invoker.Invoke();
+        TEST_ASSERT(gDesignPatternTestNum == 1);
+        invoker.SetCommand(&c10);
+        invoker.Invoke();
+        TEST_ASSERT(gDesignPatternTestNum == 11);
+        invoker.Invoke();
+        TEST_ASSERT(gDesignPatternTestNum == 21);
+        EmptyCommand cc1;
+        invoker.SetCommand(&cc1);
+        invoker.Invoke();
+        TEST_ASSERT(gDesignPatternTestNum == 21);
+        MacroCommand cc2;
+        cc2.AddCommand(&c1);
+        cc2.AddCommand(&c1);
+        cc2.AddCommand(&c10);
+        invoker.SetCommand(&cc2);
+        invoker.Invoke();
+        TEST_ASSERT(gDesignPatternTestNum == 33);
+
     }
 
 };

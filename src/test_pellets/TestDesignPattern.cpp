@@ -10,6 +10,7 @@ CTestDesignPattern::CTestDesignPattern(void)
     TEST_ADD(CTestDesignPattern::testDecorator);
     TEST_ADD(CTestDesignPattern::testSimpleFactory);
     TEST_ADD(CTestDesignPattern::testSingleton);
+    TEST_ADD(CTestDesignPattern::testCommand);
 }
 
 
