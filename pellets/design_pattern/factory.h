@@ -8,15 +8,15 @@ T* CreateObject()
     return static_cast<T*>(p);
 }
 
-template <typename T>
+template <typename T, typename TKey = int>
 class SimpleFactory
 {
 public:
     typedef T* (*fnCreateObject)(void);
 
-    T* CreateObject(int id)
+    T* CreateObject(TKey id)
     {
-        std::map<int, fnCreateObject>::iterator it = m_factory.find(id);
+        std::map<TKey, fnCreateObject>::iterator it = m_factory.find(id);
         if (it != m_factory.end())
         {
             fnCreateObject pFunc = it->second;
@@ -28,13 +28,13 @@ public:
         return 0;
     }
 
-    void AddCreator(int id, fnCreateObject pFunc)
+    void AddCreator(TKey id, fnCreateObject pFunc)
     {
         m_factory[id] = pFunc;
     }
-    void DeleteCreator(int id)
+    void DeleteCreator(TKey id)
     {
-       std::map<int, fnCreateObject>::iterator it = m_factory.find(id);
+       std::map<TKey, fnCreateObject>::iterator it = m_factory.find(id);
        if (it != m_factory.end())
        {
            m_factory.erase(it);
@@ -42,5 +42,5 @@ public:
     }
 
 private:
-    std::map<int, fnCreateObject> m_factory;
+    std::map<TKey, fnCreateObject> m_factory;
 };

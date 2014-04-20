@@ -179,10 +179,25 @@ public:
         f.AddCreator(2, CreateObject<Product, Product2>);
         Product* p1 = f.CreateObject(1);
         TEST_ASSERT(p1->GetX() == 100);
+        delete p1;
         Product* p2 = f.CreateObject(2);
-        TEST_ASSERT(p1->GetX() == 200);
+        TEST_ASSERT(p2->GetX() == 200);
+        delete p2;
         Product* p3 = f.CreateObject(3);
         TEST_ASSERT(p3 == NULL);
+
+        SimpleFactory<Product, std::string> f2;
+        SimpleFactory<Product, std::string>::fnCreateObject fn2 = CreateObject<Product, Product1>;
+        f2.AddCreator("a", fn);
+        f2.AddCreator("b", CreateObject<Product, Product2>);
+        Product* p11 = f2.CreateObject("a");
+        TEST_ASSERT(p11->GetX() == 100);
+        delete p11;
+        Product* p22 = f2.CreateObject("b");
+        TEST_ASSERT(p22->GetX() == 200);
+        delete p22;
+        Product* p33 = f2.CreateObject("c");
+        TEST_ASSERT(p33 == NULL);
     }
 
     void testSingleton()
