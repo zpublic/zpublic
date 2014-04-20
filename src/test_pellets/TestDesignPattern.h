@@ -130,6 +130,40 @@ public:
     }
 };
 
+///> Adapter   ≈‰∆˜ƒ£ Ω
+class Target
+{
+public:
+    virtual int Request() = 0;
+};
+class Adaptee
+{
+public:
+    int SpecificRequest()
+    {
+        return 1;
+    }
+};
+class ClassAdapter
+    : public Target
+    , public Adaptee
+{
+public:
+    virtual int Request()
+    {
+        return SpecificRequest();
+    }
+};
+class ObjectAdapter2 : public Target
+{
+public:
+    virtual int Request()
+    {
+        return m.SpecificRequest();
+    }
+private:
+    Adaptee m;
+};
 
 class CTestDesignPattern : public Suite
 {
@@ -253,7 +287,16 @@ public:
         invoker.SetCommand(&cc2);
         invoker.Invoke();
         TEST_ASSERT(gDesignPatternTestNum == 33);
+    }
 
+    void testAdapter()
+    {
+        ClassAdapter a1;
+        ObjectAdapter2 a2;
+        Target* pt = static_cast<Target*>(&a1);
+        TEST_ASSERT(pt->Request() == 1);
+        pt = static_cast<Target*>(&a2);
+        TEST_ASSERT(pt->Request() == 1);
     }
 
 };

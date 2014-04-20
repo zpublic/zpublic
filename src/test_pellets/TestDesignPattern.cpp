@@ -11,6 +11,7 @@ CTestDesignPattern::CTestDesignPattern(void)
     TEST_ADD(CTestDesignPattern::testSimpleFactory);
     TEST_ADD(CTestDesignPattern::testSingleton);
     TEST_ADD(CTestDesignPattern::testCommand);
+    TEST_ADD(CTestDesignPattern::testAdapter);
 }
 
 
