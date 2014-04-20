@@ -165,6 +165,31 @@ private:
     Adaptee m;
 };
 
+///> Facade 外观模式
+class SubSystem1
+{
+public:
+    void a() {}
+};
+class SubSystem2
+{
+public:
+    void b() {}
+};
+class Facade
+{
+public:
+    void Run()
+    {
+        s1.a();
+        s2.b();
+    }
+private:
+    SubSystem1 s1;
+    SubSystem2 s2;
+};
+
+
 class CTestDesignPattern : public Suite
 {
 public:
@@ -297,6 +322,12 @@ public:
         TEST_ASSERT(pt->Request() == 1);
         pt = static_cast<Target*>(&a2);
         TEST_ASSERT(pt->Request() == 1);
+    }
+
+    void testFacade()
+    {
+        Facade f;
+        f.Run();
     }
 
 };
