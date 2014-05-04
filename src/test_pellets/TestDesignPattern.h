@@ -231,6 +231,61 @@ public:
     }
 };
 
+///> Iterator 迭代器模式
+///> stl里有，不细说了
+
+///> Composite 组合模式
+///> 跟迭代器模式类似，不过是树状结构
+
+///> State 状态模式
+class StateContext;
+class StateBase
+{
+public:
+    virtual ~StateBase()
+    {
+
+    }
+
+    virtual void Handle(StateContext* pContext) = 0;
+};
+class StateContext
+{
+public:
+    StateContext(StateBase* pState = 0) : m_pState(pState)
+    {
+
+    }
+    virtual ~StateContext()
+    {
+
+    }
+
+    void Request()
+    {
+        if (m_pState)
+        {
+            m_pState->Handle(this);
+        }
+    }
+
+    void ChangeState(StateBase* pState)
+    {
+        m_pState = pState;
+    }
+
+protected:
+    StateBase* m_pState;
+};
+class State1 : public StateBase
+{
+public:
+    virtual void Handle(StateContext* pContext)
+    {
+        pContext->ChangeState(0);
+    }
+};
+
 
 class CTestDesignPattern : public Suite
 {
