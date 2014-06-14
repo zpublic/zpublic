@@ -144,6 +144,9 @@
     <ClInclude Include="..\..\pellets\thread_sync\syncobject.hpp" />
     <ClInclude Include="..\..\pellets\thread_sync\thread_sync.h" />
     <ClInclude Include="..\..\pellets\thread_sync\thread_sync_def.h" />
+    <ClInclude Include="..\..\pellets\z_event\z_event_def.h" />
+    <ClInclude Include="..\..\pellets\z_event\z_event_event.h" />
+    <ClInclude Include="..\..\pellets\z_event\z_event_reactor.h" />
     <ClInclude Include="..\..\pellets\z_thread_pool\z_mutex.h" />
     <ClInclude Include="..\..\pellets\z_thread_pool\z_task.h" />
     <ClInclude Include="..\..\pellets\z_thread_pool\z_task_queue.h" />
@@ -156,6 +159,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TestDataBox.h" />
     <ClInclude Include="TestDesignPattern.h" />
+    <ClInclude Include="TestEvent.h" />
     <ClInclude Include="TestPeutils.h" />
     <ClInclude Include="TestSerialize.h" />
     <ClInclude Include="TestThreadPool.h" />
@@ -198,6 +202,7 @@
     </ClCompile>
     <ClCompile Include="TestDataBox.cpp" />
     <ClCompile Include="TestDesignPattern.cpp" />
+    <ClCompile Include="TestEvent.cpp" />
     <ClCompile Include="TestPeutils.cpp" />
     <ClCompile Include="TestSerialize.cpp" />
     <ClCompile Include="TestThreadPool.cpp" />

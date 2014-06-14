@@ -9,6 +9,7 @@
 #include "TestPeutils.h"
 #include "TestThreadPool.h"
 #include "TestDesignPattern.h"
+#include "TestEvent.h"
 
 void AddTest(Suite& ts)
 {
@@ -17,7 +18,8 @@ void AddTest(Suite& ts)
 //     ts.add(std::auto_ptr<Suite>(new CTestSerialize));
 //     ts.add(std::auto_ptr<Suite>(new CTestPeutils));
 //     ts.add(std::auto_ptr<Suite>(new CTestThreadPool));
-    ts.add(std::auto_ptr<Suite>(new CTestDesignPattern));
+//    ts.add(std::auto_ptr<Suite>(new CTestDesignPattern));
+     ts.add(std::auto_ptr<Suite>(new CTestEvent));
 }
 
 void UniTest()

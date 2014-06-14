@@ -52,6 +52,9 @@
     <Filter Include="pellets\design_pattern">
       <UniqueIdentifier>{5bbd22a1-8527-4bd3-b463-aa88d0fbe4f8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\z_event">
+      <UniqueIdentifier>{55041587-f86a-49e5-9ce2-0e8e43508d61}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -267,6 +270,18 @@
     <ClInclude Include="..\..\pellets\design_pattern\command.h">
       <Filter>pellets\design_pattern</Filter>
     </ClInclude>
+    <ClInclude Include="TestEvent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_event\z_event_reactor.h">
+      <Filter>pellets\z_event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_event\z_event_event.h">
+      <Filter>pellets\z_event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_event\z_event_def.h">
+      <Filter>pellets\z_event</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -381,6 +396,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="TestDesignPattern.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TestEvent.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
