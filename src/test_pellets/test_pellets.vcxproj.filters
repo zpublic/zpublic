@@ -55,6 +55,9 @@
     <Filter Include="pellets\z_event">
       <UniqueIdentifier>{55041587-f86a-49e5-9ce2-0e8e43508d61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\z_timer">
+      <UniqueIdentifier>{283e960d-f996-4397-a8e9-15459a01b27d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -282,6 +285,27 @@
     <ClInclude Include="..\..\pellets\z_event\z_event_def.h">
       <Filter>pellets\z_event</Filter>
     </ClInclude>
+    <ClInclude Include="TestTimer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_timer\z_timer_def.h">
+      <Filter>pellets\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_timer\z_timer_task.h">
+      <Filter>pellets\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_timer\z_timer_task_queue.h">
+      <Filter>pellets\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_timer\z_timer_watcher.h">
+      <Filter>pellets\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_timer\z_timer_dispatcher.h">
+      <Filter>pellets\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_timer\z_mutex.h">
+      <Filter>pellets\z_timer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -399,6 +423,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="TestEvent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTimer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

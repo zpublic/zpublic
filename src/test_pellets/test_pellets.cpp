@@ -10,6 +10,7 @@
 #include "TestThreadPool.h"
 #include "TestDesignPattern.h"
 #include "TestEvent.h"
+#include "TestTimer.h"
 
 void AddTest(Suite& ts)
 {
@@ -19,7 +20,8 @@ void AddTest(Suite& ts)
 //     ts.add(std::auto_ptr<Suite>(new CTestPeutils));
 //     ts.add(std::auto_ptr<Suite>(new CTestThreadPool));
 //    ts.add(std::auto_ptr<Suite>(new CTestDesignPattern));
-     ts.add(std::auto_ptr<Suite>(new CTestEvent));
+//     ts.add(std::auto_ptr<Suite>(new CTestEvent));
+     ts.add(std::auto_ptr<Suite>(new CTestTimer));
 }
 
 void UniTest()
