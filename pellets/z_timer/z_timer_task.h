@@ -71,3 +71,44 @@ struct TimerTaskCmp
         return k1->WaitTime() > k2->WaitTime();
     }
 };
+
+typedef void (* PTimerTaskFunc)(TimerTaskBase* pTask);
+typedef void (* PTimerTaskFunc2)();
+class TimerTaskNolmal : public TimerTaskBase
+{
+public:
+    TimerTaskNolmal(PTimerTaskFunc pfunc = NULL) : pfunc_(pfunc)
+    {
+        pfunc2_ = NULL;
+    }
+    TimerTaskNolmal(PTimerTaskFunc2 pfunc) : pfunc2_(pfunc)
+    {
+        pfunc_ = NULL;
+    }
+    virtual ~TimerTaskNolmal() {}
+    virtual void DoWork()
+    {
+        if (pfunc_)
+        {
+            pfunc_((TimerTaskBase*)this);
+        }
+        else if (pfunc2_)
+        {
+            pfunc2_();
+        }
+    }
+    void set(PTimerTaskFunc pfunc)
+    {
+        pfunc_ = pfunc;
+        pfunc2_ = NULL;
+    }
+    void set(PTimerTaskFunc2 pfunc)
+    {
+        pfunc2_ = pfunc;
+        pfunc_ = NULL;
+    }
+
+protected:
+    PTimerTaskFunc  pfunc_;
+    PTimerTaskFunc2 pfunc2_;
+};

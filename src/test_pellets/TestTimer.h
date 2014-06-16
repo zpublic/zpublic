@@ -14,6 +14,16 @@ public:
     }
 };
 
+static void testFunc1(TimerTaskBase* pTask)
+{
+    std::cout<<"testFunc1"<<std::endl;
+}
+
+static void testFunc2()
+{
+    std::cout<<"testFunc2"<<std::endl;
+}
+
 class CTestTimer : public Suite
 {
 public:
@@ -40,11 +50,20 @@ public:
         t4->Timeout(1000);
         t4->Repeat(true);
 
+        TimerTaskNolmal t5(testFunc1);
+        TimerTaskNolmal t6(testFunc2);
+        t5.Release(false);
+        t6.Release(false);
+        t5.Timeout(4000);
+        t6.Timeout(4000);
+
         disp.AddTimerTask(t1);
         disp.Start();
         disp.AddTimerTask(t2);
         disp.AddTimerTask(t3);
         disp.AddTimerTask(t4);
+        disp.AddTimerTask(&t5);
+        disp.AddTimerTask(&t6);
 
         ::Sleep(10000);
 
