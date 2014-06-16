@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../z_mutex.h"
+#include "../thread_sync/thread_sync.h"
 #include <deque>
 
 class z_task;

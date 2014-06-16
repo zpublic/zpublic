@@ -24,4 +24,7 @@
 #include "criticalsection.hpp"
 #include "mutex.hpp"
 
+typedef zl::ThreadSync::CMutex z_mutex;
+typedef zl::ThreadSync::CMutexGuard<zl::ThreadSync::CMutex> z_mutex_guard;
+
 #endif

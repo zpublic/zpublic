@@ -18,10 +18,9 @@
 #include "z_timer_task.h"
 #include "z_timer_task_queue.h"
 #include "z_timer_watcher.h"
-#include "../z_mutex.h"
+#include "../thread_sync/thread_sync.h"
 #include <windows.h>
 #include <process.h>
-
 
 class TimerDispatcher
 {
