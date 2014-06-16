@@ -10,9 +10,9 @@
 class TimerDispatcher
 {
 public:
-    TimerDispatcher()
+    TimerDispatcher(ITimerWatcher* pWatcher = NULL)
     {
-        pWatcher_       = NULL;
+        pWatcher_       = pWatcher;
         event_          = NULL;
         thread_         = NULL;
         stop_           = false;
@@ -132,9 +132,15 @@ private:
             }
 
             pTask->DoWork();
+            pTask->ExecutedAdd();
+
+            if (pWatcher_)
+            {
+                pWatcher_->RunTaskEnd(pTask);
+            }
+
             ///> 处理要重复执行的任务
             bRepeat = false;
-            pTask->ExecutedAdd();
             if (pTask->Repeat()
                 || pTask->Times() > pTask->Executed() )
             {
@@ -142,10 +148,6 @@ private:
                 bRepeat = true;
             }
 
-            if (pWatcher_)
-            {
-                pWatcher_->RunTaskEnd(pTask);
-            }
             if (!bRepeat && pTask->Release())
             {
                 delete pTask;

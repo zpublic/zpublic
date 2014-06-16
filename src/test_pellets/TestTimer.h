@@ -14,6 +14,30 @@ public:
     }
 };
 
+class TestTimerWatcher : public ITimerWatcher
+{
+public:
+    virtual void RunTaskBegin( TimerTaskBase* pTask )
+    {
+        std::cout<<pTask->Taskid()<<" begin"<<std::endl;
+    }
+
+    virtual void RunTaskEnd( TimerTaskBase* pTask )
+    {
+        std::cout<<pTask->Taskid()<<" end"<<std::endl;
+    }
+
+    virtual void InsertTask( TimerTaskBase* pTask )
+    {
+        std::cout<<pTask->Taskid()<<" insert"<<std::endl;
+    }
+
+    virtual void RemoveTask( TimerTaskBase* pTask, bool bUse )
+    {
+        std::cout<<pTask->Taskid()<<" remove use="<<bUse<<std::endl;
+    }
+};
+
 static void testFunc1(TimerTaskBase* pTask)
 {
     std::cout<<"testFunc1"<<std::endl;
@@ -32,7 +56,8 @@ public:
 
     void testTimer()
     {
-        TimerDispatcher disp;
+        TestTimerWatcher watcher;
+        TimerDispatcher disp(&watcher);
         disp.Init();
 
         TestTask* t1 = new TestTask;
