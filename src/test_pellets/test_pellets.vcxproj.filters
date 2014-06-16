@@ -300,9 +300,6 @@
     <ClInclude Include="..\..\pellets\z_timer\z_timer_dispatcher.h">
       <Filter>pellets\z_timer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_mutex.h">
-      <Filter>pellets</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\pellets\z_timer\z_timer_test_code.h">
       <Filter>pellets\z_timer</Filter>
     </ClInclude>

@@ -147,7 +147,6 @@
     <ClInclude Include="..\..\pellets\z_event\z_event_def.h" />
     <ClInclude Include="..\..\pellets\z_event\z_event_event.h" />
     <ClInclude Include="..\..\pellets\z_event\z_event_reactor.h" />
-    <ClInclude Include="..\..\pellets\z_mutex.h" />
     <ClInclude Include="..\..\pellets\z_thread_pool\z_task.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
