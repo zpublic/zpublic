@@ -62,13 +62,13 @@ public:
 
         TestTask* t1 = new TestTask;
         t1->Taskid(3);
-        t1->Timeout(3000);
+        t1->Timeout(TimerCalcMilliseconds(3));
         TestTask* t2 = new TestTask;
         t2->Taskid(8);
-        t2->Timeout(8000);
+        t2->Timeout(TimerCalcMilliseconds(0, 8));
         TestTask* t3 = new TestTask;
         t3->Taskid(23);
-        t3->Timeout(2000);
+        t3->Timeout(TimerCalcMilliseconds(0, 0, 2));
         t3->Times(3);
         TestTask* t4 = new TestTask;
         t4->Taskid(199999);
