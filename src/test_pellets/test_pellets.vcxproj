@@ -170,6 +170,7 @@
     <ClInclude Include="..\..\pellets\z_timer\z_timer_dispatcher.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_task.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_task_queue.h" />
+    <ClInclude Include="..\..\pellets\z_timer\z_timer_test_code.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_watcher.h" />
     <ClInclude Include="def.h" />
     <ClInclude Include="stdafx.h" />
