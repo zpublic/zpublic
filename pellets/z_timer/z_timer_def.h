@@ -7,5 +7,6 @@ inline unsigned int TimerGetTime()
     return ::GetTickCount();
 }
 
+
 ///> 任务执行次数为99999则无限重复
 #define TaskRepeatDef 99999

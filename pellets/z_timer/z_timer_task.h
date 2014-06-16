@@ -54,7 +54,7 @@ public:
     void Release(bool val) { release_ = val; }
 
 protected:
-    unsigned int taskid_;            ///> 任务id，自己设置，建议使用TaskIdGenerator来生成唯一ID
+    unsigned int taskid_;            ///> 任务id，自己设置
     unsigned int tasktype_;          ///> 任务分类或者任务分组，自己设置
     unsigned int timeout_;           ///> 定时时间
     unsigned int times_;             ///> 执行次数(99999为repeat无限次数)
