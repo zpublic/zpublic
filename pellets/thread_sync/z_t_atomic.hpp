@@ -14,18 +14,49 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
-#ifndef ZL_THREAD_SYNC_H
-#define ZL_THREAD_SYNC_H
+#ifndef ZL_THREAD_SYNC_ATOMIC_HPP
+#define ZL_THREAD_SYNC_ATOMIC_HPP
 
-#include "z_t_thread_sync_def.h"
-#include "z_t_syncobject.hpp"
-#include "z_t_event.hpp"
-#include "z_t_semaphore.hpp"
-#include "z_t_criticalsection.hpp"
-#include "z_t_mutex.hpp"
-#include "z_t_atomic.hpp"
+namespace zl
+{
+namespace ThreadSync
+{
 
-typedef zl::ThreadSync::CMutex z_mutex;
-typedef zl::ThreadSync::CMutexGuard<zl::ThreadSync::CMutex> z_mutex_guard;
+class AtomicNum
+{
+public:
+    AtomicNum() :
+        m_lValue(0)
+    {
+    }
+    AtomicNum(long lValue) :
+        m_lValue(lValue)
+    {
+    }
+
+    long operator++()
+    {
+        return ::InterlockedIncrement(&m_lValue);
+    }
+    long operator--()
+    {
+        return ::InterlockedDecrement(&m_lValue);
+    }
+    long operator=(long lValue)
+    {
+        return (m_lValue = lValue);
+    }
+    operator long() const
+    {
+        return m_lValue;
+    }
+private:
+    long operator++(int);
+    long operator--(int);
+    volatile long m_lValue;
+};
+
+}
+}
 
 #endif

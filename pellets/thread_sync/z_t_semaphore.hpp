@@ -17,7 +17,7 @@
 #ifndef ZL_THREAD_SYNC_SEMAPHORE_HPP
 #define ZL_THREAD_SYNC_SEMAPHORE_HPP
 
-#include "syncobject.hpp"
+#include "z_t_syncobject.hpp"
 
 namespace zl
 {
