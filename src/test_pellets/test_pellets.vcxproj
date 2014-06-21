@@ -92,6 +92,31 @@
   <ItemGroup>
     <ClInclude Include="..\..\3rdparty\detours\src\detours.h" />
     <ClInclude Include="..\..\3rdparty\detours\src\detver.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lapi.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lauxlib.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lcode.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lctype.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\ldebug.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\ldo.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lfunc.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lgc.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\llex.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\llimits.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lmem.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lobject.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lopcodes.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lparser.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lstate.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lstring.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\ltable.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\ltm.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lua.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lua.hpp" />
+    <ClInclude Include="..\..\3rdparty\luasrc\luaconf.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lualib.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lundump.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lvm.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lzio.h" />
     <ClInclude Include="..\..\pellets\data_box\array_data.h" />
     <ClInclude Include="..\..\pellets\data_box\data_box.h" />
     <ClInclude Include="..\..\pellets\data_box\data_box_def.h" />
@@ -148,6 +173,10 @@
     <ClInclude Include="..\..\pellets\z_event\z_event_def.h" />
     <ClInclude Include="..\..\pellets\z_event\z_event_event.h" />
     <ClInclude Include="..\..\pellets\z_event\z_event_reactor.h" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind.h" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_def.h" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_function_reg.h" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_state.h" />
     <ClInclude Include="..\..\pellets\z_thread_pool\z_task.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
@@ -178,6 +207,7 @@
     <ClInclude Include="TestDataBox.h" />
     <ClInclude Include="TestDesignPattern.h" />
     <ClInclude Include="TestEvent.h" />
+    <ClInclude Include="TestLuaBind.h" />
     <ClInclude Include="TestPeutils.h" />
     <ClInclude Include="TestSerialize.h" />
     <ClInclude Include="TestThreadPool.h" />
@@ -193,6 +223,46 @@
     <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_reader.cpp" />
     <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_value.cpp" />
     <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_writer.cpp" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lapi.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lauxlib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lbaselib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lbitlib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lcode.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lcorolib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lctype.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\ldblib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\ldebug.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\ldo.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\ldump.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lfunc.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lgc.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\linit.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\liolib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\llex.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lmathlib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lmem.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\loadlib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lobject.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lopcodes.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\loslib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lparser.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lstate.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lstring.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lstrlib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\ltable.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\ltablib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\ltm.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lua.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\luac.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lundump.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lvm.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lzio.c" />
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp" />
     <ClCompile Include="..\..\pellets\data_box\value_data.cpp" />
     <ClCompile Include="..\..\pellets\data_box\value_data_string.cpp" />
@@ -208,6 +278,8 @@
     <ClCompile Include="..\..\pellets\serialize\data.cpp" />
     <ClCompile Include="..\..\pellets\serialize\data_format.cpp" />
     <ClCompile Include="..\..\pellets\serialize\serialize_engine.cpp" />
+    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_function_reg.cpp" />
+    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_state.cpp" />
     <ClCompile Include="..\..\pellets\z_thread_pool\z_task.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
@@ -233,6 +305,7 @@
     <ClCompile Include="TestDataBox.cpp" />
     <ClCompile Include="TestDesignPattern.cpp" />
     <ClCompile Include="TestEvent.cpp" />
+    <ClCompile Include="TestLuaBind.cpp" />
     <ClCompile Include="TestPeutils.cpp" />
     <ClCompile Include="TestSerialize.cpp" />
     <ClCompile Include="TestThreadPool.cpp" />
@@ -244,6 +317,7 @@
     <None Include="..\..\3rdparty\jsonlib\lib_json\json_internalarray.inl" />
     <None Include="..\..\3rdparty\jsonlib\lib_json\json_internalmap.inl" />
     <None Include="..\..\3rdparty\jsonlib\lib_json\json_valueiterator.inl" />
+    <None Include="..\..\3rdparty\luasrc\Makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

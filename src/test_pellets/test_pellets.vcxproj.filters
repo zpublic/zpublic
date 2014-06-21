@@ -1,18 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="源文件">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="头文件">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="资源文件">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="pellets">
       <UniqueIdentifier>{f065d556-c91e-4017-8aa8-14b1ab73a0e2}</UniqueIdentifier>
     </Filter>
@@ -58,16 +46,26 @@
     <Filter Include="pellets\thread_sync">
       <UniqueIdentifier>{8146a8a3-58ad-4691-9072-de1bd0637a06}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\z_lua_bind">
+      <UniqueIdentifier>{0d986bea-4ecd-425b-ad2d-107989048ce8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\lua">
+      <UniqueIdentifier>{d70a3f52-2667-448e-b84c-29114d0dcc32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
-      <Filter>头文件</Filter>
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>头文件</Filter>
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\data_box\array_data.h">
       <Filter>pellets\DataBox</Filter>
@@ -85,10 +83,10 @@
       <Filter>pellets\DataBox</Filter>
     </ClInclude>
     <ClInclude Include="TestDataBox.h">
-      <Filter>头文件</Filter>
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="def.h">
-      <Filter>头文件</Filter>
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\data_box\value_data_t.hpp">
       <Filter>pellets\DataBox</Filter>
@@ -100,7 +98,7 @@
       <Filter>pellets\thread_sync</Filter>
     </ClInclude>
     <ClInclude Include="TestThreadSync.h">
-      <Filter>头文件</Filter>
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\serialize\serialize.h">
       <Filter>pellets\Serialize</Filter>
@@ -118,7 +116,7 @@
       <Filter>pellets\Serialize</Filter>
     </ClInclude>
     <ClInclude Include="TestSerialize.h">
-      <Filter>头文件</Filter>
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\peutils\pefile.h">
       <Filter>pellets\Peutils</Filter>
@@ -130,7 +128,7 @@
       <Filter>pellets\Peutils</Filter>
     </ClInclude>
     <ClInclude Include="TestPeutils.h">
-      <Filter>头文件</Filter>
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\peutils\pesectionobject.h">
       <Filter>pellets\Peutils</Filter>
@@ -229,10 +227,10 @@
       <Filter>pellets\z_thread_pool</Filter>
     </ClInclude>
     <ClInclude Include="TestThreadPool.h">
-      <Filter>头文件</Filter>
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="TestDesignPattern.h">
-      <Filter>头文件</Filter>
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\design_pattern\observer.h">
       <Filter>pellets\design_pattern</Filter>
@@ -253,7 +251,7 @@
       <Filter>pellets\design_pattern</Filter>
     </ClInclude>
     <ClInclude Include="TestEvent.h">
-      <Filter>头文件</Filter>
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_event\z_event_reactor.h">
       <Filter>pellets\z_event</Filter>
@@ -265,7 +263,7 @@
       <Filter>pellets\z_event</Filter>
     </ClInclude>
     <ClInclude Include="TestTimer.h">
-      <Filter>头文件</Filter>
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_timer\z_timer_def.h">
       <Filter>pellets\z_timer</Filter>
@@ -306,14 +304,98 @@
     <ClInclude Include="..\..\pellets\thread_sync\z_t_atomic.hpp">
       <Filter>pellets\thread_sync</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lapi.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lauxlib.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lcode.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lctype.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\ldebug.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\ldo.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lfunc.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lgc.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\llex.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\llimits.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lmem.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lobject.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lopcodes.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lparser.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lstate.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lstring.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\ltable.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\ltm.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lua.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lua.hpp">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\luaconf.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lualib.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lundump.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lvm.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\luasrc\lzio.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind.h">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_state.h">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_def.h">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_function_reg.h">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="TestLuaBind.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="test_pellets.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">
       <Filter>pellets\DataBox</Filter>
     </ClCompile>
@@ -322,12 +404,6 @@
     </ClCompile>
     <ClCompile Include="..\..\pellets\data_box\value_data_string.cpp">
       <Filter>pellets\DataBox</Filter>
-    </ClCompile>
-    <ClCompile Include="TestDataBox.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="TestThreadSync.cpp">
-      <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\pellets\serialize\data.cpp">
       <Filter>pellets\Serialize</Filter>
@@ -338,17 +414,11 @@
     <ClCompile Include="..\..\pellets\serialize\serialize_engine.cpp">
       <Filter>pellets\Serialize</Filter>
     </ClCompile>
-    <ClCompile Include="TestSerialize.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\pellets\peutils\pefile.cpp">
       <Filter>pellets\Peutils</Filter>
     </ClCompile>
     <ClCompile Include="..\..\pellets\peutils\peparser.cpp">
       <Filter>pellets\Peutils</Filter>
-    </ClCompile>
-    <ClCompile Include="TestPeutils.cpp">
-      <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\pellets\peutils\pesectionobject.cpp">
       <Filter>pellets\Peutils</Filter>
@@ -413,17 +483,146 @@
     <ClCompile Include="..\..\pellets\z_thread_pool\z_thread_stack.cpp">
       <Filter>pellets\z_thread_pool</Filter>
     </ClCompile>
-    <ClCompile Include="TestThreadPool.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="..\..\3rdparty\luasrc\lapi.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lauxlib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lbaselib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lbitlib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lcode.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lcorolib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lctype.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\ldblib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\ldebug.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\ldo.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\ldump.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lfunc.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lgc.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\linit.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\liolib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\llex.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lmathlib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lmem.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\loadlib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lobject.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lopcodes.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\loslib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lparser.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lstate.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lstring.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lstrlib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\ltable.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\ltablib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\ltm.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lua.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\luac.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lundump.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lvm.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\luasrc\lzio.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_state.cpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_function_reg.cpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClCompile>
+    <ClCompile Include="TestLuaBind.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="test_pellets.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="TestDataBox.cpp">
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="TestDesignPattern.cpp">
-      <Filter>源文件</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="TestEvent.cpp">
-      <Filter>源文件</Filter>
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="TestPeutils.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="TestSerialize.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="TestThreadPool.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="TestThreadSync.cpp">
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="TestTimer.cpp">
-      <Filter>源文件</Filter>
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -435,6 +634,9 @@
     </None>
     <None Include="..\..\3rdparty\jsonlib\lib_json\json_valueiterator.inl">
       <Filter>pellets\IPC\json</Filter>
+    </None>
+    <None Include="..\..\3rdparty\luasrc\Makefile">
+      <Filter>3rdparty\lua</Filter>
     </None>
   </ItemGroup>
 </Project>

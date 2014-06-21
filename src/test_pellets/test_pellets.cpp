@@ -11,17 +11,19 @@
 #include "TestDesignPattern.h"
 #include "TestEvent.h"
 #include "TestTimer.h"
+#include "TestLuaBind.h"
 
 void AddTest(Suite& ts)
 {
 //     ts.add(std::auto_ptr<Suite>(new CTestDataBox));
-     ts.add(std::auto_ptr<Suite>(new CTestThreadSync));
+//     ts.add(std::auto_ptr<Suite>(new CTestThreadSync));
 //     ts.add(std::auto_ptr<Suite>(new CTestSerialize));
 //     ts.add(std::auto_ptr<Suite>(new CTestPeutils));
 //     ts.add(std::auto_ptr<Suite>(new CTestThreadPool));
-//    ts.add(std::auto_ptr<Suite>(new CTestDesignPattern));
+//     ts.add(std::auto_ptr<Suite>(new CTestDesignPattern));
 //     ts.add(std::auto_ptr<Suite>(new CTestEvent));
 //     ts.add(std::auto_ptr<Suite>(new CTestTimer));
+     ts.add(std::auto_ptr<Suite>(new CTestLuaBind));
 }
 
 void UniTest()
