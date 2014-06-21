@@ -1,5 +1,6 @@
 #pragma once
 #include <string.h>
+#include "z_lua_function_reg.h"
 
 class z_lua_state
 {
@@ -15,6 +16,11 @@ public:
     int open();
     int create();
     int close();
+
+    ///> 加载脚本，执行全局的东东
+    int dofile(const char *filename);
+    int dostring(const char* buff);
+    int dobuffer(const char* buff, size_t sz);
 
     ///> 注册lua脚本可以调用的标准库
     int open_all_libs();
@@ -34,10 +40,68 @@ public:
     int reg_lib(z_lua_function_reg& funcs);
     int reg_function(const char *name, lua_CFunction func);
 
-    ///> 加载脚本，执行全局的东东
-    int dofile(const char *filename);
-    int dostring(const char* buff);
-    int dobuffer(const char* buff, size_t sz);
+    ///> 全局变量
+    template<typename T>
+    void set(const char* name, T object)
+    {
+        zl::LuaBind::push(L, object);
+        lua_setglobal(L, name);
+    }
+    template<typename T>
+    T get(const char* name)
+    {
+        lua_getglobal(L, name);
+        return zl::LuaBind::pop<T>(L);
+    }
+
+    ///> 函数调用
+    template<typename RVal>
+    RVal call(const char* name)
+    {
+        int nRet = lua_pcall(L, 0, 1, 0);
+        lua_getglobal(L, name);
+        if(lua_isfunction(L,-1))
+        {
+            lua_pcall(L, 0, 1, 0);
+        }
+        return zl::LuaBind::pop<RVal>(L);
+    }
+    template<typename RVal, typename T1>
+    RVal call(const char* name, T1 arg)
+    {
+        lua_getglobal(L, name);
+        if(lua_isfunction(L,-1))
+        {
+            zl::LuaBind::push(L, arg);
+            lua_pcall(L, 1, 1, 0);
+        }
+        return zl::LuaBind::pop<RVal>(L);
+    }
+    template<typename RVal, typename T1, typename T2>
+    RVal call(const char* name, T1 arg1, T2 arg2)
+    {
+        lua_getglobal(L, name);
+        if(lua_isfunction(L,-1))
+        {
+            zl::LuaBind::push(L, arg1);
+            zl::LuaBind::push(L, arg2);
+            lua_pcall(L, 2, 1, 0);
+        }
+        return zl::LuaBind::pop<RVal>(L);
+    }
+    template<typename RVal, typename T1, typename T2, typename T3>
+    RVal call(const char* name, T1 arg1, T2 arg2, T3 arg3)
+    {
+        lua_getglobal(L, name);
+        if(lua_isfunction(L,-1))
+        {
+            zl::LuaBind::push(L, arg1);
+            zl::LuaBind::push(L, arg2);
+            zl::LuaBind::push(L, arg3);
+            lua_pcall(L, 3, 1, 0);
+        }
+        return zl::LuaBind::pop<RVal>(L);
+    }
 
 protected:
     lua_State* L;

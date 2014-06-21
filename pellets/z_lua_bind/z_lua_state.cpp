@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "z_lua_state.h"
-#include "z_lua_function_reg.h"
 
 
 z_lua_state::z_lua_state() : L(NULL), auto_close_(true)

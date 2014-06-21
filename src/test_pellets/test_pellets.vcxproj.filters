@@ -394,6 +394,27 @@
     <ClInclude Include="TestLuaBind.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_function.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_global.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.h">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.h">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.h">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_function_call.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">
@@ -623,6 +644,15 @@
     </ClCompile>
     <ClCompile Include="TestTimer.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.cpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.cpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.cpp">
+      <Filter>pellets\z_lua_bind</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

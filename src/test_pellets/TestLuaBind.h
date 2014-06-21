@@ -23,6 +23,13 @@ const std::string test_lua =
     z.zap_2()       \
     b.zap_1()       \
     b.zap_2()       \
+    g_pp = g_hehe   \
+    function PI()   \
+        return 3.14 \
+    end             \
+    function l_add(i,j)     \
+        return i+j          \
+    end                     \
     ";
 
 class CTestLuaBind : public Suite
@@ -34,19 +41,28 @@ public:
     void testLuaBind()
     {
         z_lua_state l;
-        l.create();
-        l.open_all_libs();
+        TEST_ASSERT(0 == l.create())
+        TEST_ASSERT(0 == l.open_all_libs())
         
         z_lua_function_reg reg;
         reg.prefix("zap_");
         reg.insert("1", f1);
         reg.insert("2", f2);
-        l.reg_lib(reg);
+        TEST_ASSERT(0 == l.reg_lib(reg))
         reg.libname("b");
-        l.reg_lib(reg);
+        TEST_ASSERT(0 == l.reg_lib(reg))
 
-        l.reg_function("hehe", f3);
-        l.dostring(test_lua.c_str());
+        l.set("g_hehe", 123);
+
+        TEST_ASSERT(0 == l.reg_function("hehe", f3))
+        TEST_ASSERT(0 == l.dostring(test_lua.c_str()))
+
+        TEST_ASSERT(123 == l.get<int>("g_pp"))
+
+        TEST_ASSERT(l.call<float>("PI") == 3.14)
+        TEST_ASSERT(l.call<float>("l_add", 1.1, 2.2) == 3.3)
+        TEST_ASSERT(l.call<int>("l_add", 3, 4) == 7)
+
         l.close();
     }
 };
