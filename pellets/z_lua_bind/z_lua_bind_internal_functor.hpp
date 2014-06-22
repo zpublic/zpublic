@@ -1,0 +1,204 @@
+#pragma once
+
+namespace zl
+{
+namespace LuaBind
+{
+
+    template<typename T>  
+    T upvalue_(lua_State *L)
+    {
+        return user2type<T>::invoke(L, lua_upvalueindex(1));
+    }
+
+    ///> 一个返回值
+    template<typename RVal, typename T1=void, typename T2=void, typename T3=void, typename T4=void, typename T5=void>
+    struct functor
+    {
+        static int invoke(lua_State *L)
+        {
+            push(L, upvalue_<RVal(*)(T1,T2,T3,T4,T5)>(L)(
+                read<T1>(L,1),
+                read<T2>(L,2),
+                read<T3>(L,3),
+                read<T4>(L,4),
+                read<T5>(L,5)));
+            return 1;
+        }
+    };
+    template<typename RVal, typename T1, typename T2, typename T3, typename T4>
+    struct functor<RVal,T1,T2,T3,T4> 
+    {
+        static int invoke(lua_State *L)
+        {
+            push(L, upvalue_<RVal(*)(T1,T2,T3,T4)>(L)(
+                read<T1>(L,1),
+                read<T2>(L,2),
+                read<T3>(L,3),
+                read<T4>(L,4)));
+            return 1;
+        }
+    };
+    template<typename RVal, typename T1, typename T2, typename T3>
+    struct functor<RVal,T1,T2,T3> 
+    {
+        static int invoke(lua_State *L)
+        {
+            push(L, upvalue_<RVal(*)(T1,T2,T3)>(L)(
+                read<T1>(L,1),
+                read<T2>(L,2),
+                read<T3>(L,3)));
+            return 1;
+        }
+    };
+    template<typename RVal, typename T1, typename T2>
+    struct functor<RVal,T1,T2> 
+    {
+        static int invoke(lua_State *L)
+        {
+            push(L, upvalue_<RVal(*)(T1,T2)>(L)(
+                read<T1>(L,1),
+                read<T2>(L,2)));
+            return 1;
+        }
+    };
+    template<typename RVal, typename T1>
+    struct functor<RVal,T1> 
+    {
+        static int invoke(lua_State *L)
+        {
+            push(L, upvalue_<RVal(*)(T1)>(L)(read<T1>(L,1)));
+            return 1;
+        }
+    };
+    template<typename RVal>
+    struct functor<RVal>
+    {
+        static int invoke(lua_State *L)
+        {
+            push(L, upvalue_<RVal(*)()>(L)());
+            return 1;
+        }
+    };
+
+    ///> 无返回值
+    template<typename T1, typename T2, typename T3, typename T4, typename T5>
+    struct functor<void, T1, T2, T3, T4, T5>
+    {
+        static int invoke(lua_State *L)
+        {
+            upvalue_<void(*)(T1,T2,T3,T4,T5)>(L)(
+                read<T1>(L,1),
+                read<T2>(L,2),
+                read<T3>(L,3),
+                read<T4>(L,4),
+                read<T5>(L,5));
+            return 0;
+        }
+    };
+    template<typename T1, typename T2, typename T3, typename T4>
+    struct functor<void, T1, T2, T3, T4>
+    {
+        static int invoke(lua_State *L)
+        {
+            upvalue_<void(*)(T1,T2,T3,T4)>(L)(
+                read<T1>(L,1),
+                read<T2>(L,2),
+                read<T3>(L,3),
+                read<T4>(L,4));
+            return 0;
+        }
+    };
+    template<typename T1, typename T2, typename T3>
+    struct functor<void, T1, T2, T3>
+    {
+        static int invoke(lua_State *L)
+        {
+            upvalue_<void(*)(T1,T2,T3)>(L)(
+                read<T1>(L,1),
+                read<T2>(L,2),
+                read<T3>(L,3));
+            return 0;
+        }
+    };
+    template<typename T1, typename T2>
+    struct functor<void, T1, T2>
+    {
+        static int invoke(lua_State *L)
+        {
+            upvalue_<void(*)(T1,T2)>(L)(
+                read<T1>(L,1),
+                read<T2>(L,2));
+            return 0;
+        }
+    };
+    template<typename T1>
+    struct functor<void, T1>
+    {
+        static int invoke(lua_State *L)
+        {
+            upvalue_<void(*)(T1)>(L)(read<T1>(L,1));
+            return 0;
+        }
+    };
+    template<>
+    struct functor<void>
+    {
+        static int invoke(lua_State *L)
+        {
+            upvalue_<void(*)()>(L)();
+            return 0;
+        }
+    };
+
+    // functor (non-managed)
+    template<typename T1>
+    struct functor<int, lua_State*, T1>
+    {
+        static int invoke(lua_State *L)
+        {
+            return upvalue_<int(*)(lua_State*,T1)>(L)(L,read<T1>(L,1));
+        }
+    };
+    template<>
+    struct functor<int,lua_State*>
+    {
+        static int invoke(lua_State *L)
+        {
+            return upvalue_<int(*)(lua_State*)>(L)(L);
+        }
+    };
+
+    template<typename RVal> 
+    void push_functor(lua_State *L, RVal (*func)())
+    {
+        lua_pushcclosure(L, functor<RVal>::invoke, 1);
+    }
+    template<typename RVal, typename T1> 
+    void push_functor(lua_State *L, RVal (*func)(T1))
+    { 
+        lua_pushcclosure(L, functor<RVal,T1>::invoke, 1);
+    }
+    template<typename RVal, typename T1, typename T2> 
+    void push_functor(lua_State *L, RVal (*func)(T1,T2))
+    { 
+        lua_pushcclosure(L, functor<RVal,T1,T2>::invoke, 1);
+    }
+    template<typename RVal, typename T1, typename T2, typename T3> 
+    void push_functor(lua_State *L, RVal (*func)(T1,T2,T3))
+    { 
+        lua_pushcclosure(L, functor<RVal,T1,T2,T3>::invoke, 1);
+    }
+    template<typename RVal, typename T1, typename T2, typename T3, typename T4> 
+    void push_functor(lua_State *L, RVal (*func)(T1,T2,T3,T4))
+    { 
+        lua_pushcclosure(L, functor<RVal,T1,T2,T3,T4>::invoke, 1);
+    }
+    template<typename RVal, typename T1, typename T2, typename T3, typename T4, typename T5> 
+    void push_functor(lua_State *L, RVal (*func)(T1,T2,T3,T4,T5))
+    { 
+        lua_pushcclosure(L, functor<RVal,T1,T2,T3,T4,T5>::invoke, 1);
+    }
+
+}
+}

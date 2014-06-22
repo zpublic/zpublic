@@ -16,6 +16,11 @@ static int f3(lua_State* L)
     return 0;
 }
 
+static float c_add(int a, int b, float c)
+{
+    return a+b+c;
+}
+
 const std::string test_lua = 
     "               \
     hehe()          \
@@ -29,6 +34,9 @@ const std::string test_lua =
     end             \
     function l_add(i,j)     \
         return i+j          \
+    end                     \
+    function cc(a,b,c)     \
+        return c_add(a,b,c) \
     end                     \
     ";
 
@@ -62,6 +70,9 @@ public:
         TEST_ASSERT(l.call<float>("PI") == 3.14)
         TEST_ASSERT(l.call<float>("l_add", 1.1, 2.2) == 3.3)
         TEST_ASSERT(l.call<int>("l_add", 3, 4) == 7)
+
+        l.def("c_add", c_add);
+        TEST_ASSERT(l.call<float>("cc", 1, 3, 2.2) == 6.2)
 
         l.close();
     }

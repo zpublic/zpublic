@@ -415,6 +415,15 @@
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_function_call.hpp">
       <Filter>pellets\z_lua_bind</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_function_def.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_functor.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">

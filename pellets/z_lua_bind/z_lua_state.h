@@ -54,7 +54,16 @@ public:
         return zl::LuaBind::pop<T>(L);
     }
 
-    ///> 函数调用
+    ///> 注册全局函数给lua
+    template<typename F> 
+    void def(const char* name, F func)
+    { 
+        lua_pushlightuserdata(L, (void*)func);
+        zl::LuaBind::push_functor(L, func);
+        lua_setglobal(L, name);
+    }
+
+    ///> 全局lua函数调用
     template<typename RVal>
     RVal call(const char* name)
     {

@@ -179,9 +179,12 @@
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_function_call.hpp" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_global.hpp" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal.hpp" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_functor.hpp" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.h" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.h" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.h" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_function_def.hpp" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_function_reg.h" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_state.h" />
     <ClInclude Include="..\..\pellets\z_thread_pool\z_task.h">
