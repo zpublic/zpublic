@@ -56,6 +56,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="pellets\z_lua_bind\internal">
+      <UniqueIdentifier>{d335074b-7e50-4faa-9670-4fd49fc267d6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -394,35 +397,32 @@
     <ClInclude Include="TestLuaBind.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_function.hpp">
-      <Filter>pellets\z_lua_bind</Filter>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_call.hpp">
+      <Filter>pellets\z_lua_bind\internal</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_global.hpp">
-      <Filter>pellets\z_lua_bind</Filter>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_def.hpp">
+      <Filter>pellets\z_lua_bind\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_global.hpp">
+      <Filter>pellets\z_lua_bind\internal</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal.hpp">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.h">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.h">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.h">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_function_call.hpp">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_function_def.hpp">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp">
-      <Filter>pellets\z_lua_bind</Filter>
+      <Filter>pellets\z_lua_bind\internal</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_functor.hpp">
-      <Filter>pellets\z_lua_bind</Filter>
+      <Filter>pellets\z_lua_bind\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.h">
+      <Filter>pellets\z_lua_bind\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.h">
+      <Filter>pellets\z_lua_bind\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.h">
+      <Filter>pellets\z_lua_bind\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp">
+      <Filter>pellets\z_lua_bind\internal</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -655,13 +655,13 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.cpp">
-      <Filter>pellets\z_lua_bind</Filter>
+      <Filter>pellets\z_lua_bind\internal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.cpp">
-      <Filter>pellets\z_lua_bind</Filter>
+      <Filter>pellets\z_lua_bind\internal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.cpp">
-      <Filter>pellets\z_lua_bind</Filter>
+      <Filter>pellets\z_lua_bind\internal</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

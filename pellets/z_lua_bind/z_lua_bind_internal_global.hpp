@@ -14,11 +14,27 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
-#include "stdafx.h"
-#include "z_lua_bind_internal_pop.h"
+#pragma once
 
-template<>
-void zl::LuaBind::pop(lua_State *L)
+namespace zl
 {
-    lua_pop(L, 1);
+namespace LuaBind
+{
+
+// global variable
+template<typename T>
+void set(lua_State* L, const char* name, T object)
+{
+    push(L, object);
+    lua_setglobal(L, name);
+}
+
+template<typename T>
+T get(lua_State* L, const char* name)
+{
+    lua_getglobal(L, name);
+    return pop<T>(L);
+}
+
+}
 }

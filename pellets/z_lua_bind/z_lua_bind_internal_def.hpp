@@ -14,11 +14,20 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
-#include "stdafx.h"
-#include "z_lua_bind_internal_pop.h"
+#pragma once
 
-template<>
-void zl::LuaBind::pop(lua_State *L)
+namespace zl
 {
-    lua_pop(L, 1);
+namespace LuaBind
+{
+
+    template<typename F> 
+    void def(lua_State* L, const char* name, F func)
+    { 
+        lua_pushlightuserdata(L, (void*)func);
+        push_functor(L, func);
+        lua_setglobal(L, name);
+    }
+
+}
 }
