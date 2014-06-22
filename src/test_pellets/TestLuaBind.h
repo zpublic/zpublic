@@ -35,8 +35,15 @@ const std::string test_lua =
     function l_add(i,j)     \
         return i+j          \
     end                     \
-    function cc(a,b,c)     \
+    function cc(a,b,c)      \
         return c_add(a,b,c) \
+    end                     \
+    function test_ret(i)    \
+        if i==1 then        \
+            return \"aaa\"  \
+        elseif i==2 then    \
+            return {1,2,3}  \
+        end                 \
     end                     \
     ";
 
@@ -73,6 +80,11 @@ public:
 
         l.def("c_add", c_add);
         TEST_ASSERT(l.call<float>("cc", 1, 3, 2.2) == 6.2)
+
+        std::string r1 = l.call<std::string>("test_ret", 1);
+        TEST_ASSERT(r1 == "aaa")
+        std::list<int> r2 = l.call<std::list<int> >("test_ret", 2);
+        TEST_ASSERT(r2.size() == 3);
 
         l.close();
     }

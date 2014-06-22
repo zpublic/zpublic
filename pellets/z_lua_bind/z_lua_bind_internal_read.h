@@ -16,6 +16,9 @@
  ************************************************************************/
 #pragma once
 
+#include <string>
+#include <list>
+
 namespace zl
 {
 namespace LuaBind
@@ -46,5 +49,8 @@ namespace LuaBind
     template<>	void                read(lua_State *L, int index);
     template<>	long long           read(lua_State *L, int index);
     template<>	unsigned long long  read(lua_State *L, int index);
+
+    template<>	std::string         read(lua_State *L, int index);
+    template<>	std::list<int>      read(lua_State *L, int index);
 
 }}
