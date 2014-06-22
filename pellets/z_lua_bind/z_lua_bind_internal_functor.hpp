@@ -34,11 +34,11 @@ namespace LuaBind
         static int invoke(lua_State *L)
         {
             push(L, upvalue_<RVal(*)(T1,T2,T3,T4,T5)>(L)(
-                read<T1>(L,1),
-                read<T2>(L,2),
-                read<T3>(L,3),
-                read<T4>(L,4),
-                read<T5>(L,5)));
+                lua_read<T1>::r(L,1),
+                lua_read<T2>::r(L,2),
+                lua_read<T3>::r(L,3),
+                lua_read<T4>::r(L,4),
+                lua_read<T5>::r(L,5)));
             return 1;
         }
     };
@@ -48,10 +48,10 @@ namespace LuaBind
         static int invoke(lua_State *L)
         {
             push(L, upvalue_<RVal(*)(T1,T2,T3,T4)>(L)(
-                read<T1>(L,1),
-                read<T2>(L,2),
-                read<T3>(L,3),
-                read<T4>(L,4)));
+                lua_read<T1>::r(L,1),
+                lua_read<T2>::r(L,2),
+                lua_read<T3>::r(L,3),
+                lua_read<T4>::r(L,4)));
             return 1;
         }
     };
@@ -61,9 +61,9 @@ namespace LuaBind
         static int invoke(lua_State *L)
         {
             push(L, upvalue_<RVal(*)(T1,T2,T3)>(L)(
-                read<T1>(L,1),
-                read<T2>(L,2),
-                read<T3>(L,3)));
+                lua_read<T1>::r(L,1),
+                lua_read<T2>::r(L,2),
+                lua_read<T3>::r(L,3)));
             return 1;
         }
     };
@@ -73,8 +73,8 @@ namespace LuaBind
         static int invoke(lua_State *L)
         {
             push(L, upvalue_<RVal(*)(T1,T2)>(L)(
-                read<T1>(L,1),
-                read<T2>(L,2)));
+                lua_read<T1>::r(L,1),
+                lua_read<T2>::r(L,2)));
             return 1;
         }
     };
@@ -83,7 +83,7 @@ namespace LuaBind
     {
         static int invoke(lua_State *L)
         {
-            push(L, upvalue_<RVal(*)(T1)>(L)(read<T1>(L,1)));
+            push(L, upvalue_<RVal(*)(T1)>(L)(lua_read<T1>::r(L,1)));
             return 1;
         }
     };
@@ -104,11 +104,11 @@ namespace LuaBind
         static int invoke(lua_State *L)
         {
             upvalue_<void(*)(T1,T2,T3,T4,T5)>(L)(
-                read<T1>(L,1),
-                read<T2>(L,2),
-                read<T3>(L,3),
-                read<T4>(L,4),
-                read<T5>(L,5));
+                lua_read<T1>::r(L,1),
+                lua_read<T2>::r(L,2),
+                lua_read<T3>::r(L,3),
+                lua_read<T4>::r(L,4),
+                lua_read<T5>::r(L,5));
             return 0;
         }
     };
@@ -118,10 +118,10 @@ namespace LuaBind
         static int invoke(lua_State *L)
         {
             upvalue_<void(*)(T1,T2,T3,T4)>(L)(
-                read<T1>(L,1),
-                read<T2>(L,2),
-                read<T3>(L,3),
-                read<T4>(L,4));
+                lua_read<T1>::r(L,1),
+                lua_read<T2>::r(L,2),
+                lua_read<T3>::r(L,3),
+                lua_read<T4>::r(L,4));
             return 0;
         }
     };
@@ -131,9 +131,9 @@ namespace LuaBind
         static int invoke(lua_State *L)
         {
             upvalue_<void(*)(T1,T2,T3)>(L)(
-                read<T1>(L,1),
-                read<T2>(L,2),
-                read<T3>(L,3));
+                lua_read<T1>::r(L,1),
+                lua_read<T2>::r(L,2),
+                lua_read<T3>::r(L,3));
             return 0;
         }
     };
@@ -143,8 +143,8 @@ namespace LuaBind
         static int invoke(lua_State *L)
         {
             upvalue_<void(*)(T1,T2)>(L)(
-                read<T1>(L,1),
-                read<T2>(L,2));
+                lua_read<T1>::r(L,1),
+                lua_read<T2>::r(L,2));
             return 0;
         }
     };
@@ -153,7 +153,7 @@ namespace LuaBind
     {
         static int invoke(lua_State *L)
         {
-            upvalue_<void(*)(T1)>(L)(read<T1>(L,1));
+            upvalue_<void(*)(T1)>(L)(lua_read<T1>::r(L,1));
             return 0;
         }
     };
@@ -173,7 +173,7 @@ namespace LuaBind
     {
         static int invoke(lua_State *L)
         {
-            return upvalue_<int(*)(lua_State*,T1)>(L)(L,read<T1>(L,1));
+            return upvalue_<int(*)(lua_State*,T1)>(L)(L,lua_read<T1>::r(L,1));
         }
     };
     template<>

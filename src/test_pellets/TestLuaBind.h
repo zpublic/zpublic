@@ -43,6 +43,10 @@ const std::string test_lua =
             return \"aaa\"  \
         elseif i==2 then    \
             return {1,2,3}  \
+        elseif i==3 then        \
+            return {            \
+                [\"a\"]=\"aa\", \
+                [\"b\"]=\"bb\"} \
         end                 \
     end                     \
     ";
@@ -85,6 +89,12 @@ public:
         TEST_ASSERT(r1 == "aaa")
         std::list<int> r2 = l.call<std::list<int> >("test_ret", 2);
         TEST_ASSERT(r2.size() == 3);
+        std::vector<std::string> r3 = l.call<std::vector<std::string> >("test_ret", 3);
+        TEST_ASSERT(r3.size() == 2);
+        std::set<std::string> r4 = l.call<std::set<std::string> >("test_ret", 3);
+        TEST_ASSERT(r4.size() == 2);
+        std::map<std::string, std::string> r5 = l.call<std::map<std::string, std::string> >("test_ret", 3);
+        TEST_ASSERT(r5.size() == 2);
 
         l.close();
     }

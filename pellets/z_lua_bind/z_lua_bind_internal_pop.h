@@ -21,10 +21,10 @@ namespace zl
 namespace LuaBind
 {
 
-    template<typename T>  
+    template<typename T>
     T pop(lua_State *L)
     {
-        T t = read<T>(L, -1);
+        T t = lua_read<T>::r(L, -1);
         lua_pop(L, 1);
         return t;
     }

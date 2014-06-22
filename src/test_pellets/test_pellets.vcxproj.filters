@@ -421,7 +421,7 @@
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp">
       <Filter>pellets\z_lua_bind\internal</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.h">
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.hpp">
       <Filter>pellets\z_lua_bind\internal</Filter>
     </ClInclude>
   </ItemGroup>
@@ -658,12 +658,6 @@
       <Filter>pellets\z_lua_bind\internal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.cpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read_stl.cpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read_basic.cpp">
       <Filter>pellets\z_lua_bind\internal</Filter>
     </ClCompile>
   </ItemGroup>

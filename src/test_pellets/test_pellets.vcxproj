@@ -181,8 +181,8 @@
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_functor.hpp" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.h" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.h" />
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.h" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_def.hpp" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.hpp" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_function_reg.h" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_state.h" />
@@ -289,8 +289,6 @@
     <ClCompile Include="..\..\pellets\serialize\serialize_engine.cpp" />
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.cpp" />
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.cpp" />
-    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read_basic.cpp" />
-    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read_stl.cpp" />
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_function_reg.cpp" />
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_state.cpp" />
     <ClCompile Include="..\..\pellets\z_thread_pool\z_task.cpp">
