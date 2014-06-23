@@ -16,6 +16,9 @@
  ************************************************************************/
 #pragma once
 
-#include "luasrc/lua.hpp"
-#define lua_toulong(L, x)   static_cast<ULONG>(lua_tointeger((L), (x)))
-#define lua_toint(L, x)     static_cast<int>(lua_tointeger((L), (x)))
+#ifndef LUA_SRC_PATH
+#define LUA_SRC_PATH "luasrc/lua.hpp"
+#endif
+
+///> 看到这里，说明你的lua文件所放的目录跟我不同，你可以通过定义LUA_SRC_PATH来解决
+#include LUA_SRC_PATH
