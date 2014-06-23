@@ -83,7 +83,6 @@ public:
     template<typename RVal>
     RVal call(const char* name)
     {
-        int nRet = lua_pcall(L, 0, 1, 0);
         lua_getglobal(L, name);
         if(lua_isfunction(L,-1))
         {
