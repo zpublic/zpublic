@@ -4,6 +4,7 @@
 #include "z_win_utils/path.hpp"
 #include "z_win_utils/directory.hpp"
 #include "z_win_utils/clipboard.hpp"
+#include "z_win_utils/ini.hpp"
 
 using namespace zl::WinUtils;
 
@@ -62,5 +63,29 @@ public:
         TEST_ASSERT(Clipboard::SetClipboard(s1, s1.GetLength()));
         CStringA s2 = Clipboard::GetClipboard();
         TEST_ASSERT(s1 == s2);
+    }
+
+    void test_ini()
+    {
+        CString sWorkPath  = L"c:\\zpublic_test\\";
+        CString sFileName  = L"ini_test.ini";
+        CString sSection   = L"zpublic";
+        CString sStrKey    = L"str_key";
+        CString sIntKey    = L"int_key";
+        CString sDoubleKey = L"double_key";
+        CString sValue     = L"string_value";
+        int     nValue     = 10;
+        double  fValue     = 3.1415926;
+
+        Directory::CreateDeepDirectory(sWorkPath);
+
+        Ini ini(sWorkPath + sFileName);
+        TEST_ASSERT(ini.WriteString(sSection, sStrKey, sValue) == TRUE);
+        TEST_ASSERT(ini.WriteInt(sSection, sIntKey, nValue) == TRUE);
+        TEST_ASSERT(ini.WriteDouble(sSection, sDoubleKey, fValue) == TRUE);
+
+        TEST_ASSERT(ini.GetString(sSection, sStrKey, L"default").Compare(sValue) == 0);
+        TEST_ASSERT(ini.GetInt(sSection, sIntKey, 0) == nValue);
+        TEST_ASSERT(ini.GetDouble(sSection, sDoubleKey, 0.0) == fValue);
     }
 };
