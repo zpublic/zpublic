@@ -41,3 +41,14 @@ todos:
 > usid                      - CurrentUserSID处理
 > uuid                      - uuid相关
 > drive                     - 磁盘驱动器相关
+> thread_enum               - 线程枚举
+> resource                  - PE文件的资源操作
+> error_code                - 错误码相关
+> tick_counter              - 计时器
+> token                     - 进程权限令牌相关
+> console_colour            - 命令行颜色
+> environment_var           - 环境变量相关
+> process_module            - 进程的模块枚举
+> message                   - 窗口消息相关
+> gdiplus                   - gdiplus初始化相关
+> taskbar_position          - 任务栏位置
