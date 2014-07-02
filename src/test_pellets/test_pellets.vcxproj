@@ -87,6 +87,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="..\..\pellets\z_win_utils\readme.txt" />
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>

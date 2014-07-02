@@ -65,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="..\..\pellets\z_win_utils\readme.txt">
+      <Filter>pellets\z_win_utils</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
