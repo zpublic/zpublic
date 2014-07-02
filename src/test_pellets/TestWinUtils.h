@@ -87,5 +87,7 @@ public:
         TEST_ASSERT(ini.GetString(sSection, sStrKey, L"default").Compare(sValue) == 0);
         TEST_ASSERT(ini.GetInt(sSection, sIntKey, 0) == nValue);
         TEST_ASSERT(ini.GetDouble(sSection, sDoubleKey, 0.0) == fValue);
+
+        Directory::DeleteDirectory(sWorkPath);
     }
 };
