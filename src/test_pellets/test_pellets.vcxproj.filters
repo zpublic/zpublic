@@ -59,6 +59,9 @@
     <Filter Include="pellets\z_lua_bind\internal">
       <UniqueIdentifier>{d335074b-7e50-4faa-9670-4fd49fc267d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\z_win_utils">
+      <UniqueIdentifier>{1fc910f7-9a6c-4c48-9597-9f0de36ed60a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -424,6 +427,18 @@
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.hpp">
       <Filter>pellets\z_lua_bind\internal</Filter>
     </ClInclude>
+    <ClInclude Include="TestWinUtils.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\dictory.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\path.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\win_utls_header.h">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">
@@ -659,6 +674,9 @@
     </ClCompile>
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.cpp">
       <Filter>pellets\z_lua_bind\internal</Filter>
+    </ClCompile>
+    <ClCompile Include="TestWinUtils.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

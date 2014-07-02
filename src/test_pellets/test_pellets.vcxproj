@@ -210,6 +210,9 @@
     <ClInclude Include="..\..\pellets\z_timer\z_timer_task_queue.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_test_code.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_watcher.h" />
+    <ClInclude Include="..\..\pellets\z_win_utils\dictory.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\path.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\win_utls_header.h" />
     <ClInclude Include="def.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -222,6 +225,7 @@
     <ClInclude Include="TestThreadPool.h" />
     <ClInclude Include="TestThreadSync.h" />
     <ClInclude Include="TestTimer.h" />
+    <ClInclude Include="TestWinUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\3rdparty\detours\src\creatwth.cpp" />
@@ -322,6 +326,7 @@
     <ClCompile Include="TestThreadPool.cpp" />
     <ClCompile Include="TestThreadSync.cpp" />
     <ClCompile Include="TestTimer.cpp" />
+    <ClCompile Include="TestWinUtils.cpp" />
     <ClCompile Include="test_pellets.cpp" />
   </ItemGroup>
   <ItemGroup>

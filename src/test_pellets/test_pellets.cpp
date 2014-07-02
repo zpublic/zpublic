@@ -12,6 +12,7 @@
 #include "TestEvent.h"
 #include "TestTimer.h"
 #include "TestLuaBind.h"
+#include "TestWinUtils.h"
 
 void AddTest(Suite& ts)
 {
@@ -23,7 +24,8 @@ void AddTest(Suite& ts)
 //     ts.add(std::auto_ptr<Suite>(new CTestDesignPattern));
 //     ts.add(std::auto_ptr<Suite>(new CTestEvent));
 //     ts.add(std::auto_ptr<Suite>(new CTestTimer));
-     ts.add(std::auto_ptr<Suite>(new CTestLuaBind));
+//     ts.add(std::auto_ptr<Suite>(new CTestLuaBind));
+     ts.add(std::auto_ptr<Suite>(new CTestWinUtils));
 }
 
 void UniTest()
