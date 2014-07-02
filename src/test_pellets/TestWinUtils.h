@@ -5,6 +5,7 @@
 #include "z_win_utils/directory.hpp"
 #include "z_win_utils/clipboard.hpp"
 #include "z_win_utils/ini.hpp"
+#include "z_win_utils/file_version.hpp"
 
 using namespace zl::WinUtils;
 
@@ -75,19 +76,33 @@ public:
         CString sDoubleKey = L"double_key";
         CString sValue     = L"string_value";
         int     nValue     = 10;
-        double  fValue     = 3.1415926;
+        double  fValue     = 3.14;
 
         Directory::CreateDeepDirectory(sWorkPath);
 
         Ini ini(sWorkPath + sFileName);
         TEST_ASSERT(ini.WriteString(sSection, sStrKey, sValue) == TRUE);
         TEST_ASSERT(ini.WriteInt(sSection, sIntKey, nValue) == TRUE);
-        TEST_ASSERT(ini.WriteDouble(sSection, sDoubleKey, fValue) == TRUE);
+        TEST_ASSERT(ini.WriteDouble(sSection, sDoubleKey, fValue, 2) == TRUE);
 
         TEST_ASSERT(ini.GetString(sSection, sStrKey, L"default").Compare(sValue) == 0);
         TEST_ASSERT(ini.GetInt(sSection, sIntKey, 0) == nValue);
         TEST_ASSERT(ini.GetDouble(sSection, sDoubleKey, 0.0) == fValue);
 
         Directory::DeleteDirectory(sWorkPath);
+    }
+
+    void test_file_version()
+    {
+        CString sFilePath       = L"c:\\windows\\regedit.exe";
+        CString sFileVer        = L"6.1.7600.16385";
+        CString sFileOriginName = L"regedit.exe.mui";
+        CString sDescription    = L"×¢²á±í±à¼­Æ÷";
+
+        FileVersion fver;
+        TEST_ASSERT(fver.Create(sFilePath) == TRUE);
+        TEST_ASSERT(fver.GetFileVersion().CompareNoCase(sFileVer));
+        TEST_ASSERT(fver.GetOriginalFileName().CompareNoCase(sFileOriginName) == 0);
+        TEST_ASSERT(fver.GetFileDescription().CompareNoCase(sDescription) == 0);
     }
 };
