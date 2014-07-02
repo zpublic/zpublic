@@ -1,41 +1,43 @@
-> path                  ...done     - 文件路径名操作
-> directory             ...done     - 目录的创建、删除、拷贝
-> clipboard             ...done     - 剪切板操作
+done:
+> path                      - 文件路径名操作
+> directory                 - 目录的创建、删除、拷贝
+> clipboard                 - 剪切板操作
+> file_version              - 文件版本信息
+> ini                       - ini操作
 
-> system_path           ...todo     - 系统相关路径操作
-> process               ...todo     - 进程控制
-> cmdline               ...todo     - 命令行参数处理
-> ini                   ...todo     - ini操作
-> file_oper             ...todo     - 文件操作
-> file_version          ...todo     - 文件版本信息
-> file_info             ...todo     - 文件信息
-> file_enum             ...todo     - 文件枚举
-> file_icon             ...todo     - 文件图标相关
-> file_search           ...todo     - 文件搜索
-> select_dlg            ...todo     - 文件、目录选择对话框
-> system_version        ...todo     - 系统版本信息
-> register              ...todo     - 注册表操作
-> wow64                 ...todo     - 32位、64位兼容处理
-> cstring               ...todo     - 在没有CString时实现自己的
-> string_translte       ...todo     - 字符串相关类型转换
-> security_attribute    ...todo     - 安全属性
-> browser               ...todo     - 浏览器相关
-> cpu                   ...todo     - cpu信息
-> memory                ...todo     - 内存相关
-> module                ...todo     - 动态运行库相关
-> dos_name              ...todo     - dos路径处理
-> shortcut              ...todo     - 快捷方式处理
-> time                  ...todo     - 时间相关
-> time_string           ...todo     - 时间和字符串转换
-> privilege             ...todo     - 进程权限相关
-> screen                ...todo     - 屏幕相关
-> random                ...todo     - 随机数
-> autorun               ...todo     - 系统启动项
-> service               ...todo     - 系统服务相关
-> shutdown              ...todo     - 重启和关机
-> physical_memory       ...todo     - 物理内存操作
-> sign_verify           ...todo     - 数字签名相关
-> acl                   ...todo     - 访问控制列表相关
-> usid                  ...todo     - CurrentUserSID处理
-> uuid                  ...todo     - uuid相关
-> drive                 ...todo     - 磁盘驱动器相关
+todos:
+> system_path               - 系统相关路径操作
+> process                   - 进程控制
+> cmdline                   - 命令行参数处理
+> file_oper                 - 文件操作
+> file_info                 - 文件信息
+> file_enum                 - 文件枚举
+> file_icon                 - 文件图标相关
+> file_search               - 文件搜索
+> select_dlg                - 文件、目录选择对话框
+> system_version            - 系统版本信息
+> register                  - 注册表操作
+> wow64                     - 32位、64位兼容处理
+> cstring                   - 在没有CString时实现自己的
+> string_translte           - 字符串相关类型转换
+> security_attribute        - 安全属性
+> browser                   - 浏览器相关
+> cpu                       - cpu信息
+> memory                    - 内存相关
+> module                    - 动态运行库相关
+> dos_name                  - dos路径处理
+> shortcut                  - 快捷方式处理
+> time                      - 时间相关
+> time_string               - 时间和字符串转换
+> privilege                 - 进程权限相关
+> screen                    - 屏幕相关
+> random                    - 随机数
+> autorun                   - 系统启动项
+> service                   - 系统服务相关
+> shutdown                  - 重启和关机
+> physical_memory           - 物理内存操作
+> sign_verify               - 数字签名相关
+> acl                       - 访问控制列表相关
+> usid                      - CurrentUserSID处理
+> uuid                      - uuid相关
+> drive                     - 磁盘驱动器相关
