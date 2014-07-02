@@ -12,8 +12,15 @@ using namespace zl::WinUtils;
 class CTestWinUtils : public Suite
 {
 public:
-    CTestWinUtils(void);
     ~CTestWinUtils(void);
+    CTestWinUtils::CTestWinUtils(void)
+    {
+        TEST_ADD(CTestWinUtils::test_path);
+        TEST_ADD(CTestWinUtils::test_directory);
+        TEST_ADD(CTestWinUtils::test_clipboard);
+        TEST_ADD(CTestWinUtils::test_ini);
+        TEST_ADD(CTestWinUtils::test_file_version);
+    }
 
     void test_path()
     {
