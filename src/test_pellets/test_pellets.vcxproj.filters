@@ -442,6 +442,9 @@
     <ClInclude Include="..\..\pellets\z_win_utils\win_utils_header.h">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\clipboard.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">

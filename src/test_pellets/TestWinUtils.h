@@ -3,6 +3,8 @@
 #include "def.h"
 #include "z_win_utils/path.hpp"
 #include "z_win_utils/directory.hpp"
+#include "z_win_utils/clipboard.hpp"
+
 using namespace zl::WinUtils;
 
 class CTestWinUtils : public Suite
@@ -52,6 +54,13 @@ public:
         TEST_ASSERT(::PathFileExists(lpPath2) == FALSE);
         TEST_ASSERT(Directory::DeleteDirectory(lpPath3));
         TEST_ASSERT(::PathFileExists(lpPath3) == FALSE);
+    }
 
+    void test_clipboard()
+    {
+        CStringA s1 = "abcde";
+        TEST_ASSERT(Clipboard::SetClipboard(s1, s1.GetLength()));
+        CStringA s2 = Clipboard::GetClipboard();
+        TEST_ASSERT(s1 == s2);
     }
 };
