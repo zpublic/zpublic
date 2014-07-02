@@ -1,5 +1,7 @@
 > path                  ...done     - 文件路径名操作
 > directory             ...done     - 目录的创建、删除、拷贝
+> clipboard             ...done     - 剪切板操作
+
 > system_path           ...todo     - 系统相关路径操作
 > process               ...todo     - 进程控制
 > cmdline               ...todo     - 命令行参数处理
@@ -18,7 +20,6 @@
 > string_translte       ...todo     - 字符串相关类型转换
 > security_attribute    ...todo     - 安全属性
 > browser               ...todo     - 浏览器相关
-> clipboard             ...todo     - 剪切板操作
 > cpu                   ...todo     - cpu信息
 > memory                ...todo     - 内存相关
 > module                ...todo     - 动态运行库相关
