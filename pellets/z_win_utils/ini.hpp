@@ -18,10 +18,10 @@
 #include "win_utils_header.h"
 #include <vector>
 
-#define DEF_PROFILE_NUM_LEN			64  // numeric string length, could be quite long for binary format
-#define DEF_PROFILE_THRESHOLD		512 // temporary string length
-#define DEF_PROFILE_DELIMITER		_T(",") // default string delimiter
-#define DEF_PROFILE_TESTSTRING		_T("{63788286-AE30-4D6B-95DF-3B451C1C79F9}") // Uuid for internal use
+#define DEF_PROFILE_NUM_LEN         64  // numeric string length, could be quite long for binary format
+#define DEF_PROFILE_THRESHOLD       512 // temporary string length
+#define DEF_PROFILE_DELIMITER       _T(",") // default string delimiter
+#define DEF_PROFILE_TESTSTRING      _T("{63788286-AE30-4D6B-95DF-3B451C1C79F9}") // Uuid for internal use
 
 namespace zl
 {
