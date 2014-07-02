@@ -210,7 +210,7 @@
     <ClInclude Include="..\..\pellets\z_timer\z_timer_task_queue.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_test_code.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_watcher.h" />
-    <ClInclude Include="..\..\pellets\z_win_utils\dictory.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\directory.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\path.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\win_utls_header.h" />
     <ClInclude Include="def.h" />

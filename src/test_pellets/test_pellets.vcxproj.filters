@@ -430,13 +430,13 @@
     <ClInclude Include="TestWinUtils.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_win_utils\dictory.hpp">
-      <Filter>pellets\z_win_utils</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\path.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\win_utls_header.h">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\directory.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
   </ItemGroup>

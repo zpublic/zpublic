@@ -2,7 +2,7 @@
 
 #include "def.h"
 #include "z_win_utils/path.hpp"
-#include "z_win_utils/dictory.hpp"
+#include "z_win_utils/directory.hpp"
 using namespace zl::WinUtils;
 
 class CTestWinUtils : public Suite
@@ -36,21 +36,21 @@ public:
         TEST_ASSERT(s8 == s9);
     }
 
-    void test_dictory()
+    void test_directory()
     {
         LPCWSTR lpPath1 = L"c:\\zpublic_test\\1\\2\\3\\4";
         LPCWSTR lpPath2 = L"c:\\zpublic_test";
         LPCWSTR lpPath3 = L"c:\\zpublic_test2";
         LPCWSTR lpPath4 = L"c:\\zpublic_test2\\1\\2\\3\\4";
-        TEST_ASSERT(Dictory::CreateDeepDirectory(lpPath1));
+        TEST_ASSERT(Directory::CreateDeepDirectory(lpPath1));
         TEST_ASSERT(::PathFileExists(lpPath1));
 
-        TEST_ASSERT(Dictory::CopyDictory(lpPath2, lpPath3) == 0);
+        TEST_ASSERT(Directory::CopyDirectory(lpPath2, lpPath3) == 0);
         TEST_ASSERT(::PathFileExists(lpPath4));
 
-        TEST_ASSERT(Dictory::DeleteDirectory(lpPath2));
+        TEST_ASSERT(Directory::DeleteDirectory(lpPath2));
         TEST_ASSERT(::PathFileExists(lpPath2) == FALSE);
-        TEST_ASSERT(Dictory::DeleteDirectory(lpPath3));
+        TEST_ASSERT(Directory::DeleteDirectory(lpPath3));
         TEST_ASSERT(::PathFileExists(lpPath3) == FALSE);
 
     }

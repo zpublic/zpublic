@@ -5,7 +5,7 @@
 CTestWinUtils::CTestWinUtils(void)
 {
     TEST_ADD(CTestWinUtils::test_path);
-    TEST_ADD(CTestWinUtils::test_dictory);
+    TEST_ADD(CTestWinUtils::test_directory);
 }
 
 

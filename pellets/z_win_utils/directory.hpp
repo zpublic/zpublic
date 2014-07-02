@@ -21,7 +21,7 @@ namespace zl
 namespace WinUtils
 {
 
-    class Dictory
+    class Directory
     {
     public:
         static BOOL CreateDeepDirectory(LPCTSTR szPath)
@@ -89,7 +89,7 @@ Exit0:
             return bReturn;
         }
 
-        static int CopyDictory(LPCTSTR szSrcDir, LPCTSTR szDstDir, BOOL bCoverFile = TRUE)
+        static int CopyDirectory(LPCTSTR szSrcDir, LPCTSTR szDstDir, BOOL bCoverFile = TRUE)
         {
             int nReturn = 0;
             CString strFind;
@@ -118,7 +118,7 @@ Exit0:
                     strSubDstFile.Format(_T("%s%s\\"), strDstDir, FindFileData.cFileName);
 
                     CreateDeepDirectory(strSubDstFile);
-                    nReturn += CopyDictory(strSubFile, strSubDstFile, !bCoverFile);
+                    nReturn += CopyDirectory(strSubFile, strSubDstFile, !bCoverFile);
                 }
                 else
                 {
