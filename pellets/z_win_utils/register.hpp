@@ -20,16 +20,16 @@ namespace zl
 namespace WinUtils
 {
 
-    class Registe
+    class Register
     {
     public:
-        Registe()
+        Register()
             : hKey_(NULL)
             , bIsAttach_(FALSE)
         {
         }
 
-        ~Registe()
+        ~Register()
         {
             Close();
         }

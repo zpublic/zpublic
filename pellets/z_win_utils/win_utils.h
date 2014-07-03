@@ -10,6 +10,7 @@
 #include "taskbar_position.hpp"
 #include "usid.hpp"
 #include "register.hpp"
+#include "system_version.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
