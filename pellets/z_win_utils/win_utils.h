@@ -8,6 +8,7 @@
 #include "message.hpp"
 #include "path.hpp"
 #include "taskbar_position.hpp"
+#include "usid.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

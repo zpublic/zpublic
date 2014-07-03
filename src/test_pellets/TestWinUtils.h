@@ -15,6 +15,7 @@ public:
         TEST_ADD(CTestWinUtils::test_clipboard);
         TEST_ADD(CTestWinUtils::test_ini);
         TEST_ADD(CTestWinUtils::test_file_version);
+        TEST_ADD(CTestWinUtils::test_usid);
     }
 
     void test_path()
@@ -106,5 +107,13 @@ public:
         TEST_ASSERT(fver.GetFileVersion().CompareNoCase(sFileVer));
         TEST_ASSERT(fver.GetOriginalFileName().CompareNoCase(sFileOriginName) == 0);
         TEST_ASSERT(fver.GetFileDescription().CompareNoCase(sDescription) == 0);
+    }
+
+    void test_usid()
+    {
+        CString sRealSid = L"S-1-5-21-2847959496-4218161594-683088354-1001";
+        CString sSid;
+        TEST_ASSERT(Usid::GetCurrentUserSID(sSid) == TRUE);
+        TEST_ASSERT(sSid.CompareNoCase(sRealSid) == 0)
     }
 };
