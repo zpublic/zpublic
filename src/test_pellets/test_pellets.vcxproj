@@ -214,6 +214,8 @@
     <ClInclude Include="..\..\pellets\z_win_utils\clipboard.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\directory.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\path.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\register.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\system_version.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\win_utils_header.h" />
     <ClInclude Include="def.h" />
     <ClInclude Include="stdafx.h" />
