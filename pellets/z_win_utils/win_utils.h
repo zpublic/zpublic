@@ -9,6 +9,7 @@
 #include "path.hpp"
 #include "taskbar_position.hpp"
 #include "usid.hpp"
+#include "register.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

@@ -16,6 +16,7 @@ public:
         TEST_ADD(CTestWinUtils::test_ini);
         TEST_ADD(CTestWinUtils::test_file_version);
         TEST_ADD(CTestWinUtils::test_usid);
+        TEST_ADD(CTestWinUtils::test_register);
     }
 
     void test_path()
@@ -115,5 +116,46 @@ public:
         CString sSid;
         TEST_ASSERT(Usid::GetCurrentUserSID(sSid) == TRUE);
         TEST_ASSERT(sSid.CompareNoCase(sRealSid) == 0)
+    }
+
+    void test_register()
+    {
+        Registe reg;
+        TCHAR szbyWTestString[] = {L"pjj"};
+        TEST_ASSERT(reg.Open(HKEY_LOCAL_MACHINE, L"SOFTWARE\\zpublic", FALSE) == TRUE);
+        TEST_ASSERT(reg.Write(L"ttdword", 1) == TRUE);
+        TEST_ASSERT(reg.Write(L"ttstring", L"pjjpjjpjj") == TRUE);
+        TEST_ASSERT(reg.WriteExpandString(L"ttexstring", L"pjjpjjpjj2") == TRUE);
+        TEST_ASSERT(reg.Write(L"ttby", (BYTE*)szbyWTestString, (_tcslen(szbyWTestString) + 1) * sizeof(TCHAR)) == TRUE);
+
+        DWORD dwTestValue = 0;
+        TCHAR szbyTestString[MAX_PATH] = {0};
+        DWORD dwbyTestNameLen;
+        CString cstrTestValue;
+        TEST_ASSERT(reg.Read(L"ttdword", dwTestValue) == TRUE);
+        TEST_ASSERT(dwTestValue == 1);
+        TEST_ASSERT(reg.Read(L"ttstring", cstrTestValue) == TRUE);
+        TEST_ASSERT(cstrTestValue == L"pjjpjjpjj");
+        TEST_ASSERT(reg.Read(L"ttexstring", cstrTestValue) == TRUE);
+        TEST_ASSERT(cstrTestValue == L"pjjpjjpjj2");
+        TEST_ASSERT(reg.Read(L"ttby", (BYTE*)szbyTestString, dwbyTestNameLen) == TRUE);
+        TEST_ASSERT(_tcsicmp(szbyTestString, L"pjj") == 0);
+
+        TEST_ASSERT(reg.DeleteValue(L"ttdword") == TRUE);
+        TEST_ASSERT(reg.DeleteValue(L"ttstring") == TRUE);
+        TEST_ASSERT(reg.DeleteValue(L"ttexstring") == TRUE);
+        TEST_ASSERT(reg.DeleteValue(L"ttby") == TRUE);
+
+        TEST_ASSERT(reg.CreateVolatileReg(HKEY_LOCAL_MACHINE, L"SOFTWARE\\zpublic\\ttCreateVolatileReg") == TRUE);
+        TEST_ASSERT(reg.Open(HKEY_LOCAL_MACHINE, L"SOFTWARE\\zpublic\\ttCreateVolatileReg") == TRUE);
+        TEST_ASSERT(reg.Write(L"ttdword", 1) == TRUE);
+        TEST_ASSERT(reg.Open(HKEY_LOCAL_MACHINE, L"SOFTWARE\\zpublic") == TRUE);
+        TEST_ASSERT(reg.DeleteKey(L"ttCreateVolatileReg") == TRUE);
+
+        HKEY tRegKey = NULL;
+        TEST_ASSERT(::RegOpenKey(HKEY_LOCAL_MACHINE, L"SOFTWARE", &tRegKey) == ERROR_SUCCESS);
+        reg.Attach(tRegKey);
+        TEST_ASSERT(reg.DeleteKey(L"zpublic") == TRUE);
+        TEST_ASSERT(::RegCloseKey(tRegKey) == ERROR_SUCCESS);
     }
 };

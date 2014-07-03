@@ -218,6 +218,8 @@
     <ClInclude Include="..\..\pellets\z_win_utils\ini.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\message.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\path.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\register.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\system_version.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\taskbar_position.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\usid.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\win_utils.h" />
