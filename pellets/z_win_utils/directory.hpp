@@ -21,6 +21,11 @@ namespace zl
 namespace WinUtils
 {
 
+    /*
+     *  CreateDeepDirectory     创建多层目录
+     *  DeleteDirectory         删除目录
+     *  CopyDirectory           拷贝目录
+     */
     class Directory
     {
     public:

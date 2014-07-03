@@ -1,17 +1,22 @@
 #pragma once
 
 #include "def.h"
-#include "z_win_utils/path.hpp"
-#include "z_win_utils/directory.hpp"
-#include "z_win_utils/clipboard.hpp"
-
-using namespace zl::WinUtils;
+#define Z_WIN_UTILS_USE
+#include "z_win_utils/win_utils.h"
 
 class CTestWinUtils : public Suite
 {
 public:
-    CTestWinUtils(void);
     ~CTestWinUtils(void);
+    CTestWinUtils::CTestWinUtils(void)
+    {
+        TEST_ADD(CTestWinUtils::test_path);
+        TEST_ADD(CTestWinUtils::test_directory);
+        TEST_ADD(CTestWinUtils::test_clipboard);
+        TEST_ADD(CTestWinUtils::test_ini);
+        TEST_ADD(CTestWinUtils::test_file_version);
+        TEST_ADD(CTestWinUtils::test_usid);
+    }
 
     void test_path()
     {
@@ -62,5 +67,53 @@ public:
         TEST_ASSERT(Clipboard::SetClipboard(s1, s1.GetLength()));
         CStringA s2 = Clipboard::GetClipboard();
         TEST_ASSERT(s1 == s2);
+    }
+
+    void test_ini()
+    {
+        CString sWorkPath  = L"c:\\zpublic_test\\";
+        CString sFileName  = L"ini_test.ini";
+        CString sSection   = L"zpublic";
+        CString sStrKey    = L"str_key";
+        CString sIntKey    = L"int_key";
+        CString sDoubleKey = L"double_key";
+        CString sValue     = L"string_value";
+        int     nValue     = 10;
+        double  fValue     = 3.14;
+
+        Directory::CreateDeepDirectory(sWorkPath);
+
+        Ini ini(sWorkPath + sFileName);
+        TEST_ASSERT(ini.WriteString(sSection, sStrKey, sValue) == TRUE);
+        TEST_ASSERT(ini.WriteInt(sSection, sIntKey, nValue) == TRUE);
+        TEST_ASSERT(ini.WriteDouble(sSection, sDoubleKey, fValue, 2) == TRUE);
+
+        TEST_ASSERT(ini.GetString(sSection, sStrKey, L"default").Compare(sValue) == 0);
+        TEST_ASSERT(ini.GetInt(sSection, sIntKey, 0) == nValue);
+        TEST_ASSERT(ini.GetDouble(sSection, sDoubleKey, 0.0) == fValue);
+
+        Directory::DeleteDirectory(sWorkPath);
+    }
+
+    void test_file_version()
+    {
+        CString sFilePath       = L"c:\\windows\\regedit.exe";
+        CString sFileVer        = L"6.1.7600.16385";
+        CString sFileOriginName = L"regedit.exe.mui";
+        CString sDescription    = L"×¢²á±í±à¼­Æ÷";
+
+        FileVersion fver;
+        TEST_ASSERT(fver.Create(sFilePath) == TRUE);
+        TEST_ASSERT(fver.GetFileVersion().CompareNoCase(sFileVer));
+        TEST_ASSERT(fver.GetOriginalFileName().CompareNoCase(sFileOriginName) == 0);
+        TEST_ASSERT(fver.GetFileDescription().CompareNoCase(sDescription) == 0);
+    }
+
+    void test_usid()
+    {
+        CString sRealSid = L"S-1-5-21-2847959496-4218161594-683088354-1001";
+        CString sSid;
+        TEST_ASSERT(Usid::GetCurrentUserSID(sSid) == TRUE);
+        TEST_ASSERT(sSid.CompareNoCase(sRealSid) == 0)
     }
 };
