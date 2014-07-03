@@ -6,6 +6,11 @@
 #include "file_version.hpp"
 #include "ini.hpp"
 #include "path.hpp"
+#include "taskbar_position.hpp"
+
+#ifdef _GDIPLUS_H
+#include "gdiplus.hpp"
+#endif
 
 #ifdef Z_WIN_UTILS_USE
 
