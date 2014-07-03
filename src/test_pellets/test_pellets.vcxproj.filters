@@ -451,7 +451,16 @@
     <ClInclude Include="..\..\pellets\z_win_utils\file_version.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\win_utils.h">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\usid.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\gdiplus.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\taskbar_position.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
   </ItemGroup>

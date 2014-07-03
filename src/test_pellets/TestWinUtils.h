@@ -1,14 +1,8 @@
 #pragma once
 
 #include "def.h"
-#include "z_win_utils/path.hpp"
-#include "z_win_utils/directory.hpp"
-#include "z_win_utils/clipboard.hpp"
-#include "z_win_utils/ini.hpp"
-#include "z_win_utils/file_version.hpp"
-#include "z_win_utils/usid.hpp"
-
-using namespace zl::WinUtils;
+#define Z_WIN_UTILS_USE
+#include "z_win_utils/win_utils.h"
 
 class CTestWinUtils : public Suite
 {
