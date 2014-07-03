@@ -14,6 +14,7 @@
  ************************************************************************/
 #pragma once
 #include "win_utils_header.h"
+#include <shlobj.h>
 
 namespace zl
 {

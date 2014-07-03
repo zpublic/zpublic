@@ -20,6 +20,8 @@ public:
         TEST_ADD(CTestWinUtils::test_usid);
         TEST_ADD(CTestWinUtils::test_register);
         TEST_ADD(CTestWinUtils::test_system_version);
+        TEST_ADD(CTestWinUtils::test_wow64);
+        TEST_ADD(CTestWinUtils::test_system_path)
     }
 
     void test_path()
@@ -222,5 +224,35 @@ public:
             bIsWow64 = fnIsWow64Process(GetCurrentProcess(),&bIsWow64);
         }
         TEST_ASSERT(SystemVersion::IsWow64System() == bIsWow64);
+    }
+
+    void test_wow64()
+    {
+        BOOL  bIsPrcoessWow64 = FALSE;
+        PVOID pWow64FsRedirection = NULL;
+        CString cstrSystemPath = SystemPath::GetSystemDir();
+        CString cstrTestIniPath = cstrSystemPath + L"zpublict.ini";
+        TEST_ASSERT(Wow64::CheckCureentProcessIsWow64Process(&bIsPrcoessWow64) == TRUE);
+        TEST_ASSERT(Wow64::Wow64DisableWow64FsRedirection(&pWow64FsRedirection) == TRUE);
+        ::WritePrivateProfileString(L"zpublic", L"test", L"1", cstrTestIniPath);
+        TEST_ASSERT(::PathFileExists(SystemPath::GetWindowsDir() + L"system32\\zpublict.ini") == TRUE);
+        ::DeleteFile(cstrTestIniPath);
+        TEST_ASSERT(Wow64::Wow64RevertWow64FsRedirection(&pWow64FsRedirection) == TRUE);
+
+        FileWow64Guard guard;
+        ::WritePrivateProfileString(L"zpublic", L"test", L"1", cstrTestIniPath);
+        TEST_ASSERT(::PathFileExists(SystemPath::GetWindowsDir() + L"system32\\zpublict.ini") == TRUE);
+        ::DeleteFile(cstrTestIniPath);
+    }
+
+    void test_system_path()
+    {
+        TEST_ASSERT(SystemPath::GetWindowsDir() != _T(""));
+        TEST_ASSERT(SystemPath::GetSystemDir() != _T(""));
+        TEST_ASSERT(SystemPath::GetProgramFileDir() != _T(""));
+        TEST_ASSERT(SystemPath::GetAppDataDir() != _T(""));
+        TEST_ASSERT(SystemPath::GetCommonAppDataDir() != _T(""));
+        TEST_ASSERT(SystemPath::GetTempDir() != _T(""));
+        TEST_ASSERT(SystemPath::GetCommonTempDir() != _T(""));
     }
 };

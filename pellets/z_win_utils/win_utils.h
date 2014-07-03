@@ -11,6 +11,8 @@
 #include "usid.hpp"
 #include "register.hpp"
 #include "system_version.hpp"
+#include "wow64.hpp"
+#include "system_path.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

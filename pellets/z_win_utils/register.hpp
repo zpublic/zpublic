@@ -50,7 +50,7 @@ namespace WinUtils
             return hKey;
         }
 
-        BOOL Open(HKEY hRootKey, LPCTSTR szSubKey, BOOL bReadOnly = TRUE, REGSAM samDesired = KEY_READ | KEY_WRITE)
+        BOOL Open(HKEY hRootKey, LPCTSTR szSubKey, REGSAM samDesired = KEY_READ | KEY_WRITE, BOOL bReadOnly = TRUE)
         {
             Close();
             LONG lRetCode = 0;
