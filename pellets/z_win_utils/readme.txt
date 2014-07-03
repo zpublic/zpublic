@@ -9,9 +9,11 @@ done:
 > message                   - 窗口消息相关
 > system_version            - 系统版本信息
 > register                  - 注册表操作
+> system_path               - 系统相关路径操作
+> autorun                   - 系统启动项
+> usid                      - CurrentUserSID处理
 
 todos:
-> system_path               - 系统相关路径操作
 > process                   - 进程控制
 > cmdline                   - 命令行参数处理
 > file_oper                 - 文件操作
@@ -35,13 +37,11 @@ todos:
 > privilege                 - 进程权限相关
 > screen                    - 屏幕相关
 > random                    - 随机数
-> autorun                   - 系统启动项
 > service                   - 系统服务相关
 > shutdown                  - 重启和关机
 > physical_memory           - 物理内存操作
 > sign_verify               - 数字签名相关
 > acl                       - 访问控制列表相关
-> usid                      - CurrentUserSID处理
 > uuid                      - uuid相关
 > drive                     - 磁盘驱动器相关
 > thread_enum               - 线程枚举
