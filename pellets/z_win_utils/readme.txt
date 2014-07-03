@@ -12,6 +12,9 @@ done:
 > system_path               - 系统相关路径操作
 > autorun                   - 系统启动项
 > usid                      - CurrentUserSID处理
+> wow64                     - 32位、64位兼容处理
+> environment_var           - 环境变量相关
+> console_colour            - 命令行颜色
 
 todos:
 > process                   - 进程控制
@@ -22,7 +25,6 @@ todos:
 > file_icon                 - 文件图标相关
 > file_search               - 文件搜索
 > select_dlg                - 文件、目录选择对话框
-> wow64                     - 32位、64位兼容处理
 > cstring                   - 在没有CString时实现自己的
 > string_translte           - 字符串相关类型转换
 > security_attribute        - 安全属性
@@ -49,8 +51,6 @@ todos:
 > error_code                - 错误码相关
 > tick_counter              - 计时器
 > token                     - 进程权限令牌相关
-> console_colour            - 命令行颜色
-> environment_var           - 环境变量相关
 > process_module            - 进程的模块枚举
 > register_enum             - 注册表枚举
 > process_enum              - 进程枚举
