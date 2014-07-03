@@ -4,6 +4,8 @@
 #define Z_WIN_UTILS_USE
 #include "z_win_utils/win_utils.h"
 
+typedef BOOL (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL);
+
 class CTestWinUtils : public Suite
 {
 public:
@@ -17,6 +19,7 @@ public:
         TEST_ADD(CTestWinUtils::test_file_version);
         TEST_ADD(CTestWinUtils::test_usid);
         TEST_ADD(CTestWinUtils::test_register);
+        TEST_ADD(CTestWinUtils::test_system_version);
     }
 
     void test_path()
@@ -157,5 +160,67 @@ public:
         reg.Attach(tRegKey);
         TEST_ASSERT(reg.DeleteKey(L"zpublic") == TRUE);
         TEST_ASSERT(::RegCloseKey(tRegKey) == ERROR_SUCCESS);
+    }
+
+    void test_system_version()
+    {
+        DWORD dwMainVersion = 0;
+        DWORD dwMinorVersion = 0;
+
+        OSVERSIONINFOEX osvi;
+        ::ZeroMemory(&osvi, sizeof(OSVERSIONINFOEX));
+        osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
+        BOOL bRetCode = ::GetVersionEx((OSVERSIONINFO *)&osvi);
+        if (FALSE == bRetCode)
+        {
+            osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+            bRetCode = ::GetVersionEx((OSVERSIONINFO *)&osvi);
+        }
+
+        TEST_ASSERT(SystemVersion::GetSystemVersion(dwMainVersion, dwMinorVersion) == TRUE);
+        TEST_ASSERT(osvi.dwMajorVersion == dwMainVersion);
+        TEST_ASSERT(osvi.dwMinorVersion == dwMinorVersion);
+
+        SystemVersion::enumSystemVersion OsPlatform;
+        switch(osvi.dwPlatformId)
+        {
+        case VER_PLATFORM_WIN32_NT:
+            if (osvi.dwMajorVersion == 6 && osvi.dwMinorVersion == 1)
+                OsPlatform = (osvi.wProductType == VER_NT_WORKSTATION) ? SystemVersion::enumSystemVersionWin7 : SystemVersion::enumSystemVersionWin2008;
+            else if (osvi.dwMajorVersion == 6 && osvi.dwMinorVersion == 0)
+                OsPlatform = (osvi.wProductType == VER_NT_WORKSTATION) ? SystemVersion::enumSystemVersionVista : SystemVersion::enumSystemVersionWin2008;
+            else if (osvi.dwMajorVersion == 5 && osvi.dwMinorVersion == 2)
+                OsPlatform = SystemVersion::enumSystemVersionWin2003;
+            else if (osvi.dwMajorVersion == 5 && osvi.dwMinorVersion == 1)
+                OsPlatform = SystemVersion::enumSystemVersionWinXp;
+            else if (osvi.dwMajorVersion == 5 && osvi.dwMinorVersion == 0)
+                OsPlatform = SystemVersion::enumSystemVersionWin2000;
+            else if (osvi.dwMajorVersion <= 4)
+                OsPlatform = SystemVersion::enumSystemVersionWinNT;
+            else if (osvi.dwMajorVersion == 6 && osvi.dwMinorVersion == 2 && osvi.wProductType == VER_NT_WORKSTATION)
+                OsPlatform = SystemVersion::enumSystemVersionWin8;
+            break;
+        case VER_PLATFORM_WIN32_WINDOWS:
+            if (((osvi.dwBuildNumber >> 16) & 0x0000FFFF) < 0x045A)
+                OsPlatform = SystemVersion::enumSystemVersionWin9X;
+            else 
+                OsPlatform = SystemVersion::enumSystemVersionWinMe;
+            break;
+        default:
+            OsPlatform = SystemVersion::enumSystemVersionNone;
+            break;
+        }
+        TEST_ASSERT(SystemVersion::GetSystemVersion() == OsPlatform);
+
+        BOOL bIsWow64 = FALSE;
+        LPFN_ISWOW64PROCESS fnIsWow64Process = (LPFN_ISWOW64PROCESS)GetProcAddress(
+            GetModuleHandle(L"kernel32"),
+            "IsWow64Process");
+
+        if (NULL != fnIsWow64Process)
+        {
+            bIsWow64 = fnIsWow64Process(GetCurrentProcess(),&bIsWow64);
+        }
+        TEST_ASSERT(SystemVersion::IsWow64System() == bIsWow64);
     }
 };

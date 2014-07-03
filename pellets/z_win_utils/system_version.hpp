@@ -14,12 +14,14 @@
  ************************************************************************/
 #pragma once
 #include "win_utils_header.h"
+#include "register.hpp"
 
 namespace zl
 {
 namespace WinUtils
 {
     typedef void (WINAPI *LPFN_GetNativeSystemInfo)(LPSYSTEM_INFO);
+    typedef BOOL (WINAPI *LPFN_IsWow64Process) (HANDLE, PBOOL);
 
     class SystemVersion
     {
@@ -111,6 +113,29 @@ namespace WinUtils
             return bReturn;
         }
 
+        static BOOL IsWow64System()
+        {
+            static int nWow64 = -1;
+            if (nWow64 == -1)
+            {
+                BOOL bIsWow64 = FALSE;
+
+                LPFN_IsWow64Process pfn_IsWow64Process = (LPFN_IsWow64Process)GetProcAddress(
+                    ::GetModuleHandle(_T("kernel32")), 
+                    "IsWow64Process");
+
+                if (pfn_IsWow64Process)
+                {
+                    if (!pfn_IsWow64Process(::GetCurrentProcess(), &bIsWow64))
+                    {
+                        bIsWow64 = FALSE;
+                    }
+                }
+                nWow64 = bIsWow64;
+            }
+            return (BOOL)nWow64;
+        }
+
     private:
         static enumSystemVersion GetSystemVersionImpl()
         {
@@ -168,43 +193,40 @@ namespace WinUtils
         static BOOL GetSystemVersionByReg(DWORD &dwMarjorVersion, DWORD &dwMinorVersion)
         {
             BOOL bReturn = FALSE;
-            BOOL bRetCode = FALSE;
-            //KRegister2 regKey;
-            CString	   strVer;
-            CString strMarjorVer;
-            CString strMinorVer;
+            zl::WinUtils::Register r;
+            CString cstrVer;
+            CString cstrMarjorVer;
+            CString cstrMinorVer;
 
-//             bRetCode = regKey.Open(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion"));
-//             if (!bRetCode)
-//             {
-//                 goto Exit0;
-//             }
-// 
-//             bRetCode = regKey.Read(_T("CurrentVersion"), strVer);
-//             if (!bRetCode || strVer.IsEmpty())
-//             {
-//                 goto Exit0;
-//             }
-// 
-//             int nPos = strVer.Find(_T("."));
-//             if (nPos == -1)
-//             {
-//                 goto Exit0;
-//             }
-// 
-//             strMarjorVer = strVer.Left(nPos);
-//             strMinorVer = strVer.Mid(nPos + 1);
-// 
-//             if (strMarjorVer.IsEmpty() || strMinorVer.IsEmpty())
-//             {
-//                 goto Exit0;
-//             }
-// 
-//             dwMarjorVersion = _tcstol(strMarjorVer, NULL, 10);
-//             dwMinorVersion = _tcstol(strMinorVer, NULL, 10);
-//             bReturn = TRUE;
+            do
+            {
+                if (!r.Open(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion")))
+                {
+                    break;
+                }
+                if (!r.Read(_T("CurrentVersion"), cstrVer))
+                {
+                    break;
+                }
 
-        Exit0:
+                int nPos = cstrVer.Find(_T("."));
+                if (nPos == -1)
+                {
+                    break;
+                }
+
+                cstrMarjorVer = cstrVer.Left(nPos);
+                cstrMinorVer = cstrVer.Mid(nPos + 1);
+                if (cstrMarjorVer.IsEmpty() || cstrMinorVer.IsEmpty())
+                {
+                    break;
+                }
+
+                dwMarjorVersion = _tcstol(cstrMarjorVer, NULL, 10);
+                dwMinorVersion = _tcstol(cstrMinorVer, NULL, 10);
+                bReturn = TRUE;
+
+            } while (FALSE);
             return bReturn;
         }
 
