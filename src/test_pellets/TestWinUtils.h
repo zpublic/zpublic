@@ -120,7 +120,7 @@ public:
 
     void test_register()
     {
-        Registe reg;
+        Register reg;
         TCHAR szbyWTestString[] = {L"pjj"};
         TEST_ASSERT(reg.Open(HKEY_LOCAL_MACHINE, L"SOFTWARE\\zpublic", FALSE) == TRUE);
         TEST_ASSERT(reg.Write(L"ttdword", 1) == TRUE);
