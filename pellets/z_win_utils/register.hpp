@@ -50,27 +50,29 @@ namespace WinUtils
             return hKey;
         }
 
-        BOOL Open(HKEY hRootKey, LPCTSTR szSubKey, BOOL bReadOnly = TRUE, REGSAM samDesired = KEY_READ | KEY_WRITE)
+        BOOL Open(HKEY hRootKey, LPCTSTR szSubKey, BOOL bCreateIfNotExsit = FALSE, REGSAM samDesired = KEY_READ | KEY_WRITE)
         {
             Close();
             LONG lRetCode = 0;
-            if (bReadOnly)
+            if (bCreateIfNotExsit)
+            {
+                lRetCode = ::RegCreateKeyEx(hRootKey,
+                    szSubKey,
+                    NULL,
+                    NULL,
+                    REG_OPTION_NON_VOLATILE,
+                    samDesired,
+                    NULL, 
+                    &hKey_,
+                    NULL);
+            }
+            else
             {
                 lRetCode = ::RegOpenKeyEx(hRootKey,
                     szSubKey,
                     0,
                     samDesired,
                     &hKey_);
-            }
-            else
-            {
-                lRetCode = ::RegCreateKeyEx(hRootKey,
-                    szSubKey,
-                    0L,
-                    NULL,
-                    REG_OPTION_NON_VOLATILE,
-                    KEY_ALL_ACCESS, NULL, 
-                    &hKey_, NULL);
             }
             if (lRetCode != ERROR_SUCCESS)
             {
