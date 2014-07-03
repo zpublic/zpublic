@@ -6,6 +6,7 @@ done:
 > ini                       - ini操作
 > gdiplus                   - gdiplus初始化相关
 > taskbar_position          - 任务栏位置
+> message                   - 窗口消息相关
 
 todos:
 > system_path               - 系统相关路径操作
@@ -51,4 +52,3 @@ todos:
 > console_colour            - 命令行颜色
 > environment_var           - 环境变量相关
 > process_module            - 进程的模块枚举
-> message                   - 窗口消息相关

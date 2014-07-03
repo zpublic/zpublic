@@ -5,6 +5,7 @@
 #include "directory.hpp"
 #include "file_version.hpp"
 #include "ini.hpp"
+#include "message.hpp"
 #include "path.hpp"
 #include "taskbar_position.hpp"
 
