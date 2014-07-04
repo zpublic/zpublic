@@ -15,49 +15,62 @@
 #pragma once
 #include "win_utils_header.h"
 
-#define FOREGROUND_WHITE (FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED)
-#define BACKGROUND_WHITE (BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED)
-
 namespace zl
 {
 namespace WinUtils
 {
+    typedef enum _emConsoleColor
+    {
+        emConsoleColourBlack = 0,
+        emConsoleColourYellow = 6,
+        emConsoleColourGray = 8, 
+//         0=黑色          8=灰色
+//         1=蓝色          9=淡蓝色
+//         2=绿色          A=淡绿色
+//         3=湖蓝色        B=淡浅绿色
+//         4=红色          C=淡红色
+//         5=紫色          D=淡紫色
+//         6=黄色          E=淡黄色
+//         7=白色          F=亮白色 
+    }emConsoleColor;
 
-    class ZLConsoleColour
+    class ZLConsoleColor
     {
     public:
-        ZLConsoleColour() {}
-        ~ZLConsoleColour() {}
+        ZLConsoleColor() {}
+        ~ZLConsoleColor() {}
 
     public:
-        static BOOL SetConsoleColor(WORD wConsoleColorType = FOREGROUND_WHITE)
+        static BOOL SetConsoleForegroundColor(emConsoleColor color)
         {
             HANDLE hOutPutHandle = ::GetStdHandle(STD_OUTPUT_HANDLE);
             if (hOutPutHandle != INVALID_HANDLE_VALUE)
             {
-                return ::SetConsoleTextAttribute(hOutPutHandle, wConsoleColorType);
+                WORD wColor = GetConsoleColor() & 0xf0;
+                return ::SetConsoleTextAttribute(hOutPutHandle, wColor | (BYTE)color);
             }
             return FALSE;
         }
 
-        static BOOL SetColorFontGreen()
+        static BOOL SetConsoleBackgroundColor(emConsoleColor color)
         {
-            return SetConsoleColor(FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-        }
-
-        static BOOL SetColorFontRed()
-        {
-            return SetConsoleColor(FOREGROUND_INTENSITY | FOREGROUND_RED);
+            HANDLE hOutPutHandle = ::GetStdHandle(STD_OUTPUT_HANDLE);
+            if (hOutPutHandle != INVALID_HANDLE_VALUE)
+            {
+                WORD wColor = GetConsoleColor() & 0xf;
+                return ::SetConsoleTextAttribute(hOutPutHandle, wColor | ((WORD((BYTE)color) << 4)));
+            }
+            return FALSE;
         }
 
         static BOOL SetColorFontDefault()
         {
-            return SetConsoleColor(FOREGROUND_WHITE);
-        }
-
-        static BOOL SetColorFontBlue()
-        {
-            return SetConsoleColor(FOREGROUND_INTENSITY | FOREGROUND_BLUE);
+            HANDLE hOutPutHandle = ::GetStdHandle(STD_OUTPUT_HANDLE);
+            if (hOutPutHandle != INVALID_HANDLE_VALUE)
+            {
+                return ::SetConsoleTextAttribute(hOutPutHandle, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);
+            }
+            return FALSE;
         }
 
         static WORD GetConsoleColor()
@@ -73,16 +86,6 @@ namespace WinUtils
                 }
             }
             return wRet;
-        }
-
-        static BOOL AppendConsoleColor(WORD wConsoleColorType)
-        {
-            HANDLE hOutPutHandle = ::GetStdHandle(STD_OUTPUT_HANDLE);
-            if (hOutPutHandle != INVALID_HANDLE_VALUE)
-            {
-                return ::SetConsoleTextAttribute(hOutPutHandle, GetConsoleColor() | wConsoleColorType);
-            }
-            return FALSE;
         }
     };
 

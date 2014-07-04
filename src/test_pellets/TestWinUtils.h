@@ -252,17 +252,15 @@ public:
 
     void test_console_colour()
     {
-        ZLConsoleColour::SetConsoleColor(FOREGROUND_WHITE);
+        ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourGray);
         printf("test ConsoleColour! \n");
-        ZLConsoleColour::SetColorFontBlue();
+        ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourYellow);
         printf("test ConsoleColour! \n");
-        ZLConsoleColour::SetColorFontRed();
+        ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourGray);
         printf("test ConsoleColour! \n");
-        ZLConsoleColour::SetColorFontGreen();
+        ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourYellow);
         printf("test ConsoleColour! \n");
-        ZLConsoleColour::AppendConsoleColor(BACKGROUND_BLUE);
-        printf("test ConsoleColour! \n");
-        TEST_ASSERT((ZLConsoleColour::GetConsoleColor() == (BACKGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY)) == TRUE);
-        ZLConsoleColour::SetColorFontDefault();
+        TEST_ASSERT((ZLConsoleColor::GetConsoleColor() == (BACKGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY)) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetColorFontDefault());
     }
 };

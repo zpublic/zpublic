@@ -478,7 +478,7 @@
     <ClInclude Include="..\..\pellets\z_win_utils\system_path.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_win_utils\console_colour.hpp">
+    <ClInclude Include="..\..\pellets\z_win_utils\console_color.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
   </ItemGroup>
