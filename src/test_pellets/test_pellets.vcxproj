@@ -212,7 +212,7 @@
     <ClInclude Include="..\..\pellets\z_timer\z_timer_test_code.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_watcher.h" />
     <ClInclude Include="..\..\pellets\z_win_utils\clipboard.hpp" />
-    <ClInclude Include="..\..\pellets\z_win_utils\console_colour.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\console_color.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\directory.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\file_version.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\gdiplus.hpp" />

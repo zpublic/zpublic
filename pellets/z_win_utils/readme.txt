@@ -14,7 +14,7 @@ done:
 > usid                      - CurrentUserSID处理
 > wow64                     - 32位、64位兼容处理
 > environment_var           - 环境变量相关
-> console_colour            - 命令行颜色
+> console_color             - 命令行颜色
 
 todos:
 > process                   - 进程控制
