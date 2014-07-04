@@ -118,10 +118,9 @@ public:
 
     void test_usid()
     {
-        CString sRealSid = L"S-1-5-21-2847959496-4218161594-683088354-1001";
         CString sSid;
         TEST_ASSERT(ZLUsid::GetCurrentUserSID(sSid) == TRUE);
-        TEST_ASSERT(sSid.CompareNoCase(sRealSid) == 0)
+        TEST_ASSERT(sSid.IsEmpty() == FALSE)
     }
 
     void test_register()
