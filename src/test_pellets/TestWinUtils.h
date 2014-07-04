@@ -252,16 +252,56 @@ public:
 
     void test_console_colour()
     {
-        ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourGray);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourBlack) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourBlack) == TRUE);
         printf("test ConsoleColour! \n");
-        ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourYellow);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourBlue) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourBlue) == TRUE);
         printf("test ConsoleColour! \n");
-        ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourGray);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourGreen) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourGreen) == TRUE);
         printf("test ConsoleColour! \n");
-        ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourYellow);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourLightBlue) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourLightBlue) == TRUE);
         printf("test ConsoleColour! \n");
-        TEST_ASSERT((ZLConsoleColor::GetConsoleColor() == (BACKGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY)) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourRed) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourRed) == TRUE);
+        printf("test ConsoleColour! \n");
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourPurple) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourPurple) == TRUE);
+        printf("test ConsoleColour! \n");
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourYellow) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourYellow) == TRUE);
+        printf("test ConsoleColour! \n");
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourWhite) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourWhite) == TRUE);
+        printf("test ConsoleColour! \n");
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourGray) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourGray) == TRUE);
+        printf("test ConsoleColour! \n");
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourBabyBlue) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourBabyBlue) == TRUE);
+        printf("test ConsoleColour! \n");
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourPaleGreen) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourPaleGreen) == TRUE);
+        printf("test ConsoleColour! \n");
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourPaleLightGreen) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourPaleLightGreen) == TRUE);
+        printf("test ConsoleColour! \n");
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourPompadour) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourPompadour) == TRUE);
+        printf("test ConsoleColour! \n");
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourLavender) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourLavender) == TRUE);
+        printf("test ConsoleColour! \n");
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourFaintYellow) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourFaintYellow) == TRUE);
+        printf("test ConsoleColour! \n");
+        TEST_ASSERT(ZLConsoleColor::SetConsoleForegroundColor(emConsoleColourBrightWhite) == TRUE);
+        TEST_ASSERT(ZLConsoleColor::SetConsoleBackgroundColor(emConsoleColourBrightWhite) == TRUE);
+        printf("test ConsoleColour! \n");
         TEST_ASSERT(ZLConsoleColor::SetColorFontDefault());
+        printf("test ConsoleColour! \n");
     }
 
     void test_autorun()
