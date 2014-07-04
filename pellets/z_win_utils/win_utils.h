@@ -13,6 +13,7 @@
 #include "system_version.hpp"
 #include "wow64.hpp"
 #include "system_path.hpp"
+#include "autorun.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
