@@ -21,6 +21,7 @@ public:
         TEST_ADD(CTestWinUtils::test_system_version);
         TEST_ADD(CTestWinUtils::test_wow64);
         TEST_ADD(CTestWinUtils::test_system_path);
+        TEST_ADD(CTestWinUtils::test_autorun);
         TEST_ADD(CTestWinUtils::test_console_colour);
     }
 
@@ -264,5 +265,73 @@ public:
         printf("test ConsoleColour! \n");
         TEST_ASSERT((ZLConsoleColour::GetConsoleColor() == (BACKGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY)) == TRUE);
         ZLConsoleColour::SetColorFontDefault();
+    }
+
+    void test_autorun()
+    {
+        ///////////////////////////////////////////////////////////////////
+        ///> test run
+        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::ALL_USER, NULL, NULL) == FALSE);
+        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::ALL_USER, L"zpublic", NULL) == FALSE);
+        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::ALL_USER, NULL, L"zpublic") == FALSE);
+        ///> 32
+        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::ALL_USER, L"zpublic1", L"c:\\1.txt") == TRUE);
+        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::ALL_USER, L"zpublic2", L"c:\\2.txt", REG_SZ) == TRUE);
+        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::SINGLE_USER, L"zpublic3", L"c:\\3.txt") == TRUE);
+        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::SINGLE_USER, L"zpublic4", L"c:\\4.txt", REG_SZ) == TRUE);
+        ///> 64
+        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::ALL_USER, L"zpublic5", L"c:\\5.txt", REG_EXPAND_SZ, NULL, FALSE) == TRUE);
+        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::ALL_USER, L"zpublic6", L"c:\\6.txt", REG_SZ, NULL, FALSE) == TRUE);
+        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::SINGLE_USER, L"zpublic7", L"c:\\7.txt", REG_EXPAND_SZ, NULL, FALSE) == TRUE);
+        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::SINGLE_USER, L"zpublic8", L"c:\\8.txt", REG_SZ, NULL, FALSE) == TRUE);
+        ///> sid
+        CString sSid;
+        ZLUsid::GetCurrentUserSID(sSid);
+        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::SINGLE_USER, L"zpublic9", L"c:\\9.txt", REG_SZ, sSid) == TRUE);
+        ///> 32读取验证
+        ZLRegister reg;
+        reg.Open(HKEY_LOCAL_MACHINE, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run");
+        CString  sValue;
+        reg.Read(L"zpublic1", sValue);
+        TEST_ASSERT(sValue.Compare(L"c:\\1.txt") == 0);
+        reg.Read(L"zpublic2", sValue);
+        TEST_ASSERT(sValue.Compare(L"c:\\2.txt") == 0);
+        reg.Close();
+
+        reg.Open(HKEY_CURRENT_USER, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run");
+        reg.Read(L"zpublic3", sValue);
+        TEST_ASSERT(sValue.Compare(L"c:\\3.txt") == 0);
+        reg.Read(L"zpublic4", sValue);
+        TEST_ASSERT(sValue.Compare(L"c:\\4.txt") == 0);
+        reg.Close();
+        ///> 64读取验证
+        reg.Open(HKEY_LOCAL_MACHINE, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run", FALSE, KEY_WOW64_64KEY | KEY_READ);
+        reg.Read(L"zpublic5", sValue);
+        TEST_ASSERT(sValue.Compare(L"c:\\5.txt") == 0);
+        reg.Read(L"zpublic6", sValue);
+        TEST_ASSERT(sValue.Compare(L"c:\\6.txt") == 0);
+        reg.Close();
+
+        reg.Open(HKEY_CURRENT_USER, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run", FALSE, KEY_WOW64_64KEY | KEY_READ);
+        reg.Read(L"zpublic7", sValue);
+        TEST_ASSERT(sValue.Compare(L"c:\\7.txt") == 0);
+        reg.Read(L"zpublic8", sValue);
+        TEST_ASSERT(sValue.Compare(L"c:\\8.txt") == 0);
+        reg.Close();
+        ///> 读取验证sid
+        reg.Open(HKEY_CURRENT_USER, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run");
+        reg.Read(L"zpublic9", sValue);
+        TEST_ASSERT(sValue.Compare(L"c:\\9.txt") == 0);
+        reg.Close();
+
+        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::ALL_USER, L"zpublic1") == TRUE);
+        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::ALL_USER, L"zpublic2") == TRUE);
+        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::SINGLE_USER, L"zpublic3") == TRUE);
+        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::SINGLE_USER, L"zpublic4") == TRUE);
+        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::ALL_USER, L"zpublic5", NULL, FALSE) == TRUE);
+        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::ALL_USER, L"zpublic6", NULL, FALSE) == TRUE);
+        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::SINGLE_USER, L"zpublic7", NULL, FALSE) == TRUE);
+        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::SINGLE_USER, L"zpublic8", NULL, FALSE) == TRUE);
+        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::SINGLE_USER, L"zpublic9") == TRUE);
     }
 };
