@@ -20,33 +20,37 @@ namespace zl
 namespace WinUtils
 {
 
-    inline UINT RegisterMessage(LPCTSTR lpMsgName)
+    namespace ZLMessage
     {
-        return ::RegisterWindowMessage(lpMsgName);
-    }
-
-    typedef BOOL (__stdcall *ChangeWindowMessageFilterType)(UINT, DWORD);
-#define MSGFLT_ADD		1	// ChangeWindowMessageFilter 函数的第二个参数，添加消息
-#define MSGFLT_REMOVE	2	// ChangeWindowMessageFilter 函数的第二个参数，移除消息
-
-    static BOOL ChangeMessageFilter(UINT uMsg, DWORD dwOper = MSGFLT_ADD)
-    {
-        BOOL bRet = FALSE;
-        static HMODULE hModule = NULL;
-        static ChangeWindowMessageFilterType pChangeWindowMessageFilterType = NULL;
-        if (pChangeWindowMessageFilterType == NULL)
+        inline UINT RegisterMessage(LPCTSTR lpMsgName)
         {
-            hModule = ::LoadLibrary(TEXT("user32.dll"));
-            if (hModule == NULL)
-                goto Exit0;
-            pChangeWindowMessageFilterType = (ChangeWindowMessageFilterType)::GetProcAddress(hModule, "ChangeWindowMessageFilter");
-            if (pChangeWindowMessageFilterType == NULL)
-                goto Exit0;
+            return ::RegisterWindowMessage(lpMsgName);
         }
-        bRet = pChangeWindowMessageFilterType(uMsg, dwOper);
-Exit0:
-        return bRet;
+
+        typedef BOOL (__stdcall *ChangeWindowMessageFilterType)(UINT, DWORD);
+    #define MSGFLT_ADD		1	// ChangeWindowMessageFilter 函数的第二个参数，添加消息
+    #define MSGFLT_REMOVE	2	// ChangeWindowMessageFilter 函数的第二个参数，移除消息
+
+        static BOOL ChangeMessageFilter(UINT uMsg, DWORD dwOper = MSGFLT_ADD)
+        {
+            BOOL bRet = FALSE;
+            static HMODULE hModule = NULL;
+            static ChangeWindowMessageFilterType pChangeWindowMessageFilterType = NULL;
+            if (pChangeWindowMessageFilterType == NULL)
+            {
+                hModule = ::LoadLibrary(TEXT("user32.dll"));
+                if (hModule == NULL)
+                    goto Exit0;
+                pChangeWindowMessageFilterType = (ChangeWindowMessageFilterType)::GetProcAddress(hModule, "ChangeWindowMessageFilter");
+                if (pChangeWindowMessageFilterType == NULL)
+                    goto Exit0;
+            }
+            bRet = pChangeWindowMessageFilterType(uMsg, dwOper);
+    Exit0:
+            return bRet;
+        }
     }
+
 
 }
 }

@@ -20,7 +20,7 @@ namespace zl
 namespace WinUtils
 {
 
-    class GdiPlusInit
+    class ZLGdiPlusInit
     {
         class Inst
         {
@@ -62,7 +62,7 @@ namespace WinUtils
             m_GdiPlusInit.UnInit();
         }
     protected:
-        GdiPlusInit m_GdiPlusInit;
+        ZLGdiPlusInit m_GdiPlusInit;
     };
 
 }

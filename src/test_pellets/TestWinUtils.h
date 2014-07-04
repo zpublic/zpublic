@@ -1,7 +1,6 @@
 #pragma once
 
 #include "def.h"
-#define Z_WIN_UTILS_USE
 #include "z_win_utils/win_utils.h"
 
 typedef BOOL (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL);
@@ -26,26 +25,26 @@ public:
 
     void test_path()
     {
-        CString s = Path::GetModuleFullPath(NULL);
+        CString s = ZLPath::GetModuleFullPath(NULL);
         TEST_ASSERT(s.GetLength() > 4);
 
-        CString s1 = Path::PathToFileName(s);
-        CString s2 = Path::PathToFolderPath(s);
-        CString s3 = Path::GetModuleFolder(NULL);
+        CString s1 = ZLPath::PathToFileName(s);
+        CString s2 = ZLPath::PathToFolderPath(s);
+        CString s3 = ZLPath::GetModuleFolder(NULL);
         TEST_ASSERT(s2 == s3);
         TEST_ASSERT(s == s2 + s1);
 
-        CString s4 = Path::FileNameRemoveSuffix(s1);
+        CString s4 = ZLPath::FileNameRemoveSuffix(s1);
         TEST_ASSERT(s4 == L"test_pellets");
-        CString s5 = Path::PathToSuffix(s1);
+        CString s5 = ZLPath::PathToSuffix(s1);
         TEST_ASSERT(s5 == L"exe");
 
-        CString s6 = Path::GetParsentFolder(Path::GetParsentFolder(s));
-        CString s7 = Path::GetParsentFolder(s2);
+        CString s6 = ZLPath::GetParsentFolder(ZLPath::GetParsentFolder(s));
+        CString s7 = ZLPath::GetParsentFolder(s2);
         TEST_ASSERT(s6 == s7);
 
-        CString s8 = Path::GetRootPath(s);
-        CString s9 = Path::GetRootPath(s2);
+        CString s8 = ZLPath::GetRootPath(s);
+        CString s9 = ZLPath::GetRootPath(s2);
         TEST_ASSERT(s8 == s9);
     }
 
@@ -55,23 +54,23 @@ public:
         LPCWSTR lpPath2 = L"c:\\zpublic_test";
         LPCWSTR lpPath3 = L"c:\\zpublic_test2";
         LPCWSTR lpPath4 = L"c:\\zpublic_test2\\1\\2\\3\\4";
-        TEST_ASSERT(Directory::CreateDeepDirectory(lpPath1));
+        TEST_ASSERT(ZLDirectory::CreateDeepDirectory(lpPath1));
         TEST_ASSERT(::PathFileExists(lpPath1));
 
-        TEST_ASSERT(Directory::CopyDirectory(lpPath2, lpPath3) == 0);
+        TEST_ASSERT(ZLDirectory::CopyDirectory(lpPath2, lpPath3) == 0);
         TEST_ASSERT(::PathFileExists(lpPath4));
 
-        TEST_ASSERT(Directory::DeleteDirectory(lpPath2));
+        TEST_ASSERT(ZLDirectory::DeleteDirectory(lpPath2));
         TEST_ASSERT(::PathFileExists(lpPath2) == FALSE);
-        TEST_ASSERT(Directory::DeleteDirectory(lpPath3));
+        TEST_ASSERT(ZLDirectory::DeleteDirectory(lpPath3));
         TEST_ASSERT(::PathFileExists(lpPath3) == FALSE);
     }
 
     void test_clipboard()
     {
         CStringA s1 = "abcde";
-        TEST_ASSERT(Clipboard::SetClipboard(s1, s1.GetLength()));
-        CStringA s2 = Clipboard::GetClipboard();
+        TEST_ASSERT(ZLClipboard::SetClipboard(s1, s1.GetLength()));
+        CStringA s2 = ZLClipboard::GetClipboard();
         TEST_ASSERT(s1 == s2);
     }
 
@@ -87,9 +86,9 @@ public:
         int     nValue     = 10;
         double  fValue     = 3.14;
 
-        Directory::CreateDeepDirectory(sWorkPath);
+        ZLDirectory::CreateDeepDirectory(sWorkPath);
 
-        Ini ini(sWorkPath + sFileName);
+        ZLIni ini(sWorkPath + sFileName);
         TEST_ASSERT(ini.WriteString(sSection, sStrKey, sValue) == TRUE);
         TEST_ASSERT(ini.WriteInt(sSection, sIntKey, nValue) == TRUE);
         TEST_ASSERT(ini.WriteDouble(sSection, sDoubleKey, fValue, 2) == TRUE);
@@ -98,7 +97,7 @@ public:
         TEST_ASSERT(ini.GetInt(sSection, sIntKey, 0) == nValue);
         TEST_ASSERT(ini.GetDouble(sSection, sDoubleKey, 0.0) == fValue);
 
-        Directory::DeleteDirectory(sWorkPath);
+        ZLDirectory::DeleteDirectory(sWorkPath);
     }
 
     void test_file_version()
@@ -108,7 +107,7 @@ public:
         CString sFileOriginName = L"regedit.exe.mui";
         CString sDescription    = L"×¢²á±í±à¼­Æ÷";
 
-        FileVersion fver;
+        ZLFileVersion fver;
         TEST_ASSERT(fver.Create(sFilePath) == TRUE);
         TEST_ASSERT(fver.GetFileVersion().CompareNoCase(sFileVer));
         TEST_ASSERT(fver.GetOriginalFileName().CompareNoCase(sFileOriginName) == 0);
@@ -119,13 +118,13 @@ public:
     {
         CString sRealSid = L"S-1-5-21-2847959496-4218161594-683088354-1001";
         CString sSid;
-        TEST_ASSERT(Usid::GetCurrentUserSID(sSid) == TRUE);
+        TEST_ASSERT(ZLUsid::GetCurrentUserSID(sSid) == TRUE);
         TEST_ASSERT(sSid.CompareNoCase(sRealSid) == 0)
     }
 
     void test_register()
     {
-        Register reg;
+        ZLRegister reg;
         TCHAR szbyWTestString[] = {L"pjj"};
         TEST_ASSERT(reg.Open(HKEY_LOCAL_MACHINE, L"SOFTWARE\\zpublic", FALSE) == TRUE);
         TEST_ASSERT(reg.Write(L"ttdword", 1) == TRUE);
@@ -179,40 +178,40 @@ public:
             bRetCode = ::GetVersionEx((OSVERSIONINFO *)&osvi);
         }
 
-        TEST_ASSERT(SystemVersion::GetSystemVersion(dwMainVersion, dwMinorVersion) == TRUE);
+        TEST_ASSERT(ZLSystemVersion::GetSystemVersion(dwMainVersion, dwMinorVersion) == TRUE);
         TEST_ASSERT(osvi.dwMajorVersion == dwMainVersion);
         TEST_ASSERT(osvi.dwMinorVersion == dwMinorVersion);
 
-        SystemVersion::enumSystemVersion OsPlatform;
+        ZLSystemVersion::enumSystemVersion OsPlatform;
         switch(osvi.dwPlatformId)
         {
         case VER_PLATFORM_WIN32_NT:
             if (osvi.dwMajorVersion == 6 && osvi.dwMinorVersion == 1)
-                OsPlatform = (osvi.wProductType == VER_NT_WORKSTATION) ? SystemVersion::enumSystemVersionWin7 : SystemVersion::enumSystemVersionWin2008;
+                OsPlatform = (osvi.wProductType == VER_NT_WORKSTATION) ? ZLSystemVersion::enumSystemVersionWin7 : ZLSystemVersion::enumSystemVersionWin2008;
             else if (osvi.dwMajorVersion == 6 && osvi.dwMinorVersion == 0)
-                OsPlatform = (osvi.wProductType == VER_NT_WORKSTATION) ? SystemVersion::enumSystemVersionVista : SystemVersion::enumSystemVersionWin2008;
+                OsPlatform = (osvi.wProductType == VER_NT_WORKSTATION) ? ZLSystemVersion::enumSystemVersionVista : ZLSystemVersion::enumSystemVersionWin2008;
             else if (osvi.dwMajorVersion == 5 && osvi.dwMinorVersion == 2)
-                OsPlatform = SystemVersion::enumSystemVersionWin2003;
+                OsPlatform = ZLSystemVersion::enumSystemVersionWin2003;
             else if (osvi.dwMajorVersion == 5 && osvi.dwMinorVersion == 1)
-                OsPlatform = SystemVersion::enumSystemVersionWinXp;
+                OsPlatform = ZLSystemVersion::enumSystemVersionWinXp;
             else if (osvi.dwMajorVersion == 5 && osvi.dwMinorVersion == 0)
-                OsPlatform = SystemVersion::enumSystemVersionWin2000;
+                OsPlatform = ZLSystemVersion::enumSystemVersionWin2000;
             else if (osvi.dwMajorVersion <= 4)
-                OsPlatform = SystemVersion::enumSystemVersionWinNT;
+                OsPlatform = ZLSystemVersion::enumSystemVersionWinNT;
             else if (osvi.dwMajorVersion == 6 && osvi.dwMinorVersion == 2 && osvi.wProductType == VER_NT_WORKSTATION)
-                OsPlatform = SystemVersion::enumSystemVersionWin8;
+                OsPlatform = ZLSystemVersion::enumSystemVersionWin8;
             break;
         case VER_PLATFORM_WIN32_WINDOWS:
             if (((osvi.dwBuildNumber >> 16) & 0x0000FFFF) < 0x045A)
-                OsPlatform = SystemVersion::enumSystemVersionWin9X;
+                OsPlatform = ZLSystemVersion::enumSystemVersionWin9X;
             else 
-                OsPlatform = SystemVersion::enumSystemVersionWinMe;
+                OsPlatform = ZLSystemVersion::enumSystemVersionWinMe;
             break;
         default:
-            OsPlatform = SystemVersion::enumSystemVersionNone;
+            OsPlatform = ZLSystemVersion::enumSystemVersionNone;
             break;
         }
-        TEST_ASSERT(SystemVersion::GetSystemVersion() == OsPlatform);
+        TEST_ASSERT(ZLSystemVersion::GetSystemVersion() == OsPlatform);
 
         BOOL bIsWow64 = FALSE;
         LPFN_ISWOW64PROCESS fnIsWow64Process = (LPFN_ISWOW64PROCESS)GetProcAddress(
@@ -223,36 +222,36 @@ public:
         {
             bIsWow64 = fnIsWow64Process(GetCurrentProcess(),&bIsWow64);
         }
-        TEST_ASSERT(SystemVersion::IsWow64System() == bIsWow64);
+        TEST_ASSERT(ZLSystemVersion::IsWow64System() == bIsWow64);
     }
 
     void test_wow64()
     {
         BOOL  bIsPrcoessWow64 = FALSE;
         PVOID pWow64FsRedirection = NULL;
-        CString cstrSystemPath = SystemPath::GetSystemDir();
+        CString cstrSystemPath = ZLSystemPath::GetSystemDir();
         CString cstrTestIniPath = cstrSystemPath + L"zpublict.ini";
-        TEST_ASSERT(Wow64::CheckCureentProcessIsWow64Process(&bIsPrcoessWow64) == TRUE);
-        TEST_ASSERT(Wow64::Wow64DisableWow64FsRedirection(&pWow64FsRedirection) == TRUE);
+        TEST_ASSERT(ZLWow64::CheckCureentProcessIsWow64Process(&bIsPrcoessWow64) == TRUE);
+        TEST_ASSERT(ZLWow64::Wow64DisableWow64FsRedirection(&pWow64FsRedirection) == TRUE);
         ::WritePrivateProfileString(L"zpublic", L"test", L"1", cstrTestIniPath);
-        TEST_ASSERT(::PathFileExists(SystemPath::GetWindowsDir() + L"system32\\zpublict.ini") == TRUE);
+        TEST_ASSERT(::PathFileExists(ZLSystemPath::GetWindowsDir() + L"system32\\zpublict.ini") == TRUE);
         ::DeleteFile(cstrTestIniPath);
-        TEST_ASSERT(Wow64::Wow64RevertWow64FsRedirection(&pWow64FsRedirection) == TRUE);
+        TEST_ASSERT(ZLWow64::Wow64RevertWow64FsRedirection(&pWow64FsRedirection) == TRUE);
 
-        FileWow64Guard guard;
+        ZLWow64Guard guard;
         ::WritePrivateProfileString(L"zpublic", L"test", L"1", cstrTestIniPath);
-        TEST_ASSERT(::PathFileExists(SystemPath::GetWindowsDir() + L"system32\\zpublict.ini") == TRUE);
+        TEST_ASSERT(::PathFileExists(ZLSystemPath::GetWindowsDir() + L"system32\\zpublict.ini") == TRUE);
         ::DeleteFile(cstrTestIniPath);
     }
 
     void test_system_path()
     {
-        TEST_ASSERT(SystemPath::GetWindowsDir() != _T(""));
-        TEST_ASSERT(SystemPath::GetSystemDir() != _T(""));
-        TEST_ASSERT(SystemPath::GetProgramFileDir() != _T(""));
-        TEST_ASSERT(SystemPath::GetAppDataDir() != _T(""));
-        TEST_ASSERT(SystemPath::GetCommonAppDataDir() != _T(""));
-        TEST_ASSERT(SystemPath::GetTempDir() != _T(""));
-        TEST_ASSERT(SystemPath::GetCommonTempDir() != _T(""));
+        TEST_ASSERT(ZLSystemPath::GetWindowsDir() != _T(""));
+        TEST_ASSERT(ZLSystemPath::GetSystemDir() != _T(""));
+        TEST_ASSERT(ZLSystemPath::GetProgramFileDir() != _T(""));
+        TEST_ASSERT(ZLSystemPath::GetAppDataDir() != _T(""));
+        TEST_ASSERT(ZLSystemPath::GetCommonAppDataDir() != _T(""));
+        TEST_ASSERT(ZLSystemPath::GetTempDir() != _T(""));
+        TEST_ASSERT(ZLSystemPath::GetCommonTempDir() != _T(""));
     }
 };

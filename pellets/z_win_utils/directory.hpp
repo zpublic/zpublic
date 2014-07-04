@@ -26,7 +26,7 @@ namespace WinUtils
      *  DeleteDirectory         É¾³ýÄ¿Â¼
      *  CopyDirectory           ¿½±´Ä¿Â¼
      */
-    class Directory
+    class ZLDirectory
     {
     public:
         static BOOL CreateDeepDirectory(LPCTSTR szPath)
@@ -38,7 +38,7 @@ namespace WinUtils
             bRetCode = ::CreateDirectory(szPath, NULL);
             if (!bRetCode && ::GetLastError() != ERROR_ALREADY_EXISTS)
             {
-                Path::PathRemoveFileSpec(strPath);
+                ZLPath::PathRemoveFileSpec(strPath);
                 if (strPath.IsEmpty()) return FALSE;
 
                 bRetCode = CreateDeepDirectory(strPath);
@@ -58,7 +58,7 @@ namespace WinUtils
             CString sFindPath;
             WIN32_FIND_DATA fData;
             HANDLE hFind = INVALID_HANDLE_VALUE;
-            Path::PathAddBackslash(sDir);
+            ZLPath::PathAddBackslash(sDir);
             sFindPath.Format(_T("%s*.*"), sDir);
             hFind = ::FindFirstFile(sFindPath, &fData);
             if (hFind == INVALID_HANDLE_VALUE)
@@ -88,7 +88,7 @@ Exit0:
             if (hFind != INVALID_HANDLE_VALUE)
                 ::FindClose(hFind);
             ::RemoveDirectory(sDir);
-            Path::PathRemoveBackslash(sDir);
+            ZLPath::PathRemoveBackslash(sDir);
             ::RemoveDirectory(sDir);
 
             return bReturn;
@@ -104,8 +104,8 @@ Exit0:
             CString strDstDir(szDstDir);
             WIN32_FIND_DATA FindFileData;
             HANDLE hFind = INVALID_HANDLE_VALUE;
-            Path::PathAddBackslash(strSrcDir);
-            Path::PathAddBackslash(strDstDir);
+            ZLPath::PathAddBackslash(strSrcDir);
+            ZLPath::PathAddBackslash(strDstDir);
             CreateDeepDirectory(strDstDir);
             strFind.Format(_T("%s*.*"), strSrcDir);
             hFind = ::FindFirstFile(strFind, &FindFileData);

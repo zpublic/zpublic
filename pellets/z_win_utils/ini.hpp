@@ -28,7 +28,7 @@ namespace zl
 namespace WinUtils
 {
 
-    class Ini
+    class ZLIni
     {
     private:
         typedef BOOL (CALLBACK *PFN_IniParseCallback)(LPCTSTR, LPVOID);
@@ -49,18 +49,18 @@ namespace WinUtils
         };
 
     public:
-        Ini()
+        ZLIni()
         {
             mpsPathName = NULL;
         }
 
-        Ini(LPCTSTR lpPathName)
+        ZLIni(LPCTSTR lpPathName)
         {
             mpsPathName = NULL;
             SetPathName(lpPathName);
         }
 
-        virtual ~Ini()
+        virtual ~ZLIni()
         {
             if (mpsPathName != NULL)
                 delete [] mpsPathName;

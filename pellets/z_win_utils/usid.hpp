@@ -25,7 +25,7 @@ namespace WinUtils
      * @note 接口列表如下:
      *      GetCurrentUserSID   获取当前用户的SID
      */
-    class Usid
+    class ZLUsid
     {
     public:
         static BOOL GetCurrentUserSID(CString& strCurrentUserSID)
