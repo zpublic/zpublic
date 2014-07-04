@@ -23,11 +23,11 @@ namespace WinUtils
     typedef void (WINAPI *LPFN_GetNativeSystemInfo)(LPSYSTEM_INFO);
     typedef BOOL (WINAPI *LPFN_IsWow64Process) (HANDLE, PBOOL);
 
-    class SystemVersion
+    class ZLSystemVersion
     {
     public:
-        SystemVersion() {}
-        ~SystemVersion() {}
+        ZLSystemVersion() {}
+        ~ZLSystemVersion() {}
 
     public:
         enum enumSystemVersion
@@ -193,7 +193,7 @@ namespace WinUtils
         static BOOL GetSystemVersionByReg(DWORD &dwMarjorVersion, DWORD &dwMinorVersion)
         {
             BOOL bReturn = FALSE;
-            zl::WinUtils::Register r;
+            zl::WinUtils::ZLRegister r;
             CString cstrVer;
             CString cstrMarjorVer;
             CString cstrMinorVer;

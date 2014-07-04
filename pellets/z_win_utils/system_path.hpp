@@ -34,11 +34,11 @@ namespace WinUtils
      *      GetProgramFileDir               Program Files
      */
 
-    class SystemPath
+    class ZLSystemPath
     {
     public:
-        SystemPath() {}
-        ~SystemPath() {}
+        ZLSystemPath() {}
+        ~ZLSystemPath() {}
 
     public:
         static CString GetSystemDir()
@@ -49,7 +49,7 @@ namespace WinUtils
             {
                 ::GetSystemDirectory(cstrRet.GetBuffer(nLen + 1), nLen);
                 cstrRet.ReleaseBuffer();
-                Path::PathAddBackslash(cstrRet);
+                ZLPath::PathAddBackslash(cstrRet);
             }
             return cstrRet;
         }
@@ -62,7 +62,7 @@ namespace WinUtils
             {
                 ::GetWindowsDirectory(cstrRet.GetBuffer(nLen + 1), nLen);
                 cstrRet.ReleaseBuffer();
-                Path::PathAddBackslash(cstrRet);
+                ZLPath::PathAddBackslash(cstrRet);
             }
             return cstrRet;
         }

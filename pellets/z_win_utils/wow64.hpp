@@ -40,11 +40,11 @@ namespace WinUtils
         __out PBOOL Wow64Process
         );
 
-    class Wow64
+    class ZLWow64
     {
     public:
-        Wow64() {}
-        ~Wow64() {}
+        ZLWow64() {}
+        ~ZLWow64() {}
 
     public:
         static BOOL CheckIsWow64Process(HANDLE hProcess, BOOL* pbWow64Process)
@@ -89,24 +89,24 @@ namespace WinUtils
         }
     };
 
-    class FileWow64Guard
+    class ZLWow64Guard
     {
     public:
-        FileWow64Guard()
+        ZLWow64Guard()
             : bIsWow64_(FALSE)
             , pVoidValue_(NULL)
         {
-            if (Wow64::CheckCureentProcessIsWow64Process(&bIsWow64_) && bIsWow64_)
+            if (ZLWow64::CheckCureentProcessIsWow64Process(&bIsWow64_) && bIsWow64_)
             {
-                Wow64::Wow64DisableWow64FsRedirection(&pVoidValue_);
+                ZLWow64::Wow64DisableWow64FsRedirection(&pVoidValue_);
             }
         }
 
-        ~FileWow64Guard()
+        ~ZLWow64Guard()
         {
             if (bIsWow64_)
             {
-                Wow64::Wow64RevertWow64FsRedirection(pVoidValue_);
+                ZLWow64::Wow64RevertWow64FsRedirection(pVoidValue_);
             }
         }
 

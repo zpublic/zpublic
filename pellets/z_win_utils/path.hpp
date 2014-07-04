@@ -20,7 +20,7 @@ namespace zl
 namespace WinUtils
 {
 
-    class Path
+    class ZLPath
     {
     public:
        static CString GetModuleFullPath(HMODULE hModule)

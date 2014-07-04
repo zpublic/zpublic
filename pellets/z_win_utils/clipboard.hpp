@@ -21,7 +21,7 @@ namespace zl
 namespace WinUtils
 {
 
-    class Clipboard
+    class ZLClipboard
     {
     public:
         static BOOL SetClipboard(const char* pszData, const int nDataLen)

@@ -22,15 +22,15 @@ namespace zl
 namespace WinUtils
 {
 
-    class FileVersion
+    class ZLFileVersion
     {
     public:
-        FileVersion()
+        ZLFileVersion()
         {
             Reset();
         }
 
-        virtual ~FileVersion()
+        virtual ~ZLFileVersion()
         {}
 
         BOOL Create(HMODULE hModule = NULL)
