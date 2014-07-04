@@ -87,17 +87,14 @@ namespace WinUtils
 
             return s_pfnWow64RevertWow64FsRedirection ? s_pfnWow64RevertWow64FsRedirection(pOldValue) : FALSE;
         }
-
-    protected:
-    private:
     };
 
     class ZLWow64Guard
     {
     public:
         ZLWow64Guard()
-            : bIsWow64_(FALSE),
-            pVoidValue_(NULL)
+            : bIsWow64_(FALSE)
+            , pVoidValue_(NULL)
         {
             if (ZLWow64::CheckCureentProcessIsWow64Process(&bIsWow64_) && bIsWow64_)
             {
