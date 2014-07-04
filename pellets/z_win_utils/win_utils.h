@@ -13,7 +13,8 @@
 #include "system_version.hpp"
 #include "wow64.hpp"
 #include "system_path.hpp"
-#include "console_color.hpp"
+#include "autorun.hpp"
+#include "console_colour.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
