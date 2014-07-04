@@ -21,17 +21,22 @@ namespace WinUtils
 {
     typedef enum _emConsoleColor
     {
-        emConsoleColourBlack = 0,
-        emConsoleColourYellow = 6,
-        emConsoleColourGray = 8, 
-//         0=黑色          8=灰色
-//         1=蓝色          9=淡蓝色
-//         2=绿色          A=淡绿色
-//         3=湖蓝色        B=淡浅绿色
-//         4=红色          C=淡红色
-//         5=紫色          D=淡紫色
-//         6=黄色          E=淡黄色
-//         7=白色          F=亮白色 
+        emConsoleColourBlack            = 0,    ///>0= 黑色
+        emConsoleColourBlue             = 1,    ///>1= 蓝色
+        emConsoleColourGreen            = 2,    ///>2= 绿色
+        emConsoleColourLightBlue        = 3,    ///>3= 湖蓝色
+        emConsoleColourRed              = 4,    ///>4= 红色
+        emConsoleColourPurple           = 5,    ///>5= 紫色
+        emConsoleColourYellow           = 6,    ///>6= 黄色
+        emConsoleColourWhite            = 7,    ///>7= 白色
+        emConsoleColourGray             = 8,    ///>8= 灰色
+        emConsoleColourBabyBlue         = 9,    ///>9= 淡蓝色
+        emConsoleColourPaleGreen        = 10,   ///>A= 淡绿色
+        emConsoleColourPaleLightGreen   = 11,   ///>B= 淡浅色
+        emConsoleColourPompadour        = 12,   ///>C= 淡红色
+        emConsoleColourLavender         = 13,   ///>D= 淡紫色
+        emConsoleColourFaintYellow      = 14,   ///>E= 淡黄色
+        emConsoleColourBrightWhite      = 15,   ///>F= 亮白色
     }emConsoleColor;
 
     class ZLConsoleColor
