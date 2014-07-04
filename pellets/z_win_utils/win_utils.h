@@ -14,6 +14,7 @@
 #include "wow64.hpp"
 #include "system_path.hpp"
 #include "autorun.hpp"
+#include "console_colour.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

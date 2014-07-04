@@ -22,6 +22,7 @@ public:
         TEST_ADD(CTestWinUtils::test_wow64);
         TEST_ADD(CTestWinUtils::test_system_path);
         TEST_ADD(CTestWinUtils::test_autorun);
+        TEST_ADD(CTestWinUtils::test_console_colour);
     }
 
     void test_path()
@@ -127,7 +128,7 @@ public:
     {
         ZLRegister reg;
         TCHAR szbyWTestString[] = {L"pjj"};
-        TEST_ASSERT(reg.Open(HKEY_LOCAL_MACHINE, L"SOFTWARE\\zpublic", FALSE) == TRUE);
+        TEST_ASSERT(reg.Open(HKEY_LOCAL_MACHINE, L"SOFTWARE\\zpublic", TRUE) == TRUE);
         TEST_ASSERT(reg.Write(L"ttdword", 1) == TRUE);
         TEST_ASSERT(reg.Write(L"ttstring", L"pjjpjjpjj") == TRUE);
         TEST_ASSERT(reg.WriteExpandString(L"ttexstring", L"pjjpjjpjj2") == TRUE);
@@ -248,6 +249,22 @@ public:
         TEST_ASSERT(ZLSystemPath::GetCommonAppDataDir() != _T(""));
         TEST_ASSERT(ZLSystemPath::GetTempDir() != _T(""));
         TEST_ASSERT(ZLSystemPath::GetCommonTempDir() != _T(""));
+    }
+
+    void test_console_colour()
+    {
+        ZLConsoleColour::SetConsoleColor(FOREGROUND_WHITE);
+        printf("test ConsoleColour! \n");
+        ZLConsoleColour::SetColorFontBlue();
+        printf("test ConsoleColour! \n");
+        ZLConsoleColour::SetColorFontRed();
+        printf("test ConsoleColour! \n");
+        ZLConsoleColour::SetColorFontGreen();
+        printf("test ConsoleColour! \n");
+        ZLConsoleColour::AppendConsoleColor(BACKGROUND_BLUE);
+        printf("test ConsoleColour! \n");
+        TEST_ASSERT((ZLConsoleColour::GetConsoleColor() == (BACKGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY)) == TRUE);
+        ZLConsoleColour::SetColorFontDefault();
     }
 
     void test_autorun()
