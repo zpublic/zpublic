@@ -18,14 +18,6 @@
 #include "gdiplus.hpp"
 #endif
 
-#ifdef Z_WIN_UTILS_USE
-
-using namespace zl::WinUtils;
-
-#else
-
 #ifndef Z_WIN_UTILS_NOUSE
-using namespace zl;
-#endif
-
+using namespace zl::WinUtils;
 #endif

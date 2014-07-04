@@ -71,7 +71,7 @@ namespace WinUtils
         {
             CString cstrRet;
             ::SHGetSpecialFolderPath(NULL,
-                cstrRet.GetBuffer((MAX_PATH + 1) * sizeof(TCHAR)),
+                cstrRet.GetBuffer(MAX_PATH + 1),
                 CSIDL_COMMON_APPDATA,
                 FALSE);
             cstrRet.ReleaseBuffer();
@@ -87,13 +87,13 @@ namespace WinUtils
                     CSIDL_APPDATA,
                     hToken,
                     SHGFP_TYPE_CURRENT,
-                    cstrRet.GetBuffer((MAX_PATH + 1) * sizeof(TCHAR)));
+                    cstrRet.GetBuffer(MAX_PATH + 1));
                 cstrRet.ReleaseBuffer();
             }
             else
             {
                 ::SHGetSpecialFolderPath(NULL,
-                    cstrRet.GetBuffer((MAX_PATH + 1) * sizeof(TCHAR)),
+                    cstrRet.GetBuffer(MAX_PATH + 1),
                     CSIDL_APPDATA,
                     FALSE);
                 cstrRet.ReleaseBuffer();
@@ -105,7 +105,7 @@ namespace WinUtils
         {
             CString cstrRet;
             ::SHGetSpecialFolderPath(NULL,
-                cstrRet.GetBuffer((MAX_PATH + 1) * sizeof(TCHAR)),
+                cstrRet.GetBuffer(MAX_PATH + 1),
                 CSIDL_COMMON_TEMPLATES,
                 FALSE);
             cstrRet.ReleaseBuffer();
@@ -121,13 +121,13 @@ namespace WinUtils
                     CSIDL_TEMPLATES,
                     hToken,
                     SHGFP_TYPE_CURRENT,
-                    cstrRet.GetBuffer((MAX_PATH + 1) * sizeof(TCHAR)));
+                    cstrRet.GetBuffer(MAX_PATH + 1));
                 cstrRet.ReleaseBuffer();
             }
             else
             {
                 ::SHGetSpecialFolderPath(NULL,
-                    cstrRet.GetBuffer((MAX_PATH + 1) * sizeof(TCHAR)),
+                    cstrRet.GetBuffer(MAX_PATH + 1),
                     CSIDL_TEMPLATES,
                     FALSE);
                 cstrRet.ReleaseBuffer();
@@ -139,7 +139,7 @@ namespace WinUtils
         {
             CString cstrRet;
             ::SHGetSpecialFolderPath(NULL,
-                cstrRet.GetBuffer((MAX_PATH + 1) * sizeof(TCHAR)),
+                cstrRet.GetBuffer(MAX_PATH + 1),
                 CSIDL_PROGRAM_FILES,
                 FALSE);
             cstrRet.ReleaseBuffer();

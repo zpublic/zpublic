@@ -25,7 +25,6 @@ namespace WinUtils
     public:
         ZLRegister()
             : hKey_(NULL)
-            , bIsAttach_(FALSE)
         {
         }
 
@@ -35,42 +34,29 @@ namespace WinUtils
         }
 
     public:
-        void Attach(HKEY hKey)
-        {
-            Close();
-            hKey_ = hKey;
-            bIsAttach_ = TRUE;
-        }
-
-        HKEY Detach(void)
-        {
-            bIsAttach_ = FALSE;
-            HKEY hKey = hKey_;
-            hKey_ = NULL;
-            return hKey;
-        }
-
-        BOOL Open(HKEY hRootKey, LPCTSTR szSubKey, BOOL bReadOnly = TRUE, REGSAM samDesired = KEY_READ | KEY_WRITE)
+        BOOL Open(HKEY hRootKey, LPCTSTR szSubKey, BOOL bCreateIfNotExsit = FALSE, REGSAM samDesired = KEY_READ | KEY_WRITE)
         {
             Close();
             LONG lRetCode = 0;
-            if (bReadOnly)
+            if (bCreateIfNotExsit)
+            {
+                lRetCode = ::RegCreateKeyEx(hRootKey,
+                    szSubKey,
+                    NULL,
+                    NULL,
+                    REG_OPTION_NON_VOLATILE,
+                    samDesired,
+                    NULL, 
+                    &hKey_,
+                    NULL);
+            }
+            else
             {
                 lRetCode = ::RegOpenKeyEx(hRootKey,
                     szSubKey,
                     0,
                     samDesired,
                     &hKey_);
-            }
-            else
-            {
-                lRetCode = ::RegCreateKeyEx(hRootKey,
-                    szSubKey,
-                    0L,
-                    NULL,
-                    REG_OPTION_NON_VOLATILE,
-                    KEY_ALL_ACCESS, NULL, 
-                    &hKey_, NULL);
             }
             if (lRetCode != ERROR_SUCCESS)
             {
@@ -79,7 +65,7 @@ namespace WinUtils
             return TRUE;
         }
 
-        BOOL CreateVolatileReg(HKEY hRootKey, LPCTSTR szSubKey)
+        BOOL CreateVolatileReg(HKEY hRootKey, LPCTSTR szSubKey, REGSAM samDesired = KEY_READ | KEY_WRITE)
         {
             Close();
             if (::RegCreateKeyEx(hRootKey,
@@ -87,7 +73,7 @@ namespace WinUtils
                 0L,
                 NULL,
                 REG_OPTION_VOLATILE,
-                KEY_ALL_ACCESS,
+                samDesired,
                 NULL,
                 &hKey_,
                 NULL) != ERROR_SUCCESS)
@@ -97,18 +83,28 @@ namespace WinUtils
             return TRUE;
         }
 
-        BOOL DeleteKey(LPCTSTR szName)
+        BOOL DeleteKey(LPCTSTR pszName)
         {
-            if (ERROR_SUCCESS == ::RegDeleteTree(hKey_, szName))
+            if (pszName == NULL
+                || hKey_ == NULL)
+            {
+                return FALSE;
+            }
+            if (ERROR_SUCCESS == ::RegDeleteTree(hKey_, pszName))
             {
                 return TRUE;
             }
             return FALSE;
         }
 
-        BOOL DeleteValue(LPCTSTR szName)
+        BOOL DeleteValue(LPCTSTR pszName)
         {
-            if (ERROR_SUCCESS == ::RegDeleteValue(hKey_, szName))
+            if (pszName == NULL
+                || hKey_ == NULL)
+            {
+                return FALSE;
+            }
+            if (ERROR_SUCCESS == ::RegDeleteValue(hKey_, pszName))
             {
                 return TRUE;
             }
@@ -117,13 +113,9 @@ namespace WinUtils
 
         void Close(void)
         {
-            if (!bIsAttach_ && hKey_)
+            if (hKey_)
             {
                 ::RegCloseKey(hKey_);
-                hKey_ = NULL;
-            }
-            else
-            {
                 hKey_ = NULL;
             }
         }
@@ -309,7 +301,6 @@ namespace WinUtils
 
     private:
         HKEY hKey_;
-        BOOL bIsAttach_;
     };
 
 }

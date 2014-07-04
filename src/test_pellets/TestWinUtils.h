@@ -155,12 +155,6 @@ public:
         TEST_ASSERT(reg.Write(L"ttdword", 1) == TRUE);
         TEST_ASSERT(reg.Open(HKEY_LOCAL_MACHINE, L"SOFTWARE\\zpublic") == TRUE);
         TEST_ASSERT(reg.DeleteKey(L"ttCreateVolatileReg") == TRUE);
-
-        HKEY tRegKey = NULL;
-        TEST_ASSERT(::RegOpenKey(HKEY_LOCAL_MACHINE, L"SOFTWARE", &tRegKey) == ERROR_SUCCESS);
-        reg.Attach(tRegKey);
-        TEST_ASSERT(reg.DeleteKey(L"zpublic") == TRUE);
-        TEST_ASSERT(::RegCloseKey(tRegKey) == ERROR_SUCCESS);
     }
 
     void test_system_version()
