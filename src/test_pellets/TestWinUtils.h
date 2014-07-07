@@ -29,7 +29,8 @@ public:
         TEST_ADD(CTestWinUtils::test_shortcut);
         TEST_ADD(CTestWinUtils::test_error_code);
         TEST_ADD(CTestWinUtils::test_process);
-        TEST_ADD(CTestWinUtils::test_dos_name);    }
+        TEST_ADD(CTestWinUtils::test_dos_name);
+    }
 
     void test_path()
     {
