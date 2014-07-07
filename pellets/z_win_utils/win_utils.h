@@ -23,6 +23,9 @@
 #include "error_code.hpp"
 #include "privilege.hpp"
 #include "shutdown.hpp"
+#include "cpu.hpp"
+#include "memory.hpp"
+#include "drive.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

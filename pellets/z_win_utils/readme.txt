@@ -30,6 +30,9 @@ done:
 > error_code                - 错误码相关
 > privilege                 - 进程权限相关
 > shutdown                  - 重启和关机
+> cpu                       - cpu信息
+> memory                    - 内存相关
+> drive                     - 磁盘驱动器相关
 
 todos:
 ------
@@ -41,8 +44,6 @@ todos:
 > string_translte           - 字符串相关类型转换
 > security_attribute        - 安全属性
 > browser                   - 浏览器相关
-> cpu                       - cpu信息
-> memory                    - 内存相关
 > module                    - 动态运行库相关
 > time                      - 时间相关
 > time_string               - 时间和字符串转换
@@ -52,7 +53,6 @@ todos:
 > physical_memory           - 物理内存操作
 > acl                       - 访问控制列表相关
 > uuid                      - uuid相关
-> drive                     - 磁盘驱动器相关
 > thread_enum               - 线程枚举
 > resource                  - PE文件的资源操作
 > tick_counter              - 计时器

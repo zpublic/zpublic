@@ -213,13 +213,16 @@
     <ClInclude Include="..\..\pellets\z_timer\z_timer_watcher.h" />
     <ClInclude Include="..\..\pellets\z_win_utils\clipboard.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\console_color.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\cpu.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\cstring.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\directory.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\drive.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\error_code.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\file_icon.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\file_version.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\gdiplus.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\ini.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\memory.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\message.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\path.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\privilege.hpp" />
