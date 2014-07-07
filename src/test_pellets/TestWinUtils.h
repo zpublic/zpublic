@@ -24,6 +24,7 @@ public:
         TEST_ADD(CTestWinUtils::test_autorun);
         TEST_ADD(CTestWinUtils::test_console_colour);
         TEST_ADD(CTestWinUtils::test_environment_var);
+        TEST_ADD(CTestWinUtils::test_cmdline);
     }
 
     void test_path()
@@ -395,5 +396,17 @@ public:
 
         TEST_ASSERT(ZLEnvironmentVar::Del(ZLEnvironmentVar::SYSTEM_ENV, L"zpublic1") == TRUE);
         TEST_ASSERT(ZLEnvironmentVar::Del(ZLEnvironmentVar::USER_ENV,   L"zpublic2") == TRUE);
+    }
+
+    void test_cmdline()
+    {
+        CString sCmdLine = L"c:\\1.exe /key1 /key2:hello -key3:world -key4:\"this is a string\"";
+        
+        ZLCmdLine cmd(sCmdLine);
+        TEST_ASSERT(sCmdLine.Compare(cmd.getCmdLine()) == 0);
+        TEST_ASSERT(cmd.HasKey(L"key1")  == true);
+        TEST_ASSERT(wcscmp(cmd.GetVal(L"key2"), L"hello") == 0);
+        TEST_ASSERT(wcscmp(cmd.GetVal(L"key3"), L"world") == 0);
+        TEST_ASSERT(wcscmp(cmd.GetVal(L"key4"), L"this is a string") == 0);
     }
 };
