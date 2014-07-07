@@ -20,6 +20,7 @@
 #include "sign_verify.hpp"
 #include "file_icon.hpp"
 #include "shortcut.hpp"
+#include "error_code.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

@@ -27,6 +27,7 @@ public:
         TEST_ADD(CTestWinUtils::test_cmdline);
         TEST_ADD(CTestWinUtils::test_sign_verify);
         TEST_ADD(CTestWinUtils::test_shortcut);
+        TEST_ADD(CTestWinUtils::test_error_code);
     }
 
     void test_path()
@@ -430,5 +431,26 @@ public:
         TEST_ASSERT(sDst.CompareNoCase(sDstFilePath) == 0);
         
         ::DeleteFile(sLnkFilePath);
+    }
+
+    void test_error_code()
+    {
+        CString s1(L"操作成功完成。\r\n");
+        CString s2(L"系统无法打开文件。\r\n");
+        ::SetLastError(0);
+        LPWSTR pBuffer = ZLErrorCode::GetFormattedMessage();
+        TEST_ASSERT(pBuffer);
+        if (pBuffer)
+        {
+            TEST_ASSERT(s1.Compare(pBuffer) == 0);
+            LocalFree(pBuffer);
+        }
+        pBuffer = ZLErrorCode::GetFormattedMessage(4);
+        TEST_ASSERT(pBuffer);
+        if (pBuffer)
+        {
+            TEST_ASSERT(s2.Compare(pBuffer) == 0);
+            LocalFree(pBuffer);
+        }
     }
 };
