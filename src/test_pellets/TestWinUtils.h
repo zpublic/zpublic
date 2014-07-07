@@ -24,6 +24,8 @@ public:
         TEST_ADD(CTestWinUtils::test_autorun);
         TEST_ADD(CTestWinUtils::test_console_colour);
         TEST_ADD(CTestWinUtils::test_environment_var);
+        TEST_ADD(CTestWinUtils::test_process);
+        TEST_ADD(CTestWinUtils::test_dos_name);
     }
 
     void test_path()
@@ -395,5 +397,47 @@ public:
 
         TEST_ASSERT(ZLEnvironmentVar::Del(ZLEnvironmentVar::SYSTEM_ENV, L"zpublic1") == TRUE);
         TEST_ASSERT(ZLEnvironmentVar::Del(ZLEnvironmentVar::USER_ENV,   L"zpublic2") == TRUE);
+    }
+
+    void test_process()
+    {
+        CString cstrNotepadPath(ZLSystemPath::GetSystemDir() + L"notepad.exe");
+        TEST_ASSERT(ZLProcess::Run(cstrNotepadPath, L"zpublic", 900) == 259);
+
+        PROCESSENTRY32 process32 = {0};
+        process32.dwSize = sizeof(PROCESSENTRY32);
+        HANDLE hProcess = ::CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
+        BOOL bRet = ::Process32First(hProcess, &process32);
+        DWORD dwNotepad = 0;
+        DWORD dwPresentNotepad = 0;
+        while(bRet)
+        {
+            if (_tcsicmp(L"notepad.exe", process32.szExeFile) == 0)
+            {
+                dwNotepad = process32.th32ProcessID;
+                dwPresentNotepad = process32.th32ParentProcessID;
+                break;
+            }
+            else
+            {
+                bRet = ::Process32Next(hProcess, &process32);
+            }
+        }
+
+        CString cstrWinLogonPath = ZLProcess::GetProcessPath(dwNotepad);
+        TEST_ASSERT(::PathFileExists(cstrNotepadPath) == TRUE);
+        TEST_ASSERT(dwPresentNotepad == ZLProcess::GetParentProcessID(dwNotepad));
+        TEST_ASSERT((ZLProcess::GetProcessCmdLine(dwNotepad) == L"\"" + cstrNotepadPath + L"\" zpublic") == TRUE)
+        TEST_ASSERT(ZLProcess::KillProcess(dwNotepad) == TRUE);
+    }
+
+    void test_dos_name()
+    {
+        CString cstrTestPaht(L"\\Device\\HarddiskVolume2\\Windows\\SysWOW64\\notepad.exe");
+        ZLDosName dosname;
+        TEST_ASSERT(dosname.Init());
+        TEST_ASSERT(dosname.DevicePathToDosPath(cstrTestPaht));
+        TEST_ASSERT(dosname.Unit());
+        TEST_ASSERT(::PathFileExists(cstrTestPaht) == TRUE);
     }
 };
