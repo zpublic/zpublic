@@ -486,15 +486,15 @@ namespace WinUtils
             {
                 psapi.GetProcessImageFileName(hProcess, cstrPath.GetBuffer(MAX_PATH + 1), MAX_PATH);
                 cstrPath.ReleaseBuffer();
+
+                ZLDosName dosname;
+                if (dosname.Init())
+                {
+                    dosname.DevicePathToDosPath(cstrPath);
+                }
+                dosname.Unit();
             }
             psapi.UnInit();
-
-            ZLDosName dosname;
-            if (dosname.Init())
-            {
-                dosname.DevicePathToDosPath(cstrPath);
-            }
-            dosname.Unit();
             return cstrPath;
         }
     };
