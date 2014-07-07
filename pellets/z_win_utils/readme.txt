@@ -22,6 +22,8 @@ done:
 > cmdline                   - 命令行参数处理
 > process                   - 进程控制
 > sign_verify               - 数字签名相关
+> dos_name                  - dos路径处理
+> shortcut                  - 快捷方式处理
 
 todos:
 ------
@@ -38,8 +40,6 @@ todos:
 > cpu                       - cpu信息
 > memory                    - 内存相关
 > module                    - 动态运行库相关
-> dos_name                  - dos路径处理
-> shortcut                  - 快捷方式处理
 > time                      - 时间相关
 > time_string               - 时间和字符串转换
 > privilege                 - 进程权限相关
