@@ -443,14 +443,14 @@ public:
         if (pBuffer)
         {
             TEST_ASSERT(s1.Compare(pBuffer) == 0);
-            LocalFree(pBuffer);
+            ::LocalFree(pBuffer);
         }
         pBuffer = ZLErrorCode::GetFormattedMessage(4);
         TEST_ASSERT(pBuffer);
         if (pBuffer)
         {
             TEST_ASSERT(s2.Compare(pBuffer) == 0);
-            LocalFree(pBuffer);
+            ::LocalFree(pBuffer);
         }
     }
 };
