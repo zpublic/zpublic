@@ -115,6 +115,12 @@
     <Filter Include="practice\test">
       <UniqueIdentifier>{26df29b6-61d1-4232-8e0e-53fe43ef57b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\flatbuffer">
+      <UniqueIdentifier>{19996759-52b8-4fce-be9b-c762a8b9fed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\flatbuffer\flatbuf">
+      <UniqueIdentifier>{8b7b29cb-1754-4f8e-8a24-a9612e35ea19}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -480,6 +486,18 @@
     <ClInclude Include="..\..\3rdparty\jsonlib\json\writer.h">
       <Filter>src\json\json_cpp\h</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\flatbuffer\include\flatbuffers\flatbuffers.h">
+      <Filter>src\flatbuffer\flatbuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\flatbuffer\include\flatbuffers\idl.h">
+      <Filter>src\flatbuffer\flatbuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\flatbuffer\include\flatbuffers\util.h">
+      <Filter>src\flatbuffer\flatbuf</Filter>
+    </ClInclude>
+    <ClInclude Include="test_flatbuffer.h">
+      <Filter>src\flatbuffer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -778,6 +796,21 @@
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_writer.cpp">
       <Filter>src\json\json_cpp\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_gen_cpp.cpp">
+      <Filter>src\flatbuffer\flatbuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_gen_java.cpp">
+      <Filter>src\flatbuffer\flatbuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_gen_text.cpp">
+      <Filter>src\flatbuffer\flatbuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_parser.cpp">
+      <Filter>src\flatbuffer\flatbuf</Filter>
+    </ClCompile>
+    <ClCompile Include="test_flatbuffer.cpp">
+      <Filter>src\flatbuffer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

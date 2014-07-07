@@ -481,6 +481,15 @@
     <ClInclude Include="..\..\pellets\z_win_utils\console_color.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\cstring.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\file_icon.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\error_code.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\process.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
