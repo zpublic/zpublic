@@ -30,6 +30,8 @@ public:
         TEST_ADD(CTestWinUtils::test_error_code);
         TEST_ADD(CTestWinUtils::test_process);
         TEST_ADD(CTestWinUtils::test_dos_name);
+        TEST_ADD(CTestWinUtils::test_process_enum);
+        TEST_ADD(CTestWinUtils::test_process_module);
     }
 
     void test_path()
@@ -496,5 +498,32 @@ public:
         TEST_ASSERT(dosname.DevicePathToDosPath(cstrTestPaht));
         TEST_ASSERT(dosname.Unit());
         TEST_ASSERT(::PathFileExists(cstrTestPaht) == TRUE);
+    }
+
+    void test_process_enum()
+    {
+        ZLProcessEnumInfoVec infoVec;
+        TEST_ASSERT(ZLProcessEnum::Enum(infoVec));
+        TEST_ASSERT((infoVec.size() != 0) == TRUE);
+    }
+
+    void test_process_module()
+    {
+        ZLProcessEnumInfoVec infoVec;
+        TEST_ASSERT(ZLProcessEnum::Enum(infoVec));
+        TEST_ASSERT((infoVec.size() != 0) == TRUE);
+
+        ZLModuleEnumInfoVec moduleVec;
+        for (ZLProcessEnumInfoVec::const_iterator it = infoVec.begin();
+            it != infoVec.end();
+            ++it)
+        {
+            BOOL bEnumValue = ZLProcessModule::Enum(it->dwTh32ProcessID, moduleVec);
+            if (::GetLastError() != ERROR_PARTIAL_COPY
+                && ::GetLastError() != ERROR_ACCESS_DENIED)
+            {
+                TEST_ASSERT(bEnumValue == TRUE);
+            }
+        }
     }
 };

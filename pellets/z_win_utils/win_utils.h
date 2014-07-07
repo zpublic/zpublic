@@ -25,6 +25,8 @@
 #include "shutdown.hpp"
 #include "process.hpp"
 #include "dos_name.hpp"
+#include "process_enum.hpp"
+#include "process_module.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

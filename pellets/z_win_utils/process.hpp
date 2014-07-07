@@ -243,16 +243,6 @@ namespace WinUtils
             return bReturn;
         }
 
-        static BOOL GetAllProcess(std::vector<int>& vecPID)
-        {
-            return FALSE;
-        }
-
-        static BOOL GetProcessModules(int nPID, std::vector<CString> &vecModule)
-        {
-            return FALSE;
-        }
-
         static int GetParentProcessID(DWORD dwPid)
         {
             LONG lStatus = 0;
