@@ -23,6 +23,7 @@ public:
         TEST_ADD(CTestWinUtils::test_system_path);
         TEST_ADD(CTestWinUtils::test_autorun);
         TEST_ADD(CTestWinUtils::test_console_colour);
+        TEST_ADD(CTestWinUtils::test_environment_var);
     }
 
     void test_path()
@@ -370,5 +371,29 @@ public:
         TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::SINGLE_USER, L"zpublic7", NULL, FALSE) == TRUE);
         TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::SINGLE_USER, L"zpublic8", NULL, FALSE) == TRUE);
         TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::SINGLE_USER, L"zpublic9") == TRUE);
+    }
+
+    void test_environment_var()
+    {
+        TEST_ASSERT(ZLEnvironmentVar::Add(ZLEnvironmentVar::SYSTEM_ENV, NULL, L"c:\\1.txt") == FALSE);
+        TEST_ASSERT(ZLEnvironmentVar::Add(ZLEnvironmentVar::SYSTEM_ENV, NULL, NULL) == FALSE);
+
+        TEST_ASSERT(ZLEnvironmentVar::Add(ZLEnvironmentVar::SYSTEM_ENV, L"zpublic1", L"c:\\1.txt") == TRUE);
+        TEST_ASSERT(ZLEnvironmentVar::Add(ZLEnvironmentVar::USER_ENV,   L"zpublic2", L"c:\\2.txt") == TRUE);
+
+        ZLRegister reg;
+        CString sValue;
+        reg.Open(HKEY_LOCAL_MACHINE, L"System\\CurrentControlSet\\Control\\Session Manager\\Environment");
+        reg.Read(L"zpublic1", sValue);
+        TEST_ASSERT(sValue.Compare(L"c:\\1.txt") == 0);
+        reg.Close();
+
+        reg.Open(HKEY_CURRENT_USER, L"Environment");
+        reg.Read(L"zpublic2", sValue);
+        TEST_ASSERT(sValue.Compare(L"c:\\2.txt") == 0);
+        reg.Close();
+
+        TEST_ASSERT(ZLEnvironmentVar::Del(ZLEnvironmentVar::SYSTEM_ENV, L"zpublic1") == TRUE);
+        TEST_ASSERT(ZLEnvironmentVar::Del(ZLEnvironmentVar::USER_ENV,   L"zpublic2") == TRUE);
     }
 };
