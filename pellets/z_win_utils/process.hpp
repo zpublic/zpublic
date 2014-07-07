@@ -28,6 +28,7 @@ namespace WinUtils
     public:
         ZLPsapiDllFunction()
             : m_bInited(FALSE)
+            , m_hPsapi(NULL)
         {
         }
 
