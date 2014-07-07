@@ -25,6 +25,7 @@ public:
         TEST_ADD(CTestWinUtils::test_console_colour);
         TEST_ADD(CTestWinUtils::test_environment_var);
         TEST_ADD(CTestWinUtils::test_cmdline);
+        TEST_ADD(CTestWinUtils::test_sign_verify);
     }
 
     void test_path()
@@ -408,5 +409,12 @@ public:
         TEST_ASSERT(wcscmp(cmd.GetVal(L"key2"), L"hello") == 0);
         TEST_ASSERT(wcscmp(cmd.GetVal(L"key3"), L"world") == 0);
         TEST_ASSERT(wcscmp(cmd.GetVal(L"key4"), L"this is a string") == 0);
+    }
+
+    void test_sign_verify()
+    {
+        TEST_ASSERT(ZLSignVerify::Instance().Initialize() == TRUE);
+        TEST_ASSERT(ZLSignVerify::Instance().VerifyCatSignW(L"c:\\windows\\regedit.exe") == TRUE);
+        ZLSignVerify::Instance().UnInitialize();
     }
 };

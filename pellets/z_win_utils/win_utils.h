@@ -17,6 +17,7 @@
 #include "console_color.hpp"
 #include "environment_var.hpp"
 #include "cmdline.hpp"
+#include "sign_verify.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
