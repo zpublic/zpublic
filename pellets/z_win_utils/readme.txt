@@ -33,6 +33,7 @@ done:
 > cpu                       - cpu信息
 > memory                    - 内存相关
 > drive                     - 磁盘驱动器相关
+> process_enum              - 进程枚举
 
 todos:
 ------
@@ -48,7 +49,6 @@ todos:
 > time                      - 时间相关
 > time_string               - 时间和字符串转换
 > screen                    - 屏幕相关
-> random                    - 随机数
 > service                   - 系统服务相关
 > physical_memory           - 物理内存操作
 > acl                       - 访问控制列表相关
@@ -58,4 +58,3 @@ todos:
 > tick_counter              - 计时器
 > token                     - 进程权限令牌相关
 > process_module            - 进程的模块枚举
-> process_enum              - 进程枚举
