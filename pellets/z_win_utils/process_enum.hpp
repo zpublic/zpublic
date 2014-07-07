@@ -14,8 +14,8 @@
  ************************************************************************/
 #pragma once
 #include "win_utils_header.h"
-#include <vector>
 #include "privilege.hpp"
+#include <vector>
 
 namespace zl
 {
@@ -49,10 +49,6 @@ namespace WinUtils
 
     class ZLProcessEnum
     {
-    public:
-        ZLProcessEnum() {}
-        ~ZLProcessEnum() {}
-
     public:
         static BOOL Enum(ZLProcessEnumInfoVec& infoVec)
         {
