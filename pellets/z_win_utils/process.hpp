@@ -14,7 +14,6 @@
  ************************************************************************/
 #pragma once
 #include "win_utils_header.h"
-#include <Tlhelp32.h>
 #include "dos_name.hpp"
 
 #define ProcessBasicInformation 0
