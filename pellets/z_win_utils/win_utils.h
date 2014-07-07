@@ -18,6 +18,7 @@
 #include "environment_var.hpp"
 #include "cmdline.hpp"
 #include "sign_verify.hpp"
+#include "shortcut.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
