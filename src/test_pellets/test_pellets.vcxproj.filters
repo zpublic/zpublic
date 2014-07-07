@@ -490,6 +490,12 @@
     <ClInclude Include="..\..\pellets\z_win_utils\error_code.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\privilege.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\shutdown.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\process.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>

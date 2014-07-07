@@ -28,6 +28,8 @@ done:
 > file_icon                 - 文件图标相关
 > register_enum             - 注册表枚举
 > error_code                - 错误码相关
+> privilege                 - 进程权限相关
+> shutdown                  - 重启和关机
 
 todos:
 ------
@@ -44,11 +46,9 @@ todos:
 > module                    - 动态运行库相关
 > time                      - 时间相关
 > time_string               - 时间和字符串转换
-> privilege                 - 进程权限相关
 > screen                    - 屏幕相关
 > random                    - 随机数
 > service                   - 系统服务相关
-> shutdown                  - 重启和关机
 > physical_memory           - 物理内存操作
 > acl                       - 访问控制列表相关
 > uuid                      - uuid相关
