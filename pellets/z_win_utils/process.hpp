@@ -254,42 +254,6 @@ namespace WinUtils
             return FALSE;
         }
 
-        static BOOL GetDebugPrivilege(void)
-        {
-            BOOL bReturn = FALSE;
-            HANDLE hToken = NULL;
-            int nRetCode = ERROR_SUCCESS;
-            LUID CurrentLUID = { 0 };
-            TOKEN_PRIVILEGES TokenPrivileges = { 0 };
-
-            __try
-            {
-                nRetCode = ::OpenProcessToken(::GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY, &hToken);
-                if (!nRetCode) __leave;
-
-                nRetCode = ::LookupPrivilegeValue(NULL, SE_DEBUG_NAME, &CurrentLUID);
-                if (!nRetCode) __leave;
-
-                TokenPrivileges.PrivilegeCount = 1;
-                TokenPrivileges.Privileges[0].Luid = CurrentLUID;
-                TokenPrivileges.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
-                nRetCode = ::AdjustTokenPrivileges(hToken, FALSE, &TokenPrivileges, 0, NULL, NULL);
-                if (!nRetCode) __leave;
-
-                bReturn = TRUE;
-            }
-            __finally
-            {
-                if (hToken)
-                {
-                    ::CloseHandle(hToken);
-                    hToken = NULL;
-                }
-            }
-
-            return bReturn;
-        }
-
         static int GetParentProcessID(DWORD dwPid)
         {
             LONG lStatus = 0;
