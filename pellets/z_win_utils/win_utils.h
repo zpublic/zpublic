@@ -21,6 +21,8 @@
 #include "file_icon.hpp"
 #include "shortcut.hpp"
 #include "error_code.hpp"
+#include "privilege.hpp"
+#include "shutdown.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
