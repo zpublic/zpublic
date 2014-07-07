@@ -19,11 +19,12 @@ done:
 > wow64                     - 32位、64位兼容处理
 > environment_var           - 环境变量相关
 > console_color             - 命令行颜色
+> cmdline                   - 命令行参数处理
+> process                   - 进程控制
+> sign_verify               - 数字签名相关
 
 todos:
 ------
-> process                   - 进程控制
-> cmdline                   - 命令行参数处理
 > file_oper                 - 文件操作
 > file_info                 - 文件信息
 > file_enum                 - 文件枚举
@@ -47,7 +48,6 @@ todos:
 > service                   - 系统服务相关
 > shutdown                  - 重启和关机
 > physical_memory           - 物理内存操作
-> sign_verify               - 数字签名相关
 > acl                       - 访问控制列表相关
 > uuid                      - uuid相关
 > drive                     - 磁盘驱动器相关
