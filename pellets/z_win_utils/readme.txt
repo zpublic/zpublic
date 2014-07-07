@@ -24,16 +24,16 @@ done:
 > sign_verify               - 数字签名相关
 > dos_name                  - dos路径处理
 > shortcut                  - 快捷方式处理
+> cstring                   - 在没有CString时实现自己的
+> file_icon                 - 文件图标相关
 
 todos:
 ------
 > file_oper                 - 文件操作
 > file_info                 - 文件信息
 > file_enum                 - 文件枚举
-> file_icon                 - 文件图标相关
 > file_search               - 文件搜索
 > select_dlg                - 文件、目录选择对话框
-> cstring                   - 在没有CString时实现自己的
 > string_translte           - 字符串相关类型转换
 > security_attribute        - 安全属性
 > browser                   - 浏览器相关
