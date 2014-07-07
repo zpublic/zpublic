@@ -25,24 +25,16 @@ namespace WinUtils
     {
         _ZLProcessEnumInfo()
         {
-            dwCntUsage = 0;
             dwTh32ProcessID = 0;
-            dwTh32ModuleID = 0;
             dwCntThreads = 0;
             dwTh32ParentProcessID = 0;
-            dwFlags = 0;
-            pulTh32DefaultHeapID = NULL;
             lpcPriClassBase = 0;
         }
-        DWORD dwCntUsage;
-        DWORD dwTh32ProcessID;
-        DWORD dwTh32ModuleID;
-        DWORD dwCntThreads;
-        DWORD dwTh32ParentProcessID;
-        DWORD dwFlags;
-        ULONG_PTR pulTh32DefaultHeapID;
-        LONG lpcPriClassBase;
-        CString cstrExeFile;
+        DWORD dwTh32ProcessID;                  ///> 进程ID
+        DWORD dwCntThreads;                     ///> 此进程开启的线程计数
+        DWORD dwTh32ParentProcessID;            ///> 父进程的ID
+        LONG lpcPriClassBase;                   ///> 线程优先权
+        CString cstrExeFile;                    ///> 进程全路径
     }ZLProcessEnumInfo;
 
     typedef std::vector<ZLProcessEnumInfo> ZLProcessEnumInfoVec;
@@ -73,13 +65,9 @@ namespace WinUtils
                 do
                 {
                     ZLProcessEnumInfo proInfo;
-                    proInfo.dwCntUsage = pe32.cntUsage;
                     proInfo.dwTh32ProcessID = pe32.th32ProcessID;
-                    proInfo.dwTh32ModuleID = pe32.th32ModuleID;
                     proInfo.dwCntThreads = pe32.cntThreads;
                     proInfo.dwTh32ParentProcessID = pe32.th32ParentProcessID;
-                    proInfo.dwFlags = pe32.dwFlags;
-                    proInfo.pulTh32DefaultHeapID = pe32.th32DefaultHeapID;
                     proInfo.lpcPriClassBase = pe32.pcPriClassBase;
                     proInfo.cstrExeFile = pe32.szExeFile;
                     infoVec.push_back(proInfo);

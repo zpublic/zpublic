@@ -27,22 +27,20 @@ namespace WinUtils
         _ZLModuleEnumInfo()
         {
             dwTh32ModuleID = 0;
-            dwTh32ProcessID = 0;
             dwGlblcntUsage = 0;
             dwProccntUsage = 0;
             byModBaseAddr = 0;
             dwModBaseSize = 0;
             hModule = NULL;
         }
-        DWORD dwTh32ModuleID;
-        DWORD dwTh32ProcessID;
-        DWORD dwGlblcntUsage;
-        DWORD dwProccntUsage;
-        BYTE* byModBaseAddr;
-        DWORD dwModBaseSize;
-        CString cstrModule;
-        CString cstrExePath;
-        HMODULE hModule;
+        DWORD dwTh32ModuleID;               ///> 在其所属的进程上下文模块标识符。
+        DWORD dwGlblcntUsage;               ///> 全局模块的使用计数。
+        DWORD dwProccntUsage;               ///> 所属进程的范围内模块的使用计数。
+        BYTE* byModBaseAddr;                ///> 基址的模块，在其所属的进程范围内。
+        DWORD dwModBaseSize;                ///> 大小，以字节，模块。
+        CString cstrModule;                 ///> 模块名。
+        CString cstrExePath;                ///> 模块的全路径。
+        HMODULE hModule;                    ///> 句柄
     }ZLModuleEnumInfo;
 
     typedef std::vector<ZLModuleEnumInfo> ZLModuleEnumInfoVec;
@@ -80,7 +78,6 @@ namespace WinUtils
                     modeInfo.dwModBaseSize = me32.modBaseSize;
                     modeInfo.byModBaseAddr = me32.modBaseAddr;
                     modeInfo.dwTh32ModuleID = me32.th32ModuleID;
-                    modeInfo.dwTh32ProcessID = me32.th32ProcessID;
                     modeInfo.hModule = me32.hModule;
                     InfoVec.push_back(modeInfo);
                     ::ZeroMemory(&me32, sizeof(me32));
