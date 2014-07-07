@@ -26,6 +26,7 @@ public:
         TEST_ADD(CTestWinUtils::test_environment_var);
         TEST_ADD(CTestWinUtils::test_cmdline);
         TEST_ADD(CTestWinUtils::test_sign_verify);
+        TEST_ADD(CTestWinUtils::test_shortcut);
     }
 
     void test_path()
@@ -416,5 +417,18 @@ public:
         TEST_ASSERT(ZLSignVerify::Instance().Initialize() == TRUE);
         TEST_ASSERT(ZLSignVerify::Instance().VerifyCatSignW(L"c:\\windows\\regedit.exe") == TRUE);
         ZLSignVerify::Instance().UnInitialize();
+    }
+
+    void test_shortcut()
+    {
+        CString sLnkFilePath = L"c:\\zpublic.lnk";
+        CString sDstFilePath = L"c:\\null.exe";
+
+        TEST_ASSERT(ZLShortcut::Create(sLnkFilePath, sDstFilePath) == TRUE);
+        CString sDst;
+        TEST_ASSERT(ZLShortcut::GetDstPath(sLnkFilePath, sDst) == TRUE);
+        TEST_ASSERT(sDst.CompareNoCase(sDstFilePath) == 0);
+        
+        ::DeleteFile(sLnkFilePath);
     }
 };
