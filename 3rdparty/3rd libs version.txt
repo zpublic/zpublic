@@ -27,3 +27,6 @@ jsonlib/jsoncpp
 
 stlsoft
 1.9.117
+
+flatbuffer
+1.0.0
