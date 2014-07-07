@@ -26,6 +26,8 @@
 #include "cpu.hpp"
 #include "memory.hpp"
 #include "drive.hpp"
+#include "process.hpp"
+#include "dos_name.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

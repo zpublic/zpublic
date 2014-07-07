@@ -219,13 +219,14 @@
     <ClInclude Include="..\..\pellets\z_win_utils\drive.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\error_code.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\file_icon.hpp" />
-    <ClInclude Include="..\..\pellets\z_win_utils\file_version.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\dos_name.hpp" />    <ClInclude Include="..\..\pellets\z_win_utils\file_version.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\gdiplus.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\ini.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\memory.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\message.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\path.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\privilege.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\process.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\register.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\shutdown.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\system_path.hpp" />
