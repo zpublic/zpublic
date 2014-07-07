@@ -16,6 +16,7 @@
 #include "autorun.hpp"
 #include "console_color.hpp"
 #include "environment_var.hpp"
+#include "cmdline.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
