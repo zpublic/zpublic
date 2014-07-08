@@ -51,7 +51,6 @@ todos:
 > file_enum                 - 文件枚举
 > string_translte           - 字符串相关类型转换
 > module                    - 动态运行库相关
-> physical_memory           - 物理内存操作
 > uuid                      - uuid相关
 > thread_enum               - 线程枚举
 > token                     - 进程权限令牌相关
