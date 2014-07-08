@@ -39,6 +39,7 @@
 #include "tick_counter.hpp"
 #include "security_attribute.hpp"
 #include "service.hpp"
+#include "file_enum.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
