@@ -430,9 +430,6 @@
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.hpp">
       <Filter>pellets\z_lua_bind\internal</Filter>
     </ClInclude>
-    <ClInclude Include="TestWinUtils.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\clipboard.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
@@ -470,9 +467,6 @@
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\message.hpp">
-      <Filter>pellets\z_win_utils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_win_utils\wow64.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\system_path.hpp">
@@ -521,6 +515,57 @@
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\process_module.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\browser.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\time.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\tick_counter.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\security_attribute.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\service.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\file_enum.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\module.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\token.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\TestWinUtils.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\autorun.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\cmdline.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\environment_var.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\file_info.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\register_enum.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\shortcut.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\sign_verify.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\wow64.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\acl.hpp">
@@ -762,7 +807,7 @@
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.cpp">
       <Filter>pellets\z_lua_bind\internal</Filter>
     </ClCompile>
-    <ClCompile Include="TestWinUtils.cpp">
+    <ClCompile Include="..\..\pellets\z_win_utils\TestWinUtils.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

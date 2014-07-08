@@ -35,6 +35,9 @@ public:
         TEST_ADD(CTestWinUtils::test_time_string);
         TEST_ADD(CTestWinUtils::test_process_enum);
         TEST_ADD(CTestWinUtils::test_process_module);
+        TEST_ADD(CTestWinUtils::test_file_info);
+        TEST_ADD(CTestWinUtils::test_browser);
+        TEST_ADD(CTestWinUtils::test_uuid);
         TEST_ADD(CTestWinUtils::test_acl);
     }
 
@@ -239,7 +242,7 @@ public:
         PVOID pWow64FsRedirection = NULL;
         CString cstrSystemPath = ZLSystemPath::GetSystemDir();
         CString cstrTestIniPath = cstrSystemPath + L"zpublict.ini";
-        TEST_ASSERT(ZLWow64::CheckCureentProcessIsWow64Process(&bIsPrcoessWow64) == TRUE);
+        TEST_ASSERT(ZLWow64::CheckCurrentProcessIsWow64Process(&bIsPrcoessWow64) == TRUE);
         TEST_ASSERT(ZLWow64::Wow64DisableWow64FsRedirection(&pWow64FsRedirection) == TRUE);
         ::WritePrivateProfileString(L"zpublic", L"test", L"1", cstrTestIniPath);
         TEST_ASSERT(::PathFileExists(ZLSystemPath::GetWindowsDir() + L"system32\\zpublict.ini") == TRUE);
@@ -581,6 +584,21 @@ public:
         }
     }
 
+    void test_browser()
+    {
+        CString sBro;
+        TEST_ASSERT(ZLBrowser::GetDefaultBrowser(sBro));
+        TEST_ASSERT(!sBro.IsEmpty());
+
+        auto ver = ZLBrowser::GetIEMajorVersion();
+        TEST_ASSERT(ver != 0);
+
+        LPCWSTR lpPathfile = L"c:\\explorer.exe";
+        CString sExplorer = ZLSystemPath::GetWindowsDir()  + L"explorer.exe";
+        TEST_ASSERT(ZLBrowser::IsUserLaunchBrowser(lpPathfile) == FALSE);
+        TEST_ASSERT(ZLBrowser::IsUserLaunchBrowser(sExplorer) == TRUE);
+    }
+
     void test_register_enum()
     {
         CString sSubKey         = L"Software\\zpublic_test\\";
@@ -643,6 +661,68 @@ public:
         reg.Open(HKEY_LOCAL_MACHINE, sSubKey);
         reg.DeleteKey(sSubKey);
         reg.Close();
+    }
+
+    void test_file_info()
+    {
+        CString sFile = L"c:\\windows\\regedit.exe";
+
+        LONGLONG lFileSize = 0;
+        TEST_ASSERT(ZLFileInfo::GetFileSize(NULL, lFileSize) == FALSE);
+        TEST_ASSERT(ZLFileInfo::GetFileSize(sFile, lFileSize) == TRUE);
+        TEST_ASSERT(lFileSize > 100);
+
+        FILETIME ftCreate = {0},
+                 ftAccess = {0},
+                 ftWrite  = {0};
+        TEST_ASSERT(ZLFileInfo::GetFileTimeInfo(NULL, NULL, NULL, NULL) == FALSE);
+        TEST_ASSERT(ZLFileInfo::GetFileTimeInfo(sFile, NULL, NULL, NULL) == TRUE);
+        TEST_ASSERT(ZLFileInfo::GetFileTimeInfo(sFile, &ftCreate, NULL, NULL) == TRUE);
+        TEST_ASSERT(ZLFileInfo::GetFileTimeInfo(sFile, &ftCreate, &ftAccess, &ftWrite) == TRUE);
+
+        TEST_ASSERT(ftCreate.dwHighDateTime > 0);
+        TEST_ASSERT(ftCreate.dwLowDateTime  > 0);
+
+        TEST_ASSERT(ftAccess.dwHighDateTime > 0);
+        TEST_ASSERT(ftAccess.dwLowDateTime  > 0);
+
+        TEST_ASSERT(ftWrite.dwHighDateTime  > 0);
+        TEST_ASSERT(ftWrite.dwLowDateTime   > 0);
+    }
+    
+    void test_uuid()
+    {
+        ///> 初始化和赋值
+        ZLUuid uuid1;
+        ZLUuid uuid2(uuid1);
+        ZLUuid uuid3 = uuid1;
+
+        ///> 类型转换
+        CString sUuid = uuid1;
+        UUID stUuid;
+        uuid1.ToUuid(stUuid);
+
+        ///> 比较操作
+        TEST_ASSERT(uuid1 == uuid2);
+        TEST_ASSERT(uuid2 == uuid3);
+        TEST_ASSERT(uuid2 == sUuid);
+        TEST_ASSERT(uuid2 == stUuid);
+
+        ///> 其它
+        CString sHaha = L"3FAAB390-2624-434C-98A2-3CCDEB91EC37";
+        ZLUuid uuid10(sHaha);
+        TEST_ASSERT(uuid10 == sHaha);
+        UUID stHaha = {0x3FAAB390, 0x2624, 0x434C, 0x98, 0xA2, 0x3C, 0xCD, 0xEB, 0x91, 0xEC, 0x37};
+        ZLUuid uuid11(stHaha);
+        TEST_ASSERT(uuid11 == stHaha);
+        TEST_ASSERT(uuid11 == uuid10);
+
+        ZLUuid uuid21 = L"";
+        CString sEmpty = uuid21;
+        TEST_ASSERT(sEmpty.CompareNoCase(L"00000000-0000-0000-0000-000000000000") == 0);
+        uuid21.GenerateNew();
+        sEmpty = uuid21;
+        TEST_ASSERT(sEmpty.CompareNoCase(L"00000000-0000-0000-0000-000000000000") != 0);
     }
 
     void test_acl()

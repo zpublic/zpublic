@@ -1,3 +1,12 @@
+/***********************
+*!!!!!!!!!!!!!!!!!!!!!!*
+*!!!!Do not Modify!!!!!*
+*!!!!!!!!!!!!!!!!!!!!!!*
+************************
+*如果你要修改winutils任何相关代码，或者有什么建议，请提交到
+*https://github.com/zpublic/zpublic
+********************************************************/
+
 just4convenient
 ===============
 
@@ -39,19 +48,17 @@ done:
 > service                   - 系统服务相关
 > screen                    - 屏幕相关
 > time_string               - 时间和字符串转换
+> browser                   - 浏览器相关
+> time                      - 时间相关
+> tick_counter              - 计时器
+> file_info                 - 文件信息
+> security_attribute        - 安全属性
+> file_enum                 - 文件枚举
+> module                    - 动态运行库相关
+> uuid                      - uuid相关
+> thread_enum               - 线程枚举
+> token                     - 进程权限令牌相关
 
 todos:
 ------
-> file_oper                 - 文件操作
-> file_info                 - 文件信息
-> file_enum                 - 文件枚举
-> string_translte           - 字符串相关类型转换
-> security_attribute        - 安全属性
-> browser                   - 浏览器相关
-> module                    - 动态运行库相关
-> time                      - 时间相关
-> physical_memory           - 物理内存操作
-> uuid                      - uuid相关
-> thread_enum               - 线程枚举
-> tick_counter              - 计时器
-> token                     - 进程权限令牌相关
+...

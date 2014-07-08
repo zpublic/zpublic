@@ -56,7 +56,7 @@ namespace WinUtils
             return s_pfnIsWow64 ? s_pfnIsWow64(hProcess, pbWow64Process) : FALSE;
         }
 
-        static BOOL CheckCureentProcessIsWow64Process(BOOL* pbWow64Process)
+        static BOOL CheckCurrentProcessIsWow64Process(BOOL* pbWow64Process)
         {
             static BOOL s_bIsWow64Process = FALSE;
             static BOOL s_bResult = CheckIsWow64Process(::GetCurrentProcess(), &s_bIsWow64Process);
@@ -96,7 +96,7 @@ namespace WinUtils
             : bIsWow64_(FALSE)
             , pVoidValue_(NULL)
         {
-            if (ZLWow64::CheckCureentProcessIsWow64Process(&bIsWow64_) && bIsWow64_)
+            if (ZLWow64::CheckCurrentProcessIsWow64Process(&bIsWow64_) && bIsWow64_)
             {
                 ZLWow64::Wow64DisableWow64FsRedirection(&pVoidValue_);
             }

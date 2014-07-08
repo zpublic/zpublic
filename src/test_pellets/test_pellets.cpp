@@ -12,7 +12,7 @@
 #include "TestEvent.h"
 #include "TestTimer.h"
 #include "TestLuaBind.h"
-#include "TestWinUtils.h"
+#include "z_win_utils\TestWinUtils.h"
 
 void AddTest(Suite& ts)
 {

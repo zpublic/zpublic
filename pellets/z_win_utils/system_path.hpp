@@ -75,6 +75,7 @@ namespace WinUtils
                 CSIDL_COMMON_APPDATA,
                 FALSE);
             cstrRet.ReleaseBuffer();
+            ZLPath::PathAddBackslash(cstrRet);
             return cstrRet;
         }
 
@@ -89,6 +90,7 @@ namespace WinUtils
                     SHGFP_TYPE_CURRENT,
                     cstrRet.GetBuffer(MAX_PATH + 1));
                 cstrRet.ReleaseBuffer();
+                ZLPath::PathAddBackslash(cstrRet);
             }
             else
             {
@@ -97,6 +99,7 @@ namespace WinUtils
                     CSIDL_APPDATA,
                     FALSE);
                 cstrRet.ReleaseBuffer();
+                ZLPath::PathAddBackslash(cstrRet);
             }
             return cstrRet;
         }
@@ -109,6 +112,7 @@ namespace WinUtils
                 CSIDL_COMMON_TEMPLATES,
                 FALSE);
             cstrRet.ReleaseBuffer();
+            ZLPath::PathAddBackslash(cstrRet);
             return cstrRet;
         }
 
@@ -123,6 +127,7 @@ namespace WinUtils
                     SHGFP_TYPE_CURRENT,
                     cstrRet.GetBuffer(MAX_PATH + 1));
                 cstrRet.ReleaseBuffer();
+                ZLPath::PathAddBackslash(cstrRet);
             }
             else
             {
@@ -131,6 +136,7 @@ namespace WinUtils
                     CSIDL_TEMPLATES,
                     FALSE);
                 cstrRet.ReleaseBuffer();
+                ZLPath::PathAddBackslash(cstrRet);
             }
             return cstrRet;
         }
@@ -143,6 +149,7 @@ namespace WinUtils
                 CSIDL_PROGRAM_FILES,
                 FALSE);
             cstrRet.ReleaseBuffer();
+            ZLPath::PathAddBackslash(cstrRet);
             return cstrRet;
         }
     };
