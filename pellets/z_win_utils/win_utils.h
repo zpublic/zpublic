@@ -29,6 +29,7 @@
 #include "process.hpp"
 #include "dos_name.hpp"
 #include "screen.hpp"
+#include "time_string.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

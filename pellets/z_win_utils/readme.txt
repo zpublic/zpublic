@@ -37,6 +37,7 @@ done:
 > process_module            - 进程的模块枚举
 > acl                       - 访问控制列表相关
 > service                   - 系统服务相关
+> time_string               - 时间和字符串转换
 
 todos:
 ------
@@ -50,7 +51,6 @@ todos:
 > browser                   - 浏览器相关
 > module                    - 动态运行库相关
 > time                      - 时间相关
-> time_string               - 时间和字符串转换
 > screen                    - 屏幕相关
 > physical_memory           - 物理内存操作
 > uuid                      - uuid相关

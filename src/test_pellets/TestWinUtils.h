@@ -31,6 +31,7 @@ public:
         TEST_ADD(CTestWinUtils::test_system_info);
         TEST_ADD(CTestWinUtils::test_process);
         TEST_ADD(CTestWinUtils::test_dos_name);
+        TEST_ADD(CTestWinUtils::test_time_string);
     }
 
     void test_path()
@@ -505,5 +506,47 @@ public:
         TEST_ASSERT(dosname.DevicePathToDosPath(cstrTestPaht));
         TEST_ASSERT(dosname.Unit());
         TEST_ASSERT(::PathFileExists(cstrTestPaht) == TRUE);
+    }
+
+    void test_time_string()
+    {
+        SYSTEMTIME st;
+        st.wYear    = 2014;
+        st.wMonth   = 7;
+        st.wDay     = 8;
+        st.wHour    = 10;
+        st.wMinute  = 28;
+        st.wSecond  = 10;
+        st.wMilliseconds = 10;
+        st.wDayOfWeek = 2;
+
+        CString sTime;
+        ZLTimeString::Time2Str(st, sTime);
+        TEST_ASSERT(sTime == L"2014-7-8 10:28:10:10 2");
+        SYSTEMTIME st2 = {0};
+        TEST_ASSERT(ZLTimeString::Str2Time(sTime, st2));
+        TEST_ASSERT(st2.wDay == st.wDay);
+        sTime.Empty();
+        ZLTimeString::Time2StrShort(st2, sTime);
+        TEST_ASSERT(sTime == L"2014-7-8 10:28:10");
+        st.wDay = 0;
+        TEST_ASSERT(ZLTimeString::Str2TimeShort(sTime, st));
+        TEST_ASSERT(st2.wDay == st.wDay);
+
+        LPCWSTR lpFile  = L"c:\\zpublic_test.ini";
+        LPCWSTR lpApp   = L"tt";
+        LPCWSTR lpKey   = L"pp";
+        TEST_ASSERT(ZLTimeString::WriteTimeToIni(lpFile, lpApp, lpKey, st));
+        ZLIni ini;
+        ini.SetPathName(lpFile);
+        sTime = ini.GetString(lpApp, lpKey);
+        TEST_ASSERT(sTime == L"2014-7-8 10:28:10:10 2");
+        sTime.Empty();
+        TEST_ASSERT(ZLTimeString::ReadTimeFromIni(lpFile, lpApp, lpKey, sTime));
+        TEST_ASSERT(sTime == L"2014-7-8 10:28:10:10 2");
+        st2.wDay = 0;
+        TEST_ASSERT(ZLTimeString::ReadTimeFromIni(lpFile, lpApp, lpKey, st2));
+        TEST_ASSERT(st2.wDay == st.wDay);
+        ::DeleteFile(lpFile);
     }
 };
