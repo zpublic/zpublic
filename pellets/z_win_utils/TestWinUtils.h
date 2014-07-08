@@ -240,7 +240,7 @@ public:
         PVOID pWow64FsRedirection = NULL;
         CString cstrSystemPath = ZLSystemPath::GetSystemDir();
         CString cstrTestIniPath = cstrSystemPath + L"zpublict.ini";
-        TEST_ASSERT(ZLWow64::CheckCureentProcessIsWow64Process(&bIsPrcoessWow64) == TRUE);
+        TEST_ASSERT(ZLWow64::CheckCurrentProcessIsWow64Process(&bIsPrcoessWow64) == TRUE);
         TEST_ASSERT(ZLWow64::Wow64DisableWow64FsRedirection(&pWow64FsRedirection) == TRUE);
         ::WritePrivateProfileString(L"zpublic", L"test", L"1", cstrTestIniPath);
         TEST_ASSERT(::PathFileExists(ZLSystemPath::GetWindowsDir() + L"system32\\zpublict.ini") == TRUE);

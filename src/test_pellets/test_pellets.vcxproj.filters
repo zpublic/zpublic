@@ -544,6 +544,30 @@
     <ClInclude Include="..\..\pellets\z_win_utils\TestWinUtils.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\autorun.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\cmdline.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\environment_var.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\file_info.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\register_enum.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\shortcut.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\sign_verify.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\wow64.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">
