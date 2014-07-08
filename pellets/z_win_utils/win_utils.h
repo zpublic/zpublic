@@ -1,3 +1,11 @@
+/***********************
+*!!!!!!!!!!!!!!!!!!!!!!*
+*!!!!Do not Modify!!!!!*
+*!!!!!!!!!!!!!!!!!!!!!!*
+************************
+*如果你要修改winutils任何相关代码，或者有什么建议，请提交到
+*https://github.com/zpublic/zpublic
+********************************************************/
 #pragma once
 
 #include "win_utils_header.h"
@@ -39,6 +47,10 @@
 #include "tick_counter.hpp"
 #include "security_attribute.hpp"
 #include "uuid.hpp"
+#include "service.hpp"
+#include "file_enum.hpp"
+#include "module.hpp"
+#include "token.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
