@@ -35,6 +35,7 @@
 #include "browser.hpp"
 #include "time.hpp"
 #include "tick_counter.hpp"
+#include "security_attribute.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
