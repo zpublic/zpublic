@@ -27,6 +27,7 @@ public:
         TEST_ADD(CTestWinUtils::test_cmdline);
         TEST_ADD(CTestWinUtils::test_sign_verify);
         TEST_ADD(CTestWinUtils::test_shortcut);
+        TEST_ADD(CTestWinUtils::test_register_enum);
     }
 
     void test_path()
@@ -430,5 +431,80 @@ public:
         TEST_ASSERT(sDst.CompareNoCase(sDstFilePath) == 0);
         
         ::DeleteFile(sLnkFilePath);
+    }
+
+    void test_register_enum()
+    {
+
+
+        CString sSubKey         = L"Software\\zpublic_test\\";
+        LPCTSTR arrItemName[]   = { L"item1", L"item2", L"item3", L"item4", };
+        ZLRegister reg;
+
+        for (int i=0; i<_countof(arrItemName); ++i)
+        {
+            if (reg.Open(HKEY_LOCAL_MACHINE, sSubKey + arrItemName[i], TRUE))
+                reg.Close();
+        }
+
+        if (reg.Open(HKEY_LOCAL_MACHINE, sSubKey))
+        {
+            reg.Write(L"RegSz1", L"RegSzValue1");
+            reg.Write(L"RegSz2", L"RegSzValue2");
+            reg.WriteExpandString(L"RegExpandSz1", L"RegExpandSzValue1");
+            reg.WriteExpandString(L"RegExpandSz2", L"RegExpandSzValue2");
+            reg.Write(L"Dword1", 11);
+            reg.Write(L"Dword2", 12);
+
+            reg.Close();
+        }
+
+        ///> 枚举注册表项
+        std::vector<CString> vecItems;
+        TEST_ASSERT(ZLRegisterEnum::EnumItem(HKEY_LOCAL_MACHINE, sSubKey, TRUE, vecItems) == TRUE);
+        TEST_ASSERT(vecItems.size() == _countof(arrItemName));
+        if (vecItems.size() == _countof(arrItemName))
+        {
+            for (int i=0; i<_countof(arrItemName); ++i)
+            {
+                TEST_ASSERT(vecItems[i].Compare(arrItemName[i]) == 0);
+            }
+        }
+        else
+        {
+            TEST_ASSERT(FALSE);
+        }
+
+        ///> 枚举注册表键值对
+        std::map<CString,CString> mapRegSz;
+        std::map<CString,CString> mapRegExpandSz;
+        std::map<CString,DWORD>   mapDword;
+
+        TEST_ASSERT(ZLRegisterEnum::EnumKeyValuePair(HKEY_LOCAL_MACHINE, sSubKey, TRUE, NULL, NULL, NULL) == TRUE);
+        TEST_ASSERT(ZLRegisterEnum::EnumKeyValuePair(HKEY_LOCAL_MACHINE, sSubKey, TRUE, &mapRegSz, NULL, NULL) == TRUE);
+        TEST_ASSERT(ZLRegisterEnum::EnumKeyValuePair(HKEY_LOCAL_MACHINE, sSubKey, TRUE, NULL, &mapRegExpandSz, NULL) == TRUE);
+        TEST_ASSERT(ZLRegisterEnum::EnumKeyValuePair(HKEY_LOCAL_MACHINE, sSubKey, TRUE, NULL, NULL, &mapDword) == TRUE);
+        TEST_ASSERT(mapRegSz.size() == 2);
+        TEST_ASSERT(mapRegExpandSz.size() == 2);
+        TEST_ASSERT(mapDword.size() == 2);
+
+        TEST_ASSERT(ZLRegisterEnum::EnumKeyValuePair(HKEY_LOCAL_MACHINE, sSubKey, TRUE, &mapRegSz, &mapRegExpandSz, &mapDword) == TRUE);
+        TEST_ASSERT(mapRegSz.size() == 2);
+        TEST_ASSERT(mapRegExpandSz.size() == 2);
+        TEST_ASSERT(mapDword.size() == 2);
+
+        for (int i=0; i<2; i++)
+        {
+
+        }
+
+
+
+        ///> 清理
+        reg.Open(HKEY_LOCAL_MACHINE, sSubKey);
+        reg.DeleteKey(sSubKey);
+        reg.Close();
+
+        //ZLRegisterEnum::EnumItem(HKEY_LOCAL_MACHINE, , TRUE, );
     }
 };
