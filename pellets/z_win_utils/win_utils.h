@@ -20,6 +20,7 @@
 #include "sign_verify.hpp"
 #include "file_icon.hpp"
 #include "shortcut.hpp"
+#include "register_enum.hpp"
 #include "error_code.hpp"
 #include "privilege.hpp"
 #include "shutdown.hpp"
