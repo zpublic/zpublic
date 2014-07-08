@@ -511,6 +511,12 @@
     <ClInclude Include="..\..\pellets\z_win_utils\dos_name.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\screen.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\time_string.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\process_enum.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>

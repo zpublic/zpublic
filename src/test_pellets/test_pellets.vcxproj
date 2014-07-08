@@ -231,10 +231,12 @@
     <ClInclude Include="..\..\pellets\z_win_utils\process_enum.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\process_module.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\register.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\screen.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\shutdown.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\system_path.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\system_version.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\taskbar_position.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\time_string.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\usid.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\win_utils.h" />
     <ClInclude Include="..\..\pellets\z_win_utils\win_utils_header.h" />
