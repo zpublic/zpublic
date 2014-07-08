@@ -41,6 +41,7 @@
 #include "service.hpp"
 #include "file_enum.hpp"
 #include "module.hpp"
+#include "token.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
