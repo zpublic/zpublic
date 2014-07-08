@@ -28,6 +28,7 @@ namespace WinUtils
     public:
         ZLPsapiDllFunction()
             : m_bInited(FALSE)
+            , m_hPsapi(NULL)
         {
         }
 
@@ -241,16 +242,6 @@ namespace WinUtils
                 ::CloseHandle(hProcess);
             }
             return bReturn;
-        }
-
-        static BOOL GetAllProcess(std::vector<int>& vecPID)
-        {
-            return FALSE;
-        }
-
-        static BOOL GetProcessModules(int nPID, std::vector<CString> &vecModule)
-        {
-            return FALSE;
         }
 
         static int GetParentProcessID(DWORD dwPid)

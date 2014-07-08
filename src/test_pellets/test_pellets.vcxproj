@@ -228,6 +228,8 @@
     <ClInclude Include="..\..\pellets\z_win_utils\path.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\privilege.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\process.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\process_enum.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\process_module.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\register.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\screen.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\shutdown.hpp" />
