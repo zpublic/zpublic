@@ -28,6 +28,7 @@
 #include "drive.hpp"
 #include "process.hpp"
 #include "dos_name.hpp"
+#include "screen.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
