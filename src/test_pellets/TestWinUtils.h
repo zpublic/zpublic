@@ -28,6 +28,13 @@ public:
         TEST_ADD(CTestWinUtils::test_sign_verify);
         TEST_ADD(CTestWinUtils::test_shortcut);
         TEST_ADD(CTestWinUtils::test_register_enum);
+        TEST_ADD(CTestWinUtils::test_error_code);
+        TEST_ADD(CTestWinUtils::test_system_info);
+        TEST_ADD(CTestWinUtils::test_process);
+        TEST_ADD(CTestWinUtils::test_dos_name);
+        TEST_ADD(CTestWinUtils::test_time_string);
+        TEST_ADD(CTestWinUtils::test_process_enum);
+        TEST_ADD(CTestWinUtils::test_process_module);
     }
 
     void test_path()
@@ -433,10 +440,148 @@ public:
         ::DeleteFile(sLnkFilePath);
     }
 
+    void test_error_code()
+    {
+        CString s1(L"操作成功完成。\r\n");
+        CString s2(L"系统无法打开文件。\r\n");
+        ::SetLastError(0);
+        LPWSTR pBuffer = ZLErrorCode::GetFormattedMessage();
+        TEST_ASSERT(pBuffer);
+        if (pBuffer)
+        {
+            TEST_ASSERT(s1.Compare(pBuffer) == 0);
+            ::LocalFree(pBuffer);
+        }
+        pBuffer = ZLErrorCode::GetFormattedMessage(4);
+        TEST_ASSERT(pBuffer);
+        if (pBuffer)
+        {
+            TEST_ASSERT(s2.Compare(pBuffer) == 0);
+            ::LocalFree(pBuffer);
+        }
+    }
+
+    void test_system_info()
+    {
+        TEST_ASSERT(ZLCpu::GetCpuMHz() != 0);
+        TEST_ASSERT(ZLCpu::GetProcessorsCount() != 0);
+        TEST_ASSERT(ZLMemory::GetMemorySize() != 0);
+        TEST_ASSERT(ZLDrive::GetDriveSize() != 0);
+    }
+
+    void test_process()
+    {
+        CString cstrNotepadPath(ZLSystemPath::GetSystemDir() + L"notepad.exe");
+        TEST_ASSERT(ZLProcess::Run(cstrNotepadPath, L"zpublic", 900) == 259);
+
+        PROCESSENTRY32 process32 = {0};
+        process32.dwSize = sizeof(PROCESSENTRY32);
+        HANDLE hProcess = ::CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
+        BOOL bRet = ::Process32First(hProcess, &process32);
+        DWORD dwNotepad = 0;
+        DWORD dwPresentNotepad = 0;
+        while(bRet)
+        {
+            if (_tcsicmp(L"notepad.exe", process32.szExeFile) == 0)
+            {
+                dwNotepad = process32.th32ProcessID;
+                dwPresentNotepad = process32.th32ParentProcessID;
+                break;
+            }
+            else
+            {
+                bRet = ::Process32Next(hProcess, &process32);
+            }
+        }
+
+        CString cstrWinLogonPath = ZLProcess::GetProcessPath(dwNotepad);
+        TEST_ASSERT(::PathFileExists(cstrNotepadPath) == TRUE);
+        TEST_ASSERT(dwPresentNotepad == ZLProcess::GetParentProcessID(dwNotepad));
+        TEST_ASSERT((ZLProcess::GetProcessCmdLine(dwNotepad) == L"\"" + cstrNotepadPath + L"\" zpublic") == TRUE)
+        TEST_ASSERT(ZLProcess::KillProcess(dwNotepad) == TRUE);
+    }
+
+    void test_dos_name()
+    {
+        CString cstrTestPaht(L"\\Device\\HarddiskVolume2\\Windows\\SysWOW64\\notepad.exe");
+        ZLDosName dosname;
+        TEST_ASSERT(dosname.Init());
+        TEST_ASSERT(dosname.DevicePathToDosPath(cstrTestPaht));
+        TEST_ASSERT(dosname.Unit());
+        TEST_ASSERT(::PathFileExists(cstrTestPaht) == TRUE);
+    }
+
+    void test_time_string()
+    {
+        SYSTEMTIME st;
+        st.wYear    = 2014;
+        st.wMonth   = 7;
+        st.wDay     = 8;
+        st.wHour    = 10;
+        st.wMinute  = 28;
+        st.wSecond  = 10;
+        st.wMilliseconds = 10;
+        st.wDayOfWeek = 2;
+
+        CString sTime;
+        ZLTimeString::Time2Str(st, sTime);
+        TEST_ASSERT(sTime == L"2014-7-8 10:28:10:10 2");
+        SYSTEMTIME st2 = {0};
+        TEST_ASSERT(ZLTimeString::Str2Time(sTime, st2));
+        TEST_ASSERT(st2.wDay == st.wDay);
+        sTime.Empty();
+        ZLTimeString::Time2StrShort(st2, sTime);
+        TEST_ASSERT(sTime == L"2014-7-8 10:28:10");
+        st.wDay = 0;
+        TEST_ASSERT(ZLTimeString::Str2TimeShort(sTime, st));
+        TEST_ASSERT(st2.wDay == st.wDay);
+
+        LPCWSTR lpFile  = L"c:\\zpublic_test.ini";
+        LPCWSTR lpApp   = L"tt";
+        LPCWSTR lpKey   = L"pp";
+        TEST_ASSERT(ZLTimeString::WriteTimeToIni(lpFile, lpApp, lpKey, st));
+        ZLIni ini;
+        ini.SetPathName(lpFile);
+        sTime = ini.GetString(lpApp, lpKey);
+        TEST_ASSERT(sTime == L"2014-7-8 10:28:10:10 2");
+        sTime.Empty();
+        TEST_ASSERT(ZLTimeString::ReadTimeFromIni(lpFile, lpApp, lpKey, sTime));
+        TEST_ASSERT(sTime == L"2014-7-8 10:28:10:10 2");
+        st2.wDay = 0;
+        TEST_ASSERT(ZLTimeString::ReadTimeFromIni(lpFile, lpApp, lpKey, st2));
+        TEST_ASSERT(st2.wDay == st.wDay);
+        ::DeleteFile(lpFile);
+    }
+
+    void test_process_enum()
+    {
+        ZLProcessEnumInfoVec infoVec;
+        TEST_ASSERT(ZLProcessEnum::Enum(infoVec));
+        TEST_ASSERT((infoVec.size() != 0) == TRUE);
+    }
+
+    void test_process_module()
+    {
+        ZLProcessEnumInfoVec infoVec;
+        TEST_ASSERT(ZLProcessEnum::Enum(infoVec));
+        TEST_ASSERT((infoVec.size() != 0) == TRUE);
+
+        ZLModuleEnumInfoVec moduleVec;
+        for (ZLProcessEnumInfoVec::const_iterator it = infoVec.begin();
+            it != infoVec.end();
+            ++it)
+        {
+            BOOL bEnumValue = ZLProcessModule::Enum(it->dwTh32ProcessID, moduleVec);
+            if (::GetLastError() != ERROR_PARTIAL_COPY
+                && ::GetLastError() != ERROR_ACCESS_DENIED)
+            {
+                TEST_ASSERT(bEnumValue == TRUE);
+            }
+        }
+    }
+
     void test_register_enum()
     {
-
-
         CString sSubKey         = L"Software\\zpublic_test\\";
         LPCTSTR arrItemName[]   = { L"item1", L"item2", L"item3", L"item4", };
         ZLRegister reg;
@@ -493,18 +638,9 @@ public:
         TEST_ASSERT(mapRegExpandSz.size() == 2);
         TEST_ASSERT(mapDword.size() == 2);
 
-        for (int i=0; i<2; i++)
-        {
-
-        }
-
-
-
         ///> 清理
         reg.Open(HKEY_LOCAL_MACHINE, sSubKey);
         reg.DeleteKey(sSubKey);
         reg.Close();
-
-        //ZLRegisterEnum::EnumItem(HKEY_LOCAL_MACHINE, , TRUE, );
     }
 };
