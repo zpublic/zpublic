@@ -34,6 +34,7 @@ public:
         TEST_ADD(CTestWinUtils::test_time_string);
         TEST_ADD(CTestWinUtils::test_process_enum);
         TEST_ADD(CTestWinUtils::test_process_module);
+        TEST_ADD(CTestWinUtils::test_browser);
     }
 
     void test_path()
@@ -577,5 +578,20 @@ public:
                 TEST_ASSERT(bEnumValue == TRUE);
             }
         }
+    }
+
+    void test_browser()
+    {
+        CString sBro;
+        TEST_ASSERT(ZLBrowser::GetDefaultBrowser(sBro));
+        TEST_ASSERT(!sBro.IsEmpty());
+
+        auto ver = ZLBrowser::GetIEMajorVersion();
+        TEST_ASSERT(ver != 0);
+
+        LPCWSTR lpPathfile = L"c:\\explorer.exe";
+        CString sExplorer = ZLSystemPath::GetWindowsDir()  + L"explorer.exe";
+        TEST_ASSERT(ZLBrowser::IsUserLaunchBrowser(lpPathfile) == FALSE);
+        TEST_ASSERT(ZLBrowser::IsUserLaunchBrowser(sExplorer) == TRUE);
     }
 };

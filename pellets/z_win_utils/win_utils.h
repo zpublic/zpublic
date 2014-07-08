@@ -32,6 +32,9 @@
 #include "time_string.hpp"
 #include "process_enum.hpp"
 #include "process_module.hpp"
+#include "browser.hpp"
+#include "time.hpp"
+#include "tick_counter.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
