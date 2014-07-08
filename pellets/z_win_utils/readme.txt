@@ -44,11 +44,11 @@ done:
 > tick_counter              - 计时器
 > file_info                 - 文件信息
 > security_attribute        - 安全属性
+> file_enum                 - 文件枚举
+> module                    - 动态运行库相关
 
 todos:
 ------
-> file_enum                 - 文件枚举
-> module                    - 动态运行库相关
 > uuid                      - uuid相关
 > thread_enum               - 线程枚举
 > token                     - 进程权限令牌相关

@@ -40,6 +40,7 @@
 #include "security_attribute.hpp"
 #include "service.hpp"
 #include "file_enum.hpp"
+#include "module.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

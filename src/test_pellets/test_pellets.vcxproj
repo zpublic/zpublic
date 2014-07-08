@@ -227,6 +227,7 @@
     <ClInclude Include="..\..\pellets\z_win_utils\ini.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\memory.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\message.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\module.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\path.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\privilege.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\process.hpp" />
