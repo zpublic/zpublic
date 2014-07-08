@@ -28,6 +28,7 @@ public:
         TEST_ADD(CTestWinUtils::test_sign_verify);
         TEST_ADD(CTestWinUtils::test_shortcut);
         TEST_ADD(CTestWinUtils::test_error_code);
+        TEST_ADD(CTestWinUtils::test_system_info);
         TEST_ADD(CTestWinUtils::test_process);
         TEST_ADD(CTestWinUtils::test_dos_name);
         TEST_ADD(CTestWinUtils::test_process_enum);
@@ -456,6 +457,14 @@ public:
             TEST_ASSERT(s2.Compare(pBuffer) == 0);
             ::LocalFree(pBuffer);
         }
+    }
+
+    void test_system_info()
+    {
+        TEST_ASSERT(ZLCpu::GetCpuMHz() != 0);
+        TEST_ASSERT(ZLCpu::GetProcessorsCount() != 0);
+        TEST_ASSERT(ZLMemory::GetMemorySize() != 0);
+        TEST_ASSERT(ZLDrive::GetDriveSize() != 0);
     }
 
     void test_process()
