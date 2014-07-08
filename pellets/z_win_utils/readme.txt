@@ -47,9 +47,7 @@ done:
 
 todos:
 ------
-> file_oper                 - 文件操作
 > file_enum                 - 文件枚举
-> string_translte           - 字符串相关类型转换
 > module                    - 动态运行库相关
 > uuid                      - uuid相关
 > thread_enum               - 线程枚举
