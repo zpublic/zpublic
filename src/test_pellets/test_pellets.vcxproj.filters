@@ -430,9 +430,6 @@
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.hpp">
       <Filter>pellets\z_lua_bind\internal</Filter>
     </ClInclude>
-    <ClInclude Include="TestWinUtils.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\clipboard.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
@@ -470,9 +467,6 @@
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\message.hpp">
-      <Filter>pellets\z_win_utils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_win_utils\wow64.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\system_path.hpp">
@@ -546,6 +540,9 @@
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\token.hpp">
       <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\TestWinUtils.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -783,7 +780,7 @@
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.cpp">
       <Filter>pellets\z_lua_bind\internal</Filter>
     </ClCompile>
-    <ClCompile Include="TestWinUtils.cpp">
+    <ClCompile Include="..\..\pellets\z_win_utils\TestWinUtils.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
