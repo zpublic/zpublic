@@ -35,6 +35,7 @@ public:
         TEST_ADD(CTestWinUtils::test_time_string);
         TEST_ADD(CTestWinUtils::test_process_enum);
         TEST_ADD(CTestWinUtils::test_process_module);
+        TEST_ADD(CTestWinUtils::test_acl);
     }
 
     void test_path()
@@ -642,5 +643,20 @@ public:
         reg.Open(HKEY_LOCAL_MACHINE, sSubKey);
         reg.DeleteKey(sSubKey);
         reg.Close();
+    }
+
+    void test_acl()
+    {
+        ZLAcl acl;
+        ZLRegister r;
+        r.Open(HKEY_LOCAL_MACHINE, L"Software\\zpublic_test_acl\\", TRUE);
+        TEST_ASSERT(acl.Open(L"MACHINE\\Software\\zpublic_test_acl\\", SE_REGISTRY_KEY) == TRUE);
+        TEST_ASSERT(acl.SetSecurity(L"Users", KEY_ALL_ACCESS, DENY_ACCESS) == TRUE);
+        TEST_ASSERT(acl.SetSecurity(L"Users") == TRUE);
+        acl.Close();
+        TEST_ASSERT(ZLDirectory::CreateDeepDirectory(ZLSystemPath::GetCommonAppDataDir() + L"\\zpublic_test\\acl"));
+        TEST_ASSERT(acl.Open(ZLSystemPath::GetCommonAppDataDir() + L"\\zpublic_test\\acl", SE_FILE_OBJECT) == TRUE);
+        TEST_ASSERT(acl.SetSecurity(L"Users", KEY_ALL_ACCESS, DENY_ACCESS) == TRUE);
+        TEST_ASSERT(acl.SetSecurity(L"Users") == TRUE);
     }
 };
