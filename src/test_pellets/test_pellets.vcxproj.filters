@@ -523,6 +523,18 @@
     <ClInclude Include="..\..\pellets\z_win_utils\process_module.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\browser.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\time.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\tick_counter.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\security_attribute.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">

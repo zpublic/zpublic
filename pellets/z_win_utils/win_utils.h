@@ -34,7 +34,10 @@
 #include "process_enum.hpp"
 #include "process_module.hpp"
 #include "file_info.hpp"
-
+#include "browser.hpp"
+#include "time.hpp"
+#include "tick_counter.hpp"
+#include "security_attribute.hpp"
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
 #endif
