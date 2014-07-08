@@ -35,6 +35,7 @@ public:
         TEST_ADD(CTestWinUtils::test_time_string);
         TEST_ADD(CTestWinUtils::test_process_enum);
         TEST_ADD(CTestWinUtils::test_process_module);
+        TEST_ADD(CTestWinUtils::test_file_info);
     }
 
     void test_path()
@@ -642,5 +643,32 @@ public:
         reg.Open(HKEY_LOCAL_MACHINE, sSubKey);
         reg.DeleteKey(sSubKey);
         reg.Close();
+    }
+
+    void test_file_info()
+    {
+        CString sFile = L"c:\\windows\\regedit.exe";
+
+        LONGLONG lFileSize = 0;
+        TEST_ASSERT(ZLFileInfo::GetFileSize(NULL, lFileSize) == FALSE);
+        TEST_ASSERT(ZLFileInfo::GetFileSize(sFile, lFileSize) == TRUE);
+        TEST_ASSERT(lFileSize > 100);
+
+        FILETIME ftCreate = {0},
+                 ftAccess = {0},
+                 ftWrite  = {0};
+        TEST_ASSERT(ZLFileInfo::GetFileTimeInfo(NULL, NULL, NULL, NULL) == FALSE);
+        TEST_ASSERT(ZLFileInfo::GetFileTimeInfo(sFile, NULL, NULL, NULL) == TRUE);
+        TEST_ASSERT(ZLFileInfo::GetFileTimeInfo(sFile, &ftCreate, NULL, NULL) == TRUE);
+        TEST_ASSERT(ZLFileInfo::GetFileTimeInfo(sFile, &ftCreate, &ftAccess, &ftWrite) == TRUE);
+
+        TEST_ASSERT(ftCreate.dwHighDateTime > 0);
+        TEST_ASSERT(ftCreate.dwLowDateTime  > 0);
+
+        TEST_ASSERT(ftAccess.dwHighDateTime > 0);
+        TEST_ASSERT(ftAccess.dwLowDateTime  > 0);
+
+        TEST_ASSERT(ftWrite.dwHighDateTime  > 0);
+        TEST_ASSERT(ftWrite.dwLowDateTime   > 0);
     }
 };
