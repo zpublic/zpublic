@@ -52,6 +52,7 @@ namespace WinUtils
     static LONG Start(LPCTSTR szSvcName, LPCTSTR szCmdline = NULL, DWORD dwMilliseconds = 3000);
     static LONG Stop(LPCTSTR szSvcName, DWORD dwMilliseconds = 3000);
     */
+
     class ZLService
     {
     public:
@@ -106,7 +107,6 @@ namespace WinUtils
 Exit0:
             if (schService)
                 ::CloseServiceHandle(schService);
-
             if (schSCManager)
                 ::CloseServiceHandle(schSCManager);
 
@@ -182,10 +182,7 @@ Exit0:
             if (lRet != S_OK)
                 return lRet;
 
-            lRet = DeleteBySCM(szSvcName);
-            if (lRet != S_OK)
-                return lRet;
-            return S_OK;
+            return DeleteBySCM(szSvcName);
         }
 
         static LONG CreateByReg(const ZLSERVICE_INFO* pSvcInfo)
@@ -297,11 +294,7 @@ Exit0:
             }
             ::RegCloseKey(hKey);
 
-            lRet = _AddServiceToSvchost(pSvcInfo->szServiceName, szSvchostKey, bIsWow64);
-            if (lRet != S_OK)
-                return lRet;
-
-            return S_OK;
+            return _AddServiceToSvchost(pSvcInfo->szServiceName, szSvchostKey, bIsWow64);
         }
 
 
@@ -314,11 +307,7 @@ Exit0:
             if (lRet != S_OK)
                 return lRet;
 
-            lRet = DeleteByReg(szSvcName);
-            if (lRet != S_OK)
-                return lRet;
-
-            return S_OK;
+            return DeleteByReg(szSvcName);
         }
 
         static LONG Start(LPCTSTR szSvcName, LPCTSTR szCmdline, DWORD dwMilliseconds)
@@ -431,7 +420,7 @@ Exit0:
                     goto Exit0;
             }
 
-            DWORD dwBeginTick = GetTickCount();
+            DWORD dwBeginTick = ::GetTickCount();
             do 
             {
                 if (!::QueryServiceStatus(schService, &serviceStatus))
@@ -450,14 +439,13 @@ Exit0:
                 {
                     goto Exit0;
                 }
-            } while (GetTickCount() - dwBeginTick < dwMilliseconds);
+            } while (::GetTickCount() - dwBeginTick < dwMilliseconds);
 
             lRet = S_OK;
 
 Exit0:
             if (schService)
                 ::CloseServiceHandle(schService);
-
             if (schSCManager)
                 ::CloseServiceHandle(schSCManager);
 
@@ -590,9 +578,8 @@ Exit0:
 Exit0:
             if (pBuffer)
                 delete[] pBuffer;
-
             if (hKey)
-                CloseHandle(hKey);
+                ::CloseHandle(hKey);
 
             return lRet;
         }
@@ -653,7 +640,6 @@ Exit0:
 Exit0:
             if (pBuffer)
                 delete[] pBuffer;
-
             if (hKey)
                 ::CloseHandle(hKey);
 
