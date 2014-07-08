@@ -37,6 +37,7 @@ public:
         TEST_ADD(CTestWinUtils::test_process_module);
         TEST_ADD(CTestWinUtils::test_file_info);
         TEST_ADD(CTestWinUtils::test_browser);
+        TEST_ADD(CTestWinUtils::test_uuid);
     }
 
     void test_path()
@@ -686,5 +687,40 @@ public:
 
         TEST_ASSERT(ftWrite.dwHighDateTime  > 0);
         TEST_ASSERT(ftWrite.dwLowDateTime   > 0);
+    }
+    
+    void test_uuid()
+    {
+        ///> 初始化和赋值
+        ZLUuid uuid1;
+        ZLUuid uuid2(uuid1);
+        ZLUuid uuid3 = uuid1;
+
+        ///> 类型转换
+        CString sUuid = uuid1;
+        UUID stUuid;
+        uuid1.ToUuid(stUuid);
+
+        ///> 比较操作
+        TEST_ASSERT(uuid1 == uuid2);
+        TEST_ASSERT(uuid2 == uuid3);
+        TEST_ASSERT(uuid2 == sUuid);
+        TEST_ASSERT(uuid2 == stUuid);
+
+        ///> 其它
+        CString sHaha = L"3FAAB390-2624-434C-98A2-3CCDEB91EC37";
+        ZLUuid uuid10(sHaha);
+        TEST_ASSERT(uuid10 == sHaha);
+        UUID stHaha = {0x3FAAB390, 0x2624, 0x434C, 0x98, 0xA2, 0x3C, 0xCD, 0xEB, 0x91, 0xEC, 0x37};
+        ZLUuid uuid11(stHaha);
+        TEST_ASSERT(uuid11 == stHaha);
+        TEST_ASSERT(uuid11 == uuid10);
+
+        ZLUuid uuid21 = L"";
+        CString sEmpty = uuid21;
+        TEST_ASSERT(sEmpty.CompareNoCase(L"00000000-0000-0000-0000-000000000000") == 0);
+        uuid21.GenerateNew();
+        sEmpty = uuid21;
+        TEST_ASSERT(sEmpty.CompareNoCase(L"00000000-0000-0000-0000-000000000000") != 0);
     }
 };
