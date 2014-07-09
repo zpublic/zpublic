@@ -12,6 +12,18 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 文件信息相关
+ * 
+ *      文件信息包括大小,修改时间等.
+ * 
+ * @brief 系统启动项
+ * @date 2014-07-09
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 
@@ -20,14 +32,18 @@ namespace zl
 namespace WinUtils
 {
     /**
-     * @brief 文件信息相关函数
-     * @note 函数列表如下:
-     *      GetFileSize         获取文件大小信息
-     *      GetFileTimeInfo     获取文件时间信息
+     * @brief 文件信息相关函数集合
      */
     class ZLFileInfo
     {
     public:
+
+        /**
+         * @brief 获取文件大小
+         * @param[in]  lpFilePath   文件路径
+         * @param[out] lSize        用于存储文件的大小信息
+         * @return 成功返回TRUE, 参数lSize中存放的是文件的大小信息, 失败返回FALSE.
+         */
         static BOOL GetFileSize(LPCTSTR lpFilePath, LONGLONG &lSize)
         {
             BOOL bReturn = FALSE;
@@ -56,6 +72,14 @@ namespace WinUtils
             return bReturn;
         }
 
+        /**
+         * @brief 获取文件的创建时间,访问时间及修改时间
+         * @param[in]  lpFilePath   文件路径
+         * @param[out] pftCreate    用于存储得到的创建时间,不需要可填NULL
+         * @param[out] pftAccess    用于存储得到的访问时间,不需要可填NULL
+         * @param[out] pftWrite     用于存储得到的修改时间,不需要可填NULL
+         * @return 成功返回TRUE,失败返回FALSE
+         */
         static BOOL GetFileTimeInfo(
             LPCTSTR   lpFilePath,
             PFILETIME pftCreate,
