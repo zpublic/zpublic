@@ -88,7 +88,7 @@ namespace WinUtils
 
                 }else if(sVal[0] == _T(' ') || _tcslen(sVal) == 1 ) 
                 { // Key with no value or cmdline ends with /Key:
-                    CCmdLineParser_String csKey(sArg, sVal - sArg);
+                    CCmdLineParser_String csKey(sArg, (int)(sVal - sArg));
                     if(!csKey.IsEmpty()) 
                     { // Prevent /: case
                         if(!m_bCaseSensitive) 
@@ -103,7 +103,7 @@ namespace WinUtils
                     continue;
                 }else 
                 { // Key with value
-                    CCmdLineParser_String csKey(sArg, sVal - sArg);
+                    CCmdLineParser_String csKey(sArg, (int)(sVal - sArg));
                     if(!m_bCaseSensitive) 
                     {
                         csKey.MakeLower();
@@ -134,7 +134,7 @@ namespace WinUtils
                     { // End quote or space present
                         if(!csKey.IsEmpty()) 
                         {	// Prevent /:"val" case
-                            CCmdLineParser_String csVal(sQuote, sEndQuote - sQuote);
+                            CCmdLineParser_String csVal(sQuote, (int)(sEndQuote - sQuote));
                             m_ValsMap.insert(CValsMap::value_type(csKey, csVal));
                         }
 
