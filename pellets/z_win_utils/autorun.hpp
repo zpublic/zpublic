@@ -12,6 +12,14 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 系统启动项
+ * @date 2014-07-09
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 #include "usid.hpp"
@@ -22,13 +30,7 @@ namespace zl
 namespace WinUtils
 {
     /**
-     * @brief 本类中实现了常见启动项相关的操作接口
-     * @note 接口列表如下:
-     *      AddRegRun           创建注册表run
-     *      AddRegRunOnce       创建注册表runonce
-     *      
-     *      DelRegRun           清理注册表run
-     *      DelRegRunOnce       清理注册表runonce
+     * @brief 提供对windows常见自启动项的增,删,改操作
      */
     class ZLAutorun
     {
@@ -36,7 +38,7 @@ namespace WinUtils
         enum UserType { ALL_USER, SINGLE_USER };
 
         /**
-         * @brief 添加一个启动项到注册表的run中
+         * @brief 注册表run中添加一个启动项
          * @param[in] t         指定处理AllUser还是单个用户,若此处填SINGLE_USER,则通过参数lpUserSid指定用户
          * @param[in] lpValName 值名
          * @param[in] lpVal     值内容
@@ -70,6 +72,10 @@ namespace WinUtils
             return bReturn;
         }
 
+        /**
+         * @brief 注册表runonce中添加一个启动项
+         * @see AddRegRun
+         */
         static BOOL AddRegRunOnce(
             UserType    t,
             LPCTSTR     lpValName,
@@ -95,6 +101,14 @@ namespace WinUtils
             return bReturn;
         }
 
+        /**
+         * @brief 删除注册表run下指定的启动项
+         * @param[in] t         指定处理AllUser还是单个用户,若此处填SINGLE_USER,则通过参数lpUserSid指定用户
+         * @param[in] lpValName 值名
+         * @param[in] lpUserSid 用户SID, 填NULL时, 为当前用户SID.此值仅在参数t为SINGLE_USER时有效
+         * @param[in] bWow64    64位重定向
+         * @return 成功返回TRUE, 失败返回FALSE
+         */
         static BOOL DelRegRun(
             UserType    t,
             LPCTSTR     lpValName,
@@ -117,6 +131,10 @@ namespace WinUtils
             return bReturn;
         }
 
+        /**
+         * @brief 删除注册表runonce下指定的启动项
+         * @see DelRegRun
+         */
         static BOOL DelRegRunOnce(
             UserType    t,
             LPCTSTR     lpValName,

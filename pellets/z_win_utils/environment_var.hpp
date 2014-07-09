@@ -12,6 +12,14 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 环境变量相关
+ * @date 2014-07-09
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 #include "register.hpp"
@@ -22,16 +30,20 @@ namespace zl
 namespace WinUtils
 {
     /**
-     * @brief 环境变量常用操作接口
-     * @note 接口列表如下:
-     *      Add     添加环境变量
-     *      Del     删除环境变量
+     * @brief 环境变量常用操作
      */
     class ZLEnvironmentVar
     {
     public:
         enum EnvironmentType { SYSTEM_ENV, USER_ENV };
 
+        /**
+         * @brief 添加一个环境变量
+         * @param[in] t         指定是环境变量类型, 系统环境变量(SYSTEM_ENV)或用户环境变量(USER_ENV)
+         * @param[in] lpVarName 环境变量名
+         * @param[in] lpVar     环境变量值
+         * @return 成功返回TRUE, 失败返回FALSE
+         */
         static BOOL Add(EnvironmentType t, LPCTSTR lpVarName, LPCTSTR lpVar)
         {
             if (!lpVarName || !lpVar)
@@ -50,6 +62,12 @@ namespace WinUtils
             return bReturn;
         }
 
+        /**
+         * @brief 删除指定环境变量
+         * @param[in] t         指定是环境变量类型, 系统环境变量(SYSTEM_ENV)或用户环境变量(USER_ENV)
+         * @param[in] lpVarName 环境变量名
+         * @return 成功返回TRUE, 失败返回FALSE
+         */
         static BOOL Del(EnvironmentType t, LPCTSTR lpVarName)
         {
             BOOL bReturn = FALSE;
