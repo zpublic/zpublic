@@ -14,6 +14,7 @@
  ************************************************************************/
 #pragma once
 #include "win_utils_header.h"
+#include "wow64.hpp"
 
 namespace zl
 {
@@ -40,17 +41,17 @@ namespace WinUtils
     static LONG CreateBySCM(const ZLSERVICE_INFO* pSvcInfo);
     static LONG DeleteBySCM(LPCTSTR szSvcName);
 
-    static LONG CreateSvchostBySCM(const ZLSERVICE_INFO* pSvcInfo, LPCTSTR szDllPath, LPCTSTR szSvchostKey, BOOL bIsWow64);
-    static LONG DeleteSvchostBySCM(LPCTSTR szSvcName, LPCTSTR szSvchostKey, BOOL bIsWow64);
+    static LONG CreateSvchostBySCM(const ZLSERVICE_INFO* pSvcInfo, LPCTSTR szDllPath, LPCTSTR szSvchostKey, BOOL bSvchost32);
+    static LONG DeleteSvchostBySCM(LPCTSTR szSvcName, LPCTSTR szSvchostKey, BOOL bSvchost32);
 
     static LONG CreateByReg(const ZLSERVICE_INFO* pSvcInfo);
     static LONG DeleteByReg(LPCTSTR szSvcName);
 
-    static LONG CreateSvchostByReg(const ZLSERVICE_INFO* pSvcInfo, LPCTSTR szDllPath, LPCTSTR szSvchostKey, BOOL bIsWow64);
-    static LONG DeleteSvchostByReg(LPCTSTR szSvcName, LPCTSTR szSvchostKey, BOOL bIsWow64);
+    static LONG CreateSvchostByReg(const ZLSERVICE_INFO* pSvcInfo, LPCTSTR szDllPath, LPCTSTR szSvchostKey, BOOL bSvchost32);
+    static LONG DeleteSvchostByReg(LPCTSTR szSvcName, LPCTSTR szSvchostKey, BOOL bSvchost32);
 
-    static LONG Start(LPCTSTR szSvcName, LPCTSTR szCmdline = NULL, DWORD dwMilliseconds = 3000);
-    static LONG Stop(LPCTSTR szSvcName, DWORD dwMilliseconds = 3000);
+    static LONG Start(LPCTSTR szSvcName, LPCTSTR szCmdline = NULL, DWORD dwMilliseconds = 0);
+    static LONG Stop(LPCTSTR szSvcName, DWORD dwMilliseconds = 0);
     */
 
     class ZLService
@@ -58,21 +59,24 @@ namespace WinUtils
     public:
         static LONG CreateBySCM(const ZLSERVICE_INFO* pSvcInfo)
         {
-            LONG lRet = -1;
-
             if (!pSvcInfo || pSvcInfo->dwSize != sizeof(ZLSERVICE_INFO))
-                return lRet;
+                return -1;
 
-            SC_HANDLE schSCManager = ::OpenSCManager(NULL, NULL, SC_MANAGER_ALL_ACCESS);
+            LONG lRet = -1;
+            SC_HANDLE schSCManager = NULL;
+            SC_HANDLE schService = NULL;
+            SERVICE_DESCRIPTION svcDesc = {0};
+
+            schSCManager = ::OpenSCManager(NULL, NULL, SC_MANAGER_ALL_ACCESS);
             if (!schSCManager)
-                return lRet;
+                goto Exit0;
 
-            SC_HANDLE schService = ::OpenService(schSCManager, pSvcInfo->szServiceName, SERVICE_ALL_ACCESS);
+            schService = ::OpenService(schSCManager, pSvcInfo->szServiceName, SERVICE_ALL_ACCESS);
             if (schService)
             {
-                BOOL suc = ::ChangeServiceConfig(schService, pSvcInfo->dwServiceType, pSvcInfo->dwStartType, pSvcInfo->dwErrorControl, pSvcInfo->szBinaryPathName,
+                BOOL bSuccess = ::ChangeServiceConfig(schService, pSvcInfo->dwServiceType, pSvcInfo->dwStartType, pSvcInfo->dwErrorControl, pSvcInfo->szBinaryPathName,
                     pSvcInfo->szLoadOrderGroup, NULL, pSvcInfo->szDependencies, pSvcInfo->szServiceStartName, pSvcInfo->szPassword, pSvcInfo->szDisplayName);
-                if (!suc)
+                if (!bSuccess)
                     goto Exit0;
             }
             else
@@ -90,17 +94,12 @@ namespace WinUtils
                     goto Exit0;
             }
 
-            DWORD dwLen = (DWORD)_tcslen(pSvcInfo->szDescription);
-            if (dwLen > 0)
-            {
-                TCHAR szDescription[MAX_PATH] = {0};
-                _tcscpy_s(szDescription, pSvcInfo->szDescription);
-
-                SERVICE_DESCRIPTION svcDesc = {szDescription};
-                BOOL suc = ::ChangeServiceConfig2(schService, SERVICE_CONFIG_DESCRIPTION, &svcDesc);
-                if (!suc)
-                    goto Exit0;
-            }
+            TCHAR szDescription[MAX_PATH] = {0};
+            _tcscpy_s(szDescription, pSvcInfo->szDescription);
+            svcDesc.lpDescription = szDescription;
+            BOOL bSuccess = ::ChangeServiceConfig2(schService, SERVICE_CONFIG_DESCRIPTION, &svcDesc);
+            if (!bSuccess)
+                goto Exit0;
 
             lRet = S_OK;
 
@@ -115,25 +114,28 @@ Exit0:
 
         static LONG DeleteBySCM(LPCTSTR szSvcName)
         {
-            LONG lRet = -1;
-
             if (!szSvcName)
-                return lRet;
+                return -1;
 
-            SC_HANDLE schSCManager = ::OpenSCManager(NULL, NULL, SC_MANAGER_CONNECT);
+            LONG lRet = -1;
+            SC_HANDLE schSCManager = NULL;
+            SC_HANDLE schService = NULL;
+
+            schSCManager = ::OpenSCManager(NULL, NULL, SC_MANAGER_CONNECT);
             if (!schSCManager)
-                return lRet;
+                goto Exit0;
 
-            SC_HANDLE schService = ::OpenService(schSCManager, szSvcName, DELETE);
+            schService = ::OpenService(schSCManager, szSvcName, DELETE);
             if (!schService)
             {
                 ERROR_SERVICE_DOES_NOT_EXIST == ::GetLastError() ? lRet = S_OK : NULL;
                 goto Exit0;
             }
 
-            BOOL suc = ::DeleteService(schService);
-            if (!suc)
+            BOOL bSuccess = ::DeleteService(schService);
+            if (!bSuccess)
                 goto Exit0;
+
             lRet = S_OK;
 
 Exit0:
@@ -144,7 +146,7 @@ Exit0:
             return lRet;
         }
 
-        static LONG CreateSvchostBySCM(const ZLSERVICE_INFO* pSvcInfo, LPCTSTR szDllPath, LPCTSTR szSvchostKey, BOOL bIsWow64)
+        static LONG CreateSvchostBySCM(const ZLSERVICE_INFO* pSvcInfo, LPCTSTR szDllPath, LPCTSTR szSvchostKey, BOOL bSvchost32)
         {
             if (!pSvcInfo || pSvcInfo->dwSize != sizeof(ZLSERVICE_INFO) || !szDllPath || !szSvchostKey)
                 return -1;
@@ -170,15 +172,15 @@ Exit0:
             }
             ::RegCloseKey(hKey);
 
-            return _AddServiceToSvchost(pSvcInfo->szServiceName, szSvchostKey, bIsWow64);
+            return _AddServiceToSvchost(szSvchostKey, pSvcInfo->szServiceName, bSvchost32);
         }
 
-        static LONG DeleteSvchostBySCM(LPCTSTR szSvcName, LPCTSTR szSvchostKey, BOOL bIsWow64)
+        static LONG DeleteSvchostBySCM(LPCTSTR szSvcName, LPCTSTR szSvchostKey, BOOL bSvchost32)
         {
             if (!szSvcName || !szSvchostKey)
                 return -1;
 
-            LONG lRet = _DeleteServiceToSvchost(szSvchostKey, szSvcName, bIsWow64);
+            LONG lRet = _DeleteServiceToSvchost(szSvchostKey, szSvcName, bSvchost32);
             if (lRet != S_OK)
                 return lRet;
 
@@ -187,18 +189,18 @@ Exit0:
 
         static LONG CreateByReg(const ZLSERVICE_INFO* pSvcInfo)
         {
-            LONG lRet = -1;
-
             if (!pSvcInfo || pSvcInfo->dwSize != sizeof(ZLSERVICE_INFO))
-                return lRet;
+                return -1;
+
+            LONG lRet = -1;
+            HKEY hKey = NULL;
 
             TCHAR szSubKey[MAX_PATH] = {0};
             _stprintf_s(szSubKey, MAX_PATH, _T("SYSTEM\\CurrentControlSet\\services\\%s"), pSvcInfo->szServiceName);
 
-            HKEY hKey = NULL;
             LONG lErrCode = ::RegCreateKeyEx(HKEY_LOCAL_MACHINE, szSubKey, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_ALL_ACCESS, NULL, &hKey, NULL);
             if (lErrCode != ERROR_SUCCESS)
-                return lRet;
+                goto Exit0;
 
             DWORD dwLen = (DWORD)_tcslen(pSvcInfo->szDisplayName);
             lErrCode = _MyRegSetValueEx(hKey, _T("DisplayName"), REG_SZ, (PBYTE)pSvcInfo->szDisplayName, (dwLen + 1) * sizeof(TCHAR));
@@ -268,7 +270,7 @@ Exit0:
             return S_OK;
         }
 
-        static LONG CreateSvchostByReg(const ZLSERVICE_INFO* pSvcInfo, LPCTSTR szDllPath, LPCTSTR szSvchostKey, BOOL bIsWow64)
+        static LONG CreateSvchostByReg(const ZLSERVICE_INFO* pSvcInfo, LPCTSTR szDllPath, LPCTSTR szSvchostKey, BOOL bSvchost32)
         {
             if (!pSvcInfo || pSvcInfo->dwSize != sizeof(ZLSERVICE_INFO) || !szDllPath || !szSvchostKey)
                 return -1;
@@ -294,37 +296,38 @@ Exit0:
             }
             ::RegCloseKey(hKey);
 
-            return _AddServiceToSvchost(pSvcInfo->szServiceName, szSvchostKey, bIsWow64);
+            return _AddServiceToSvchost(szSvchostKey, pSvcInfo->szServiceName, bSvchost32);
         }
 
-
-        static LONG DeleteSvchostByReg(LPCTSTR szSvcName, LPCTSTR szSvchostKey, BOOL bIsWow64)
+        static LONG DeleteSvchostByReg(LPCTSTR szSvcName, LPCTSTR szSvchostKey, BOOL bSvchost32)
         {
             if (!szSvcName || !szSvchostKey)
                 return -1;
 
-            LONG lRet = _DeleteServiceToSvchost(szSvchostKey, szSvcName, bIsWow64);
+            LONG lRet = _DeleteServiceToSvchost(szSvchostKey, szSvcName, bSvchost32);
             if (lRet != S_OK)
                 return lRet;
 
             return DeleteByReg(szSvcName);
         }
 
-        static LONG Start(LPCTSTR szSvcName, LPCTSTR szCmdline, DWORD dwMilliseconds)
+        static LONG Start(LPCTSTR szSvcName, LPCTSTR szCmdline = NULL, DWORD dwMilliseconds = 0)
         {
+            if (!szSvcName)
+                return -1;
+
             LONG lRet = -1;
+            SC_HANDLE schSCManager = NULL;
+            SC_HANDLE schService = NULL;
             SERVICE_STATUS serviceStatus = {0};
             TCHAR* pBuffer = NULL;
             LPWSTR* pArglist = NULL;
 
-            if (!szSvcName)
-                return lRet;
-
-            SC_HANDLE schSCManager = ::OpenSCManager(NULL, NULL, SC_MANAGER_CONNECT);
+            schSCManager = ::OpenSCManager(NULL, NULL, SC_MANAGER_CONNECT);
             if (!schSCManager)
-                return lRet;
+                goto Exit0;
 
-            SC_HANDLE schService = ::OpenService(schSCManager, szSvcName, SERVICE_QUERY_STATUS|SERVICE_START);
+            schService = ::OpenService(schSCManager, szSvcName, SERVICE_QUERY_STATUS|SERVICE_START);
             if (!schService)
                 goto Exit0;
 
@@ -340,13 +343,11 @@ Exit0:
                 }
                 else
                 {
+                    DWORD dwBufSize = (DWORD)_tcslen(szSvcName) + 1 + (DWORD)_tcslen(szCmdline) + 1;
+                    pBuffer = new TCHAR[dwBufSize];
+                    _stprintf_s(pBuffer, dwBufSize, _T("%s %s"), szSvcName, szCmdline);
+
                     USES_CONVERSION;
-
-                    DWORD dwLen = (DWORD)_tcslen(szSvcName) + 1 + (DWORD)_tcslen(szCmdline);
-
-                    pBuffer = new TCHAR[dwLen + 1];
-                    _stprintf_s(pBuffer, dwLen + 1, _T("%s %s"), szSvcName, szCmdline);
-
                     int nArgs = 0;
                     pArglist = ::CommandLineToArgvW(CT2W(pBuffer), &nArgs);
                     if (!pArglist)
@@ -357,26 +358,23 @@ Exit0:
                 }
             }
 
-            DWORD dwBeginTick = GetTickCount();
-            do 
+            DWORD dwBeginTick = ::GetTickCount();
+            while (TRUE)
             {
                 if (!::QueryServiceStatus(schService, &serviceStatus))
                     goto Exit0;
 
-                if (serviceStatus.dwCurrentState == SERVICE_RUNNING)
-                {
-                    break;
-                }
-                else if (serviceStatus.dwCurrentState == SERVICE_START_PENDING)
-                {
-                    ::Sleep(100);
-                    continue;
-                }
-                else
-                {
+                if (serviceStatus.dwCurrentState != SERVICE_RUNNING && serviceStatus.dwCurrentState != SERVICE_START_PENDING)
                     goto Exit0;
-                }
-            } while (::GetTickCount() - dwBeginTick < dwMilliseconds);
+
+                if (serviceStatus.dwCurrentState == SERVICE_RUNNING)
+                    break;
+
+                if (::GetTickCount() - dwBeginTick < dwMilliseconds)
+                    break;
+
+                ::Sleep(100);
+            }
 
             lRet = S_OK;
 
@@ -395,19 +393,21 @@ Exit0:
         }
 
 
-        static LONG Stop(LPCTSTR szSvcName, DWORD dwMilliseconds)
+        static LONG Stop(LPCTSTR szSvcName, DWORD dwMilliseconds = 0)
         {
+            if (!szSvcName)
+                return -1;
+
             LONG lRet = -1;
+            SC_HANDLE schSCManager = NULL;
+            SC_HANDLE schService = NULL;
             SERVICE_STATUS serviceStatus = {0};
 
-            if (!szSvcName)
-                return lRet;
-
-            SC_HANDLE schSCManager = ::OpenSCManager(NULL, NULL, SC_MANAGER_CONNECT);
+            schSCManager = ::OpenSCManager(NULL, NULL, SC_MANAGER_CONNECT);
             if (!schSCManager)
-                return lRet;
+                goto Exit0;
 
-            SC_HANDLE schService = ::OpenService(schSCManager, szSvcName, SERVICE_QUERY_STATUS|SERVICE_STOP);
+            schService = ::OpenService(schSCManager, szSvcName, SERVICE_QUERY_STATUS|SERVICE_STOP);
             if (!schService)
                 goto Exit0;
 
@@ -421,25 +421,22 @@ Exit0:
             }
 
             DWORD dwBeginTick = ::GetTickCount();
-            do 
+            while (TRUE)
             {
                 if (!::QueryServiceStatus(schService, &serviceStatus))
                     goto Exit0;
 
-                if (serviceStatus.dwCurrentState == SERVICE_STOPPED)
-                {
-                    break;
-                }
-                else if (serviceStatus.dwCurrentState == SERVICE_STOP_PENDING)
-                {
-                    ::Sleep(100);
-                    continue;
-                }
-                else
-                {
+                if (serviceStatus.dwCurrentState != SERVICE_STOPPED && serviceStatus.dwCurrentState != SERVICE_STOP_PENDING)
                     goto Exit0;
-                }
-            } while (::GetTickCount() - dwBeginTick < dwMilliseconds);
+
+                if (serviceStatus.dwCurrentState == SERVICE_STOPPED)
+                    break;
+
+                if (::GetTickCount() - dwBeginTick < dwMilliseconds)
+                    break;
+
+                ::Sleep(100);
+            }
 
             lRet = S_OK;
 
@@ -514,9 +511,10 @@ Exit0:
             if (!hKey || !szValueName || (!lpData && cbData != 0))
                 return -1;
 
-            if (bDelNULL || !lpData || cbData == 0 || cbData == sizeof(TCHAR))
+            if (bDelNULL && (!lpData || cbData == 0 || cbData == sizeof(TCHAR)))
             {
-                return ::RegDeleteValue(hKey, szValueName);
+                LONG lErrCode = ::RegDeleteValue(hKey, szValueName);
+                return (lErrCode == ERROR_SUCCESS || lErrCode == ERROR_FILE_NOT_FOUND) ? ERROR_SUCCESS : lErrCode;
             }
             else
             {
@@ -524,7 +522,7 @@ Exit0:
             }
         }
 
-        static LONG _AddServiceToSvchost(LPCTSTR szSvchostKey, LPCTSTR szSvcName, BOOL bIsWow64)
+        static LONG _AddServiceToSvchost(LPCTSTR szSvchostKey, LPCTSTR szSvcName, BOOL bSvchost32)
         {
             if (!szSvchostKey || !szSvcName)
                 return -1;
@@ -533,10 +531,16 @@ Exit0:
             HKEY hKey = NULL;
             BYTE* pBuffer = NULL;
 
-            REGSAM samDesired = bIsWow64 ? (KEY_SET_VALUE|KEY_QUERY_VALUE|KEY_WOW64_32KEY) : KEY_SET_VALUE|KEY_QUERY_VALUE;
+            BOOL bIsWow64 = FALSE;
+            REGSAM samDesired = KEY_SET_VALUE|KEY_QUERY_VALUE;
+            if (ZLWow64::CheckCurrentProcessIsWow64Process(&bIsWow64) && bIsWow64)
+            {
+                samDesired |= bSvchost32 ? KEY_WOW64_32KEY : KEY_WOW64_64KEY;
+            }
+
             LONG lErrCode = ::RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Svchost"), 0, samDesired, &hKey);
             if (lErrCode != ERROR_SUCCESS)
-                return -1;
+                goto Exit0;
 
             DWORD dwLen = (DWORD)_tcslen(szSvcName);
             DWORD dwBufSize = 0;
@@ -584,7 +588,7 @@ Exit0:
             return lRet;
         }
 
-        static LONG _DeleteServiceToSvchost(LPCTSTR szSvchostKey, LPCTSTR szSvcName, BOOL bIsWow64)
+        static LONG _DeleteServiceToSvchost(LPCTSTR szSvchostKey, LPCTSTR szSvcName, BOOL bSvchost32)
         {
             if (!szSvchostKey || !szSvcName)
                 return -1;
@@ -593,13 +597,19 @@ Exit0:
             HKEY hKey = NULL;
             BYTE* pBuffer = NULL;
 
-            REGSAM samDesired = bIsWow64 ? (KEY_SET_VALUE|KEY_QUERY_VALUE|KEY_WOW64_32KEY) : KEY_SET_VALUE|KEY_QUERY_VALUE;
+            BOOL bIsWow64 = FALSE;
+            REGSAM samDesired = KEY_SET_VALUE|KEY_QUERY_VALUE;
+            if (ZLWow64::CheckCurrentProcessIsWow64Process(&bIsWow64) && bIsWow64)
+            {
+                samDesired |= bSvchost32 ? KEY_WOW64_32KEY : KEY_WOW64_64KEY;
+            }
+
             LONG lErrCode = ::RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Svchost"), 0, samDesired, &hKey);
             if (lErrCode != ERROR_SUCCESS)
-                return -1;
+                goto Exit0;
 
-            DWORD dwBufSize = 0;
             DWORD dwType;
+            DWORD dwBufSize = 0;
             lErrCode = ::RegQueryValueEx(hKey, szSvchostKey, NULL, &dwType, NULL, &dwBufSize);
             if (lErrCode == ERROR_SUCCESS)
             {

@@ -66,7 +66,7 @@ namespace WinUtils
                 goto Exit0;
             }
 
-            for (size_t i=0; i<dwSubKeyCount; ++i)
+            for (DWORD i=0; i<dwSubKeyCount; ++i)
             {
                 memset(lpItemName, 0, (dwMaxSubKeyLen + 1) * sizeof(TCHAR));
                 DWORD cchItemName = dwMaxSubKeyLen + 1;
@@ -143,7 +143,7 @@ Exit0:
                 goto Exit0;
             }
 
-            for (size_t i=0; i<dwValueCount; ++i)
+            for (DWORD i=0; i<dwValueCount; ++i)
             {
                 memset(lpValueName, 0, (dwMaxValueNameLen + 1) * sizeof(TCHAR));
                 memset(lpValue, 0, (dwMaxValueLen + 1) * sizeof(TCHAR));

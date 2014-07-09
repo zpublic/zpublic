@@ -33,7 +33,7 @@ namespace WinUtils
                 if (hMem)
                 {
                     char *buffer = (char *)::GlobalLock(hMem);
-                    strcpy(buffer, pszData);
+                    strcpy_s(buffer, nDataLen + 1, pszData);
                     ::GlobalUnlock(hMem);
                     ::SetClipboardData(CF_TEXT, hMem);
                 }

@@ -16,7 +16,6 @@
 #include "win_utils_header.h"
 #include <map>
 
-typedef CString CCmdLineParser_String;
 #define DELIMETERS   _T("-/")
 #define QUOTES       _T("\"") // Can be _T("\"\'"),  for instance
 #define VALUE_SEP    _T(" :") // Space MUST be in set
@@ -29,7 +28,7 @@ namespace WinUtils
     class ZLCmdLine
     {
     public:
-        class CValsMap : public std::map<CCmdLineParser_String, CCmdLineParser_String> {};
+        class CValsMap : public std::map<CString, CString> {};
         typedef CValsMap::const_iterator POSITION;
 
     public:
@@ -55,7 +54,7 @@ namespace WinUtils
             m_sCmdLine = sCmdLine;
             m_ValsMap.clear();
 
-            const CCmdLineParser_String sEmpty;
+            const CString sEmpty;
 
             LPCTSTR sCurrent = sCmdLine;
             while (true) 
@@ -78,7 +77,7 @@ namespace WinUtils
                 LPCTSTR sVal = _tcspbrk(sArg, VALUE_SEP);
                 if (sVal == NULL) 
                 { //Key ends command line
-                    CCmdLineParser_String csKey(sArg);
+                    CString csKey(sArg);
                     if (!m_bCaseSensitive) 
                     {
                         csKey.MakeLower();
@@ -88,7 +87,7 @@ namespace WinUtils
 
                 }else if(sVal[0] == _T(' ') || _tcslen(sVal) == 1 ) 
                 { // Key with no value or cmdline ends with /Key:
-                    CCmdLineParser_String csKey(sArg, sVal - sArg);
+                    CString csKey(sArg, (int)(sVal - sArg));
                     if(!csKey.IsEmpty()) 
                     { // Prevent /: case
                         if(!m_bCaseSensitive) 
@@ -103,7 +102,7 @@ namespace WinUtils
                     continue;
                 }else 
                 { // Key with value
-                    CCmdLineParser_String csKey(sArg, sVal - sArg);
+                    CString csKey(sArg, (int)(sVal - sArg));
                     if(!m_bCaseSensitive) 
                     {
                         csKey.MakeLower();
@@ -124,7 +123,7 @@ namespace WinUtils
 
                     if (sEndQuote == NULL) 
                     { // No end quotes or terminating space, take rest of string
-                        CCmdLineParser_String csVal(sQuote);
+                        CString csVal(sQuote);
                         if(!csKey.IsEmpty()) 
                         { // Prevent /:val case
                             m_ValsMap.insert(CValsMap::value_type(csKey, csVal));
@@ -134,7 +133,7 @@ namespace WinUtils
                     { // End quote or space present
                         if(!csKey.IsEmpty()) 
                         {	// Prevent /:"val" case
-                            CCmdLineParser_String csVal(sQuote, sEndQuote - sQuote);
+                            CString csVal(sQuote, (int)(sEndQuote - sQuote));
                             m_ValsMap.insert(CValsMap::value_type(csKey, csVal));
                         }
 
@@ -177,8 +176,8 @@ namespace WinUtils
         // Get next key-value pair, returns empty sKey if end reached
         POSITION getNext(
             POSITION& pos, 
-            CCmdLineParser_String &sKey, 
-            CCmdLineParser_String &sValue) const
+            CString &sKey, 
+            CString &sValue) const
         {
             if(isLast(pos)) 
             {
@@ -233,7 +232,7 @@ namespace WinUtils
         }
 
         // Returns true if value was found
-        bool GetVal(LPCTSTR sKey, CCmdLineParser_String &sValue) const
+        bool GetVal(LPCTSTR sKey, CString &sValue) const
         {
             CValsMap::const_iterator it = findKey(sKey);
             if(it == m_ValsMap.end()) 
@@ -247,7 +246,7 @@ namespace WinUtils
     private:
         CValsMap::const_iterator findKey(LPCTSTR sKey) const
         {
-            CCmdLineParser_String s(sKey);
+            CString s(sKey);
             if(!m_bCaseSensitive) 
             {
                 s.MakeLower();
@@ -257,7 +256,7 @@ namespace WinUtils
         }
 
     private:
-        CCmdLineParser_String m_sCmdLine;
+        CString m_sCmdLine;
         CValsMap m_ValsMap;
         bool m_bCaseSensitive;
     };

@@ -89,10 +89,10 @@ namespace WinUtils
             if (lpBuffer != NULL)
             {
                 wcsncpy(lpBuffer, mpsPathName, dwBufSize);
-                dwLen = _tcslen(lpBuffer);
+                dwLen = (DWORD)_tcslen(lpBuffer);
             }else
             {
-                dwLen = _tcslen(mpsPathName);
+                dwLen = (DWORD)_tcslen(mpsPathName);
             }
 
             return dwLen;
@@ -114,7 +114,7 @@ namespace WinUtils
                 *lpBuffer = _T('\0');
 
             LPTSTR psTemp = GetStringDynamic(lpSection, lpKey, lpDefault);
-            DWORD dwLen = _tcslen(psTemp);
+            DWORD dwLen = (DWORD)_tcslen(psTemp);
 
             if (lpBuffer != NULL)
             {
@@ -186,7 +186,7 @@ namespace WinUtils
                 if (lpBuffer == NULL)
                 {
                     // just calculate the required buffer size
-                    const DWORD dwMaxLen = _tcslen(psTemp) + 2;
+                    const DWORD dwMaxLen = (DWORD)_tcslen(psTemp) + 2;
                     LPTSTR psSplit = new TCHAR[dwMaxLen + 1];
                     dwCopied = StringSplit(psTemp, psSplit, dwMaxLen, lpDelimiter, bTrimString);
                     delete [] psSplit;
@@ -233,7 +233,7 @@ namespace WinUtils
                 return FALSE;
 
             if (nWriteCount < 0)
-                nWriteCount = pArray->size();
+                nWriteCount = (int)pArray->size();
             else
                 nWriteCount = min(nWriteCount, (int)pArray->size());
 
@@ -414,7 +414,7 @@ namespace WinUtils
             DWORD dwOffset = 0) const
         {
             LPTSTR psTemp = GetStringDynamic(lpSection, lpKey);
-            DWORD dwLen = _tcslen(psTemp) / 2;
+            DWORD dwLen = (DWORD)_tcslen(psTemp) / 2;
             if (dwLen <= dwOffset)
             {
                 delete [] psTemp;
@@ -784,7 +784,7 @@ namespace WinUtils
                 return FALSE;
 
             LPCTSTR psTemp = lpString;
-            DWORD dwLen = _tcslen(psTemp);
+            DWORD dwLen = (DWORD)_tcslen(psTemp);
 
             while (dwLen > 0)
             {
@@ -792,7 +792,7 @@ namespace WinUtils
                     return FALSE;
 
                 psTemp = &psTemp[dwLen + 1];
-                dwLen = _tcslen(psTemp);
+                dwLen = (DWORD)_tcslen(psTemp);
             }
 
             return TRUE;
@@ -816,7 +816,7 @@ namespace WinUtils
             LPCTSTR lpStart, 
             LPCTSTR lpEnd)
         {
-            const DWORD dwLen = ((DWORD)lpEnd - (DWORD)lpStart) / sizeof(TCHAR);
+            const DWORD dwLen = (DWORD)(lpEnd - lpStart) / sizeof(TCHAR);
             LPTSTR psz = new TCHAR[dwLen + 1];
             _tcsncpy(psz, lpStart, dwLen);
             psz[dwLen] = _T('\0');
@@ -830,7 +830,7 @@ namespace WinUtils
                 return FALSE;
 
             BOOL bTrimmed = FALSE;
-            int nLen = _tcslen(lpString);
+            int nLen = (int)_tcslen(lpString);
 
             // '\n' and '\r' are actually not possible in this case, but anyway...
 
@@ -929,11 +929,11 @@ namespace WinUtils
             if (lpDelimiter != NULL && *lpDelimiter == _T('\0'))
             {
                 _tcsncpy(lpBuffer, lpString, dwBufSize - 1);
-                return _tcslen(lpBuffer);
+                return (DWORD)_tcslen(lpBuffer);
             }
 
             LPTSTR pszDel = (lpDelimiter == NULL) ? _tcsdup(DEF_PROFILE_DELIMITER) : _tcsdup(lpDelimiter);
-            const DWORD dwDeleteLen = _tcslen(pszDel);
+            const DWORD dwDeleteLen = (DWORD)_tcslen(pszDel);
             LPTSTR lpTarget = lpBuffer;
 
             // Search through lpString for delimiter matches, and extract sub strings out
@@ -946,7 +946,7 @@ namespace WinUtils
                 if (bTrimString)
                     TrimString(pszSeg);
 
-                const DWORD dwSegLen = _tcslen(pszSeg);
+                const DWORD dwSegLen = (DWORD)_tcslen(pszSeg);
                 const DWORD dwCopyLen = min(dwSegLen, dwBufSize - dwCopied);
 
                 // Need to avoid buffer overflow
@@ -969,7 +969,7 @@ namespace WinUtils
             if (bTrimString)
                 TrimString(pszSeg);
 
-            const DWORD dwSegLen = _tcslen(pszSeg);
+            const DWORD dwSegLen = (DWORD)_tcslen(pszSeg);
             const DWORD dwCopyLen = min(dwSegLen, dwBufSize - dwCopied);
 
             if (dwCopyLen > 0)
@@ -1091,7 +1091,7 @@ namespace WinUtils
             psz[nLoop] = _T('\0');
 
             TrimString(psz);
-            DWORD dwNameLen = _tcslen(psz);
+            DWORD dwNameLen = (DWORD)_tcslen(psz);
             DWORD dwCopyLen = 0;
 
             if (pPairData->lpTarget != NULL)
