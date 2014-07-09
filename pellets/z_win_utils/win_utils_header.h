@@ -8,3 +8,4 @@
 // #endif
 
 #include <atlstr.h>
+#include <assert.h>

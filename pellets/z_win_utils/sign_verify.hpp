@@ -19,6 +19,8 @@
 #include <psapi.h>
 #include <string>
 #include <vector>
+#include <list>
+#include <set>
 #include <Wintrust.h>
 #include <softpub.h>
 #include <strsafe.h>
@@ -1096,8 +1098,9 @@ clean0:
             std::vector<std::string>::const_iterator it;
             BOOL fExist = FALSE;
 
-            LPSTR str = new char[strlen(lpName) + 1];
-            strcpy(str, lpName);
+            size_t len = strlen(lpName);
+            LPSTR str = new char[len + 1];
+            strcpy_s(str, len + 1, lpName);
             _strlwr(str);
 
             for (it = m_trustNames.begin(); it != m_trustNames.end(); ++it) {
