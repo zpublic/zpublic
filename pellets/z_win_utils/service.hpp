@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 系统服务相关
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 #include "wow64.hpp"

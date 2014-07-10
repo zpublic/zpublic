@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief ¼ôÇÐ°å²Ù×÷Ïà¹Ø
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 #include <string.h>

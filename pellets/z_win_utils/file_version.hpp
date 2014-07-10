@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 文件版本信息
+ */
+
+
 #pragma once
 #pragma comment(lib, "Version.lib")
 

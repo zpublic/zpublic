@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 目录/文件夹相关
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 #include "path.hpp"

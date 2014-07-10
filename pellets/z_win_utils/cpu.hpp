@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief cpu–≈œ¢
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 #include "register.hpp"

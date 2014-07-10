@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 进程权限相关
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 

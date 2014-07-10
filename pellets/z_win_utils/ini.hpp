@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief iniÎÄ¼þ²Ù×÷
+ */
+
+
 #pragma once
 #pragma warning(disable:4996)
 
