@@ -12,6 +12,15 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 屏幕相关
+ * 
+ *      屏幕分辨率设置等.
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 

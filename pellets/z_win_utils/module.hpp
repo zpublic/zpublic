@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 动态运行库相关
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 

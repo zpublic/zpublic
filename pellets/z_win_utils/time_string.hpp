@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 时间和字符串转换
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 

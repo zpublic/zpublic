@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 数字签名相关
+ */
+
+
 #pragma once
 #pragma comment(lib, "psapi.lib")
 

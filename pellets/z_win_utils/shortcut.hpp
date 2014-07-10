@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 快捷方式处理
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 

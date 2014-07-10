@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 32位、64位兼容处理
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 

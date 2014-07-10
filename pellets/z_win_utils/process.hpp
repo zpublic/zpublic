@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief ½ø³Ì¿ØÖÆ
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 #include "dos_name.hpp"

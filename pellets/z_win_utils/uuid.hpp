@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief UUID/GUIDœ‡πÿ
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 #include <rpcdce.h>

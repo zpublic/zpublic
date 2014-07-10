@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 用户SID处理相关
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 #include <tlhelp32.h>

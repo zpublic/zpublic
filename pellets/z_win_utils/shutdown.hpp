@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 重启和关机
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 #include "privilege.hpp"

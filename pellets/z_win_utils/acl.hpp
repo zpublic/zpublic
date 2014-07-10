@@ -12,6 +12,13 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
+
+/**
+ * @file
+ * @brief 访问控制列表相关
+ */
+
+
 #pragma once
 #include "win_utils_header.h"
 #include <Aclapi.h>
