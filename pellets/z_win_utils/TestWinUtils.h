@@ -507,7 +507,33 @@ public:
 
     void test_dos_name()
     {
-        CString cstrTestPaht(L"\\Device\\HarddiskVolume2\\Windows\\SysWOW64\\notepad.exe");
+        static const int LOGICAL_DRIVE_NAME_LEN = 4;
+        static const int MAX_LOGICAL_DRIVE_LENGTH = (LOGICAL_DRIVE_NAME_LEN * 26 + 1);
+        TCHAR szDevicesName[MAX_LOGICAL_DRIVE_LENGTH + 1] ={0};
+        int nLen = ::GetLogicalDriveStrings(MAX_LOGICAL_DRIVE_LENGTH, szDevicesName);
+        TEST_ASSERT(nLen != 0);
+
+        int nCount = nLen / LOGICAL_DRIVE_NAME_LEN;
+        TCHAR szTargetPath[MAX_PATH + 1] = {0};
+        TCHAR *szCurrentDevice = szDevicesName;
+        CString cstrTestPaht;
+        szTargetPath[MAX_PATH] = '\0';
+
+        for (int i = 0; i < nCount; i++)
+        {
+            szCurrentDevice[2] = '\0';
+            if(::QueryDosDevice(szCurrentDevice, szTargetPath, MAX_PATH))
+            {
+                if (_tcsicmp(szCurrentDevice, L"C:") == 0)
+                {
+                    cstrTestPaht = szTargetPath;
+                    break;
+                }
+            }
+            szCurrentDevice += LOGICAL_DRIVE_NAME_LEN;
+        }
+
+        cstrTestPaht += _T("\\Windows\\SysWOW64\\notepad.exe");
         ZLDosName dosname;
         TEST_ASSERT(dosname.Init());
         TEST_ASSERT(dosname.DevicePathToDosPath(cstrTestPaht));
