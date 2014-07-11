@@ -533,7 +533,7 @@ public:
             szCurrentDevice += LOGICAL_DRIVE_NAME_LEN;
         }
 
-        cstrTestPaht += _T("\\Windows\\SysWOW64\\notepad.exe");
+        cstrTestPaht += _T("\\Windows\\regedit.exe");
         ZLDosName dosname;
         TEST_ASSERT(dosname.Init());
         TEST_ASSERT(dosname.DevicePathToDosPath(cstrTestPaht));
