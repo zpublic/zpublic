@@ -45,10 +45,14 @@ namespace WinUtils
     }ZLProcessEnumInfo;
 
     typedef std::vector<ZLProcessEnumInfo> ZLProcessEnumInfoVec;
-
     class ZLProcessEnum
     {
     public:
+	/**
+	 * @brief 枚举所有进程
+	 * @param[in,out]   infoVec 存放所有进程信息的容器
+	 * @return 如果成功，返回TRUE，如果失败返回FALSE
+	 */
         static BOOL Enum(ZLProcessEnumInfoVec& infoVec)
         {
             infoVec.clear();

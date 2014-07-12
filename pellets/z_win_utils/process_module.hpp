@@ -51,10 +51,18 @@ namespace WinUtils
     }ZLModuleEnumInfo;
 
     typedef std::vector<ZLModuleEnumInfo> ZLModuleEnumInfoVec;
-
+	/**
+	* @brief 枚举进程模块的类
+	*/
     class ZLProcessModule
     {
     public:
+	/**
+	 * @brief 枚举指定进程的模块
+	 * @param[in]  dwPid 进程ID
+	 * @param[in]  InfoVec 存放进程信息的容器
+	 * @return 如果成功，返回TRUE，如果失败返回FALSE
+	 */
         static BOOL Enum(DWORD dwPid, ZLModuleEnumInfoVec& InfoVec)
         {
             InfoVec.clear();
