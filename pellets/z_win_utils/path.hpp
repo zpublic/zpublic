@@ -26,11 +26,18 @@ namespace zl
 {
 namespace WinUtils
 {
-
+     /**
+     * @brief 提供对windows常见文件路径的操作
+     */
     class ZLPath
     {
     public:
-       static CString GetModuleFullPath(HMODULE hModule)
+        /**
+         * @brief 获取模块全路径
+         * @param[in] hModule    模块句柄
+         * @return 成功返回模块全路径, 失败返回空串
+         */
+        static CString GetModuleFullPath(HMODULE hModule)
         {
             DWORD dwRet = 0;
             CString strTemp;
@@ -40,7 +47,11 @@ namespace WinUtils
                 strTemp = szFileName;
             return strTemp;
         }
-
+        /**
+         * @brief 由文件路径获取文件名
+         * @param[in] szFullPath    文件路径
+         * @return 成功返回文件名, 失败返回路径
+         */
         static CString PathToFileName(LPCTSTR szFullPath)
         {
             CString strPath(szFullPath);
@@ -51,7 +62,12 @@ namespace WinUtils
             else
                 return strPath.Right(strPath.GetLength() - nPos - 1);
         }
-
+		
+        /**
+         * @brief 由文件路径获取文件夹路径
+         * @param[in] szFullPath    文件全路径
+         * @return 成功返回文件夹路径名, 失败返回空串
+         */
         static CString PathToFolderPath(LPCTSTR szFullPath)
         {
             CString strTemp(szFullPath);
@@ -63,12 +79,20 @@ namespace WinUtils
                 return _T("");
             return strTemp.Left(nPos + 1);
         }
-
+        /**
+         * @brief 获取模块父文件夹
+         * @param[in] hModule    模块句柄
+         * @return 成功返回文件夹路径名, 失败返回空串
+         */
         static CString GetModuleFolder(HMODULE hModule)
         {
             return PathToFolderPath(GetModuleFullPath(hModule));
         }
-
+        /**
+         * @brief 去除文件后缀
+         * @param[in] szFileName    文件名
+         * @return 成功返回文件名, 失败返回带后缀的文件名
+         */
         static CString FileNameRemoveSuffix(LPCTSTR szFileName)
         {
             CString strTemp(szFileName);
@@ -78,7 +102,11 @@ namespace WinUtils
                 return strTemp;
             return strTemp.Left(nPos);
         }
-
+        /**
+         * @brief 获取路径下的文件后缀
+         * @param[in] szFullPath    全路径
+         * @return 成功返回文件后缀
+         */
         static CString PathToSuffix(LPCTSTR szFullPath)
         {
             CString strTemp = PathToFileName(szFullPath);
@@ -88,7 +116,11 @@ namespace WinUtils
                 return strTemp;
             return strTemp.Mid(nPos + 1);
         }
-
+        /**
+         * @brief 获取父文件夹
+         * @param[in] szFullPath    全路径
+         * @return 成功返回父文件夹名, 失败返回路径
+         */
         static CString GetParsentFolder(LPCTSTR szFullPath)
         {
             CString strParsentPath(szFullPath);
@@ -98,7 +130,11 @@ namespace WinUtils
                 strParsentPath = szFullPath;
             return strParsentPath;
         }
-
+        /**
+         * @brief 获取根路径
+         * @param[in] szFullPath    全路径
+         * @return 成功返回根路径, 失败返回全路径
+         */
         static CString GetRootPath(LPCTSTR szFullPath)
         {
             CString strRoot(szFullPath);
@@ -108,7 +144,11 @@ namespace WinUtils
                 strRoot = strTempPath.Left(nPos);
             return strRoot;
         }
-
+        /**
+         * @brief 获取合法路径
+         * @param[in] strPath    路径
+         * @return 成功返回路径
+         */
         static CString LegalizePath(const CString &strPath)
         {
             CString strOriginPath = strPath;
@@ -130,7 +170,11 @@ namespace WinUtils
             }
             return strDstPath;
         }
-
+        /**
+         * @brief 路径加反斜线
+         * @param[in] strPath    路径
+         * @return 返回路径
+         */
         static void PathAddBackslash(CString& strPath)
         {
             CString strTemp;
@@ -138,7 +182,11 @@ namespace WinUtils
             if (strTemp != _T("\\") && strTemp != _T("/"))
                 strPath.Append(_T("\\"));
         }
-
+        /**
+         * @brief 去除路径反斜线
+         * @param[in] strPath    路径
+         * @return 返回去掉反斜线后的路径
+         */
         static void PathRemoveBackslash(CString &strPath)
         {
             if (strPath.Right(1) == _T("\\"))
