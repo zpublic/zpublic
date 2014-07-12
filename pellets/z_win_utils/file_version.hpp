@@ -412,7 +412,7 @@ namespace WinUtils
             msLegalTrademarks.Empty();
             msPrivateBuild.Empty();
             msSpecialBuild.Empty();
-        }获取当前用户的本地语言标示
+        }
 	/**
 	 * @brief 获取当前用户的本地语言标示
 	 * @param[in]   lpData Buffer，包含指定文件的版本信息
