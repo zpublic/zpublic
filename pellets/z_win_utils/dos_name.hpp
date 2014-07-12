@@ -59,7 +59,7 @@ namespace WinUtils
             return TRUE;
         }
 		/**
-		 * @brief 由设备路径获取Dos路径
+		 * @brief 由设备路径获取Dos路径   
 		 * @param[in,out]   cstrPath 字符串，包含设备路径
 		 * @return 如果成功，返回TRUE，如果失败返回FALSE
 		 */
