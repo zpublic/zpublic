@@ -1,4 +1,4 @@
-/*************************************************************************
+﻿/*************************************************************************
  *                                                                       *
  *  I|*j^3Cl|a   "+!*%                  qt          Nd   gW              *
  *  l]{y+l?MM*  !#Wla\NNP               NW          MM   I|              *
@@ -12,12 +12,10 @@
  *               Website: https://github.com/zpublic/zpublic             *
  *                                                                       *
  ************************************************************************/
-
 /**
  * @file
- * @brief ��ݷ�ʽ����
+ * @brief 该文件定义命名空间zl::WinUtils下的一个类。
  */
-
 
 #pragma once
 #include "win_utils_header.h"
@@ -26,7 +24,10 @@ namespace zl
 {
 namespace WinUtils
 {
-
+	/**
+	* @brief ZLShortcut类，包含三个静态成员函数。
+	* 用于生成给定文件的快捷方式，由给定的快捷方式获取文件路径与文件名
+	*/
     class ZLShortcut
     {
 
@@ -38,6 +39,16 @@ namespace WinUtils
         };
 
     public:
+	/**
+	 * @brief 对于给定的可执行文件创建快捷方式
+	 * @param[in]   lpLnkFilePath 创建的快捷方式的路径与文件名
+	 * @param[in]   lpDstFilePath 可执行文件路径与文件名
+	 * @param[in]  pszArguments 设置快捷方式的命令行参数
+	 * @param[in]  pszDesc 设置快捷方式的描述信息
+	 * @param[in]  pszIcon 设置快捷方式的图标
+	 * @return 如果成功，返回TRUE，如果失败返回FALSE
+	 * @see _ExpandFullPathName
+	 */
         static BOOL Create(
             LPCWSTR lpLnkFilePath,
             LPCWSTR lpDstFilePath,
@@ -110,7 +121,13 @@ Exit0:
             ::CoUninitialize();
             return bReturn;
         }
-
+		
+	/**
+	 * @brief 给定快捷方式，获取快捷方式对应的路径和文件名
+	 * @param[in]   lpLnkFilePath 以空终止的字符串包含打开文件的绝对路径
+	 * @param[out]  sDstPath 字符串引用，获取快捷方式的路径和文件名
+	 * @return 如果成功，返回TRUE，如果失败返回FALSE
+	 */
         static BOOL GetDstPath(LPCTSTR lpLnkFilePath, CString &sDstPath)
         {
             bool bReturn = FALSE;
@@ -144,6 +161,13 @@ Exit0:
         }
 
     private:
+	
+	/**
+	 * @brief 由指定文件名获取文件的全路径与文件名
+	 * @param[in,out]   strPathName CString引用，传进文件名，返回文件全路径与文件名
+	 * @return 如果成功，返回S_OK，如果失败，以HRESULT的形式返回调用线程的最近错误码或E_FAIL
+	 * @see GetFullPathName
+	 */
         static HRESULT _ExpandFullPathName( CString& strPathName )
         {
             DWORD dwLen = ::GetFullPathName(strPathName, 0, NULL, NULL);
@@ -169,3 +193,5 @@ Exit0:
     };
 }
 }
+
+
