@@ -28,7 +28,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+/**
+* @brief 文件版本信息操作类，可以获取文件的各种信息
+*/
     class ZLFileVersion
     {
     public:
@@ -39,7 +41,12 @@ namespace WinUtils
 
         virtual ~ZLFileVersion()
         {}
-
+	/**
+	 * @brief 获取文件版本信息
+	 * @param[in]   hModule 文件句柄，默认为NULL
+	 * @return 如果成功，返回TRUE，如果失败返回FALSE
+	 * @see Create
+	 */
         BOOL Create(HMODULE hModule = NULL)
         {
             CString	sPath;
@@ -49,7 +56,12 @@ namespace WinUtils
 
             return Create(sPath);
         }
-
+	/**
+	 * @brief 获取文件的信息
+	 * @param[in]   lpszFileName  文件名
+	 * @return 如果成功，返回TRUE，如果失败返回FALSE
+	 * @see GetFileVersionInfoSize
+	 */
         BOOL Create(LPCTSTR lpszFileName)
         {
             Reset();
@@ -195,7 +207,11 @@ namespace WinUtils
 
             return TRUE;
         }
-
+	/**
+	 * @brief 获取文件的版本信息
+	 * @param[in]   nIndex  索引
+	 * @return 如果成功，返回非零，如果失败返回零
+	 */
         WORD GetFileVersion(int nIndex) const
         {
             if (nIndex == 0)
@@ -209,7 +225,11 @@ namespace WinUtils
             else
                 return 0;
         }
-
+	/**
+	 * @brief 获取文件的Product信息
+	 * @param[in]   nIndex  索引
+	 * @return 如果成功，返回非零，如果失败返回零
+	 */
         WORD GetProductVersion(int nIndex) const
         {
             if (nIndex == 0)
@@ -223,32 +243,52 @@ namespace WinUtils
             else
                 return 0;
         }
-
+	/**
+	 * @brief 获取文件的FileFlagsMask
+	 * @param[in]   nIndex  索引
+	 * @return FileFlagsMask
+	 */
         DWORD GetFileFlagsMask() const
         {
             return mFileInfo.dwFileFlagsMask;
         }
-
+	/**
+	 * @brief 获取文件的FileFlags
+	 * @return  FileFlags
+	 */
         DWORD GetFileFlags() const
         {
             return mFileInfo.dwFileFlags;
         }
-
+	/**
+	 * @brief 获取文件系统
+	 * @param[in]   nIndex  索引
+	 * @return FileOS
+	 */
         DWORD GetFileOs() const
         {
             return mFileInfo.dwFileOS;
         }
-
+	/**
+	 * @brief 获取文件通用类型
+	 * @return FileType
+	 */
         DWORD GetFileType() const
         {
             return mFileInfo.dwFileType;
         }
-
+	/**
+	 * @brief 获取文件功能
+	 * @return FileSubtype
+	 */
         DWORD GetFileSubtype() const
         {
             return mFileInfo.dwFileSubtype;
         }
-
+	/**
+	 * @brief 获取文件日期
+	 * @return FILETIME data structure 
+	 */
         FILETIME GetFileDate() const
         {
             FILETIME ft;
@@ -258,62 +298,98 @@ namespace WinUtils
 
             return ft;
         }
-
+	/**
+	 * @brief 获取CompanyName
+	 * @return  字符串，代表CompanyName
+	 */
         CString GetCompanyName() const
         {
             return msCompanyName;
         }
-
+	/**
+	 * @brief 获取文件描述
+	 * @return  字符串，表示文件描述
+	 */
         CString GetFileDescription() const
         {
             return msFileDescription;
         }
-
+	/**
+	 * @brief 获取文件版本
+	 * @return  字符串，代表FileVersion
+	 */
         CString GetFileVersion() const
         {
             return msFileVersion;
         }
-
+	/**
+	 * @brief 获取InternalName
+	 * @return  字符串，代表InternalName
+	 */
         CString GetInternalName() const
         {
             return msInternalName;
         }
-
+	/**
+	 * @brief 获取LegalCopyright
+	 * @return  字符串，代表LegalCopyright
+	 */
         CString GetLegalCopyright() const
         {
             return msLegalCopyright;
         }
-
+	/**
+	 * @brief 获取OriginalFileName
+	 * @return  字符串，代表OriginalFileName
+	 */
         CString GetOriginalFileName() const
         {
             return msOriginalFileName;
         }
-
+	/**
+	 * @brief 获取ProductName
+	 * @return  字符串，代表ProductName
+	 */
         CString GetProductName() const
         {
             return msProductName;
         }
-
+	/**
+	 * @brief 获取ProductVersion
+	 * @return  字符串，代表ProductVersion
+	 */
         CString GetProductVersion() const
         {
             return msProductVersion;
         }
-
+	/**
+	 * @brief 获取Comments
+	 * @return  字符串，代表Comments
+	 */
         CString GetComments() const
         {
             return msComments;
         }
-
+	/**
+	 * @brief 获取LegalTrademarks
+	 * @return  字符串，代表LegalTrademarks
+	 */
         CString GetLegalTrademarks() const
         {
             return msLegalTrademarks;
         }
-
+	/**
+	 * @brief 获取PrivateBuild
+	 * @return  字符串，代表PrivateBuild
+	 */
         CString GetPrivateBuild() const
         {
             return msPrivateBuild;
         }
-
+	/**
+	 * @brief 获取SpecialBuild
+	 * @return  字符串，代表SpecialBuild
+	 */
         CString GetSpecialBuild() const
         {
             return msSpecialBuild;
@@ -336,8 +412,16 @@ namespace WinUtils
             msLegalTrademarks.Empty();
             msPrivateBuild.Empty();
             msSpecialBuild.Empty();
-        }
-
+        }获取当前用户的本地语言标示
+	/**
+	 * @brief 获取当前用户的本地语言标示
+	 * @param[in]   lpData Buffer，包含指定文件的版本信息
+	 * @param[in]   unBlockSize VS_FIXEDFILEINFO结构体的大小
+	 * @param[in]  wLangId 语言标示
+	 * @param[out]  dwId 语言标示
+	 * @param[in]  bPrimaryEnough 是否进行低字节操作
+	 * @return 如果成功，返回TRUE，如果失败返回FALSE
+	 */
         BOOL GetTranslationId(
             LPVOID lpData, 
             UINT   unBlockSize, 
