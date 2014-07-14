@@ -50,9 +50,9 @@ namespace WinUtils
     }ZLModuleEnumInfo;
 
     typedef std::vector<ZLModuleEnumInfo> ZLModuleEnumInfoVec;
-	/**
-	* @brief 枚举进程模块的类
-	*/
+    /**
+     * @brief 枚举进程模块的类
+     */
     class ZLProcessModule
     {
     public:
