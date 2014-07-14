@@ -35,8 +35,8 @@ namespace WinUtils
     public:
         /**
          * @brief 向剪切板设置数据
-         * @param[in]   pszData Buffer，包含要设置到剪切板的数据
-         * @param[in]   nDataLen 设置数据的长度
+         * @param[in] pszData  Buffer，包含要设置到剪切板的数据
+         * @param[in] nDataLen 设置数据的长度
          * @return 如果成功，返回TRUE，如果失败返回FALSE
          */
         static BOOL SetClipboard(const char* pszData, const int nDataLen)

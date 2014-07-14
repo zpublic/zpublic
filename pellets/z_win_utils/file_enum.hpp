@@ -42,10 +42,10 @@ namespace WinUtils
     public:
         /**
          * @brief 遍历文件夹下的所有文件
-         * @param[in]   lpDirName 文件夹名
-         * @param[in]   lpPost 搜索文件类型，默认为所有文件
+         * @param[in] lpDirName 文件夹名
+         * @param[in] lpPost    搜索文件类型，默认为所有文件
          * @see FindFirstFile,FindNextFile
-        */
+         */
         ZLFileEnum(LPCTSTR lpDirName, LPCTSTR lpPost=_T("*.*"))
         {
             CString strSearch(lpDirName);
@@ -98,7 +98,7 @@ namespace WinUtils
         /**
          * @brief 获取指定索引的文件名
          * @param[in]   i 文件索引
-         * @return 字符串，包含文件名
+         * @return 文件名
          */
         CString& GetFileName(int i)
         {
@@ -106,7 +106,7 @@ namespace WinUtils
         }
         /**
          * @brief 获取指定索引的文件大小
-         * @param[in]   i 文件索引
+         * @param[in] i 文件索引
          * @return 文件大小
          */
         DWORD GetFilesize(int i)
@@ -116,7 +116,7 @@ namespace WinUtils
         /**
          * @brief 获取指定索引的目录
          * @param[in]   i 目录索引
-         * @return 字符串，包含指定的目录名
+         * @return 指定的目录名
          */
         CString& GetDirName(int i)
         {
@@ -124,9 +124,9 @@ namespace WinUtils
         }
         /**
          * @brief 获取指定索引的目录下的文件全路径
-         * @param[in]   i 目录索引
-         * @param[out]   strFull 字符串，获取指定目录文件的路径
-         * @return 字符串，包含指定的目录的路径
+         * @param[in]  i       目录索引
+         * @param[out] strFull 字符串，获取指定目录文件的路径
+         * @return 指定的目录的路径
          */
         void GetFileFullPath(int i, CString& strFull)
         {
@@ -135,9 +135,9 @@ namespace WinUtils
         }
         /**
          * @brief 获取指定索引的目录的全路径
-         * @param[in]   i 目录索引
-         * @param[out]   strFull 字符串，获取指定目录文件的路径
-         * @return 字符串，包含指定的目录的路径
+         * @param[in]  i       目录索引
+         * @param[out] strFull 指定目录文件的路径
+         * @return 指定的目录的路径
          */
         void GetDirFullPath(int i, CString& strFull)
         {

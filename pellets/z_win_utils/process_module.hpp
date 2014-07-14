@@ -58,9 +58,9 @@ namespace WinUtils
     public:
         /**
          * @brief 枚举指定进程的模块
-         * @param[in]  dwPid 进程ID
-         * @param[in]  InfoVec 存放进程信息的容器
-         * @return 如果成功，返回TRUE，如果失败返回FALSE
+         * @param[in] dwPid   进程ID
+         * @param[in] InfoVec 存放进程信息的容器
+         * @return 成功返回TRUE，失败返回FALSE
          */
         static BOOL Enum(DWORD dwPid, ZLModuleEnumInfoVec& InfoVec)
         {

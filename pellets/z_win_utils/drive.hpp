@@ -32,6 +32,11 @@ namespace WinUtils
     {
     public:
         ///> GB
+        /**
+         * @brief 获取硬盘大小，以GB为单位
+         * @return 返回硬盘大小
+         * @see DeviceIoControl
+         */
         static ULONG GetDriveSize()
         {
             ULONG uSize = 0;

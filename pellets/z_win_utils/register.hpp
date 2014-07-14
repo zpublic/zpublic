@@ -41,6 +41,14 @@ namespace WinUtils
         }
 
     public:
+        /**
+         * @brief 打开注册表键
+         * @param[in] hRootKey          RootKey
+         * @param[in] szSubKey          SubKey
+         * @param[in] bCreateIfNotExsit 函数执行方式
+         * @param[in] samDesired        key的访问权限
+         * @return 成功返回TRUE，失败返回FALSE 
+         */
         BOOL Open(HKEY hRootKey, LPCTSTR szSubKey, BOOL bCreateIfNotExsit = FALSE, REGSAM samDesired = KEY_READ | KEY_WRITE)
         {
             Close();
@@ -71,7 +79,13 @@ namespace WinUtils
             }
             return TRUE;
         }
-
+        /**
+         * @brief 创建注册表键
+         * @param[in] hRootKey   RootKey
+         * @param[in] szSubKey   SubKey
+         * @param[in] samDesired key的访问权限
+         * @return 成功返回TRUE，失败返回FALSE 
+         */
         BOOL CreateVolatileReg(HKEY hRootKey, LPCTSTR szSubKey, REGSAM samDesired = KEY_READ | KEY_WRITE)
         {
             Close();
@@ -89,7 +103,11 @@ namespace WinUtils
             }
             return TRUE;
         }
-
+        /**
+         * @brief 循环删除指定键的子键和值
+         * @param[in] pszName 键名
+         * @return 成功返回TRUE，失败返回FALSE 
+         */
         BOOL DeleteKey(LPCTSTR pszName)
         {
             if (pszName == NULL
@@ -103,7 +121,11 @@ namespace WinUtils
             }
             return FALSE;
         }
-
+        /**
+         * @brief 删除指定键的值
+         * @param[in] pszName 键名
+         * @return 成功返回TRUE，失败返回FALSE 
+         */
         BOOL DeleteValue(LPCTSTR pszName)
         {
             if (pszName == NULL
@@ -126,7 +148,12 @@ namespace WinUtils
                 hKey_ = NULL;
             }
         }
-
+        /**
+         * @brief 获取键值数据
+         * @param[in]  pszValueName 键值名称
+         * @param[out] dwValue      键值数据
+         * @return 成功返回TRUE，失败返回FALSE 
+         */
         BOOL Read(LPCTSTR pszValueName, DWORD& dwValue)
         {
             if (pszValueName == NULL
@@ -153,7 +180,12 @@ namespace WinUtils
             }
             return FALSE;
         }
-
+        /**
+         * @brief 获取键值数据
+         * @param[in]  pszValueName 键值名称
+         * @param[out] strValue     键值数据
+         * @return 成功返回TRUE，失败返回FALSE 
+         */
         BOOL Read(LPCTSTR pszValueName, CString& strValue)
         {
             if (pszValueName == NULL
@@ -201,7 +233,13 @@ namespace WinUtils
             } while (FALSE);
             return bReturn;
         }
-
+        /**
+         * @brief 获取键值数据
+         * @param[in] pszValueName 键值名称
+         * @param[in] pBuffer      存放键值数据的缓冲区
+         * @param[in] dwSize       缓冲区大小
+         * @return 成功返回TRUE，失败返回FALSE 
+         */
         BOOL Read(LPCTSTR pszValueName, BYTE* pBuffer, DWORD& dwSize)
         {
             if (pszValueName == NULL
@@ -224,7 +262,12 @@ namespace WinUtils
             }
             return TRUE;
         }
-
+        /**
+         * @brief 设置键值数据
+         * @param[in] pszValueName 键值名称
+         * @param[in] dwValue      要设置的数据
+         * @return 成功返回TRUE，失败返回FALSE 
+         */
         BOOL Write(LPCTSTR pszValueName, DWORD dwValue)
         {
             if (pszValueName == NULL
@@ -245,7 +288,12 @@ namespace WinUtils
             }
             return TRUE;
         }
-
+        /**
+         * @brief 设置键值数据
+         * @param[in] pszValueName 键值名称
+         * @param[in] dwValue      要设置的数据
+         * @return 成功返回TRUE，失败返回FALSE 
+         */
         BOOL Write(LPCTSTR pszValueName, LPCTSTR pszValue)
         {
             if (pszValueName == NULL
@@ -265,7 +313,12 @@ namespace WinUtils
             }
             return TRUE;
         }
-
+        /**
+         * @brief 设置键值类型为REG_EXPAND_SZ键值数据
+         * @param[in] pszValueName 键值名称
+         * @param[in] pszValue     要设置的数据
+         * @return 成功返回TRUE，失败返回FALSE 
+         */
         BOOL WriteExpandString(LPCTSTR pszValueName, LPCTSTR pszValue)
         {
             if (pszValueName == NULL
@@ -285,7 +338,13 @@ namespace WinUtils
             }
             return TRUE;
         }
-
+        /**
+         * @brief 设置键值类型为REG_BINARY键值数据
+         * @param[in] pszValueName 键值名称
+         * @param[in] pBuffer      包含要设置数据的缓冲区
+         * @param[in] dwSize       缓冲区大小
+         * @return 成功返回TRUE，失败返回FALSE 
+         */
         BOOL Write(LPCTSTR pszValueName, BYTE* pBuffer, DWORD dwSize)
         {
             if (pszValueName == NULL

@@ -28,7 +28,6 @@ namespace zl
 {
 namespace WinUtils
 {
-
     class ZLBrowser
     {
     public:
@@ -39,11 +38,17 @@ namespace WinUtils
             {
                 return FALSE;
             }
-            CString sExplorer = ZLSystemPath::GetWindowsDir()  + L"explorer.exe";
+            CString sExplorer = ZLSystemPath::GetWindowsDir() + L"explorer.exe";
             return (sExplorer.CollateNoCase(lpParentProcess) == 0);
         }
 
         ///>  获取默认浏览器
+        /**
+         * @brief 获取默认浏览器
+         * @param[out]   strDefaultBrowser 存放默认浏览器路径的字符串
+         * @return 成功返回TRUE，失败返回FALSE
+         * @see AssocCreate
+         */
         static BOOL GetDefaultBrowser(CString& strDefaultBrowser)
         {
             BOOL bResult = FALSE;
