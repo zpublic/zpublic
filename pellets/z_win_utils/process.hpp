@@ -82,13 +82,13 @@ namespace WinUtils
             }
             m_bInited = FALSE;
         }
-	/**
-	 * @brief 枚举系统中进程的标识符
-	 * @param[in]   pProcessIds 指向存放进程标识符数组的指针
-	 * @param[in]   cb 数组大小
-	 * @param[out]  pBytesReturned 进程标识符数组的大小
-	 * @return 如果成功，返回TRUE，如果失败返回FALSE
-	 */
+        /**
+         * @brief 枚举系统中进程的标识符
+         * @param[in]   pProcessIds 指向存放进程标识符数组的指针
+         * @param[in]   cb 数组大小
+         * @param[out]  pBytesReturned 进程标识符数组的大小
+         * @return 如果成功，返回TRUE，如果失败返回FALSE
+         */
         BOOL EnumProcesses(DWORD* pProcessIds, DWORD cb, DWORD* pBytesReturned)
         {
             if (m_bInited == FALSE)
@@ -101,14 +101,14 @@ namespace WinUtils
             }
             return FALSE;
         }
-	/**
-	 * @brief 枚举系统中进程的标识符
-	 * @param[in]   hProcess 包含模块的进程句柄
-	 * @param[in]   hModule 模块句柄
-	 * @param[out]  lpBaseName 指向获取模块base name的缓冲区的指针
-	 * @param[in]   nSize 缓冲区的大小，以字节为单位
-	 * @return 如果成功，返回复制到缓冲区中的字节的长度，如果失败返回零
-	 */
+        /**
+         * @brief 枚举系统中进程的标识符
+         * @param[in]   hProcess 包含模块的进程句柄
+         * @param[in]   hModule 模块句柄
+         * @param[out]  lpBaseName 指向获取模块base name的缓冲区的指针
+         * @param[in]   nSize 缓冲区的大小，以字节为单位
+         * @return 如果成功，返回复制到缓冲区中的字节的长度，如果失败返回零
+         */
         DWORD GetModuleBaseName(HANDLE hProcess, HMODULE hModule, LPTSTR lpBaseName, DWORD nSize)
         {
             if (m_bInited == FALSE)
@@ -121,14 +121,14 @@ namespace WinUtils
             }
             return FALSE;
         }
-	/**
-	 * @brief 枚举指定进程每个模块的句柄
-	 * @param[in]   hProcess 进程句柄
-	 * @param[out]   lphModule 存放模块句柄的数组
-	 * @param[in]  cb 数组的大小，以字节为单位
-	 * @param[out]   lpcbNeeded 存储所有模块句柄所需的字节数
-	 * @return 如果成功，返回非零值，如果失败返回零
-	 */
+        /**
+         * @brief 枚举指定进程每个模块的句柄
+         * @param[in]   hProcess 进程句柄
+         * @param[out]   lphModule 存放模块句柄的数组
+         * @param[in]  cb 数组的大小，以字节为单位
+         * @param[out]   lpcbNeeded 存储所有模块句柄所需的字节数
+         * @return 如果成功，返回非零值，如果失败返回零
+         */
         BOOL EnumProcessModules(HANDLE hProcess, HMODULE* lphModule, DWORD cb, LPDWORD lpcbNeeded)
         {
             if (m_bInited == FALSE)
@@ -141,14 +141,14 @@ namespace WinUtils
             }
             return FALSE;
         }
-	/**
-	 * @brief 获取包含指定模块的文件的全路径
-	 * @param[in]   hProcess 包含模块的进程句柄
-	 * @param[in]   hModule 模块句柄，如果为NULL，返回由进程句柄指定的进程的可执行文件的全路径
-	 * @param[out]  lpFilename 指向获取模块全路径缓冲区的指针
-	 * @param[in]   nSize 缓冲区的大小，以字符为单位
-	 * @return 如果成功，返回复制到缓冲区中的字节的长度，如果失败返回零
-	 */
+        /**
+         * @brief 获取包含指定模块的文件的全路径
+         * @param[in]   hProcess 包含模块的进程句柄
+         * @param[in]   hModule 模块句柄，如果为NULL，返回由进程句柄指定的进程的可执行文件的全路径
+         * @param[out]  lpFilename 指向获取模块全路径缓冲区的指针
+         * @param[in]   nSize 缓冲区的大小，以字符为单位
+         * @return 如果成功，返回复制到缓冲区中的字节的长度，如果失败返回零
+         */
         DWORD GetModuleFileNameEx(HANDLE hProcess, HMODULE hModule, LPTSTR lpFilename,DWORD nSize)
         {
             if (m_bInited == FALSE)
@@ -161,13 +161,13 @@ namespace WinUtils
             }
             return FALSE;
         }
-	/**
-	 * @brief 获取指定进程的可执行文件的文件名
-	 * @param[in]   hProcess 进程句柄
-	 * @param[in]   lpImageFileName 指向获取可执行文件全路径的缓冲区的指针
-	 * @param[out]  nSize 字符缓冲区的大小
-	 * @return 如果成功，返回复制到缓冲区中的字节的长度，如果失败返回零
-	 */
+        /**
+         * @brief 获取指定进程的可执行文件的文件名
+         * @param[in]   hProcess 进程句柄
+         * @param[in]   lpImageFileName 指向获取可执行文件全路径的缓冲区的指针
+         * @param[out]  nSize 字符缓冲区的大小
+         * @return 如果成功，返回复制到缓冲区中的字节的长度，如果失败返回零
+         */
         DWORD GetProcessImageFileName(HANDLE hProcess, LPTSTR lpImageFileName, DWORD nSize)
         {
             if (m_bInited == FALSE)
@@ -260,11 +260,11 @@ namespace WinUtils
         } PROCESS_BASIC_INFORMATION;
 
     public:
-	/**
-	 * @brief 获取指定进程ID对应的可执行文件路径
-	 * @param[in]   dwPid 进程ID
-	 * @return 成功，返回路径
-	 */
+        /**
+         * @brief 获取指定进程ID对应的可执行文件路径
+         * @param[in]   dwPid 进程ID
+         * @return 成功，返回路径
+         */
         static CString GetProcessPath(DWORD dwPid)
         {
             CString cstrPath;
@@ -276,11 +276,11 @@ namespace WinUtils
             }
             return cstrPath;
         }
-	/**
-	 * @brief 关闭指定进程
-	 * @param[in]   dwPid 进程ID
-	 * @return 成功，返回TRUE，失败返回FALSE
-	 */
+        /**
+         * @brief 关闭指定进程
+         * @param[in]   dwPid 进程ID
+         * @return 成功，返回TRUE，失败返回FALSE
+         */
         static BOOL KillProcess(DWORD dwPid)
         {
             BOOL bReturn = FALSE;
@@ -292,11 +292,11 @@ namespace WinUtils
             }
             return bReturn;
         }
-	/**
-	 * @brief 获取父进程ID
-	 * @param[in]   dwPid 进程ID
-	 * @return 成功，返回TRUE，失败返回FALSE
-	 */
+        /**
+         * @brief 获取父进程ID
+         * @param[in]   dwPid 进程ID
+         * @return 成功，返回TRUE，失败返回FALSE
+         */
         static int GetParentProcessID(DWORD dwPid)
         {
             LONG lStatus = 0;
@@ -329,12 +329,12 @@ namespace WinUtils
             }
             return nParentPID;
         }
-	/**
-	 * @brief 获取指定进程的命令行参数
-	 * @param[in]   dwPid 进程ID
-	 * @return 成功，返回命令行参数，失败返回空串
-	 * @see ReadProcessMemory
-	 */
+        /**
+         * @brief 获取指定进程的命令行参数
+         * @param[in]   dwPid 进程ID
+         * @return 成功，返回命令行参数，失败返回空串
+         * @see ReadProcessMemory
+         */
         static CString GetProcessCmdLine(DWORD dwPid)
         {
             CString cstrCmdLine;
@@ -400,17 +400,17 @@ namespace WinUtils
             }
             return cstrCmdLine;
         }
-	/**
-	 * @brief 创建进程
-	 * @param[in]   pszPath 可执行文件路径
-	 * @param[in]   pszCmd 命令行
-	 * @param[in]   dwWaitTime 等待时间，默认为零
-	 * @param[in]   bShow 进程是否显示，默认显示
-	 * @param[in]   hToken Token句柄，默认为NULL
-	 * @param[in]   dwCreationFlags 进程创建标示，默认为零
-	 * @return 返回进程的退出代码
-	 * @see CreateProcess CreateProcessAsUser
-	 */
+        /**
+         * @brief 创建进程
+         * @param[in]   pszPath 可执行文件路径
+         * @param[in]   pszCmd 命令行
+         * @param[in]   dwWaitTime 等待时间，默认为零
+         * @param[in]   bShow 进程是否显示，默认显示
+         * @param[in]   hToken Token句柄，默认为NULL
+         * @param[in]   dwCreationFlags 进程创建标示，默认为零
+         * @return 返回进程的退出代码
+         * @see CreateProcess CreateProcessAsUser
+         */
         static DWORD Run(LPCTSTR pszPath,
             LPCTSTR pszCmd,
             DWORD dwWaitTime = 0,

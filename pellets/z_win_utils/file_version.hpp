@@ -28,9 +28,9 @@ namespace zl
 {
 namespace WinUtils
 {
-/**
-* @brief 文件版本信息操作类，可以获取文件的各种信息
-*/
+    /**
+     * @brief 文件版本信息操作类，可以获取文件的各种信息
+     */
     class ZLFileVersion
     {
     public:

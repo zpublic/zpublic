@@ -27,9 +27,9 @@ namespace zl
 {
 namespace WinUtils
 {
-	/**
-	* @brief 获取文件图标的类
-	*/
+    /**
+     * @brief 获取文件图标的类
+     */
     class ZLFileIcon
     {
     public:
@@ -43,13 +43,13 @@ namespace WinUtils
                 m_icon = NULL;
             }
         }
-		/**
-		 * @brief 获取文件图标
-		 * @param[in]   szFilePath 文件路径
-		 * @param[in]   bLargeIcon 是否为大图标，默认TRUE
-		 * @return 如果成功，返回TRUE，如果失败返回FALSE
-		 * @see SHGetFileInfo
-		 */
+        /**
+         * @brief 获取文件图标
+         * @param[in]   szFilePath 文件路径
+         * @param[in]   bLargeIcon 是否为大图标，默认TRUE
+         * @return 如果成功，返回TRUE，如果失败返回FALSE
+         * @see SHGetFileInfo
+         */
         BOOL Load(LPCTSTR szFilePath, BOOL bLargeIcon = TRUE)
         {
             reset();
@@ -68,14 +68,14 @@ namespace WinUtils
             }
             return bRet;
         }
-		/**
-		 * @brief 从文件中提取图标
-		 * @param[in]   szFilePath 文件路径
-		 * @param[in]   uSize 图标的大小
-		 * @param[in]   uIndex szFilePath文件中图标的索引
-		 * @return 如果成功，返回TRUE，如果失败返回FALSE
-		 * @see SHDefExtractIcon
-		 */
+        /**
+         * @brief 从文件中提取图标
+         * @param[in]   szFilePath 文件路径
+         * @param[in]   uSize 图标的大小
+         * @param[in]   uIndex szFilePath文件中图标的索引
+         * @return 如果成功，返回TRUE，如果失败返回FALSE
+         * @see SHDefExtractIcon
+         */
         BOOL LoadEx(LPCTSTR szFilePath, UINT uSize = 48, UINT uIndex = 0)
         {
             reset();

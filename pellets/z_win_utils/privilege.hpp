@@ -26,18 +26,18 @@ namespace zl
 {
 namespace WinUtils
 {
-	/**
-	* @brief 调整进程权限的类
-	*/
+    /**
+     * @brief 调整进程权限的类
+     */
     class ZLPrivilege
     {
     public:
-	/**
-	* @brief 调整当前进程权限
-	* @param[in]   szPrivileges 权限名
-	* @return 如果成功，返回非零
-	* @see OpenProcessToken LookupPrivilegeValue AdjustTokenPrivileges
-	*/
+        /**
+        * @brief 调整当前进程权限
+        * @param[in]   szPrivileges 权限名
+        * @return 如果成功，返回非零
+        * @see OpenProcessToken LookupPrivilegeValue AdjustTokenPrivileges
+        */
         static HRESULT GetPrivileges(LPCTSTR szPrivileges = SE_DEBUG_NAME)
         {
             BOOL bRet = FALSE;
