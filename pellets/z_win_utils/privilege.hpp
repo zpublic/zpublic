@@ -38,7 +38,7 @@ namespace WinUtils
         * @return 成功返回TRUE，失败返回FALSE
         * @see OpenProcessToken LookupPrivilegeValue AdjustTokenPrivileges
         */
-        static HRESULT GetPrivileges(LPCTSTR szPrivileges = SE_DEBUG_NAME)
+        static BOOL GetPrivileges(LPCTSTR szPrivileges = SE_DEBUG_NAME)
         {
             BOOL bRet = FALSE;
             HANDLE hToken = NULL;
