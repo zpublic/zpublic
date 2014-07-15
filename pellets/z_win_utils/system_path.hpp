@@ -48,6 +48,11 @@ namespace WinUtils
         ~ZLSystemPath() {}
 
     public:
+        /**
+         * @brief 获取系统目录
+         * @return 成功返回系统目录，失败返回空串
+         * @see GetSystemDirectory
+         */
         static CString GetSystemDir()
         {
             CString cstrRet;
@@ -60,7 +65,11 @@ namespace WinUtils
             }
             return cstrRet;
         }
-
+        /**
+         * @brief 获取Windows目录
+         * @return 成功返回Windows目录，失败返回空串
+         * @see GetWindowsDirectory
+         */
         static CString GetWindowsDir()
         {
             CString cstrRet;
@@ -73,7 +82,11 @@ namespace WinUtils
             }
             return cstrRet;
         }
-
+        /**
+         * @brief 获取CommonAppData目录
+         * @return 成功返回CommonAppData目录，失败返回空串
+         * @see SHGetSpecialFolderPath
+         */
         static CString GetCommonAppDataDir()
         {
             CString cstrRet;
@@ -85,7 +98,11 @@ namespace WinUtils
             ZLPath::PathAddBackslash(cstrRet);
             return cstrRet;
         }
-
+        /**
+         * @brief 获取AppData目录
+         * @return 成功返回AppData目录，失败返回空串
+         * @see SHGetFolderPath
+         */
         static CString GetAppDataDir(HANDLE hToken = NULL)
         {
             CString cstrRet;
@@ -110,7 +127,11 @@ namespace WinUtils
             }
             return cstrRet;
         }
-
+        /**
+         * @brief 获取CommonTemp目录
+         * @return 成功返回CommonTemp目录，失败返回空串
+         * @see SHGetSpecialFolderPath
+         */
         static CString GetCommonTempDir()
         {
             CString cstrRet;
@@ -122,7 +143,11 @@ namespace WinUtils
             ZLPath::PathAddBackslash(cstrRet);
             return cstrRet;
         }
-
+        /**
+         * @brief 获取Temp目录
+         * @return 成功返回Temp目录，失败返回空串
+         * @see SHGetFolderPath
+         */
         static CString GetTempDir(HANDLE hToken = NULL)
         {
             CString cstrRet;
@@ -147,7 +172,11 @@ namespace WinUtils
             }
             return cstrRet;
         }
-
+        /**
+         * @brief 获取ProgramFile目录
+         * @return 成功返回ProgramFile目录，失败返回空串
+         * @see SHGetFolderPath
+         */
         static CString GetProgramFileDir()
         {
             CString cstrRet;

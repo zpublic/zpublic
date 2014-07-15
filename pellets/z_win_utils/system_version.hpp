@@ -58,7 +58,9 @@ namespace WinUtils
             enumProcessorArchitecture32Bit,    // 32 CPU
             enumProcessorArchitecture64Bit,    // 64 CPU
         };
-
+        /**
+         * @brief 获取系统版本
+         */
         static enumSystemVersion GetSystemVersion()
         {
             static enumSystemVersion OsPlatform = enumSystemVersionNone;
@@ -68,7 +70,9 @@ namespace WinUtils
             }
             return OsPlatform;
         }
-
+        /**
+         * @brief 获取处理器架构
+         */
         static enumProcessorArchitecture GetProcessorArchitecture()
         {
             static enumProcessorArchitecture emProcArch = enumProcessorArchitectureNone;
@@ -108,7 +112,12 @@ namespace WinUtils
             }
             return bRet;
         }
-
+        /**
+         * @brief 获取系统版本
+         * @param[out] dwMarjorVersion 高版本号
+         * @param[out] dwMinorVersion  低版本号
+         * @return 成功返回TRUE，失败返回FALSE
+         */
         static BOOL GetSystemVersion(DWORD &dwMarjorVersion, DWORD &dwMinorVersion)
         {
             BOOL bReturn = FALSE;
@@ -119,7 +128,10 @@ namespace WinUtils
             }
             return bReturn;
         }
-
+        /**
+         * @brief Determines whether the specified process is running under WOW64.
+         * @return 成功返回TRUE，失败返回FALSE
+         */
         static BOOL IsWow64System()
         {
             static int nWow64 = -1;
