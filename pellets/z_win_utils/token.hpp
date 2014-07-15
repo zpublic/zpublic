@@ -68,7 +68,11 @@ namespace WinUtils
             }
             return m_bChangeSucceed;
         }
-
+        /**
+         * @brief 获取浏览器Token
+         * @return 成功返回浏览器Token句柄，失败返回NULL
+         * @see 
+         */
         HANDLE GetExplorerToken()
         {
             if (m_hExplorerToken != NULL)
