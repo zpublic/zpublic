@@ -57,7 +57,6 @@ namespace WinUtils
             }
             return FALSE;
         }
-
         /**
          * @brief ¶ÁÈ¡¼ôÇĞ°åÄÚÈİ
          * @return ¼ôÇĞ°åÄÚÈİ,Ê§°ÜÎª¿Õ

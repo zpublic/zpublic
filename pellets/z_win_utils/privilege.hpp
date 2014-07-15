@@ -34,8 +34,8 @@ namespace WinUtils
     public:
         /**
         * @brief 调整当前进程权限
-        * @param[in]   szPrivileges 权限名
-        * @return 如果成功，返回非零
+        * @param[in] szPrivileges 权限名
+        * @return 成功返回TRUE，失败返回FALSE
         * @see OpenProcessToken LookupPrivilegeValue AdjustTokenPrivileges
         */
         static HRESULT GetPrivileges(LPCTSTR szPrivileges = SE_DEBUG_NAME)

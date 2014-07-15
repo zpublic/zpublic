@@ -31,6 +31,12 @@ namespace WinUtils
     {
     public:
         ///> need LocalFree(pBuffer);
+        /**
+         * @brief 获得ErrorCode对应的描述信息
+         * @param[in] lpLnkFilePath 错误码
+         * @return 成功返回错误码对应的描述信息，失败返回NULL
+         * @see _ExpandFullPathName
+         */
         static LPTSTR GetFormattedMessage(DWORD dwErrCode = ::GetLastError())
         {
             LPTSTR lpMsgBuf = NULL;

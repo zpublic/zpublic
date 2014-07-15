@@ -41,9 +41,9 @@ namespace WinUtils
     #define MSGFLT_REMOVE	2	// ChangeWindowMessageFilter 函数的第二个参数，移除消息
         /**
          * @brief 从UIPI消息过滤器，添加或删除一条消息
-         * @param[in]  uMsg 指定向过滤器添加或从过滤器删除的指定消息
-         * @param[in]  dwOper 指定操作类型
-         * @return 如果成功，返回TRUE，如果失败返回FALSE
+         * @param[in] uMsg   指定向过滤器添加或从过滤器删除的指定消息
+         * @param[in] dwOper 指定操作类型
+         * @return 成功返回TRUE，失败返回FALSE
          * @see ChangeWindowMessageFilter
          */
         static BOOL ChangeMessageFilter(UINT uMsg, DWORD dwOper = MSGFLT_ADD)

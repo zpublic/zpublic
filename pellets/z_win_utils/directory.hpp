@@ -36,6 +36,12 @@ namespace WinUtils
     class ZLDirectory
     {
     public:
+        /**
+         * @brief 创建目录
+         * @param[in] szPath 路径名
+         * @return 成功返回TRUE，失败返回FALSE
+         * @see 
+         */
         static BOOL CreateDeepDirectory(LPCTSTR szPath)
         {
             BOOL bRetCode = FALSE;
@@ -57,7 +63,13 @@ namespace WinUtils
             }
             return TRUE;
         }
-
+        /**
+         * @brief 删除指定目录
+         * @param[in] szPath            路径名
+         * @param[in] bContinueWhenFail 控制删除目录失败时的行为，默认为TRUE
+         * @return 成功返回TRUE，失败返回FALSE
+         * @see 
+         */
         static BOOL DeleteDirectory(LPCTSTR szDir, BOOL bContinueWhenFail = TRUE)
         {
             BOOL bReturn = FALSE;
@@ -100,7 +112,14 @@ Exit0:
 
             return bReturn;
         }
-
+        /**
+         * @brief 拷贝目录
+         * @param[in] szSrcDir   源目录名
+         * @param[in] szDstDir   目的目录名
+         * @param[in] bCoverFile 控制函数的行为，默认为TRUE
+         * @return 返回拷贝文件的数目
+         * @see 
+         */
         static int CopyDirectory(LPCTSTR szSrcDir, LPCTSTR szDstDir, BOOL bCoverFile = TRUE)
         {
             int nReturn = 0;

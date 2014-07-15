@@ -45,9 +45,9 @@ namespace WinUtils
         }
         /**
          * @brief 获取文件图标
-         * @param[in]   szFilePath 文件路径
-         * @param[in]   bLargeIcon 是否为大图标，默认TRUE
-         * @return 如果成功，返回TRUE，如果失败返回FALSE
+         * @param[in] szFilePath 文件路径
+         * @param[in] bLargeIcon 是否为大图标，默认TRUE
+         * @return 成功返回TRUE，失败返回FALSE
          * @see SHGetFileInfo
          */
         BOOL Load(LPCTSTR szFilePath, BOOL bLargeIcon = TRUE)
@@ -70,10 +70,10 @@ namespace WinUtils
         }
         /**
          * @brief 从文件中提取图标
-         * @param[in]   szFilePath 文件路径
-         * @param[in]   uSize 图标的大小
-         * @param[in]   uIndex szFilePath文件中图标的索引
-         * @return 如果成功，返回TRUE，如果失败返回FALSE
+         * @param[in] szFilePath 文件路径
+         * @param[in] uSize      图标的大小
+         * @param[in] uIndex     索引
+         * @return 成功返回TRUE，失败返回FALSE
          * @see SHDefExtractIcon
          */
         BOOL LoadEx(LPCTSTR szFilePath, UINT uSize = 48, UINT uIndex = 0)

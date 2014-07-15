@@ -36,9 +36,9 @@ namespace WinUtils
 
         /**
          * @brief 枚举所有注册表的项(item)
-         * @param[in] hKeyRoot      handle to open key
-         * @param[in] lpSubKey      subkey name
-         * @param[in] bWow64        Wow64开关
+         * @param[in]  hKeyRoot      handle to open key
+         * @param[in]  lpSubKey      subkey name
+         * @param[in]  bWow64        Wow64开关
          * @param[out] vecItems     用于存储枚举到的结果
          * @return 成功返回TRUE, 失败返回FALSE
          */

@@ -50,8 +50,8 @@ namespace WinUtils
     public:
         /**
          * @brief 枚举所有进程
-         * @param[in,out]   infoVec 存放所有进程信息的容器
-         * @return 如果成功，返回TRUE，如果失败返回FALSE
+         * @param[in,out] infoVec 存放所有进程信息的容器
+         * @return 成功返回TRUE，失败返回FALSE
          */
         static BOOL Enum(ZLProcessEnumInfoVec& infoVec)
         {

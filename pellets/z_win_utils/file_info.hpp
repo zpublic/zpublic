@@ -37,8 +37,8 @@ namespace WinUtils
 
         /**
          * @brief 获取文件大小
-         * @param[in]  lpFilePath   文件路径
-         * @param[out] lSize        用于存储文件的大小信息
+         * @param[in] lpFilePath 文件路径
+         * @param[out] lSize     用于存储文件的大小信息
          * @return 成功返回TRUE, 参数lSize中存放的是文件的大小信息, 失败返回FALSE.
          */
         static BOOL GetFileSize(LPCTSTR lpFilePath, LONGLONG &lSize)
