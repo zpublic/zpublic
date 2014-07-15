@@ -66,13 +66,13 @@ namespace WinUtils
                 m_hDllModule = NULL;
             }
         }
-		
-	/**
-	 * @brief 将可执行模块映射到调用进程的地址空间
-	 * @param[in]   szDllName 可执行模块名
-	 * @return 如果成功，返回TRUE，如果失败返回FALSE
-	 * @see LoadLibrary
-	 */
+                
+        /**
+         * @brief 可执行模块映射到调用进程的地址空间
+         * @param[in] szDllName 可执行模块名
+         * @return 成功TRUE，失败返回FALSE
+         * @see LoadLibrary
+         */
         BOOL Load(LPCTSTR szDllName)
         {
             Close();
@@ -81,12 +81,12 @@ namespace WinUtils
                 return FALSE;
             return TRUE;
         }
-	/**
-	 * @brief 获取指定函数名的函数地址
-	 * @param[in]  szFuncName 以空结尾字符串，包含函数名
-	 * @return 如果成功，返回导入库的函数地址，如果失败返回NULL
-	 * @see GetProcAddress
-	 */
+        /**
+         * @brief 获取函数名的地址
+         * @param[in]szFuncName 函数名
+         * @return 成功，返回导入库的函数地址，失败返回NULL
+         * @see GetProcAddress
+         */
         void* GetProc(LPCSTR szFuncName)
         {
             if (!m_hDllModule)

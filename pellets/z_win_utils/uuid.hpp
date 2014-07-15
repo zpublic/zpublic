@@ -28,13 +28,34 @@ namespace zl
 {
 namespace WinUtils
 {
+    /**
+     * @brief UUID/GUID相关操作,提供常用类型与UUID之间的转换函数
+     * @par Example:
+     * @code
+     * CString str1 = L"3FAAB390-2624-434C-98A2-3CCDEB91EC37";
+     * UUID stUuid1 = {0x3FAAB390, 0x2624, 0x434C, 0x98, 0xA2, 0x3C, 0xCD, 0xEB, 0x91, 0xEC, 0x37};
+     * 
+     * ZLUuid uuid1(str1);
+     * ZLUuid uuid2(stUuid1);
+     * 
+     * CString sRet = uuid1;
+     * UUID stRet;
+     * uuid1.ToUuid(stRet);
+     * 
+     * bool bRet = (uuid1 == str1);
+     * bRet = (uuid2 == stUuid1);
+     * 
+     * uuid1.GenerateNew();
+     * uuid2 = uuid1;
+     * @endcode
+     */
     class ZLUuid
     {
     private:
         UUID m_uuid;
 
     public:
-        ///> 初始化及赋值操作
+        // 初始化及赋值操作
         ZLUuid()
         {
             GenerateNew();
@@ -86,7 +107,7 @@ namespace WinUtils
             }
         }
 
-        ///> 类型转换操作
+        // 类型转换操作
         operator CString() const
         {
             CString sReturn;
@@ -103,7 +124,7 @@ namespace WinUtils
             memcpy(&uuid, &m_uuid, sizeof(UUID));
         }
 
-        ///> 比较操作
+        // 比较操作
         bool operator==(const ZLUuid &rhs) const
         {
             if (0 == memcmp(&m_uuid, &(rhs.m_uuid), sizeof(UUID)))

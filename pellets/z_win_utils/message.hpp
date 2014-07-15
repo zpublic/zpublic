@@ -26,9 +26,9 @@ namespace zl
 {
 namespace WinUtils
 {
-	/**
-	* @brief UIPI消息过滤器操作类
-	*/
+    /**
+     * @brief UIPI消息过滤器操作类
+     */
     namespace ZLMessage
     {
         inline UINT RegisterMessage(LPCTSTR lpMsgName)
@@ -39,13 +39,13 @@ namespace WinUtils
         typedef BOOL (__stdcall *ChangeWindowMessageFilterType)(UINT, DWORD);
     #define MSGFLT_ADD		1	// ChangeWindowMessageFilter 函数的第二个参数，添加消息
     #define MSGFLT_REMOVE	2	// ChangeWindowMessageFilter 函数的第二个参数，移除消息
-	/**
-	 * @brief 从UIPI消息过滤器，添加或删除一条消息
-	 * @param[in]  uMsg 指定向过滤器添加或从过滤器删除的指定消息
-	 * @param[in]  dwOper 指定操作类型
-	 * @return 如果成功，返回TRUE，如果失败返回FALSE
-	 * @see ChangeWindowMessageFilter
-	 */
+        /**
+         * @brief 从UIPI消息过滤器，添加或删除一条消息
+         * @param[in] uMsg   指定向过滤器添加或从过滤器删除的指定消息
+         * @param[in] dwOper 指定操作类型
+         * @return 成功返回TRUE，失败返回FALSE
+         * @see ChangeWindowMessageFilter
+         */
         static BOOL ChangeMessageFilter(UINT uMsg, DWORD dwOper = MSGFLT_ADD)
         {
             BOOL bRet = FALSE;

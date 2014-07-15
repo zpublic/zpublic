@@ -34,18 +34,18 @@ namespace WinUtils
         CString m_strFileName;
         DWORD	m_nSize;
     }ZLFileEnumInfo;
-	/**
-	* @brief 文件枚举类
-	*/
+    /**
+     * @brief 文件枚举类
+     */
     class ZLFileEnum
     {
     public:
-		/**
-		 * @brief 遍历文件夹下的所有文件
-		 * @param[in]   lpDirName 文件夹名
-		 * @param[in]   lpPost 搜索文件类型，默认为所有文件
-		 * @see FindFirstFile,FindNextFile
-		 */
+        /**
+         * @brief 遍历文件夹下的所有文件
+         * @param[in] lpDirName 文件夹名
+         * @param[in] lpPost    搜索文件类型，默认为所有文件
+         * @see FindFirstFile,FindNextFile
+         */
         ZLFileEnum(LPCTSTR lpDirName, LPCTSTR lpPost=_T("*.*"))
         {
             CString strSearch(lpDirName);
@@ -79,66 +79,66 @@ namespace WinUtils
                 ::FindClose( hFind );
             }
         }
-		/**
-		 * @brief 获取文件夹下的文件数目
-		* @return 返回文件数目
-		 */
+        /**
+         * @brief 获取文件夹下的文件数目
+         * @return 返回文件数目
+         */
         int GetFileCount()
         {
             return (int)m_listFiles.size();
         }
-		/**
-		 * @brief 获取文件夹下的目录数目
-		* @return 返回目录数目
-		 */
+        /**
+         * @brief 获取文件夹下的目录数目
+         * @return 返回目录数目
+         */
         int GetDirCount()
         {
             return (int)m_listDirs.size();
         }
-		/**
-		 * @brief 获取指定索引的文件名
-		 * @param[in]   i 文件索引
-		 * @return 字符串，包含文件名
-		 */
+        /**
+         * @brief 获取指定索引的文件名
+         * @param[in]   i 文件索引
+         * @return 文件名
+         */
         CString& GetFileName(int i)
         {
             return m_listFiles[i].m_strFileName;
         }
-		/**
-		 * @brief 获取指定索引的文件大小
-		 * @param[in]   i 文件索引
-		 * @return 文件大小
-		 */
+        /**
+         * @brief 获取指定索引的文件大小
+         * @param[in] i 文件索引
+         * @return 文件大小
+         */
         DWORD GetFilesize(int i)
         {
             return m_listFiles[i].m_nSize;
         }
-		/**
-		 * @brief 获取指定索引的目录
-		 * @param[in]   i 目录索引
-		 * @return 字符串，包含指定的目录名
-		 */
+        /**
+         * @brief 获取指定索引的目录
+         * @param[in]   i 目录索引
+         * @return 指定的目录名
+         */
         CString& GetDirName(int i)
         {
             return m_listDirs[i];
         }
-		/**
-		 * @brief 获取指定索引的目录下的文件全路径
-		 * @param[in]   i 目录索引
-		 * @param[out]   strFull 字符串，获取指定目录文件的路径
-		 * @return 字符串，包含指定的目录的路径
-		 */
+        /**
+         * @brief 获取指定索引的目录下的文件全路径
+         * @param[in]  i       目录索引
+         * @param[out] strFull 字符串，获取指定目录文件的路径
+         * @return 指定的目录的路径
+         */
         void GetFileFullPath(int i, CString& strFull)
         {
             strFull = m_strDir;
             strFull.Append(m_listFiles[i].m_strFileName);
         }
-		/**
-		 * @brief 获取指定索引的目录的全路径
-		 * @param[in]   i 目录索引
-		 * @param[out]   strFull 字符串，获取指定目录文件的路径
-		 * @return 字符串，包含指定的目录的路径
-		 */
+        /**
+         * @brief 获取指定索引的目录的全路径
+         * @param[in]  i       目录索引
+         * @param[out] strFull 指定目录文件的路径
+         * @return 指定的目录的路径
+         */
         void GetDirFullPath(int i, CString& strFull)
         {
             strFull = m_strDir;

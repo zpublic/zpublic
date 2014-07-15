@@ -27,18 +27,18 @@ namespace zl
 {
 namespace WinUtils
 {
-	/**
-	* @brief 剪切板操作类，可以设置剪切板数据，获取剪切板数据
-	*/
+    /**
+     * @brief 剪切板操作相关
+     */
     class ZLClipboard
     {
     public:
-		/**
-		 * @brief 向剪切板设置数据
-		 * @param[in]   pszData Buffer，包含要设置到剪切板的数据
-		 * @param[in]   nDataLen 设置数据的长度
-		 * @return 如果成功，返回TRUE，如果失败返回FALSE
-		 */
+        /**
+         * @brief 设置剪切板内容
+         * @param[in] pszData  指向缓冲区的指针
+         * @param[in] nDataLen 缓冲区长度
+         * @return 成功返回TRUE，失败返回FALSE
+         */
         static BOOL SetClipboard(const char* pszData, const int nDataLen)
         {
             if (::OpenClipboard(NULL))
@@ -57,10 +57,10 @@ namespace WinUtils
             }
             return FALSE;
         }
-		/**
-		 * @brief 获取剪切板的数据
-		 * @return 如果成功，返回剪切板中的数据，如果失败返回空串
-		 */
+        /**
+         * @brief 读取剪切板内容
+         * @return 剪切板内容,失败为空
+         */
         static CStringA GetClipboard()
         {
             CStringA sText;
