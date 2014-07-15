@@ -32,7 +32,11 @@ namespace WinUtils
     class ZLBrowser
     {
     public:
-        ///> 是否是主动打开浏览器
+        /**
+         * @brief 是否用户是主动打开浏览器
+         * @param[in] lpParentProcess 父进程路径
+         * @return 成功返回TRUE,失败FALSE
+         */
         static BOOL IsUserLaunchBrowser(LPCTSTR lpParentProcess)
         {
             if (!lpParentProcess)
@@ -43,7 +47,11 @@ namespace WinUtils
             return (sExplorer.CollateNoCase(lpParentProcess) == 0);
         }
 
-        ///>  获取默认浏览器
+        /**
+         * @brief 获取默认浏览器
+         * @param[out] strDefaultBrowser 返回的默认浏览器路径
+         * @return 成功返回TRUE,失败FALSE
+         */
         static BOOL GetDefaultBrowser(CString& strDefaultBrowser)
         {
             BOOL bResult = FALSE;
@@ -91,7 +99,10 @@ _abort:
             return bResult;
         }
 
-        // 获取IE版本
+        /**
+         * @brief 获取IE版本
+         * @return 返回版本号, 失败为0
+         */
         static unsigned int GetIEMajorVersion()
         {
             static unsigned int s_version = UINT_MAX;

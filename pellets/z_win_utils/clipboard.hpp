@@ -35,7 +35,7 @@ namespace WinUtils
     public:
         /**
          * @brief 设置剪切板内容
-         * @param[in] pszData  指针缓冲区的指针
+         * @param[in] pszData  指向缓冲区的指针
          * @param[in] nDataLen 缓冲区长度
          * @return 成功返回TRUE，失败返回FALSE
          */
