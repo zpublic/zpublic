@@ -43,8 +43,8 @@ namespace WinUtils
         {}
 	/**
 	 * @brief 获取文件版本信息
-	 * @param[in]   hModule 文件句柄，默认为NULL
-	 * @return 如果成功，返回TRUE，如果失败返回FALSE
+	 * @param[in] hModule 文件句柄，默认为NULL
+	 * @return 成功返回TRUE，失败返回FALSE
 	 * @see Create
 	 */
         BOOL Create(HMODULE hModule = NULL)
@@ -58,8 +58,8 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取文件的信息
-	 * @param[in]   lpszFileName  文件名
-	 * @return 如果成功，返回TRUE，如果失败返回FALSE
+	 * @param[in] lpszFileName 文件名
+	 * @return 成功返回TRUE，失败返回FALSE
 	 * @see GetFileVersionInfoSize
 	 */
         BOOL Create(LPCTSTR lpszFileName)
@@ -209,8 +209,8 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取文件的版本信息
-	 * @param[in]   nIndex  索引
-	 * @return 如果成功，返回非零，如果失败返回零
+	 * @param[in] nIndex 索引
+	 * @return 成功返回非零，失败返回零
 	 */
         WORD GetFileVersion(int nIndex) const
         {
@@ -227,8 +227,8 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取文件的Product信息
-	 * @param[in]   nIndex  索引
-	 * @return 如果成功，返回非零，如果失败返回零
+	 * @param[in] nIndex 索引
+	 * @return 成功返回非零，失败返回零
 	 */
         WORD GetProductVersion(int nIndex) const
         {
@@ -245,7 +245,7 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取文件的FileFlagsMask
-	 * @param[in]   nIndex  索引
+	 * @param[in] nIndex 索引
 	 * @return FileFlagsMask
 	 */
         DWORD GetFileFlagsMask() const
@@ -254,7 +254,7 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取文件的FileFlags
-	 * @return  FileFlags
+	 * @return FileFlags
 	 */
         DWORD GetFileFlags() const
         {
@@ -262,7 +262,7 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取文件系统
-	 * @param[in]   nIndex  索引
+	 * @param[in] nIndex 索引
 	 * @return FileOS
 	 */
         DWORD GetFileOs() const
@@ -300,7 +300,7 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取CompanyName
-	 * @return  字符串，代表CompanyName
+	 * @return CompanyName
 	 */
         CString GetCompanyName() const
         {
@@ -308,7 +308,7 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取文件描述
-	 * @return  字符串，表示文件描述
+	 * @return 文件描述
 	 */
         CString GetFileDescription() const
         {
@@ -316,7 +316,7 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取文件版本
-	 * @return  字符串，代表FileVersion
+	 * @return FileVersion
 	 */
         CString GetFileVersion() const
         {
@@ -324,7 +324,7 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取InternalName
-	 * @return  字符串，代表InternalName
+	 * @return InternalName
 	 */
         CString GetInternalName() const
         {
@@ -332,7 +332,7 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取LegalCopyright
-	 * @return  字符串，代表LegalCopyright
+	 * @return LegalCopyright
 	 */
         CString GetLegalCopyright() const
         {
@@ -340,7 +340,7 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取OriginalFileName
-	 * @return  字符串，代表OriginalFileName
+	 * @return OriginalFileName
 	 */
         CString GetOriginalFileName() const
         {
@@ -348,7 +348,7 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取ProductName
-	 * @return  字符串，代表ProductName
+	 * @return ProductName
 	 */
         CString GetProductName() const
         {
@@ -356,7 +356,7 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取ProductVersion
-	 * @return  字符串，代表ProductVersion
+	 * @return ProductVersion
 	 */
         CString GetProductVersion() const
         {
@@ -364,7 +364,7 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取Comments
-	 * @return  字符串，代表Comments
+	 * @return Comments
 	 */
         CString GetComments() const
         {
@@ -372,7 +372,7 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取LegalTrademarks
-	 * @return  字符串，代表LegalTrademarks
+	 * @return LegalTrademarks
 	 */
         CString GetLegalTrademarks() const
         {
@@ -380,7 +380,7 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取PrivateBuild
-	 * @return  字符串，代表PrivateBuild
+	 * @return PrivateBuild
 	 */
         CString GetPrivateBuild() const
         {
@@ -388,7 +388,7 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取SpecialBuild
-	 * @return  字符串，代表SpecialBuild
+	 * @return SpecialBuild
 	 */
         CString GetSpecialBuild() const
         {
@@ -415,12 +415,12 @@ namespace WinUtils
         }
 	/**
 	 * @brief 获取当前用户的本地语言标示
-	 * @param[in]   lpData Buffer，包含指定文件的版本信息
-	 * @param[in]   unBlockSize VS_FIXEDFILEINFO结构体的大小
-	 * @param[in]  wLangId 语言标示
-	 * @param[out]  dwId 语言标示
+	 * @param[in]  lpData         文件的版本信息
+	 * @param[in]  unBlockSize    VS_FIXEDFILEINFO结构体的大小
+	 * @param[in]  wLangId        语言标示
+	 * @param[out] dwId           语言标示
 	 * @param[in]  bPrimaryEnough 是否进行低字节操作
-	 * @return 如果成功，返回TRUE，如果失败返回FALSE
+	 * @return 成功返回TRUE，失败返回FALSE
 	 */
         BOOL GetTranslationId(
             LPVOID lpData, 

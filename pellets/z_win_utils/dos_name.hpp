@@ -59,9 +59,9 @@ namespace WinUtils
             return TRUE;
         }
         /**
-         * @brief 由设备路径获取Dos路径   
-         * @param[in,out]   cstrPath 字符串，包含设备路径
-         * @return 如果成功，返回TRUE，如果失败返回FALSE
+         * @brief 设备路径获取Dos路径   
+         * @param[in,out] cstrPath 设备路径
+         * @return 成功返回TRUE，失败返回FALSE
          */
         BOOL DevicePathToDosPath(CString& cstrPath)
         {
@@ -83,7 +83,7 @@ namespace WinUtils
     private:
         /**
          * @brief 获取Dos设备名
-         * @return 如果成功，返回TRUE，如果失败返回FALSE
+         * @return 成功返回TRUE，失败返回FALSE
          * @see GetLogicalDriveStrings
          */
         BOOL _GetDosDeviceNames()

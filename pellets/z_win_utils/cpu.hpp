@@ -31,13 +31,20 @@ namespace WinUtils
     class ZLCpu
     {
     public:
+        /**
+         * @brief 获取处理器个数
+         * @return 返回处理器个数
+         */
         static int GetProcessorsCount()
         {
             SYSTEM_INFO info = {0};
             ::GetSystemInfo(&info);
             return info.dwNumberOfProcessors;
         }
-
+        /**
+         * @brief 获取处理器主频
+         * @return 返回处理器主频，以MHz为单位
+         */
         static DWORD GetCpuMHz()
         {
             DWORD dwMHz = 0;
