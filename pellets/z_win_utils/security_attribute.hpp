@@ -27,9 +27,9 @@ namespace zl
 namespace WinUtils
 {
 
-    namespace ZLSecurityAttrabute
+    class ZLSecurityAttrabute
     {
-        __inline PSECURITY_ATTRIBUTES CreateSecurityAttribute()
+        PSECURITY_ATTRIBUTES CreateSecurityAttribute()
         {
             BOOL bRet = FALSE;
             PSECURITY_ATTRIBUTES psa = (PSECURITY_ATTRIBUTES)malloc(sizeof(SECURITY_ATTRIBUTES));
@@ -66,7 +66,7 @@ cleanup:
             return psa;
         }
 
-        __inline void FreeSecurityAttribute(PSECURITY_ATTRIBUTES psa)
+        void FreeSecurityAttribute(PSECURITY_ATTRIBUTES psa)
         {
             if (psa)
             {
