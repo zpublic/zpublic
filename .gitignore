@@ -80,3 +80,5 @@ obj
 .idea
 *.db
 *.exp
+/doc/html
+/doc/zpublic-pellets-z_win_utils.chm
