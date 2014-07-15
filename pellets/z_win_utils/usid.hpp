@@ -28,13 +28,16 @@ namespace zl
 namespace WinUtils
 {
     /**
-     * @brief 用户SID操作接口
-     * @note 接口列表如下:
-     *      GetCurrentUserSID   获取当前用户的SID
+     * @brief 用户SID操作
      */
     class ZLUsid
     {
     public:
+        /**
+         * @brief 获取当前用户SID
+         * @param[out] 返回用户SID
+         * retrun 成功返回TRUE, 失败FALSE
+         */
         static BOOL GetCurrentUserSID(CString& strCurrentUserSID)
         {
             BOOL bResult = FALSE;

@@ -4,8 +4,8 @@ zpublic
   
 项目简介：
 ----------
-zpublic是一个主要用于代码尝试和代码收集的开源c++项目。  
-代码尝试，意味着zpublic会使用到c++11、boost、poco等较激进的c++技术和开源代码，并且使用了大量的开源第三方库。zpublic里有各种编程方向的尝试，譬如界面开发、调试器、游戏等，同时，也意味着部分代码的质量是无法完全保证的。  
+zpublic是一个主要用于代码尝试和代码收集的c++开源项目。  
+代码尝试，意味着zpublic会使用到c++11、boost、poco等较激进的c++技术和开源代码，并且使用了大量的开源第三方库。zpublic里有各种编程方向的尝试，譬如界面开发、调试器、游戏等，同时，也意味着这部分代码的质量是无法完全保证的。  
 代码收集，意味着zpublic里有参与的几个人在工作、平时写的很多可重用代码，这些代码的质量是可以保证的，部分已用到千万用户级产品中。  
 
 目录结构：
@@ -40,5 +40,5 @@ zlui：界面尝试相关的代码
 
 zpublic（c++11、boost、poco、gui等讨论）交流讨论QQ群：240978546  
 coeus（火热进行中的游戏）交流讨论群：37723482  
-coeus的丰富文档：http://wiki.powman.org/pages/viewpage.action?pageId=4849675
-交流论坛 [http://gamediary.org/]
+coeus的丰富文档：http://wiki.powman.org/pages/viewpage.action?pageId=4849675  
+交流论坛 [http://gamediary.org/]  
