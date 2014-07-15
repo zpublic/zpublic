@@ -64,6 +64,12 @@ namespace WinUtils
     class ZLService
     {
     public:
+        /**
+         * @brief Changes the configuration parameters of a service
+         * @param[in] pSvcInfo ZLSERVICE_INFO结构体指针
+         * @return 成功返回S_OK，失败返回-1
+         * @see ChangeServiceConfig
+         */
         static LONG CreateBySCM(const ZLSERVICE_INFO* pSvcInfo)
         {
             if (!pSvcInfo || pSvcInfo->dwSize != sizeof(ZLSERVICE_INFO))
@@ -118,7 +124,12 @@ Exit0:
 
             return lRet;
         }
-
+        /**
+         * @brief 删除服务
+         * @param[in] szSvcName 服务名
+         * @return 成功返回S_OK，失败返回-1
+         * @see DeleteService
+         */
         static LONG DeleteBySCM(LPCTSTR szSvcName)
         {
             if (!szSvcName)
@@ -459,7 +470,7 @@ Exit0:
     private:
         static LONG _AppendSvcName(LPTSTR szBuffer, DWORD dwSize, LPCTSTR szSvcName)
         {
-            if (!szBuffer || dwSize <= 0 || !szSvcName)
+            if (!szBuffer || dwSize == 0 || !szSvcName)
                 return -1;
 
             BOOL bFind = FALSE;
