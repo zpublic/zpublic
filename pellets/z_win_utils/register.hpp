@@ -21,6 +21,7 @@
 
 #pragma once
 #include "win_utils_header.h"
+#include <shlwapi.h>
 
 namespace zl
 {
@@ -115,7 +116,7 @@ namespace WinUtils
             {
                 return FALSE;
             }
-            if (ERROR_SUCCESS == ::RegDeleteTree(hKey_, pszName))
+            if (ERROR_SUCCESS == ::SHDeleteKey(hKey_, pszName))
             {
                 return TRUE;
             }
