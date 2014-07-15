@@ -38,7 +38,7 @@ namespace WinUtils
             {
                 return FALSE;
             }
-            CString sExplorer = ZLSystemPath::GetWindowsDir() + L"explorer.exe";
+            CString sExplorer = ZLSystemPath::GetWindowsDir()  + L"explorer.exe";
             return (sExplorer.CollateNoCase(lpParentProcess) == 0);
         }
 

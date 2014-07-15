@@ -89,9 +89,9 @@ namespace WinUtils
          * @return 成功返回TRUE，失败返回FALSE
          */
         BOOL SetSecurity(const CString& cstrUserName,
-                         DWORD dwAccessPermissions = KEY_ALL_ACCESS,
-                         ACCESS_MODE enumAccessMode = SET_ACCESS,
-                         DWORD dwInheritance = SUB_CONTAINERS_AND_OBJECTS_INHERIT)
+            DWORD dwAccessPermissions = KEY_ALL_ACCESS,
+            ACCESS_MODE enumAccessMode = SET_ACCESS,
+            DWORD dwInheritance = SUB_CONTAINERS_AND_OBJECTS_INHERIT)
         {
             if (!bIsOpen_
                 || cstrUserName.IsEmpty())
