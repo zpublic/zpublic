@@ -29,7 +29,7 @@ namespace WinUtils
     /**
      * @brief UIPI消息过滤器相关操作
      */
-    namespace ZLMessage
+    class ZLMessage
     {
         inline UINT RegisterMessage(LPCTSTR lpMsgName)
         {
