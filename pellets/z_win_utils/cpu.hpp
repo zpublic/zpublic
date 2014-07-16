@@ -27,7 +27,7 @@ namespace zl
 {
 namespace WinUtils
 {
-        /**
+    /**
      * @brief cpu信息相关
      */
     class ZLCpu
@@ -43,6 +43,7 @@ namespace WinUtils
             ::GetSystemInfo(&info);
             return info.dwNumberOfProcessors;
         }
+
         /**
          * @brief 获取处理器主频
          * @return 返回处理器主频，以MHz为单位

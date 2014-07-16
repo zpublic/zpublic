@@ -58,10 +58,12 @@ namespace WinUtils
             m_vecDosDeviceNames.clear();
             return TRUE;
         }
+
         /**
-         * @brief 设备路径获取Dos路径   
-         * @param[in,out] cstrPath 设备路径
+         * @brief 设备路径转Dos路径
+         * @param[in,out] cstrPath 传入设备路径, 返回DOS路径
          * @return 成功返回TRUE，失败返回FALSE
+         * @note 设备路径如: "\Device\HarddiskVolume2\Windows\regedit.exe" 对应的DOS路径为"c:\windows\regedit.exe"
          */
         BOOL DevicePathToDosPath(CString& cstrPath)
         {
@@ -81,11 +83,6 @@ namespace WinUtils
         }
 
     private:
-        /**
-         * @brief 获取Dos设备名
-         * @return 成功返回TRUE，失败返回FALSE
-         * @see GetLogicalDriveStrings
-         */
         BOOL _GetDosDeviceNames()
         {
             TCHAR szDevicesName[MAX_LOGICAL_DRIVE_LENGTH + 1] ={0};
