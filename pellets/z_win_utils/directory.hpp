@@ -28,7 +28,8 @@ namespace zl
 namespace WinUtils
 {
 
-    /*
+    /**
+     * @brief 提供对目录的创建、修改和删除操作
      *  CreateDeepDirectory     创建多层目录
      *  DeleteDirectory         删除目录
      *  CopyDirectory           拷贝目录

@@ -28,7 +28,7 @@ namespace zl
 namespace WinUtils
 {
     /**
-     * @brief 获取物理内存大小的类
+     * @brief 获取物理内存大小
      */
     class ZLMemory
     {

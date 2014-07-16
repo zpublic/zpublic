@@ -26,7 +26,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 提供对安全属性的创建和删除操作
+     */
     class ZLSecurityAttrabute
     {
          /**

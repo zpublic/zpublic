@@ -27,7 +27,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 获取硬盘大小
+     */
     class ZLDrive
     {
     public:

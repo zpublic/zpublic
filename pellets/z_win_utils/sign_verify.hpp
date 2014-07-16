@@ -39,7 +39,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 数字签名验证相关操作
+     */
     class ZLSignVerify {
 
 #include <pshpack8.h>

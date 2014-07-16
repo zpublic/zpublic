@@ -46,7 +46,9 @@ namespace WinUtils
         __in  HANDLE hProcess,
         __out PBOOL Wow64Process
         );
-
+    /**
+     * @brief 32位、64位兼容处理
+     */
     class ZLWow64
     {
     public:

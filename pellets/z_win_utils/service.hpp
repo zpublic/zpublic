@@ -60,12 +60,14 @@ namespace WinUtils
     static LONG Start(LPCTSTR szSvcName, LPCTSTR szCmdline = NULL, DWORD dwMilliseconds = 0);
     static LONG Stop(LPCTSTR szSvcName, DWORD dwMilliseconds = 0);
     */
-
+    /**
+     * 系统服务相关操作
+     */
     class ZLService
     {
     public:
         /**
-         * @brief Changes the configuration parameters of a service
+         * @brief 改变服务的配置参数
          * @param[in] pSvcInfo ZLSERVICE_INFO结构体指针
          * @return 成功返回S_OK，失败返回-1
          * @see ChangeServiceConfig

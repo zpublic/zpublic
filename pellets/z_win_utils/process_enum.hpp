@@ -45,6 +45,9 @@ namespace WinUtils
     }ZLProcessEnumInfo;
 
     typedef std::vector<ZLProcessEnumInfo> ZLProcessEnumInfoVec;
+    /**
+     * @brief ½ø³ÌÃ¶¾Ù
+     */
     class ZLProcessEnum
     {
     public:
