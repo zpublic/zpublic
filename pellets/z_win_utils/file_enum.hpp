@@ -35,7 +35,7 @@ namespace WinUtils
         DWORD	m_nSize;
     }ZLFileEnumInfo;
     /**
-     * @brief 文件枚举类
+     * @brief 文件枚举相关操作
      */
     class ZLFileEnum
     {

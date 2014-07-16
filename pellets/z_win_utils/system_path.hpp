@@ -40,7 +40,9 @@ namespace WinUtils
      *      GetTempDir                      <user name>\Templates
      *      GetProgramFileDir               Program Files
      */
-
+    /**
+     * @brief 获取常见的系统相关路径
+     */
     class ZLSystemPath
     {
     public:

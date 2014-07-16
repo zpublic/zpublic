@@ -27,7 +27,7 @@ namespace zl
 namespace WinUtils
 {
     /**
-     * @brief UIPI消息过滤器操作类
+     * @brief UIPI消息过滤器相关操作
      */
     namespace ZLMessage
     {

@@ -26,7 +26,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 时间和字符串转换相关操作
+     */
     class ZLTimeString
     {
     private:

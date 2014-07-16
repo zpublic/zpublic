@@ -27,7 +27,7 @@ namespace zl
 namespace WinUtils
 {
     /**
-     * @brief 调整进程权限的类
+     * @brief 调整进程权限
      */
     class ZLPrivilege
     {

@@ -28,7 +28,7 @@ namespace zl
 namespace WinUtils
 {
     /**
-     * @brief 剪切板操作相关
+     * @brief 提供对剪切板数据的设置、读取操作
      */
     class ZLClipboard
     {

@@ -26,7 +26,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 时间相关操作
+     */
     class ZLTime
     {
     public:

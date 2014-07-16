@@ -26,7 +26,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 提供对动态运行库的相关操作
+     */
     class ZLModule
     {
     public:

@@ -26,7 +26,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief ดํฮ๓ย๋ฯเนุ
+     */
     class ZLErrorCode
     {
     public:

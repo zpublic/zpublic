@@ -29,7 +29,9 @@ namespace WinUtils
 {
     typedef void (WINAPI *LPFN_GetNativeSystemInfo)(LPSYSTEM_INFO);
     typedef BOOL (WINAPI *LPFN_IsWow64Process) (HANDLE, PBOOL);
-
+        /**
+     * @brief 获取系统版本信息
+     */
     class ZLSystemVersion
     {
     public:

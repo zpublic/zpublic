@@ -29,7 +29,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 进程控制相关操作
+     */
     class ZLPsapiDllFunction
     {
     public:

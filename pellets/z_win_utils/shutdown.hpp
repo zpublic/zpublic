@@ -27,7 +27,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 重启和关机
+     */
     class ZLShutdown
     {
     public:

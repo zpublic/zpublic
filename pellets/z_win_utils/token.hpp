@@ -28,7 +28,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 进程权限令牌相关
+     */
     class ZLToken
     {
     public:
