@@ -192,14 +192,12 @@ namespace WinUtils
         {
             BOOL    bReturn = FALSE;
             CString sUserSid;
-            CString sGetCurrentUser;
             if (lpUserSid)
             {
                 sUserSid = lpUserSid;
             }
-            else if (ZLUsid::GetCurrentUserSID(sGetCurrentUser))
+            else if (ZLUsid::GetCurrentUserSID(sUserSid))
             {
-                sUserSid = sGetCurrentUser;
             }
             else
             {
@@ -243,14 +241,12 @@ Exit0:
         {
             BOOL bReturn = FALSE;
             CString sUserSid;
-            CString sGetCurrentUser;
             if (lpUserSid)
             {
                 sUserSid = lpUserSid;
             }
-            else if (ZLUsid::GetCurrentUserSID(sGetCurrentUser))
+            else if (ZLUsid::GetCurrentUserSID(sUserSid))
             {
-                sUserSid = sGetCurrentUser;
             }
             else
             {

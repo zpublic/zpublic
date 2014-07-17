@@ -86,15 +86,13 @@ namespace WinUtils
                 if (::VerQueryValue(lpData, L"\\", &lpInfo, &unInfoLen))
                 {
                     if (unInfoLen == sizeof(mFileInfo))
-                        ::memcpy(&mFileInfo, lpInfo, unInfoLen);
+                        memcpy(&mFileInfo, lpInfo, unInfoLen);
                 }
 
                 ::VerQueryValue(lpData, L"\\VarFileInfo\\Translation", &lpInfo, &unInfoLen);
 
                 DWORD dwLangCode = 0;
-                BOOL bRetCode = FALSE;
-
-                bRetCode = GetTranslationId(lpInfo, unInfoLen, ::GetUserDefaultLangID(), dwLangCode, FALSE);
+                BOOL bRetCode = GetTranslationId(lpInfo, unInfoLen, ::GetUserDefaultLangID(), dwLangCode, FALSE);
                 if (bRetCode == FALSE)
                 {
                     bRetCode = GetTranslationId(lpInfo, unInfoLen, ::GetUserDefaultLangID(), dwLangCode, TRUE);
