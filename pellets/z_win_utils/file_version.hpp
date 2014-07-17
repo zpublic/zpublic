@@ -54,7 +54,6 @@ namespace WinUtils
 
             ::GetModuleFileName(hModule, sPath.GetBuffer(_MAX_PATH), _MAX_PATH);
             sPath.ReleaseBuffer();
-
             return Create(sPath);
         }
 
@@ -66,9 +65,8 @@ namespace WinUtils
         BOOL Create(LPCTSTR lpFileName)
         {
             Reset();
-
-            DWORD dwHandle;
-            DWORD dwFileVersionInfoSize = GetFileVersionInfoSize((LPTSTR)lpFileName, &dwHandle);
+            DWORD dwHandle = 0;
+            DWORD dwFileVersionInfoSize = ::GetFileVersionInfoSize((LPTSTR)lpszFileName, &dwHandle);
 
             if (!dwFileVersionInfoSize)
                 return FALSE;
@@ -79,27 +77,25 @@ namespace WinUtils
 
             try
             {
-                if (!GetFileVersionInfo((LPTSTR)lpFileName, dwHandle, dwFileVersionInfoSize, lpData))
+                if (!::GetFileVersionInfo((LPTSTR)lpszFileName, dwHandle, dwFileVersionInfoSize, lpData))
                     throw FALSE;
 
-                LPVOID lpInfo;
-                UINT unInfoLen;
+                LPVOID lpInfo = NULL;
+                UINT unInfoLen = 0;
 
-                if (VerQueryValue(lpData, L"\\", &lpInfo, &unInfoLen))
+                if (::VerQueryValue(lpData, L"\\", &lpInfo, &unInfoLen))
                 {
                     if (unInfoLen == sizeof(mFileInfo))
                         memcpy(&mFileInfo, lpInfo, unInfoLen);
                 }
 
-                VerQueryValue(lpData, L"\\VarFileInfo\\Translation", &lpInfo, &unInfoLen);
+                ::VerQueryValue(lpData, L"\\VarFileInfo\\Translation", &lpInfo, &unInfoLen);
 
                 DWORD dwLangCode = 0;
-                BOOL bRetCode;
-
-                bRetCode = GetTranslationId(lpInfo, unInfoLen, GetUserDefaultLangID(), dwLangCode, FALSE);
+                BOOL bRetCode = GetTranslationId(lpInfo, unInfoLen, ::GetUserDefaultLangID(), dwLangCode, FALSE);
                 if (bRetCode == FALSE)
                 {
-                    bRetCode = GetTranslationId(lpInfo, unInfoLen, GetUserDefaultLangID(), dwLangCode, TRUE);
+                    bRetCode = GetTranslationId(lpInfo, unInfoLen, ::GetUserDefaultLangID(), dwLangCode, TRUE);
                     if (bRetCode == FALSE)
                     {
                         bRetCode = GetTranslationId(lpInfo, unInfoLen, MAKELANGID(LANG_NEUTRAL, SUBLANG_NEUTRAL), dwLangCode, TRUE);
@@ -120,81 +116,81 @@ namespace WinUtils
                 sSubBlock.Format(L"\\StringFileInfo\\%04X%04X\\", dwLangCode & 0x0000FFFF, (dwLangCode & 0xFFFF0000)>>16);
 
                 strTemp = sSubBlock + L"CompanyName";
-                bRetCode = VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
-                if (bRetCode == FALSE)//检查是否存在	
+                bRetCode = ::VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
+                if (bRetCode == FALSE)//检查是否存在
                     dwLangCode = 0x04b00409;//sogou
                 strTemp.ReleaseBuffer();
 
                 sSubBlock.Format(L"\\StringFileInfo\\%04X%04X\\", dwLangCode & 0x0000FFFF, (dwLangCode & 0xFFFF0000)>>16);
 
                 strTemp = sSubBlock + L"CompanyName";
-                bRetCode = VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
+                bRetCode = ::VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
                 if (bRetCode == TRUE)
                     msCompanyName = (LPCTSTR)lpInfo;
                 strTemp.ReleaseBuffer();
 
                 strTemp = sSubBlock + L"FileDescription";
-                bRetCode = VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
+                bRetCode = ::VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
                 if (bRetCode == TRUE)
                     msFileDescription = (LPCTSTR)lpInfo;
                 strTemp.ReleaseBuffer();
 
                 strTemp = sSubBlock + L"FileVersion";
-                bRetCode = VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
+                bRetCode = ::VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
                 if (bRetCode == TRUE)
                     msFileVersion = (LPCTSTR)lpInfo;
                 strTemp.ReleaseBuffer();
 
                 strTemp = sSubBlock + L"InternalName";
-                bRetCode = VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
+                bRetCode = ::VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
                 if (bRetCode == TRUE)
                     msInternalName = (LPCTSTR)lpInfo;
                 strTemp.ReleaseBuffer();
 
                 strTemp = sSubBlock + L"LegalCopyright";
-                bRetCode = VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
+                bRetCode = ::VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
                 if (bRetCode == TRUE)
                     msLegalCopyright = (LPCTSTR)lpInfo;
                 strTemp.ReleaseBuffer();
 
                 strTemp = sSubBlock + L"OriginalFileName";
-                bRetCode = VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
+                bRetCode = ::VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
                 if (bRetCode == TRUE)
                     msOriginalFileName = (LPCTSTR)lpInfo;
                 strTemp.ReleaseBuffer();
 
                 strTemp = sSubBlock + L"ProductName";
-                bRetCode = VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
+                bRetCode = ::VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
                 if (bRetCode == TRUE)
                     msProductName = (LPCTSTR)lpInfo;
                 strTemp.ReleaseBuffer();
 
                 strTemp = sSubBlock + L"ProductVersion";
-                bRetCode = VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
+                bRetCode = ::VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
                 if (bRetCode == TRUE)
                     msProductVersion = (LPCTSTR)lpInfo;
                 strTemp.ReleaseBuffer();
 
                 strTemp = sSubBlock + L"Comments";
-                bRetCode = VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
+                bRetCode = ::VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
                 if (bRetCode == TRUE)
                     msComments = (LPCTSTR)lpInfo;
                 strTemp.ReleaseBuffer();
 
                 strTemp = sSubBlock + L"LegalTrademarks";
-                bRetCode = VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
+                bRetCode = ::VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
                 if (bRetCode == TRUE)
                     msLegalTrademarks = (LPCTSTR)lpInfo;
                 strTemp.ReleaseBuffer();
 
                 strTemp = sSubBlock + L"PrivateBuild";
-                bRetCode = VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
+                bRetCode = ::VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
                 if (bRetCode == TRUE)
                     msPrivateBuild = (LPCTSTR)lpInfo;
                 strTemp.ReleaseBuffer();
 
                 strTemp = sSubBlock + L"SpecialBuild";
-                bRetCode = VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
+                bRetCode = ::VerQueryValue(lpData, strTemp.GetBuffer(), &lpInfo, &unInfoLen);
                 if (bRetCode == TRUE)
                     msSpecialBuild = (LPCTSTR)lpInfo;
                 strTemp.ReleaseBuffer();

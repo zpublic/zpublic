@@ -75,7 +75,7 @@ namespace WinUtils
                     {
                         ZLFileEnumInfo fi;
                         fi.m_strFileName = strFileName;
-                        fi.m_nSize  = wfd.nFileSizeLow;	
+                        fi.m_nSize  = wfd.nFileSizeLow;
                         m_listFiles.push_back(fi);
                     }
                 }while (::FindNextFile(hFind, &wfd));
