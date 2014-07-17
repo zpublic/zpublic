@@ -29,7 +29,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 进程控制相关操作
+     */
     class ZLPsapiDllFunction
     {
     public:
@@ -86,7 +88,7 @@ namespace WinUtils
          * @brief 枚举系统中进程的标识符
          * @param[in]  pProcessIds     指向存放进程标识符数组的指针
          * @param[in]  cb              数组大小
-         * @param[out] pBytesReturned 进程标识符数组的大小
+         * @param[out] pBytesReturned  返回的进程标识符数组的大小
          * @return 成功返回TRUE，失败返回FALSE
          */
         BOOL EnumProcesses(DWORD* pProcessIds, DWORD cb, DWORD* pBytesReturned)

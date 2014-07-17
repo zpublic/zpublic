@@ -31,7 +31,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 命令行参数处理的相关操作
+     */
     class ZLCmdLine
     {
     public:
@@ -52,7 +54,10 @@ namespace WinUtils
         {
             m_ValsMap.clear();
         }
-
+        /**
+         * @brief 解析命令行参数
+         * @return 成功返回TRUE，失败返回FALSE
+         */
         bool Parse(LPCTSTR sCmdLine)
         {
             if (!sCmdLine) 

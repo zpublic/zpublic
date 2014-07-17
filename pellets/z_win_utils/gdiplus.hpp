@@ -26,7 +26,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief gdiplus初始化相关操作
+     */
     class ZLGdiPlusInit
     {
         class Inst

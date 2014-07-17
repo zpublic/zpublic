@@ -27,7 +27,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 提供对注册表的打开、读取、设置、创建和删除操作
+     */
     class ZLRegister
     {
     public:

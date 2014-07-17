@@ -46,7 +46,9 @@ namespace WinUtils
         __in  HANDLE hProcess,
         __out PBOOL Wow64Process
         );
-
+    /**
+     * @brief 32位、64位兼容处理
+     */
     class ZLWow64
     {
     public:
@@ -54,6 +56,13 @@ namespace WinUtils
         ~ZLWow64() {}
 
     public:
+        /**
+         * @brief 进程是否运行在Wow64下
+         * @param[in]  hProcess       进程句柄
+         * @param[out] pbWow64Process BOOL指针
+         * @return 成功返回TRUE，失败返回FALSE
+         * @see IsWow64Process
+         */
         static BOOL CheckIsWow64Process(HANDLE hProcess, BOOL* pbWow64Process)
         {
             static Fn_IsWow64Process* s_pfnIsWow64 = (Fn_IsWow64Process*)::GetProcAddress(
@@ -62,7 +71,11 @@ namespace WinUtils
 
             return s_pfnIsWow64 ? s_pfnIsWow64(hProcess, pbWow64Process) : FALSE;
         }
-
+        /**
+         * @brief 当前进程是否运行在Wow64下
+         * @param[out] pbWow64Process BOOL指针
+         * @return 成功返回TRUE，失败返回FALSE
+         */
         static BOOL CheckCurrentProcessIsWow64Process(BOOL* pbWow64Process)
         {
             static BOOL s_bIsWow64Process = FALSE;
@@ -74,7 +87,11 @@ namespace WinUtils
             }
             return s_bResult;
         }
-
+        /**
+         * @brief 禁用文件系统重定向为调用线程
+         * @param[out] ppVoidValue Wow64文件系统重定向值
+         * @return 成功返回TRUE，失败返回FALSE
+         */
         static BOOL Wow64DisableWow64FsRedirection(PVOID* ppVoidValue)
         {
             static Fn_Wow64DisableWow64FsRedirectionFunction* s_pfnWow64DisableWow64FsRedirection = 
@@ -84,7 +101,11 @@ namespace WinUtils
 
             return s_pfnWow64DisableWow64FsRedirection ? s_pfnWow64DisableWow64FsRedirection(ppVoidValue) : FALSE;
         }
-
+        /**
+         * @brief 恢复文件系统重定向为调用线程
+         * @param[in] ppVoidValue Wow64文件系统重定向值
+         * @return 成功返回TRUE，失败返回FALSE
+         */
         static BOOL Wow64RevertWow64FsRedirection(PVOID pOldValue)
         {
             static Fn_Wow64RevertWow64FsRedirectionFunction* s_pfnWow64RevertWow64FsRedirection = 

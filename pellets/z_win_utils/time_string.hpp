@@ -26,13 +26,20 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 时间和字符串转换相关操作
+     */
     class ZLTimeString
     {
     private:
         static const int TIME_STRING_MAX_LEN = 28;
 
     public:
+        /**
+         * @brief 时间转换为字符串
+         * @param[in]  stTime  时间值
+         * @param[out] strTime 返回时间字符串
+         */
         static void Time2Str(IN const SYSTEMTIME& stTime, OUT CString& strTime)
         {
             strTime.Format(L"%d-%d-%d %d:%d:%d:%d %d",
@@ -40,7 +47,12 @@ namespace WinUtils
                 stTime.wHour, stTime.wMinute, stTime.wSecond,
                 stTime.wMilliseconds, stTime.wDayOfWeek);
         }
-
+        /**
+         * @brief 字符串转换为时间
+         * @param[in]  strTime 时间字符串
+         * @param[out] stTime  返回时间
+         * @return 成功返回TRUE，失败返回FALSE
+         */
         static BOOL Str2Time(IN const wchar_t* strTime, OUT SYSTEMTIME& stTime)
         {
             int nYear  = 0;
@@ -68,14 +80,23 @@ namespace WinUtils
             stTime.wMilliseconds = nMilliseconds;
             return TRUE;
         }
-
+        /**
+         * @brief 时间转换为字符串，不包含毫秒和星期
+         * @param[in]  stTime  时间值
+         * @param[out] strTime 返回时间字符串
+         */
         static void Time2StrShort(IN const SYSTEMTIME& stTime, OUT CString& strTime)
         {
             strTime.Format(L"%d-%d-%d %d:%d:%d",
                 stTime.wYear, stTime.wMonth, stTime.wDay,
                 stTime.wHour, stTime.wMinute, stTime.wSecond);
         }
-
+        /**
+         * @brief 字符串转换为时间
+         * @param[in]  strTime 时间字符串
+         * @param[out] stTime  返回时间
+         * @return 成功返回TRUE，失败返回FALSE
+         */
         static BOOL Str2TimeShort(IN const wchar_t* strTime, OUT SYSTEMTIME& stTime)
         {
             int nYear  = 0;
@@ -98,7 +119,14 @@ namespace WinUtils
             stTime.wSecond       = nSecond;
             return TRUE;
         }
-
+        /**
+         * @brief 设置时间值到配置文件
+         * @param[in] lpszFile 文件名
+         * @param[in] lpszApp  节名
+         * @param[in] lpszKey  键名
+         * @param[in] stTime   时间值
+         * @return 成功返回TRUE，失败返回FALSE
+         */
         static BOOL WriteTimeToIni(IN LPCTSTR lpszFile, 
             IN LPCTSTR lpszApp, 
             IN LPCTSTR lpszKey, 
@@ -118,7 +146,14 @@ namespace WinUtils
             }
             return FALSE;
         }
-
+        /**
+         * @brief 获取配置文件中的时间值
+         * @param[in]  lpszFile 文件名
+         * @param[in]  lpszApp  节名
+         * @param[in]  lpszKey  键名
+         * @param[out] stTime   时间值
+         * @return 成功返回TRUE，失败返回FALSE
+         */
         static BOOL ReadTimeFromIni(IN LPCTSTR lpszFile, 
             IN LPCTSTR lpszApp,
             IN LPCTSTR lpszKey,
@@ -131,7 +166,14 @@ namespace WinUtils
             }
             return FALSE;
         }
-
+        /**
+         * @brief 获取配置文件中的时间值
+         * @param[in]  lpszFile 文件名
+         * @param[in]  lpszApp  节名
+         * @param[in]  lpszKey  键名
+         * @param[out] strTime  字符串时间值
+         * @return 成功返回TRUE，失败返回FALSE
+         */
         static BOOL ReadTimeFromIni(IN LPCTSTR lpszFile,
             IN LPCTSTR lpszApp,
             IN LPCTSTR lpszKey,

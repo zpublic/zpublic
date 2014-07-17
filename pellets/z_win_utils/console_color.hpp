@@ -45,7 +45,9 @@ namespace WinUtils
         emConsoleColourFaintYellow      = 14,   ///>E= 淡黄色
         emConsoleColourBrightWhite      = 15,   ///>F= 亮白色
     }emConsoleColor;
-
+    /**
+     * @brief 提供对console背景、字体的颜色的相关操作
+     */
     class ZLConsoleColor
     {
     public:

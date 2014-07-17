@@ -36,7 +36,11 @@ namespace WinUtils
         TaskballPositionBottom,
         TaskballPositionHide
     };
-
+        /**
+         * @brief 获取任务栏的位置
+         * @return 成功返回任务栏的位置
+         * @see SystemParametersInfo
+         */
     static emTaskbarPosition GetTaskbarPosition()
     {
         RECT rcWA;

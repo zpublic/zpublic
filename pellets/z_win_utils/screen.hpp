@@ -28,7 +28,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief ÆÁÄ»·Ö±æÂÊÉèÖÃ
+     */
     class ZLScreen
     {
     public:

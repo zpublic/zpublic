@@ -60,10 +60,18 @@ namespace WinUtils
     static LONG Start(LPCTSTR szSvcName, LPCTSTR szCmdline = NULL, DWORD dwMilliseconds = 0);
     static LONG Stop(LPCTSTR szSvcName, DWORD dwMilliseconds = 0);
     */
-
+    /**
+     * 系统服务相关操作
+     */
     class ZLService
     {
     public:
+        /**
+         * @brief 改变服务的配置参数
+         * @param[in] pSvcInfo ZLSERVICE_INFO结构体指针
+         * @return 成功返回S_OK，失败返回-1
+         * @see ChangeServiceConfig
+         */
         static LONG CreateBySCM(const ZLSERVICE_INFO* pSvcInfo)
         {
             if (!pSvcInfo || pSvcInfo->dwSize != sizeof(ZLSERVICE_INFO))
@@ -118,7 +126,12 @@ Exit0:
 
             return lRet;
         }
-
+        /**
+         * @brief 删除服务
+         * @param[in] szSvcName 服务名
+         * @return 成功返回S_OK，失败返回-1
+         * @see DeleteService
+         */
         static LONG DeleteBySCM(LPCTSTR szSvcName)
         {
             if (!szSvcName)
@@ -327,7 +340,6 @@ Exit0:
             SC_HANDLE schSCManager = NULL;
             SC_HANDLE schService = NULL;
             SERVICE_STATUS serviceStatus = {0};
-            TCHAR* pBuffer = NULL;
             LPWSTR* pArglist = NULL;
 
             schSCManager = ::OpenSCManager(NULL, NULL, SC_MANAGER_CONNECT);
@@ -350,17 +362,13 @@ Exit0:
                 }
                 else
                 {
-                    DWORD dwBufSize = (DWORD)_tcslen(szSvcName) + 1 + (DWORD)_tcslen(szCmdline) + 1;
-                    pBuffer = new TCHAR[dwBufSize];
-                    _stprintf_s(pBuffer, dwBufSize, _T("%s %s"), szSvcName, szCmdline);
-
-                    USES_CONVERSION;
                     int nArgs = 0;
-                    pArglist = ::CommandLineToArgvW(CT2W(pBuffer), &nArgs);
+                    USES_CONVERSION;
+                    pArglist = ::CommandLineToArgvW(CT2W(szCmdline), &nArgs);
                     if (!pArglist)
                         goto Exit0;
 
-                    if (!::StartServiceW(schService, nArgs, (LPCWSTR*)&pArglist))
+                    if (!::StartServiceW(schService, nArgs, (LPCWSTR*)pArglist))
                         goto Exit0;
                 }
             }
@@ -388,8 +396,6 @@ Exit0:
 Exit0:
             if (pArglist)
                 ::LocalFree(pArglist);
-            if (pBuffer)
-                delete[] pBuffer;
 
             if (schService)
                 ::CloseServiceHandle(schService);
@@ -459,7 +465,7 @@ Exit0:
     private:
         static LONG _AppendSvcName(LPTSTR szBuffer, DWORD dwSize, LPCTSTR szSvcName)
         {
-            if (!szBuffer || dwSize <= 0 || !szSvcName)
+            if (!szBuffer || dwSize == 0 || !szSvcName)
                 return -1;
 
             BOOL bFind = FALSE;

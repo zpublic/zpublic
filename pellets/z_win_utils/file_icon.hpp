@@ -28,7 +28,7 @@ namespace zl
 namespace WinUtils
 {
     /**
-     * @brief 获取文件图标的类
+     * @brief 获取文件图标
      */
     class ZLFileIcon
     {

@@ -26,9 +26,16 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 提供对安全属性的创建和删除操作
+     */
     class ZLSecurityAttrabute
     {
+         /**
+         * @brief 创建安全属性
+         * @return 成功返回创建的安全属性指针，失败返回NULL
+         * @see InitializeSecurityDescriptor SetSecurityDescriptorDacl
+         */
         PSECURITY_ATTRIBUTES CreateSecurityAttribute()
         {
             BOOL bRet = FALSE;
@@ -65,7 +72,10 @@ cleanup:
             }
             return psa;
         }
-
+        /**
+         * @brief 释放创建的安全属性
+         * @param[in] psa 安全描述符指针
+         */
         void FreeSecurityAttribute(PSECURITY_ATTRIBUTES psa)
         {
             if (psa)

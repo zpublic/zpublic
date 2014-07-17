@@ -27,7 +27,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+        /**
+     * @brief cpu信息相关
+     */
     class ZLCpu
     {
     public:

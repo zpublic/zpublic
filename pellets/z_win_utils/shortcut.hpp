@@ -25,7 +25,7 @@ namespace zl
 namespace WinUtils
 {
     /**
-     * @brief 快捷方式处理类
+     * @brief 快捷方式处理
      * 用于生成给定文件的快捷方式，由快捷方式获取文件路径与文件名
      */
     class ZLShortcut

@@ -28,12 +28,14 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 浏览器相关
+     */
     class ZLBrowser
     {
     public:
         /**
-         * @brief 是否用户是主动打开浏览器
+         * @brief 判断是否是用户打开浏览器
          * @param[in] lpParentProcess 父进程路径
          * @return 成功返回TRUE,失败FALSE
          */

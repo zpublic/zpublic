@@ -28,7 +28,9 @@ namespace zl
 {
 namespace WinUtils
 {
-
+    /**
+     * @brief 提供对安全描述符的读取和设置操作
+     */
     class ZLAcl
     {
     public:

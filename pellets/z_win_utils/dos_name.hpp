@@ -28,7 +28,7 @@ namespace zl
 namespace WinUtils
 {
     /**
-     * @brief Dos路径操作类
+     * @brief Dos路径操作
      */
     class ZLDosName
     {
