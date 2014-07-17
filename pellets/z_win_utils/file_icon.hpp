@@ -28,7 +28,7 @@ namespace zl
 namespace WinUtils
 {
     /**
-     * @brief 获取文件图标
+     * @brief 文件图标相关
      */
     class ZLFileIcon
     {
@@ -43,12 +43,12 @@ namespace WinUtils
                 m_icon = NULL;
             }
         }
+
         /**
-         * @brief 获取文件图标
+         * @brief 加载文件图标
          * @param[in] szFilePath 文件路径
          * @param[in] bLargeIcon 是否为大图标，默认TRUE
          * @return 成功返回TRUE，失败返回FALSE
-         * @see SHGetFileInfo
          */
         BOOL Load(LPCTSTR szFilePath, BOOL bLargeIcon = TRUE)
         {
@@ -68,13 +68,13 @@ namespace WinUtils
             }
             return bRet;
         }
+
         /**
-         * @brief 从文件中提取图标
+         * @brief 加载文件图标
          * @param[in] szFilePath 文件路径
          * @param[in] uSize      图标的大小
-         * @param[in] uIndex     索引
+         * @param[in] uIndex     图标下标
          * @return 成功返回TRUE，失败返回FALSE
-         * @see SHDefExtractIcon
          */
         BOOL LoadEx(LPCTSTR szFilePath, UINT uSize = 48, UINT uIndex = 0)
         {
@@ -88,6 +88,11 @@ namespace WinUtils
                 return FALSE;
             }
         }
+
+        /**
+         * @brief 取得图标句柄
+         * @return 返回图标的句柄(HICON)
+         */
         HICON GetHandle()
         {
             return m_icon;

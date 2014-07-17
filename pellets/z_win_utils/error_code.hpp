@@ -32,12 +32,11 @@ namespace WinUtils
     class ZLErrorCode
     {
     public:
-        ///> need LocalFree(pBuffer);
         /**
-         * @brief 获得ErrorCode对应的描述信息
-         * @param[in] lpLnkFilePath 错误码
+         * @brief 获得错误码对应的文本描述信息
+         * @param[in] dwErrCode 错误码
          * @return 成功返回错误码对应的描述信息，失败返回NULL
-         * @see _ExpandFullPathName
+         * @note 必须调用LocalFree函数,对返回的缓冲区指针进行释放
          */
         static LPTSTR GetFormattedMessage(DWORD dwErrCode = ::GetLastError())
         {

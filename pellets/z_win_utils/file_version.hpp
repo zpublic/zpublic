@@ -16,6 +16,7 @@
 /**
  * @file
  * @brief 文件版本信息
+ * @todo 这个文件注释,有待修改
  */
 
 
@@ -43,32 +44,31 @@ namespace WinUtils
         {}
 
         /**
-         * @brief 获取文件版本信息
-         * @param[in]   hModule 文件句柄，默认为NULL
-         * @return 如果成功，返回TRUE，如果失败返回FALSE
-         * @see Create
+         * @brief 创建初始化指定模块文件信息
+         * @param[in] hModule 模块句柄，默认为NULL
+         * @return 成功返回TRUE，失败FALSE
          */
         BOOL Create(HMODULE hModule = NULL)
         {
-            CString	sPath;
+            CString sPath;
 
-            GetModuleFileName(hModule, sPath.GetBuffer(_MAX_PATH), _MAX_PATH);
+            ::GetModuleFileName(hModule, sPath.GetBuffer(_MAX_PATH), _MAX_PATH);
             sPath.ReleaseBuffer();
 
             return Create(sPath);
         }
+
         /**
-         * @brief 获取文件的信息
-         * @param[in]   lpszFileName  文件名
-         * @return 如果成功，返回TRUE，如果失败返回FALSE
-         * @see GetFileVersionInfoSize
+         * @brief 创建初始化指定文件信息
+         * @param[in] lpszFileName  文件路径
+         * @return 成功返回TRUE，失败FALSE
          */
-        BOOL Create(LPCTSTR lpszFileName)
+        BOOL Create(LPCTSTR lpFileName)
         {
             Reset();
 
             DWORD dwHandle;
-            DWORD dwFileVersionInfoSize = GetFileVersionInfoSize((LPTSTR)lpszFileName, &dwHandle);
+            DWORD dwFileVersionInfoSize = GetFileVersionInfoSize((LPTSTR)lpFileName, &dwHandle);
 
             if (!dwFileVersionInfoSize)
                 return FALSE;
@@ -79,7 +79,7 @@ namespace WinUtils
 
             try
             {
-                if (!GetFileVersionInfo((LPTSTR)lpszFileName, dwHandle, dwFileVersionInfoSize, lpData))
+                if (!GetFileVersionInfo((LPTSTR)lpFileName, dwHandle, dwFileVersionInfoSize, lpData))
                     throw FALSE;
 
                 LPVOID lpInfo;
@@ -208,10 +208,12 @@ namespace WinUtils
 
             return TRUE;
         }
+
         /**
-         * @brief 获取文件的版本信息
-         * @param[in]   nIndex  索引
-         * @return 如果成功，返回非零，如果失败返回零
+         * @brief 获取文件的版本
+         * @param[in] nIndex 下标
+         * @return 文件版本号, 失败为0
+         * @todo 这个函数有点屌,看不懂
          */
         WORD GetFileVersion(int nIndex) const
         {
@@ -226,10 +228,12 @@ namespace WinUtils
             else
                 return 0;
         }
+
         /**
-         * @brief 获取文件的Product信息
-         * @param[in]   nIndex  索引
-         * @return 如果成功，返回非零，如果失败返回零
+         * @brief 获取文件中的产品版本
+         * @param[in] nIndex 下标
+         * @return 产品版本
+         * @todo 这个函数有点屌,看不懂
          */
         WORD GetProductVersion(int nIndex) const
         {
@@ -244,6 +248,7 @@ namespace WinUtils
             else
                 return 0;
         }
+
         /**
         * @brief 获取文件的FileFlagsMask
         * @param[in]   nIndex  索引
@@ -253,6 +258,7 @@ namespace WinUtils
         {
             return mFileInfo.dwFileFlagsMask;
         }
+
         /**
         * @brief 获取文件的FileFlags
         * @return  FileFlags
@@ -261,6 +267,7 @@ namespace WinUtils
         {
             return mFileInfo.dwFileFlags;
         }
+
         /**
         * @brief 获取文件系统
         * @param[in]   nIndex  索引
@@ -270,6 +277,7 @@ namespace WinUtils
         {
             return mFileInfo.dwFileOS;
         }
+
         /**
         * @brief 获取文件通用类型
         * @return FileType
@@ -278,6 +286,7 @@ namespace WinUtils
         {
             return mFileInfo.dwFileType;
         }
+
         /**
          * @brief 获取文件功能
          * @return FileSubtype
@@ -286,6 +295,7 @@ namespace WinUtils
         {
             return mFileInfo.dwFileSubtype;
         }
+
         /**
         * @brief 获取文件日期
         * @return FILETIME data structure 
@@ -299,6 +309,7 @@ namespace WinUtils
 
             return ft;
         }
+
         /**
         * @brief 获取CompanyName
         * @return  字符串，代表CompanyName
@@ -307,6 +318,7 @@ namespace WinUtils
         {
             return msCompanyName;
         }
+
         /**
         * @brief 获取文件描述
         * @return  字符串，表示文件描述
@@ -315,6 +327,7 @@ namespace WinUtils
         {
             return msFileDescription;
         }
+
         /**
          * @brief 获取文件版本
          * @return  字符串，代表FileVersion
@@ -323,6 +336,7 @@ namespace WinUtils
         {
             return msFileVersion;
         }
+
         /**
         * @brief 获取InternalName
         * @return  字符串，代表InternalName
@@ -331,6 +345,7 @@ namespace WinUtils
         {
             return msInternalName;
         }
+
         /**
         * @brief 获取LegalCopyright
         * @return  字符串，代表LegalCopyright
@@ -339,6 +354,7 @@ namespace WinUtils
         {
             return msLegalCopyright;
         }
+
         /**
         * @brief 获取OriginalFileName
         * @return  字符串，代表OriginalFileName
@@ -347,6 +363,7 @@ namespace WinUtils
         {
             return msOriginalFileName;
         }
+
         /**
          * @brief 获取ProductName
          * @return  字符串，代表ProductName
@@ -355,6 +372,7 @@ namespace WinUtils
         {
             return msProductName;
         }
+
         /**
         * @brief 获取ProductVersion
         * @return  字符串，代表ProductVersion
@@ -363,6 +381,7 @@ namespace WinUtils
         {
             return msProductVersion;
         }
+
         /**
          * @brief 获取Comments
          * @return  字符串，代表Comments
@@ -371,6 +390,7 @@ namespace WinUtils
         {
             return msComments;
         }
+
         /**
         * @brief 获取LegalTrademarks
         * @return  字符串，代表LegalTrademarks
@@ -379,6 +399,7 @@ namespace WinUtils
         {
             return msLegalTrademarks;
         }
+
         /**
         * @brief 获取PrivateBuild
         * @return  字符串，代表PrivateBuild
@@ -387,6 +408,7 @@ namespace WinUtils
         {
             return msPrivateBuild;
         }
+
         /**
          * @brief 获取SpecialBuild
          * @return  字符串，代表SpecialBuild
@@ -414,6 +436,7 @@ namespace WinUtils
             msPrivateBuild.Empty();
             msSpecialBuild.Empty();
         }
+
         /**
          * @brief 获取当前用户的本地语言标示
          * @param[in]   lpData Buffer，包含指定文件的版本信息

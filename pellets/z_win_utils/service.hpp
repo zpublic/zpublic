@@ -340,7 +340,6 @@ Exit0:
             SC_HANDLE schSCManager = NULL;
             SC_HANDLE schService = NULL;
             SERVICE_STATUS serviceStatus = {0};
-            TCHAR* pBuffer = NULL;
             LPWSTR* pArglist = NULL;
 
             schSCManager = ::OpenSCManager(NULL, NULL, SC_MANAGER_CONNECT);
@@ -363,17 +362,13 @@ Exit0:
                 }
                 else
                 {
-                    DWORD dwBufSize = (DWORD)_tcslen(szSvcName) + 1 + (DWORD)_tcslen(szCmdline) + 1;
-                    pBuffer = new TCHAR[dwBufSize];
-                    _stprintf_s(pBuffer, dwBufSize, _T("%s %s"), szSvcName, szCmdline);
-
-                    USES_CONVERSION;
                     int nArgs = 0;
-                    pArglist = ::CommandLineToArgvW(CT2W(pBuffer), &nArgs);
+                    USES_CONVERSION;
+                    pArglist = ::CommandLineToArgvW(CT2W(szCmdline), &nArgs);
                     if (!pArglist)
                         goto Exit0;
 
-                    if (!::StartServiceW(schService, nArgs, (LPCWSTR*)&pArglist))
+                    if (!::StartServiceW(schService, nArgs, (LPCWSTR*)pArglist))
                         goto Exit0;
                 }
             }
@@ -401,8 +396,6 @@ Exit0:
 Exit0:
             if (pArglist)
                 ::LocalFree(pArglist);
-            if (pBuffer)
-                delete[] pBuffer;
 
             if (schService)
                 ::CloseServiceHandle(schService);
