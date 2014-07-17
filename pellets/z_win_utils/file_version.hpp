@@ -210,10 +210,10 @@ namespace WinUtils
         }
 
         /**
-         * @brief 获取文件的版本
-         * @param[in] nIndex 下标
-         * @return 文件版本号, 失败为0
-         * @todo 这个函数有点屌,看不懂
+         * @brief 读取文件版本
+         * @param[in] nIndex 下标,从0开始,分别对应版本号中以点号间隔的各个段.
+         * @return 版本号
+         * @note 文件版本号由4段组成,如"2014.7.17.520", 参数nIndex填0时,取得2014, 填3时,取得520
          */
         WORD GetFileVersion(int nIndex) const
         {
@@ -230,10 +230,10 @@ namespace WinUtils
         }
 
         /**
-         * @brief 获取文件中的产品版本
-         * @param[in] nIndex 下标
-         * @return 产品版本
-         * @todo 这个函数有点屌,看不懂
+         * @brief 读取产品版本号
+         * @param[in] nIndex 下标,从0开始, 分别对应版本号中以点号间隔的各个段.
+         * @return 版本号
+         * @note 文件版本号由4段组成,如"9.1.123455.888", 参数nIndex填0时,取得9, 填3时,取得888
          */
         WORD GetProductVersion(int nIndex) const
         {
@@ -250,19 +250,16 @@ namespace WinUtils
         }
 
         /**
-        * @brief 获取文件的FileFlagsMask
-        * @param[in]   nIndex  索引
-        * @return FileFlagsMask
-        */
+         * @brief 文件标志位的掩码,参考MSDN的VS_FIXEDFILEINFO结构体
+         */
         DWORD GetFileFlagsMask() const
         {
             return mFileInfo.dwFileFlagsMask;
         }
 
         /**
-        * @brief 获取文件的FileFlags
-        * @return  FileFlags
-        */
+         * @brief 文件标志位,参考MSDN的VS_FIXEDFILEINFO结构体
+         */
         DWORD GetFileFlags() const
         {
             return mFileInfo.dwFileFlags;
@@ -495,6 +492,5 @@ namespace WinUtils
         CString msPrivateBuild;
         CString msSpecialBuild;
     };
-
 }
 }
