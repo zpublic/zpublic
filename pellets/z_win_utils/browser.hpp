@@ -60,7 +60,7 @@ namespace WinUtils
             HRESULT hResult = E_FAIL;
             CComPtr<IQueryAssociations> pQa;
 
-            hResult = AssocCreate(CLSID_QueryAssociations, IID_IQueryAssociations, (LPVOID*)&pQa);
+            hResult = ::AssocCreate(CLSID_QueryAssociations, IID_IQueryAssociations, (LPVOID*)&pQa);
             if (FAILED(hResult) || !pQa)
             {goto _abort;}
 
