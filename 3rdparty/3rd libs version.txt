@@ -30,3 +30,6 @@ stlsoft
 
 flatbuffer
 1.0.0
+
+CppSQLite
+CppSQLite 3.2 with SQLite 3.4.0
