@@ -51,6 +51,8 @@ using std::string;
 using std::cout;
 using std::endl;
 using std::wcout;
+using std::cerr;
+using std::wcerr;
 
 ///> ÖÇÄÜÖ¸Õë
 #include <memory>
