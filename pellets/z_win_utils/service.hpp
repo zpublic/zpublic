@@ -89,10 +89,20 @@ namespace WinUtils
             schService = ::OpenService(schSCManager, pSvcInfo->szServiceName, SERVICE_ALL_ACCESS);
             if (schService)
             {
-                BOOL bSuccess = ::ChangeServiceConfig(schService, pSvcInfo->dwServiceType, pSvcInfo->dwStartType, pSvcInfo->dwErrorControl, pSvcInfo->szBinaryPathName,
-                    pSvcInfo->szLoadOrderGroup, NULL, pSvcInfo->szDependencies, pSvcInfo->szServiceStartName, pSvcInfo->szPassword, pSvcInfo->szDisplayName);
-                if (!bSuccess)
-                    goto Exit0;
+                if (pSvcInfo->dwServiceType == SERVICE_FILE_SYSTEM_DRIVER || pSvcInfo->dwServiceType == SERVICE_KERNEL_DRIVER)
+                {
+                    BOOL bSuccess = ::ChangeServiceConfig(schService, pSvcInfo->dwServiceType, pSvcInfo->dwStartType, pSvcInfo->dwErrorControl, pSvcInfo->szBinaryPathName,
+                        pSvcInfo->szLoadOrderGroup, NULL, pSvcInfo->szDependencies, NULL, NULL, pSvcInfo->szDisplayName);
+                    if (!bSuccess)
+                        goto Exit0;
+                }
+                else
+                {
+                    BOOL bSuccess = ::ChangeServiceConfig(schService, pSvcInfo->dwServiceType, pSvcInfo->dwStartType, pSvcInfo->dwErrorControl, pSvcInfo->szBinaryPathName,
+                        pSvcInfo->szLoadOrderGroup, NULL, pSvcInfo->szDependencies, pSvcInfo->szServiceStartName, pSvcInfo->szPassword, pSvcInfo->szDisplayName);
+                    if (!bSuccess)
+                        goto Exit0;
+                }
             }
             else
             {
@@ -355,43 +365,35 @@ Exit0:
 
             if (serviceStatus.dwCurrentState != SERVICE_START_PENDING && serviceStatus.dwCurrentState != SERVICE_RUNNING)
             {
-                if (!szCmdline || _tcslen(szCmdline) <= 0)
+                int nArgs = 0;
+                if (szCmdline && _tcslen(szCmdline) > 0)
                 {
-                    if (!::StartServiceW(schService, 0, NULL))
-                        goto Exit0;
-                }
-                else
-                {
-                    int nArgs = 0;
                     USES_CONVERSION;
                     pArglist = ::CommandLineToArgvW(CT2W(szCmdline), &nArgs);
                     if (!pArglist)
                         goto Exit0;
-
-                    if (!::StartServiceW(schService, nArgs, (LPCWSTR*)pArglist))
-                        goto Exit0;
                 }
+                if (!::StartServiceW(schService, nArgs, (LPCWSTR*)pArglist))
+                    goto Exit0;
             }
 
             DWORD dwBeginTick = ::GetTickCount();
+            DWORD dwSleepTime = (dwMilliseconds > 0 && dwMilliseconds / 10 < 100) ? dwMilliseconds / 10 : 100;
             while (TRUE)
             {
                 if (!::QueryServiceStatus(schService, &serviceStatus))
-                    goto Exit0;
-
-                if (serviceStatus.dwCurrentState != SERVICE_RUNNING && serviceStatus.dwCurrentState != SERVICE_START_PENDING)
-                    goto Exit0;
+                    break;
 
                 if (serviceStatus.dwCurrentState == SERVICE_RUNNING)
+                {
+                    lRet = S_OK;
                     break;
+                }
 
-                if (::GetTickCount() - dwBeginTick < dwMilliseconds)
+                if (serviceStatus.dwCurrentState != SERVICE_START_PENDING || ::GetTickCount() - dwBeginTick >= dwMilliseconds)
                     break;
-
-                ::Sleep(100);
+                ::Sleep(dwSleepTime);
             }
-
-            lRet = S_OK;
 
 Exit0:
             if (pArglist)
@@ -434,24 +436,22 @@ Exit0:
             }
 
             DWORD dwBeginTick = ::GetTickCount();
+            DWORD dwSleepTime = (dwMilliseconds > 0 && dwMilliseconds / 10 < 100) ? dwMilliseconds / 10 : 100;
             while (TRUE)
             {
                 if (!::QueryServiceStatus(schService, &serviceStatus))
-                    goto Exit0;
-
-                if (serviceStatus.dwCurrentState != SERVICE_STOPPED && serviceStatus.dwCurrentState != SERVICE_STOP_PENDING)
-                    goto Exit0;
+                    break;
 
                 if (serviceStatus.dwCurrentState == SERVICE_STOPPED)
+                {
+                    lRet = S_OK;
                     break;
+                }
 
-                if (::GetTickCount() - dwBeginTick < dwMilliseconds)
+                if (serviceStatus.dwCurrentState != SERVICE_STOP_PENDING || ::GetTickCount() - dwBeginTick >= dwMilliseconds)
                     break;
-
-                ::Sleep(100);
+                ::Sleep(dwSleepTime);
             }
-
-            lRet = S_OK;
 
 Exit0:
             if (schService)
