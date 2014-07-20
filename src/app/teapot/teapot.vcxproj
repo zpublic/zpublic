@@ -64,7 +64,7 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>"$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\MSEnv";"$(MSBuildExtensionsPath32)\..\Common Files\Designer";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./../../../pellets;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/Include;"$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\MSEnv";"$(MSBuildExtensionsPath32)\..\Common Files\Designer";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -109,7 +109,7 @@
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>"$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\MSEnv";"$(MSBuildExtensionsPath32)\..\Common Files\Designer";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./../../../pellets;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/Include;"$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\MSEnv";"$(MSBuildExtensionsPath32)\..\Common Files\Designer";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -157,7 +157,25 @@
     <Midl Include="AddIn.idl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlcrack.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrls.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrlw.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrlx.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlddx.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atldlgs.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlfind.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlframe.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlgdi.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlmisc.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlprint.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlres.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlscrl.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlsplit.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atluser.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h" />
     <ClInclude Include="Connect.h" />
+    <ClInclude Include="dlg_lu.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -167,4 +185,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="AddIn.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

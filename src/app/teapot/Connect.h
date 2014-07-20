@@ -4,7 +4,7 @@
 #include "resource.h"       // 主符号
 
 using namespace AddInDesignerObjects;
-using namespace EnvDTE;
+//using namespace EnvDTE;
 using namespace EnvDTE80;
 using namespace Microsoft_VisualStudio_CommandBars;
 
@@ -13,7 +13,7 @@ using namespace Microsoft_VisualStudio_CommandBars;
 class ATL_NO_VTABLE CConnect : 
 	public CComObjectRootEx<CComSingleThreadModel>,
 	public CComCoClass<CConnect, &CLSID_Connect>,
-	public IDispatchImpl<IDTCommandTarget, &IID_IDTCommandTarget, &LIBID_EnvDTE, 7, 0>,
+    public IDispatchImpl<EnvDTE::IDTCommandTarget, &EnvDTE::IID_IDTCommandTarget, &EnvDTE::LIBID_EnvDTE, 7, 0>,
 	public IDispatchImpl<_IDTExtensibility2, &IID__IDTExtensibility2, &LIBID_AddInDesignerObjects, 1, 0>
 {
 public:
@@ -83,7 +83,7 @@ public:
 	/// <param term='status'>该命令在用户界面中的状态。</param>
 	/// <param term='commandText'>neededText 参数所要求的文本。</param>
 	/// <seealso class='Exec' />
-	STDMETHOD(QueryStatus)(BSTR CmdName, vsCommandStatusTextWanted NeededText, vsCommandStatus *StatusOption, VARIANT *CommandText);
+	STDMETHOD(QueryStatus)(BSTR CmdName, EnvDTE::vsCommandStatusTextWanted NeededText, EnvDTE::vsCommandStatus *StatusOption, VARIANT *CommandText);
 
 	/// <summary>实现 IDTCommandTarget 接口的 Exec 方法。此方法在调用该命令时调用。</summary>
 	/// <param term='commandName'>要执行的命令的名称。</param>
@@ -92,11 +92,11 @@ public:
 	/// <param term='varOut'>从命令处理程序传递到调用方的参数。</param>
 	/// <param term='handled'>通知调用方此命令是否已被处理。</param>
 	/// <seealso class='Exec' />
-	STDMETHOD(Exec)(BSTR CmdName, vsCommandExecOption ExecuteOption, VARIANT *VariantIn, VARIANT *VariantOut, VARIANT_BOOL *Handled);
+	STDMETHOD(Exec)(BSTR CmdName, EnvDTE::vsCommandExecOption ExecuteOption, VARIANT *VariantIn, VARIANT *VariantOut, VARIANT_BOOL *Handled);
 
 private:
 	CComPtr<DTE2> m_pDTE;
-	CComPtr<AddIn> m_pAddInInstance;
+	CComPtr<EnvDTE::AddIn> m_pAddInInstance;
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(Connect), CConnect)

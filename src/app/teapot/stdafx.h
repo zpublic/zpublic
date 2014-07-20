@@ -96,3 +96,90 @@ private:
 };
 
 extern CAddInModule _AtlModule;
+
+//////////////////////////////////////////////////////////////////////////
+///> wtl
+/*
+ * 定义、包含和util类
+ * 需要第一个包含
+ */
+#include "atlapp.h"
+/*
+ * 资源ID定义
+ */
+#include "atlres.h"
+/*
+ * 消息派发宏
+ */
+#include "atlcrack.h"
+/*
+ * _U_RECT
+ * _U_MENUorID
+ * _U_STRINGorID
+ * 一些消息宏
+ */
+#include "atlwinx.h"
+/*
+ * 常用的一些类，CPoint、CString等
+ * #define _WTL_NO_CSTRING
+ */
+#include "atlmisc.h"
+/*
+ * DDX实现
+ */
+#include "atlddx.h"
+/*
+ * 普通控件
+ * 高级控件
+ * CommandBar控件
+ */
+#include "atlctrls.h"
+#include "atlctrlx.h"
+#include "atlctrlw.h"
+/*
+ * 框架窗口封装
+ */
+#include "atlframe.h"
+/*
+ * 各种对话框封装
+ */
+#include "atldlgs.h"
+/*
+ * 编辑框查找功能封装
+ */
+#include "atlfind.h"
+/*
+ * GDI绘图封装
+ */
+#include "atlgdi.h"
+/*
+ * 资源处理封装
+ */
+#include "atluser.h"
+/*
+ * 窗口分割封装
+ */
+#include "atlsplit.h"
+/*
+ * 滚动条封装
+ */
+#include "atlscrl.h"
+/*
+ * 打印封装
+ */
+#include "atlprint.h"
+/*
+ * 桌面管理器DWM的Aero等封装
+ * requires _WIN32_WINNT >= 0x0600
+ */
+//#include "atldwm.h"
+/*
+ * ribbon风格封装
+ * requires the Windows 7 SDK or higher
+ */
+//#include "atlribbon.h"
+/*
+ * 系统皮肤风格封装
+ */
+//#include "atltheme.h"
+//////////////////////////////////////////////////////////////////////////
