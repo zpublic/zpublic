@@ -62,6 +62,7 @@
       <AdditionalDependencies>./../../3rdparty/cpptest_ext/Debug/cpptest.lib</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>
+      <AdditionalLibraryDirectories>./../../3rdparty/libcurl_lib/</AdditionalLibraryDirectories>
     </Link>
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>
@@ -84,6 +85,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>./../../3rdparty/cpptest_ext/Release/cpptest.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>./../../3rdparty/libcurl_lib/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -174,6 +176,17 @@
     <ClInclude Include="..\..\pellets\z_event\z_event_def.h" />
     <ClInclude Include="..\..\pellets\z_event\z_event_event.h" />
     <ClInclude Include="..\..\pellets\z_event\z_event_reactor.h" />
+    <ClInclude Include="..\..\pellets\z_http\file_write.hpp" />
+    <ClInclude Include="..\..\pellets\z_http\http_client.hpp" />
+    <ClInclude Include="..\..\pellets\z_http\TestHttp.h" />
+    <ClInclude Include="..\..\pellets\z_http\z_http_def.h" />
+    <ClInclude Include="..\..\pellets\z_http\z_http_interface.h" />
+    <ClInclude Include="..\..\pellets\z_http\ie_proxy.hpp" />
+    <ClInclude Include="..\..\pellets\z_http\mem_write.hpp" />
+    <ClInclude Include="..\..\pellets\z_http\simple_curl.hpp" />
+    <ClInclude Include="..\..\pellets\z_http\stream_writter.hpp" />
+    <ClInclude Include="..\..\pellets\z_http\z_http.h" />
+    <ClInclude Include="..\..\pellets\z_http\z_http_header.h" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind.h" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_def.h" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_call.hpp" />
@@ -336,6 +349,7 @@
     <ClCompile Include="..\..\pellets\serialize\data.cpp" />
     <ClCompile Include="..\..\pellets\serialize\data_format.cpp" />
     <ClCompile Include="..\..\pellets\serialize\serialize_engine.cpp" />
+    <ClCompile Include="..\..\pellets\z_http\TestHttp.cpp" />
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.cpp" />
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.cpp" />
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_function_reg.cpp" />

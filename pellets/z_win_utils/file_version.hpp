@@ -59,14 +59,14 @@ namespace WinUtils
 
         /**
          * @brief 创建初始化指定文件信息
-         * @param[in] lpszFileName  文件路径
+         * @param[in] lpFileName  文件路径
          * @return 成功返回TRUE，失败FALSE
          */
         BOOL Create(LPCTSTR lpFileName)
         {
             Reset();
             DWORD dwHandle = 0;
-            DWORD dwFileVersionInfoSize = ::GetFileVersionInfoSize((LPTSTR)lpszFileName, &dwHandle);
+            DWORD dwFileVersionInfoSize = ::GetFileVersionInfoSize((LPTSTR)lpFileName, &dwHandle);
 
             if (!dwFileVersionInfoSize)
                 return FALSE;
@@ -77,7 +77,7 @@ namespace WinUtils
 
             try
             {
-                if (!::GetFileVersionInfo((LPTSTR)lpszFileName, dwHandle, dwFileVersionInfoSize, lpData))
+                if (!::GetFileVersionInfo((LPTSTR)lpFileName, dwHandle, dwFileVersionInfoSize, lpData))
                     throw FALSE;
 
                 LPVOID lpInfo = NULL;
