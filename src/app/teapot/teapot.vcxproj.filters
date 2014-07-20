@@ -20,6 +20,12 @@
     <Filter Include="include\wtl">
       <UniqueIdentifier>{f3eaebad-3623-4e24-8a3b-9cf4b981fd7e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\http">
+      <UniqueIdentifier>{8f44aa14-20a4-4386-8e84-901d7daeeb50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\json">
+      <UniqueIdentifier>{27bb4359-91ec-4e20-9afa-486dd628a455}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AddIn.cpp">
@@ -31,6 +37,15 @@
     <ClCompile Include="Connect.cpp">
       <Filter>src\function</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\jsonlib\lib_json\json_reader.cpp">
+      <Filter>include\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\jsonlib\lib_json\json_value.cpp">
+      <Filter>include\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\jsonlib\lib_json\json_writer.cpp">
+      <Filter>include\json</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="AddIn.ico">
@@ -41,6 +56,15 @@
     </None>
     <None Include="AddIn.def">
       <Filter>res</Filter>
+    </None>
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\json_internalarray.inl">
+      <Filter>include\json</Filter>
+    </None>
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\json_internalmap.inl">
+      <Filter>include\json</Filter>
+    </None>
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\json_valueiterator.inl">
+      <Filter>include\json</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +130,63 @@
     </ClInclude>
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h">
       <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\file_write.hpp">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\http_client.hpp">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\ie_proxy.hpp">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\mem_write.hpp">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\simple_curl.hpp">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\stream_writter.hpp">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\z_http.h">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\z_http_def.h">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\z_http_header.h">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\z_http_interface.h">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\autolink.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\config.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\features.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\forwards.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\json.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\reader.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\value.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\writer.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\lib_json\json_batchallocator.h">
+      <Filter>include\json</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -62,9 +62,9 @@
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>./../../../pellets;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/Include;"$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\MSEnv";"$(MSBuildExtensionsPath32)\..\Common Files\Designer";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./../../../3rdparty/jsonlib;./../../../pellets;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/Include;"$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\MSEnv";"$(MSBuildExtensionsPath32)\..\Common Files\Designer";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -74,6 +74,7 @@
       <SubSystem>Windows</SubSystem>
       <ImportLibrary>$(OutDir)$(ProjectName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>./../../../3rdparty/libcurl_lib/</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -107,9 +108,9 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>./../../../pellets;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/Include;"$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\MSEnv";"$(MSBuildExtensionsPath32)\..\Common Files\Designer";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./../../../3rdparty/jsonlib;./../../../pellets;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/Include;"$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\MSEnv";"$(MSBuildExtensionsPath32)\..\Common Files\Designer";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -121,6 +122,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <ImportLibrary>$(OutDir)$(ProjectName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>./../../../3rdparty/libcurl_lib/</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -141,6 +143,9 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\3rdparty\jsonlib\lib_json\json_reader.cpp" />
+    <ClCompile Include="..\..\..\3rdparty\jsonlib\lib_json\json_value.cpp" />
+    <ClCompile Include="..\..\..\3rdparty\jsonlib\lib_json\json_writer.cpp" />
     <ClCompile Include="AddIn.cpp" />
     <ClCompile Include="Connect.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -149,6 +154,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\json_internalarray.inl" />
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\json_internalmap.inl" />
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\json_valueiterator.inl" />
     <None Include="AddIn.def" />
     <None Include="AddIn.ico" />
     <None Include="AddIn.rgs" />
@@ -157,6 +165,15 @@
     <Midl Include="AddIn.idl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\autolink.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\config.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\features.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\forwards.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\json.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\reader.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\value.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\writer.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\lib_json\json_batchallocator.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlcrack.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrls.h" />
@@ -174,6 +191,16 @@
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlsplit.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atluser.h" />
     <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h" />
+    <ClInclude Include="..\..\..\pellets\z_http\file_write.hpp" />
+    <ClInclude Include="..\..\..\pellets\z_http\http_client.hpp" />
+    <ClInclude Include="..\..\..\pellets\z_http\ie_proxy.hpp" />
+    <ClInclude Include="..\..\..\pellets\z_http\mem_write.hpp" />
+    <ClInclude Include="..\..\..\pellets\z_http\simple_curl.hpp" />
+    <ClInclude Include="..\..\..\pellets\z_http\stream_writter.hpp" />
+    <ClInclude Include="..\..\..\pellets\z_http\z_http.h" />
+    <ClInclude Include="..\..\..\pellets\z_http\z_http_def.h" />
+    <ClInclude Include="..\..\..\pellets\z_http\z_http_header.h" />
+    <ClInclude Include="..\..\..\pellets\z_http\z_http_interface.h" />
     <ClInclude Include="Connect.h" />
     <ClInclude Include="dlg_lu.h" />
     <ClInclude Include="Resource.h" />

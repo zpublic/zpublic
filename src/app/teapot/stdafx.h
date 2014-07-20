@@ -8,6 +8,9 @@
 #define STRICT
 #endif
 
+#include <atlstr.h>
+#define _WTL_NO_CSTRING
+
 // 如果必须要针对低于以下指定版本的平台，请修改下列定义。
 // 有关不同平台对应值的最新信息，请参考 MSDN。
 #ifndef WINVER				// 允许使用特定于 Windows 95 和 Windows NT 4 或更高版本的功能。
@@ -183,3 +186,8 @@ extern CAddInModule _AtlModule;
  */
 //#include "atltheme.h"
 //////////////////////////////////////////////////////////////////////////
+
+
+///> json
+#include <json/json.h>
+
