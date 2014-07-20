@@ -1,0 +1,54 @@
+HKCR
+{
+	teapot.Connect.1 = s 'Connect Class'
+	{
+		CLSID = s '{436C9930-0F11-4FB9-A59B-B39231ABC745}'
+	}
+	teapot.Connect = s 'Connect Class'
+	{
+		CLSID = s '{436C9930-0F11-4FB9-A59B-B39231ABC745}'
+		CurVer = s 'teapot.Connect.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove '{436C9930-0F11-4FB9-A59B-B39231ABC745}' = s 'Connect Class'
+		{
+			ProgID = s 'teapot.Connect.1'
+			VersionIndependentProgID = s 'teapot.Connect'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{03922356-207E-4192-8DF3-B9CDBC51A930}'
+		}
+	}
+}
+
+HKCU
+{
+	NoRemove 'SOFTWARE'
+	{
+		NoRemove 'Microsoft'
+		{
+			NoRemove 'VisualStudio'
+			{
+				NoRemove '11.0'
+				{
+					NoRemove 'AddIns'
+					{
+						ForceRemove 'teapot.Connect'
+						{
+							val LoadBehavior = d 5
+							val CommandLineSafe = d 1
+							val CommandPreload = d 1
+							val FriendlyName = s 'Teapot'
+							val Description = s 'Havin a tea Partay drinkin mah Teeea!'
+						}
+					}
+				}
+			}
+		}
+	}
+
+}
