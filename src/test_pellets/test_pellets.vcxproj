@@ -258,6 +258,7 @@
     <ClInclude Include="..\..\pellets\z_win_utils\service.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\shortcut.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\shutdown.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\sign_info.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\sign_verify.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\system_path.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\system_version.hpp" />
