@@ -30,26 +30,26 @@ namespace WinUtils
 
     /**
      * @brief 提供对目录的创建、修改和删除操作
-     *  CreateDeepDirectory     创建多层目录
-     *  DeleteDirectory         删除目录
-     *  CopyDirectory           拷贝目录
      */
     class ZLDirectory
     {
     public:
         /**
          * @brief 创建目录
-         * @param[in] szPath 路径名
+         * @param[in] szPath 路径
          * @return 成功返回TRUE，失败返回FALSE
          * @see 
          */
-        static BOOL CreateDeepDirectory(LPCTSTR szPath)
+        static BOOL CreateDeepDirectory(LPCTSTR lpPath)
         {
+            if (!lpPath)
+                return FALSE;
+
             BOOL bRetCode = FALSE;
-            CString strPath(szPath);
-            if (::GetFileAttributes(szPath) != INVALID_FILE_ATTRIBUTES)
+            CString strPath(lpPath);
+            if (::GetFileAttributes(lpPath) != INVALID_FILE_ATTRIBUTES)
                 return TRUE;
-            bRetCode = ::CreateDirectory(szPath, NULL);
+            bRetCode = ::CreateDirectory(lpPath, NULL);
             if (!bRetCode && ::GetLastError() != ERROR_ALREADY_EXISTS)
             {
                 ZLPath::PathRemoveFileSpec(strPath);
@@ -58,23 +58,27 @@ namespace WinUtils
                 bRetCode = CreateDeepDirectory(strPath);
                 if (!bRetCode) return FALSE;
 
-                bRetCode = ::CreateDirectory(szPath, NULL);
+                bRetCode = ::CreateDirectory(lpPath, NULL);
                 if (!bRetCode && ::GetLastError() != ERROR_ALREADY_EXISTS)
                     return FALSE;
             }
             return TRUE;
         }
+
         /**
-         * @brief 删除指定目录
-         * @param[in] szPath            路径名
-         * @param[in] bContinueWhenFail 控制删除目录失败时的行为，默认为TRUE
+         * @brief 删除目录
+         * @param[in] szDir             路径
+         * @param[in] bContinueWhenFail 删除某个文件失败时,是否继续
          * @return 成功返回TRUE，失败返回FALSE
          * @see 
          */
-        static BOOL DeleteDirectory(LPCTSTR szDir, BOOL bContinueWhenFail = TRUE)
+        static BOOL DeleteDirectory(LPCTSTR lpDir, BOOL bContinueWhenFail = TRUE)
         {
+            if (!lpDir)
+                return FALSE;
+
             BOOL bReturn = FALSE;
-            CString sDir(szDir);
+            CString sDir(lpDir);
             CString sFindPath;
             WIN32_FIND_DATA fData;
             HANDLE hFind = INVALID_HANDLE_VALUE;
@@ -113,22 +117,26 @@ Exit0:
 
             return bReturn;
         }
+
         /**
          * @brief 拷贝目录
-         * @param[in] szSrcDir   源目录名
-         * @param[in] szDstDir   目的目录名
-         * @param[in] bCoverFile 控制函数的行为，默认为TRUE
+         * @param[in] szSrcDir   源目录
+         * @param[in] szDstDir   目标目录
+         * @param[in] bCoverFile 是否覆盖已存在的文件
          * @return 返回拷贝文件的数目
          * @see 
          */
-        static int CopyDirectory(LPCTSTR szSrcDir, LPCTSTR szDstDir, BOOL bCoverFile = TRUE)
+        static int CopyDirectory(LPCTSTR lpSrcDir, LPCTSTR lpDstDir, BOOL bCoverFile = TRUE)
         {
+            if (!lpSrcDir || !lpDstDir)
+                return 0;
+
             int nReturn = 0;
             CString strFind;
             CString strSubFile;
             CString strSubDstFile;
-            CString strSrcDir(szSrcDir);
-            CString strDstDir(szDstDir);
+            CString strSrcDir(lpSrcDir);
+            CString strDstDir(lpDstDir);
             WIN32_FIND_DATA FindFileData;
             HANDLE hFind = INVALID_HANDLE_VALUE;
             ZLPath::PathAddBackslash(strSrcDir);

@@ -28,16 +28,14 @@ namespace zl
 namespace WinUtils
 {
     /**
-     * @brief 获取硬盘大小
+     * @brief 磁盘驱动器相关
      */
     class ZLDrive
     {
     public:
-        ///> GB
         /**
          * @brief 获取硬盘大小，以GB为单位
-         * @return 返回硬盘大小
-         * @see DeviceIoControl
+         * @return 硬盘大小
          */
         static ULONG GetDriveSize()
         {

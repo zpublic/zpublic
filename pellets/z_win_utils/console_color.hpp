@@ -45,8 +45,9 @@ namespace WinUtils
         emConsoleColourFaintYellow      = 14,   ///>E= 淡黄色
         emConsoleColourBrightWhite      = 15,   ///>F= 亮白色
     }emConsoleColor;
+
     /**
-     * @brief 提供对console背景、字体的颜色的相关操作
+     * @brief 命令行颜色设置
      */
     class ZLConsoleColor
     {
@@ -54,7 +55,12 @@ namespace WinUtils
         ZLConsoleColor() {}
         ~ZLConsoleColor() {}
 
-    public:
+        /**
+         * @brief 设置命令行前景色
+         * @param[in] color emConsoleColor枚举值
+         * @return 成功返回TRUE,失败FALSE
+         * @see emConsoleColor
+         */
         static BOOL SetConsoleForegroundColor(emConsoleColor color)
         {
             HANDLE hOutPutHandle = ::GetStdHandle(STD_OUTPUT_HANDLE);
@@ -66,6 +72,12 @@ namespace WinUtils
             return FALSE;
         }
 
+        /**
+         * @brief 设置命令行背景色
+         * @param[in] color emConsoleColor枚举值
+         * @return 成功返回TRUE,失败FALSE
+         * @see emConsoleColor
+         */
         static BOOL SetConsoleBackgroundColor(emConsoleColor color)
         {
             HANDLE hOutPutHandle = ::GetStdHandle(STD_OUTPUT_HANDLE);
@@ -77,6 +89,10 @@ namespace WinUtils
             return FALSE;
         }
 
+        /**
+         * @brief 设置默认命令行字体
+         * @return 成功返回TRUE, 失败返回FALSE
+         */
         static BOOL SetColorFontDefault()
         {
             HANDLE hOutPutHandle = ::GetStdHandle(STD_OUTPUT_HANDLE);
@@ -87,6 +103,10 @@ namespace WinUtils
             return FALSE;
         }
 
+        /**
+         * @brief 获取命令行颜色
+         * @return 颜色值,详见CONSOLE_SCREEN_BUFFER_INFO结构的成员wAttributes
+         */
         static WORD GetConsoleColor()
         {
             WORD wRet = 0;

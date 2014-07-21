@@ -23,22 +23,44 @@
 #include "win_utils_header.h"
 #include <map>
 
-#define DELIMETERS   _T("-/")
-#define QUOTES       _T("\"") // Can be _T("\"\'"),  for instance
-#define VALUE_SEP    _T(" :") // Space MUST be in set
+#define CMDLINE_DELIMETERS   _T("-/")
+#define CMDLINE_QUOTES       _T("\"") // Can be _T("\"\'"),  for instance
+#define CMDLINE_VALUE_SEP    _T(" :") // Space MUST be in set
 
 namespace zl
 {
 namespace WinUtils
 {
     /**
-     * @brief 命令行参数处理的相关操作
+     * @brief 命令行参数处理
+     * @par Example
+     * @code
+     * #include "cmdline.hpp"
+     * using namespace zl::WinUtils;
+     * ZLCmdLine parser(_T("/Key1 /Key2: -Key3:Val3 -Key4:\"Val 4-with/spaces/and-delimeters\" /Key5:Val5"));
+     * parser.HasKey("Key1");
+     * parser.HasKey("Key10");
+     * parser.HasVal("Key2");
+     * 
+     * parser.GetVal("Key1");
+     * parser.GetVal("Key2");
+     * parser.GetVal("Key3");
+     * parser.GetVal("Key4");
+     * 
+     * ZLCmdLine::POSITION pos = parser.getFirst();	
+     * CString sKey, sVal;
+     * while(!parser.isLast(pos))
+     * {
+     *     parser.getNext(pos, sKey, sVal);
+     *     printf("Key: [%s], Val: [%s]");
+     * }
+     * @endcode
      */
     class ZLCmdLine
     {
     public:
-        class CValsMap : public std::map<CString, CString> {};
-        typedef CValsMap::const_iterator POSITION;
+        typedef std::map<CString, CString>                  CValsMap;
+        typedef std::map<CString, CString>::const_iterator  POSITION;
 
     public:
         ZLCmdLine(LPCTSTR sCmdLine = NULL, bool bCaseSensitive = false)
@@ -54,10 +76,7 @@ namespace WinUtils
         {
             m_ValsMap.clear();
         }
-        /**
-         * @brief 解析命令行参数
-         * @return 成功返回TRUE，失败返回FALSE
-         */
+
         bool Parse(LPCTSTR sCmdLine)
         {
             if (!sCmdLine) 
@@ -77,7 +96,7 @@ namespace WinUtils
                     break; 
                 } // No data left
 
-                LPCTSTR sArg = _tcspbrk(sCurrent, DELIMETERS);
+                LPCTSTR sArg = _tcspbrk(sCurrent, CMDLINE_DELIMETERS);
                 if (!sArg) 
                     break; // No delimeters found
 
@@ -86,7 +105,7 @@ namespace WinUtils
                 if (_tcslen(sArg) == 0) 
                     break; // String ends with delimeter
 
-                LPCTSTR sVal = _tcspbrk(sArg, VALUE_SEP);
+                LPCTSTR sVal = _tcspbrk(sArg, CMDLINE_VALUE_SEP);
                 if (sVal == NULL) 
                 { //Key ends command line
                     CString csKey(sArg);
@@ -122,11 +141,11 @@ namespace WinUtils
 
                     sVal = _tcsinc(sVal);
                     // "arg"
-                    LPCTSTR sQuote = _tcspbrk(sVal, QUOTES), sEndQuote(NULL);
+                    LPCTSTR sQuote = _tcspbrk(sVal, CMDLINE_QUOTES), sEndQuote(NULL);
                     if(sQuote == sVal) 
                     { // Quoted String
                         sQuote = _tcsinc(sVal);
-                        sEndQuote = _tcspbrk(sQuote, QUOTES);
+                        sEndQuote = _tcspbrk(sQuote, CMDLINE_QUOTES);
                     }else 
                     {
                         sQuote = sVal;

@@ -61,6 +61,7 @@
 #include "test_json_cpp.h"
 
 #include "test_flatbuffer.h"
+#include "test_sqlite.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -108,7 +109,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_json_cpp();
     //test_json_rpc();
 
-    test_flatbuffer();
+    //test_flatbuffer();
+    test_sqlite();
 
     getchar();
     return 0;

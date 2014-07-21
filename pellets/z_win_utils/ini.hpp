@@ -35,6 +35,9 @@ namespace zl
 namespace WinUtils
 {
 
+    /**
+     * ini文件处理
+     */
     class ZLIni
     {
     private:

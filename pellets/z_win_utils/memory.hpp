@@ -28,16 +28,14 @@ namespace zl
 namespace WinUtils
 {
     /**
-     * @brief 获取物理内存大小
+     * @brief 获取内存大小
      */
     class ZLMemory
     {
     public:
-        ///> MB
         /**
-         * @brief 获取物理内存大小，以MB为单位
-         * @return 成功返回物理内存大小
-         * @see GlobalMemoryStatusEx
+         * @brief 获取内存大小，以MB为单位
+         * @return 成功返回内存大小(MB)
          */
         static ULONG GetMemorySize()
         {
