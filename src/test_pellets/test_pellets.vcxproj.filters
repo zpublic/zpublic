@@ -610,6 +610,9 @@
     <ClInclude Include="..\..\pellets\z_http\TestHttp.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\sign_info.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">
