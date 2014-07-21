@@ -17,6 +17,8 @@
 #ifndef ZL_THREAD_SYNC_SYNC_OBJECT_HPP
 #define ZL_THREAD_SYNC_SYNC_OBJECT_HPP
 
+#include "z_t_thread_sync_def.h"
+
 namespace zl
 {
 namespace ThreadSync

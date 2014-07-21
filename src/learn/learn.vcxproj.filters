@@ -121,6 +121,12 @@
     <Filter Include="src\flatbuffer\flatbuf">
       <UniqueIdentifier>{8b7b29cb-1754-4f8e-8a24-a9612e35ea19}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\sqlite">
+      <UniqueIdentifier>{67581fb8-5d8d-4983-b2df-866385714c07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\sqlite\cppsqlite">
+      <UniqueIdentifier>{226af5b8-84e7-43c9-944e-e1aae0a731f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -498,6 +504,15 @@
     <ClInclude Include="test_flatbuffer.h">
       <Filter>src\flatbuffer</Filter>
     </ClInclude>
+    <ClInclude Include="test_sqlite.h">
+      <Filter>src\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cppsqlite\CppSQLite3.h">
+      <Filter>src\sqlite\cppsqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cppsqlite\sqlite3.h">
+      <Filter>src\sqlite\cppsqlite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -812,6 +827,12 @@
     <ClCompile Include="test_flatbuffer.cpp">
       <Filter>src\flatbuffer</Filter>
     </ClCompile>
+    <ClCompile Include="test_sqlite.cpp">
+      <Filter>src\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\cppsqlite\CppSQLite3.cpp">
+      <Filter>src\sqlite\cppsqlite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="test_proto.proto">
@@ -844,5 +865,19 @@
     <None Include="sample6.lua">
       <Filter>src\lua</Filter>
     </None>
+    <None Include="..\..\3rdparty\cppsqlite\sqlite3.def">
+      <Filter>src\sqlite\cppsqlite</Filter>
+    </None>
+    <None Include="..\..\3rdparty\cppsqlite\sqlite3.dll">
+      <Filter>src\sqlite\cppsqlite</Filter>
+    </None>
+    <None Include="..\..\3rdparty\cppsqlite\sqlite3.exp">
+      <Filter>src\sqlite\cppsqlite</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\3rdparty\cppsqlite\sqlite3.lib">
+      <Filter>src\sqlite\cppsqlite</Filter>
+    </Library>
   </ItemGroup>
 </Project>

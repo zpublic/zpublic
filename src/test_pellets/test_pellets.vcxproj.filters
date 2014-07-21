@@ -62,6 +62,9 @@
     <Filter Include="pellets\z_win_utils">
       <UniqueIdentifier>{1fc910f7-9a6c-4c48-9597-9f0de36ed60a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\z_http">
+      <UniqueIdentifier>{5af65062-fa5b-457b-948c-a33d4ea588dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -574,6 +577,42 @@
     <ClInclude Include="..\..\pellets\z_win_utils\uuid.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_http\file_write.hpp">
+      <Filter>pellets\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_http\http_client.hpp">
+      <Filter>pellets\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_http\ie_proxy.hpp">
+      <Filter>pellets\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_http\mem_write.hpp">
+      <Filter>pellets\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_http\simple_curl.hpp">
+      <Filter>pellets\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_http\stream_writter.hpp">
+      <Filter>pellets\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_http\z_http.h">
+      <Filter>pellets\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_http\z_http_def.h">
+      <Filter>pellets\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_http\z_http_header.h">
+      <Filter>pellets\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_http\z_http_interface.h">
+      <Filter>pellets\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_http\TestHttp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\sign_info.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">
@@ -811,6 +850,9 @@
       <Filter>pellets\z_lua_bind\internal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\pellets\z_win_utils\TestWinUtils.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_http\TestHttp.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

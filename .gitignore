@@ -11,28 +11,40 @@
 *.la
 *.a
 
+
+*.db
+
+*.exp
+!/3rdparty/cppsqlite/sqlite3.exp
+
 *.exe
 !/src/learn/protoc.exe
 !/src/irene/common/protoc.exe
+
+*.user
+*.ipch
 *.ilk
 *.tlog
 *.obj
 *.sdf
 *.idb
 *.pdb
-*.lib
 *.aps
+
+*.lib
 !/3rdparty/boost_lib/*.lib
 !/3rdparty/protobuf_lib/*.lib
 !/3rdparty/libcurl_lib/*.lib
 !/3rdparty/poco_lib/*.lib
 !/3rdparty/poco_lib_discarded/*.lib
 !/3rdparty/hge/lib/*.lib
+!/3rdparty/cppsqlite/sqlite3.lib
 
 Debug
 !/3rdparty/boost/preprocessor/debug/
 !/3rdparty/boost/bimap/detail/debug/
 !/3rdparty/boost/spirit/home/classic/debug/
+
 Release
 /sln/UpgradeLog.XML
 /sln/UpgradeLog.htm
@@ -43,26 +55,20 @@ Release
 /src/test_basic/testfile.dat
 /src/test_basic/zpublic.log
 /src/test_basic/test.zip
-*.ipch
 /src/test_pellets/test_pellets.xml
 
 /src/learn/ptree.info
-
 /src/learn/ptree.ini
-
 /src/learn/ptree.json
-
 /src/learn/ptree.xml
 /src/learn/test_proto.pb.h
 /src/learn/test_proto.pb.cc
 /src/learn/libcurl_test.gif
-
 /src/learn/data.io
 /src/irene/common/protocol
 /src/irene/bin
 
 /output/mud_server/game_server.log
-
 /output/mud_server/game_client.log
 /temp
 
@@ -70,7 +76,6 @@ circe_client_network.dll
 !/src/coeus/tools/CoreSword_Editor/CoreSword Editor.exe
 !/src/coeus/tools/CoreSword_Editor/CoreSword Editor.vshost.exe
 !/src/coeus/tools/CoreSword_Editor/Tools/protoc.exe
-*.user
 
 obj
 /3rdparty/poco/bin
@@ -78,7 +83,5 @@ obj
 /3rdparty/poco/Foundation/testsuite/bin
 
 .idea
-*.db
-*.exp
 /doc/html
 /doc/zpublic-pellets-z_win_utils.chm
