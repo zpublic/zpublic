@@ -52,6 +52,7 @@
 #include "module.hpp"
 #include "token.hpp"
 #include "acl.hpp"
+#include "disk.h"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

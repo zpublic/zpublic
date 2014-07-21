@@ -39,6 +39,7 @@ public:
         TEST_ADD(CTestWinUtils::test_browser);
         TEST_ADD(CTestWinUtils::test_uuid);
         TEST_ADD(CTestWinUtils::test_acl);
+        TEST_ADD(CTestWinUtils::test_disk)
     }
 
     void test_path()
@@ -764,5 +765,16 @@ public:
         TEST_ASSERT(acl.Open(ZLSystemPath::GetCommonAppDataDir() + L"\\zpublic_test\\acl", SE_FILE_OBJECT) == TRUE);
         TEST_ASSERT(acl.SetSecurity(L"Users", KEY_ALL_ACCESS, DENY_ACCESS) == TRUE);
         TEST_ASSERT(acl.SetSecurity(L"Users") == TRUE);
+    }
+
+    void test_disk()
+    {
+        vecDisk diskList;
+        TEST_ASSERT(ZLDisk::GetAllDiskSign(diskList) == TRUE);
+        TEST_ASSERT(!diskList.empty() == TRUE);
+        CString cstrSysSign = ZLSystemPath::GetWindowsDir();
+        ZLPath::PathRemoveBackslash(cstrSysSign);
+        ZLPath::PathRemoveFileSpec(cstrSysSign);
+        TEST_ASSERT(ZLDisk::IsFixedDisk(cstrSysSign) == TRUE);
     }
 };
