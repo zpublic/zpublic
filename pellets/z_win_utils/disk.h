@@ -30,14 +30,14 @@ namespace WinUtils
 
     typedef std::vector<CString> vecDisk;
     /**
-    * @brief 磁盘相关
+    * @brief 磁盘操作相关
     */
     class ZLDisk
     {
     public:
         /**
         * @brief 获取所有盘盘符
-        * @param[in] disk        所有盘符
+        * @param[in] disk        获取所有盘盘符
         * @return 成功返回TRUE，失败返回FALSE
         */
         static BOOL GetAllDiskLetter(vecDisk& disk)
@@ -89,7 +89,7 @@ namespace WinUtils
         /**
         * @brief 判断盘符是不是本地的物理磁盘
         * @param[in] cstrDisk        盘符名 比如 C:  请不要带反斜杠
-        * @return 成功返回TRUE，失败返回FALSE
+        * @return 是物理磁盘返回TRUE，不是返回FALSE
         */
         static BOOL IsFixedDisk(const CString& cstrDisk)
         {
