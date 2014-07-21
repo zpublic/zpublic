@@ -29,11 +29,18 @@ namespace WinUtils
 {
 
     typedef std::vector<CString> vecDisk;
-
+    /**
+    * @brief 磁盘操作相关
+    */
     class ZLDisk
     {
     public:
-        static BOOL GetAllDiskSign(vecDisk& disk)
+        /**
+        * @brief 获取所有盘盘符
+        * @param[in] disk        获取所有盘盘符
+        * @return 成功返回TRUE，失败返回FALSE
+        */
+        static BOOL GetAllDiskLetter(vecDisk& disk)
         {
             DWORD dwBufferLen = ::GetLogicalDriveStrings(0, NULL);
             if (dwBufferLen == 0)
@@ -79,6 +86,11 @@ namespace WinUtils
             return bReturn;
         }
 
+        /**
+        * @brief 判断盘符是不是本地的物理磁盘
+        * @param[in] cstrDisk        盘符名 比如 C:  请不要带反斜杠
+        * @return 是物理磁盘返回TRUE，不是返回FALSE
+        */
         static BOOL IsFixedDisk(const CString& cstrDisk)
         {
             if (cstrDisk.IsEmpty())
@@ -143,7 +155,7 @@ namespace WinUtils
         }
 
     private:
-        static const int LOGICAL_DRIVE_NAME_LEN = 4;
+        static const int LOGICAL_DRIVE_NAME_LEN = 4;      // 最大盘符BUFF长度
     };
 
 }
