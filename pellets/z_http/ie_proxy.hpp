@@ -50,16 +50,16 @@ namespace zl
                 CString strPort;
                 enumProxyType eProxyType = enumProxyNone;
 
-                if (!regKey.Open(HKEY_CURRENT_USER, ZL_HTTP_IE_REGISTRY_PATH))
+                if (!regKey.Open(HKEY_CURRENT_USER, ZL_HTTP_IE_REGISTRY_PATH, KEY_READ))
                     goto Exit0;
 
-                if (!regKey.Read(L"ProxyEnable", dwEnable))
+                if (!regKey.GetDwordValue(L"ProxyEnable", dwEnable))
                     goto Exit0;
 
                 if (!dwEnable)
                     goto Exit0;
 
-                if (!regKey.Read(L"ProxyServer", strProxySetting))
+                if (!regKey.GetStringValue(L"ProxyServer", strProxySetting))
                     goto Exit0;
 
                 strProxySetting.MakeLower();

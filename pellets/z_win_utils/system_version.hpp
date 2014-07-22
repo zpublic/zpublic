@@ -225,7 +225,7 @@ namespace WinUtils
                 {
                     break;
                 }
-                if (!r.Read(_T("CurrentVersion"), cstrVer))
+                if (!r.GetStringValue(_T("CurrentVersion"), cstrVer))
                 {
                     break;
                 }
