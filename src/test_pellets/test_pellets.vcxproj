@@ -233,6 +233,7 @@
     <ClInclude Include="..\..\pellets\z_win_utils\cpu.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\cstring.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\directory.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\disk.h" />
     <ClInclude Include="..\..\pellets\z_win_utils\drive.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\environment_var.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\error_code.hpp" />
