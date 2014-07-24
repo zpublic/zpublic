@@ -36,7 +36,7 @@ namespace WinUtils
 {
 
     /**
-     * ini文件处理
+     * @brief ini文件处理
      */
     class ZLIni
     {
