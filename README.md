@@ -12,7 +12,6 @@ zpublic是一个主要用于代码尝试和代码收集的c++开源项目。
 ----------
 3rdparty：第三方库代码和lib  
 doc：文档  
-output：zeus游戏的c++客户端circe的输出目录  
 pellets：一些相对独立的代码模块  
 public：基础代码  
 res：一些工程使用到的资源，在别的代码库  
@@ -40,6 +39,6 @@ zlui：界面尝试相关的代码
 
 zpublic\winutils文档：http://www.laorouji.com/zpublic/  
 zpublic（c++11、boost、poco、gui等讨论）交流讨论QQ群：240978546  
-coeus（火热进行中的游戏）交流讨论群：37723482  
+coeus（泡面的游戏梦）交流讨论群：37723482  
 coeus的丰富文档：http://wiki.powman.org/pages/viewpage.action?pageId=4849675  
-交流论坛 [http://gamediary.org/]  
+coeus交流论坛 [http://gamediary.org/]  
