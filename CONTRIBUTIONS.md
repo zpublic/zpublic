@@ -1,15 +1,15 @@
 ★
 =============
-zapline(https://github.com/zapline)  
+zapline(老肉鸡)(https://github.com/zapline)  
 kevin.zhang(https://github.com/zhangtaopy)  
-AngryPowman(https://github.com/AngryPowman)  
-Sumxx(https://github.com/Sumxx)  
+愤怒的泡面(https://github.com/AngryPowman)  
+卡拉(https://github.com/Sumxx)  
 死人(https://github.com/siren186)  
   
 ☆
 =============
 YeZi(https://github.com/vnoc-YeZi)  
-picctree(https://github.com/picctree)  
+csc(https://github.com/picctree)  
 hx934275738(https://github.com/hx934275738)  
 沙包妖梦(https://github.com/GongT)  
 ClassFoo(https://github.com/KingSir)  
