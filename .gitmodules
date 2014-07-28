@@ -1,3 +1,3 @@
-[submodule "res"]
-	path = res
-	url = https://github.com/zpublic/zpublic_res.git
+[submodule "pub"]
+	path = pub
+	url = https://github.com/zapline/ZPublic_Release.git
