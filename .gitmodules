@@ -1,3 +1,3 @@
 [submodule "pub"]
 	path = pub
-	url = https://github.com/zapline/ZPublic_Release.git
+	url = http://git.oschina.net/zapline/ZPublic_Release.git
