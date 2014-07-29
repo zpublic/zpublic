@@ -59,6 +59,7 @@ namespace WinUtils
 
     static LONG Start(LPCTSTR szSvcName, LPCTSTR szCmdline = NULL, DWORD dwMilliseconds = 0);
     static LONG Stop(LPCTSTR szSvcName, DWORD dwMilliseconds = 0);
+    static BOOL IsRunning(LPCTSTR szSvcName);
     */
     /**
      * 系统服务相关操作
@@ -69,7 +70,7 @@ namespace WinUtils
         /**
          * @brief 改变服务的配置参数
          * @param[in] pSvcInfo ZLSERVICE_INFO结构体指针
-         * @return 成功返回S_OK，失败返回-1
+         * @return 成功返回0，失败返回-1
          * @see ChangeServiceConfig
          */
         static LONG CreateBySCM(const ZLSERVICE_INFO* pSvcInfo)
@@ -126,7 +127,7 @@ namespace WinUtils
             if (!bSuccess)
                 goto Exit0;
 
-            lRet = S_OK;
+            lRet = 0;
 
 Exit0:
             if (schService)
@@ -139,7 +140,7 @@ Exit0:
         /**
          * @brief 删除服务
          * @param[in] szSvcName 服务名
-         * @return 成功返回S_OK，失败返回-1
+         * @return 成功返回0，失败返回-1
          * @see DeleteService
          */
         static LONG DeleteBySCM(LPCTSTR szSvcName)
@@ -158,7 +159,7 @@ Exit0:
             schService = ::OpenService(schSCManager, szSvcName, DELETE);
             if (!schService)
             {
-                ERROR_SERVICE_DOES_NOT_EXIST == ::GetLastError() ? lRet = S_OK : NULL;
+                ERROR_SERVICE_DOES_NOT_EXIST == ::GetLastError() ? lRet = 0 : NULL;
                 goto Exit0;
             }
 
@@ -166,7 +167,7 @@ Exit0:
             if (!bSuccess)
                 goto Exit0;
 
-            lRet = S_OK;
+            lRet = 0;
 
 Exit0:
             if (schService)
@@ -182,7 +183,7 @@ Exit0:
                 return -1;
 
             LONG lRet = CreateBySCM(pSvcInfo);
-            if (lRet != S_OK)
+            if (lRet != 0)
                 return lRet;
 
             TCHAR szSubKey[MAX_PATH] = {0};
@@ -211,7 +212,7 @@ Exit0:
                 return -1;
 
             LONG lRet = _DeleteServiceToSvchost(szSvchostKey, szSvcName, bSvchost32);
-            if (lRet != S_OK)
+            if (lRet != 0)
                 return lRet;
 
             return DeleteBySCM(szSvcName);
@@ -276,7 +277,7 @@ Exit0:
             if (lErrCode != ERROR_SUCCESS)
                 goto Exit0;
 
-            lRet = S_OK;
+            lRet = 0;
 
 Exit0:
             if (hKey)
@@ -297,7 +298,7 @@ Exit0:
             if (dwErrCode != ERROR_SUCCESS && dwErrCode != ERROR_FILE_NOT_FOUND)
                 return -1;
 
-            return S_OK;
+            return 0;
         }
 
         static LONG CreateSvchostByReg(const ZLSERVICE_INFO* pSvcInfo, LPCTSTR szDllPath, LPCTSTR szSvchostKey, BOOL bSvchost32)
@@ -306,7 +307,7 @@ Exit0:
                 return -1;
 
             LONG lRet = CreateByReg(pSvcInfo);
-            if (lRet != S_OK)
+            if (lRet != 0)
                 return lRet;
 
             TCHAR szSubKey[MAX_PATH] = {0};
@@ -335,7 +336,7 @@ Exit0:
                 return -1;
 
             LONG lRet = _DeleteServiceToSvchost(szSvchostKey, szSvcName, bSvchost32);
-            if (lRet != S_OK)
+            if (lRet != 0)
                 return lRet;
 
             return DeleteByReg(szSvcName);
@@ -345,6 +346,9 @@ Exit0:
         {
             if (!szSvcName)
                 return -1;
+
+            if (IsRunning(szSvcName))
+                return 0;
 
             LONG lRet = -1;
             SC_HANDLE schSCManager = NULL;
@@ -358,9 +362,6 @@ Exit0:
 
             schService = ::OpenService(schSCManager, szSvcName, SERVICE_QUERY_STATUS|SERVICE_START);
             if (!schService)
-                goto Exit0;
-
-            if (!::QueryServiceStatus(schService, &serviceStatus))
                 goto Exit0;
 
             if (serviceStatus.dwCurrentState != SERVICE_START_PENDING && serviceStatus.dwCurrentState != SERVICE_RUNNING)
@@ -386,7 +387,7 @@ Exit0:
 
                 if (serviceStatus.dwCurrentState == SERVICE_RUNNING)
                 {
-                    lRet = S_OK;
+                    lRet = 0;
                     break;
                 }
 
@@ -444,7 +445,7 @@ Exit0:
 
                 if (serviceStatus.dwCurrentState == SERVICE_STOPPED)
                 {
-                    lRet = S_OK;
+                    lRet = 0;
                     break;
                 }
 
@@ -460,6 +461,38 @@ Exit0:
                 ::CloseServiceHandle(schSCManager);
 
             return lRet;
+        }
+
+        static BOOL IsRunning(LPCTSTR szSvcName)
+        {
+            if (!szSvcName)
+                return FALSE;
+
+            BOOL bRet = FALSE;
+            SC_HANDLE schSCManager = NULL;
+            SC_HANDLE schService = NULL;
+            SERVICE_STATUS serviceStatus = {0};
+
+            schSCManager = ::OpenSCManager(NULL, NULL, SC_MANAGER_CONNECT);
+            if (!schSCManager)
+                goto Exit0;
+
+            schService = ::OpenService(schSCManager, szSvcName, SERVICE_QUERY_STATUS|SERVICE_START);
+            if (!schService)
+                goto Exit0;
+
+            if (!::QueryServiceStatus(schService, &serviceStatus))
+                goto Exit0;
+
+            bRet = (serviceStatus.dwCurrentState == SERVICE_RUNNING) ? TRUE : FALSE;
+
+Exit0:
+            if (schService)
+                ::CloseServiceHandle(schService);
+            if (schSCManager)
+                ::CloseServiceHandle(schSCManager);
+
+            return bRet;
         }
 
     private:
@@ -559,17 +592,20 @@ Exit0:
             DWORD dwBufSize = 0;
             DWORD dwType;
             DWORD dwRetBytes = 0;
-            lErrCode = ::RegQueryValueEx(hKey, szSvchostKey, NULL, &dwType, NULL, &dwRetBytes);
+            lErrCode = ::RegQueryValueEx(hKey, szSvchostKey, NULL, NULL, NULL, &dwRetBytes);
             if (lErrCode == ERROR_SUCCESS)
             {
-                dwBufSize = dwRetBytes + sizeof(TCHAR) * (dwLen + 1);
+                dwBufSize = dwRetBytes + sizeof(TCHAR) * (dwLen + 2);
                 pBuffer = new BYTE[dwBufSize];
                 lErrCode = ::RegQueryValueEx(hKey, szSvchostKey, NULL, &dwType, pBuffer, &dwRetBytes);
                 if (lErrCode != ERROR_SUCCESS || dwType != REG_MULTI_SZ)
                     goto Exit0;
 
-                if (dwBufSize != dwRetBytes + sizeof(TCHAR) * (dwLen + 1))
+                if (dwBufSize != dwRetBytes + sizeof(TCHAR) * (dwLen + 2))
                     goto Exit0;
+
+                pBuffer[dwRetBytes] = _T('\0');
+                pBuffer[dwRetBytes + 1] = _T('\0');
             }
             else if (lErrCode == ERROR_FILE_NOT_FOUND)
             {
@@ -590,7 +626,7 @@ Exit0:
             if (lErrCode != ERROR_SUCCESS)
                 goto Exit0;
 
-            lRet = S_OK;
+            lRet = 0;
 
 Exit0:
             if (pBuffer)
@@ -623,17 +659,22 @@ Exit0:
 
             DWORD dwType;
             DWORD dwBufSize = 0;
-            lErrCode = ::RegQueryValueEx(hKey, szSvchostKey, NULL, &dwType, NULL, &dwBufSize);
+            DWORD dwRetBytes = 0;
+            lErrCode = ::RegQueryValueEx(hKey, szSvchostKey, NULL, NULL, NULL, &dwRetBytes);
             if (lErrCode == ERROR_SUCCESS)
             {
+                dwBufSize = dwRetBytes + 2;
                 pBuffer = new BYTE[dwBufSize];
-                lErrCode = ::RegQueryValueEx(hKey, szSvchostKey, NULL, &dwType, pBuffer, &dwBufSize);
-                if (lErrCode != ERROR_SUCCESS || dwType != REG_MULTI_SZ)
+                lErrCode = ::RegQueryValueEx(hKey, szSvchostKey, NULL, &dwType, pBuffer, &dwRetBytes);
+                if (lErrCode != ERROR_SUCCESS || dwType != REG_MULTI_SZ || dwBufSize != dwRetBytes + 2)
                     goto Exit0;
+
+                pBuffer[dwRetBytes] = _T('\0');
+                pBuffer[dwRetBytes + 1] = _T('\0');
             }
             else if (lErrCode == ERROR_FILE_NOT_FOUND)
             {
-                lRet = S_OK;
+                lRet = 0;
                 goto Exit0;
             }
             else
@@ -658,7 +699,7 @@ Exit0:
                     goto Exit0;
             }
 
-            lRet = S_OK;
+            lRet = 0;
 
 Exit0:
             if (pBuffer)
