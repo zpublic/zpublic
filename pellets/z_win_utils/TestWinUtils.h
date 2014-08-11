@@ -39,7 +39,7 @@ public:
         TEST_ADD(CTestWinUtils::test_browser);
         TEST_ADD(CTestWinUtils::test_uuid);
         TEST_ADD(CTestWinUtils::test_acl);
-        TEST_ADD(CTestWinUtils::test_disk)
+        TEST_ADD(CTestWinUtils::test_disk);
     }
 
     void test_path()
@@ -138,41 +138,6 @@ public:
         CString sSid;
         TEST_ASSERT(ZLUsid::GetCurrentUserSID(sSid) == TRUE);
         TEST_ASSERT(sSid.IsEmpty() == FALSE)
-    }
-
-    void test_register()
-    {
-        ZLRegister reg;
-        TCHAR szbyWTestString[] = {L"pjj"};
-        TEST_ASSERT(reg.Open(HKEY_LOCAL_MACHINE, L"SOFTWARE\\zpublic", TRUE) == TRUE);
-        TEST_ASSERT(reg.Write(L"ttdword", 1) == TRUE);
-        TEST_ASSERT(reg.Write(L"ttstring", L"pjjpjjpjj") == TRUE);
-        TEST_ASSERT(reg.WriteExpandString(L"ttexstring", L"pjjpjjpjj2") == TRUE);
-        TEST_ASSERT(reg.Write(L"ttby", (BYTE*)szbyWTestString, (_tcslen(szbyWTestString) + 1) * sizeof(TCHAR)) == TRUE);
-
-        DWORD dwTestValue = 0;
-        TCHAR szbyTestString[MAX_PATH] = {0};
-        DWORD dwbyTestNameLen;
-        CString cstrTestValue;
-        TEST_ASSERT(reg.Read(L"ttdword", dwTestValue) == TRUE);
-        TEST_ASSERT(dwTestValue == 1);
-        TEST_ASSERT(reg.Read(L"ttstring", cstrTestValue) == TRUE);
-        TEST_ASSERT(cstrTestValue == L"pjjpjjpjj");
-        TEST_ASSERT(reg.Read(L"ttexstring", cstrTestValue) == TRUE);
-        TEST_ASSERT(cstrTestValue == L"pjjpjjpjj2");
-        TEST_ASSERT(reg.Read(L"ttby", (BYTE*)szbyTestString, dwbyTestNameLen) == TRUE);
-        TEST_ASSERT(_tcsicmp(szbyTestString, L"pjj") == 0);
-
-        TEST_ASSERT(reg.DeleteValue(L"ttdword") == TRUE);
-        TEST_ASSERT(reg.DeleteValue(L"ttstring") == TRUE);
-        TEST_ASSERT(reg.DeleteValue(L"ttexstring") == TRUE);
-        TEST_ASSERT(reg.DeleteValue(L"ttby") == TRUE);
-
-        TEST_ASSERT(reg.CreateVolatileReg(HKEY_LOCAL_MACHINE, L"SOFTWARE\\zpublic\\ttCreateVolatileReg") == TRUE);
-        TEST_ASSERT(reg.Open(HKEY_LOCAL_MACHINE, L"SOFTWARE\\zpublic\\ttCreateVolatileReg") == TRUE);
-        TEST_ASSERT(reg.Write(L"ttdword", 1) == TRUE);
-        TEST_ASSERT(reg.Open(HKEY_LOCAL_MACHINE, L"SOFTWARE\\zpublic") == TRUE);
-        TEST_ASSERT(reg.DeleteKey(L"ttCreateVolatileReg") == TRUE);
     }
 
     void test_system_version()
@@ -323,70 +288,42 @@ public:
 
     void test_autorun()
     {
-        ///////////////////////////////////////////////////////////////////
-        ///> test run
-        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::ALL_USER, NULL, NULL) == FALSE);
-        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::ALL_USER, L"zpublic", NULL) == FALSE);
-        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::ALL_USER, NULL, L"zpublic") == FALSE);
-        ///> 32
-        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::ALL_USER, L"zpublic1", L"c:\\1.txt") == TRUE);
-        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::ALL_USER, L"zpublic2", L"c:\\2.txt", REG_SZ) == TRUE);
-        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::SINGLE_USER, L"zpublic3", L"c:\\3.txt") == TRUE);
-        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::SINGLE_USER, L"zpublic4", L"c:\\4.txt", REG_SZ) == TRUE);
-        ///> 64
-        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::ALL_USER, L"zpublic5", L"c:\\5.txt", REG_EXPAND_SZ, NULL, FALSE) == TRUE);
-        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::ALL_USER, L"zpublic6", L"c:\\6.txt", REG_SZ, NULL, FALSE) == TRUE);
-        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::SINGLE_USER, L"zpublic7", L"c:\\7.txt", REG_EXPAND_SZ, NULL, FALSE) == TRUE);
-        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::SINGLE_USER, L"zpublic8", L"c:\\8.txt", REG_SZ, NULL, FALSE) == TRUE);
-        ///> sid
-        CString sSid;
-        ZLUsid::GetCurrentUserSID(sSid);
-        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::SINGLE_USER, L"zpublic9", L"c:\\9.txt", REG_SZ, sSid) == TRUE);
-        ///> 32读取验证
+        CString sRun = L"Software\\Microsoft\\Windows\\CurrentVersion\\Run";
+        CString sRunOnce = L"Software\\Microsoft\\Windows\\CurrentVersion\\Runonce";
+        CString sZpublic = L"zpublic";
+        CString sValue;
+
+        ///> ALL USER
+        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::ALL_USER, sZpublic, L"c:\\1.txt") == TRUE);
+        TEST_ASSERT(ZLAutorun::AddRegRunOnce(ZLAutorun::ALL_USER, sZpublic, L"c:\\2.txt") == TRUE);
+
         ZLRegister reg;
-        reg.Open(HKEY_LOCAL_MACHINE, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run");
-        CString  sValue;
-        reg.Read(L"zpublic1", sValue);
+        reg.Open(HKEY_LOCAL_MACHINE, sRun);
+        reg.GetStringValue(sZpublic, sValue);
         TEST_ASSERT(sValue.Compare(L"c:\\1.txt") == 0);
-        reg.Read(L"zpublic2", sValue);
+
+        reg.Open(HKEY_LOCAL_MACHINE, sRunOnce);
+        reg.GetStringValue(sZpublic, sValue);
         TEST_ASSERT(sValue.Compare(L"c:\\2.txt") == 0);
-        reg.Close();
 
-        reg.Open(HKEY_CURRENT_USER, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run");
-        reg.Read(L"zpublic3", sValue);
+        ///> 当前用户
+        TEST_ASSERT(ZLAutorun::AddRegRun(ZLAutorun::CURRENT_USER, sZpublic, L"c:\\3.txt", FALSE) == TRUE);
+        TEST_ASSERT(ZLAutorun::AddRegRunOnce(ZLAutorun::CURRENT_USER, sZpublic, L"c:\\4.txt", FALSE) == TRUE);
+
+        reg.Open(HKEY_CURRENT_USER, sRun, KEY_WOW64_64KEY | KEY_READ);
+        reg.GetStringValue(sZpublic, sValue);
         TEST_ASSERT(sValue.Compare(L"c:\\3.txt") == 0);
-        reg.Read(L"zpublic4", sValue);
+
+        reg.Open(HKEY_CURRENT_USER, sRunOnce, KEY_WOW64_64KEY | KEY_READ);
+        reg.GetStringValue(sZpublic, sValue);
         TEST_ASSERT(sValue.Compare(L"c:\\4.txt") == 0);
-        reg.Close();
-        ///> 64读取验证
-        reg.Open(HKEY_LOCAL_MACHINE, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run", FALSE, KEY_WOW64_64KEY | KEY_READ);
-        reg.Read(L"zpublic5", sValue);
-        TEST_ASSERT(sValue.Compare(L"c:\\5.txt") == 0);
-        reg.Read(L"zpublic6", sValue);
-        TEST_ASSERT(sValue.Compare(L"c:\\6.txt") == 0);
-        reg.Close();
 
-        reg.Open(HKEY_CURRENT_USER, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run", FALSE, KEY_WOW64_64KEY | KEY_READ);
-        reg.Read(L"zpublic7", sValue);
-        TEST_ASSERT(sValue.Compare(L"c:\\7.txt") == 0);
-        reg.Read(L"zpublic8", sValue);
-        TEST_ASSERT(sValue.Compare(L"c:\\8.txt") == 0);
+        ///> 清理
         reg.Close();
-        ///> 读取验证sid
-        reg.Open(HKEY_CURRENT_USER, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run");
-        reg.Read(L"zpublic9", sValue);
-        TEST_ASSERT(sValue.Compare(L"c:\\9.txt") == 0);
-        reg.Close();
-
-        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::ALL_USER, L"zpublic1") == TRUE);
-        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::ALL_USER, L"zpublic2") == TRUE);
-        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::SINGLE_USER, L"zpublic3") == TRUE);
-        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::SINGLE_USER, L"zpublic4") == TRUE);
-        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::ALL_USER, L"zpublic5", NULL, FALSE) == TRUE);
-        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::ALL_USER, L"zpublic6", NULL, FALSE) == TRUE);
-        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::SINGLE_USER, L"zpublic7", NULL, FALSE) == TRUE);
-        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::SINGLE_USER, L"zpublic8", NULL, FALSE) == TRUE);
-        TEST_ASSERT(ZLAutorun::DelRegRun(ZLAutorun::SINGLE_USER, L"zpublic9") == TRUE);
+        ZLAutorun::DelRegRun(ZLAutorun::ALL_USER, sZpublic);
+        ZLAutorun::DelRegRunOnce(ZLAutorun::ALL_USER, sZpublic);
+        ZLAutorun::DelRegRun(ZLAutorun::CURRENT_USER, sZpublic, FALSE);
+        ZLAutorun::DelRegRunOnce(ZLAutorun::CURRENT_USER, sZpublic, FALSE);
     }
 
     void test_environment_var()
@@ -400,12 +337,12 @@ public:
         ZLRegister reg;
         CString sValue;
         reg.Open(HKEY_LOCAL_MACHINE, L"System\\CurrentControlSet\\Control\\Session Manager\\Environment");
-        reg.Read(L"zpublic1", sValue);
+        reg.GetStringValue(L"zpublic1", sValue);
         TEST_ASSERT(sValue.Compare(L"c:\\1.txt") == 0);
         reg.Close();
 
         reg.Open(HKEY_CURRENT_USER, L"Environment");
-        reg.Read(L"zpublic2", sValue);
+        reg.GetStringValue(L"zpublic2", sValue);
         TEST_ASSERT(sValue.Compare(L"c:\\2.txt") == 0);
         reg.Close();
 
@@ -634,18 +571,18 @@ public:
 
         for (int i=0; i<_countof(arrItemName); ++i)
         {
-            if (reg.Open(HKEY_LOCAL_MACHINE, sSubKey + arrItemName[i], TRUE))
-                reg.Close();
+            reg.Create(HKEY_LOCAL_MACHINE, sSubKey + arrItemName[i], KEY_WRITE);
+            reg.Close();
         }
 
         if (reg.Open(HKEY_LOCAL_MACHINE, sSubKey))
         {
-            reg.Write(L"RegSz1", L"RegSzValue1");
-            reg.Write(L"RegSz2", L"RegSzValue2");
-            reg.WriteExpandString(L"RegExpandSz1", L"RegExpandSzValue1");
-            reg.WriteExpandString(L"RegExpandSz2", L"RegExpandSzValue2");
-            reg.Write(L"Dword1", 11);
-            reg.Write(L"Dword2", 12);
+            reg.SetSzValue(L"RegSz1", L"RegSzValue1");
+            reg.SetSzValue(L"RegSz2", L"RegSzValue2");
+            reg.SetExpandSzValue(L"RegExpandSz1", L"RegExpandSzValue1");
+            reg.SetExpandSzValue(L"RegExpandSz2", L"RegExpandSzValue2");
+            reg.SetDwordValue(L"Dword1", 11);
+            reg.SetDwordValue(L"Dword2", 12);
 
             reg.Close();
         }
@@ -685,9 +622,8 @@ public:
         TEST_ASSERT(mapDword.size() == 2);
 
         ///> 清理
-        reg.Open(HKEY_LOCAL_MACHINE, sSubKey);
-        reg.DeleteKey(sSubKey);
         reg.Close();
+        ZLRegister::DelKey(HKEY_LOCAL_MACHINE, sSubKey);
     }
 
     void test_file_info()
@@ -770,11 +706,38 @@ public:
     void test_disk()
     {
         vecDisk diskList;
-        TEST_ASSERT(ZLDisk::GetAllDiskSign(diskList) == TRUE);
+        TEST_ASSERT(ZLDisk::GetAllDiskLetter(diskList) == TRUE);
         TEST_ASSERT(!diskList.empty() == TRUE);
         CString cstrSysSign = ZLSystemPath::GetWindowsDir();
         ZLPath::PathRemoveBackslash(cstrSysSign);
         ZLPath::PathRemoveFileSpec(cstrSysSign);
         TEST_ASSERT(ZLDisk::IsFixedDisk(cstrSysSign) == TRUE);
+    }
+
+    void test_register()
+    {
+        HKEY hTestKey = HKEY_LOCAL_MACHINE;
+        CString sTestKeyPath = L"Software\\zpublic";
+        CString sSubKey = sTestKeyPath + L"\\test_register";
+        DWORD dwValue = 0;
+        CString sValue;
+
+        ZLRegister reg;
+        TEST_ASSERT(reg.Open(HKEY_LOCAL_MACHINE, sSubKey, KEY_ALL_ACCESS, TRUE) == TRUE);
+
+        TEST_ASSERT(reg.SetDwordValue(L"dword_test", 11) == TRUE);
+        TEST_ASSERT(reg.GetDwordValue(L"dword_test", dwValue) == TRUE);
+        TEST_ASSERT(dwValue == 11);
+
+        TEST_ASSERT(reg.SetSzValue(L"sz_test", L"haha") == TRUE);
+        TEST_ASSERT(reg.GetStringValue(L"sz_test", sValue) == TRUE);
+        TEST_ASSERT(sValue.Compare(L"haha") == 0);
+
+        TEST_ASSERT(reg.DelValue(L"sz_test") == TRUE);
+        TEST_ASSERT(reg.GetStringValue(L"sz_test", sValue) == FALSE);
+
+        reg.Close();
+
+        TEST_ASSERT(ZLRegister::DelKey(hTestKey, sTestKeyPath) == TRUE);
     }
 };

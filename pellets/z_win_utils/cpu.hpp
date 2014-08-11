@@ -54,7 +54,7 @@ namespace WinUtils
             ZLRegister reg;
             if (reg.Open(HKEY_LOCAL_MACHINE, L"HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0"))
             {
-                reg.Read(L"~MHz", dwMHz);
+                reg.GetDwordValue(L"~MHz", dwMHz);
             }
             return dwMHz;
         }

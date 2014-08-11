@@ -28,349 +28,310 @@ namespace zl
 namespace WinUtils
 {
     /**
-     * @brief 提供对注册表的打开、读取、设置、创建和删除操作
+     * @brief 注册表操作, 包括读,写,删
      */
     class ZLRegister
     {
-    public:
-        ZLRegister()
-            : hKey_(NULL)
-        {
-        }
-
-        ~ZLRegister()
-        {
-            Close();
-        }
-
-    public:
-        /**
-         * @brief 打开注册表键
-         * @param[in] hRootKey          RootKey
-         * @param[in] szSubKey          SubKey
-         * @param[in] bCreateIfNotExsit 函数执行方式
-         * @param[in] samDesired        key的访问权限
-         * @return 成功返回TRUE，失败返回FALSE 
-         */
-        BOOL Open(HKEY hRootKey, LPCTSTR szSubKey, BOOL bCreateIfNotExsit = FALSE, REGSAM samDesired = KEY_READ | KEY_WRITE)
-        {
-            Close();
-            LONG lRetCode = 0;
-            if (bCreateIfNotExsit)
-            {
-                lRetCode = ::RegCreateKeyEx(hRootKey,
-                    szSubKey,
-                    NULL,
-                    NULL,
-                    REG_OPTION_NON_VOLATILE,
-                    samDesired,
-                    NULL, 
-                    &hKey_,
-                    NULL);
-            }
-            else
-            {
-                lRetCode = ::RegOpenKeyEx(hRootKey,
-                    szSubKey,
-                    0,
-                    samDesired,
-                    &hKey_);
-            }
-            if (lRetCode != ERROR_SUCCESS)
-            {
-                return FALSE;
-            }
-            return TRUE;
-        }
-        /**
-         * @brief 创建注册表键
-         * @param[in] hRootKey   RootKey
-         * @param[in] szSubKey   SubKey
-         * @param[in] samDesired key的访问权限
-         * @return 成功返回TRUE，失败返回FALSE 
-         */
-        BOOL CreateVolatileReg(HKEY hRootKey, LPCTSTR szSubKey, REGSAM samDesired = KEY_READ | KEY_WRITE)
-        {
-            Close();
-            if (::RegCreateKeyEx(hRootKey,
-                szSubKey,
-                0L,
-                NULL,
-                REG_OPTION_VOLATILE,
-                samDesired,
-                NULL,
-                &hKey_,
-                NULL) != ERROR_SUCCESS)
-            {
-                return FALSE;
-            }
-            return TRUE;
-        }
-        /**
-         * @brief 循环删除指定键的子键和值
-         * @param[in] pszName 键名
-         * @return 成功返回TRUE，失败返回FALSE 
-         */
-        BOOL DeleteKey(LPCTSTR pszName)
-        {
-            if (pszName == NULL
-                || hKey_ == NULL)
-            {
-                return FALSE;
-            }
-            if (ERROR_SUCCESS == ::SHDeleteKey(hKey_, pszName))
-            {
-                return TRUE;
-            }
-            return FALSE;
-        }
-        /**
-         * @brief 删除指定键的值
-         * @param[in] pszName 键名
-         * @return 成功返回TRUE，失败返回FALSE 
-         */
-        BOOL DeleteValue(LPCTSTR pszName)
-        {
-            if (pszName == NULL
-                || hKey_ == NULL)
-            {
-                return FALSE;
-            }
-            if (ERROR_SUCCESS == ::RegDeleteValue(hKey_, pszName))
-            {
-                return TRUE;
-            }
-            return FALSE;
-        }
-
-        void Close(void)
-        {
-            if (hKey_)
-            {
-                ::RegCloseKey(hKey_);
-                hKey_ = NULL;
-            }
-        }
-        /**
-         * @brief 获取键值数据
-         * @param[in]  pszValueName 键值名称
-         * @param[out] dwValue      键值数据
-         * @return 成功返回TRUE，失败返回FALSE 
-         */
-        BOOL Read(LPCTSTR pszValueName, DWORD& dwValue)
-        {
-            if (pszValueName == NULL
-                || hKey_ == NULL)
-            {
-                return FALSE;
-            }
-
-            DWORD dwDest = 0;
-            DWORD dwType = 0;
-            DWORD dwSize = sizeof (DWORD);
-            if (::RegQueryValueEx(hKey_,
-                pszValueName,
-                NULL,
-                &dwType,
-                (BYTE *)&dwDest,
-                &dwSize) == ERROR_SUCCESS)
-            {
-                if (dwType == REG_DWORD)
-                {
-                    dwValue = dwDest;
-                    return TRUE;
-                }
-            }
-            return FALSE;
-        }
-        /**
-         * @brief 获取键值数据
-         * @param[in]  pszValueName 键值名称
-         * @param[out] strValue     键值数据
-         * @return 成功返回TRUE，失败返回FALSE 
-         */
-        BOOL Read(LPCTSTR pszValueName, CString& strValue)
-        {
-            if (pszValueName == NULL
-                || hKey_ == NULL)
-            {
-                return FALSE;
-            }
-
-            BOOL bReturn = FALSE;
-            DWORD dwType;
-            DWORD dwSize = 0;
-            do
-            {
-                if (::RegQueryValueEx(hKey_,
-                    pszValueName,
-                    NULL,
-                    &dwType,
-                    NULL,
-                    &dwSize) != ERROR_SUCCESS)
-                {
-                    break;
-                }
-                if (dwType != REG_SZ
-                    && dwType != REG_EXPAND_SZ)
-                {
-                    break;
-                }
-                strValue.Empty();
-                LPTSTR pBuffer = strValue.GetBuffer(dwSize / 2 + 1);
-                if (!pBuffer)
-                {
-                    break;
-                }
-                if (::RegQueryValueEx(hKey_,
-                    pszValueName,
-                    NULL,
-                    &dwType,
-                    (BYTE*)pBuffer,
-                    &dwSize) == ERROR_SUCCESS)
-                {
-                    pBuffer[dwSize / 2] = 0;
-                    bReturn = TRUE;
-                }
-                strValue.ReleaseBuffer();
-            } while (FALSE);
-            return bReturn;
-        }
-        /**
-         * @brief 获取键值数据
-         * @param[in] pszValueName 键值名称
-         * @param[in] pBuffer      存放键值数据的缓冲区
-         * @param[in] dwSize       缓冲区大小
-         * @return 成功返回TRUE，失败返回FALSE 
-         */
-        BOOL Read(LPCTSTR pszValueName, BYTE* pBuffer, DWORD& dwSize)
-        {
-            if (pszValueName == NULL
-                || hKey_ == NULL)
-            {
-                return FALSE;
-            }
-
-            BOOL bReturn = FALSE;
-            LONG lRetCode = 0;
-            DWORD dwType = 0;
-            if (::RegQueryValueEx(hKey_,
-                pszValueName,
-                NULL,
-                &dwType,
-                pBuffer,
-                &dwSize) != ERROR_SUCCESS)
-            {
-                return FALSE;
-            }
-            return TRUE;
-        }
-        /**
-         * @brief 设置键值数据
-         * @param[in] pszValueName 键值名称
-         * @param[in] dwValue      要设置的数据
-         * @return 成功返回TRUE，失败返回FALSE 
-         */
-        BOOL Write(LPCTSTR pszValueName, DWORD dwValue)
-        {
-            if (pszValueName == NULL
-                || hKey_ == NULL)
-            {
-                return FALSE;
-            }
-
-            BOOL bReturn = FALSE;
-            if (::RegSetValueEx(hKey_,
-                pszValueName,
-                NULL,
-                REG_DWORD,
-                (CONST BYTE*)&dwValue,
-                sizeof(DWORD)) != ERROR_SUCCESS)
-            {
-                return FALSE;
-            }
-            return TRUE;
-        }
-        /**
-         * @brief 设置键值数据
-         * @param[in] pszValueName 键值名称
-         * @param[in] dwValue      要设置的数据
-         * @return 成功返回TRUE，失败返回FALSE 
-         */
-        BOOL Write(LPCTSTR pszValueName, LPCTSTR pszValue)
-        {
-            if (pszValueName == NULL
-                || hKey_ == NULL
-                || pszValue == NULL)
-            {
-                return FALSE;
-            }
-            if (::RegSetValueEx(hKey_,
-                pszValueName,
-                NULL,
-                REG_SZ,
-                (CONST BYTE*) pszValue,
-                ((int)_tcslen(pszValue) + 1) * sizeof(TCHAR)) != ERROR_SUCCESS)
-            {
-                return FALSE;
-            }
-            return TRUE;
-        }
-        /**
-         * @brief 设置键值类型为REG_EXPAND_SZ键值数据
-         * @param[in] pszValueName 键值名称
-         * @param[in] pszValue     要设置的数据
-         * @return 成功返回TRUE，失败返回FALSE 
-         */
-        BOOL WriteExpandString(LPCTSTR pszValueName, LPCTSTR pszValue)
-        {
-            if (pszValueName == NULL
-                || hKey_ == NULL
-                || pszValue == NULL)
-            {
-                return FALSE;
-            }
-            if (::RegSetValueEx(hKey_,
-                pszValueName,
-                NULL,
-                REG_EXPAND_SZ,
-                (CONST BYTE*) pszValue,
-                ((int)_tcslen(pszValue) + 1) * sizeof(TCHAR)) != ERROR_SUCCESS)
-            {
-                return FALSE;
-            }
-            return TRUE;
-        }
-        /**
-         * @brief 设置键值类型为REG_BINARY键值数据
-         * @param[in] pszValueName 键值名称
-         * @param[in] pBuffer      包含要设置数据的缓冲区
-         * @param[in] dwSize       缓冲区大小
-         * @return 成功返回TRUE，失败返回FALSE 
-         */
-        BOOL Write(LPCTSTR pszValueName, BYTE* pBuffer, DWORD dwSize)
-        {
-            if (pszValueName == NULL
-                || hKey_ == NULL
-                || pBuffer == NULL)
-            {
-                return FALSE;
-            }
-            if (::RegSetValueEx(hKey_,
-                pszValueName,
-                NULL,
-                REG_BINARY,
-                pBuffer,
-                dwSize) != ERROR_SUCCESS)
-            {
-                return FALSE;
-            }
-            return TRUE;
-        }
-
     private:
-        HKEY hKey_;
+        HKEY m_hKey;
+
+    public:
+        ZLRegister();
+        ZLRegister(ZLRegister& rhs);
+        explicit ZLRegister(HKEY hKey);
+        ~ZLRegister();
+        ZLRegister& operator=(ZLRegister& rhs);
+        operator HKEY() const;
+
+    public:
+        /**
+         * @brief 创建注册表
+         * @see 参数说明参见MSDN的RegCreateKeyEx
+         * @return 成功返回TRUE, 失败FALSE
+         */
+        BOOL Create(
+            HKEY    hKey,
+            LPCTSTR lpSubKey,
+            REGSAM  samDesired = KEY_READ | KEY_WRITE,
+            LPTSTR  lpClass = NULL,
+            DWORD   dwOptions = REG_OPTION_NON_VOLATILE,
+            LPSECURITY_ATTRIBUTES lpSecAttr = NULL,
+            LPDWORD lpdwDisposition = NULL);
+
+        /**
+         * @brief 打开注册表
+         * @param[in] hKey 句柄
+         * @param[in] lpSubKey 注册表项路径
+         * @param[in] samDesired 访问权限
+         * @param[in] bCreateIfNotExist 注册表项不存在时, 是否创建
+         */
+        BOOL Open(
+            HKEY    hKey,
+            LPCTSTR lpSubKey,
+            REGSAM  samDesired = KEY_READ | KEY_WRITE,
+            BOOL    bCreateIfNotExist = FALSE);
+
+    public: // 写操作
+        BOOL SetBinaryValue(LPCTSTR lpValueName, const void* pValue, ULONG nBytes);
+        BOOL SetDwordValue(LPCTSTR lpValueName, DWORD dwValue);
+        BOOL SetQwordValue(LPCTSTR lpValueName, ULONGLONG qwValue);
+        BOOL SetSzValue(LPCTSTR lpValueName, LPCTSTR lpValue);
+        BOOL SetExpandSzValue(LPCTSTR lpValueName, LPCTSTR lpValue);
+        BOOL SetMultiSzValue(LPCTSTR lpValueName, LPCTSTR lpValue);
+        BOOL SetMultiSzValue(LPCTSTR lpValueName, const std::vector<CString> &vecValueLine);
+
+    public: // 读操作
+        BOOL GetBinaryValue();
+        BOOL GetDwordValue(LPCTSTR lpValueName, DWORD& dwValue);
+        BOOL GetQwordValue(LPCTSTR lpValueName, ULONGLONG& qwValue);
+        BOOL GetStringValue(LPCTSTR lpValueName, CString& sValue);
+        BOOL GetMultiSzValue();
+
+    public: // 删操作
+        BOOL DelValue(LPCTSTR lpValueName);
+        BOOL DelSubKey(LPCTSTR lpSubKey);
+        static BOOL DelKey(HKEY hKey, LPCTSTR lpSubKey);
+
+    public:
+        void Attach(HKEY hKey);
+        HKEY Detach();
+        void Close();
     };
+
+    inline ZLRegister::ZLRegister() : m_hKey(NULL) {}
+
+    inline ZLRegister::ZLRegister( ZLRegister& rhs ) { Attach(rhs.Detach()); }
+
+    inline ZLRegister::ZLRegister( HKEY hKey ) : m_hKey(hKey) {}
+
+    inline ZLRegister::~ZLRegister() { Close(); }
+
+    inline void ZLRegister::Attach( HKEY hKey ) { m_hKey = hKey; }
+
+    inline HKEY ZLRegister::Detach()
+    {
+        HKEY hKey = m_hKey;
+        m_hKey = NULL;
+        return hKey;
+    }
+
+    inline void ZLRegister::Close()
+    {
+        if (m_hKey != NULL)
+        {
+            ::RegCloseKey(m_hKey);
+            m_hKey = NULL;
+        }
+    }
+
+    inline ZLRegister& ZLRegister::operator=( ZLRegister& rhs )
+    {
+        if(m_hKey!=rhs.m_hKey)
+        {
+            Close();
+            Attach( rhs.Detach() );
+        }
+        return (*this);
+    }
+
+    inline ZLRegister::operator HKEY() const
+    { return m_hKey; }
+
+    inline BOOL ZLRegister::SetDwordValue( LPCTSTR lpValueName, DWORD dwValue )
+    {
+        if (ERROR_SUCCESS == ::RegSetValueEx(m_hKey, lpValueName, NULL, REG_DWORD,
+            reinterpret_cast<const BYTE*>(&dwValue), sizeof(DWORD)))
+        {
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    inline BOOL ZLRegister::SetQwordValue( LPCTSTR lpValueName, ULONGLONG qwValue )
+    {
+        if (ERROR_SUCCESS == ::RegSetValueEx(m_hKey, lpValueName, NULL, REG_QWORD,
+            reinterpret_cast<const BYTE*>(&qwValue), sizeof(ULONGLONG)))
+        {
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    inline BOOL ZLRegister::SetBinaryValue( LPCTSTR lpValueName, const void* pValue, ULONG nBytes )
+    {
+        if (ERROR_SUCCESS == ::RegSetValueEx(m_hKey, lpValueName, NULL, REG_BINARY,
+            reinterpret_cast<const BYTE*>(pValue), nBytes))
+        {
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    inline BOOL ZLRegister::SetSzValue( LPCTSTR lpValueName, LPCTSTR lpValue )
+    {
+        if (ERROR_SUCCESS == ::RegSetValueEx(m_hKey, lpValueName, NULL, REG_SZ,
+            reinterpret_cast<const BYTE*>(lpValue), (lstrlen(lpValue)+1)*sizeof(TCHAR)))
+        {
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    inline BOOL ZLRegister::SetExpandSzValue( LPCTSTR lpValueName, LPCTSTR lpValue )
+    {
+        if (ERROR_SUCCESS == ::RegSetValueEx(m_hKey, lpValueName, NULL, REG_EXPAND_SZ,
+            reinterpret_cast<const BYTE*>(lpValue), (lstrlen(lpValue)+1)*sizeof(TCHAR)))
+        {
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    inline BOOL ZLRegister::SetMultiSzValue( LPCTSTR lpValueName, LPCTSTR lpValue )
+    {
+        LPCTSTR pszTemp;
+        ULONG nBytes;
+        ULONG nLength;
+
+        // 计算字符串大小(bytes)
+        nBytes = 0;
+        pszTemp = lpValue;
+        do
+        {
+            nLength = lstrlen(pszTemp)+1;
+            pszTemp += nLength;
+            nBytes += nLength * sizeof(TCHAR);
+        } while (nLength != 1);
+
+        if (ERROR_SUCCESS == ::RegSetValueEx(m_hKey, lpValueName, NULL, REG_MULTI_SZ,
+            reinterpret_cast<const BYTE*>(lpValue), nBytes))
+        {
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    inline BOOL ZLRegister::GetDwordValue( LPCTSTR lpValueName, DWORD& dwValue )
+    {
+        DWORD dwType = REG_NONE;
+        ULONG nBytes = sizeof(DWORD);
+        LONG lRet = ::RegQueryValueEx(m_hKey, lpValueName, NULL, &dwType, reinterpret_cast<LPBYTE>(&dwValue), &nBytes);
+        if ((ERROR_SUCCESS==lRet) && (REG_DWORD==dwType))
+        {
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    inline BOOL ZLRegister::GetQwordValue( LPCTSTR lpValueName, ULONGLONG& qwValue )
+    {
+        DWORD dwType;
+        ULONG nBytes = sizeof(ULONGLONG);
+        LONG lRet = ::RegQueryValueEx(m_hKey, lpValueName, NULL, &dwType, reinterpret_cast<LPBYTE>(&qwValue), &nBytes);
+        if ((ERROR_SUCCESS==lRet) && (REG_QWORD==dwType))
+        {
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    inline BOOL ZLRegister::GetStringValue( LPCTSTR lpValueName, CString& sValue )
+    {
+        BOOL   bReturn = FALSE;
+        LPTSTR lpValueBuf   = NULL;
+
+        // 读取值类型和大小
+        DWORD dwType  = REG_NONE;
+        ULONG ulBytes = 0;
+        ULONG lRet = ::RegQueryValueEx(m_hKey, lpValueName, NULL, &dwType, NULL, &ulBytes);
+        if (ERROR_SUCCESS != lRet)
+            goto Exit0;
+
+        if ((REG_SZ!=dwType) && (REG_EXPAND_SZ!=dwType))
+            goto Exit0;
+
+        if (NULL == (lpValueBuf = (LPTSTR)malloc(ulBytes)))
+            goto Exit0;
+
+        // 读取值内容
+        memset(lpValueBuf, 0, ulBytes);
+        lRet = ::RegQueryValueEx(m_hKey, lpValueName, NULL, &dwType, reinterpret_cast<LPBYTE>(lpValueBuf), &ulBytes);
+        if (ERROR_SUCCESS != lRet)
+            goto Exit0;
+
+        sValue  = lpValueBuf;
+        bReturn = TRUE;
+
+Exit0:
+        if (lpValueBuf) free(lpValueBuf);
+
+        return bReturn;
+    }
+
+    inline BOOL ZLRegister::Create(
+        HKEY    hKey,
+        LPCTSTR lpSubKey,
+        REGSAM  samDesired,
+        LPTSTR  lpClass,
+        DWORD   dwOptions,
+        LPSECURITY_ATTRIBUTES lpSecAttr,
+        LPDWORD lpdwDisposition)
+    {
+        HKEY hKeyResult = NULL;
+        DWORD dwDisposition = 0;
+        LONG lRet = RegCreateKeyEx(hKey, lpSubKey, 0,
+            lpClass, dwOptions, samDesired, lpSecAttr, &hKeyResult, &dwDisposition);
+        if (lpdwDisposition != NULL)
+            *lpdwDisposition = dwDisposition;
+        if (lRet == ERROR_SUCCESS)
+        {
+            Close();
+            m_hKey = hKeyResult;
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    inline BOOL ZLRegister::Open( HKEY hKey, LPCTSTR lpSubKey, REGSAM samDesired, BOOL bCreateIfNotExist)
+    {
+        BOOL bReturn    = FALSE;
+        HKEY hKeyResult = NULL;
+
+        LONG lRet = RegOpenKeyEx(hKey, lpSubKey, 0, samDesired, &hKeyResult);
+        if (lRet == ERROR_SUCCESS)
+        {
+            Close();
+            m_hKey = hKeyResult;
+            bReturn = TRUE;
+        }
+        else if (bCreateIfNotExist)
+        {
+            bReturn = Create(hKey, lpSubKey, samDesired);
+        }
+
+        return bReturn;
+    }
+
+    inline BOOL ZLRegister::DelSubKey( LPCTSTR lpSubKey )
+    {
+        if (ERROR_SUCCESS == ::SHDeleteKey(m_hKey, lpSubKey))
+            return TRUE;
+        return FALSE;
+    }
+
+    inline BOOL ZLRegister::DelValue( LPCTSTR lpValueName )
+    {
+        if (ERROR_SUCCESS == ::RegDeleteValue(m_hKey, lpValueName))
+            return TRUE;
+        return FALSE;
+    }
+
+    inline BOOL ZLRegister::DelKey( HKEY hKey, LPCTSTR lpSubKey )
+    {
+        if (ERROR_SUCCESS == ::SHDeleteKey(hKey, lpSubKey))
+            return TRUE;
+        return FALSE;
+    }
 
 }
 }

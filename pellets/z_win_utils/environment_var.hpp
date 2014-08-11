@@ -43,23 +43,7 @@ namespace WinUtils
          * @param[in] lpVar     环境变量值
          * @return 成功返回TRUE, 失败返回FALSE
          */
-        static BOOL Add(EnvironmentType t, LPCTSTR lpVarName, LPCTSTR lpVar)
-        {
-            if (!lpVarName || !lpVar)
-                return FALSE;
-
-            BOOL bReturn = FALSE;
-            switch (t)
-            {
-            case SYSTEM_ENV:
-                bReturn = _AddSysEnv(lpVarName, lpVar);
-                break;
-            case USER_ENV:
-                bReturn = _AddUserEnv(lpVarName, lpVar);
-                break;
-            }
-            return bReturn;
-        }
+        static BOOL Add(EnvironmentType t, LPCTSTR lpVarName, LPCTSTR lpVar);
 
         /**
          * @brief 删除指定环境变量
@@ -67,90 +51,100 @@ namespace WinUtils
          * @param[in] lpVarName 环境变量名
          * @return 成功返回TRUE, 失败返回FALSE
          */
-        static BOOL Del(EnvironmentType t, LPCTSTR lpVarName)
-        {
-            BOOL bReturn = FALSE;
-            switch (t)
-            {
-            case SYSTEM_ENV:
-                bReturn = _DelSysEnv(lpVarName);
-                break;
-            case USER_ENV:
-                bReturn = _DelUserEnv(lpVarName);
-                break;
-            }
-            return bReturn;
-        }
+        static BOOL Del(EnvironmentType t, LPCTSTR lpVarName);
 
     private:
-        static BOOL _AddSysEnv(LPCTSTR lpVarName, LPCTSTR lpVar)
-        {
-            BOOL bReturn = FALSE;
-
-            ZLRegister reg;
-            if (reg.Open(
-                HKEY_LOCAL_MACHINE,
-                L"System\\CurrentControlSet\\Control\\Session Manager\\Environment",
-                TRUE,
-                KEY_WRITE))
-            {
-                bReturn = reg.WriteExpandString(lpVarName, lpVar);
-                reg.Close();
-            }
-            return bReturn;
-        }
-
-        static BOOL _DelSysEnv(LPCTSTR lpVarName)
-        {
-            BOOL bReturn = FALSE;
-            ZLRegister reg;
-            if (reg.Open(
-                HKEY_LOCAL_MACHINE,
-                L"System\\CurrentControlSet\\Control\\Session Manager\\Environment",
-                FALSE,
-                KEY_WRITE))
-            {
-                bReturn = reg.DeleteValue(lpVarName);
-                reg.Close();
-            }
-            return bReturn;
-        }
-
-        static BOOL _AddUserEnv(LPCTSTR lpVarName, LPCTSTR lpVar)
-        {
-            BOOL bReturn = FALSE;
-
-            CString sSid;
-            if (ZLUsid::GetCurrentUserSID(sSid))
-            {
-                CString sSubKey = sSid + L"\\Environment";
-                ZLRegister reg;
-                if (reg.Open(HKEY_USERS, sSubKey, TRUE, KEY_WRITE))
-                {
-                    bReturn = reg.WriteExpandString(lpVarName, lpVar);
-                    reg.Close();
-                }
-            }
-            return bReturn;
-        }
-
-        static BOOL _DelUserEnv(LPCTSTR lpVarName)
-        {
-            BOOL bReturn = FALSE;
-
-            CString sSid;
-            if (ZLUsid::GetCurrentUserSID(sSid))
-            {
-                CString sSubKey = sSid + L"\\Environment";
-                ZLRegister reg;
-                if (reg.Open(HKEY_USERS, sSubKey, FALSE, KEY_WRITE))
-                {
-                    bReturn = reg.DeleteValue(lpVarName);
-                    reg.Close();
-                }
-            }
-            return bReturn;
-        }
+        static BOOL _AddSysEnv(LPCTSTR lpVarName, LPCTSTR lpVar);
+        static BOOL _DelSysEnv(LPCTSTR lpVarName);
+        static BOOL _AddUserEnv(LPCTSTR lpVarName, LPCTSTR lpVar);
+        static BOOL _DelUserEnv(LPCTSTR lpVarName);
     };
+
+    inline BOOL ZLEnvironmentVar::Add( EnvironmentType t, LPCTSTR lpVarName, LPCTSTR lpVar )
+    {
+        if (!lpVarName || !lpVar)
+            return FALSE;
+
+        switch (t)
+        {
+        case SYSTEM_ENV:
+            return _AddSysEnv(lpVarName, lpVar);
+        case USER_ENV:
+            return _AddUserEnv(lpVarName, lpVar);
+        }
+        return FALSE;
+    }
+
+    inline BOOL ZLEnvironmentVar::Del( EnvironmentType t, LPCTSTR lpVarName )
+    {
+        if (NULL == lpVarName)
+            return FALSE;
+
+        switch (t)
+        {
+        case SYSTEM_ENV:
+            return _DelSysEnv(lpVarName);
+        case USER_ENV:
+            return _DelUserEnv(lpVarName);
+        }
+        return FALSE;
+    }
+
+    inline BOOL ZLEnvironmentVar::_AddSysEnv( LPCTSTR lpVarName, LPCTSTR lpVar )
+    {
+        ZLRegister reg;
+        if (reg.Open(
+            HKEY_LOCAL_MACHINE,
+            _T("System\\CurrentControlSet\\Control\\Session Manager\\Environment"),
+            KEY_WRITE,
+            TRUE))
+        {
+            return reg.SetExpandSzValue(lpVarName, lpVar);
+        }
+        return FALSE;
+    }
+
+    inline BOOL ZLEnvironmentVar::_DelSysEnv( LPCTSTR lpVarName )
+    {
+        ZLRegister reg;
+        if (reg.Open(
+            HKEY_LOCAL_MACHINE,
+            _T("System\\CurrentControlSet\\Control\\Session Manager\\Environment"),
+            KEY_WRITE))
+        {
+            return reg.DelValue(lpVarName);
+        }
+        return FALSE;
+    }
+
+    inline BOOL ZLEnvironmentVar::_AddUserEnv( LPCTSTR lpVarName, LPCTSTR lpVar )
+    {
+        CString sSid;
+        if (ZLUsid::GetCurrentUserSID(sSid))
+        {
+            CString sSubKey = sSid + L"\\Environment";
+            ZLRegister reg;
+            if (reg.Open(HKEY_USERS, sSubKey, KEY_WRITE))
+            {
+                return reg.SetExpandSzValue(lpVarName, lpVar);
+            }
+        }
+        return FALSE;
+    }
+
+    inline BOOL ZLEnvironmentVar::_DelUserEnv( LPCTSTR lpVarName )
+    {
+        CString sSid;
+        if (ZLUsid::GetCurrentUserSID(sSid))
+        {
+            CString sSubKey = sSid + L"\\Environment";
+            ZLRegister reg;
+            if (reg.Open(HKEY_USERS, sSubKey, KEY_WRITE))
+            {
+                return reg.DelValue(lpVarName);
+            }
+        }
+        return FALSE;
+    }
 }
 }

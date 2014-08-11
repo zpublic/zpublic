@@ -58,6 +58,13 @@ namespace WinUtils
             return ((cTime - 116444736000000000)/10000000);
         }
 
+        static __time64_t SystemTime2Time64(const SYSTEMTIME& st)
+        {
+            FILETIME ft;
+            SystemTime2FileTime(st, ft);
+            return FileTime2Time64(ft);
+        }
+
         static BOOL SystemTime2FileTime(const SYSTEMTIME& syst, FILETIME& filet)
         {
             return ::SystemTimeToFileTime(&syst, &filet);
