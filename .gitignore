@@ -85,3 +85,5 @@ obj
 .idea
 /doc/html
 /doc/zpublic-pellets-z_win_utils.chm
+/src/app/teapot/AddIn.h
+/src/app/teapot/AddIn_i.c
