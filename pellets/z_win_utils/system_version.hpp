@@ -52,6 +52,7 @@ namespace WinUtils
             enumSystemVersionWin7       = 8,
             enumSystemVersionWin2008    = 9,
             enumSystemVersionWin8       = 10,
+            enumSystemVersionWin8_1     = 11,
         };
 
         enum enumProcessorArchitecture
@@ -196,6 +197,8 @@ namespace WinUtils
                         OsPlatform = enumSystemVersionWinNT;
                     else if (osvi.dwMajorVersion == 6 && osvi.dwMinorVersion == 2 && osvi.wProductType == VER_NT_WORKSTATION)
                         OsPlatform = enumSystemVersionWin8;
+                    else if (osvi.dwMajorVersion == 6 && osvi.dwMinorVersion == 3 && osvi.wProductType == VER_NT_WORKSTATION)
+                        OsPlatform = enumSystemVersionWin8_1;
                     break;
                 case VER_PLATFORM_WIN32_WINDOWS:
                     if (((osvi.dwBuildNumber >> 16) & 0x0000FFFF) < 0x045A)
