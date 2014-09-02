@@ -47,7 +47,7 @@ namespace WinUtils
          * @return 成功返回TRUE，失败返回FALSE
          * @see ChangeWindowMessageFilter
          */
-        static BOOL ChangeMessageFilter(UINT uMsg, DWORD dwOper = MSGFLT_ADD)
+        static BOOL ChangeMessageFilter(UINT uMsg, DWORD dwOper = 1 /* MSGFLT_ADD */ )
         {
             typedef BOOL (__stdcall *ChangeWindowMessageFilterType)(UINT, DWORD);
 

@@ -107,7 +107,7 @@ Exit0:
 
             }
 
-            int DownloadFile(LPCTSTR szUrl, LPCTSTR szLocalFile)
+            int DownloadFile(LPCTSTR szUrl, LPCTSTR szLocalFile, int nTimeLimit = 0)
             {
                 int nReturn = 0;
                 ZLFileWrite fileWrite(szLocalFile);
@@ -119,12 +119,15 @@ Exit0:
                 curl.SetWriteCallBack(&writeWrap);
                 curl.SetProgressCallBack(&progressWrap);
 
+                if (nTimeLimit)
+                    curl.SetTimeLimit(nTimeLimit);
+
                 if (!curl.Navigate(szUrl))
                     nReturn = curl.GetStatus();
 
                 return nReturn;
             }
-            int DownloadMem(LPCTSTR szUrl, ZLMemWrite *pMem)
+            int DownloadMem(LPCTSTR szUrl, ZLMemWrite *pMem, int nTimeLimit = 0)
             {
                 int nReturn = 0;
                 ZLStopHttpWriteWrap writeWrap(m_stop, pMem);
@@ -135,13 +138,16 @@ Exit0:
                 curl.SetWriteCallBack(&writeWrap);
                 curl.SetProgressCallBack(&progressWrap);
 
+                if (nTimeLimit)
+                    curl.SetTimeLimit(nTimeLimit);
+
                 if (!curl.Navigate(szUrl))
                     nReturn = curl.GetStatus();
 
                 return nReturn;
             }
 
-            int PostData(LPCTSTR szUrl, unsigned char *pData, DWORD dwLength, ZLMemWrite *pMem)
+            int PostData(LPCTSTR szUrl, unsigned char *pData, DWORD dwLength, ZLMemWrite *pMem, int nTimeLimit = 0)
             {
                 int nReturn = 0;
                 ZLStopHttpWriteWrap writeWrap(m_stop, pMem);
@@ -153,6 +159,9 @@ Exit0:
                 curl.SetProgressCallBack(&progressWrap);
                 curl.SetPostData(pData, dwLength);
                 curl.SetMethod(_T("post"));
+
+                if (nTimeLimit)
+                    curl.SetTimeLimit(nTimeLimit);
 
                 if (!curl.Navigate(szUrl))
                     nReturn = curl.GetStatus();

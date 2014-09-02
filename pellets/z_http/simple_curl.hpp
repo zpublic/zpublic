@@ -36,6 +36,7 @@ namespace zl
                 m_pProgressCallBack = NULL;
                 m_pPostData = NULL;
                 m_nPostDataLen = 0;
+                m_bUseSSL = TRUE;
             }
 
             ~ZLSimpleCurl()
@@ -90,6 +91,11 @@ namespace zl
                 return TRUE;
             }
 
+            void EnableSSL(BOOL bEnableSSL)
+            {
+                m_bUseSSL = bEnableSSL;
+            }
+
             BOOL Navigate(LPCTSTR szUrl)
             {
                 BOOL bRet = FALSE;
@@ -136,6 +142,11 @@ namespace zl
 
                 if (m_nSpeedLimit)
                     nRetCode = curl_easy_setopt(pCURL, CURLOPT_MAX_RECV_SPEED_LARGE, (curl_off_t)m_nSpeedLimit);
+                if (nRetCode != CURLE_OK) goto Exit0;
+
+                if (m_bUseSSL)
+                    nRetCode = curl_easy_setopt(pCURL, CURLOPT_SSL_VERIFYPEER, FALSE); // 对于ssl，这样设置才能成功
+                if (nRetCode != CURLE_OK) goto Exit0;
 
                 if (m_nTimeLimit)
                 {
@@ -238,6 +249,7 @@ Exit0:
             CString m_strPassword;
             ICurlWrite *m_pWriteCallBack;
             ICurlProgress *m_pProgressCallBack;
+            BOOL m_bUseSSL; // 是否使用SSL
         };
     }
 }

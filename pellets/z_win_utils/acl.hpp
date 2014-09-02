@@ -65,7 +65,7 @@ namespace WinUtils
             {
                 return FALSE;
             }
-            if (::GetNamedSecurityInfo(cstrObjcetName,
+            if (::GetNamedSecurityInfo((LPTSTR)(LPCTSTR)cstrObjcetName,
                 enumObjectType,
                 SecurityInfo,
                 NULL,

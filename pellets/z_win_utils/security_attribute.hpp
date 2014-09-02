@@ -31,12 +31,13 @@ namespace WinUtils
      */
     class ZLSecurityAttrabute
     {
+    public:
          /**
          * @brief 创建安全属性
          * @return 成功返回创建的安全属性指针，失败返回NULL
          * @see InitializeSecurityDescriptor SetSecurityDescriptorDacl
          */
-        PSECURITY_ATTRIBUTES CreateSecurityAttribute()
+        static PSECURITY_ATTRIBUTES CreateSecurityAttribute()
         {
             BOOL bRet = FALSE;
             PSECURITY_ATTRIBUTES psa = (PSECURITY_ATTRIBUTES)malloc(sizeof(SECURITY_ATTRIBUTES));
@@ -76,7 +77,7 @@ cleanup:
          * @brief 释放创建的安全属性
          * @param[in] psa 安全描述符指针
          */
-        void FreeSecurityAttribute(PSECURITY_ATTRIBUTES psa)
+        static void FreeSecurityAttribute(PSECURITY_ATTRIBUTES psa)
         {
             if (psa)
             {
