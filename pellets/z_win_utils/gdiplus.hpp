@@ -58,20 +58,20 @@ namespace WinUtils
             }
         protected:
             bool m_bInit;
-            GdiplusStartupInput m_gpInput; 
+            Gdiplus::GdiplusStartupInput m_gpInput; 
             ULONG_PTR           m_gpToken; 
         };
     public:
-        GdiPlusAutoInit()
+        ZLGdiPlusInit()
         {
             m_GdiPlusInit.Init();
         }
-        ~GdiPlusAutoInit()
+        ~ZLGdiPlusInit()
         {
             m_GdiPlusInit.UnInit();
         }
     protected:
-        ZLGdiPlusInit m_GdiPlusInit;
+        Inst m_GdiPlusInit;
     };
 
 }

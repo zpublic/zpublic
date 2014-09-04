@@ -27,6 +27,8 @@
 
 #include "z_http_def.h"
 
+// 若这个curl路径与你的路径冲突,请定义这个宏,并在stdafx.h包含你的curl路径
+#ifndef MY_COSTOM_CURL_DIR
 
 ///> libcurl
 #ifdef _DEBUG
@@ -39,3 +41,5 @@
 #pragma comment(lib, "ws2_32.lib")
 #pragma comment(lib, "winmm.lib")
 #include <libcurl/curl.h>
+
+#endif

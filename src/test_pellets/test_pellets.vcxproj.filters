@@ -65,6 +65,15 @@
     <Filter Include="pellets\z_http">
       <UniqueIdentifier>{5af65062-fa5b-457b-948c-a33d4ea588dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\z_com">
+      <UniqueIdentifier>{03b48ce5-081e-4fcb-bc56-a5adc4ea2e45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\z_com\export">
+      <UniqueIdentifier>{f357501f-da8d-411d-957e-ecb3f1564263}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\z_com\import">
+      <UniqueIdentifier>{320aee41-cfe7-41eb-9316-c155e43e05cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -615,6 +624,42 @@
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\disk.h">
       <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\z_com.h">
+      <Filter>pellets\z_com</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\export\z_com_dll_lock.hpp">
+      <Filter>pellets\z_com\export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\export\z_com_dll_module.hpp">
+      <Filter>pellets\z_com\export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\export\z_com_dll_object.hpp">
+      <Filter>pellets\z_com\export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\export\z_com_object.hpp">
+      <Filter>pellets\z_com\export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\z_com_export.h">
+      <Filter>pellets\z_com</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\z_com_import.h">
+      <Filter>pellets\z_com</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\import\z_com_auto_ptr.hpp">
+      <Filter>pellets\z_com\import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\import\z_com_module.hpp">
+      <Filter>pellets\z_com\import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\import\z_module_handle.hpp">
+      <Filter>pellets\z_com\import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\import\z_com_interface_ptr.hpp">
+      <Filter>pellets\z_com\import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\import\z_com_loader.hpp">
+      <Filter>pellets\z_com\import</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
