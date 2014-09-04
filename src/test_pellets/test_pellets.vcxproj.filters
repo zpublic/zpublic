@@ -646,6 +646,21 @@
     <ClInclude Include="..\..\pellets\z_com\z_com_import.h">
       <Filter>pellets\z_com</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\import\z_com_auto_ptr.hpp">
+      <Filter>pellets\z_com\import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\import\z_com_module.hpp">
+      <Filter>pellets\z_com\import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\import\z_module_handle.hpp">
+      <Filter>pellets\z_com\import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\import\z_com_interface_ptr.hpp">
+      <Filter>pellets\z_com\import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\import\z_com_loader.hpp">
+      <Filter>pellets\z_com\import</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">
