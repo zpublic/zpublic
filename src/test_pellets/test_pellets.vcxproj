@@ -173,6 +173,13 @@
     <ClInclude Include="..\..\pellets\thread_sync\thread_sync.h" />
     <ClInclude Include="..\..\pellets\thread_sync\z_t_thread_sync_def.h" />
     <ClInclude Include="..\..\pellets\thread_sync\z_t_atomic.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\export\z_com_dll_lock.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\export\z_com_dll_module.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\export\z_com_dll_object.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\export\z_com_object.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\z_com.h" />
+    <ClInclude Include="..\..\pellets\z_com\z_com_export.h" />
+    <ClInclude Include="..\..\pellets\z_com\z_com_import.h" />
     <ClInclude Include="..\..\pellets\z_event\z_event_def.h" />
     <ClInclude Include="..\..\pellets\z_event\z_event_event.h" />
     <ClInclude Include="..\..\pellets\z_event\z_event_reactor.h" />
