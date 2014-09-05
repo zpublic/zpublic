@@ -30,6 +30,7 @@
 *.idb
 *.pdb
 *.aps
+*.suo
 
 *.lib
 !/3rdparty/boost_lib/*.lib
