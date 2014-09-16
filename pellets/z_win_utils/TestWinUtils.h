@@ -41,6 +41,7 @@ public:
         TEST_ADD(CTestWinUtils::test_acl);
         TEST_ADD(CTestWinUtils::test_disk);
         TEST_ADD(CTestWinUtils::test_base64);
+        TEST_ADD(CTestWinUtils::test_uri);
     }
 
     void test_path()
@@ -763,6 +764,32 @@ public:
         TEST_ASSERT(sEncodeUtf8A == sEncode2);
         std::string sDecodeUtf8 = zl::WinUtils::ZLBase64::Decode(sEncode2.c_str(), sEncode2.length());
         TEST_ASSERT(sUtf8A == sDecodeUtf8);
+    }
+
+    void test_uri()
+    {
+        zl::WinUtils::ZLUri theUri;
+        theUri.SetScheme("https");
+        theUri.SetAuthority("github.com");
+        theUri.SetPath("zpublic");
+
+        std::string sUrl = theUri.ToString();
+        TEST_ASSERT(sUrl == "https://github.com/zpublic");
+
+        theUri.Clear();
+        theUri.SetScheme("http");
+        theUri.SetAuthority("www.baidu.com");
+        theUri.SetPath("baidu");
+
+        // Éú³É²éÑ¯´®
+        zl::WinUtils::ZLUriQuery theQuery;
+        theQuery.push_back("tn", "monline_5_dg");
+        theQuery.push_back("ie", "utf-8");
+        theQuery.push_back("wd", "zpublic");
+
+        theUri.SetQuery(theQuery.to_string());
+        sUrl = theUri.ToString();
+        TEST_ASSERT(sUrl == "http://www.baidu.com/baidu?tn=monline_5_dg&ie=utf-8&wd=zpublic");
     }
 };
 
