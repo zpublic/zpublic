@@ -53,6 +53,9 @@
 #include "token.hpp"
 #include "acl.hpp"
 #include "disk.h"
+#include "base64.hpp"
+#include "uri.hpp"
+#include "uri_query.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

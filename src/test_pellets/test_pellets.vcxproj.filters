@@ -74,6 +74,9 @@
     <Filter Include="pellets\z_com\import">
       <UniqueIdentifier>{320aee41-cfe7-41eb-9316-c155e43e05cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\z_zlib">
+      <UniqueIdentifier>{a4d3a684-49c1-473d-bc48-dc54477e7068}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -660,6 +663,12 @@
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_com\import\z_com_loader.hpp">
       <Filter>pellets\z_com\import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_zlib\z_zlib.h">
+      <Filter>pellets\z_zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_zlib\z_zlib_header.h">
+      <Filter>pellets\z_zlib</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
