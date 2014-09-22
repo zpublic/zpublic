@@ -28,7 +28,6 @@ namespace zl
 namespace WinUtils
 {
 
-    typedef std::vector<CString> vecDisk;
     /**
     * @brief 磁盘操作相关
     */
@@ -40,7 +39,7 @@ namespace WinUtils
         * @param[in] disk        获取所有盘盘符
         * @return 成功返回TRUE，失败返回FALSE
         */
-        static BOOL GetAllDiskLetter(vecDisk& disk)
+        static BOOL GetAllDiskLetter(std::vector<CString>& disk)
         {
             DWORD dwBufferLen = ::GetLogicalDriveStrings(0, NULL);
             if (dwBufferLen == 0)
