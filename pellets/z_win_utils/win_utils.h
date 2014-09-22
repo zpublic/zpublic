@@ -52,7 +52,7 @@
 #include "module.hpp"
 #include "token.hpp"
 #include "acl.hpp"
-#include "disk.h"
+#include "disk.hpp"
 #include "base64.hpp"
 #include "uri.hpp"
 #include "uri_query.hpp"

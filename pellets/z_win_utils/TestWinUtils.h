@@ -707,7 +707,7 @@ public:
 
     void test_disk()
     {
-        vecDisk diskList;
+        std::vector<CString> diskList;
         TEST_ASSERT(ZLDisk::GetAllDiskLetter(diskList) == TRUE);
         TEST_ASSERT(!diskList.empty() == TRUE);
         CString cstrSysSign = ZLSystemPath::GetWindowsDir();
