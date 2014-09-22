@@ -694,7 +694,7 @@ public:
     {
         ZLAcl acl;
         ZLRegister r;
-        r.Open(HKEY_LOCAL_MACHINE, L"Software\\zpublic_test_acl\\", TRUE);
+        r.Open(HKEY_LOCAL_MACHINE, L"Software\\zpublic_test_acl\\", KEY_WRITE, TRUE);
         TEST_ASSERT(acl.Open(L"MACHINE\\Software\\zpublic_test_acl\\", SE_REGISTRY_KEY) == TRUE);
         TEST_ASSERT(acl.SetSecurity(L"Users", KEY_ALL_ACCESS, DENY_ACCESS) == TRUE);
         TEST_ASSERT(acl.SetSecurity(L"Users") == TRUE);
