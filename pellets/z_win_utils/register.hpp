@@ -85,7 +85,7 @@ namespace WinUtils
         BOOL GetDwordValue(LPCTSTR lpValueName, DWORD& dwValue);
         BOOL GetQwordValue(LPCTSTR lpValueName, ULONGLONG& qwValue);
         BOOL GetStringValue(LPCTSTR lpValueName, CString& sValue);
-        BOOL GetMultiSzValue();
+        BOOL GetMultiSzValue(LPCTSTR pszValueName, LPTSTR pszValue, ULONG* pnChars);
 
     public: // É¾²Ù×÷
         BOOL DelValue(LPCTSTR lpValueName);
@@ -224,10 +224,10 @@ namespace WinUtils
         return SetMultiSzValue(lpValueName, sValue.c_str());
     }
 
-    inline BOOL ZLRegister::GetBinaryValue(LPCTSTR pszValueName, void* pValue, ULONG* pnBytes)
+    inline BOOL ZLRegister::GetBinaryValue(LPCTSTR lpValueName, void* pValue, ULONG* pnBytes)
     {
         DWORD dwType = REG_NONE;
-        LONG lRes = ::RegQueryValueEx(m_hKey, pszValueName, NULL, &dwType, reinterpret_cast<LPBYTE>(pValue), pnBytes);
+        LONG lRes = ::RegQueryValueEx(m_hKey, lpValueName, NULL, &dwType, reinterpret_cast<LPBYTE>(pValue), pnBytes);
         if (lRes != ERROR_SUCCESS)
             return FALSE;
         if (dwType != REG_BINARY)
@@ -290,6 +290,32 @@ Exit0:
         if (lpValueBuf) free(lpValueBuf);
 
         return bReturn;
+    }
+
+    inline BOOL ZLRegister::GetMultiSzValue(LPCTSTR pszValueName, LPTSTR pszValue, ULONG* pnChars)
+    {
+        DWORD dwType;
+        ULONG nBytes;
+
+        ATLASSUME(m_hKey != NULL);
+        ATLASSERT(pnChars != NULL);
+
+        if (pszValue != NULL && *pnChars < 2)
+            return ERROR_INSUFFICIENT_BUFFER;
+
+        nBytes = (*pnChars)*sizeof(TCHAR);
+        *pnChars = 0;
+        LONG lRes = ::RegQueryValueEx(m_hKey, pszValueName, NULL, &dwType, reinterpret_cast<LPBYTE>(pszValue), &nBytes);
+        if (lRes != ERROR_SUCCESS)
+            return FALSE;
+        if (dwType != REG_MULTI_SZ)
+            return FALSE;
+        if (pszValue != NULL && (nBytes % sizeof(TCHAR) != 0 || nBytes / sizeof(TCHAR) < 1 || pszValue[nBytes / sizeof(TCHAR) -1] != 0 || ((nBytes/sizeof(TCHAR))>1 && pszValue[nBytes / sizeof(TCHAR) - 2] != 0)))
+            return FALSE;
+
+        *pnChars = nBytes/sizeof(TCHAR);
+
+        return TRUE;
     }
 
     inline BOOL ZLRegister::Create(
