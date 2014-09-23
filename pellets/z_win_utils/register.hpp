@@ -297,11 +297,8 @@ Exit0:
         DWORD dwType;
         ULONG nBytes;
 
-        ATLASSUME(m_hKey != NULL);
-        ATLASSERT(pnChars != NULL);
-
         if (pszValue != NULL && *pnChars < 2)
-            return ERROR_INSUFFICIENT_BUFFER;
+            return FALSE;
 
         nBytes = (*pnChars)*sizeof(TCHAR);
         *pnChars = 0;
