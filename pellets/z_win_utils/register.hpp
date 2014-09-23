@@ -81,7 +81,7 @@ namespace WinUtils
         BOOL SetMultiSzValue(LPCTSTR lpValueName, const std::vector<CString> &vecValueLine);
 
     public: // ¶Á²Ù×÷
-        BOOL GetBinaryValue();
+        BOOL GetBinaryValue(LPCTSTR pszValueName, void* pValue, ULONG* pnBytes);
         BOOL GetDwordValue(LPCTSTR lpValueName, DWORD& dwValue);
         BOOL GetQwordValue(LPCTSTR lpValueName, ULONGLONG& qwValue);
         BOOL GetStringValue(LPCTSTR lpValueName, CString& sValue);
@@ -214,7 +214,7 @@ namespace WinUtils
     inline BOOL ZLRegister::SetMultiSzValue( LPCTSTR lpValueName, const std::vector<CString> &vecValueLine )
     {
         std::wstring sValue;
-        for (int i=0; i<vecValueLine.size(); ++i)
+        for (size_t i=0; i<vecValueLine.size(); ++i)
         {
             sValue += vecValueLine[i];
             sValue.push_back(0);
@@ -222,6 +222,17 @@ namespace WinUtils
         sValue.push_back(0);
         sValue.push_back(0);
         return SetMultiSzValue(lpValueName, sValue.c_str());
+    }
+
+    inline BOOL ZLRegister::GetBinaryValue(LPCTSTR pszValueName, void* pValue, ULONG* pnBytes)
+    {
+        DWORD dwType = REG_NONE;
+        LONG lRes = ::RegQueryValueEx(m_hKey, pszValueName, NULL, &dwType, reinterpret_cast<LPBYTE>(pValue), pnBytes);
+        if (lRes != ERROR_SUCCESS)
+            return FALSE;
+        if (dwType != REG_BINARY)
+            return FALSE;
+        return TRUE;
     }
 
     inline BOOL ZLRegister::GetDwordValue( LPCTSTR lpValueName, DWORD& dwValue )
