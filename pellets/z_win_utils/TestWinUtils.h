@@ -747,6 +747,18 @@ public:
         TEST_ASSERT(reg.SetMultiSzValue(L"multi_test1", L"val1\0val2\0val3\0\0") == TRUE);
         TEST_ASSERT(reg.SetMultiSzValue(L"multi_test2", vecMultiSz) ==  TRUE);
 
+        WCHAR szMultiSz[MAX_PATH] = {0};
+        ULONG ulChars = MAX_PATH - 1;
+        TEST_ASSERT(reg.GetMultiSzValue(L"multi_test1", szMultiSz, &ulChars) == TRUE);
+        TEST_ASSERT(0 == memcmp(L"val1\0val2\0val3\0\0", szMultiSz, ulChars));
+
+        const char* pBinary = "\1\2\3\4";
+        char arrResult[MAX_PATH] = {0};
+        ULONG ulBytes = MAX_PATH - 1;
+        TEST_ASSERT(reg.SetBinaryValue(L"binary_test", (void*)pBinary, 4) == TRUE);
+        TEST_ASSERT(reg.GetBinaryValue(L"binary_test", (void*)arrResult, &ulBytes) == TRUE);
+        TEST_ASSERT(0 == memcmp(pBinary, arrResult, 4));
+
         reg.Close();
 
         TEST_ASSERT(ZLRegister::DelKey(hTestKey, sTestKeyPath) == TRUE);
