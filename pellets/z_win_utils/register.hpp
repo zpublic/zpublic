@@ -85,7 +85,8 @@ namespace WinUtils
         BOOL GetDwordValue(LPCTSTR lpValueName, DWORD& dwValue);
         BOOL GetQwordValue(LPCTSTR lpValueName, ULONGLONG& qwValue);
         BOOL GetStringValue(LPCTSTR lpValueName, CString& sValue);
-        BOOL GetMultiSzValue(LPCTSTR pszValueName, LPTSTR pszValue, ULONG* pnChars);
+        BOOL GetMultiSzValue(LPCTSTR lpValueName, LPTSTR lpValue, ULONG* pnChars);
+        BOOL GetMultiSzValue(LPCTSTR lpValueName, std::vector<CString>& vecValues);
 
     public: // 删操作
         BOOL DelValue(LPCTSTR lpValueName);
@@ -96,6 +97,9 @@ namespace WinUtils
         void Attach(HKEY hKey);
         HKEY Detach();
         void Close();
+
+    private:
+        void ZLRegister::_ParseDNTString(LPCTSTR lpString, std::vector<CString>& vecResult) const;
     };
 
     inline ZLRegister::ZLRegister() : m_hKey(NULL) {}
@@ -292,27 +296,40 @@ Exit0:
         return bReturn;
     }
 
-    inline BOOL ZLRegister::GetMultiSzValue(LPCTSTR pszValueName, LPTSTR pszValue, ULONG* pnChars)
+    inline BOOL ZLRegister::GetMultiSzValue(LPCTSTR lpValueName, LPTSTR lpValue, ULONG* pnChars)
     {
         DWORD dwType;
         ULONG nBytes;
 
-        if (pszValue != NULL && *pnChars < 2)
+        if (lpValue != NULL && *pnChars < 2)
             return FALSE;
 
         nBytes = (*pnChars)*sizeof(TCHAR);
         *pnChars = 0;
-        LONG lRes = ::RegQueryValueEx(m_hKey, pszValueName, NULL, &dwType, reinterpret_cast<LPBYTE>(pszValue), &nBytes);
+        LONG lRes = ::RegQueryValueEx(m_hKey, lpValueName, NULL, &dwType, reinterpret_cast<LPBYTE>(lpValue), &nBytes);
         if (lRes != ERROR_SUCCESS)
             return FALSE;
         if (dwType != REG_MULTI_SZ)
             return FALSE;
-        if (pszValue != NULL && (nBytes % sizeof(TCHAR) != 0 || nBytes / sizeof(TCHAR) < 1 || pszValue[nBytes / sizeof(TCHAR) -1] != 0 || ((nBytes/sizeof(TCHAR))>1 && pszValue[nBytes / sizeof(TCHAR) - 2] != 0)))
+        if (lpValue != NULL && (nBytes % sizeof(TCHAR) != 0 || nBytes / sizeof(TCHAR) < 1 || lpValue[nBytes / sizeof(TCHAR) -1] != 0 || ((nBytes/sizeof(TCHAR))>1 && lpValue[nBytes / sizeof(TCHAR) - 2] != 0)))
             return FALSE;
 
         *pnChars = nBytes/sizeof(TCHAR);
 
         return TRUE;
+    }
+
+    inline BOOL ZLRegister::GetMultiSzValue( LPCTSTR lpValueName, std::vector<CString>& vecValues )
+    {
+        BOOL bReturn = FALSE;
+        ULONG ulChars = 0;
+        if (GetMultiSzValue(lpValueName, NULL, &ulChars)) // 读取大小
+        {
+            TCHAR* pValue = new TCHAR[ulChars];
+            bReturn = GetMultiSzValue(lpValueName, pValue, &ulChars);
+            _ParseDNTString(pValue, vecValues);
+        }
+        return bReturn;
     }
 
     inline BOOL ZLRegister::Create(
@@ -378,6 +395,26 @@ Exit0:
         if (ERROR_SUCCESS == ::SHDeleteKey(hKey, lpSubKey))
             return TRUE;
         return FALSE;
+    }
+
+    // Parse a "double null terminated string" to std::vector
+    inline void ZLRegister::_ParseDNTString(LPCTSTR lpString, std::vector<CString>& vecResult) const
+    {
+        vecResult.clear();
+
+        if (NULL == lpString)
+            return;
+
+        LPCTSTR psTemp = lpString;
+        DWORD dwLen = (DWORD)_tcslen(psTemp);
+
+        while (dwLen > 0)
+        {
+            vecResult.push_back(psTemp);
+
+            psTemp = &psTemp[dwLen + 1];
+            dwLen = (DWORD)_tcslen(psTemp);
+        }
     }
 
 }

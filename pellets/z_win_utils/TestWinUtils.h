@@ -752,6 +752,9 @@ public:
         TEST_ASSERT(reg.GetMultiSzValue(L"multi_test1", szMultiSz, &ulChars) == TRUE);
         TEST_ASSERT(0 == memcmp(L"val1\0val2\0val3\0\0", szMultiSz, ulChars));
 
+        TEST_ASSERT(reg.GetMultiSzValue(L"multi_test2", vecMultiSz) == TRUE);
+        TEST_ASSERT(vecMultiSz.size() == 3);
+
         const char* pBinary = "\1\2\3\4";
         char arrResult[MAX_PATH] = {0};
         ULONG ulBytes = MAX_PATH - 1;
