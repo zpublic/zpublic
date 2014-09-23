@@ -211,6 +211,19 @@ namespace WinUtils
         return FALSE;
     }
 
+    inline BOOL ZLRegister::SetMultiSzValue( LPCTSTR lpValueName, const std::vector<CString> &vecValueLine )
+    {
+        std::wstring sValue;
+        for (int i=0; i<vecValueLine.size(); ++i)
+        {
+            sValue += vecValueLine[i];
+            sValue.push_back(0);
+        }
+        sValue.push_back(0);
+        sValue.push_back(0);
+        return SetMultiSzValue(lpValueName, sValue.c_str());
+    }
+
     inline BOOL ZLRegister::GetDwordValue( LPCTSTR lpValueName, DWORD& dwValue )
     {
         DWORD dwType = REG_NONE;

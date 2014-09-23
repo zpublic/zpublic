@@ -703,6 +703,8 @@ public:
         TEST_ASSERT(acl.Open(ZLSystemPath::GetCommonAppDataDir() + L"\\zpublic_test\\acl", SE_FILE_OBJECT) == TRUE);
         TEST_ASSERT(acl.SetSecurity(L"Users", KEY_ALL_ACCESS, DENY_ACCESS) == TRUE);
         TEST_ASSERT(acl.SetSecurity(L"Users") == TRUE);
+
+        TEST_ASSERT(ZLRegister::DelKey(HKEY_LOCAL_MACHINE, L"Software\\zpublic_test_acl") == TRUE);
     }
 
     void test_disk()
@@ -737,6 +739,13 @@ public:
 
         TEST_ASSERT(reg.DelValue(L"sz_test") == TRUE);
         TEST_ASSERT(reg.GetStringValue(L"sz_test", sValue) == FALSE);
+
+        std::vector<CString> vecMultiSz;
+        vecMultiSz.push_back(L"hello");
+        vecMultiSz.push_back(L"world");
+        vecMultiSz.push_back(L"zpulic");
+        TEST_ASSERT(reg.SetMultiSzValue(L"multi_test1", L"val1\0val2\0val3\0\0") == TRUE);
+        TEST_ASSERT(reg.SetMultiSzValue(L"multi_test2", vecMultiSz) ==  TRUE);
 
         reg.Close();
 
