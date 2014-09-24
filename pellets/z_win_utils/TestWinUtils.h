@@ -42,6 +42,7 @@ public:
         TEST_ADD(CTestWinUtils::test_disk);
         TEST_ADD(CTestWinUtils::test_base64);
         TEST_ADD(CTestWinUtils::test_uri);
+        TEST_ADD(CTestWinUtils::test_md5);
     }
 
     void test_path()
@@ -814,6 +815,21 @@ public:
         theUri.SetQuery(theQuery.to_string());
         sUrl = theUri.ToString();
         TEST_ASSERT(sUrl == "http://www.baidu.com/baidu?tn=monline_5_dg&ie=utf-8&wd=zpublic");
+    }
+
+    void test_md5()
+    {
+        CString sMd5;
+
+        sMd5 = zl::WinUtils::ZLMd5::GetFileMd5(NULL);
+        TEST_ASSERT(sMd5.IsEmpty() == TRUE);
+
+        sMd5 = zl::WinUtils::ZLMd5::GetFileMd5(L"c:\\windows\\regedit.exe");
+        TEST_ASSERT(sMd5.GetLength() == 32);
+
+        std::string src = "helloworld_hehe_memeda.";
+        CString sMd5OfStr = zl::WinUtils::ZLMd5::GetBufMd5((unsigned char*)src.c_str(), (unsigned int)src.length());
+        TEST_ASSERT(sMd5OfStr.Compare(L"716b770969588ea89d34a7761841b424") == 0);
     }
 };
 
