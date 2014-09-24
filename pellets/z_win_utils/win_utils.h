@@ -56,6 +56,7 @@
 #include "base64.hpp"
 #include "uri.hpp"
 #include "uri_query.hpp"
+#include "md5.h"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
