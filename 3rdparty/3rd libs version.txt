@@ -36,3 +36,6 @@ CppSQLite 3.2 with SQLite 3.4.0
 
 zlib
 1.2.8
+
+libevent
+libevent-2.0.21-stable
