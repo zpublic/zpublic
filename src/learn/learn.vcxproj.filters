@@ -127,6 +127,15 @@
     <Filter Include="src\sqlite\cppsqlite">
       <UniqueIdentifier>{226af5b8-84e7-43c9-944e-e1aae0a731f5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\libevent">
+      <UniqueIdentifier>{bed56ae2-d04b-4c9e-bfad-e91b1e2b456d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\libevent\src">
+      <UniqueIdentifier>{1be54659-a422-4f25-b4df-ceb53da2a4c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\libevent\include">
+      <UniqueIdentifier>{00aefd9e-2a75-486a-a295-4c0be71e952e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -513,6 +522,153 @@
     <ClInclude Include="..\..\3rdparty\cppsqlite\sqlite3.h">
       <Filter>src\sqlite\cppsqlite</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\bufferevent-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\changelist-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\defer-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evbuffer-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evdns.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\event.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\event-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evhttp.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evmap-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evrpc.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evrpc-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evsignal-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evthread-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evutil.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\ht-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\http-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\iocp-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\ipv6-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\log-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\minheap-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\mm-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\ratelim-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\strlcpy-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\util-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\buffer.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\buffer_compat.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\bufferevent.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\bufferevent_compat.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\bufferevent_ssl.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\bufferevent_struct.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\dns.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\dns_compat.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\dns_struct.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\event.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\event_compat.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\event_struct.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\http.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\http_compat.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\http_struct.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\keyvalq_struct.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\listener.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\rpc.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\rpc_compat.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\rpc_struct.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\tag.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\tag_compat.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\thread.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\util.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="test_libevent.h">
+      <Filter>src\libevent</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -832,6 +988,81 @@
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\cppsqlite\CppSQLite3.cpp">
       <Filter>src\sqlite\cppsqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\buffer.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\buffer_iocp.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\bufferevent.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\bufferevent_async.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\bufferevent_filter.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\bufferevent_pair.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\bufferevent_ratelim.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\bufferevent_sock.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\evdns.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\event.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\event_iocp.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\event_tagging.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\evmap.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\evrpc.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\evthread.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\evthread_win32.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\evutil.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\evutil_rand.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\http.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\listener.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\log.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\signal.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\strlcpy.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\win32select.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="test_libevent.cpp">
+      <Filter>src\libevent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -62,6 +62,7 @@
 
 #include "test_flatbuffer.h"
 #include "test_sqlite.h"
+#include "test_libevent.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -110,7 +111,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_json_rpc();
 
     //test_flatbuffer();
-    test_sqlite();
+    //test_sqlite();
+    test_libevent();
 
     getchar();
     return 0;
