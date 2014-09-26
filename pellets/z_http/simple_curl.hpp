@@ -29,7 +29,6 @@ namespace zl
             ZLSimpleCurl()
             {
                 m_nStatusCode = 0;
-                m_nSpeedLimit = 0;
                 m_nTimeLimit = 0;
                 m_eProxyType = enumProxyNone;
                 m_pWriteCallBack = NULL;
@@ -37,6 +36,10 @@ namespace zl
                 m_pPostData = NULL;
                 m_nPostDataLen = 0;
                 m_bUseSSL = TRUE;
+
+#if LIBCURL_VERSION_NUM >= 0x070f05
+                m_nSpeedLimit = 0;
+#endif // LIBCURL_VERSION_NUM >= 0x070f05
             }
 
             ~ZLSimpleCurl()
@@ -50,12 +53,14 @@ namespace zl
                 return TRUE;
             }
 
+#if LIBCURL_VERSION_NUM >= 0x070f05
             int SetMaxSpeedLimit(int nSpeedLimit)
             {
                 int nOldSpeed = m_nSpeedLimit;
                 m_nSpeedLimit = nSpeedLimit;
                 return nOldSpeed;
             }
+#endif // LIBCURL_VERSION_NUM >= 0x070f05
 
             BOOL SetProxy(enumProxyType eProxyType, LPCTSTR szHost, LPCTSTR szPort, LPCTSTR szUserName, LPCTSTR szPassword)
             {
@@ -140,9 +145,11 @@ namespace zl
                 nRetCode = curl_easy_setopt(pCURL, CURLOPT_PROGRESSDATA, (void*)m_pProgressCallBack); 
                 if (nRetCode != CURLE_OK) goto Exit0;
 
+#if LIBCURL_VERSION_NUM >= 0x070f05
                 if (m_nSpeedLimit)
                     nRetCode = curl_easy_setopt(pCURL, CURLOPT_MAX_RECV_SPEED_LARGE, (curl_off_t)m_nSpeedLimit);
                 if (nRetCode != CURLE_OK) goto Exit0;
+#endif // LIBCURL_VERSION_NUM >= 0x070f05
 
                 if (m_bUseSSL)
                     nRetCode = curl_easy_setopt(pCURL, CURLOPT_SSL_VERIFYPEER, FALSE); // 对于ssl，这样设置才能成功
@@ -157,6 +164,7 @@ namespace zl
                 nRetCode = curl_easy_setopt(pCURL, CURLOPT_FOLLOWLOCATION, 1);
                 if (nRetCode != CURLE_OK) goto Exit0;
 
+#if LIBCURL_VERSION_NUM >= 0x071300
                 nRetCode = curl_easy_perform(pCURL);
                 curl_easy_getinfo(pCURL, CURLINFO_PRIMARY_IP, &szIp);
                 if (szIp) m_strAddr = CA2W(szIp);
@@ -166,6 +174,7 @@ namespace zl
                     m_nStatusCode = nRetCode;
                     goto Exit0;
                 }
+#endif // LIBCURL_VERSION_NUM >= 0x071300
 
                 curl_easy_getinfo(pCURL, CURLINFO_RESPONSE_CODE, &m_nStatusCode);
                 if (m_nStatusCode == 200) bRet = TRUE;
@@ -181,10 +190,12 @@ Exit0:
                 return m_nStatusCode;
             }
 
+#if LIBCURL_VERSION_NUM >= 0x071300
             LPCTSTR GetConnectAddr()
             {
                 return m_strAddr;
             }
+#endif // LIBCURL_VERSION_NUM >= 0x071300
 
         protected:
             static size_t WriteCallBack(void *pvData, size_t nSize, size_t nCount, void *pvParam)
@@ -236,9 +247,7 @@ Exit0:
 
         private:
             CString m_strMethod;
-            CString m_strAddr;
             int m_nStatusCode;
-            int m_nSpeedLimit;
             int m_nTimeLimit;
             void *m_pPostData;
             int m_nPostDataLen;
@@ -250,6 +259,15 @@ Exit0:
             ICurlWrite *m_pWriteCallBack;
             ICurlProgress *m_pProgressCallBack;
             BOOL m_bUseSSL; // 是否使用SSL
+
+#if LIBCURL_VERSION_NUM >= 0x071300
+            CString m_strAddr;
+#endif // LIBCURL_VERSION_NUM >= 0x071300
+
+#if LIBCURL_VERSION_NUM >= 0x070f05
+            int m_nSpeedLimit;
+#endif // LIBCURL_VERSION_NUM >= 0x070f05
+
         };
     }
 }
