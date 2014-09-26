@@ -43,6 +43,7 @@ public:
         TEST_ADD(CTestWinUtils::test_base64);
         TEST_ADD(CTestWinUtils::test_uri);
         TEST_ADD(CTestWinUtils::test_md5);
+        TEST_ADD(CTestWinUtils::test_crc32);
     }
 
     void test_path()
@@ -831,5 +832,15 @@ public:
         CString sMd5OfStr = zl::WinUtils::ZLMd5::GetBufMd5((unsigned char*)src.c_str(), (unsigned int)src.length());
         TEST_ASSERT(sMd5OfStr.Compare(L"716b770969588ea89d34a7761841b424") == 0);
     }
-};
 
+    void test_crc32()
+    {
+        std::string sBufA = "zpublic";
+        unsigned long nCrc32Code = zl::WinUtils::ZLCrc32::Crc32Buf(0, (unsigned char*)sBufA.c_str(), (unsigned int)sBufA.length());
+        TEST_ASSERT(nCrc32Code == 0x5f02dfa5);
+
+        sBufA = "hello zpublic";
+        nCrc32Code = zl::WinUtils::ZLCrc32::Crc32Buf(0, (unsigned char*)sBufA.c_str(), (unsigned int)sBufA.length());
+        TEST_ASSERT(nCrc32Code == 0xc2a29850);
+    }
+};
