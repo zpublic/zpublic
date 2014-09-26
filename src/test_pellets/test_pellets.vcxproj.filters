@@ -652,9 +652,6 @@
     <ClInclude Include="..\..\pellets\z_com\import\z_com_module.hpp">
       <Filter>pellets\z_com\import</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_com\import\z_module_handle.hpp">
-      <Filter>pellets\z_com\import</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\pellets\z_com\import\z_com_interface_ptr.hpp">
       <Filter>pellets\z_com\import</Filter>
     </ClInclude>
@@ -669,6 +666,9 @@
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\disk.hpp">
       <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_com\import\z_com_module_handle.hpp">
+      <Filter>pellets\z_com\import</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

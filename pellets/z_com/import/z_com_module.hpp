@@ -13,7 +13,7 @@
  *                                                                       *
  ************************************************************************/
 #pragma once
-#include "z_module_handle.hpp"
+#include "z_com_module_handle.hpp"
 
 #define ZL_PFN_DLLGETCLASSOBJECT  ("DllGetClassObject")
 #define ZL_PFN_DLLCANUNLOADNOW    ("DllCanUnloadNow"  )
@@ -25,13 +25,13 @@ typedef HRESULT STDAPICALLTYPE pfnZLDllGetClassObject(
     LPVOID* ppv);
 
 template<bool t_bManaged>
-class ZLComModuleT : public ZLModuleHandleT<t_bManaged>
+class ZLComModuleT : public ZLComModuleHandleInternalT<t_bManaged>
 {
 public:
     ZLComModuleT( HMODULE hModule = NULL ) :
         m_pfnDllCanUnloadNow(NULL),
         m_pfnDllGetClassObject(NULL),
-        ZLModuleHandleT<t_bManaged>(hModule)
+        ZLComModuleHandleInternalT<t_bManaged>(hModule)
     {
         _ComInitFuncs();
     }
@@ -47,7 +47,7 @@ public:
 public:
     HMODULE LoadLibrary(LPCTSTR pszPathFile)
     {
-        m_hModule = ZLModuleHandleT<t_bManaged>::LoadLibrary(pszPathFile);
+        m_hModule = ZLComModuleHandleInternalT<t_bManaged>::LoadLibrary(pszPathFile);
         HRESULT hRet = _ComInitFuncs();
         return m_hModule;
     }

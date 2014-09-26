@@ -181,7 +181,7 @@
     <ClInclude Include="..\..\pellets\z_com\import\z_com_interface_ptr.hpp" />
     <ClInclude Include="..\..\pellets\z_com\import\z_com_loader.hpp" />
     <ClInclude Include="..\..\pellets\z_com\import\z_com_module.hpp" />
-    <ClInclude Include="..\..\pellets\z_com\import\z_module_handle.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\import\z_com_module_handle.hpp" />
     <ClInclude Include="..\..\pellets\z_com\z_com.h" />
     <ClInclude Include="..\..\pellets\z_com\z_com_export.h" />
     <ClInclude Include="..\..\pellets\z_com\z_com_import.h" />

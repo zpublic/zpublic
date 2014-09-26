@@ -16,20 +16,20 @@
 #include <windows.h>
 
 template<bool t_bManaged>
-class ZLModuleHandleT
+class ZLComModuleHandleInternalT
 {
 public:
-    ZLModuleHandleT( HMODULE hModule = NULL ) : m_hModule(hModule)
+    ZLComModuleHandleInternalT( HMODULE hModule = NULL ) : m_hModule(hModule)
     {
     }
 
-    ZLModuleHandleT( LPCTSTR pszPathFile )
+    ZLComModuleHandleInternalT( LPCTSTR pszPathFile )
     {
         if (pszPathFile != NULL)
             LoadLibrary(pszPathFile);
     }
 
-    ~ZLModuleHandleT()
+    ~ZLComModuleHandleInternalT()
     {
         if (m_hModule != NULL && t_bManaged)
             FreeLibrary();
@@ -64,9 +64,9 @@ public:
     void    Handle( HMODULE hModule) { m_hModule = hModule; };
 
 protected:
-    ZLModuleHandleT<t_bManaged>& operator = (const ZLModuleHandleT<t_bManaged>&);
+    ZLComModuleHandleInternalT<t_bManaged>& operator = (const ZLComModuleHandleInternalT<t_bManaged>&);
     HMODULE m_hModule;
 };
 
-typedef ZLModuleHandleT<true>  ZLModule;
-typedef ZLModuleHandleT<false> ZLModuleHandle;
+typedef ZLComModuleHandleInternalT<true>  ZLModuleInternal;
+typedef ZLComModuleHandleInternalT<false> ZLModuleHandleInternal;
