@@ -37,6 +37,7 @@ namespace zl
                 m_nPostDataLen = 0;
                 m_bUseSSL = TRUE;
 
+// 版本号大于等于0x070f05的curl库,才支持限速.
 #if LIBCURL_VERSION_NUM >= 0x070f05
                 m_nSpeedLimit = 0;
 #endif // LIBCURL_VERSION_NUM >= 0x070f05
@@ -53,6 +54,7 @@ namespace zl
                 return TRUE;
             }
 
+// 版本号大于等于0x070f05的curl库,才支持限速.
 #if LIBCURL_VERSION_NUM >= 0x070f05
             int SetMaxSpeedLimit(int nSpeedLimit)
             {
@@ -145,6 +147,7 @@ namespace zl
                 nRetCode = curl_easy_setopt(pCURL, CURLOPT_PROGRESSDATA, (void*)m_pProgressCallBack); 
                 if (nRetCode != CURLE_OK) goto Exit0;
 
+// 版本号大于等于0x070f05的curl库,才支持限速.
 #if LIBCURL_VERSION_NUM >= 0x070f05
                 if (m_nSpeedLimit)
                     nRetCode = curl_easy_setopt(pCURL, CURLOPT_MAX_RECV_SPEED_LARGE, (curl_off_t)m_nSpeedLimit);
@@ -164,6 +167,7 @@ namespace zl
                 nRetCode = curl_easy_setopt(pCURL, CURLOPT_FOLLOWLOCATION, 1);
                 if (nRetCode != CURLE_OK) goto Exit0;
 
+// 版本号大于等于0x071300的curl库,才支持取原始IP
 #if LIBCURL_VERSION_NUM >= 0x071300
                 nRetCode = curl_easy_perform(pCURL);
                 curl_easy_getinfo(pCURL, CURLINFO_PRIMARY_IP, &szIp);
@@ -190,6 +194,7 @@ Exit0:
                 return m_nStatusCode;
             }
 
+// 版本号大于等于0x071300的curl库,才支持取原始IP
 #if LIBCURL_VERSION_NUM >= 0x071300
             LPCTSTR GetConnectAddr()
             {
@@ -260,10 +265,12 @@ Exit0:
             ICurlProgress *m_pProgressCallBack;
             BOOL m_bUseSSL; // 是否使用SSL
 
+// 版本号大于等于0x071300的curl库,才支持取原始IP
 #if LIBCURL_VERSION_NUM >= 0x071300
             CString m_strAddr;
 #endif // LIBCURL_VERSION_NUM >= 0x071300
 
+// 版本号大于等于0x070f05的curl库,才支持限速.
 #if LIBCURL_VERSION_NUM >= 0x070f05
             int m_nSpeedLimit;
 #endif // LIBCURL_VERSION_NUM >= 0x070f05
