@@ -59,6 +59,7 @@
 #include "md5.hpp"
 #include "crc32.hpp"
 #include "signer_info.hpp"
+#include "task_scheduler.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

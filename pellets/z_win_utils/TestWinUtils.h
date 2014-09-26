@@ -45,6 +45,7 @@ public:
         TEST_ADD(CTestWinUtils::test_md5);
         TEST_ADD(CTestWinUtils::test_crc32);
         TEST_ADD(CTestWinUtils::test_signer_info);
+        TEST_ADD(CTestWinUtils::test_task_scheduler);
     }
 
     void test_path()
@@ -859,5 +860,12 @@ public:
 //         CString s2    = signer.GetNameOfIssuer();
 //         SYSTEMTIME st = signer.GetSigningTime();
 //         CString s3    = signer.GetSerialNumber();
+    }
+
+    void test_task_scheduler()
+    {
+        CString sTaskName = L"zpublic_test";
+        TEST_ASSERT(zl::WinUtils::ZLTaskScheduler::CreateSimpleLogonTaskScheduler(sTaskName, L"c:\\windows\\regedit.exe") == TRUE);
+        TEST_ASSERT(zl::WinUtils::ZLTaskScheduler::DeleteTaskScheduler(sTaskName) == TRUE);
     }
 };
