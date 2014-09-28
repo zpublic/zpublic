@@ -849,10 +849,12 @@ public:
     void test_signer_info()
     {
         CString sTestFile = L"c:\\windows\\regedit.exe";
-        zl::WinUtils::ZLSignerInfo signer;
+        zl::WinUtils::ZLSignInfo signer;
 
         TEST_ASSERT(signer.Load(NULL) == FALSE);
         TEST_ASSERT(signer.Load(sTestFile) == FALSE);
+
+        zl::WinUtils::ZLSignInfo::IsDigitalSignatureHasTimestamp(sTestFile);
 
 //         CString sTestFile2 = L"c:\\Program Files (x86)\\kingsoft\\kingsoft antivirus\\kxescore.exe";
 //         signer.Load(sTestFile2);
@@ -860,6 +862,7 @@ public:
 //         CString s2    = signer.GetNameOfIssuer();
 //         SYSTEMTIME st = signer.GetSigningTime();
 //         CString s3    = signer.GetSerialNumber();
+//         zl::WinUtils::ZLSignInfo::IsDigitalSignatureHasTimestamp(sTestFile2);
     }
 
     void test_task_scheduler()

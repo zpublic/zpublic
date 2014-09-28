@@ -32,7 +32,7 @@ namespace WinUtils
 /**
  * @brief 数字签名信息读取接口
  */
-class ZLSignerInfo
+class ZLSignInfo
 {
 public:
     BOOL Load(LPCTSTR lpFilePath);
@@ -45,6 +45,9 @@ public:
     SYSTEMTIME GetSigningTime() const;
     ///> 证书序列号
     CString GetSerialNumber() const;
+
+    ///> 判断签名是否有时间戳(即时间戳在指定年限内)
+    static BOOL IsDigitalSignatureHasTimestamp( LPCWSTR lpFilePath, WORD wMinYear = 2000, WORD wMaxYear = 2100);
 
 private:
     void _Clear();
@@ -66,15 +69,14 @@ private:
     CString     m_sSerialNumber;  // 证书序列号
 };
 
-
 // 以下是实现部分
 
-inline CString    ZLSignerInfo::GetNameOfSigner() const { return m_sSignerName;   }
-inline CString    ZLSignerInfo::GetNameOfIssuer() const { return m_sIssuerName;   }
-inline SYSTEMTIME ZLSignerInfo::GetSigningTime()  const { return m_tSigningTime;  }
-inline CString    ZLSignerInfo::GetSerialNumber() const { return m_sSerialNumber; }
+inline CString    ZLSignInfo::GetNameOfSigner() const { return m_sSignerName;   }
+inline CString    ZLSignInfo::GetNameOfIssuer() const { return m_sIssuerName;   }
+inline SYSTEMTIME ZLSignInfo::GetSigningTime()  const { return m_tSigningTime;  }
+inline CString    ZLSignInfo::GetSerialNumber() const { return m_sSerialNumber; }
 
-inline BOOL ZLSignerInfo::Load( LPCTSTR lpFilePath )
+inline BOOL ZLSignInfo::Load( LPCTSTR lpFilePath )
 {
     _Clear();
 
@@ -115,7 +117,21 @@ inline BOOL ZLSignerInfo::Load( LPCTSTR lpFilePath )
     return TRUE;
 }
 
-inline void ZLSignerInfo::_Clear()
+inline BOOL ZLSignInfo::IsDigitalSignatureHasTimestamp( LPCWSTR lpFilePath, WORD wMinYear, WORD wMaxYear)
+{
+    ZLSignInfo signer;
+    if (signer.Load(lpFilePath))
+    {
+        SYSTEMTIME st = signer.GetSigningTime();
+        if (st.wYear >= wMinYear && st.wYear <=wMaxYear)
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+inline void ZLSignInfo::_Clear()
 {
     m_sSignerName.Empty();
     m_sIssuerName.Empty();
@@ -123,7 +139,7 @@ inline void ZLSignerInfo::_Clear()
     memset(&m_tSigningTime, 0, sizeof(SYSTEMTIME));
 }
 
-inline SYSTEMTIME ZLSignerInfo::_ReadSigningTime(PCMSG_SIGNER_INFO pMsgSignerInfoOfTimestamp)
+inline SYSTEMTIME ZLSignInfo::_ReadSigningTime(PCMSG_SIGNER_INFO pMsgSignerInfoOfTimestamp)
 {
     SYSTEMTIME st = {0};
 
@@ -154,7 +170,7 @@ inline SYSTEMTIME ZLSignerInfo::_ReadSigningTime(PCMSG_SIGNER_INFO pMsgSignerInf
     return st;
 }
 
-inline PCMSG_SIGNER_INFO ZLSignerInfo::_GetMsgSignerInfoOfFile(HCRYPTMSG hCryptMsg) 
+inline PCMSG_SIGNER_INFO ZLSignInfo::_GetMsgSignerInfoOfFile(HCRYPTMSG hCryptMsg) 
 {
     PCMSG_SIGNER_INFO pMsgSignerInfoOfFile = NULL;
     if (hCryptMsg)
@@ -186,7 +202,7 @@ Exit0:
     return pMsgSignerInfoOfFile;
 }
 
-inline PCMSG_SIGNER_INFO ZLSignerInfo::_GetMsgSignerInfoOfTimestamp( PCMSG_SIGNER_INFO pMsgSignerInfoOfFile )
+inline PCMSG_SIGNER_INFO ZLSignInfo::_GetMsgSignerInfoOfTimestamp( PCMSG_SIGNER_INFO pMsgSignerInfoOfFile )
 {
     PCMSG_SIGNER_INFO pMsgSignerInfoOfTimestamp = NULL;
 
@@ -238,7 +254,7 @@ Exit0:
     return pMsgSignerInfoOfTimestamp;
 }
 
-inline PCCERT_CONTEXT ZLSignerInfo::_ReadCertInfo( HCERTSTORE hCertStore, const PCMSG_SIGNER_INFO pMsgSignerInfoOfFile )
+inline PCCERT_CONTEXT ZLSignInfo::_ReadCertInfo( HCERTSTORE hCertStore, const PCMSG_SIGNER_INFO pMsgSignerInfoOfFile )
 {
     PCCERT_CONTEXT pCertContext = NULL;
 
@@ -259,7 +275,7 @@ inline PCCERT_CONTEXT ZLSignerInfo::_ReadCertInfo( HCERTSTORE hCertStore, const 
     return pCertContext;
 }
 
-inline void ZLSignerInfo::_GetFileSignerHandle( LPCTSTR lpFilePath, HCRYPTMSG& hCryptMsg, HCERTSTORE& hCertStore )
+inline void ZLSignInfo::_GetFileSignerHandle( LPCTSTR lpFilePath, HCRYPTMSG& hCryptMsg, HCERTSTORE& hCertStore )
 {
     hCryptMsg  = NULL;
     hCertStore = NULL;
@@ -284,7 +300,7 @@ inline void ZLSignerInfo::_GetFileSignerHandle( LPCTSTR lpFilePath, HCRYPTMSG& h
     }
 }
 
-inline CString ZLSignerInfo::_ReadSerialNumber(PCCERT_CONTEXT pCertContext)
+inline CString ZLSignInfo::_ReadSerialNumber(PCCERT_CONTEXT pCertContext)
 {
     CString sSerialNumber;
     if (pCertContext)
@@ -298,17 +314,17 @@ inline CString ZLSignerInfo::_ReadSerialNumber(PCCERT_CONTEXT pCertContext)
     return sSerialNumber;
 }
 
-inline CString ZLSignerInfo::_ReadSignerName(PCCERT_CONTEXT pCertContext)
+inline CString ZLSignInfo::_ReadSignerName(PCCERT_CONTEXT pCertContext)
 {
     return _SimpleCertContextReader(pCertContext, CERT_NAME_SIMPLE_DISPLAY_TYPE, 0);
 }
 
-inline CString ZLSignerInfo::_ReadIssuerName(PCCERT_CONTEXT pCertContext)
+inline CString ZLSignInfo::_ReadIssuerName(PCCERT_CONTEXT pCertContext)
 {
     return _SimpleCertContextReader(pCertContext, CERT_NAME_SIMPLE_DISPLAY_TYPE, CERT_NAME_ISSUER_FLAG);
 }
 
-inline CString ZLSignerInfo::_SimpleCertContextReader(PCCERT_CONTEXT pCertContext, DWORD dwType, DWORD dwFlags)
+inline CString ZLSignInfo::_SimpleCertContextReader(PCCERT_CONTEXT pCertContext, DWORD dwType, DWORD dwFlags)
 {
     CString sReturn;
     TCHAR*  pBuf = NULL;

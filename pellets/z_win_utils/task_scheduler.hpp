@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @brief windowsè®¡åˆ’ä»»åŠ¡ç›¸å…³
+ * @brief windows¼Æ»®ÈÎÎñÏà¹Ø
  */
 
 #pragma once
@@ -28,12 +28,12 @@ namespace WinUtils
 {
 
 /**
- * @brief windowsè®¡åˆ’ä»»åŠ¡æŽ¥å£
+ * @brief windows¼Æ»®ÈÎÎñ½Ó¿Ú
  */
 class ZLTaskScheduler
 {
 public:
-    ///> åˆ›å»ºç®€å•çš„å¼€æœºå¯åŠ¨ä»»åŠ¡
+    ///> ´´½¨¼òµ¥µÄ¿ª»úÆô¶¯ÈÎÎñ
     static BOOL CreateSimpleLogonTaskScheduler( LPCTSTR lpTaskName, LPCTSTR lpAppFilePath );
     static BOOL CreateTaskScheduler(
         LPCTSTR lpTaskName,
@@ -50,7 +50,7 @@ private:
 };
 
 
-// ä»¥ä¸‹æ˜¯å®žçŽ°éƒ¨åˆ†
+// ÒÔÏÂÊÇÊµÏÖ²¿·Ö
 
 inline BOOL ZLTaskScheduler::CreateSimpleLogonTaskScheduler( LPCTSTR lpTaskName, LPCTSTR lpAppFilePath )
 {
