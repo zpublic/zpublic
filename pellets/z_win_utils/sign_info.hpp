@@ -46,6 +46,9 @@ public:
     ///> 证书序列号
     CString GetSerialNumber() const;
 
+    ///> 判断签名是否有时间戳(即时间戳在指定年限内)
+    static BOOL IsDigitalSignatureHasTimestamp( LPCWSTR lpFilePath, WORD wMinYear = 2000, WORD wMaxYear = 2100);
+
 private:
     void _Clear();
     static void              _GetFileSignerHandle(LPCTSTR lpFilePath, HCRYPTMSG& hCryptMsg, HCERTSTORE& hCertStore);
@@ -65,7 +68,6 @@ private:
     SYSTEMTIME  m_tSigningTime;   // 签名时间
     CString     m_sSerialNumber;  // 证书序列号
 };
-
 
 // 以下是实现部分
 
@@ -113,6 +115,20 @@ inline BOOL ZLSignInfo::Load( LPCTSTR lpFilePath )
     if (pMsgSignerInfoOfTimestamp) ::LocalFree((HLOCAL)pMsgSignerInfoOfTimestamp);
 
     return TRUE;
+}
+
+inline BOOL ZLSignInfo::IsDigitalSignatureHasTimestamp( LPCWSTR lpFilePath, WORD wMinYear, WORD wMaxYear)
+{
+    ZLSignInfo signer;
+    if (signer.Load(lpFilePath))
+    {
+        SYSTEMTIME st = signer.GetSigningTime();
+        if (st.wYear >= wMinYear && st.wYear <=wMaxYear)
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
 }
 
 inline void ZLSignInfo::_Clear()

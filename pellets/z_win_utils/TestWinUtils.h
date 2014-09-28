@@ -854,12 +854,15 @@ public:
         TEST_ASSERT(signer.Load(NULL) == FALSE);
         TEST_ASSERT(signer.Load(sTestFile) == FALSE);
 
+        zl::WinUtils::ZLSignInfo::IsDigitalSignatureHasTimestamp(sTestFile);
+
 //         CString sTestFile2 = L"c:\\Program Files (x86)\\kingsoft\\kingsoft antivirus\\kxescore.exe";
 //         signer.Load(sTestFile2);
 //         CString s1    = signer.GetNameOfSigner();
 //         CString s2    = signer.GetNameOfIssuer();
 //         SYSTEMTIME st = signer.GetSigningTime();
 //         CString s3    = signer.GetSerialNumber();
+//         zl::WinUtils::ZLSignInfo::IsDigitalSignatureHasTimestamp(sTestFile2);
     }
 
     void test_task_scheduler()
