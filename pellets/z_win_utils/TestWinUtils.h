@@ -44,6 +44,8 @@ public:
         TEST_ADD(CTestWinUtils::test_uri);
         TEST_ADD(CTestWinUtils::test_md5);
         TEST_ADD(CTestWinUtils::test_crc32);
+        TEST_ADD(CTestWinUtils::test_signer_info);
+        TEST_ADD(CTestWinUtils::test_task_scheduler);
     }
 
     void test_path()
@@ -842,5 +844,28 @@ public:
         sBufA = "hello zpublic";
         nCrc32Code = zl::WinUtils::ZLCrc32::Crc32Buf(0, (unsigned char*)sBufA.c_str(), (unsigned int)sBufA.length());
         TEST_ASSERT(nCrc32Code == 0xc2a29850);
+    }
+
+    void test_signer_info()
+    {
+        CString sTestFile = L"c:\\windows\\regedit.exe";
+        zl::WinUtils::ZLSignerInfo signer;
+
+        TEST_ASSERT(signer.Load(NULL) == FALSE);
+        TEST_ASSERT(signer.Load(sTestFile) == FALSE);
+
+//         CString sTestFile2 = L"c:\\Program Files (x86)\\kingsoft\\kingsoft antivirus\\kxescore.exe";
+//         signer.Load(sTestFile2);
+//         CString s1    = signer.GetNameOfSigner();
+//         CString s2    = signer.GetNameOfIssuer();
+//         SYSTEMTIME st = signer.GetSigningTime();
+//         CString s3    = signer.GetSerialNumber();
+    }
+
+    void test_task_scheduler()
+    {
+        CString sTaskName = L"zpublic_test";
+        TEST_ASSERT(zl::WinUtils::ZLTaskScheduler::CreateSimpleLogonTaskScheduler(sTaskName, L"c:\\windows\\regedit.exe") == TRUE);
+        TEST_ASSERT(zl::WinUtils::ZLTaskScheduler::DeleteTaskScheduler(sTaskName) == TRUE);
     }
 };
