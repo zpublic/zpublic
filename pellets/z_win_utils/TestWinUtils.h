@@ -849,7 +849,7 @@ public:
     void test_signer_info()
     {
         CString sTestFile = L"c:\\windows\\regedit.exe";
-        zl::WinUtils::ZLSignerInfo signer;
+        zl::WinUtils::ZLSignInfo signer;
 
         TEST_ASSERT(signer.Load(NULL) == FALSE);
         TEST_ASSERT(signer.Load(sTestFile) == FALSE);
