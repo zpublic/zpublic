@@ -59,11 +59,10 @@ c tick_counter              - 计时器
 o usid                      - CurrentUserSID处理
 o uuid                      - uuid相关
 o wow64                     - 32位、64位兼容处理
+o split_str                 - 切割字符串
 
 todos:
 ------
 + screen_capture            - 截屏
 * drive                     - 可移动磁盘判断
-* register                  - binary,mutistring处理
-* sign_info                 - 取证书信息
 ...
