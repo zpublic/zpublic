@@ -60,6 +60,7 @@
 #include "crc32.hpp"
 #include "sign_info.hpp"
 #include "task_scheduler.hpp"
+#include "split_str.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

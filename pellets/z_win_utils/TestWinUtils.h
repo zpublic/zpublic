@@ -46,6 +46,7 @@ public:
         TEST_ADD(CTestWinUtils::test_crc32);
         TEST_ADD(CTestWinUtils::test_signer_info);
         TEST_ADD(CTestWinUtils::test_task_scheduler);
+        TEST_ADD(CTestWinUtils::test_split_str);
     }
 
     void test_path()
@@ -870,5 +871,33 @@ public:
         CString sTaskName = L"zpublic_test";
         TEST_ASSERT(zl::WinUtils::ZLTaskScheduler::CreateSimpleLogonTaskScheduler(sTaskName, L"c:\\windows\\regedit.exe") == TRUE);
         TEST_ASSERT(zl::WinUtils::ZLTaskScheduler::DeleteTaskScheduler(sTaskName) == TRUE);
+    }
+
+    void test_split_str()
+    {
+        std::vector<std::wstring> vecResult;
+        zl::WinUtils::ZLSplitStr::Split(L"呵呵,这,里,是,zpublic", L',', vecResult);
+        TEST_ASSERT(vecResult.size() == 5);
+        if (vecResult[0] == L"呵呵" &&
+            vecResult[1] == L"这" &&
+            vecResult[2] == L"里" &&
+            vecResult[3] == L"是" &&
+            vecResult[4] == L"zpublic")
+        {
+            TEST_ASSERT(TRUE);
+        }
+        TEST_ASSERT(FALSE);
+
+        zl::WinUtils::ZLSplitStr::Split(L"你好呵呵,世界呵呵,z呵呵public!呵呵", L"呵呵", vecResult);
+        TEST_ASSERT(vecResult.size() == 5);
+        if(vecResult[0] == L"你好" &&
+           vecResult[1] == L",世界" && 
+           vecResult[2] == L",z" &&
+           vecResult[3] == L"public!" &&
+           vecResult[4] == L"")
+        {
+            TEST_ASSERT(TRUE);
+        }
+        TEST_ASSERT(FALSE);
     }
 };
