@@ -85,7 +85,6 @@ inline CString ZLMd5::GetFileMd5( LPCTSTR lpFilePath, LONGLONG ulMaxFileBytes )
     unsigned char arrA[16] = {0};
     if (GetFileMd5(lpFilePath, arrA, ulMaxFileBytes))
     {
-        TCHAR arrW[16] = {0};
         for (int i = 0; i < 16; ++i)
         {
             sMd5.AppendFormat(_T("%02x"), arrA[i]);
@@ -132,7 +131,6 @@ inline CString ZLMd5::GetBufMd5( const unsigned char* pBuf, unsigned int uLen )
     unsigned char arrA[16] = {0};
     if (GetBufMd5(pBuf, uLen, arrA))
     {
-        TCHAR arrW[16] = {0};
         for (int i = 0; i < 16; ++i)
         {
             sMd5.AppendFormat(_T("%02x"), arrA[i]);
