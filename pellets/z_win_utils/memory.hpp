@@ -44,6 +44,18 @@ namespace WinUtils
             ::GlobalMemoryStatusEx(&statex);
             return (ULONG)((statex.ullTotalPhys) / (1024 * 1024));
         }
+
+        /**
+         * @brief 获取已使用内存大小，以MB为单位
+         * @return 成功返回内存大小(MB)
+         */
+        static ULONGLONG GetUsedMem()
+        {
+            MEMORYSTATUSEX statex = {0};
+            statex.dwLength = sizeof(statex);
+            ::GlobalMemoryStatusEx(&statex);
+            return (ULONG)((statex.ullTotalPhys - statex.ullAvailPhys) / (1024 * 1024));
+        }
     };
 
 }

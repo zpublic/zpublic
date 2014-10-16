@@ -415,6 +415,7 @@ public:
         TEST_ASSERT(ZLCpu::GetCpuMHz() != 0);
         TEST_ASSERT(ZLCpu::GetProcessorsCount() != 0);
         TEST_ASSERT(ZLMemory::GetMemorySize() != 0);
+        TEST_ASSERT(ZLMemory::GetUsedMem() != 0);
         TEST_ASSERT(ZLDrive::GetDriveSize() != 0);
     }
 
