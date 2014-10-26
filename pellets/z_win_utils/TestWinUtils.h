@@ -887,7 +887,10 @@ public:
         {
             TEST_ASSERT(TRUE);
         }
-        TEST_ASSERT(FALSE);
+        else
+        {
+            TEST_ASSERT(FALSE);
+        }
 
         zl::WinUtils::ZLSplitStr::Split(L"低挫最最,弊順最最,z最最public!最最", L"最最", vecResult);
         TEST_ASSERT(vecResult.size() == 5);
@@ -899,6 +902,9 @@ public:
         {
             TEST_ASSERT(TRUE);
         }
-        TEST_ASSERT(FALSE);
+        else
+        {
+            TEST_ASSERT(FALSE);
+        }
     }
 };
