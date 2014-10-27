@@ -32,10 +32,13 @@ flatbuffer
 1.0.0
 
 CppSQLite
-CppSQLite 3.2 with SQLite 3.4.0
+3.2 with SQLite 3.4.0
 
 zlib
 1.2.8
 
 libevent
-libevent-2.0.21-stable
+2.0.21-stable
+
+Crypto++
+5.6.2
