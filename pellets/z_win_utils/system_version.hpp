@@ -101,20 +101,23 @@ namespace WinUtils
             return emProcArch;
         }
 
+        /**
+         * @brief 判断系统是否是vista及以上版本
+         */
         static BOOL IsVistaOrLater()
         {
-            BOOL bRet = FALSE;
-            enumSystemVersion emSystemVersion = GetSystemVersion();
-
-            if ( emSystemVersion == enumSystemVersionVista   ||
-                emSystemVersion == enumSystemVersionWin7    ||
-                emSystemVersion == enumSystemVersionWin2008 ||
-                emSystemVersion == enumSystemVersionWin8 )
+            DWORD dwMarjorVersion = 0;
+            DWORD dwMinorVersion  = 0;
+            if (GetSystemVersion(dwMarjorVersion, dwMinorVersion))
             {
-                bRet = TRUE;
+                if (dwMarjorVersion >= 6)
+                {
+                    return TRUE;
+                }
             }
-            return bRet;
+            return FALSE;
         }
+
         /**
          * @brief 获取系统版本
          * @param[out] dwMarjorVersion 高版本号
