@@ -879,32 +879,18 @@ public:
         std::vector<std::wstring> vecResult;
         zl::WinUtils::ZLSplitStr::Split(L"呵呵,这,里,是,zpublic", L',', vecResult);
         TEST_ASSERT(vecResult.size() == 5);
-        if (vecResult[0] == L"呵呵" &&
-            vecResult[1] == L"这" &&
-            vecResult[2] == L"里" &&
-            vecResult[3] == L"是" &&
-            vecResult[4] == L"zpublic")
-        {
-            TEST_ASSERT(TRUE);
-        }
-        else
-        {
-            TEST_ASSERT(FALSE);
-        }
+        TEST_ASSERT(vecResult[0] == L"呵呵");
+        TEST_ASSERT(vecResult[1] == L"这");
+        TEST_ASSERT(vecResult[2] == L"里");
+        TEST_ASSERT(vecResult[3] == L"是");
+        TEST_ASSERT(vecResult[4] == L"zpublic");
 
         zl::WinUtils::ZLSplitStr::Split(L"你好呵呵,世界呵呵,z呵呵public!呵呵", L"呵呵", vecResult);
         TEST_ASSERT(vecResult.size() == 5);
-        if(vecResult[0] == L"你好" &&
-           vecResult[1] == L",世界" && 
-           vecResult[2] == L",z" &&
-           vecResult[3] == L"public!" &&
-           vecResult[4] == L"")
-        {
-            TEST_ASSERT(TRUE);
-        }
-        else
-        {
-            TEST_ASSERT(FALSE);
-        }
+        TEST_ASSERT(vecResult[0] == L"你好");
+        TEST_ASSERT(vecResult[1] == L",世界");
+        TEST_ASSERT(vecResult[2] == L",z");
+        TEST_ASSERT(vecResult[3] == L"public!");
+        TEST_ASSERT(vecResult[4] == L"");
     }
 };
