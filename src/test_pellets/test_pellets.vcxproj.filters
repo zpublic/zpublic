@@ -77,6 +77,18 @@
     <Filter Include="pellets\z_zlib">
       <UniqueIdentifier>{a4d3a684-49c1-473d-bc48-dc54477e7068}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\z_net">
+      <UniqueIdentifier>{9a086910-c3c3-4dcc-a2a8-66eb9d800e6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\z_net\base">
+      <UniqueIdentifier>{d738c975-477e-49ca-bbe3-5fb81b7c0280}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\z_net\file">
+      <UniqueIdentifier>{150e11f1-cf3a-4306-a82b-ab44684d5be6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\z_net\socket">
+      <UniqueIdentifier>{c6fc2fbc-71bc-46a9-8ae6-94bcb13960e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -694,6 +706,27 @@
     <ClInclude Include="..\..\pellets\z_win_utils\uri_utils.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_net\z_net.h">
+      <Filter>pellets\z_net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_net\z_net_header.h">
+      <Filter>pellets\z_net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_net\z_net_def.h">
+      <Filter>pellets\z_net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_net\z_net_wsa_initializer.hpp">
+      <Filter>pellets\z_net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_net\z_net_socket_address_ipv4.h">
+      <Filter>pellets\z_net\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_net\z_net_socket_address.h">
+      <Filter>pellets\z_net\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\software_check.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">
@@ -935,6 +968,9 @@
     </ClCompile>
     <ClCompile Include="..\..\pellets\z_http\TestHttp.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_net\z_net_socket_address_ipv4.cpp">
+      <Filter>pellets\z_net\base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
