@@ -52,10 +52,15 @@
 #include "module.hpp"
 #include "token.hpp"
 #include "acl.hpp"
-#include "disk.h"
+#include "disk.hpp"
 #include "base64.hpp"
 #include "uri.hpp"
 #include "uri_query.hpp"
+#include "md5.hpp"
+#include "crc32.hpp"
+#include "sign_info.hpp"
+#include "task_scheduler.hpp"
+#include "split_str.hpp"
 #include "software_check.hpp"
 
 #ifdef _GDIPLUS_H
