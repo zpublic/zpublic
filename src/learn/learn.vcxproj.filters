@@ -115,6 +115,33 @@
     <Filter Include="practice\test">
       <UniqueIdentifier>{26df29b6-61d1-4232-8e0e-53fe43ef57b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\flatbuffer">
+      <UniqueIdentifier>{19996759-52b8-4fce-be9b-c762a8b9fed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\flatbuffer\flatbuf">
+      <UniqueIdentifier>{8b7b29cb-1754-4f8e-8a24-a9612e35ea19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\sqlite">
+      <UniqueIdentifier>{67581fb8-5d8d-4983-b2df-866385714c07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\sqlite\cppsqlite">
+      <UniqueIdentifier>{226af5b8-84e7-43c9-944e-e1aae0a731f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\libevent">
+      <UniqueIdentifier>{bed56ae2-d04b-4c9e-bfad-e91b1e2b456d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\libevent\src">
+      <UniqueIdentifier>{1be54659-a422-4f25-b4df-ceb53da2a4c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\libevent\include">
+      <UniqueIdentifier>{00aefd9e-2a75-486a-a295-4c0be71e952e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\qrcode">
+      <UniqueIdentifier>{089483e9-7672-4108-ada5-5d883f5599ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\qrcode\qrencode">
+      <UniqueIdentifier>{21d9d867-23b8-47c4-aac7-9598f0d5e379}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -480,6 +507,207 @@
     <ClInclude Include="..\..\3rdparty\jsonlib\json\writer.h">
       <Filter>src\json\json_cpp\h</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\flatbuffer\include\flatbuffers\flatbuffers.h">
+      <Filter>src\flatbuffer\flatbuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\flatbuffer\include\flatbuffers\idl.h">
+      <Filter>src\flatbuffer\flatbuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\flatbuffer\include\flatbuffers\util.h">
+      <Filter>src\flatbuffer\flatbuf</Filter>
+    </ClInclude>
+    <ClInclude Include="test_flatbuffer.h">
+      <Filter>src\flatbuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="test_sqlite.h">
+      <Filter>src\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cppsqlite\CppSQLite3.h">
+      <Filter>src\sqlite\cppsqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cppsqlite\sqlite3.h">
+      <Filter>src\sqlite\cppsqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\bufferevent-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\changelist-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\defer-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evbuffer-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evdns.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\event.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\event-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evhttp.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evmap-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evrpc.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evrpc-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evsignal-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evthread-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\evutil.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\ht-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\http-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\iocp-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\ipv6-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\log-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\minheap-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\mm-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\ratelim-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\strlcpy-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\util-internal.h">
+      <Filter>src\libevent\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\buffer.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\buffer_compat.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\bufferevent.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\bufferevent_compat.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\bufferevent_ssl.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\bufferevent_struct.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\dns.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\dns_compat.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\dns_struct.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\event.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\event_compat.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\event_struct.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\http.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\http_compat.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\http_struct.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\keyvalq_struct.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\listener.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\rpc.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\rpc_compat.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\rpc_struct.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\tag.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\tag_compat.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\thread.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\libevent\include\event2\util.h">
+      <Filter>src\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="test_libevent.h">
+      <Filter>src\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\bitstream.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\mask.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\mmask.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\mqrspec.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\qrencode.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\qrencode_inner.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\qrinput.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\qrspec.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\rscode.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\split.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="test_qrcode.h">
+      <Filter>src\qrcode</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -779,6 +1007,132 @@
     <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_writer.cpp">
       <Filter>src\json\json_cpp\cpp</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_gen_cpp.cpp">
+      <Filter>src\flatbuffer\flatbuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_gen_java.cpp">
+      <Filter>src\flatbuffer\flatbuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_gen_text.cpp">
+      <Filter>src\flatbuffer\flatbuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_parser.cpp">
+      <Filter>src\flatbuffer\flatbuf</Filter>
+    </ClCompile>
+    <ClCompile Include="test_flatbuffer.cpp">
+      <Filter>src\flatbuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="test_sqlite.cpp">
+      <Filter>src\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\cppsqlite\CppSQLite3.cpp">
+      <Filter>src\sqlite\cppsqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\buffer.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\buffer_iocp.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\bufferevent.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\bufferevent_async.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\bufferevent_filter.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\bufferevent_pair.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\bufferevent_ratelim.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\bufferevent_sock.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\evdns.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\event.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\event_iocp.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\event_tagging.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\evmap.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\evrpc.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\evthread.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\evthread_win32.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\evutil.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\evutil_rand.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\http.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\listener.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\log.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\signal.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\strlcpy.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\libevent\win32select.c">
+      <Filter>src\libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="test_libevent.cpp">
+      <Filter>src\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\bitstream.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\mask.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\mmask.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\mqrspec.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\qrencode.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\qrinput.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\qrspec.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\rscode.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\split.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="test_qrcode.cpp">
+      <Filter>src\qrcode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="test_proto.proto">
@@ -811,5 +1165,19 @@
     <None Include="sample6.lua">
       <Filter>src\lua</Filter>
     </None>
+    <None Include="..\..\3rdparty\cppsqlite\sqlite3.def">
+      <Filter>src\sqlite\cppsqlite</Filter>
+    </None>
+    <None Include="..\..\3rdparty\cppsqlite\sqlite3.dll">
+      <Filter>src\sqlite\cppsqlite</Filter>
+    </None>
+    <None Include="..\..\3rdparty\cppsqlite\sqlite3.exp">
+      <Filter>src\sqlite\cppsqlite</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\3rdparty\cppsqlite\sqlite3.lib">
+      <Filter>src\sqlite\cppsqlite</Filter>
+    </Library>
   </ItemGroup>
 </Project>

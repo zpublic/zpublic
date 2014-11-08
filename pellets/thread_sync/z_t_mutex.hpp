@@ -17,6 +17,7 @@
 #ifndef ZL_THREAD_SYNC_MUTEX_HPP
 #define ZL_THREAD_SYNC_MUTEX_HPP
 
+#include "z_t_thread_sync_def.h"
 #include "z_t_criticalsection.hpp"
 
 namespace zl

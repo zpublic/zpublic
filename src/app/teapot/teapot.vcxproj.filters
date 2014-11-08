@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{9597b6e5-8018-44cc-a0f3-77b5c6cbab94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="src\main">
+      <UniqueIdentifier>{7ddc4f2a-c487-4427-b49a-cbd9f4b63631}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\function">
+      <UniqueIdentifier>{e753fe07-c7f6-4bc1-8976-f181cb067bbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{b10ca7fa-785c-4626-bba8-7445e2d527ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\wtl">
+      <UniqueIdentifier>{f3eaebad-3623-4e24-8a3b-9cf4b981fd7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\http">
+      <UniqueIdentifier>{8f44aa14-20a4-4386-8e84-901d7daeeb50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\json">
+      <UniqueIdentifier>{27bb4359-91ec-4e20-9afa-486dd628a455}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AddIn.cpp">
+      <Filter>src\main</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src\main</Filter>
+    </ClCompile>
+    <ClCompile Include="Connect.cpp">
+      <Filter>src\function</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\jsonlib\lib_json\json_reader.cpp">
+      <Filter>include\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\jsonlib\lib_json\json_value.cpp">
+      <Filter>include\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\jsonlib\lib_json\json_writer.cpp">
+      <Filter>include\json</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AddIn.ico">
+      <Filter>res</Filter>
+    </None>
+    <None Include="AddIn.rgs">
+      <Filter>res</Filter>
+    </None>
+    <None Include="AddIn.def">
+      <Filter>res</Filter>
+    </None>
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\json_internalarray.inl">
+      <Filter>include\json</Filter>
+    </None>
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\json_internalmap.inl">
+      <Filter>include\json</Filter>
+    </None>
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\json_valueiterator.inl">
+      <Filter>include\json</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="Connect.h">
+      <Filter>src\function</Filter>
+    </ClInclude>
+    <ClInclude Include="dlg_lu.h">
+      <Filter>src\function</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlcrack.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrls.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrlw.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrlx.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlddx.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atldlgs.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlfind.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlframe.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlgdi.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlmisc.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlprint.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlres.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlscrl.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlsplit.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atluser.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h">
+      <Filter>include\wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\file_write.hpp">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\http_client.hpp">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\ie_proxy.hpp">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\mem_write.hpp">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\simple_curl.hpp">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\stream_writter.hpp">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\z_http.h">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\z_http_def.h">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\z_http_header.h">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\z_http_interface.h">
+      <Filter>include\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\autolink.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\config.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\features.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\forwards.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\json.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\reader.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\value.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\writer.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\lib_json\json_batchallocator.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="AddIn.rc">
+      <Filter>res</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="AddIn.idl">
+      <Filter>res</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>

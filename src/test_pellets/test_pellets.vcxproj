@@ -62,6 +62,7 @@
       <AdditionalDependencies>./../../3rdparty/cpptest_ext/Debug/cpptest.lib</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>
+      <AdditionalLibraryDirectories>./../../3rdparty/libcurl_lib/;./../../3rdparty/zlib_lib/</AdditionalLibraryDirectories>
     </Link>
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>
@@ -75,7 +76,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>DETOURS_32BIT;DETOURS_X86;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./../../pellets;./../../3rdparty;./</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./../../pellets;./../../3rdparty;./../../3rdparty/jsonlib;./</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -84,9 +85,11 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>./../../3rdparty/cpptest_ext/Release/cpptest.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>./../../3rdparty/libcurl_lib/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="..\..\pellets\z_win_utils\readme.txt" />
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -170,9 +173,32 @@
     <ClInclude Include="..\..\pellets\thread_sync\thread_sync.h" />
     <ClInclude Include="..\..\pellets\thread_sync\z_t_thread_sync_def.h" />
     <ClInclude Include="..\..\pellets\thread_sync\z_t_atomic.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\export\z_com_dll_lock.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\export\z_com_dll_module.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\export\z_com_dll_object.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\export\z_com_object.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\import\z_com_auto_ptr.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\import\z_com_interface_ptr.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\import\z_com_loader.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\import\z_com_module.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\import\z_com_module_handle.hpp" />
+    <ClInclude Include="..\..\pellets\z_com\z_com.h" />
+    <ClInclude Include="..\..\pellets\z_com\z_com_export.h" />
+    <ClInclude Include="..\..\pellets\z_com\z_com_import.h" />
     <ClInclude Include="..\..\pellets\z_event\z_event_def.h" />
     <ClInclude Include="..\..\pellets\z_event\z_event_event.h" />
     <ClInclude Include="..\..\pellets\z_event\z_event_reactor.h" />
+    <ClInclude Include="..\..\pellets\z_http\file_write.hpp" />
+    <ClInclude Include="..\..\pellets\z_http\http_client.hpp" />
+    <ClInclude Include="..\..\pellets\z_http\TestHttp.h" />
+    <ClInclude Include="..\..\pellets\z_http\z_http_def.h" />
+    <ClInclude Include="..\..\pellets\z_http\z_http_interface.h" />
+    <ClInclude Include="..\..\pellets\z_http\ie_proxy.hpp" />
+    <ClInclude Include="..\..\pellets\z_http\mem_write.hpp" />
+    <ClInclude Include="..\..\pellets\z_http\simple_curl.hpp" />
+    <ClInclude Include="..\..\pellets\z_http\stream_writter.hpp" />
+    <ClInclude Include="..\..\pellets\z_http\z_http.h" />
+    <ClInclude Include="..\..\pellets\z_http\z_http_header.h" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind.h" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_def.h" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_call.hpp" />
@@ -186,6 +212,12 @@
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_function_reg.h" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_state.h" />
+    <ClInclude Include="..\..\pellets\z_net\z_net.h" />
+    <ClInclude Include="..\..\pellets\z_net\z_net_socket_address.h" />
+    <ClInclude Include="..\..\pellets\z_net\z_net_def.h" />
+    <ClInclude Include="..\..\pellets\z_net\z_net_header.h" />
+    <ClInclude Include="..\..\pellets\z_net\z_net_socket_address_ipv4.h" />
+    <ClInclude Include="..\..\pellets\z_net\z_net_wsa_initializer.hpp" />
     <ClInclude Include="..\..\pellets\z_thread_pool\z_task.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
@@ -210,6 +242,67 @@
     <ClInclude Include="..\..\pellets\z_timer\z_timer_task_queue.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_test_code.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_watcher.h" />
+    <ClInclude Include="..\..\pellets\z_win_utils\autorun.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\base64.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\browser.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\acl.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\clipboard.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\cmdline.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\console_color.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\cpu.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\crc32.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\cstring.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\directory.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\disk.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\drive.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\environment_var.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\error_code.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\file_enum.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\file_icon.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\dos_name.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\file_info.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\file_version.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\gdiplus.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\ini.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\md5.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\memory.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\message.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\module.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\path.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\privilege.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\process.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\process_enum.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\process_module.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\register.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\register_enum.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\screen.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\security_attribute.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\service.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\shortcut.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\shutdown.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\sign_info.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\sign_verify.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\software_check.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\split_str.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\system_path.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\system_version.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\taskbar_position.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\task_scheduler.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\TestWinUtils.h" />
+    <ClInclude Include="..\..\pellets\z_win_utils\tick_counter.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\time.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\time_string.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\token.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\uri.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\uri_query.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\uri_utils.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\usid.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\uuid.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\win_utils.h" />
+    <ClInclude Include="..\..\pellets\z_win_utils\win_utils_header.h" />
+    <ClInclude Include="..\..\pellets\z_win_utils\wow64.hpp" />
+    <ClInclude Include="..\..\pellets\z_zlib\z_zlib.h" />
+    <ClInclude Include="..\..\pellets\z_zlib\z_zlib_header.h" />
     <ClInclude Include="def.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -287,10 +380,12 @@
     <ClCompile Include="..\..\pellets\serialize\data.cpp" />
     <ClCompile Include="..\..\pellets\serialize\data_format.cpp" />
     <ClCompile Include="..\..\pellets\serialize\serialize_engine.cpp" />
+    <ClCompile Include="..\..\pellets\z_http\TestHttp.cpp" />
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.cpp" />
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.cpp" />
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_function_reg.cpp" />
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_state.cpp" />
+    <ClCompile Include="..\..\pellets\z_net\z_net_socket_address_ipv4.cpp" />
     <ClCompile Include="..\..\pellets\z_thread_pool\z_task.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
@@ -309,6 +404,7 @@
     <ClCompile Include="..\..\pellets\z_thread_pool\z_thread_stack.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\pellets\z_win_utils\TestWinUtils.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

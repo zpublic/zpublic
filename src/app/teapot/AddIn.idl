@@ -1,0 +1,26 @@
+﻿// AddIn.idl : 外接程序的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(AddIn.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(03922356-207E-4192-8DF3-B9CDBC51A930),
+	version(1.0),
+	helpstring("teapot 1.0 Type Library")
+]
+library teapotLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(436C9930-0F11-4FB9-A59B-B39231ABC745),
+		helpstring("Connect Class")
+	]
+	coclass Connect
+	{
+		[default] interface IUnknown;
+	};
+};

@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <TargetName>$(ProjectName)</TargetName>
+    <ProjectGUID>{7EB72046-F11E-43F5-B431-505474C57336}</ProjectGUID>
+    <Keyword>AtlProj</Keyword>
+    <PlatformToolset>v110</PlatformToolset>
+    <VCTargetsPath Condition="'$(VCTargetsPath11)' != '' and '$(VSVersion)' == ''">$(VCTargetsPath11)</VCTargetsPath>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <OutDir>Debug\</OutDir>
+    <IntDir>Debug\</IntDir>
+    <UseOfATL>Static</UseOfATL>
+    <CharacterSet>Unicode</CharacterSet>
+    <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <OutDir>Release\</OutDir>
+    <IntDir>Release\</IntDir>
+    <UseOfATL>Static</UseOfATL>
+    <CharacterSet>Unicode</CharacterSet>
+    <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.settings" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.settings'))" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.settings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.settings'))" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>./../../../3rdparty/jsonlib;./../../../pellets;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/Include;"$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\MSEnv";"$(MSBuildExtensionsPath32)\..\Common Files\Designer";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <RegisterOutput>true</RegisterOutput>
+      <ModuleDefinitionFile>.\AddIn.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)$(ProjectName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>./../../../3rdparty/libcurl_lib/</AdditionalLibraryDirectories>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <ErrorCheckStubData>true</ErrorCheckStubData>
+      <TypeLibraryName>$(IntDir)AddIn.tlb</TypeLibraryName>
+      <HeaderFileName>AddIn.h</HeaderFileName>
+      <DLLDataFileName>
+      </DLLDataFileName>
+      <InterfaceIdentifierFileName>AddIn_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>AddIn_p.c</ProxyFileName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>regsvr32 $(OutDir)$(TargetName)$(TargetExt)</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>./../../../3rdparty/jsonlib;./../../../pellets;./../../../public;./../../../3rdparty;./../../../3rdparty/wtl/Include;"$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\MSEnv";"$(MSBuildExtensionsPath32)\..\Common Files\Designer";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <RegisterOutput>true</RegisterOutput>
+      <ModuleDefinitionFile>.\AddIn.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(OutDir)$(ProjectName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>./../../../3rdparty/libcurl_lib/</AdditionalLibraryDirectories>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <ErrorCheckStubData>true</ErrorCheckStubData>
+      <TypeLibraryName>$(IntDir)AddIn.tlb</TypeLibraryName>
+      <HeaderFileName>AddIn.h</HeaderFileName>
+      <DLLDataFileName>
+      </DLLDataFileName>
+      <InterfaceIdentifierFileName>AddIn_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>AddIn_p.c</ProxyFileName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\3rdparty\jsonlib\lib_json\json_reader.cpp" />
+    <ClCompile Include="..\..\..\3rdparty\jsonlib\lib_json\json_value.cpp" />
+    <ClCompile Include="..\..\..\3rdparty\jsonlib\lib_json\json_writer.cpp" />
+    <ClCompile Include="AddIn.cpp" />
+    <ClCompile Include="Connect.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\json_internalarray.inl" />
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\json_internalmap.inl" />
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\json_valueiterator.inl" />
+    <None Include="AddIn.def" />
+    <None Include="AddIn.ico" />
+    <None Include="AddIn.rgs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="AddIn.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\autolink.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\config.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\features.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\forwards.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\json.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\reader.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\value.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\writer.h" />
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\lib_json\json_batchallocator.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlapp.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlcrack.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrls.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrlw.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlctrlx.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlddx.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atldlgs.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlfind.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlframe.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlgdi.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlmisc.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlprint.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlres.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlscrl.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlsplit.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atluser.h" />
+    <ClInclude Include="..\..\..\3rdparty\wtl\Include\atlwinx.h" />
+    <ClInclude Include="..\..\..\pellets\z_http\file_write.hpp" />
+    <ClInclude Include="..\..\..\pellets\z_http\http_client.hpp" />
+    <ClInclude Include="..\..\..\pellets\z_http\ie_proxy.hpp" />
+    <ClInclude Include="..\..\..\pellets\z_http\mem_write.hpp" />
+    <ClInclude Include="..\..\..\pellets\z_http\simple_curl.hpp" />
+    <ClInclude Include="..\..\..\pellets\z_http\stream_writter.hpp" />
+    <ClInclude Include="..\..\..\pellets\z_http\z_http.h" />
+    <ClInclude Include="..\..\..\pellets\z_http\z_http_def.h" />
+    <ClInclude Include="..\..\..\pellets\z_http\z_http_header.h" />
+    <ClInclude Include="..\..\..\pellets\z_http\z_http_interface.h" />
+    <ClInclude Include="Connect.h" />
+    <ClInclude Include="dlg_lu.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="AddIn.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="AddIn.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

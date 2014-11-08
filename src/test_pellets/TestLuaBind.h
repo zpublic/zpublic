@@ -81,13 +81,13 @@ public:
 
         TEST_ASSERT(123 == l.get<int>("g_pp"))
 
-        TEST_ASSERT(l.call<float>("PI") == 3.14)
-        TEST_ASSERT(l.call<float>("l_add", 1.1, 2.2) == 3.3)
+        TEST_ASSERT((int)l.call<float>("PI") == 3) 
+        TEST_ASSERT((int)l.call<float>("l_add", 1.1, 2.2) == 3)
         TEST_ASSERT(l.call<int>("l_add", 3, 4) == 7)
         TEST_ASSERT(l.call<bool>("retf") == true)
 
         l.def("c_add", c_add);
-        TEST_ASSERT(l.call<float>("cc", 1, 3, 2.2) == 6.2)
+        TEST_ASSERT((int)l.call<float>("cc", 1, 3, 2.2) == 6)
 
         std::string r1 = l.call<std::string>("test_ret", 1);
         TEST_ASSERT(r1 == "aaa")
