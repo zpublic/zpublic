@@ -53,6 +53,7 @@ o shortcut                  - 快捷方式处理
 o shutdown                  - 重启和关机
 o sign_info                 - 签名证书信息获取
 c sign_verify               - 数字签名相关
+o software_check            - 软件共存检测
 o split_str                 - 字符串分割
 o system_path               - 系统相关路径操作
 o system_version            - 系统版本信息
