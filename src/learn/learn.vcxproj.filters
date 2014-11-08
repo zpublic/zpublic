@@ -136,6 +136,12 @@
     <Filter Include="src\libevent\include">
       <UniqueIdentifier>{00aefd9e-2a75-486a-a295-4c0be71e952e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\qrcode">
+      <UniqueIdentifier>{089483e9-7672-4108-ada5-5d883f5599ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\qrcode\qrencode">
+      <UniqueIdentifier>{21d9d867-23b8-47c4-aac7-9598f0d5e379}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -669,6 +675,39 @@
     <ClInclude Include="test_libevent.h">
       <Filter>src\libevent</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\bitstream.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\mask.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\mmask.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\mqrspec.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\qrencode.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\qrencode_inner.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\qrinput.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\qrspec.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\rscode.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\qrencode\split.h">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClInclude>
+    <ClInclude Include="test_qrcode.h">
+      <Filter>src\qrcode</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -1063,6 +1102,36 @@
     </ClCompile>
     <ClCompile Include="test_libevent.cpp">
       <Filter>src\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\bitstream.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\mask.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\mmask.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\mqrspec.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\qrencode.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\qrinput.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\qrspec.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\rscode.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\qrencode\split.c">
+      <Filter>src\qrcode\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="test_qrcode.cpp">
+      <Filter>src\qrcode</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

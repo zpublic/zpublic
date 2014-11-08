@@ -63,6 +63,7 @@
 #include "test_flatbuffer.h"
 #include "test_sqlite.h"
 #include "test_libevent.h"
+#include "test_qrcode.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -112,7 +113,8 @@ int _tmain(int argc, _TCHAR* argv[])
 
     //test_flatbuffer();
     //test_sqlite();
-    test_libevent();
+    //test_libevent();
+    test_qrcode();
 
     getchar();
     return 0;
