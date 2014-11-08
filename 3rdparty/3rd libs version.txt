@@ -46,3 +46,5 @@ Crypto++
 Sockets http://www.alhem.net/Sockets/
 Sockets-2.3.9.9
 
+qrencode
+qrencode-3.4.4
