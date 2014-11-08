@@ -61,6 +61,7 @@
 #include "sign_info.hpp"
 #include "task_scheduler.hpp"
 #include "split_str.hpp"
+#include "software_check.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

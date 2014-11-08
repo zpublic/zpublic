@@ -215,7 +215,7 @@ namespace WinUtils
             USHORT Length;
             USHORT MaximumLength;
             PWSTR  Buffer;
-        } UNICODE_STRING, *PUNICODE_STRING;
+        } ZL_UNICODE_STRING, *ZL_PUNICODE_STRING;
 
         typedef struct
         {
@@ -223,22 +223,22 @@ namespace WinUtils
             ULONG          ActualSize;
             ULONG          Flags;
             ULONG          Unknown1;
-            UNICODE_STRING Unknown2;
+            ZL_UNICODE_STRING Unknown2;
             HANDLE         InputHandle;
             HANDLE         OutputHandle;
             HANDLE         ErrorHandle;
-            UNICODE_STRING CurrentDirectory;
+            ZL_UNICODE_STRING CurrentDirectory;
             HANDLE         CurrentDirectoryHandle;
-            UNICODE_STRING SearchPaths;
-            UNICODE_STRING ApplicationName;
-            UNICODE_STRING CommandLine;
+            ZL_UNICODE_STRING SearchPaths;
+            ZL_UNICODE_STRING ApplicationName;
+            ZL_UNICODE_STRING CommandLine;
             PVOID          EnvironmentBlock;
             ULONG          Unknown[9];
-            UNICODE_STRING Unknown3;
-            UNICODE_STRING Unknown4;
-            UNICODE_STRING Unknown5;
-            UNICODE_STRING Unknown6;
-        } PROCESS_PARAMETERS, *PPROCESS_PARAMETERS;
+            ZL_UNICODE_STRING Unknown3;
+            ZL_UNICODE_STRING Unknown4;
+            ZL_UNICODE_STRING Unknown5;
+            ZL_UNICODE_STRING Unknown6;
+        } ZL_PROCESS_PARAMETERS, *ZL_PPROCESS_PARAMETERS;
 
         typedef struct
         {
@@ -246,20 +246,20 @@ namespace WinUtils
             ULONG               Unknown1;
             HINSTANCE           ProcessHinstance;
             PVOID               ListDlls;
-            PPROCESS_PARAMETERS ProcessParameters;
+            ZL_PPROCESS_PARAMETERS ProcessParameters;
             ULONG               Unknown2;
             HANDLE              Heap;
-        } PEB, *PPEB;
+        } ZL_PEB, *ZL_PPEB;
 
         typedef struct
         {
             DWORD ExitStatus;
-            PPEB  PebBaseAddress;
+            ZL_PPEB  PebBaseAddress;
             DWORD AffinityMask;
             DWORD BasePriority;
             ULONG UniqueProcessId;
             ULONG InheritedFromUniqueProcessId;
-        } PROCESS_BASIC_INFORMATION;
+        } ZL_PROCESS_BASIC_INFORMATION;
 
     public:
         /**
@@ -304,7 +304,7 @@ namespace WinUtils
             LONG lStatus = 0;
             int nParentPID = -1;
             HANDLE hProcess = 0;
-            PROCESS_BASIC_INFORMATION pbi = {0};
+            ZL_PROCESS_BASIC_INFORMATION pbi = {0};
 
             hProcess = _Open(dwPid, PROCESS_QUERY_INFORMATION);
             if (!hProcess)
@@ -318,7 +318,7 @@ namespace WinUtils
             lStatus = NtQueryInformationProcess(hProcess,
                 ProcessBasicInformation,
                 (PVOID)&pbi,
-                sizeof(PROCESS_BASIC_INFORMATION),
+                sizeof(ZL_PROCESS_BASIC_INFORMATION),
                 NULL);
             if (!lStatus)
             {
@@ -343,9 +343,9 @@ namespace WinUtils
             WCHAR *pszCmdLineBuffer = NULL;
             LONG lStatus = 0;
             HANDLE hProcess = NULL;
-            PROCESS_BASIC_INFORMATION pbi = {0};
-            PEB Peb = {0};
-            PROCESS_PARAMETERS ProcParam = {0};
+            ZL_PROCESS_BASIC_INFORMATION pbi = {0};
+            ZL_PEB Peb = {0};
+            ZL_PROCESS_PARAMETERS ProcParam = {0};
             DWORD dwDummy = 0;
             DWORD dwSize = 0;
             LPVOID lpAddress = NULL;
@@ -363,16 +363,16 @@ namespace WinUtils
                 goto Exit0;
             }
 
-            lStatus = NtQueryInformationProcess(hProcess, ProcessBasicInformation, (PVOID)&pbi, sizeof(PROCESS_BASIC_INFORMATION), NULL);
+            lStatus = NtQueryInformationProcess(hProcess, ProcessBasicInformation, (PVOID)&pbi, sizeof(ZL_PROCESS_BASIC_INFORMATION), NULL);
             if (lStatus)
             {
                 goto Exit0;
             }
-            if (!::ReadProcessMemory(hProcess, pbi.PebBaseAddress, &Peb, sizeof(PEB),&dwDummy))
+            if (!::ReadProcessMemory(hProcess, pbi.PebBaseAddress, &Peb, sizeof(ZL_PEB),&dwDummy))
             {
                 goto Exit0;
             }
-            if (!::ReadProcessMemory(hProcess, Peb.ProcessParameters, &ProcParam, sizeof(PROCESS_PARAMETERS), &dwDummy))
+            if (!::ReadProcessMemory(hProcess, Peb.ProcessParameters, &ProcParam, sizeof(ZL_PROCESS_PARAMETERS), &dwDummy))
             {
                 goto Exit0;
             }

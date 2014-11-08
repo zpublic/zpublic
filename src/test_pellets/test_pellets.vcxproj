@@ -212,6 +212,12 @@
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_function_reg.h" />
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_state.h" />
+    <ClInclude Include="..\..\pellets\z_net\z_net.h" />
+    <ClInclude Include="..\..\pellets\z_net\z_net_socket_address.h" />
+    <ClInclude Include="..\..\pellets\z_net\z_net_def.h" />
+    <ClInclude Include="..\..\pellets\z_net\z_net_header.h" />
+    <ClInclude Include="..\..\pellets\z_net\z_net_socket_address_ipv4.h" />
+    <ClInclude Include="..\..\pellets\z_net\z_net_wsa_initializer.hpp" />
     <ClInclude Include="..\..\pellets\z_thread_pool\z_task.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
@@ -276,6 +282,7 @@
     <ClInclude Include="..\..\pellets\z_win_utils\shutdown.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\sign_info.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\sign_verify.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\software_check.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\split_str.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\system_path.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\system_version.hpp" />
@@ -378,6 +385,7 @@
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.cpp" />
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_function_reg.cpp" />
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_state.cpp" />
+    <ClCompile Include="..\..\pellets\z_net\z_net_socket_address_ipv4.cpp" />
     <ClCompile Include="..\..\pellets\z_thread_pool\z_task.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>

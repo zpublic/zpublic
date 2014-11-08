@@ -22,6 +22,8 @@
 #pragma once
 #include "win_utils_header.h"
 #include "privilege.hpp"
+#include "process.hpp"
+#include "path.hpp"
 #include <vector>
 
 namespace zl
@@ -93,6 +95,29 @@ namespace WinUtils
                 ::CloseHandle(hSnapProc);
             }
             return bRet;
+        }
+
+        /**
+         * @brief 判断指定进程是否存在
+         * @param[in] lpFileName 进程文件名
+         * @return 存在返回TRUE，不存在返回FALSE，枚举进程失败返回FALSE
+         */
+        static BOOL IsProcExist(LPCWSTR lpFileName)
+        {
+            BOOL bExist = FALSE;
+            ZLProcessEnumInfoVec vecProc;
+            ZLProcessEnum::Enum(vecProc);
+            for (ZLProcessEnumInfoVec::const_iterator it = vecProc.begin();
+                it != vecProc.end();
+                ++it)
+            {
+                if (ZLPath::PathToFileName(it->cstrExeFile).CompareNoCase(lpFileName) == 0)
+                {
+                    bExist = TRUE;
+                    break;
+                }
+            }
+            return bExist;
         }
     };
 }

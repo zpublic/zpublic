@@ -1,0 +1,33 @@
+ifeq ($(USE_CLANG),with_clang)
+        CXX =   clang++
+else
+        CXX =   g++
+endif
+
+CFLAGS +=	-Wall -g $(INCLUDE) -MD -D_VERSION='"$(VERSION)"'
+
+# turn off optimization if compiling with gcc 2.9.x:
+#CFLAGS +=	-O0
+CFLAGS +=	-O2
+
+
+# uncomment depending on your operating system
+CFLAGS +=	-DMACOSX 
+
+
+LIBS +=		\
+		-lssl -lcrypto \
+		-lpthread
+
+OBJS +=		Semaphore.o
+
+LDFLAGSSO =	-shared \
+		-Wl,-lssl \
+		-Wl,-lcrypto \
+		-Wl,-lxml2 \
+		-Wl,-lpthread 
+
+.cpp.o:
+		@echo [$(CXX)] Compiling $<
+		@$(CXX) $(CFLAGS) -o $@ -c $<
+
