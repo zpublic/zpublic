@@ -35,7 +35,7 @@ typedef enum __ZQrcodeMode
 typedef struct __ZQRcodeData
 {
     int            width;        ///> 二维码的宽度
-    BYTE*          data;         ///> 二位数组 width * width
+    BYTE*          data;         ///> 数组 width * width
 }ZQRcodeData;
 
 [
@@ -45,7 +45,7 @@ interface IZQrCode
     : public IUnknown
 {
     /**
-    * @brief 生成二位码
+    * @brief 生成二维码
     * @param[in] qrstr 需要生成二维码的数据
     * @param[in] level 二维码的生成精度
     * @param[in] mode  二维码的生成模式
