@@ -53,7 +53,7 @@ interface IZQrCode
     */
     virtual ZQRcodeData*     CreateQrcode(const char* qrstr, ZQrcodeLevel level, ZQrcodeMode mode) = 0;
     /**
-    * @brief 生成二位码
+    * @brief 释放二维码结构
     * @param[in] qrfree 需要释放的ZQRcodeData指针
     */
     virtual void             CloseQrcode(ZQRcodeData* qrfree) = 0;
