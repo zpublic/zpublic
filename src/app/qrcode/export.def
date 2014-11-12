@@ -1,0 +1,4 @@
+LIBRARY      "qrcode"
+EXPORTS
+DllGetClassObject   PRIVATE
+DllCanUnloadNow     PRIVATE
