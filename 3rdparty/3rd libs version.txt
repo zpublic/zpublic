@@ -48,3 +48,6 @@ Sockets-2.3.9.9
 
 qrencode
 qrencode-3.4.4
+
+udt
+4.11
