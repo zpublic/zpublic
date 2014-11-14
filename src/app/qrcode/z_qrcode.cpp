@@ -15,21 +15,41 @@ ZQrCode::~ZQrCode()
 
 ZQRcodeData* ZQrCode::CreateQrcode(const char* qrstr, ZQrcodeLevel level, ZQrcodeMode mode)
 {
-    ZQRcodeData* retZCode = new ZQRcodeData;
-    if (retZCode == NULL)
+    BOOL bReturn = FALSE;
+    ZQRcodeData* retZCode = NULL;
+    QRcode* retRenCode = NULL;
+    do 
     {
-        return NULL;
-    }
-    QRcode* retRenCode = QRcode_encodeString(qrstr, ZQREN_VER, _Get2Level(level), _Get2Mode(mode), 1);
-    if (retRenCode != NULL)
-    {
-        retZCode->data = new BYTE[retRenCode->width * retRenCode->width];
-        if (retZCode->data != NULL)
+        retZCode = new ZQRcodeData;
+        if (retZCode == NULL)
         {
-            memcpy(retZCode->data, retRenCode->data, retRenCode->width * retRenCode->width);
+            break;
         }
+        retRenCode = QRcode_encodeString(qrstr, ZQREN_VER, _Get2Level(level), _Get2Mode(mode), 1);
+        if (retRenCode == NULL)
+        {
+            break;
+        }
+        retZCode->data = new BYTE[retRenCode->width * retRenCode->width];
+        if (retZCode->data == NULL)
+        {
+            break;
+        }
+        memcpy(retZCode->data, retRenCode->data, retRenCode->width * retRenCode->width);
         retZCode->width = retRenCode->width;
+        bReturn = TRUE;
+    } while (FALSE);
+
+    if (retRenCode)
+    {
         QRcode_free(retRenCode);
+        retRenCode = NULL;
+    }
+
+    if (!bReturn && retZCode != NULL)
+    {
+        CloseQrcode(retZCode);
+        retZCode = NULL;
     }
     return retZCode;
 }
@@ -41,9 +61,9 @@ void ZQrCode::CloseQrcode(ZQRcodeData* qrfree)
         if (qrfree->data)
         {
             delete[] qrfree->data;
-            qrfree = NULL;
+            qrfree->data = NULL;
         }
-        delete[] qrfree;
+        delete qrfree;
         qrfree = NULL;
     }
 }

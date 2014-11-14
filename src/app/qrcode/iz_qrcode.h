@@ -1,12 +1,10 @@
-#ifndef _APP_IZQRCODE
-#define _APP_IZQRCODE
-
-#include <unknwn.h>
-
 /**
  * @file
  * @brief 二维码生成接口
  */
+#pragma once
+
+#include <unknwn.h>
 
 ///> 二维码的错误修正等级
 typedef enum __ZQrcodeLevel
@@ -41,8 +39,7 @@ typedef struct __ZQRcodeData
 [
     uuid("594f31d0-7f19-11d0-b194-00a0c90dc8bf")
 ]
-interface IZQrCode
-    : public IUnknown
+interface IZQrCode : public IUnknown
 {
     /**
     * @brief 生成二维码
@@ -58,5 +55,3 @@ interface IZQrCode
     */
     virtual void             CloseQrcode(ZQRcodeData* qrfree) = 0;
 };
-
-#endif

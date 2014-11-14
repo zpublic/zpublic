@@ -5,10 +5,7 @@
 #include "pellets\z_com\z_com_export.h"
 #include "qrencode\qrencode.h"
 
-#include <unknwn.h>
-
-class ZQrCode
-    : public IZQrCode
+class ZQrCode : public IZQrCode
 {
 public:
     ZQrCode();
