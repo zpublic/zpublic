@@ -11,6 +11,9 @@
 
 #include <assert.h>
 
+///> error C4995: “swprintf”:  名称被标记为 #pragma deprecated
+#pragma warning(disable:4995)
+
 ///> Function call with parameters that may be unsafe - this call relies
 ///> on the caller to check that the passed values are correct. To disable
 ///> this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how

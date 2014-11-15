@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "learn", "..\src\learn\learn.vcxproj", "{79284941-3A71-4A61-BFE8-56ABBB2AC8F6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "plugin", "..\src\plugin\plugin.vcxproj", "{C5450928-0506-4182-9C2D-E6C2C7B8A320}"
