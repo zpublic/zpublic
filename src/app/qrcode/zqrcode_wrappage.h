@@ -1,5 +1,4 @@
-#ifndef _APP_ZQRCODE_WRAPPAGE
-#define _APP_ZQRCODE_WRAPPAGE
+#pragma once
 
 #include "iz_qrcode.h"
 #include "z_com\z_com.h"
@@ -59,5 +58,3 @@ private:
     IZQrCode* m_qrcode;
     ZLComLoader<IZQrCode> m_loader;
 };
-
-#endif

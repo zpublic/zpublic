@@ -37,17 +37,11 @@
     <Filter Include="src\lua\luasrc">
       <UniqueIdentifier>{a83db19f-d5b1-4311-ac28-b127ab4324be}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\standard\stream">
-      <UniqueIdentifier>{9bf2c46f-ec93-47d3-9752-2c0f8a1f011c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\standard\c++11">
       <UniqueIdentifier>{d1abb95d-6ef8-48bc-9e37-9a2bdf31e758}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\standard\c++98|03">
       <UniqueIdentifier>{c67ec3d8-73a3-4ba5-9f99-5e57517a9b9b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\ltest">
-      <UniqueIdentifier>{d7e7bc5f-c2f7-49e7-b9d6-199be5a5951c}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\unittest">
       <UniqueIdentifier>{7e4932a2-28e8-4928-85a8-d8484a536cac}</UniqueIdentifier>
@@ -314,9 +308,6 @@
     </ClInclude>
     <ClInclude Include="test_smart_ptr.h">
       <Filter>src\standard\c++98|03</Filter>
-    </ClInclude>
-    <ClInclude Include="test_stream.h">
-      <Filter>src\standard\stream</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest.h">
       <Filter>src\unittest\include\ltest</Filter>
@@ -708,6 +699,15 @@
     <ClInclude Include="test_qrcode.h">
       <Filter>src\qrcode</Filter>
     </ClInclude>
+    <ClInclude Include="test_standard.h">
+      <Filter>src\standard</Filter>
+    </ClInclude>
+    <ClInclude Include="test_stream.h">
+      <Filter>src\standard\c++98|03</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cpp11_auto.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -898,9 +898,6 @@
     </ClCompile>
     <ClCompile Include="test_smart_ptr.cpp">
       <Filter>src\standard\c++98|03</Filter>
-    </ClCompile>
-    <ClCompile Include="test_stream.cpp">
-      <Filter>src\standard\stream</Filter>
     </ClCompile>
     <ClCompile Include="test_cipra.cpp">
       <Filter>src\unittest</Filter>
@@ -1132,6 +1129,12 @@
     </ClCompile>
     <ClCompile Include="test_qrcode.cpp">
       <Filter>src\qrcode</Filter>
+    </ClCompile>
+    <ClCompile Include="test_stream.cpp">
+      <Filter>src\standard\c++98|03</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_auto.cpp">
+      <Filter>src\standard\c++11</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
