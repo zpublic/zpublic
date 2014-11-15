@@ -23,6 +23,7 @@ public:
 private:
     QRecLevel               _Get2Level(ZQrcodeLevel level);
     QRencodeMode            _Get2Mode(ZQrcodeMode mode);
+    ZQRcodeData*            _TransitionQrcode(QRcode* retRenCode);
 };
 
 #endif
