@@ -17,6 +17,7 @@ public:
     }
     vector_no_move &operator = (const vector_no_move& vec)
     {
+        m_v.resize(vec.m_v.size());
         std::copy(vec.m_v.begin(), vec.m_v.end(), m_v.begin());
         return *this;
     }
