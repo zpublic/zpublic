@@ -1,11 +1,11 @@
 #include "stdafx.h"
-#include "test_atomic.h"
+#include "test_cpp11_atomic.h"
 
 std::atomic_int32_t g_anNum = 0;
+int32_t g_anNum2 = 0;
 
-void test_atomic()
+void test_cpp11_atomic()
 {
-    int nNum = 0;
     zl::timer zTimer;
     for (int i = 0; i < 999999; i++)
     {
@@ -15,7 +15,7 @@ void test_atomic()
     zTimer.restart();
     for (int i = 0; i < 999999; i++)
     {
-        nNum++;
+        g_anNum2++;
     }
     std::cout<<zTimer.elapsed()<<std::endl;
 }

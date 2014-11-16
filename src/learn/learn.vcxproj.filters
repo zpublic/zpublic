@@ -291,12 +291,6 @@
     <ClInclude Include="test_lua.h">
       <Filter>src\lua</Filter>
     </ClInclude>
-    <ClInclude Include="test_array.h">
-      <Filter>src\standard\c++11</Filter>
-    </ClInclude>
-    <ClInclude Include="test_atomic.h">
-      <Filter>src\standard\c++11</Filter>
-    </ClInclude>
     <ClInclude Include="test_chrono.h">
       <Filter>src\standard\c++11</Filter>
     </ClInclude>
@@ -455,9 +449,6 @@
     </ClInclude>
     <ClInclude Include="test_preprocessor_repetition.h">
       <Filter>src\boost\Preprocessor</Filter>
-    </ClInclude>
-    <ClInclude Include="test_functional.h">
-      <Filter>src\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_json_rpc.h">
       <Filter>src\json</Filter>
@@ -708,6 +699,48 @@
     <ClInclude Include="test_cpp11_auto.h">
       <Filter>src\standard\c++11</Filter>
     </ClInclude>
+    <ClInclude Include="test_cpp11_decltype.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cpp11_initializer_lists.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cpp11_range_for.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cpp11_functional.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cpp11_lambda.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cpp11_tuple.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cpp11_array.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cpp11_cplusplus_macro.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cpp11_long_long.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cpp11_nullptr.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cpp11_variadic_templates.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cpp11_alignment.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cpp11_atomic.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cpp11_move_mantics.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -881,12 +914,6 @@
     <ClCompile Include="test_lua.cpp">
       <Filter>src\lua</Filter>
     </ClCompile>
-    <ClCompile Include="test_array.cpp">
-      <Filter>src\standard\c++11</Filter>
-    </ClCompile>
-    <ClCompile Include="test_atomic.cpp">
-      <Filter>src\standard\c++11</Filter>
-    </ClCompile>
     <ClCompile Include="test_chrono.cpp">
       <Filter>src\standard\c++11</Filter>
     </ClCompile>
@@ -976,9 +1003,6 @@
     </ClCompile>
     <ClCompile Include="test_preprocessor_repetition.cpp">
       <Filter>src\boost\Preprocessor</Filter>
-    </ClCompile>
-    <ClCompile Include="test_functional.cpp">
-      <Filter>src\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_json_rpc.cpp">
       <Filter>src\json</Filter>
@@ -1134,6 +1158,48 @@
       <Filter>src\standard\c++98|03</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_auto.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_decltype.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_initializer_lists.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_range_for.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_functional.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_lambda.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_tuple.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_array.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_cplusplus_macro.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_long_long.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_nullptr.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_variadic_templates.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_alignment.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_atomic.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_move_mantics.cpp">
       <Filter>src\standard\c++11</Filter>
     </ClCompile>
   </ItemGroup>

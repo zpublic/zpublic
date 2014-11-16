@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "test_functional.h"
+#include "test_cpp11_functional.h"
 
 int f(int n1, int n2, int n3)
 {
@@ -12,7 +12,7 @@ void pp(int a, int b)
     cout<<a*10 + b<<endl;
 }
 
-void test_functional()
+void test_cpp11_functional()
 {
     assert(f(1, 2, 3) == 6); // output 123
     auto f1 = std::bind(f, 1, std::placeholders::_1, 3);
