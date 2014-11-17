@@ -4,137 +4,149 @@
     <Filter Include="src">
       <UniqueIdentifier>{fb9853e9-bb0a-45e1-8bf6-28fcb793f7fb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\standard">
-      <UniqueIdentifier>{b142c095-ba23-478b-aae4-0823c84f61f4}</UniqueIdentifier>
+    <Filter Include="src\net">
+      <UniqueIdentifier>{dd486d22-0892-49b7-9c69-7c52a2d22e54}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\boost">
-      <UniqueIdentifier>{58fa3c94-f8cd-4149-8ab8-531777ab6cd7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\boost\String and text processing">
-      <UniqueIdentifier>{991ae735-d086-4f10-a30f-e7f0530f70e1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\boost\Containers">
-      <UniqueIdentifier>{2869bed5-b104-4e95-8996-1c71e1b3c5d1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\boost\Algorithms">
-      <UniqueIdentifier>{f98ea1ab-6424-4626-8321-db07ad4b1e4d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\boost\Miscellaneous">
-      <UniqueIdentifier>{8ae01776-3993-43ab-a226-a272307278e4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\protobuf">
-      <UniqueIdentifier>{ce990ada-7144-4c14-93b8-31264e80d00f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\protobuf\proto">
-      <UniqueIdentifier>{7bbd6010-c314-409f-a383-5766526f51f6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\libcurl">
-      <UniqueIdentifier>{9286bb95-bc12-46cf-98c6-c5061611af6c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\lua">
-      <UniqueIdentifier>{188cf481-d12f-4ed2-81b4-479bd7a43244}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\lua\luasrc">
-      <UniqueIdentifier>{a83db19f-d5b1-4311-ac28-b127ab4324be}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\standard\c++11">
-      <UniqueIdentifier>{d1abb95d-6ef8-48bc-9e37-9a2bdf31e758}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\standard\c++98|03">
-      <UniqueIdentifier>{c67ec3d8-73a3-4ba5-9f99-5e57517a9b9b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\unittest">
-      <UniqueIdentifier>{7e4932a2-28e8-4928-85a8-d8484a536cac}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\xde">
-      <UniqueIdentifier>{6d48cdfd-b8a9-4115-9092-18fb4e51d53b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\lua\lua_tinker">
-      <UniqueIdentifier>{f1094e69-e8e7-4472-81d8-f26a8e43d7ec}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\hp_socket">
-      <UniqueIdentifier>{c0cc4a0a-7b58-48ba-898a-0308e1c6a838}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\hp_socket\common">
-      <UniqueIdentifier>{80fbaae7-ac71-402d-acb9-05d35256ea2f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\hp_socket\socket">
-      <UniqueIdentifier>{bb8fd27a-4914-4693-ad5c-e8ff8c179253}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\rapidxml">
-      <UniqueIdentifier>{91250ff1-62dd-4b92-967d-f241b4ee5a44}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\rapidxml\rapidxml">
-      <UniqueIdentifier>{54501f83-8396-45c3-9572-be1a96c6164d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\linq">
-      <UniqueIdentifier>{f852326a-af1f-4bc9-a451-22515e2e7d7c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\boost\Preprocessor">
-      <UniqueIdentifier>{3e689651-a25b-4250-8d37-82416861988f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\json">
-      <UniqueIdentifier>{d8495282-cee9-4ef0-81a0-3149537a4a6d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\unittest\include">
-      <UniqueIdentifier>{e466d68a-8f8b-4653-bce5-f6ac0d7bb18e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\unittest\include\cipra">
-      <UniqueIdentifier>{a7e467fa-c11a-48d1-966d-36df23aa0bfe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\unittest\include\ltest">
-      <UniqueIdentifier>{3bcd22be-117b-498f-96fa-33f4bb4eedee}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\unittest\include\tut">
-      <UniqueIdentifier>{492ea6b8-1372-45ae-86e0-8bde294074d8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\xde\include">
-      <UniqueIdentifier>{329d531e-6b57-4ff2-83da-8a15a92bb2b5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\json\json_cpp">
-      <UniqueIdentifier>{696cb9b2-224d-49aa-a4db-d7663bc7e6f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\json\json_cpp\h">
-      <UniqueIdentifier>{2f433d3c-835e-43e9-af23-2e644b23fa09}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\json\json_cpp\cpp">
-      <UniqueIdentifier>{a721656f-4fd1-40fd-b181-0bc206238574}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="practice">
-      <UniqueIdentifier>{36c64b44-f8e3-4e0d-b599-dd912d5f0998}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="practice\property_tree">
-      <UniqueIdentifier>{841b8fba-3e73-44ea-8239-db85e6493fc5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="practice\test">
-      <UniqueIdentifier>{26df29b6-61d1-4232-8e0e-53fe43ef57b9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\flatbuffer">
-      <UniqueIdentifier>{19996759-52b8-4fce-be9b-c762a8b9fed6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\flatbuffer\flatbuf">
-      <UniqueIdentifier>{8b7b29cb-1754-4f8e-8a24-a9612e35ea19}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\sqlite">
-      <UniqueIdentifier>{67581fb8-5d8d-4983-b2df-866385714c07}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\sqlite\cppsqlite">
-      <UniqueIdentifier>{226af5b8-84e7-43c9-944e-e1aae0a731f5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\libevent">
+    <Filter Include="src\net\libevent">
       <UniqueIdentifier>{bed56ae2-d04b-4c9e-bfad-e91b1e2b456d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\libevent\src">
+    <Filter Include="src\net\libevent\src">
       <UniqueIdentifier>{1be54659-a422-4f25-b4df-ceb53da2a4c3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\libevent\include">
+    <Filter Include="src\net\libevent\include">
       <UniqueIdentifier>{00aefd9e-2a75-486a-a295-4c0be71e952e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\qrcode">
+    <Filter Include="src\net\libcurl">
+      <UniqueIdentifier>{9286bb95-bc12-46cf-98c6-c5061611af6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\flatbuffer">
+      <UniqueIdentifier>{19996759-52b8-4fce-be9b-c762a8b9fed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\flatbuffer\flatbuf">
+      <UniqueIdentifier>{8b7b29cb-1754-4f8e-8a24-a9612e35ea19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\protobuf">
+      <UniqueIdentifier>{ce990ada-7144-4c14-93b8-31264e80d00f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\protobuf\proto">
+      <UniqueIdentifier>{7bbd6010-c314-409f-a383-5766526f51f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data">
+      <UniqueIdentifier>{e1b32828-51b4-4cda-a837-478d619eddfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\qrcode">
       <UniqueIdentifier>{089483e9-7672-4108-ada5-5d883f5599ed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\qrcode\qrencode">
+    <Filter Include="src\data\qrcode\qrencode">
       <UniqueIdentifier>{21d9d867-23b8-47c4-aac7-9598f0d5e379}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\rapidxml">
+      <UniqueIdentifier>{91250ff1-62dd-4b92-967d-f241b4ee5a44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\rapidxml\rapidxml">
+      <UniqueIdentifier>{54501f83-8396-45c3-9572-be1a96c6164d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\linq">
+      <UniqueIdentifier>{f852326a-af1f-4bc9-a451-22515e2e7d7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\json">
+      <UniqueIdentifier>{d8495282-cee9-4ef0-81a0-3149537a4a6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\json\json_cpp">
+      <UniqueIdentifier>{696cb9b2-224d-49aa-a4db-d7663bc7e6f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\json\json_cpp\h">
+      <UniqueIdentifier>{2f433d3c-835e-43e9-af23-2e644b23fa09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\json\json_cpp\cpp">
+      <UniqueIdentifier>{a721656f-4fd1-40fd-b181-0bc206238574}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\hp_socket">
+      <UniqueIdentifier>{c0cc4a0a-7b58-48ba-898a-0308e1c6a838}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\hp_socket\common">
+      <UniqueIdentifier>{80fbaae7-ac71-402d-acb9-05d35256ea2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\hp_socket\socket">
+      <UniqueIdentifier>{bb8fd27a-4914-4693-ad5c-e8ff8c179253}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base">
+      <UniqueIdentifier>{162f09a5-1475-49cb-bb20-1629b2d4b2bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base\boost">
+      <UniqueIdentifier>{58fa3c94-f8cd-4149-8ab8-531777ab6cd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base\boost\String and text processing">
+      <UniqueIdentifier>{991ae735-d086-4f10-a30f-e7f0530f70e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base\boost\Containers">
+      <UniqueIdentifier>{2869bed5-b104-4e95-8996-1c71e1b3c5d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base\boost\Algorithms">
+      <UniqueIdentifier>{f98ea1ab-6424-4626-8321-db07ad4b1e4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base\boost\Miscellaneous">
+      <UniqueIdentifier>{8ae01776-3993-43ab-a226-a272307278e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base\boost\Preprocessor">
+      <UniqueIdentifier>{3e689651-a25b-4250-8d37-82416861988f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\sqlite">
+      <UniqueIdentifier>{67581fb8-5d8d-4983-b2df-866385714c07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\sqlite\cppsqlite">
+      <UniqueIdentifier>{226af5b8-84e7-43c9-944e-e1aae0a731f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base\standard">
+      <UniqueIdentifier>{b142c095-ba23-478b-aae4-0823c84f61f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base\standard\c++11">
+      <UniqueIdentifier>{d1abb95d-6ef8-48bc-9e37-9a2bdf31e758}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base\standard\c++98|03">
+      <UniqueIdentifier>{c67ec3d8-73a3-4ba5-9f99-5e57517a9b9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base\unittest">
+      <UniqueIdentifier>{7e4932a2-28e8-4928-85a8-d8484a536cac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base\unittest\include">
+      <UniqueIdentifier>{e466d68a-8f8b-4653-bce5-f6ac0d7bb18e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base\unittest\include\cipra">
+      <UniqueIdentifier>{a7e467fa-c11a-48d1-966d-36df23aa0bfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base\unittest\include\ltest">
+      <UniqueIdentifier>{3bcd22be-117b-498f-96fa-33f4bb4eedee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base\unittest\include\tut">
+      <UniqueIdentifier>{492ea6b8-1372-45ae-86e0-8bde294074d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\misc">
+      <UniqueIdentifier>{c12ce7cb-a706-4029-9446-acc551f76363}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\misc\xde">
+      <UniqueIdentifier>{6d48cdfd-b8a9-4115-9092-18fb4e51d53b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\misc\xde\include">
+      <UniqueIdentifier>{329d531e-6b57-4ff2-83da-8a15a92bb2b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\misc\lua">
+      <UniqueIdentifier>{188cf481-d12f-4ed2-81b4-479bd7a43244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\misc\lua\luasrc">
+      <UniqueIdentifier>{a83db19f-d5b1-4311-ac28-b127ab4324be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\misc\lua\lua_tinker">
+      <UniqueIdentifier>{f1094e69-e8e7-4472-81d8-f26a8e43d7ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\misc\practice">
+      <UniqueIdentifier>{36c64b44-f8e3-4e0d-b599-dd912d5f0998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\misc\practice\property_tree">
+      <UniqueIdentifier>{841b8fba-3e73-44ea-8239-db85e6493fc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\misc\practice\test">
+      <UniqueIdentifier>{26df29b6-61d1-4232-8e0e-53fe43ef57b9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -148,604 +160,604 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="test_conversion.h">
-      <Filter>src\boost\String and text processing</Filter>
+      <Filter>src\base\boost\String and text processing</Filter>
     </ClInclude>
     <ClInclude Include="test_format.h">
-      <Filter>src\boost\String and text processing</Filter>
+      <Filter>src\base\boost\String and text processing</Filter>
     </ClInclude>
     <ClInclude Include="test_string_aogo.h">
-      <Filter>src\boost\String and text processing</Filter>
+      <Filter>src\base\boost\String and text processing</Filter>
     </ClInclude>
     <ClInclude Include="test_tokenizer.h">
-      <Filter>src\boost\String and text processing</Filter>
+      <Filter>src\base\boost\String and text processing</Filter>
     </ClInclude>
     <ClInclude Include="test_bimap.h">
-      <Filter>src\boost\Containers</Filter>
+      <Filter>src\base\boost\Containers</Filter>
     </ClInclude>
     <ClInclude Include="test_circular_buffer.h">
-      <Filter>src\boost\Containers</Filter>
+      <Filter>src\base\boost\Containers</Filter>
     </ClInclude>
     <ClInclude Include="test_dynamic_bitset.h">
-      <Filter>src\boost\Containers</Filter>
+      <Filter>src\base\boost\Containers</Filter>
     </ClInclude>
     <ClInclude Include="test_property_tree.h">
-      <Filter>src\boost\Containers</Filter>
+      <Filter>src\base\boost\Containers</Filter>
     </ClInclude>
     <ClInclude Include="test_variant.h">
-      <Filter>src\boost\Containers</Filter>
+      <Filter>src\base\boost\Containers</Filter>
     </ClInclude>
     <ClInclude Include="test_searching_algorithms.h">
-      <Filter>src\boost\Algorithms</Filter>
+      <Filter>src\base\boost\Algorithms</Filter>
     </ClInclude>
     <ClInclude Include="test_clamp.h">
-      <Filter>src\boost\Algorithms</Filter>
+      <Filter>src\base\boost\Algorithms</Filter>
     </ClInclude>
     <ClInclude Include="test_hex.h">
-      <Filter>src\boost\Algorithms</Filter>
+      <Filter>src\base\boost\Algorithms</Filter>
     </ClInclude>
     <ClInclude Include="test_minmax.h">
-      <Filter>src\boost\Algorithms</Filter>
+      <Filter>src\base\boost\Algorithms</Filter>
     </ClInclude>
     <ClInclude Include="test_numeric_conversion.h">
-      <Filter>src\boost\Miscellaneous</Filter>
+      <Filter>src\base\boost\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="test_optional.h">
-      <Filter>src\boost\Miscellaneous</Filter>
+      <Filter>src\base\boost\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="test_tribool.h">
-      <Filter>src\boost\Miscellaneous</Filter>
+      <Filter>src\base\boost\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="test_program_options.h">
-      <Filter>src\boost\Miscellaneous</Filter>
+      <Filter>src\base\boost\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="test_protobuf.h">
-      <Filter>src\protobuf</Filter>
+      <Filter>src\net\protobuf</Filter>
     </ClInclude>
     <ClInclude Include="test_proto.pb.h">
-      <Filter>src\protobuf\proto</Filter>
+      <Filter>src\net\protobuf\proto</Filter>
     </ClInclude>
     <ClInclude Include="test_libcurl.h">
-      <Filter>src\libcurl</Filter>
+      <Filter>src\net\libcurl</Filter>
     </ClInclude>
     <ClInclude Include="zl_crul_file.h">
-      <Filter>src\libcurl</Filter>
+      <Filter>src\net\libcurl</Filter>
     </ClInclude>
     <ClInclude Include="zl_crul_http.h">
-      <Filter>src\libcurl</Filter>
+      <Filter>src\net\libcurl</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lapi.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lauxlib.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lcode.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lctype.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\ldebug.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\ldo.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lfunc.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lgc.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\llex.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\llimits.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lmem.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lobject.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lopcodes.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lparser.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lstate.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lstring.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\ltable.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\ltm.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lua.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lua.hpp">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\luaconf.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lualib.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lundump.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lvm.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lzio.h">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
     <ClInclude Include="test_lua.h">
-      <Filter>src\lua</Filter>
+      <Filter>src\misc\lua</Filter>
     </ClInclude>
     <ClInclude Include="test_chrono.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_bitset.h">
-      <Filter>src\standard\c++98|03</Filter>
+      <Filter>src\base\standard\c++98|03</Filter>
     </ClInclude>
     <ClInclude Include="test_regex.h">
-      <Filter>src\standard\c++98|03</Filter>
+      <Filter>src\base\standard\c++98|03</Filter>
     </ClInclude>
     <ClInclude Include="test_smart_ptr.h">
-      <Filter>src\standard\c++98|03</Filter>
+      <Filter>src\base\standard\c++98|03</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest.h">
-      <Filter>src\unittest\include\ltest</Filter>
+      <Filter>src\base\unittest\include\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest_suite.hpp">
-      <Filter>src\unittest\include\ltest</Filter>
+      <Filter>src\base\unittest\include\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest_macros.h">
-      <Filter>src\unittest\include\ltest</Filter>
+      <Filter>src\base\unittest\include\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\ltest\ltest_actor.hpp">
-      <Filter>src\unittest\include\ltest</Filter>
+      <Filter>src\base\unittest\include\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\cipra.hpp">
-      <Filter>src\unittest\include\cipra</Filter>
+      <Filter>src\base\unittest\include\cipra</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\counter.hpp">
-      <Filter>src\unittest\include\cipra</Filter>
+      <Filter>src\base\unittest\include\cipra</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\tap13.hpp">
-      <Filter>src\unittest\include\cipra</Filter>
+      <Filter>src\base\unittest\include\cipra</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\tests.hpp">
-      <Filter>src\unittest\include\cipra</Filter>
+      <Filter>src\base\unittest\include\cipra</Filter>
     </ClInclude>
     <ClInclude Include="test_cipra.h">
-      <Filter>src\unittest</Filter>
+      <Filter>src\base\unittest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut.hpp">
-      <Filter>src\unittest\include\tut</Filter>
+      <Filter>src\base\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_assert.hpp">
-      <Filter>src\unittest\include\tut</Filter>
+      <Filter>src\base\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_console_reporter.hpp">
-      <Filter>src\unittest\include\tut</Filter>
+      <Filter>src\base\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_cppunit_reporter.hpp">
-      <Filter>src\unittest\include\tut</Filter>
+      <Filter>src\base\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_exception.hpp">
-      <Filter>src\unittest\include\tut</Filter>
+      <Filter>src\base\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_posix.hpp">
-      <Filter>src\unittest\include\tut</Filter>
+      <Filter>src\base\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_reporter.hpp">
-      <Filter>src\unittest\include\tut</Filter>
+      <Filter>src\base\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_restartable.hpp">
-      <Filter>src\unittest\include\tut</Filter>
+      <Filter>src\base\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_result.hpp">
-      <Filter>src\unittest\include\tut</Filter>
+      <Filter>src\base\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_runner.hpp">
-      <Filter>src\unittest\include\tut</Filter>
+      <Filter>src\base\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_xml_reporter.hpp">
-      <Filter>src\unittest\include\tut</Filter>
+      <Filter>src\base\unittest\include\tut</Filter>
     </ClInclude>
     <ClInclude Include="test_tut.h">
-      <Filter>src\unittest</Filter>
+      <Filter>src\base\unittest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\xde102\xde.h">
-      <Filter>src\xde\include</Filter>
+      <Filter>src\misc\xde\include</Filter>
     </ClInclude>
     <ClInclude Include="test_xde.h">
-      <Filter>src\xde</Filter>
+      <Filter>src\misc\xde</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\lua_tinker\lua_tinker_ex.h">
-      <Filter>src\lua\lua_tinker</Filter>
+      <Filter>src\misc\lua\lua_tinker</Filter>
     </ClInclude>
     <ClInclude Include="test_hp_socket.h">
-      <Filter>src\hp_socket</Filter>
+      <Filter>src\net\hp_socket</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\hp_socket\bufferptr.h">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\hp_socket\CriticalSection.h">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\hp_socket\Event.h">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\hp_socket\FuncHelper.h">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\hp_socket\GeneralHelper.h">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\hp_socket\InitCOM.h">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\hp_socket\PrivateHeap.h">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\hp_socket\SE.h">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\hp_socket\Semaphore.h">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\hp_socket\Singleton.h">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\hp_socket\STLHelper.h">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\hp_socket\WaitFor.h">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\hp_socket\Win32Helper.h">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClInclude>
     <ClInclude Include="sample_lua.h">
-      <Filter>src\lua</Filter>
+      <Filter>src\misc\lua</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\hp_socket\socket\ClientSocket.h">
-      <Filter>src\hp_socket\socket</Filter>
+      <Filter>src\net\hp_socket\socket</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\hp_socket\socket\SocketHelper.h">
-      <Filter>src\hp_socket\socket</Filter>
+      <Filter>src\net\hp_socket\socket</Filter>
     </ClInclude>
     <ClInclude Include="test_rapidxml.h">
-      <Filter>src\rapidxml</Filter>
+      <Filter>src\data\rapidxml</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\rapidxml-1.13\rapidxml.hpp">
-      <Filter>src\rapidxml\rapidxml</Filter>
+      <Filter>src\data\rapidxml\rapidxml</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\rapidxml-1.13\rapidxml_iterators.hpp">
-      <Filter>src\rapidxml\rapidxml</Filter>
+      <Filter>src\data\rapidxml\rapidxml</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\rapidxml-1.13\rapidxml_print.hpp">
-      <Filter>src\rapidxml\rapidxml</Filter>
+      <Filter>src\data\rapidxml\rapidxml</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\rapidxml-1.13\rapidxml_utils.hpp">
-      <Filter>src\rapidxml\rapidxml</Filter>
+      <Filter>src\data\rapidxml\rapidxml</Filter>
     </ClInclude>
     <ClInclude Include="test_linq.h">
-      <Filter>src\linq</Filter>
+      <Filter>src\data\linq</Filter>
     </ClInclude>
     <ClInclude Include="test_preprocessor.h">
-      <Filter>src\boost\Preprocessor</Filter>
+      <Filter>src\base\boost\Preprocessor</Filter>
     </ClInclude>
     <ClInclude Include="test_preprocessor_repetition.h">
-      <Filter>src\boost\Preprocessor</Filter>
+      <Filter>src\base\boost\Preprocessor</Filter>
     </ClInclude>
     <ClInclude Include="test_json_rpc.h">
-      <Filter>src\json</Filter>
+      <Filter>src\data\json</Filter>
     </ClInclude>
     <ClInclude Include="test_json_cpp.h">
-      <Filter>src\json</Filter>
+      <Filter>src\data\json</Filter>
     </ClInclude>
     <ClInclude Include="practice\practice_test.h">
-      <Filter>practice\test</Filter>
+      <Filter>src\misc\practice\test</Filter>
     </ClInclude>
     <ClInclude Include="practice\property_tree.h">
-      <Filter>practice\property_tree</Filter>
+      <Filter>src\misc\practice\property_tree</Filter>
     </ClInclude>
     <ClInclude Include="practice\test_property_tree.h">
-      <Filter>practice\test</Filter>
+      <Filter>src\misc\practice\test</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\jsonlib\json\autolink.h">
-      <Filter>src\json\json_cpp\h</Filter>
+      <Filter>src\data\json\json_cpp\h</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\jsonlib\json\config.h">
-      <Filter>src\json\json_cpp\h</Filter>
+      <Filter>src\data\json\json_cpp\h</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\jsonlib\json\features.h">
-      <Filter>src\json\json_cpp\h</Filter>
+      <Filter>src\data\json\json_cpp\h</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\jsonlib\json\forwards.h">
-      <Filter>src\json\json_cpp\h</Filter>
+      <Filter>src\data\json\json_cpp\h</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\jsonlib\json\json.h">
-      <Filter>src\json\json_cpp\h</Filter>
+      <Filter>src\data\json\json_cpp\h</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\jsonlib\json\reader.h">
-      <Filter>src\json\json_cpp\h</Filter>
+      <Filter>src\data\json\json_cpp\h</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\jsonlib\json\value.h">
-      <Filter>src\json\json_cpp\h</Filter>
+      <Filter>src\data\json\json_cpp\h</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\jsonlib\json\writer.h">
-      <Filter>src\json\json_cpp\h</Filter>
+      <Filter>src\data\json\json_cpp\h</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\flatbuffer\include\flatbuffers\flatbuffers.h">
-      <Filter>src\flatbuffer\flatbuf</Filter>
+      <Filter>src\net\flatbuffer\flatbuf</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\flatbuffer\include\flatbuffers\idl.h">
-      <Filter>src\flatbuffer\flatbuf</Filter>
+      <Filter>src\net\flatbuffer\flatbuf</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\flatbuffer\include\flatbuffers\util.h">
-      <Filter>src\flatbuffer\flatbuf</Filter>
+      <Filter>src\net\flatbuffer\flatbuf</Filter>
     </ClInclude>
     <ClInclude Include="test_flatbuffer.h">
-      <Filter>src\flatbuffer</Filter>
+      <Filter>src\net\flatbuffer</Filter>
     </ClInclude>
     <ClInclude Include="test_sqlite.h">
-      <Filter>src\sqlite</Filter>
+      <Filter>src\data\sqlite</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\cppsqlite\CppSQLite3.h">
-      <Filter>src\sqlite\cppsqlite</Filter>
+      <Filter>src\data\sqlite\cppsqlite</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\cppsqlite\sqlite3.h">
-      <Filter>src\sqlite\cppsqlite</Filter>
+      <Filter>src\data\sqlite\cppsqlite</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\bufferevent-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\changelist-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\defer-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\evbuffer-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\evdns.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\event.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\event-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\evhttp.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\evmap-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\evrpc.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\evrpc-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\evsignal-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\evthread-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\evutil.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\ht-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\http-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\iocp-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\ipv6-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\log-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\minheap-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\mm-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\ratelim-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\strlcpy-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\util-internal.h">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\buffer.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\buffer_compat.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\bufferevent.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\bufferevent_compat.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\bufferevent_ssl.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\bufferevent_struct.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\dns.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\dns_compat.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\dns_struct.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\event.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\event_compat.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\event_struct.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\http.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\http_compat.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\http_struct.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\keyvalq_struct.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\listener.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\rpc.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\rpc_compat.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\rpc_struct.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\tag.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\tag_compat.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\thread.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\libevent\include\event2\util.h">
-      <Filter>src\libevent\include</Filter>
+      <Filter>src\net\libevent\include</Filter>
     </ClInclude>
     <ClInclude Include="test_libevent.h">
-      <Filter>src\libevent</Filter>
+      <Filter>src\net\libevent</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\qrencode\bitstream.h">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\qrencode\mask.h">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\qrencode\mmask.h">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\qrencode\mqrspec.h">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\qrencode\qrencode.h">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\qrencode\qrencode_inner.h">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\qrencode\qrinput.h">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\qrencode\qrspec.h">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\qrencode\rscode.h">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\qrencode\split.h">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClInclude>
     <ClInclude Include="test_qrcode.h">
-      <Filter>src\qrcode</Filter>
+      <Filter>src\data\qrcode</Filter>
     </ClInclude>
     <ClInclude Include="test_standard.h">
-      <Filter>src\standard</Filter>
+      <Filter>src\base\standard</Filter>
     </ClInclude>
     <ClInclude Include="test_stream.h">
-      <Filter>src\standard\c++98|03</Filter>
+      <Filter>src\base\standard\c++98|03</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_auto.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_decltype.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_initializer_lists.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_range_for.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_functional.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_lambda.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_tuple.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_array.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_cplusplus_macro.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_long_long.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_nullptr.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_variadic_templates.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_alignment.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_move_mantics.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_enum_class.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_atomic.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
     <ClInclude Include="test_cpp11_right_angle_brackets.h">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -756,509 +768,509 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="test_conversion.cpp">
-      <Filter>src\boost\String and text processing</Filter>
+      <Filter>src\base\boost\String and text processing</Filter>
     </ClCompile>
     <ClCompile Include="test_format.cpp">
-      <Filter>src\boost\String and text processing</Filter>
+      <Filter>src\base\boost\String and text processing</Filter>
     </ClCompile>
     <ClCompile Include="test_string_aogo.cpp">
-      <Filter>src\boost\String and text processing</Filter>
+      <Filter>src\base\boost\String and text processing</Filter>
     </ClCompile>
     <ClCompile Include="test_tokenizer.cpp">
-      <Filter>src\boost\String and text processing</Filter>
+      <Filter>src\base\boost\String and text processing</Filter>
     </ClCompile>
     <ClCompile Include="test_bimap.cpp">
-      <Filter>src\boost\Containers</Filter>
+      <Filter>src\base\boost\Containers</Filter>
     </ClCompile>
     <ClCompile Include="test_circular_buffer.cpp">
-      <Filter>src\boost\Containers</Filter>
+      <Filter>src\base\boost\Containers</Filter>
     </ClCompile>
     <ClCompile Include="test_dynamic_bitset.cpp">
-      <Filter>src\boost\Containers</Filter>
+      <Filter>src\base\boost\Containers</Filter>
     </ClCompile>
     <ClCompile Include="test_property_tree.cpp">
-      <Filter>src\boost\Containers</Filter>
+      <Filter>src\base\boost\Containers</Filter>
     </ClCompile>
     <ClCompile Include="test_variant.cpp">
-      <Filter>src\boost\Containers</Filter>
+      <Filter>src\base\boost\Containers</Filter>
     </ClCompile>
     <ClCompile Include="test_searching_algorithms.cpp">
-      <Filter>src\boost\Algorithms</Filter>
+      <Filter>src\base\boost\Algorithms</Filter>
     </ClCompile>
     <ClCompile Include="test_clamp.cpp">
-      <Filter>src\boost\Algorithms</Filter>
+      <Filter>src\base\boost\Algorithms</Filter>
     </ClCompile>
     <ClCompile Include="test_hex.cpp">
-      <Filter>src\boost\Algorithms</Filter>
+      <Filter>src\base\boost\Algorithms</Filter>
     </ClCompile>
     <ClCompile Include="test_minmax.cpp">
-      <Filter>src\boost\Algorithms</Filter>
+      <Filter>src\base\boost\Algorithms</Filter>
     </ClCompile>
     <ClCompile Include="test_numeric_conversion.cpp">
-      <Filter>src\boost\Miscellaneous</Filter>
+      <Filter>src\base\boost\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="test_optional.cpp">
-      <Filter>src\boost\Miscellaneous</Filter>
+      <Filter>src\base\boost\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="test_tribool.cpp">
-      <Filter>src\boost\Miscellaneous</Filter>
+      <Filter>src\base\boost\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="test_program_options.cpp">
-      <Filter>src\boost\Miscellaneous</Filter>
+      <Filter>src\base\boost\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="test_protobuf.cpp">
-      <Filter>src\protobuf</Filter>
+      <Filter>src\net\protobuf</Filter>
     </ClCompile>
     <ClCompile Include="test_proto.pb.cc">
-      <Filter>src\protobuf\proto</Filter>
+      <Filter>src\net\protobuf\proto</Filter>
     </ClCompile>
     <ClCompile Include="test_libcurl.cpp">
-      <Filter>src\libcurl</Filter>
+      <Filter>src\net\libcurl</Filter>
     </ClCompile>
     <ClCompile Include="zl_crul_file.cpp">
-      <Filter>src\libcurl</Filter>
+      <Filter>src\net\libcurl</Filter>
     </ClCompile>
     <ClCompile Include="zl_crul_http.cpp">
-      <Filter>src\libcurl</Filter>
+      <Filter>src\net\libcurl</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lapi.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lauxlib.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lbaselib.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lbitlib.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lcode.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lcorolib.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lctype.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\ldblib.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\ldebug.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\ldo.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\ldump.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lfunc.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lgc.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\linit.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\liolib.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\llex.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lmathlib.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lmem.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\loadlib.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lobject.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lopcodes.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\loslib.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lparser.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lstate.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lstring.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lstrlib.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\ltable.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\ltablib.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\ltm.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lundump.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lvm.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lzio.c">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </ClCompile>
     <ClCompile Include="test_lua.cpp">
-      <Filter>src\lua</Filter>
+      <Filter>src\misc\lua</Filter>
     </ClCompile>
     <ClCompile Include="test_chrono.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_bitset.cpp">
-      <Filter>src\standard\c++98|03</Filter>
+      <Filter>src\base\standard\c++98|03</Filter>
     </ClCompile>
     <ClCompile Include="test_regex.cpp">
-      <Filter>src\standard\c++98|03</Filter>
+      <Filter>src\base\standard\c++98|03</Filter>
     </ClCompile>
     <ClCompile Include="test_smart_ptr.cpp">
-      <Filter>src\standard\c++98|03</Filter>
+      <Filter>src\base\standard\c++98|03</Filter>
     </ClCompile>
     <ClCompile Include="test_cipra.cpp">
-      <Filter>src\unittest</Filter>
+      <Filter>src\base\unittest</Filter>
     </ClCompile>
     <ClCompile Include="test_tut.cpp">
-      <Filter>src\unittest</Filter>
+      <Filter>src\base\unittest</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\xde102\xde.c">
-      <Filter>src\xde\include</Filter>
+      <Filter>src\misc\xde\include</Filter>
     </ClCompile>
     <ClCompile Include="test_xde.cpp">
-      <Filter>src\xde</Filter>
+      <Filter>src\misc\xde</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\lua_tinker\lua_tinker_ex.cpp">
-      <Filter>src\lua\lua_tinker</Filter>
+      <Filter>src\misc\lua\lua_tinker</Filter>
     </ClCompile>
     <ClCompile Include="test_hp_socket.cpp">
-      <Filter>src\hp_socket</Filter>
+      <Filter>src\net\hp_socket</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\hp_socket\bufferptr.cpp">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\hp_socket\CriticalSection.cpp">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\hp_socket\Event.cpp">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\hp_socket\FuncHelper.cpp">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\hp_socket\GeneralHelper.cpp">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\hp_socket\InitCOM.cpp">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\hp_socket\PrivateHeap.cpp">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\hp_socket\Semaphore.cpp">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\hp_socket\WaitFor.cpp">
-      <Filter>src\hp_socket\common</Filter>
+      <Filter>src\net\hp_socket\common</Filter>
     </ClCompile>
     <ClCompile Include="sample1.cpp">
-      <Filter>src\lua</Filter>
+      <Filter>src\misc\lua</Filter>
     </ClCompile>
     <ClCompile Include="sample2.cpp">
-      <Filter>src\lua</Filter>
+      <Filter>src\misc\lua</Filter>
     </ClCompile>
     <ClCompile Include="sample3.cpp">
-      <Filter>src\lua</Filter>
+      <Filter>src\misc\lua</Filter>
     </ClCompile>
     <ClCompile Include="sample5.cpp">
-      <Filter>src\lua</Filter>
+      <Filter>src\misc\lua</Filter>
     </ClCompile>
     <ClCompile Include="sample6.cpp">
-      <Filter>src\lua</Filter>
+      <Filter>src\misc\lua</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\hp_socket\socket\ClientSocket.cpp">
-      <Filter>src\hp_socket\socket</Filter>
+      <Filter>src\net\hp_socket\socket</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\hp_socket\socket\SocketHelper.cpp">
-      <Filter>src\hp_socket\socket</Filter>
+      <Filter>src\net\hp_socket\socket</Filter>
     </ClCompile>
     <ClCompile Include="test_rapidxml.cpp">
-      <Filter>src\rapidxml</Filter>
+      <Filter>src\data\rapidxml</Filter>
     </ClCompile>
     <ClCompile Include="test_linq.cpp">
-      <Filter>src\linq</Filter>
+      <Filter>src\data\linq</Filter>
     </ClCompile>
     <ClCompile Include="test_preprocessor.cpp">
-      <Filter>src\boost\Preprocessor</Filter>
+      <Filter>src\base\boost\Preprocessor</Filter>
     </ClCompile>
     <ClCompile Include="test_preprocessor_repetition.cpp">
-      <Filter>src\boost\Preprocessor</Filter>
+      <Filter>src\base\boost\Preprocessor</Filter>
     </ClCompile>
     <ClCompile Include="test_json_rpc.cpp">
-      <Filter>src\json</Filter>
+      <Filter>src\data\json</Filter>
     </ClCompile>
     <ClCompile Include="test_json_cpp.cpp">
-      <Filter>src\json</Filter>
+      <Filter>src\data\json</Filter>
     </ClCompile>
     <ClCompile Include="practice\practice_test.cpp">
-      <Filter>practice\test</Filter>
+      <Filter>src\misc\practice\test</Filter>
     </ClCompile>
     <ClCompile Include="practice\property_tree.cpp">
-      <Filter>practice\property_tree</Filter>
+      <Filter>src\misc\practice\property_tree</Filter>
     </ClCompile>
     <ClCompile Include="practice\test_property_tree.cpp">
-      <Filter>practice\test</Filter>
+      <Filter>src\misc\practice\test</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_reader.cpp">
-      <Filter>src\json\json_cpp\cpp</Filter>
+      <Filter>src\data\json\json_cpp\cpp</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_value.cpp">
-      <Filter>src\json\json_cpp\cpp</Filter>
+      <Filter>src\data\json\json_cpp\cpp</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\jsonlib\lib_json\json_writer.cpp">
-      <Filter>src\json\json_cpp\cpp</Filter>
+      <Filter>src\data\json\json_cpp\cpp</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_gen_cpp.cpp">
-      <Filter>src\flatbuffer\flatbuf</Filter>
+      <Filter>src\net\flatbuffer\flatbuf</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_gen_java.cpp">
-      <Filter>src\flatbuffer\flatbuf</Filter>
+      <Filter>src\net\flatbuffer\flatbuf</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_gen_text.cpp">
-      <Filter>src\flatbuffer\flatbuf</Filter>
+      <Filter>src\net\flatbuffer\flatbuf</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_parser.cpp">
-      <Filter>src\flatbuffer\flatbuf</Filter>
+      <Filter>src\net\flatbuffer\flatbuf</Filter>
     </ClCompile>
     <ClCompile Include="test_flatbuffer.cpp">
-      <Filter>src\flatbuffer</Filter>
+      <Filter>src\net\flatbuffer</Filter>
     </ClCompile>
     <ClCompile Include="test_sqlite.cpp">
-      <Filter>src\sqlite</Filter>
+      <Filter>src\data\sqlite</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\cppsqlite\CppSQLite3.cpp">
-      <Filter>src\sqlite\cppsqlite</Filter>
+      <Filter>src\data\sqlite\cppsqlite</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\buffer.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\buffer_iocp.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\bufferevent.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\bufferevent_async.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\bufferevent_filter.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\bufferevent_pair.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\bufferevent_ratelim.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\bufferevent_sock.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\evdns.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\event.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\event_iocp.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\event_tagging.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\evmap.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\evrpc.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\evthread.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\evthread_win32.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\evutil.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\evutil_rand.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\http.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\listener.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\log.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\signal.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\strlcpy.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\libevent\win32select.c">
-      <Filter>src\libevent\src</Filter>
+      <Filter>src\net\libevent\src</Filter>
     </ClCompile>
     <ClCompile Include="test_libevent.cpp">
-      <Filter>src\libevent</Filter>
+      <Filter>src\net\libevent</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\qrencode\bitstream.c">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\qrencode\mask.c">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\qrencode\mmask.c">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\qrencode\mqrspec.c">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\qrencode\qrencode.c">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\qrencode\qrinput.c">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\qrencode\qrspec.c">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\qrencode\rscode.c">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\qrencode\split.c">
-      <Filter>src\qrcode\qrencode</Filter>
+      <Filter>src\data\qrcode\qrencode</Filter>
     </ClCompile>
     <ClCompile Include="test_qrcode.cpp">
-      <Filter>src\qrcode</Filter>
+      <Filter>src\data\qrcode</Filter>
     </ClCompile>
     <ClCompile Include="test_stream.cpp">
-      <Filter>src\standard\c++98|03</Filter>
+      <Filter>src\base\standard\c++98|03</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_auto.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_decltype.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_initializer_lists.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_range_for.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_functional.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_lambda.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_tuple.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_array.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_cplusplus_macro.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_long_long.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_nullptr.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_variadic_templates.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_alignment.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_move_mantics.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_enum_class.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_atomic.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
     <ClCompile Include="test_cpp11_right_angle_brackets.cpp">
-      <Filter>src\standard\c++11</Filter>
+      <Filter>src\base\standard\c++11</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="test_proto.proto">
-      <Filter>src\protobuf\proto</Filter>
+      <Filter>src\net\protobuf\proto</Filter>
     </None>
     <None Include="..\..\3rdparty\luasrc\Makefile">
-      <Filter>src\lua\luasrc</Filter>
+      <Filter>src\misc\lua\luasrc</Filter>
     </None>
     <None Include="..\..\3rdparty\cipra-1.1\include\impl\counter.ipp">
-      <Filter>src\unittest\include\cipra</Filter>
+      <Filter>src\base\unittest\include\cipra</Filter>
     </None>
     <None Include="..\..\3rdparty\cipra-1.1\include\impl\tap13.ipp">
-      <Filter>src\unittest\include\cipra</Filter>
+      <Filter>src\base\unittest\include\cipra</Filter>
     </None>
     <None Include="..\..\3rdparty\cipra-1.1\include\impl\tests.ipp">
-      <Filter>src\unittest\include\cipra</Filter>
+      <Filter>src\base\unittest\include\cipra</Filter>
     </None>
     <None Include="sample1.lua">
-      <Filter>src\lua</Filter>
+      <Filter>src\misc\lua</Filter>
     </None>
     <None Include="sample2.lua">
-      <Filter>src\lua</Filter>
+      <Filter>src\misc\lua</Filter>
     </None>
     <None Include="sample3.lua">
-      <Filter>src\lua</Filter>
+      <Filter>src\misc\lua</Filter>
     </None>
     <None Include="sample5.lua">
-      <Filter>src\lua</Filter>
+      <Filter>src\misc\lua</Filter>
     </None>
     <None Include="sample6.lua">
-      <Filter>src\lua</Filter>
+      <Filter>src\misc\lua</Filter>
     </None>
     <None Include="..\..\3rdparty\cppsqlite\sqlite3.def">
-      <Filter>src\sqlite\cppsqlite</Filter>
+      <Filter>src\data\sqlite\cppsqlite</Filter>
     </None>
     <None Include="..\..\3rdparty\cppsqlite\sqlite3.dll">
-      <Filter>src\sqlite\cppsqlite</Filter>
+      <Filter>src\data\sqlite\cppsqlite</Filter>
     </None>
     <None Include="..\..\3rdparty\cppsqlite\sqlite3.exp">
-      <Filter>src\sqlite\cppsqlite</Filter>
+      <Filter>src\data\sqlite\cppsqlite</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\3rdparty\cppsqlite\sqlite3.lib">
-      <Filter>src\sqlite\cppsqlite</Filter>
+      <Filter>src\data\sqlite\cppsqlite</Filter>
     </Library>
   </ItemGroup>
 </Project>
