@@ -735,10 +735,16 @@
     <ClInclude Include="test_cpp11_alignment.h">
       <Filter>src\standard\c++11</Filter>
     </ClInclude>
+    <ClInclude Include="test_cpp11_move_mantics.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cpp11_enum_class.h">
+      <Filter>src\standard\c++11</Filter>
+    </ClInclude>
     <ClInclude Include="test_cpp11_atomic.h">
       <Filter>src\standard\c++11</Filter>
     </ClInclude>
-    <ClInclude Include="test_cpp11_move_mantics.h">
+    <ClInclude Include="test_cpp11_right_angle_brackets.h">
       <Filter>src\standard\c++11</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1196,10 +1202,16 @@
     <ClCompile Include="test_cpp11_alignment.cpp">
       <Filter>src\standard\c++11</Filter>
     </ClCompile>
+    <ClCompile Include="test_cpp11_move_mantics.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cpp11_enum_class.cpp">
+      <Filter>src\standard\c++11</Filter>
+    </ClCompile>
     <ClCompile Include="test_cpp11_atomic.cpp">
       <Filter>src\standard\c++11</Filter>
     </ClCompile>
-    <ClCompile Include="test_cpp11_move_mantics.cpp">
+    <ClCompile Include="test_cpp11_right_angle_brackets.cpp">
       <Filter>src\standard\c++11</Filter>
     </ClCompile>
   </ItemGroup>

@@ -24,6 +24,8 @@
 #include "test_cpp11_alignment.h"
 #include "test_cpp11_atomic.h"
 #include "test_cpp11_move_mantics.h"
+#include "test_cpp11_enum_class.h"
+#include "test_cpp11_right_angle_brackets.h"
 
 #define test_cpp11_(name)                   \
     do {                                    \
@@ -58,4 +60,6 @@ void test_standard()
     test_cpp11_(alignment);
     test_cpp11_(atomic);
     test_cpp11_(move_mantics);
+    test_cpp11_(enum_class);
+    test_cpp11_(right_angle_brackets);
 }
