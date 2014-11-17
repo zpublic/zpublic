@@ -51,3 +51,6 @@ qrencode-3.4.4
 
 udt
 4.11
+
+mongoose
+5.5
