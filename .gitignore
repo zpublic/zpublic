@@ -32,6 +32,7 @@
 *.aps
 *.suo
 *.ncb
+*.opensdf
 
 *.lib
 !/3rdparty/boost_lib/*.lib
