@@ -148,6 +148,12 @@
     <Filter Include="src\misc\practice\test">
       <UniqueIdentifier>{26df29b6-61d1-4232-8e0e-53fe43ef57b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\net\mongoose">
+      <UniqueIdentifier>{c7b9b3ec-3e60-47c8-8dda-02e0cf30427e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\src">
+      <UniqueIdentifier>{ca31ee2c-2fd0-418b-bd02-e8698f142f0e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -759,6 +765,12 @@
     <ClInclude Include="test_cpp11_right_angle_brackets.h">
       <Filter>src\base\standard\c++11</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\mongoose\mongoose.h">
+      <Filter>src\net\mongoose\src</Filter>
+    </ClInclude>
+    <ClInclude Include="test_mongoose.h">
+      <Filter>src\net\mongoose</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -1225,6 +1237,12 @@
     </ClCompile>
     <ClCompile Include="test_cpp11_right_angle_brackets.cpp">
       <Filter>src\base\standard\c++11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\mongoose.c">
+      <Filter>src\net\mongoose\src</Filter>
+    </ClCompile>
+    <ClCompile Include="test_mongoose.cpp">
+      <Filter>src\net\mongoose</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

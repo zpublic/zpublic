@@ -57,6 +57,7 @@
 #include "test_sqlite.h"
 #include "test_libevent.h"
 #include "test_qrcode.h"
+#include "test_mongoose.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -102,6 +103,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_sqlite();
     //test_libevent();
     //test_qrcode();
+    test_mongoose();
 
     getchar();
     return 0;
