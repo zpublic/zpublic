@@ -52,7 +52,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>NOMINMAX;WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>./;./../../public;./../../3rdparty;./../../3rdparty/tut;./../../3rdparty/jsonlib;./../../3rdparty/flatbuffer/include;./../../3rdparty/libevent/include;./../../3rdparty/libevent/WIN32-Code;./../../3rdparty/libevent/compat</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;./../../public;./../../3rdparty;./../../3rdparty/tut;./../../3rdparty/jsonlib;./../../3rdparty/flatbuffer/include;./../../3rdparty/libevent/include;./../../3rdparty/libevent/WIN32-Code;./../../3rdparty/libevent/compat;./../../3rdparty/mongoose</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zm500  -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -78,7 +78,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NOMINMAX;WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>./;./../../public;./../../3rdparty;./../../3rdparty/tut;./../../3rdparty/jsonlib;./../../3rdparty/flatbuffer/include;./../../3rdparty/libevent/include;./../../3rdparty/libevent/WIN32-Code;./../../3rdparty/libevent/compat</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;./../../public;./../../3rdparty;./../../3rdparty/tut;./../../3rdparty/jsonlib;./../../3rdparty/flatbuffer/include;./../../3rdparty/libevent/include;./../../3rdparty/libevent/WIN32-Code;./../../3rdparty/libevent/compat;./../../3rdparty/mongoose</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zm500  -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
