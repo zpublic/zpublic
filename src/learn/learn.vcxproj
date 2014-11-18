@@ -337,6 +337,14 @@
     <ClInclude Include="..\..\3rdparty\lua_tinker\lua_tinker_ex.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\net_skeleton.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\ssl_wrapper.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="..\..\3rdparty\mongoose\mongoose.h" />
     <ClInclude Include="..\..\3rdparty\qrencode\bitstream.h" />
     <ClInclude Include="..\..\3rdparty\qrencode\mask.h" />
@@ -898,6 +906,74 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\big_upload\big_upload.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\cookie_authentication\cookie_auth.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\digest_authentication\digest_auth.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\file_upload\file_upload.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\form_submit\form_submit.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\hello_world\hello_world.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\http_client\http_client.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\mjpg_streamer\mjpg_streamer.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\multi_threaded_server\multi_threaded_server.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\proxy_server\proxy_server.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\restful_api\restful_api.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\send_file\send_file.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\websocket_chat\websocket_chat.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\websocket_echo_server\websocket_echo_server.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\ssl_wrapper.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\ws_ssl.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\web_server\web_server.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\3rdparty\mongoose\mongoose.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
@@ -1145,6 +1221,30 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </None>
+    <None Include="..\..\3rdparty\mongoose\examples\cookie_authentication\index.html" />
+    <None Include="..\..\3rdparty\mongoose\examples\cookie_authentication\login.html" />
+    <None Include="..\..\3rdparty\mongoose\examples\csharp\example.cs">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\csharp\mongoose.cs">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\proxy_server\proxy_web_root\app1\index.html" />
+    <None Include="..\..\3rdparty\mongoose\examples\proxy_server\proxy_web_root\app2\index.html" />
+    <None Include="..\..\3rdparty\mongoose\examples\proxy_server\proxy_web_root\index.html" />
+    <None Include="..\..\3rdparty\mongoose\examples\proxy_server\ssl_cert.pem" />
+    <None Include="..\..\3rdparty\mongoose\examples\restful_api\index.html" />
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_chat\index.html" />
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_echo_server\index.html" />
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\certs\ws1_ca.pem" />
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\certs\ws1_client.pem" />
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\certs\ws1_server.pem" />
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\certs\ws2_ca.pem" />
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\certs\ws2_client.pem" />
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\certs\ws2_server.pem" />
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\ws_ssl.html" />
     <None Include="sample1.lua" />
     <None Include="sample2.lua" />
     <None Include="sample3.lua" />

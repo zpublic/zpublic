@@ -154,6 +154,72 @@
     <Filter Include="src\net\mongoose\src">
       <UniqueIdentifier>{ca31ee2c-2fd0-418b-bd02-e8698f142f0e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\net\mongoose\sample">
+      <UniqueIdentifier>{84fc5e94-753a-4da3-b67b-878466dcf41a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\big_upload">
+      <UniqueIdentifier>{4fe0c5b8-0c36-442c-b583-984f1826f17b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\cookie_authentication">
+      <UniqueIdentifier>{ecfc5704-e0c9-4119-bfe3-88a920ecc5de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\csharp">
+      <UniqueIdentifier>{1a02de65-7f2d-4f82-bf0c-7eb9c43ef080}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\digest_authentication">
+      <UniqueIdentifier>{ed79ca64-c309-44e1-9e25-363844e163cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\file_upload">
+      <UniqueIdentifier>{61128119-c3cf-43fc-98de-e5d7f3c4b13f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\form_submit">
+      <UniqueIdentifier>{b2763e8f-3f13-46d4-bc72-4860729f95f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\http_client">
+      <UniqueIdentifier>{5f1a4a94-a9c2-4f6b-bf63-6035fd00b587}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\mjpg_streamer">
+      <UniqueIdentifier>{db687fdf-db2b-4efc-9ccc-39cbac630060}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\multi_threaded_server">
+      <UniqueIdentifier>{c4e4de71-35d9-4fe8-8a8a-2f354a1d68e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\hello_world">
+      <UniqueIdentifier>{e3cdd5cf-96c9-470d-84bf-429848f12f52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\proxy_server">
+      <UniqueIdentifier>{d99eb97d-42b8-4e6b-b822-bab99c70c058}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\proxy_server\proxy_web_root">
+      <UniqueIdentifier>{2a9cc74c-ce76-4acd-b70b-4f53f8b27dcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\proxy_server\proxy_web_root\app1">
+      <UniqueIdentifier>{b053e519-7340-487f-bc6b-993b26f2895f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\proxy_server\proxy_web_root\app2">
+      <UniqueIdentifier>{d97b778e-0ef6-4e4f-ae75-4f8e30e23f07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\restful_api">
+      <UniqueIdentifier>{ee0e0830-1a07-4a86-8e34-3389cc79193f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\send_file">
+      <UniqueIdentifier>{c55b6ea6-d52e-45fe-a2c1-defe6169b171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\web_server">
+      <UniqueIdentifier>{709e9ea2-e3df-40b1-8aaf-ad66ac5bda4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\websocket_chat">
+      <UniqueIdentifier>{11cda1e8-ac20-41ca-8137-3f778dcab28e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\websocket_echo_server">
+      <UniqueIdentifier>{4e547f9c-0afe-4d9c-9446-bbcdf2532810}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\websocket_ssl_proxy">
+      <UniqueIdentifier>{3bff7e6a-249f-4d8f-9c13-67922227cae5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net\mongoose\sample\websocket_ssl_proxy\certs">
+      <UniqueIdentifier>{07c0b086-0352-4bd4-9237-c5cfd627975e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -771,6 +837,12 @@
     <ClInclude Include="test_mongoose.h">
       <Filter>src\net\mongoose</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\net_skeleton.h">
+      <Filter>src\net\mongoose\sample\websocket_ssl_proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\ssl_wrapper.h">
+      <Filter>src\net\mongoose\sample\websocket_ssl_proxy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -1244,6 +1316,57 @@
     <ClCompile Include="test_mongoose.cpp">
       <Filter>src\net\mongoose</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\big_upload\big_upload.c">
+      <Filter>src\net\mongoose\sample\big_upload</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\cookie_authentication\cookie_auth.c">
+      <Filter>src\net\mongoose\sample\cookie_authentication</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\digest_authentication\digest_auth.c">
+      <Filter>src\net\mongoose\sample\digest_authentication</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\file_upload\file_upload.c">
+      <Filter>src\net\mongoose\sample\file_upload</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\form_submit\form_submit.c">
+      <Filter>src\net\mongoose\sample\form_submit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\hello_world\hello_world.c">
+      <Filter>src\net\mongoose\sample\hello_world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\http_client\http_client.c">
+      <Filter>src\net\mongoose\sample\http_client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\mjpg_streamer\mjpg_streamer.c">
+      <Filter>src\net\mongoose\sample\mjpg_streamer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\multi_threaded_server\multi_threaded_server.c">
+      <Filter>src\net\mongoose\sample\multi_threaded_server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\proxy_server\proxy_server.c">
+      <Filter>src\net\mongoose\sample\proxy_server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\restful_api\restful_api.c">
+      <Filter>src\net\mongoose\sample\restful_api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\send_file\send_file.c">
+      <Filter>src\net\mongoose\sample\send_file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\web_server\web_server.c">
+      <Filter>src\net\mongoose\sample\web_server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\websocket_chat\websocket_chat.c">
+      <Filter>src\net\mongoose\sample\websocket_chat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\websocket_echo_server\websocket_echo_server.c">
+      <Filter>src\net\mongoose\sample\websocket_echo_server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\ssl_wrapper.c">
+      <Filter>src\net\mongoose\sample\websocket_ssl_proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\ws_ssl.c">
+      <Filter>src\net\mongoose\sample\websocket_ssl_proxy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="test_proto.proto">
@@ -1284,6 +1407,60 @@
     </None>
     <None Include="..\..\3rdparty\cppsqlite\sqlite3.exp">
       <Filter>src\data\sqlite\cppsqlite</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\cookie_authentication\index.html">
+      <Filter>src\net\mongoose\sample\cookie_authentication</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\cookie_authentication\login.html">
+      <Filter>src\net\mongoose\sample\cookie_authentication</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\csharp\example.cs">
+      <Filter>src\net\mongoose\sample\csharp</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\csharp\mongoose.cs">
+      <Filter>src\net\mongoose\sample\csharp</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\proxy_server\ssl_cert.pem">
+      <Filter>src\net\mongoose\sample\proxy_server</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\proxy_server\proxy_web_root\index.html">
+      <Filter>src\net\mongoose\sample\proxy_server\proxy_web_root</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\proxy_server\proxy_web_root\app1\index.html">
+      <Filter>src\net\mongoose\sample\proxy_server\proxy_web_root\app1</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\proxy_server\proxy_web_root\app2\index.html">
+      <Filter>src\net\mongoose\sample\proxy_server\proxy_web_root\app2</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\restful_api\index.html">
+      <Filter>src\net\mongoose\sample\restful_api</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_chat\index.html">
+      <Filter>src\net\mongoose\sample\websocket_chat</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_echo_server\index.html">
+      <Filter>src\net\mongoose\sample\websocket_echo_server</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\ws_ssl.html">
+      <Filter>src\net\mongoose\sample\websocket_ssl_proxy</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\certs\ws1_ca.pem">
+      <Filter>src\net\mongoose\sample\websocket_ssl_proxy\certs</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\certs\ws1_client.pem">
+      <Filter>src\net\mongoose\sample\websocket_ssl_proxy\certs</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\certs\ws1_server.pem">
+      <Filter>src\net\mongoose\sample\websocket_ssl_proxy\certs</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\certs\ws2_ca.pem">
+      <Filter>src\net\mongoose\sample\websocket_ssl_proxy\certs</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\certs\ws2_client.pem">
+      <Filter>src\net\mongoose\sample\websocket_ssl_proxy\certs</Filter>
+    </None>
+    <None Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\certs\ws2_server.pem">
+      <Filter>src\net\mongoose\sample\websocket_ssl_proxy\certs</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
