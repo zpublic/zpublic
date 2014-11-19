@@ -62,6 +62,7 @@
 #include "task_scheduler.hpp"
 #include "split_str.hpp"
 #include "software_check.hpp"
+#include "str_conv.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
