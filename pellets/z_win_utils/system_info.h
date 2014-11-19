@@ -1,4 +1,4 @@
-/*************************************************************************
+ï»¿/*************************************************************************
  *                                                                       *
  *  I|*j^3Cl|a   "+!*%                  qt          Nd   gW              *
  *  l]{y+l?MM*  !#Wla\NNP               NW          MM   I|              *
@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @brief ÏµÍ³ĞÅÏ¢Ïà¹Ø»ñÈ¡
+ * @brief ç³»ç»Ÿä¿¡æ¯ç›¸å…³è·å–
  */
 
 #pragma once
@@ -79,14 +79,14 @@ namespace WinUtils
     }ZLSystemInfoComputeType;
 
     /**
-    * @brief »ñÈ¡ÏµÍ³ĞÅÏ¢Ïà¹Ø
+    * @brief è·å–ç³»ç»Ÿä¿¡æ¯ç›¸å…³
     */
     class ZLSystemInfo
     {
     public:
         /**
-        * @brief ´´½¨GUID
-        * @return ³É¹¦´´½¨µÄGUID Ê§°Ü·µ»Ø¿Õ×Ö·û ²»»á»º´æ Çë×ÔĞĞ´¦Àí
+        * @brief åˆ›å»ºGUID
+        * @return æˆåŠŸåˆ›å»ºçš„GUID å¤±è´¥è¿”å›ç©ºå­—ç¬¦ ä¸ä¼šç¼“å­˜ è¯·è‡ªè¡Œå¤„ç†
         */
         static CString CreateGUID()
         {
@@ -94,13 +94,20 @@ namespace WinUtils
             GUID guid = {0};
             if (::CoCreateGuid(&guid) == S_OK)
             {
-                r.Format("%08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X",                    guid.Data1,                    guid.Data2,                    guid.Data3,                    guid.Data4[0], guid.Data4[1],                    guid.Data4[2], guid.Data4[3],                    guid.Data4[4], guid.Data4[5],                    guid.Data4[6], guid.Data4[7]);
+                r.Format("%08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X",
+                    guid.Data1,
+                    guid.Data2,
+                    guid.Data3,
+                    guid.Data4[0], guid.Data4[1],
+                    guid.Data4[2], guid.Data4[3],
+                    guid.Data4[4], guid.Data4[5],
+                    guid.Data4[6], guid.Data4[7]);
             }
             return ZLA2W(r);
         }
         /**
-        * @brief »ñÈ¡Ö÷»úÃû *×¢ÒâÊ¹ÓÃ´Ëº¯ÊıµÄÊ±ºòÇë³õÊ¼»¯socket
-        * @return ³É¹¦·µ»ØÖ÷»úÃû£¬Ê§°Ü·µ»Ø¿Õ×Ö·û´®
+        * @brief è·å–ä¸»æœºå *æ³¨æ„ä½¿ç”¨æ­¤å‡½æ•°çš„æ—¶å€™è¯·åˆå§‹åŒ–socket
+        * @return æˆåŠŸè¿”å›ä¸»æœºåï¼Œå¤±è´¥è¿”å›ç©ºå­—ç¬¦ä¸²
         */
         static CStringA GetHostName()
         {
@@ -109,8 +116,8 @@ namespace WinUtils
             return szHostName;
         }
         /**
-        * @brief »ñÈ¡µçÄÔÃû³Æ
-        * @return ³É¹¦·µ»ØµçÄÔÃû³Æ£¬Ê§°Ü·µ»Ø¿Õ×Ö·û´®
+        * @brief è·å–ç”µè„‘åç§°
+        * @return æˆåŠŸè¿”å›ç”µè„‘åç§°ï¼Œå¤±è´¥è¿”å›ç©ºå­—ç¬¦ä¸²
         */
         static CString GetComputeName()
         {
@@ -120,8 +127,8 @@ namespace WinUtils
             return szComputerName;
         }
         /**
-        * @brief »ñÈ¡ÓÃ»§Ãû *×¢Òâ µ±Ò»¸öÓÃ»§±»´´½¨µÄÊ±ºò¾ÍÓĞÒ»¸öÓÃ»§Ãû µ«ÊÇĞŞ¸ÄÓÃ»§ÃûÖ®ºóÊÇÎŞ·¨ÓÃGetUserName»ñÈ¡µ½µÄ ĞèÒªµ÷ÓÃ´Ëº¯Êı»ñÈ¡
-        * @return ³É¹¦·µ»ØÓÃ»§Ãû³Æ£¬Ê§°ÜÖ®ºó»áµ÷ÓÃGetUserName Èç¹û¼ÌĞøÊ§°ÜÔò·µ»Ø¿Õ×Ö·û´®
+        * @brief è·å–ç”¨æˆ·å *æ³¨æ„ å½“ä¸€ä¸ªç”¨æˆ·è¢«åˆ›å»ºçš„æ—¶å€™å°±æœ‰ä¸€ä¸ªç”¨æˆ·å ä½†æ˜¯ä¿®æ”¹ç”¨æˆ·åä¹‹åæ˜¯æ— æ³•ç”¨GetUserNameè·å–åˆ°çš„ éœ€è¦è°ƒç”¨æ­¤å‡½æ•°è·å–
+        * @return æˆåŠŸè¿”å›ç”¨æˆ·åç§°ï¼Œå¤±è´¥ä¹‹åä¼šè°ƒç”¨GetUserName å¦‚æœç»§ç»­å¤±è´¥åˆ™è¿”å›ç©ºå­—ç¬¦ä¸²
         */
         static CString GetComputeFullUserName()
         {
@@ -162,8 +169,8 @@ namespace WinUtils
         }
 
         /**
-        * @brief »ñÈ¡ÓÃ»§Ãû
-        * @return ³É¹¦·µ»ØÓÃ»§Ãû³Æ£¬Ê§°ÜÖ®ºó·µ»Ø¿Õ×Ö·û´®
+        * @brief è·å–ç”¨æˆ·å
+        * @return æˆåŠŸè¿”å›ç”¨æˆ·åç§°ï¼Œå¤±è´¥ä¹‹åè¿”å›ç©ºå­—ç¬¦ä¸²
         */
         static CString GetUserName()
         {
@@ -181,8 +188,8 @@ namespace WinUtils
         }
 
         /**
-        * @brief »ñÈ¡µçÄÔÀàĞÍ
-        * @return ·µ»ØZLSystemInfoComputeTypeÃ¶¾Ù
+        * @brief è·å–ç”µè„‘ç±»å‹
+        * @return è¿”å›ZLSystemInfoComputeTypeæšä¸¾
         */
         static ZLSystemInfoComputeType GetComputeType()
         {
@@ -196,8 +203,8 @@ namespace WinUtils
         }
 
         /**
-        * @brief ÊÇ·ñÊÇ±Ê¼Ç±¾µçÄÔ
-        * @return Èç¹ûÊÇ·µ»ØTRUE£¬ ²»ÊÇÔò·µ»ØFALSE
+        * @brief æ˜¯å¦æ˜¯ç¬”è®°æœ¬ç”µè„‘
+        * @return å¦‚æœæ˜¯è¿”å›TRUEï¼Œ ä¸æ˜¯åˆ™è¿”å›FALSE
         */
         static BOOL IsNoteBookCompute()
         {
