@@ -349,40 +349,21 @@ namespace WinUtils
         static int _GetComputeTypeForSafeArray(VARIANT& vt)
         {
             int nReturnValue = 0;
-            BYTE* pData = NULL;
-            do 
+            SAFEARRAY *pSafeArray = vt.parray;
+            if (pSafeArray)
             {
-                SAFEARRAY *pSafeArray = vt.parray;
-                if (pSafeArray == NULL)
+                ULONG ulLen = pSafeArray->cbElements;
+                BYTE* pData = new BYTE[ulLen];
+                if (pData && ulLen > 0)
                 {
-                    break;
+                    ::memset(pData, 0, ulLen);
+                    for(long lIndex = 0; lIndex < ulLen; ++lIndex)
+                    {
+                        ::SafeArrayGetElement(pSafeArray, &lIndex, pData + lIndex);
+                    }
+                    nReturnValue = (int)*pData;
+                    delete[] pData;
                 }
-
-                int nLen = pSafeArray->cbElements;
-                if (nLen == 0)
-                {
-                    break;
-                }
-
-                pData = new BYTE[nLen];
-                if (pData == NULL)
-                {
-                    break;
-                }
-
-                ::memset(pData, 0, nLen);
-
-                for(long lIndex = 0; lIndex < nLen; ++lIndex)
-                {
-                    ::SafeArrayGetElement(pSafeArray, &lIndex, pData + lIndex);
-                }
-                nReturnValue = (int)*pData;
-            } while (FALSE);
-
-            if (pData)
-            {
-                delete[] pData;
-                pData = NULL;
             }
             return nReturnValue;
         }
