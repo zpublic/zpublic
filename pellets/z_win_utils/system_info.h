@@ -109,7 +109,7 @@ namespace WinUtils
         * @brief 获取主机名 *注意使用此函数的时候请初始化socket
         * @return 成功返回主机名，失败返回空字符串
         */
-        static CStringA GetHostName()
+        static CStringA GetHostname()
         {
             char szHostName[MAX_PATH + 1] = {0};
             ::gethostname(szHostName, sizeof(szHostName));
@@ -119,7 +119,7 @@ namespace WinUtils
         * @brief 获取电脑名称
         * @return 成功返回电脑名称，失败返回空字符串
         */
-        static CString GetComputeName()
+        static CString GetComputername()
         {
             TCHAR szComputerName[MAX_PATH + 1] = {0};
             DWORD dwComputerNameLen = MAX_PATH;
@@ -130,7 +130,7 @@ namespace WinUtils
         * @brief 获取用户名 *注意 当一个用户被创建的时候就有一个用户名 但是修改用户名之后是无法用GetUserName获取到的 需要调用此函数获取
         * @return 成功返回用户名称，失败之后会调用GetUserName 如果继续失败则返回空字符串
         */
-        static CString GetComputeFullUserName()
+        static CString GetComputerFullUsername()
         {
             DWORD dwSize = 0;
             CString cstrFullName;
@@ -191,13 +191,13 @@ namespace WinUtils
         * @brief 获取电脑类型
         * @return 返回ZLSystemInfoComputeType枚举
         */
-        static ZLSystemInfoComputeType GetComputeType()
+        static ZLSystemInfoComputeType GetComputerType()
         {
             VARIANT vtProp;
             int nReturnValue = 0;
             if (_WMIQuery("Win32_SystemEnclosure", L"ChassisTypes", vtProp))
             {
-                nReturnValue = _GetComputeTypeForSafeArray(vtProp);
+                nReturnValue = _GetComputerTypeForSafeArray(vtProp);
             }
             return (ZLSystemInfoComputeType)nReturnValue;
         }
@@ -206,9 +206,9 @@ namespace WinUtils
         * @brief 是否是笔记本电脑
         * @return 如果是返回TRUE， 不是则返回FALSE
         */
-        static BOOL IsNoteBookCompute()
+        static BOOL IsNoteBookComputer()
         {
-            ZLSystemInfoComputeType computerType = GetComputeType();
+            ZLSystemInfoComputeType computerType = GetComputerType();
             switch (computerType)
             {
             case emComputeType_Laptop:
@@ -346,18 +346,17 @@ namespace WinUtils
             return bReturn;
         }
 
-        static int _GetComputeTypeForSafeArray(VARIANT& vt)
+        static int _GetComputerTypeForSafeArray(VARIANT& vt)
         {
             int nReturnValue = 0;
             SAFEARRAY *pSafeArray = vt.parray;
-            if (pSafeArray)
+            if (pSafeArray && pSafeArray->cbElements > 0)
             {
-                ULONG ulLen = pSafeArray->cbElements;
-                BYTE* pData = new BYTE[ulLen];
-                if (pData && ulLen > 0)
+                BYTE* pData = new BYTE[pSafeArray->cbElements];
+                if (pData)
                 {
-                    ::memset(pData, 0, ulLen);
-                    for(long lIndex = 0; lIndex < (long)ulLen; ++lIndex)
+                    ::memset(pData, 0, pSafeArray->cbElements);
+                    for(long lIndex = 0; lIndex < (long)pSafeArray->cbElements; ++lIndex)
                     {
                         ::SafeArrayGetElement(pSafeArray, &lIndex, pData + lIndex);
                     }
