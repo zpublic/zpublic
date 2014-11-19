@@ -40,8 +40,8 @@ public:
      * @param[in] nBufLen    字符串长度,如果字符串以0结尾,则此参数可填-1
      * @return 返回转换后的字符串,为空字符串时转换失败.
      */
-    static CStringW ZLA2W(LPCSTR  lpBuf, UINT uCodePage = CP_ACP, int nBufLen = -1);
-    static CStringA ZLW2A(LPCWSTR lpBuf, UINT uCodePage = CP_ACP, int nBufLen = -1);
+    static CStringW a2w(LPCSTR  lpBuf, UINT uCodePage = CP_ACP, int nBufLen = -1);
+    static CStringA w2a(LPCWSTR lpBuf, UINT uCodePage = CP_ACP, int nBufLen = -1);
     
     /**
      * @brief 长度很大的字符串转换,如文件内容
@@ -53,14 +53,17 @@ public:
      * @return 成功返回实际转换长度,小于等于0时失败.
      * @see MultiByteToWideChar,WideCharToMultiByte
      */
-    static int ZLA2W(LPCSTR  lpSrcA, int nSrcLen, LPWSTR lpDstW, int nDstLen, UINT uCodePage = CP_ACP);
-    static int ZLW2A(LPCWSTR lpSrcW, int nSrcLen, LPSTR  lpDstA, int nDstLen, UINT uCodePage = CP_ACP);
+    static int a2w(LPCSTR  lpSrcA, int nSrcLen, LPWSTR lpDstW, int nDstLen, UINT uCodePage = CP_ACP);
+    static int w2a(LPCWSTR lpSrcW, int nSrcLen, LPSTR  lpDstA, int nDstLen, UINT uCodePage = CP_ACP);
 };
+
+#define ZLA2W zl::WinUtils::ZLStrConv::a2w
+#define ZLW2A zl::WinUtils::ZLStrConv::w2a
 
 
 // 下面是实现部分
 
-inline CStringW ZLStrConv::ZLA2W( LPCSTR lpBuf, UINT uCodePage, int nBufLen )
+inline CStringW ZLStrConv::a2w(LPCSTR lpBuf, UINT uCodePage, int nBufLen)
 {
     CStringW sRetW;
     int nDstLen = ::MultiByteToWideChar( uCodePage, 0, lpBuf, nBufLen, NULL, 0 );
@@ -77,7 +80,7 @@ inline CStringW ZLStrConv::ZLA2W( LPCSTR lpBuf, UINT uCodePage, int nBufLen )
     return sRetW;
 }
 
-inline CStringA ZLStrConv::ZLW2A( LPCWSTR lpBuf, UINT uCodePage, int nBufLen )
+inline CStringA ZLStrConv::w2a( LPCWSTR lpBuf, UINT uCodePage, int nBufLen )
 {
     CStringA sRetA;
     int nDstLen = ::WideCharToMultiByte( uCodePage, 0, lpBuf, nBufLen, NULL, 0, NULL, NULL );
@@ -94,12 +97,12 @@ inline CStringA ZLStrConv::ZLW2A( LPCWSTR lpBuf, UINT uCodePage, int nBufLen )
     return sRetA;
 }
 
-inline int ZLStrConv::ZLA2W( LPCSTR lpSrcA, int nSrcLen, LPWSTR lpDstW, int nDstLen, UINT uCodePage )
+inline int ZLStrConv::a2w( LPCSTR lpSrcA, int nSrcLen, LPWSTR lpDstW, int nDstLen, UINT uCodePage )
 {
     return ::MultiByteToWideChar(uCodePage, 0, lpSrcA, nSrcLen, lpDstW, nDstLen);
 }
 
-inline int ZLStrConv::ZLW2A( LPCWSTR lpSrcW, int nSrcLen, LPSTR lpDstA, int nDstLen, UINT uCodePage )
+inline int ZLStrConv::w2a( LPCWSTR lpSrcW, int nSrcLen, LPSTR lpDstA, int nDstLen, UINT uCodePage )
 {
     return ::WideCharToMultiByte(uCodePage, 0, lpSrcW, nSrcLen, lpDstA, nDstLen, NULL, NULL);
 }

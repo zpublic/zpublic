@@ -897,8 +897,6 @@ public:
 
     void test_str_conv()
     {
-#define ZLA2W zl::WinUtils::ZLStrConv::ZLA2W
-#define ZLW2A zl::WinUtils::ZLStrConv::ZLW2A
         // A2W
         LPCSTR a = "¹þ¹þ,ÎÒÊÇa";
         TEST_ASSERT(ZLA2W(a)          == CA2W(a));
