@@ -145,7 +145,7 @@ namespace WinUtils
                 ::GetUserNameEx(NameSamCompatible, cstrUserName.GetBuffer(dwSize), &dwSize);
                 cstrUserName.ReleaseBuffer();
 
-                ZLSplitStr::Split((LPCWSTR)cstrUserName, L"\\", vecUserName);
+                ZLSplitStr::Split((LPCWSTR)cstrUserName, L'\\', vecUserName);
                 if (vecUserName.size() == ZLCOMPUTEINFO_USERNAME_MAX_COUNT)
                 {
                     LPUSER_INFO_2 pBufInfo2 = NULL;
