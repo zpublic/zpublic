@@ -90,11 +90,11 @@ namespace WinUtils
         */
         static CString CreateGUID()
         {
-            CStringA r;
+            CString r;
             GUID guid = {0};
             if (::CoCreateGuid(&guid) == S_OK)
             {
-                r.Format("%08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X",
+                r.Format(L"%08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X",
                     guid.Data1,
                     guid.Data2,
                     guid.Data3,
@@ -103,7 +103,7 @@ namespace WinUtils
                     guid.Data4[4], guid.Data4[5],
                     guid.Data4[6], guid.Data4[7]);
             }
-            return ZLA2W(r);
+            return r;
         }
         /**
         * @brief 获取主机名 *注意使用此函数的时候请初始化socket
@@ -145,7 +145,7 @@ namespace WinUtils
                 ::GetUserNameEx(NameSamCompatible, cstrUserName.GetBuffer(dwSize), &dwSize);
                 cstrUserName.ReleaseBuffer();
 
-                ZLSplitStr::Split((LPCTSTR)cstrUserName, _T("\\"), vecUserName);
+                ZLSplitStr::Split((LPCWSTR)cstrUserName, L"\\", vecUserName);
                 if (vecUserName.size() == ZLCOMPUTEINFO_USERNAME_MAX_COUNT)
                 {
                     LPUSER_INFO_2 pBufInfo2 = NULL;
@@ -163,7 +163,7 @@ namespace WinUtils
 
             if (cstrFullName.IsEmpty())
             {
-                cstrFullName = ZLSystemInfo::GetUserName();
+                cstrFullName = ZLSystemInfo::GetUsername();
             }
             return cstrFullName;
         }
@@ -172,7 +172,7 @@ namespace WinUtils
         * @brief 获取用户名
         * @return 成功返回用户名称，失败之后返回空字符串
         */
-        static CString GetUserName()
+        static CString GetUsername()
         {
             DWORD dwSize = 0;
             CString cstrUserName;
