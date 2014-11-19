@@ -63,6 +63,7 @@
 #include "split_str.hpp"
 #include "software_check.hpp"
 #include "str_conv.hpp"
+#include "system_info.h"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"

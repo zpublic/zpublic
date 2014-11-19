@@ -418,6 +418,15 @@ public:
         TEST_ASSERT(ZLMemory::GetMemorySize() != 0);
         TEST_ASSERT(ZLMemory::GetUsedMem() != 0);
         TEST_ASSERT(ZLDrive::GetDriveSize() != 0);
+        TEST_ASSERT(ZLSystemInfo::CreateGUID() != L"");
+        TEST_ASSERT(ZLSystemInfo::GetComputeName() != L"");
+        TEST_ASSERT(ZLSystemInfo::GetComputeType() != emComputeType_Null);
+        TEST_ASSERT(ZLSystemInfo::GetComputeFullUserName() != L"");
+
+        WSADATA wsData;
+        ::WSAStartup(MAKEWORD(2,2), &wsData);
+        TEST_ASSERT(ZLSystemInfo::GetHostName() != L"");
+        ::WSACleanup();
     }
 
     void test_process()
