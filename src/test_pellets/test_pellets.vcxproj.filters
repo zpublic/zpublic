@@ -727,6 +727,9 @@
     <ClInclude Include="..\..\pellets\z_win_utils\software_check.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\str_conv.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\system_info.h">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>

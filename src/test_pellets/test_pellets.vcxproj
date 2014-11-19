@@ -284,6 +284,8 @@
     <ClInclude Include="..\..\pellets\z_win_utils\sign_verify.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\software_check.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\split_str.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\str_conv.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\system_info.h" />
     <ClInclude Include="..\..\pellets\z_win_utils\system_path.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\system_version.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\taskbar_position.hpp" />
