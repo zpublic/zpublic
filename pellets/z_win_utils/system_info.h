@@ -357,7 +357,7 @@ namespace WinUtils
                 if (pData && ulLen > 0)
                 {
                     ::memset(pData, 0, ulLen);
-                    for(long lIndex = 0; lIndex < ulLen; ++lIndex)
+                    for(long lIndex = 0; lIndex < (long)ulLen; ++lIndex)
                     {
                         ::SafeArrayGetElement(pSafeArray, &lIndex, pData + lIndex);
                     }
