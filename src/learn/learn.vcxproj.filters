@@ -220,6 +220,9 @@
     <Filter Include="src\net\mongoose\sample\websocket_ssl_proxy\certs">
       <UniqueIdentifier>{07c0b086-0352-4bd4-9237-c5cfd627975e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\net\mongoose\unittest">
+      <UniqueIdentifier>{e76dab9f-9dad-44df-89bf-06904d885728}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -1366,6 +1369,9 @@
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\ws_ssl.c">
       <Filter>src\net\mongoose\sample\websocket_ssl_proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\test\unit_test.c">
+      <Filter>src\net\mongoose\unittest</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
