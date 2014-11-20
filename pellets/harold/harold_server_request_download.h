@@ -1,5 +1,7 @@
 #pragma once
 #include "i_harold_server_request_observer.h"
+#include <string>
+#include <map>
 
 class HaroldServerRequestDownload : public IHaroldServerRequestObserver
 {

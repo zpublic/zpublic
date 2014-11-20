@@ -225,13 +225,13 @@ int HaroldServerImpl::_HandlerAuth(struct mg_connection* conn)
 
 void HaroldServerImpl::_WorkRoutine()
 {
-    struct mg_server *server = mg_create_server(this, &HaroldServerImpl::sHandler);
-    mg_set_option(server, "document_root", ".");
-    mg_set_option(server, "listening_port", "52360");
-    mg_set_option(server, "enable_directory_listing", "no");
+    m_server = mg_create_server(this, &HaroldServerImpl::sHandler);
+    mg_set_option(m_server, "document_root", ".");
+    mg_set_option(m_server, "listening_port", "52360");
+    mg_set_option(m_server, "enable_directory_listing", "no");
     while (!m_bExit)
     {
-        mg_poll_server(server, 1000);
+        mg_poll_server(m_server, 1000);
     }
-    mg_destroy_server(&server);
+    mg_destroy_server(&m_server);
 }
