@@ -20,7 +20,7 @@ bool HaroldServerImpl::InsertObserver(IHaroldServerObserver* pObserver, unsigned
             bRet = false;
         }
     }
-    if (type & harold_observer_type_status)
+    if (type & harold_observer_type_request)
     {
         pRequest = dynamic_cast<IHaroldServerRequestObserver*>(pObserver);
         if (!pRequest)
@@ -28,7 +28,7 @@ bool HaroldServerImpl::InsertObserver(IHaroldServerObserver* pObserver, unsigned
             bRet = false;
         }
     }
-    if (type & harold_observer_type_request)
+    if (type & harold_observer_type_status)
     {
         pStatus = dynamic_cast<IHaroldServerStatusObserver*>(pObserver);
         if (!pStatus)
@@ -75,7 +75,7 @@ bool HaroldServerImpl::RomoveObserver(IHaroldServerObserver* pObserver, unsigned
             bRet = false;
         }
     }
-    if (type & harold_observer_type_status)
+    if (type & harold_observer_type_request)
     {
         pRequest = dynamic_cast<IHaroldServerRequestObserver*>(pObserver);
         if (!pRequest)
@@ -83,7 +83,7 @@ bool HaroldServerImpl::RomoveObserver(IHaroldServerObserver* pObserver, unsigned
             bRet = false;
         }
     }
-    if (type & harold_observer_type_request)
+    if (type & harold_observer_type_status)
     {
         pStatus = dynamic_cast<IHaroldServerStatusObserver*>(pObserver);
         if (!pStatus)
@@ -166,12 +166,10 @@ int HaroldServerImpl::_Handler(struct mg_connection* conn, mg_event ev)
     if (ev == mg_event::MG_AUTH)
     {
         return _HandlerAuth(conn);
-
     }
     else if (ev == mg_event::MG_REQUEST)
     {
         return _HandlerRequest(conn);
-
     }
     else
     {
