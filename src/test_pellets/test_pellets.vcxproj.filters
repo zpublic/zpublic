@@ -89,6 +89,18 @@
     <Filter Include="pellets\z_net\socket">
       <UniqueIdentifier>{c6fc2fbc-71bc-46a9-8ae6-94bcb13960e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\harold">
+      <UniqueIdentifier>{1fa1b100-c116-48ce-a8ef-7752928f2cc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\mongoose">
+      <UniqueIdentifier>{bf85a1a7-e469-49f9-ac06-5c6fc2b1750d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\harold\interface">
+      <UniqueIdentifier>{25fdf8e3-b4ef-4de0-822f-cc9ffa6b45da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\harold\observer_impl">
+      <UniqueIdentifier>{ea2b512b-5997-46f0-a7f3-87a66c77dfc1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -733,6 +745,69 @@
     <ClInclude Include="..\..\pellets\z_win_utils\system_info.h">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\mongoose\mongoose.h">
+      <Filter>3rdparty\mongoose</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold.h">
+      <Filter>pellets\harold</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_header.h">
+      <Filter>pellets\harold</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\i_harold_server.h">
+      <Filter>pellets\harold\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_impl.h">
+      <Filter>pellets\harold</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\i_harold_server_auth_observer.h">
+      <Filter>pellets\harold\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\i_harold_server_request_observer.h">
+      <Filter>pellets\harold\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\i_harold_server_status_observer.h">
+      <Filter>pellets\harold\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_auth_log.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_request_directory_listing.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_request_download.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_request_log.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_status_log.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_request_upload.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_request_api.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\i_harold_server_observer.h">
+      <Filter>pellets\harold\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_def.h">
+      <Filter>pellets\harold</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_dynamic_impl.h">
+      <Filter>pellets\harold</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_request_dynamic_api.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_request_dynamic_download.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHarold.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">
@@ -977,6 +1052,45 @@
     </ClCompile>
     <ClCompile Include="..\..\pellets\z_net\z_net_socket_address_ipv4.cpp">
       <Filter>pellets\z_net\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\mongoose.c">
+      <Filter>3rdparty\mongoose</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_impl.cpp">
+      <Filter>pellets\harold</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_auth_log.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_request_directory_listing.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_request_download.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_request_log.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_status_log.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_request_upload.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_request_api.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_dynamic_impl.cpp">
+      <Filter>pellets\harold</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_request_dynamic_api.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_request_dynamic_download.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="TestHarold.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
