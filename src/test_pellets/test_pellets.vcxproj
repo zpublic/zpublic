@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120_xp</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -248,7 +248,6 @@
     <ClInclude Include="..\..\pellets\z_win_utils\acl.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\clipboard.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\cmdline.hpp" />
-    <ClInclude Include="..\..\pellets\z_win_utils\com_init.h" />
     <ClInclude Include="..\..\pellets\z_win_utils\console_color.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\cpu.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\crc32.hpp" />
