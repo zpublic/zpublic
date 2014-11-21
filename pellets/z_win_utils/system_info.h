@@ -22,6 +22,7 @@
 #include "win_utils_header.h"
 #include "split_str.hpp"
 #include "str_conv.hpp"
+#include "com_init.h"
 
 #define SECURITY_WIN32
 #include <Security.h>
@@ -222,22 +223,16 @@ namespace WinUtils
     private:
         static BOOL _WMIQuery(const CStringA& cstrClass, const CString& cstrValueName, VARIANT& vt)
         {
+            ZLComInit comInit;
             IWbemServices *pSvc = NULL;
             IWbemLocator *pLoc = NULL;
             IEnumWbemClassObject* pEnumerator = NULL;
             IWbemClassObject *pclsObj = NULL;
             int nReturnValue = 0;
             BOOL bReturn = FALSE;
-
-            HRESULT hres = ::CoInitialize(NULL);
-            if (FAILED(hres))
-            {
-                return bReturn;
-            }
-
             do
             {
-                hres = ::CoInitializeSecurity(
+                HRESULT hres = ::CoInitializeSecurity(
                     NULL,
                     -1,
                     NULL,
@@ -342,7 +337,6 @@ namespace WinUtils
             {
                 pEnumerator->Release();
             }
-            ::CoUninitialize();
             return bReturn;
         }
 
