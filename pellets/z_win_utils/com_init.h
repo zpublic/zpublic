@@ -56,12 +56,11 @@ namespace WinUtils
             }
             void UnInit()
             {
-                if (!m_bInit)
+                if (m_bInit)
                 {
-                    return ;
+                    ::CoUninitialize();
+                    m_bInit = false;
                 }
-                ::CoUninitialize();
-                m_bInit = false;
             }
         protected:
             bool m_bInit;

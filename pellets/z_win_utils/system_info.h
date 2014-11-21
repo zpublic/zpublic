@@ -223,11 +223,11 @@ namespace WinUtils
     private:
         static BOOL _WMIQuery(const CStringA& cstrClass, const CString& cstrValueName, VARIANT& vt)
         {
+            ZLComInit comInit;
             IWbemServices *pSvc = NULL;
             IWbemLocator *pLoc = NULL;
             IEnumWbemClassObject* pEnumerator = NULL;
             IWbemClassObject *pclsObj = NULL;
-            ZLComInit comInit;
             int nReturnValue = 0;
             BOOL bReturn = FALSE;
             do
