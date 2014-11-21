@@ -66,6 +66,7 @@ namespace WinUtils
         protected:
             bool m_bInit;
         };
+
     public:
         ZLComInit()
         {
@@ -76,6 +77,7 @@ namespace WinUtils
         {
             m_ComInit.UnInit();
         }
+
     protected:
         ZLComInit::Inst m_ComInit;
     };
