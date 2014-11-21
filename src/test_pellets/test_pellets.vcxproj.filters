@@ -733,6 +733,9 @@
     <ClInclude Include="..\..\pellets\z_win_utils\system_info.h">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\com_init.h">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">

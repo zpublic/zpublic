@@ -64,6 +64,7 @@
 #include "software_check.hpp"
 #include "str_conv.hpp"
 #include "system_info.h"
+#include "com_init.h"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
