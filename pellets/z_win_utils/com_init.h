@@ -31,6 +31,7 @@ namespace WinUtils
     */
     class ZLComInit
     {
+    public:
         class Inst
         {
         public:

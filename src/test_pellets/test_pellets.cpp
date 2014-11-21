@@ -14,6 +14,7 @@
 #include "TestLuaBind.h"
 #include "z_win_utils\TestWinUtils.h"
 #include "z_http\TestHttp.h"
+#include "TestHarold.h"
 
 void AddTest(Suite& ts)
 {
@@ -26,8 +27,9 @@ void AddTest(Suite& ts)
 //     ts.add(std::auto_ptr<Suite>(new CTestEvent));
 //     ts.add(std::auto_ptr<Suite>(new CTestTimer));
 //     ts.add(std::auto_ptr<Suite>(new CTestLuaBind));
-    ts.add(std::auto_ptr<Suite>(new CTestWinUtils));
-    ts.add(std::auto_ptr<Suite>(new CTestHttp));
+//    ts.add(std::auto_ptr<Suite>(new CTestWinUtils));
+//    ts.add(std::auto_ptr<Suite>(new CTestHttp));
+    ts.add(std::auto_ptr<Suite>(new CTestHarold));
 }
 
 void UniTest()

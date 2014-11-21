@@ -21,6 +21,7 @@ void test_mongoose()
     struct mg_server *server = mg_create_server(NULL, event_handler);
     mg_set_option(server, "document_root", ".");
     mg_set_option(server, "listening_port", "52360");
+    mg_set_option(server, "enable_directory_listing", "no");
 
     cout << "Ctrl-C to stop server\n";
     for (;;) {
