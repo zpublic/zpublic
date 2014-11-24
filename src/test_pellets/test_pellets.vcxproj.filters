@@ -840,6 +840,7 @@
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_platform\z_platform_win_mutex.hpp">
       <Filter>pellets\z_platform\win</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\wmi_query.h">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
