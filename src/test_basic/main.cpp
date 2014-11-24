@@ -318,6 +318,11 @@ void test_encode()
     std::wstring sHello1(L"helloÄãºÃ");
     std::string sHello2 = zl::WideToUTF8(sHello1);
     std::wstring sHello3 = zl::UTF8ToWide(sHello2);
+    assert(sHello1 == sHello3);
+
+    std::string s1 = "helloÄãºÃ";
+    std::string s2 = zl::GbkToUtf8(s1);
+    assert(s1 == zl::Utf8ToGbk(s2));
 }
 
 void test_hashtable()
