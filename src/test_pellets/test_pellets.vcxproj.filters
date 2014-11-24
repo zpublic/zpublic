@@ -826,26 +826,26 @@
     <ClInclude Include="..\..\pellets\z_platform\z_platform_mutex.h">
       <Filter>pellets\z_platform</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_mutex.h">
-      <Filter>pellets\z_platform\win</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_mutex.h">
-      <Filter>pellets\z_platform\linux</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\pellets\z_platform\z_platform_def.h">
       <Filter>pellets\z_platform</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_platform\z_platform_event.h">
       <Filter>pellets\z_platform</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_event.h">
-      <Filter>pellets\z_platform\linux</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_event.h">
-      <Filter>pellets\z_platform\win</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\com_init_security.h">
       <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_event.hpp">
+      <Filter>pellets\z_platform\win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_mutex.hpp">
+      <Filter>pellets\z_platform\win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_event.hpp">
+      <Filter>pellets\z_platform\linux</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_mutex.hpp">
+      <Filter>pellets\z_platform\linux</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1130,18 +1130,6 @@
     </ClCompile>
     <ClCompile Include="TestHarold.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\z_platform\z_platform_win_mutex.cpp">
-      <Filter>pellets\z_platform\win</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\z_platform\z_platform_linux_mutex.cpp">
-      <Filter>pellets\z_platform\linux</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\z_platform\z_platform_linux_event.cpp">
-      <Filter>pellets\z_platform\linux</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\z_platform\z_platform_win_event.cpp">
-      <Filter>pellets\z_platform\win</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
