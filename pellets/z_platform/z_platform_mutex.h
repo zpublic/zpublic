@@ -1,4 +1,5 @@
 #pragma once
+#include "z_platform_def.h"
 
 #ifdef Z_PLATFORM_WIN
 #include "z_platform_win_mutex.h"
@@ -9,15 +10,12 @@
 class zl_mutex
 {
 public:
-    zl_mutex() : lock_() {}
-    ~zl_mutex() {}
-
-    bool try_lock() { return lock_.try_lock(); }
-    void lock() { lock_.lock(); }
-    void unlock() { lock_.unlock(); }
+    bool try_lock() { return impl_.try_lock(); }
+    void lock() { impl_.lock(); }
+    void unlock() { impl_.unlock(); }
 
 private:
-    zl_mutex_impl lock_;
+    zl_mutex_impl impl_;
 };
 
 class zl_lock_guard

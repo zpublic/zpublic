@@ -835,6 +835,15 @@
     <ClInclude Include="..\..\pellets\z_platform\z_platform_def.h">
       <Filter>pellets\z_platform</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_event.h">
+      <Filter>pellets\z_platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_event.h">
+      <Filter>pellets\z_platform\linux</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_event.h">
+      <Filter>pellets\z_platform\win</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">
@@ -1124,6 +1133,12 @@
     </ClCompile>
     <ClCompile Include="..\..\pellets\z_platform\z_platform_linux_mutex.cpp">
       <Filter>pellets\z_platform\linux</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_platform\z_platform_linux_event.cpp">
+      <Filter>pellets\z_platform\linux</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\z_platform\z_platform_win_event.cpp">
+      <Filter>pellets\z_platform\win</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
