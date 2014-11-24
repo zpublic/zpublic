@@ -826,9 +826,6 @@
     <ClInclude Include="..\..\pellets\z_platform\z_platform_mutex.h">
       <Filter>pellets\z_platform</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_mutex.h">
-      <Filter>pellets\z_platform\win</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_mutex.h">
       <Filter>pellets\z_platform\linux</Filter>
     </ClInclude>
@@ -842,6 +839,9 @@
       <Filter>pellets\z_platform\linux</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_platform\z_platform_win_event.h">
+      <Filter>pellets\z_platform\win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_mutex.hpp">
       <Filter>pellets\z_platform\win</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1127,9 +1127,6 @@
     </ClCompile>
     <ClCompile Include="TestHarold.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\z_platform\z_platform_win_mutex.cpp">
-      <Filter>pellets\z_platform\win</Filter>
     </ClCompile>
     <ClCompile Include="..\..\pellets\z_platform\z_platform_linux_mutex.cpp">
       <Filter>pellets\z_platform\linux</Filter>
