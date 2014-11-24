@@ -241,17 +241,15 @@
     <ClInclude Include="..\..\pellets\z_platform\z_platform.h" />
     <ClInclude Include="..\..\pellets\z_platform\z_platform_def.h" />
     <ClInclude Include="..\..\pellets\z_platform\z_platform_event.h" />
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_event.h">
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_event.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_mutex.h">
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_mutex.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_platform\z_platform_mutex.h" />
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_event.h" />
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_mutex.h" />
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_event.hpp" />
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_mutex.hpp" />
     <ClInclude Include="..\..\pellets\z_thread_pool\z_task.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
@@ -437,16 +435,6 @@
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_function_reg.cpp" />
     <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_state.cpp" />
     <ClCompile Include="..\..\pellets\z_net\z_net_socket_address_ipv4.cpp" />
-    <ClCompile Include="..\..\pellets\z_platform\z_platform_linux_event.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\z_platform\z_platform_linux_mutex.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\z_platform\z_platform_win_event.cpp" />
-    <ClCompile Include="..\..\pellets\z_platform\z_platform_win_mutex.cpp" />
     <ClCompile Include="..\..\pellets\z_thread_pool\z_task.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>

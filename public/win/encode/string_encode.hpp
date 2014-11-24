@@ -13,108 +13,91 @@
 namespace zl
 {
 
-    static std::wstring UTF8ToWide(const std::string &utf8)
+    inline bool Mbs2Wide(const std::string& strMbs,
+                         std::wstring& strWide,
+                         unsigned codepage,
+                         unsigned flags)
     {
-        if (utf8.length() == 0)
+        int count = MultiByteToWideChar(codepage, 0, strMbs.data(), strMbs.length(), NULL, 0);
+        if (count > 0)
         {
-            return std::wstring();
+            strWide.resize(count);
+            count = MultiByteToWideChar(codepage, flags, strMbs.data(), strMbs.length(),
+                const_cast<wchar_t*>(strWide.data()), strWide.length());
         }
-
-        int charcount = MultiByteToWideChar(
-            CP_UTF8,
-            0,
-            utf8.c_str(),
-            -1,
-            NULL,
-            0);
-
-        if (charcount == 0)
-        {
-            return std::wstring();
-        }
-
-        wchar_t* buf = new wchar_t[charcount];
-        MultiByteToWideChar(
-            CP_UTF8,
-            0,
-            utf8.c_str(),
-            -1,
-            buf,
-            charcount);
-        std::wstring result(buf);
-        delete[] buf;
-        return result;
+        return count > 0;
     }
 
-    static std::string WideToUTF8(const std::wstring &wide)
+
+    inline bool Wide2Mbs(const std::wstring& strWide,
+                         std::string& strMbs,
+                         unsigned codepage,
+                         unsigned flags,
+                         bool useDefault)
     {
-        if (wide.length() == 0)
+        BOOL bUseDefault = FALSE;
+        int count = WideCharToMultiByte(codepage, 0, strWide.data(), strWide.length(), 
+            NULL, 0, NULL, NULL);
+        if (count > 0)
         {
-            return std::string();
+            strMbs.resize(count);
+            BOOL* pUseDefault = (useDefault ? &bUseDefault : NULL);
+            count = WideCharToMultiByte(codepage, flags, strWide.data(), strWide.length(),
+                const_cast<char*>(strMbs.data()), strMbs.length(), NULL, pUseDefault);
         }
-
-        int charcount = WideCharToMultiByte(
-            CP_UTF8,
-            0,
-            wide.c_str(),
-            -1,
-            NULL,
-            0,
-            NULL,
-            NULL);
-        if (charcount == 0)
-        {
-            return std::string();
-        }
-
-        char *buf = new char[charcount];
-        WideCharToMultiByte(
-            CP_UTF8,
-            0,
-            wide.c_str(),
-            -1,
-            buf,
-            charcount,
-            NULL,
-            NULL);
-
-        std::string result(buf);
-        delete[] buf;
-        return result;
+        return (count > 0 && !bUseDefault);
     }
 
-    static std::string WideToUTF8(const wchar_t* wide)
+
+    inline std::wstring UTF8ToWide(const std::string &utf8)
     {
-        int charcount = WideCharToMultiByte(
-            CP_UTF8,
-            0,
-            wide,
-            -1,
-            NULL,
-            0,
-            NULL,
-            NULL);
-        if (charcount == 0)
+        std::wstring strWide;
+        if (!Mbs2Wide(utf8, strWide, CP_UTF8, 0))
         {
-            return std::string();
+            strWide.clear();
         }
-
-        char *buf = new char[charcount];
-        WideCharToMultiByte(
-            CP_UTF8,
-            0,
-            wide,
-            -1,
-            buf,
-            charcount,
-            NULL,
-            NULL);
-
-        std::string result(buf);
-        delete[] buf;
-        return result;
+        return strWide;
     }
 
+    inline std::string WideToUTF8(const std::wstring &wide)
+    {
+        std::string strUtf8;
+        if (!Wide2Mbs(wide, strUtf8, CP_UTF8, 0, false))
+        {
+            strUtf8.clear();
+        }
+        return strUtf8;
+    }
+
+    inline std::string WideToGbk(const std::wstring& strWide)
+    {
+        std::string strGbk;
+        if (!Wide2Mbs(strWide, strGbk, 936, 0, true)) // CP_GB2312 = 936
+        {
+            strGbk.clear();
+        }
+        return strGbk;
+    }
+
+    inline std::wstring GbkToWide(const std::string& strGbk)
+    {
+        std::wstring strWide;
+        if (!Mbs2Wide(strGbk, strWide, 936, 0)) // CP_GB2312 = 936
+        {
+            strWide.clear();
+        }
+        return strWide;
+    }
+
+    inline std::string Utf8ToGbk(const std::string& strUtf8)
+    {
+        return WideToGbk(UTF8ToWide(strUtf8));
+    }
+
+    inline std::string GbkToUtf8(const std::string& strGbk)
+    {
+        return WideToUTF8(GbkToWide(strGbk));
+    }
 }
 
 #endif
