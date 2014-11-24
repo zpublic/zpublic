@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @brief com初始化相关
+ * @brief com security初始化相关
  */
 
 
@@ -27,9 +27,10 @@ namespace zl
 namespace WinUtils
 {
     /**
-    * @brief 初始化COM
+    * @brief 初始化COM Security
+    * 一个进程只能初始化一次
     */
-    class ZLComInit
+    class ZLComInitSecurity
     {
     public:
         class Inst
@@ -47,39 +48,43 @@ namespace WinUtils
                     return TRUE;
                 }
 
-                HRESULT hres = ::CoInitialize(NULL);
-                if (FAILED(hres))
+                HRESULT hres = ::CoInitializeSecurity(
+                    NULL,
+                    -1,
+                    NULL,
+                    NULL,
+                    RPC_C_AUTHN_LEVEL_DEFAULT,
+                    RPC_C_IMP_LEVEL_IMPERSONATE,
+                    NULL,
+                    EOAC_NONE,
+                    NULL);
+                if (SUCCEEDED(hres) || hres == RPC_E_TOO_LATE)
                 {
-                    return FALSE;
+                    m_bInit = true;
                 }
-                m_bInit = true;
-                return TRUE;
+                return m_bInit ? TRUE : FALSE;
             }
             void UnInit()
             {
-                if (m_bInit)
-                {
-                    ::CoUninitialize();
-                    m_bInit = false;
-                }
+
             }
         protected:
             bool m_bInit;
         };
 
     public:
-        ZLComInit()
+        ZLComInitSecurity()
         {
             m_ComInit.Init();
         }
 
-        ~ZLComInit()
+        ~ZLComInitSecurity()
         {
             m_ComInit.UnInit();
         }
 
     protected:
-        ZLComInit::Inst m_ComInit;
+        ZLComInitSecurity::Inst m_ComInit;
     };
 }
 }
