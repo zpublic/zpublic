@@ -35,7 +35,6 @@
 #include <comutil.h>
 #include <string>
 #include <vector>
-#include "com_init_security.h"
 
 #pragma comment(lib, "Secur32.lib")
 #pragma comment(lib, "Netapi32.lib")
@@ -224,8 +223,7 @@ namespace WinUtils
     private:
         static BOOL _WMIQuery(const CStringA& cstrClass, const CString& cstrValueName, VARIANT& vt)
         {
-            ZLComInit comInit;
-            ZLComInitSecurity comInitSecurity;
+            ZLComInit comInit(TRUE);
             IWbemServices *pSvc = NULL;
             IWbemLocator *pLoc = NULL;
             IEnumWbemClassObject* pEnumerator = NULL;

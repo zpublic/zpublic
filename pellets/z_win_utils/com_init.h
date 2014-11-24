@@ -35,42 +35,66 @@ namespace WinUtils
         class Inst
         {
         public:
-            Inst() : m_bInit(false)
+            Inst() : m_bInit(FALSE)
             {
 
             }
         public:
             BOOL Init()
             {
-                if (m_bInit)
+                if (m_bInit == FALSE)
                 {
-                    return TRUE;
+                    HRESULT hres = ::CoInitialize(NULL);
+                    if (SUCCEEDED(hres))
+                    {
+                        m_bInit = TRUE;
+                    }
                 }
-
-                HRESULT hres = ::CoInitialize(NULL);
-                if (FAILED(hres))
-                {
-                    return FALSE;
-                }
-                m_bInit = true;
-                return TRUE;
+                return m_bInit;
             }
             void UnInit()
             {
                 if (m_bInit)
                 {
                     ::CoUninitialize();
-                    m_bInit = false;
+                    m_bInit = FALSE;
                 }
             }
+            BOOL InitSecurity()
+            {
+                BOOL bReturn = FALSE;
+                HRESULT hres = ::CoInitializeSecurity(
+                    NULL,
+                    -1,
+                    NULL,
+                    NULL,
+                    RPC_C_AUTHN_LEVEL_DEFAULT,
+                    RPC_C_IMP_LEVEL_IMPERSONATE,
+                    NULL,
+                    EOAC_NONE,
+                    NULL);
+                if (SUCCEEDED(hres) || hres == RPC_E_TOO_LATE)
+                {
+                    bReturn = TRUE;
+                }
+                return bReturn;
+            }
         protected:
-            bool m_bInit;
+            BOOL m_bInit;
         };
 
     public:
-        ZLComInit()
+        /**
+        * @brief 初始化com
+        * @param[in] bIsSecurity 如果为TRUE 则初始化Security COM
+        */
+        ZLComInit(BOOL bIsSecurity = FALSE)
         {
             m_ComInit.Init();
+            if (bIsSecurity == TRUE)
+            {
+                m_ComInit.InitSecurity();
+            }
         }
 
         ~ZLComInit()
