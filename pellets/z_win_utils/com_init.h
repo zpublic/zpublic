@@ -37,8 +37,8 @@ namespace WinUtils
         public:
             Inst() : m_bInit(FALSE)
             {
-
             }
+
         public:
             BOOL Init()
             {
@@ -52,6 +52,7 @@ namespace WinUtils
                 }
                 return m_bInit;
             }
+
             void UnInit()
             {
                 if (m_bInit)
@@ -60,6 +61,7 @@ namespace WinUtils
                     m_bInit = FALSE;
                 }
             }
+
             BOOL InitSecurity()
             {
                 BOOL bReturn = FALSE;
@@ -79,6 +81,7 @@ namespace WinUtils
                 }
                 return bReturn;
             }
+
         protected:
             BOOL m_bInit;
         };
@@ -86,12 +89,12 @@ namespace WinUtils
     public:
         /**
         * @brief 初始化com
-        * @param[in] bIsSecurity 如果为TRUE 则初始化Security COM
+        * @param[in] bSecurity 如果为TRUE 则初始化Security COM
         */
-        ZLComInit(BOOL bIsSecurity = FALSE)
+        ZLComInit(BOOL bSecurity = FALSE)
         {
             m_ComInit.Init();
-            if (bIsSecurity == TRUE)
+            if (bSecurity == TRUE)
             {
                 m_ComInit.InitSecurity();
             }

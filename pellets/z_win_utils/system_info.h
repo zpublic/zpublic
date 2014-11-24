@@ -106,6 +106,7 @@ namespace WinUtils
             }
             return r;
         }
+
         /**
         * @brief 获取主机名 *注意使用此函数的时候请初始化socket
         * @return 成功返回主机名，失败返回空字符串
@@ -116,17 +117,25 @@ namespace WinUtils
             ::gethostname(szHostName, sizeof(szHostName));
             return szHostName;
         }
+
         /**
         * @brief 获取电脑名称
         * @return 成功返回电脑名称，失败返回空字符串
         */
         static CString GetComputername()
         {
-            TCHAR szComputerName[MAX_PATH + 1] = {0};
-            DWORD dwComputerNameLen = MAX_PATH;
-            ::GetComputerName(szComputerName, &dwComputerNameLen);
-            return szComputerName;
+            CString cstrComputerName;
+            DWORD dwComputerNameLen = 0;
+            ::GetComputerName(NULL, &dwComputerNameLen);
+            DWORD dwLastErr = ::GetLastError();
+            if (dwLastErr == ERROR_BUFFER_OVERFLOW)
+            {
+                ::GetComputerName(cstrComputerName.GetBuffer(dwComputerNameLen), &dwComputerNameLen);
+                cstrComputerName.ReleaseBuffer();
+            }
+            return cstrComputerName;
         }
+
         /**
         * @brief 获取用户名 *注意 当一个用户被创建的时候就有一个用户名 但是修改用户名之后是无法用GetUserName获取到的 需要调用此函数获取
         * @return 成功返回用户名称，失败之后会调用GetUserName 如果继续失败则返回空字符串
