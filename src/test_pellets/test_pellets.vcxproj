@@ -248,6 +248,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_platform\z_platform_mutex.h" />
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_sleep.h" />
     <ClInclude Include="..\..\pellets\z_platform\z_platform_win_event.hpp" />
     <ClInclude Include="..\..\pellets\z_platform\z_platform_win_mutex.hpp" />
     <ClInclude Include="..\..\pellets\z_thread_pool\z_task.h">

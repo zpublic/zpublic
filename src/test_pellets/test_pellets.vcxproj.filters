@@ -847,6 +847,9 @@
     <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_mutex.hpp">
       <Filter>pellets\z_platform\linux</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_sleep.h">
+      <Filter>pellets\z_platform</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">
