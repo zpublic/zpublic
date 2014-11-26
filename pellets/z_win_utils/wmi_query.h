@@ -110,6 +110,7 @@ namespace WinUtils
 
         BOOL _GetWbemServices(IWbemLocator* pLoc, IWbemServices*& pSvc)
         {
+            BOOL bRet = FALSE;
             if (pLoc != NULL)
             {
                 HRESULT hres = pLoc->ConnectServer(
@@ -132,9 +133,13 @@ namespace WinUtils
                         RPC_C_IMP_LEVEL_IMPERSONATE,
                         NULL,
                         EOAC_NONE);
+                    if (SUCCEEDED(hres))
+                    {
+                        bRet = TRUE;
+                    }
                 }
             }
-            return SUCCEEDED(hres) ? TRUE : FALSE;
+            return bRet;
         }
 
         BOOL _GetEnumerator(IEnumWbemClassObject*& pEnumerator, const CStringA& cstrClass)
