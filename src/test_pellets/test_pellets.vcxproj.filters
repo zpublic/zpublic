@@ -104,11 +104,8 @@
     <Filter Include="pellets\z_platform">
       <UniqueIdentifier>{3a1c1f70-0a46-4a28-9141-eab3446a1246}</UniqueIdentifier>
     </Filter>
-    <Filter Include="pellets\z_platform\win">
-      <UniqueIdentifier>{83896642-c25f-478f-ac7c-a956d9f49de8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="pellets\z_platform\linux">
-      <UniqueIdentifier>{9225f00f-becb-49e2-bcf4-8ad6cfa422a4}</UniqueIdentifier>
+    <Filter Include="pellets\z_platform\impl">
+      <UniqueIdentifier>{e091ba82-3289-4a5a-957a-997322805af5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -835,20 +832,20 @@
     <ClInclude Include="..\..\pellets\z_win_utils\com_init_security.h">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_event.hpp">
-      <Filter>pellets\z_platform\win</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_mutex.hpp">
-      <Filter>pellets\z_platform\win</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_event.hpp">
-      <Filter>pellets\z_platform\linux</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_mutex.hpp">
-      <Filter>pellets\z_platform\linux</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\pellets\z_platform\z_platform_sleep.h">
       <Filter>pellets\z_platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_win_event.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_win_mutex.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_linux_event.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_linux_mutex.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
