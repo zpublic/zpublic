@@ -294,12 +294,6 @@
     <ClInclude Include="test_libcurl.h">
       <Filter>src\net\libcurl</Filter>
     </ClInclude>
-    <ClInclude Include="zl_crul_file.h">
-      <Filter>src\net\libcurl</Filter>
-    </ClInclude>
-    <ClInclude Include="zl_crul_http.h">
-      <Filter>src\net\libcurl</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\3rdparty\luasrc\lapi.h">
       <Filter>src\misc\lua\luasrc</Filter>
     </ClInclude>
@@ -846,6 +840,12 @@
     <ClInclude Include="..\..\3rdparty\mongoose\examples\websocket_ssl_proxy\ssl_wrapper.h">
       <Filter>src\net\mongoose\sample\websocket_ssl_proxy</Filter>
     </ClInclude>
+    <ClInclude Include="zl_curl_file.h">
+      <Filter>src\net\libcurl</Filter>
+    </ClInclude>
+    <ClInclude Include="zl_curl_http.h">
+      <Filter>src\net\libcurl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -912,12 +912,6 @@
       <Filter>src\net\protobuf\proto</Filter>
     </ClCompile>
     <ClCompile Include="test_libcurl.cpp">
-      <Filter>src\net\libcurl</Filter>
-    </ClCompile>
-    <ClCompile Include="zl_crul_file.cpp">
-      <Filter>src\net\libcurl</Filter>
-    </ClCompile>
-    <ClCompile Include="zl_crul_http.cpp">
       <Filter>src\net\libcurl</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\luasrc\lapi.c">
@@ -1372,6 +1366,12 @@
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\mongoose\test\unit_test.c">
       <Filter>src\net\mongoose\unittest</Filter>
+    </ClCompile>
+    <ClCompile Include="zl_curl_file.cpp">
+      <Filter>src\net\libcurl</Filter>
+    </ClCompile>
+    <ClCompile Include="zl_curl_http.cpp">
+      <Filter>src\net\libcurl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

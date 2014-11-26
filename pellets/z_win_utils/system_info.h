@@ -22,6 +22,7 @@
 #include "win_utils_header.h"
 #include "split_str.hpp"
 #include "str_conv.hpp"
+#include "com_init.h"
 
 #define SECURITY_WIN32
 #include <Security.h>
@@ -34,6 +35,7 @@
 #include <comutil.h>
 #include <string>
 #include <vector>
+#include "com_init_security.h"
 
 #pragma comment(lib, "Secur32.lib")
 #pragma comment(lib, "Netapi32.lib")
@@ -222,37 +224,17 @@ namespace WinUtils
     private:
         static BOOL _WMIQuery(const CStringA& cstrClass, const CString& cstrValueName, VARIANT& vt)
         {
+            ZLComInit comInit;
+            ZLComInitSecurity comInitSecurity;
             IWbemServices *pSvc = NULL;
             IWbemLocator *pLoc = NULL;
             IEnumWbemClassObject* pEnumerator = NULL;
             IWbemClassObject *pclsObj = NULL;
             int nReturnValue = 0;
             BOOL bReturn = FALSE;
-
-            HRESULT hres = ::CoInitialize(NULL);
-            if (FAILED(hres))
-            {
-                return bReturn;
-            }
-
             do
             {
-                hres = ::CoInitializeSecurity(
-                    NULL,
-                    -1,
-                    NULL,
-                    NULL,
-                    RPC_C_AUTHN_LEVEL_DEFAULT,
-                    RPC_C_IMP_LEVEL_IMPERSONATE,
-                    NULL,
-                    EOAC_NONE,
-                    NULL);
-                if (FAILED(hres) && hres != RPC_E_TOO_LATE)
-                {
-                    break;
-                }
-
-                hres = ::CoCreateInstance(
+               HRESULT hres = ::CoCreateInstance(
                     CLSID_WbemLocator,
                     0,
                     CLSCTX_INPROC_SERVER,
@@ -342,7 +324,6 @@ namespace WinUtils
             {
                 pEnumerator->Release();
             }
-            ::CoUninitialize();
             return bReturn;
         }
 
