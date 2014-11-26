@@ -2,9 +2,9 @@
 #include "z_platform_def.h"
 
 #ifdef Z_PLATFORM_WIN
-#include "z_platform_win_event.hpp"
+#include "impl/z_platform_win_event.hpp"
 #else
-#include "z_platform_linux_event.hpp"
+#include "impl/z_platform_linux_event.hpp"
 #endif
 
 class zl_event
