@@ -61,10 +61,7 @@ namespace WinUtils
             BOOL bRet = FALSE;
             if (_GetWbemLocator(m_pLocator))
             {
-                if (_GetWbemServices(m_pLocator, m_pServices))
-                {
-                    bRet = TRUE;
-                }
+                bRet = _GetWbemServices(m_pLocator, m_pServices);
             }
             return bRet;
         }
@@ -103,22 +100,16 @@ namespace WinUtils
     private:
         BOOL _GetWbemLocator(IWbemLocator*& pLoc)
         {
-            BOOL bRet = FALSE;
             HRESULT hres = ::CoCreateInstance(
                 CLSID_WbemLocator,
                 0,
                 CLSCTX_INPROC_SERVER,
                 IID_IWbemLocator, (LPVOID *) &pLoc);
-            if (SUCCEEDED(hres))
-            {
-                bRet = TRUE;
-            }
-            return bRet;
+            return SUCCEEDED(hres) ? TRUE : FALSE;
         }
 
         BOOL _GetWbemServices(IWbemLocator* pLoc, IWbemServices*& pSvc)
         {
-            BOOL bRet = FALSE;
             if (pLoc != NULL)
             {
                 HRESULT hres = pLoc->ConnectServer(
@@ -141,13 +132,9 @@ namespace WinUtils
                         RPC_C_IMP_LEVEL_IMPERSONATE,
                         NULL,
                         EOAC_NONE);
-                    if (SUCCEEDED(hres))
-                    {
-                        bRet = TRUE;
-                    }
                 }
             }
-            return bRet;
+            return SUCCEEDED(hres) ? TRUE : FALSE;
         }
 
         BOOL _GetEnumerator(IEnumWbemClassObject*& pEnumerator, const CStringA& cstrClass)
