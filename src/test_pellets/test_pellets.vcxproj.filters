@@ -847,6 +847,15 @@
     <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_linux_mutex.hpp">
       <Filter>pellets\z_platform\impl</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_thread.h">
+      <Filter>pellets\z_platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_win_thread.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\TestPlatform.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">

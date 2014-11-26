@@ -11,3 +11,4 @@
 #include "z_platform_mutex.h"
 #include "z_platform_event.h"
 #include "z_platform_sleep.h"
+#include "z_platform_thread.h"
