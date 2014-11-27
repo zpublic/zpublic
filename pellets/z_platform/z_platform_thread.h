@@ -24,6 +24,16 @@ public:
         return impl_.create(stack_size, pdelegate, out_thread_handle);
     }
 
+    bool create(zl_delegate* pdelegate, zl_thread_handle* out_thread_handle)
+    {
+        return impl_.create(0, pdelegate, out_thread_handle);
+    }
+
+    bool create(zl_delegate* pdelegate)
+    {
+        return impl_.create(0, pdelegate, 0);
+    }
+
 private:
     zl_thread_impl impl_;
 };
