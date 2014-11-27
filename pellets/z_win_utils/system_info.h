@@ -23,6 +23,7 @@
 #include "split_str.hpp"
 #include "str_conv.hpp"
 #include "com_init.h"
+#include "wmi_query.h"
 
 #define SECURITY_WIN32
 #include <Security.h>
@@ -35,7 +36,6 @@
 #include <comutil.h>
 #include <string>
 #include <vector>
-#include "com_init_security.h"
 
 #pragma comment(lib, "Secur32.lib")
 #pragma comment(lib, "Netapi32.lib")
@@ -107,6 +107,7 @@ namespace WinUtils
             }
             return r;
         }
+
         /**
         * @brief 获取主机名 *注意使用此函数的时候请初始化socket
         * @return 成功返回主机名，失败返回空字符串
@@ -117,17 +118,25 @@ namespace WinUtils
             ::gethostname(szHostName, sizeof(szHostName));
             return szHostName;
         }
+
         /**
         * @brief 获取电脑名称
         * @return 成功返回电脑名称，失败返回空字符串
         */
         static CString GetComputername()
         {
-            TCHAR szComputerName[MAX_PATH + 1] = {0};
-            DWORD dwComputerNameLen = MAX_PATH;
-            ::GetComputerName(szComputerName, &dwComputerNameLen);
-            return szComputerName;
+            CString cstrComputerName;
+            DWORD dwComputerNameLen = 0;
+            ::GetComputerName(NULL, &dwComputerNameLen);
+            DWORD dwLastErr = ::GetLastError();
+            if (dwLastErr == ERROR_BUFFER_OVERFLOW)
+            {
+                ::GetComputerName(cstrComputerName.GetBuffer(dwComputerNameLen), &dwComputerNameLen);
+                cstrComputerName.ReleaseBuffer();
+            }
+            return cstrComputerName;
         }
+
         /**
         * @brief 获取用户名 *注意 当一个用户被创建的时候就有一个用户名 但是修改用户名之后是无法用GetUserName获取到的 需要调用此函数获取
         * @return 成功返回用户名称，失败之后会调用GetUserName 如果继续失败则返回空字符串
@@ -197,10 +206,15 @@ namespace WinUtils
         {
             VARIANT vtProp;
             int nReturnValue = 0;
-            if (_WMIQuery("Win32_SystemEnclosure", L"ChassisTypes", vtProp))
+            ZLWMIQuery zlwmiQuery;
+            if (zlwmiQuery.Init())
             {
-                nReturnValue = _GetComputerTypeForSafeArray(vtProp);
+                if (zlwmiQuery.Query("Win32_SystemEnclosure", L"ChassisTypes", vtProp))
+                {
+                    nReturnValue = _GetComputerTypeForSafeArray(vtProp);
+                }
             }
+            zlwmiQuery.UnInit();
             return (ZLSystemInfoComputeType)nReturnValue;
         }
 
@@ -222,111 +236,6 @@ namespace WinUtils
         }
 
     private:
-        static BOOL _WMIQuery(const CStringA& cstrClass, const CString& cstrValueName, VARIANT& vt)
-        {
-            ZLComInit comInit;
-            ZLComInitSecurity comInitSecurity;
-            IWbemServices *pSvc = NULL;
-            IWbemLocator *pLoc = NULL;
-            IEnumWbemClassObject* pEnumerator = NULL;
-            IWbemClassObject *pclsObj = NULL;
-            int nReturnValue = 0;
-            BOOL bReturn = FALSE;
-            do
-            {
-               HRESULT hres = ::CoCreateInstance(
-                    CLSID_WbemLocator,
-                    0,
-                    CLSCTX_INPROC_SERVER,
-                    IID_IWbemLocator, (LPVOID *) &pLoc);
-                if (FAILED(hres))
-                {
-                    break;
-                }
-
-                hres = pLoc->ConnectServer(
-                    _bstr_t(L"ROOT\\CIMV2"),
-                    NULL,
-                    NULL,
-                    0,
-                    NULL,
-                    0,
-                    0,
-                    &pSvc);
-                if (FAILED(hres))
-                {
-                    break;
-                }
-
-                hres = ::CoSetProxyBlanket(
-                    pSvc,
-                    RPC_C_AUTHN_WINNT,
-                    RPC_C_AUTHZ_NONE,
-                    NULL,
-                    RPC_C_AUTHN_LEVEL_CALL,
-                    RPC_C_IMP_LEVEL_IMPERSONATE,
-                    NULL,
-                    EOAC_NONE);
-                if (FAILED(hres))
-                {
-                    break;
-                }
-
-                hres = pSvc->ExecQuery(
-                    bstr_t("WQL"),
-                    bstr_t("SELECT * FROM " + cstrClass),
-                    WBEM_FLAG_FORWARD_ONLY | WBEM_FLAG_RETURN_IMMEDIATELY,
-                    NULL,
-                    &pEnumerator);
-                if (FAILED(hres))
-                {
-                    break;
-                }
-
-                ULONG uReturn = 0;
-                while (pEnumerator)
-                {
-                    HRESULT hr = pEnumerator->Next(WBEM_INFINITE,
-                        1,
-                        &pclsObj,
-                        &uReturn);
-                    if(0 == uReturn)
-                    {
-                        break;
-                    }
-
-                    VARIANT vtProp;
-                    hr = pclsObj->Get(cstrValueName, 0, &vtProp, 0, 0);
-                    if (FAILED(hres))
-                    {
-                        continue;
-                    }
-
-                    vt = vtProp;
-                    bReturn = TRUE;
-                    break;
-                }
-            } while (FALSE);
-
-            if (pSvc)
-            {
-                pSvc->Release();
-            }
-            if (pLoc)
-            {
-                pLoc->Release();
-            }
-            if (pclsObj)
-            {
-                pclsObj->Release();
-            }
-            if (pEnumerator)
-            {
-                pEnumerator->Release();
-            }
-            return bReturn;
-        }
-
         static int _GetComputerTypeForSafeArray(VARIANT& vt)
         {
             int nReturnValue = 0;
