@@ -1,30 +1,30 @@
-¡ï
-=============
-zapline(ÀÏÈâ¼¦)(https://github.com/zapline)  
+List of contributors
+====================
+
+zapline(è€è‚‰é¸¡)(https://github.com/zapline)  
 kevin.zhang(https://github.com/zhangtaopy)  
-·ßÅ­µÄÅİÃæ(https://github.com/AngryPowman)  
-¿¨À­(https://github.com/Sumxx)  
-ËÀÈË(https://github.com/siren186)  
-  
-¡î
-=============
+æ„¤æ€’çš„æ³¡é¢(https://github.com/AngryPowman)  
+å¡æ‹‰(https://github.com/Sumxx)  
+æ­»äºº(https://github.com/siren186)  
 YeZi(https://github.com/vnoc-YeZi)  
 csc(https://github.com/picctree)  
 hx934275738(https://github.com/hx934275738)  
-É³°üÑıÃÎ(https://github.com/GongT)  
+æ²™åŒ…å¦–æ¢¦(https://github.com/GongT)  
 ClassFoo(https://github.com/KingSir)  
 yuanhh90(https://github.com/yuanhh90)  
 trueme(https://github.com/trueme)  
 tzw(https://github.com/tzwsoho)  
 wjk(http://git.oschina.net/wjk)  
-ÍòÄÜ(http://git.oschina.net/iceable)  
-×ª½ÇÌì±ß(http://git.oschina.net/1050676515)  
-Ô¶º½Ö®·«(http://git.oschina.net/xuyuanfan)  
+ä¸‡èƒ½(http://git.oschina.net/iceable)  
+è½¬è§’å¤©è¾¹(http://git.oschina.net/1050676515)  
+è¿œèˆªä¹‹å¸†(http://git.oschina.net/xuyuanfan)  
 AXFL(https://github.com/epiciskandar)  
 kgddnadn(http://git.oschina.net/kgddnadn)  
+Jeff Wang(https://github.com/wohaaitinciu)  
+Johnnie Chen(https://github.com/ichenq)  
   
 --------------
-ÒÔÉÏÃûµ¥ÓÉzaplineÕûÀí£¬ÈçÓĞÒÅÂ©»ò´íÎó£¬ÇëÁªÏµ£º  
-QQ£º278998871  
-email£º278998871@qq.com  
+ä»¥ä¸Šåå•ç”±zaplineæ•´ç†ï¼Œå¦‚æœ‰é—æ¼æˆ–é”™è¯¯ï¼Œè¯·è”ç³»ï¼š  
+QQï¼š278998871  
+emailï¼š278998871@qq.com  
   
