@@ -33,12 +33,12 @@ public:
         TEST_ASSERT(!e.is_signaled());
 
         zl_event e2(true, false);
-        TEST_ASSERT(!e.is_signaled());
-        e.signal();
-        TEST_ASSERT(e.is_signaled());
-        TEST_ASSERT(e.is_signaled());
-        e.reset();
-        TEST_ASSERT(!e.is_signaled());
+        TEST_ASSERT(!e2.is_signaled());
+        e2.signal();
+        TEST_ASSERT(e2.is_signaled());
+        TEST_ASSERT(e2.is_signaled());
+        e2.reset();
+        TEST_ASSERT(!e2.is_signaled());
     }
 
     void test_sleep()
