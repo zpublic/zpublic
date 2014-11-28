@@ -829,9 +829,6 @@
     <ClInclude Include="..\..\pellets\z_platform\z_platform_event.h">
       <Filter>pellets\z_platform</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_win_utils\com_init_security.h">
-      <Filter>pellets\z_win_utils</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\pellets\z_platform\z_platform_sleep.h">
       <Filter>pellets\z_platform</Filter>
     </ClInclude>
@@ -843,9 +840,6 @@
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\wmi_query.h">
       <Filter>pellets\z_win_utils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_event.hpp">
-      <Filter>pellets\z_platform\linux</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_linux_event.hpp">
       <Filter>pellets\z_platform\impl</Filter>
@@ -861,6 +855,9 @@
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_platform\TestPlatform.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_linux_thread.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
