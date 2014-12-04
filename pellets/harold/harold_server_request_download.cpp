@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "harold_server_request_download.h"
 
 int HaroldServerRequestDownload::OnRequest(struct mg_connection *conn)

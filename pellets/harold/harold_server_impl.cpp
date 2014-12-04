@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "harold_server_impl.h"
 
 bool HaroldServerImpl::InsertObserver(IHaroldServerObserver* pObserver, unsigned int type)
@@ -113,7 +112,7 @@ template <typename T>
 bool HaroldServerImpl::_RomoveItemFromVector(std::vector<T>& vec, T i)
 {
     bool bRet = false;
-    for (std::vector<T>::iterator it = vec.begin();
+    for (typename std::vector<T>::iterator it = vec.begin();
         it != vec.end();
         ++it)
     {
@@ -130,8 +129,8 @@ bool HaroldServerImpl::_RomoveItemFromVector(std::vector<T>& vec, T i)
 bool HaroldServerImpl::StartServer()
 {
     m_bExit = false;
-    m_handle = HAROLD_CREATE_THREAD(sWorkRoutine, this);
-    return m_handle != HAROLD_THREAD_NULL;
+    m_handle = HAROLD_CREATE_THREAD((HAROLD_THREAD_START_ROUTINE)sWorkRoutine, this);
+    return m_handle != HAROLD_INVALID_HANDLE;
 }
 
 bool HaroldServerImpl::StopServer()
@@ -142,12 +141,12 @@ bool HaroldServerImpl::StopServer()
     return true;
 }
 
-unsigned long HaroldServerImpl::sWorkRoutine(void* pVoid)
+HAROLD_ROUTINE_IMP(HAROLD_ROUTINE_RET_TYPE) HaroldServerImpl::sWorkRoutine(void* pVoid)
 {
     assert(pVoid);
     HaroldServerImpl* p = static_cast<HaroldServerImpl*>(pVoid);
     p->_WorkRoutine();
-    return 0;
+    return (HAROLD_ROUTINE_RET_TYPE)0;
 }
 
 int HaroldServerImpl::sHandler(struct mg_connection* conn, mg_event ev)
@@ -163,11 +162,11 @@ int HaroldServerImpl::sHandler(struct mg_connection* conn, mg_event ev)
 
 int HaroldServerImpl::_Handler(struct mg_connection* conn, mg_event ev)
 {
-    if (ev == mg_event::MG_AUTH)
+    if (ev == MG_AUTH)
     {
         return _HandlerAuth(conn);
     }
-    else if (ev == mg_event::MG_REQUEST)
+    else if (ev == MG_REQUEST)
     {
         return _HandlerRequest(conn);
     }

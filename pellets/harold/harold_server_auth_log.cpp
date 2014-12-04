@@ -1,17 +1,16 @@
-#include "stdafx.h"
+#include "harold_header.h"
 #include "harold_server_auth_log.h"
 
 int HaroldServerAuthLog::OnAuth(struct mg_connection *conn)
 {
     assert(conn);
-    std::cout << "OnAuth " << conn->request_method << std::endl;
-    std::cout << "OnAuth " << conn->uri << std::endl;
+    HAROLD_PRINT("OnAuth:%s", conn->request_method);
+    HAROLD_PRINT("OnAuth:%s", conn->uri);
     if (conn->query_string)
     {
-        std::cout << "OnAuth " << conn->query_string << std::endl;
+        HAROLD_PRINT("OnAuth:%s", conn->query_string);
     }
-    std::cout << "OnAuth " << conn->remote_ip << std::endl;
-    std::cout << "OnAuth " << conn->local_ip << std::endl;
+    HAROLD_PRINT("OnAuth:%s", conn->remote_ip);
+    HAROLD_PRINT("OnAuth:%s", conn->local_ip);
     return 0;
 }
-

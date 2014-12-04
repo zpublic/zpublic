@@ -9,7 +9,7 @@
 class HaroldServerImpl : public IHaroldServer
 {
 public:
-    HaroldServerImpl() : m_server(NULL), m_handle(HAROLD_THREAD_NULL), m_bExit(false) {}
+    HaroldServerImpl() : m_server(NULL), m_handle(HAROLD_INVALID_HANDLE), m_bExit(false) {}
 
     virtual bool InsertObserver(IHaroldServerObserver* pObserver, unsigned int type);
     virtual bool RomoveObserver(IHaroldServerObserver* pObserver, unsigned int type = 0);
@@ -21,7 +21,7 @@ protected:
     template <typename T>
     bool _RomoveItemFromVector(std::vector<T>& vec, T i);
 
-    static unsigned long __stdcall sWorkRoutine(void* pVoid);
+    static HAROLD_ROUTINE_IMP(HAROLD_ROUTINE_RET_TYPE) sWorkRoutine(void* pVoid);
     void _WorkRoutine();
 
     static int sHandler(struct mg_connection* conn, mg_event ev);
@@ -34,6 +34,6 @@ protected:
     std::vector<IHaroldServerRequestObserver*>  m_vecReqeustObserver;
     std::vector<IHaroldServerStatusObserver*>   m_vecStatusObserver;
     struct mg_server*                           m_server;
-    HAROLD_THREAD_RESULT_TYPE                   m_handle;
+    HAROLD_THREAD_HANDLE                        m_handle;
     bool                                        m_bExit;
 };

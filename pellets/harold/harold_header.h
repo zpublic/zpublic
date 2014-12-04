@@ -1,42 +1,74 @@
-#pragma once
+/**
+ * @file
+ * @brief 本文件处理一些平台相关的东西.
+ *
+ * TODO: 尚未完善,还需调整.
+ */
 
+#pragma once
+#include <assert.h>
 #include "mongoose/mongoose.h"
 
-///> 下面是平台差异代码的临时实现,还需调整
 
 #ifdef OS_ANDROID
 
-#define THREAD_RESULT_TYPE  void *
-#define THREAD_NULL         0
+#include <errno.h>
+#include <unistd.h>
+#include <pthread.h>
+#include <android/log.h>
 
-    CREATE_THREAD(Handle, Func, Param)                  \
-    {                                                       \
-        int err;                                            \
-        pthread_t ntid;                                     \
-        err = pthread_create(&Handle, NULL, Func, Param);   \
-        if (err != THREAD_NULL)                             \
-            return E_FAIL;                                  \
+#define HAROLD_PRINT(fmt,...) __android_log_print(ANDROID_LOG_ERROR,"harold",fmt,##__VA_ARGS__)
+
+typedef void*                       HAROLD_ROUTINE_RET_TYPE;
+#define HAROLD_THREAD_HANDLE        pthread_t
+#define HAROLD_INVALID_HANDLE       0
+#define HAROLD_ROUTINE_CALL_TYPE
+#define HAROLD_ROUTINE_IMP(type)    type HAROLD_ROUTINE_CALL_TYPE
+typedef void *(*HAROLD_THREAD_START_ROUTINE)(void *);
+
+inline HAROLD_THREAD_HANDLE HAROLD_CREATE_THREAD(HAROLD_THREAD_START_ROUTINE lpStartAddress, void* lpParameter)
+{
+	pthread_t handle = 0;
+	pthread_create(&handle, 0, lpStartAddress, lpParameter);
+    return handle;
+}
+
+inline void HAROLD_TERMINATE_THREAD(HAROLD_THREAD_HANDLE handle)
+{
+    if (handle != HAROLD_INVALID_HANDLE)
+    {
+        if(pthread_kill(handle, 0)!= ESRCH)
+        {
+        	sleep(1);
+            pthread_kill(handle, SIGQUIT);
+        }
     }
-
-#define TERMINATE_THREAD(Handle)
-            {if (THREAD_NULL == Handle) {pthread_kill(Handle, SIGKILL); Handle = -1; }}
+}
 
 #else
 
 #include <Windows.h>
 
-#define HAROLD_THREAD_RESULT_TYPE  HANDLE
-#define HAROLD_THREAD_NULL         NULL
+#define HAROLD_PRINT(fmt,...) \
+    printf(fmt, ##__VA_ARGS__); \
+    printf("\n")
 
-inline HAROLD_THREAD_RESULT_TYPE HAROLD_CREATE_THREAD(LPTHREAD_START_ROUTINE lpStartAddress, LPVOID lpParameter)
+typedef unsigned int                HAROLD_ROUTINE_RET_TYPE;
+#define HAROLD_THREAD_HANDLE        HANDLE
+#define HAROLD_INVALID_HANDLE       NULL
+#define HAROLD_ROUTINE_CALL_TYPE    __stdcall
+#define HAROLD_ROUTINE_IMP(type)    type HAROLD_ROUTINE_CALL_TYPE
+#define HAROLD_THREAD_START_ROUTINE LPTHREAD_START_ROUTINE
+
+inline HAROLD_THREAD_HANDLE HAROLD_CREATE_THREAD(HAROLD_THREAD_START_ROUTINE lpStartAddress, LPVOID lpParameter)
 {
-    HAROLD_THREAD_RESULT_TYPE handle = ::CreateThread(NULL, 0, lpStartAddress, lpParameter, 0, NULL);
+    HAROLD_THREAD_HANDLE handle = ::CreateThread(NULL, 0, lpStartAddress, lpParameter, 0, NULL);
     return handle;
 }
 
-inline void HAROLD_TERMINATE_THREAD(HAROLD_THREAD_RESULT_TYPE handle)
+inline void HAROLD_TERMINATE_THREAD(HAROLD_THREAD_HANDLE handle)
 {
-    if (handle != HAROLD_THREAD_NULL)
+    if (handle != HAROLD_INVALID_HANDLE)
     {
         if (::WaitForSingleObject(handle, 1000) == WAIT_TIMEOUT)
         {

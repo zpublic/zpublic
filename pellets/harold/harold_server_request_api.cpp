@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "harold_server_request_api.h"
 
 int HaroldServerRequestApi::OnRequest(struct mg_connection *conn)
