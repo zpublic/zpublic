@@ -26,11 +26,13 @@ namespace LuaBind
     {
         typedef A type;
     };
+
     template<typename A>
     struct base_type<A*>
     {
         typedef A type;
     };
+
     template<typename A>
     struct base_type<A&>
     {
@@ -39,11 +41,13 @@ namespace LuaBind
 
     template<bool C, typename A, typename B>
     struct if_ {};
+
     template<typename A, typename B>
     struct if_<true, A, B>
     {
         typedef A type;
     };
+
     template<typename A, typename B>
     struct if_<false, A, B>
     {
@@ -55,16 +59,19 @@ namespace LuaBind
     {
         static const bool value = false;
     };
+
     template<typename A>
     struct is_ptr<A*>
     {
         static const bool value = true;
     };
+
     template<typename A>
     struct is_ref
     {
         static const bool value = false;
     };
+
     template<typename A>
     struct is_ref<A&>
     {
@@ -79,6 +86,7 @@ namespace LuaBind
             return *(T*)input;
         }
     };
+
     template<typename T>
     struct void2ptr
     {
@@ -87,6 +95,7 @@ namespace LuaBind
             return (T*)input;
         }
     };
+
     template<typename T>
     struct void2ref
     {

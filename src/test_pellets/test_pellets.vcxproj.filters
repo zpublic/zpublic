@@ -56,9 +56,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="pellets\z_lua_bind\internal">
-      <UniqueIdentifier>{d335074b-7e50-4faa-9670-4fd49fc267d6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="pellets\z_win_utils">
       <UniqueIdentifier>{1fc910f7-9a6c-4c48-9597-9f0de36ed60a}</UniqueIdentifier>
     </Filter>
@@ -104,11 +101,8 @@
     <Filter Include="pellets\z_platform">
       <UniqueIdentifier>{3a1c1f70-0a46-4a28-9141-eab3446a1246}</UniqueIdentifier>
     </Filter>
-    <Filter Include="pellets\z_platform\win">
-      <UniqueIdentifier>{83896642-c25f-478f-ac7c-a956d9f49de8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="pellets\z_platform\linux">
-      <UniqueIdentifier>{9225f00f-becb-49e2-bcf4-8ad6cfa422a4}</UniqueIdentifier>
+    <Filter Include="pellets\z_platform\impl">
+      <UniqueIdentifier>{e091ba82-3289-4a5a-957a-997322805af5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -436,47 +430,8 @@
     <ClInclude Include="..\..\3rdparty\luasrc\lzio.h">
       <Filter>3rdparty\lua</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind.h">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_state.h">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_def.h">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_function_reg.h">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClInclude>
     <ClInclude Include="TestLuaBind.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_call.hpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_def.hpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_global.hpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal.hpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_functor.hpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.h">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.h">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.hpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\clipboard.hpp">
       <Filter>pellets\z_win_utils</Filter>
@@ -832,20 +787,74 @@
     <ClInclude Include="..\..\pellets\z_platform\z_platform_event.h">
       <Filter>pellets\z_platform</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_win_utils\com_init_security.h">
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_sleep.h">
+      <Filter>pellets\z_platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_win_event.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_win_mutex.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\wmi_query.h">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_event.hpp">
-      <Filter>pellets\z_platform\win</Filter>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_linux_event.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_mutex.hpp">
-      <Filter>pellets\z_platform\win</Filter>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_linux_mutex.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_event.hpp">
-      <Filter>pellets\z_platform\linux</Filter>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_thread.h">
+      <Filter>pellets\z_platform</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_mutex.hpp">
-      <Filter>pellets\z_platform\linux</Filter>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_win_thread.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\TestPlatform.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_linux_thread.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind.h">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_def.h">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_call.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_def.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_functor.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_global.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_function_reg.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_state.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1038,12 +1047,6 @@
     <ClCompile Include="..\..\3rdparty\luasrc\lzio.c">
       <Filter>3rdparty\lua</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_state.cpp">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_function_reg.cpp">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClCompile>
     <ClCompile Include="TestLuaBind.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -1076,12 +1079,6 @@
     </ClCompile>
     <ClCompile Include="TestTimer.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.cpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.cpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\pellets\z_win_utils\TestWinUtils.cpp">
       <Filter>src</Filter>

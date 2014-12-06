@@ -42,6 +42,7 @@ namespace LuaBind
             return 1;
         }
     };
+
     template<typename RVal, typename T1, typename T2, typename T3, typename T4>
     struct functor<RVal,T1,T2,T3,T4> 
     {
@@ -55,6 +56,7 @@ namespace LuaBind
             return 1;
         }
     };
+
     template<typename RVal, typename T1, typename T2, typename T3>
     struct functor<RVal,T1,T2,T3> 
     {
@@ -67,6 +69,7 @@ namespace LuaBind
             return 1;
         }
     };
+
     template<typename RVal, typename T1, typename T2>
     struct functor<RVal,T1,T2> 
     {
@@ -78,6 +81,7 @@ namespace LuaBind
             return 1;
         }
     };
+
     template<typename RVal, typename T1>
     struct functor<RVal,T1> 
     {
@@ -87,6 +91,7 @@ namespace LuaBind
             return 1;
         }
     };
+
     template<typename RVal>
     struct functor<RVal>
     {
@@ -112,6 +117,7 @@ namespace LuaBind
             return 0;
         }
     };
+
     template<typename T1, typename T2, typename T3, typename T4>
     struct functor<void, T1, T2, T3, T4>
     {
@@ -125,6 +131,7 @@ namespace LuaBind
             return 0;
         }
     };
+
     template<typename T1, typename T2, typename T3>
     struct functor<void, T1, T2, T3>
     {
@@ -137,6 +144,7 @@ namespace LuaBind
             return 0;
         }
     };
+
     template<typename T1, typename T2>
     struct functor<void, T1, T2>
     {
@@ -148,6 +156,7 @@ namespace LuaBind
             return 0;
         }
     };
+
     template<typename T1>
     struct functor<void, T1>
     {
@@ -157,6 +166,7 @@ namespace LuaBind
             return 0;
         }
     };
+
     template<>
     struct functor<void>
     {
@@ -176,6 +186,7 @@ namespace LuaBind
             return upvalue_<int(*)(lua_State*,T1)>(L)(L,lua_read<T1>::r(L,1));
         }
     };
+
     template<>
     struct functor<int,lua_State*>
     {
@@ -190,26 +201,31 @@ namespace LuaBind
     {
         lua_pushcclosure(L, functor<RVal>::invoke, 1);
     }
+
     template<typename RVal, typename T1> 
     void push_functor(lua_State *L, RVal (*func)(T1))
     { 
         lua_pushcclosure(L, functor<RVal,T1>::invoke, 1);
     }
+
     template<typename RVal, typename T1, typename T2> 
     void push_functor(lua_State *L, RVal (*func)(T1,T2))
     { 
         lua_pushcclosure(L, functor<RVal,T1,T2>::invoke, 1);
     }
+    
     template<typename RVal, typename T1, typename T2, typename T3> 
     void push_functor(lua_State *L, RVal (*func)(T1,T2,T3))
     { 
         lua_pushcclosure(L, functor<RVal,T1,T2,T3>::invoke, 1);
     }
+
     template<typename RVal, typename T1, typename T2, typename T3, typename T4> 
     void push_functor(lua_State *L, RVal (*func)(T1,T2,T3,T4))
     { 
         lua_pushcclosure(L, functor<RVal,T1,T2,T3,T4>::invoke, 1);
     }
+
     template<typename RVal, typename T1, typename T2, typename T3, typename T4, typename T5> 
     void push_functor(lua_State *L, RVal (*func)(T1,T2,T3,T4,T5))
     { 

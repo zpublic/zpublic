@@ -16,11 +16,23 @@
  ************************************************************************/
 #pragma once
 
-#include "z_lua_bind_internal_push.hpp"
-#include "z_lua_bind_internal_read.hpp"
-#include "z_lua_bind_internal_pop.hpp"
-#include "z_lua_bind_internal_global.hpp"
-#include "z_lua_bind_internal_typetrait.hpp"
-#include "z_lua_bind_internal_functor.hpp"
-#include "z_lua_bind_internal_def.hpp"
-#include "z_lua_bind_internal_call.hpp"
+namespace zl
+{
+namespace LuaBind
+{
+
+    template<typename T>
+    T pop(lua_State *L)
+    {
+        T t = lua_read<T>::r(L, -1);
+        lua_pop(L, 1);
+        return t;
+    }
+
+    template<>
+    inline void pop(lua_State *L)
+    {
+        lua_pop(L, 1);
+    }
+
+}}
