@@ -5,13 +5,23 @@ int HaroldServerRequestDownload::OnRequest(struct mg_connection *conn)
     if (conn->uri)
     {
         std::string sUri(conn->uri);
-        std::map<std::string, std::string>::iterator it = m_mapFileList.find(sUri);
-        if (it != m_mapFileList.end())
+        std::string sFilePath;
+
         {
-            mg_send_file(conn, it->second.c_str(), NULL);
-            return 3;
+            z_mutex_guard guard(m_mutex);
+            std::map<std::string, std::string>::iterator it = m_mapFileList.find(sUri);
+            if (it == m_mapFileList.end())
+            {
+                goto Exit0;
+            }
+            sFilePath = it->second;
         }
+
+        mg_send_file(conn, sFilePath.c_str(), NULL);
+        return 3;
     }
+
+Exit0:
     return 0;
 }
 
@@ -21,7 +31,12 @@ bool HaroldServerRequestDownload::InsertDownload(const std::string& uri, const s
     {
         return false;
     }
-    m_mapFileList[uri] = file;
+
+    {
+        z_mutex_guard guard(m_mutex);
+        m_mapFileList[uri] = file;
+    }
+
     return true;
 }
 
@@ -31,10 +46,15 @@ bool HaroldServerRequestDownload::RemoveDownload(const std::string& uri)
     {
         return false;
     }
-    std::map<std::string, std::string>::iterator it = m_mapFileList.find(uri);
-    if (it != m_mapFileList.end())
+
     {
-        m_mapFileList.erase(it);
+        z_mutex_guard guard(m_mutex);
+        std::map<std::string, std::string>::iterator it = m_mapFileList.find(uri);
+        if (it != m_mapFileList.end())
+        {
+            m_mapFileList.erase(it);
+        }
     }
+
     return true;
 }
