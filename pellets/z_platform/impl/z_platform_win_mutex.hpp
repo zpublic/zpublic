@@ -29,7 +29,7 @@ inline zl_mutex_impl::~zl_mutex_impl()
 inline bool zl_mutex_impl::try_lock()
 { return (!!TryEnterCriticalSection(&mx_)); }
 
-inline void zl_mutex_impl::lock()\
+inline void zl_mutex_impl::lock()
 { ::EnterCriticalSection(&mx_); }
 
 inline void zl_mutex_impl::unlock()
