@@ -8,7 +8,7 @@ int HaroldServerRequestDynamicDownload::OnRequest(struct mg_connection *conn)
         std::string sFilePath;
 
         {
-            m_mutex.lock();
+            zl_lock_guard guard(m_mutex);
             std::map<std::string, std::string>::iterator it = m_mapFileList.find(sUri);
             if (it == m_mapFileList.end())
             {
@@ -33,7 +33,7 @@ bool HaroldServerRequestDynamicDownload::InsertDownload(const std::string& uri, 
     }
 
     {
-        m_mutex.lock();
+        zl_lock_guard guard(m_mutex);
         m_mapFileList[uri] = file;
     }
 
@@ -48,7 +48,7 @@ bool HaroldServerRequestDynamicDownload::RemoveDownload(const std::string& uri)
     }
 
     {
-        m_mutex.lock();
+        zl_lock_guard guard(m_mutex);
         std::map<std::string, std::string>::iterator it = m_mapFileList.find(uri);
         if (it != m_mapFileList.end())
         {

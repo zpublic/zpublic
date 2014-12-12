@@ -13,6 +13,6 @@ public:
     bool RemoveDownload(const std::string& uri);
 
 protected:
-    zl_mutex                                 m_mutex;
+    zl_mutex                                m_mutex;
     std::map<std::string, std::string>      m_mapFileList;
 };
