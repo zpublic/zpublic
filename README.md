@@ -15,7 +15,6 @@ zpublic是一个主要用于代码尝试和代码收集的c++开源项目。
 3rdparty：第三方库代码和lib  
 doc：文档  
 pellets：一些相对独立的代码模块  
-public：基础代码  
 sln：所有工程的解决方案文件都在这  
 src：代码  
 zlui：界面尝试相关的代码  

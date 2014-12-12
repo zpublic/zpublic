@@ -238,18 +238,28 @@
     <ClInclude Include="..\..\pellets\z_net\z_net_header.h" />
     <ClInclude Include="..\..\pellets\z_net\z_net_socket_address_ipv4.h" />
     <ClInclude Include="..\..\pellets\z_net\z_net_wsa_initializer.hpp" />
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_linux_event.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_linux_mutex.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_linux_thread.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_win_event.hpp" />
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_win_mutex.hpp" />
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_win_thread.hpp" />
+    <ClInclude Include="..\..\pellets\z_platform\TestPlatform.h" />
     <ClInclude Include="..\..\pellets\z_platform\z_platform.h" />
     <ClInclude Include="..\..\pellets\z_platform\z_platform_def.h" />
     <ClInclude Include="..\..\pellets\z_platform\z_platform_event.h" />
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_event.hpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_linux_mutex.hpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
     <ClInclude Include="..\..\pellets\z_platform\z_platform_mutex.h" />
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_event.hpp" />
-    <ClInclude Include="..\..\pellets\z_platform\z_platform_win_mutex.hpp" />
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_sleep.h" />
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_thread.h" />
     <ClInclude Include="..\..\pellets\z_thread_pool\z_task.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
@@ -281,7 +291,7 @@
     <ClInclude Include="..\..\pellets\z_win_utils\clipboard.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\cmdline.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\com_init.h" />
-    <ClInclude Include="..\..\pellets\z_win_utils\com_init_security.h" />
+    <ClInclude Include="..\..\pellets\z_win_utils\wmi_query.h" />
     <ClInclude Include="..\..\pellets\z_win_utils\console_color.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\cpu.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\crc32.hpp" />
