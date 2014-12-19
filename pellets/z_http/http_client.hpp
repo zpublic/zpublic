@@ -169,6 +169,44 @@ Exit0:
                 return nReturn;
             }
 
+            int PostData(
+                LPCTSTR szUrl,
+                unsigned char *pData,
+                DWORD dwLength,
+                ZLMemWrite *pMem,
+                const std::map<CString,CString>& mapHeaders, // 消息头
+                int nTimeLimit = 0)
+            {
+                int nReturn = 0;
+                ZLStopHttpWriteWrap writeWrap(m_stop, pMem);
+                ZLStopHttpProgress progressWrap(m_stop);
+                ZLSimpleCurl curl;
+
+                SetProxy(curl);
+                curl.SetWriteCallBack(&writeWrap);
+                curl.SetProgressCallBack(&progressWrap);
+                curl.SetPostData(pData, dwLength);
+                curl.SetMethod(_T("post"));
+
+                // 设置消息头
+                CString sTmp;
+                for (std::map<CString,CString>::const_iterator it = mapHeaders.begin();
+                    it != mapHeaders.end();
+                    ++it)
+                {
+                    sTmp.Format(L"%s: %s", it->first, it->second);
+                    curl.AppendHeaderList(sTmp);
+                }
+
+                if (nTimeLimit)
+                    curl.SetTimeLimit(nTimeLimit);
+
+                if (!curl.Navigate(szUrl))
+                    nReturn = curl.GetStatus();
+
+                return nReturn;
+            }
+
             void StopAllHttpRequest()
             {
                 m_stop.Set();
