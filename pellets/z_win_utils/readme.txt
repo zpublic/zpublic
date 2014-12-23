@@ -17,6 +17,7 @@ o acl                       - 访问控制列表相关
 o autorun                   - 系统启动项
 o base64                    - base64编码解码
 o browser                   - 浏览器相关
+o buffer                    - buffer类
 o clipboard                 - 剪切板操作
 c cmdline                   - 命令行参数处理
 c com_init                  - CoInitialize相关
@@ -33,6 +34,7 @@ o error_code                - 错误码相关
 c file_enum                 - 文件枚举
 c file_icon                 - 文件图标相关
 o file_info                 - 文件信息
+o file_operation            - 文件操作
 c file_version              - 文件版本信息
 c gdiplus                   - gdiplus初始化相关
 c ini                       - ini操作
