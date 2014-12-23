@@ -18,18 +18,30 @@
 
 CkxlolDlg::CkxlolDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CkxlolDlg::IDD, pParent)
+    , m_ulShenli(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 void CkxlolDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialogEx::DoDataExchange(pDX);
+    CDialogEx::DoDataExchange(pDX);
+    DDX_Text(pDX, IDC_EDIT_CURRENT_SHENLI, m_ulShenli);
+    DDX_Control(pDX, IDC_LIST_MSG, m_listMsg);
+    DDX_Control(pDX, IDC_BTN_NINGJUSHENLI, m_btnNingjushenli);
 }
 
 BEGIN_MESSAGE_MAP(CkxlolDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+    ON_BN_CLICKED(IDC_BTN_GOTO_DONGLIJIAN, &CkxlolDlg::OnBnClickedBtnGotoDonglijian)
+    ON_BN_CLICKED(IDC_BTN_GOTO_YUANSHIYUZHOU, &CkxlolDlg::OnBnClickedBtnGotoYuanshiyuzhou)
+    ON_BN_CLICKED(IDC_BTN_NINGJUSHENLI, &CkxlolDlg::OnBnClickedBtnNingjushenli)
+    ON_BN_CLICKED(IDC_BTN_BUILD, &CkxlolDlg::OnBnClickedBtnBuild)
+    ON_BN_CLICKED(IDC_BTN_MAKE, &CkxlolDlg::OnBnClickedBtnMake)
+    ON_BN_CLICKED(IDC_BTN_PRACTIOCE, &CkxlolDlg::OnBnClickedBtnPractioce)
+    ON_BN_CLICKED(IDC_BTN_CONNECT_XUKONG, &CkxlolDlg::OnBnClickedBtnConnectXukong)
+    ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -85,3 +97,68 @@ HCURSOR CkxlolDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CkxlolDlg::OnBnClickedBtnGotoDonglijian()
+{
+    // TODO:  在此添加控件通知处理程序代码
+}
+
+
+void CkxlolDlg::OnBnClickedBtnGotoYuanshiyuzhou()
+{
+    // TODO:  在此添加控件通知处理程序代码
+}
+
+
+void CkxlolDlg::OnBnClickedBtnNingjushenli()
+{
+    m_listMsg.AddString(L"开始凝聚神力...");
+    m_btnNingjushenli.EnableWindow(FALSE);
+    m_btnNingjushenli.SetWindowText(L"正在凝聚神力");
+    SetTimer(1, 3000, NULL);
+}
+
+
+void CkxlolDlg::OnBnClickedBtnBuild()
+{
+    // TODO:  在此添加控件通知处理程序代码
+}
+
+
+void CkxlolDlg::OnBnClickedBtnMake()
+{
+    // TODO:  在此添加控件通知处理程序代码
+}
+
+
+void CkxlolDlg::OnBnClickedBtnPractioce()
+{
+    // TODO:  在此添加控件通知处理程序代码
+}
+
+
+void CkxlolDlg::OnBnClickedBtnConnectXukong()
+{
+    // TODO:  在此添加控件通知处理程序代码
+}
+
+
+void CkxlolDlg::OnTimer(UINT_PTR nIDEvent)
+{
+    switch (nIDEvent)
+    {
+    case 1:
+        KillTimer(1);
+        m_listMsg.AddString(L"凝聚神力完成，增加1点神力");
+        m_btnNingjushenli.EnableWindow(TRUE);
+        m_btnNingjushenli.SetWindowText(L"凝聚神力");
+        m_ulShenli++;
+        UpdateData(FALSE);
+        break;
+    default:
+        break;
+    }
+
+    CDialogEx::OnTimer(nIDEvent);
+}
