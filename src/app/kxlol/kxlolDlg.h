@@ -4,6 +4,7 @@
 
 #pragma once
 #include "afxwin.h"
+#include "afxcmn.h"
 
 
 // CkxlolDlg 对话框
@@ -47,4 +48,6 @@ public:
     // 凝聚神力按钮
     CButton m_btnNingjushenli;
     afx_msg void OnTimer(UINT_PTR nIDEvent);
+    // 当前拥有的资源
+    CTreeCtrl m_treeRes;
 };

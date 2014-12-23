@@ -29,6 +29,7 @@ void CkxlolDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_EDIT_CURRENT_SHENLI, m_ulShenli);
     DDX_Control(pDX, IDC_LIST_MSG, m_listMsg);
     DDX_Control(pDX, IDC_BTN_NINGJUSHENLI, m_btnNingjushenli);
+    DDX_Control(pDX, IDC_TREE_RES, m_treeRes);
 }
 
 BEGIN_MESSAGE_MAP(CkxlolDlg, CDialogEx)
@@ -56,7 +57,15 @@ BOOL CkxlolDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// 设置大图标
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
-	// TODO:  在此添加额外的初始化代码
+    HTREEITEM h1 = m_treeRes.InsertItem(L"原始位面");
+    m_treeRes.InsertItem(L"星球：1", h1);
+
+    HTREEITEM h2 = m_treeRes.InsertItem(L"部下");
+    m_treeRes.InsertItem(L"食人魔：3", h2);
+    m_treeRes.InsertItem(L"位面破灭者：1", h2);
+
+    HTREEITEM h3 = m_treeRes.InsertItem(L"材料");
+    m_treeRes.InsertItem(L"泡面：2", h3);
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -101,13 +110,13 @@ HCURSOR CkxlolDlg::OnQueryDragIcon()
 
 void CkxlolDlg::OnBnClickedBtnGotoDonglijian()
 {
-    // TODO:  在此添加控件通知处理程序代码
+    MessageBox(L"动力茧还没做。。。");
 }
 
 
 void CkxlolDlg::OnBnClickedBtnGotoYuanshiyuzhou()
 {
-    // TODO:  在此添加控件通知处理程序代码
+    MessageBox(L"原始位面还没做。。。");
 }
 
 
