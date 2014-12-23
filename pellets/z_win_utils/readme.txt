@@ -19,6 +19,7 @@ o base64                    - base64编码解码
 o browser                   - 浏览器相关
 o clipboard                 - 剪切板操作
 c cmdline                   - 命令行参数处理
+c com_init                  - CoInitialize相关
 o console_color             - 命令行颜色
 o cpu                       - cpu信息
 o crc32                     - crc效验和计算
@@ -55,6 +56,8 @@ o sign_info                 - 签名证书信息获取
 c sign_verify               - 数字签名相关
 o software_check            - 软件共存检测
 o split_str                 - 字符串分割
+o str_conv                  - 编码转换
+o system_info               - 系统信息获取
 o system_path               - 系统相关路径操作
 o system_version            - 系统版本信息
 o task_scheduler            - 计划任务
@@ -68,11 +71,11 @@ c uri_query                 - url参数列表
 o uri_utils                 - url编码相关
 o usid                      - CurrentUserSID处理
 o uuid                      - uuid相关
+c wmi_query                 - wmi查询相关
 o wow64                     - 32位、64位兼容处理
-o str_conv                  - 字符串转换
 
 todos:
 ------
 + screen_capture            - 截屏
-+ string                    - 字符串编码转换
++ aes                       - aes加解密
 ...

@@ -856,6 +856,12 @@
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_state.hpp">
       <Filter>pellets\z_lua_bind</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\buffer.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\file_operation.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">

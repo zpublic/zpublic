@@ -181,16 +181,16 @@ Exit0:
          * @return 是文件夹返回TRUE，否则FALSE
          * @see 
          */
-		static BOOL IsDirectory(LPCTSTR szPath)
-		{
-			DWORD dwAttr = ::GetFileAttributes(szPath);
-			if( dwAttr != (DWORD)-1 && 
-				(dwAttr & FILE_ATTRIBUTE_DIRECTORY) )
-			{
-				return TRUE;
-			}
-			return FALSE;
-		}
+        static BOOL IsDirectory(LPCTSTR szPath)
+        {
+            DWORD dwAttr = ::GetFileAttributes(szPath);
+            if( dwAttr != (DWORD)-1 && 
+                (dwAttr & FILE_ATTRIBUTE_DIRECTORY) )
+            {
+                return TRUE;
+            }
+            return FALSE;
+        }
     };
 
 }
