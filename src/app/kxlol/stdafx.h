@@ -16,6 +16,15 @@
 // 关闭 MFC 对某些常见但经常可放心忽略的警告消息的隐藏
 #define _AFX_ALL_WARNINGS
 
+///> error C4995: “swprintf”:  名称被标记为 #pragma deprecated
+#pragma warning(disable:4995)
+
+///> Function call with parameters that may be unsafe - this call relies
+///> on the caller to check that the passed values are correct. To disable
+///> this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how
+///> to use Visual C++ 'Checked Iterators'
+#pragma warning(disable:4996)
+
 #include <afxwin.h>         // MFC 核心组件和标准组件
 #include <afxext.h>         // MFC 扩展
 
@@ -35,11 +44,6 @@
 
 
 #include <afxsock.h>            // MFC 套接字扩展
-
-
-
-
-
 
 
 #ifdef _UNICODE

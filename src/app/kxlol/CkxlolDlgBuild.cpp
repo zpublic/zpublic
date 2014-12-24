@@ -28,7 +28,14 @@ void CkxlolDlgBuild::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CkxlolDlgBuild, CDialogEx)
+    ON_BN_CLICKED(IDC_BTN_BUILD_SHENMINXINQIU, &CkxlolDlgBuild::OnBnClickedBtnBuildShenminxinqiu)
 END_MESSAGE_MAP()
 
 
 // CkxlolDlgBuild 消息处理程序
+
+
+void CkxlolDlgBuild::OnBnClickedBtnBuildShenminxinqiu()
+{
+    GAME.Logic().Build().Build(L"shenminxinqiu");
+}
