@@ -237,6 +237,7 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SavesDef.h" />
     <ClInclude Include="SavesMgr.h" />
+    <ClInclude Include="ScriptGui.h" />
     <ClInclude Include="ScriptMgr.h" />
     <ClInclude Include="ScriptPlayer.h" />
     <ClInclude Include="stdafx.h" />
@@ -388,6 +389,7 @@
     <ClCompile Include="PlayerResBag.cpp" />
     <ClCompile Include="PlayerResExt.cpp" />
     <ClCompile Include="SavesMgr.cpp" />
+    <ClCompile Include="ScriptGui.cpp" />
     <ClCompile Include="ScriptMgr.cpp" />
     <ClCompile Include="ScriptPlayer.cpp" />
     <ClCompile Include="stdafx.cpp">

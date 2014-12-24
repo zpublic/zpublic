@@ -445,6 +445,9 @@
     <ClInclude Include="ScriptPlayer.h">
       <Filter>src\game\script</Filter>
     </ClInclude>
+    <ClInclude Include="ScriptGui.h">
+      <Filter>src\game\script</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CkxlolDlgBuild.cpp">
@@ -592,6 +595,9 @@
       <Filter>src\game\script</Filter>
     </ClCompile>
     <ClCompile Include="ScriptPlayer.cpp">
+      <Filter>src\game\script</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptGui.cpp">
       <Filter>src\game\script</Filter>
     </ClCompile>
   </ItemGroup>

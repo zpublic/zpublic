@@ -22,8 +22,8 @@ int CLogicBuild::Build(const wchar_t* pName)
         z_lua_state lua;
         if (lua.create() == 0)
         {
+            GAME.Script().RegAll(lua);
             if (0 == lua.open_all_libs()
-                && 0 == lua.reg_lib(GAME.Script().Player())
                 && 0 == lua.dofile(ZLW2A(sPath)))
             {
                 nRet = lua.call<int>("build");
