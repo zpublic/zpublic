@@ -2,6 +2,7 @@
 #include "PlayerObject.h"
 #include "SavesMgr.h"
 #include "LogicMgr.h"
+#include "ScriptMgr.h"
 
 class CGameControl
 {
@@ -31,9 +32,15 @@ public:
         return m_cLogic;
     }
 
+    CScriptMgr& Script()
+    {
+        return m_cScript;
+    }
+
 private:
     CPlayerObject           m_cPlayer;
     CSavesMgr               m_cSaves;
     CLogicMgr               m_cLogic;
+    CScriptMgr              m_cScript;
 };
 

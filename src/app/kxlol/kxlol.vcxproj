@@ -237,6 +237,8 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SavesDef.h" />
     <ClInclude Include="SavesMgr.h" />
+    <ClInclude Include="ScriptMgr.h" />
+    <ClInclude Include="ScriptPlayer.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -386,6 +388,8 @@
     <ClCompile Include="PlayerResBag.cpp" />
     <ClCompile Include="PlayerResExt.cpp" />
     <ClCompile Include="SavesMgr.cpp" />
+    <ClCompile Include="ScriptMgr.cpp" />
+    <ClCompile Include="ScriptPlayer.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

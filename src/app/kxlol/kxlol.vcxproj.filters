@@ -53,6 +53,9 @@
     <Filter Include="3rdparty\lua">
       <UniqueIdentifier>{5b2cb495-d53f-4b46-b694-9d738f68b27b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\game\script">
+      <UniqueIdentifier>{0bad07f2-4bd1-4f88-b3d7-4e115063d6e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CkxlolDlgBuild.h">
@@ -436,6 +439,12 @@
     <ClInclude Include="..\..\..\3rdparty\luasrc\lzio.h">
       <Filter>3rdparty\lua</Filter>
     </ClInclude>
+    <ClInclude Include="ScriptMgr.h">
+      <Filter>src\game\script</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptPlayer.h">
+      <Filter>src\game\script</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CkxlolDlgBuild.cpp">
@@ -578,6 +587,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\3rdparty\luasrc\lzio.c">
       <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptMgr.cpp">
+      <Filter>src\game\script</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptPlayer.cpp">
+      <Filter>src\game\script</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
