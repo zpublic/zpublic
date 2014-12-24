@@ -14,6 +14,21 @@
     <Filter Include="src\dlg">
       <UniqueIdentifier>{7fa99ed8-2ac1-4409-8f32-02d14c3380cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\game">
+      <UniqueIdentifier>{f7893104-91f9-4a3c-a46e-c57a749abc7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\player">
+      <UniqueIdentifier>{fe4a4c8c-fd6e-4c38-9ab4-97e77cb3898f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\control">
+      <UniqueIdentifier>{1e25cc33-e7f7-4073-94b5-3bb664f82c04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\publish">
+      <UniqueIdentifier>{b1e154f6-27d0-474f-8ed1-b13ae42c2432}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\publish\thread_sync">
+      <UniqueIdentifier>{78ef791c-843d-4c41-904d-c66bd24fca37}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CkxlolDlgBuild.h">
@@ -34,6 +49,45 @@
     <ClInclude Include="targetver.h">
       <Filter>src\main</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerBasicInfo.h">
+      <Filter>src\game\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerObject.h">
+      <Filter>src\game\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerResBag.h">
+      <Filter>src\game\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerResExt.h">
+      <Filter>src\game\player</Filter>
+    </ClInclude>
+    <ClInclude Include="GameControl.h">
+      <Filter>src\game\control</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_mutex.hpp">
+      <Filter>src\publish\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_semaphore.hpp">
+      <Filter>src\publish\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_syncobject.hpp">
+      <Filter>src\publish\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_thread_sync_def.h">
+      <Filter>src\publish\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\thread_sync.h">
+      <Filter>src\publish\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_atomic.hpp">
+      <Filter>src\publish\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_criticalsection.hpp">
+      <Filter>src\publish\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_event.hpp">
+      <Filter>src\publish\thread_sync</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CkxlolDlgBuild.cpp">
@@ -47,6 +101,21 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>src\main</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBasicInfo.cpp">
+      <Filter>src\game\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerObject.cpp">
+      <Filter>src\game\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerResBag.cpp">
+      <Filter>src\game\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerResExt.cpp">
+      <Filter>src\game\player</Filter>
+    </ClCompile>
+    <ClCompile Include="GameControl.cpp">
+      <Filter>src\game\control</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

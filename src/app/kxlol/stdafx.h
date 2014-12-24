@@ -53,3 +53,7 @@
 #endif
 
 
+#include "thread_sync/thread_sync.h"
+
+#include "GameControl.h"
+#define GAME    CGameControl::Instance()

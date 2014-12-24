@@ -54,6 +54,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../../pellets;../../../3rdparty;./;../../../</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -79,6 +80,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../../pellets;../../../3rdparty;./;../../../</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -101,17 +103,35 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\pellets\thread_sync\thread_sync.h" />
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_atomic.hpp" />
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_criticalsection.hpp" />
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_event.hpp" />
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_mutex.hpp" />
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_semaphore.hpp" />
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_syncobject.hpp" />
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_thread_sync_def.h" />
     <ClInclude Include="CkxlolDlgBuild.h" />
+    <ClInclude Include="GameControl.h" />
     <ClInclude Include="kxlol.h" />
     <ClInclude Include="kxlolDlg.h" />
+    <ClInclude Include="PlayerBasicInfo.h" />
+    <ClInclude Include="PlayerObject.h" />
+    <ClInclude Include="PlayerResBag.h" />
+    <ClInclude Include="PlayerResExt.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CkxlolDlgBuild.cpp" />
+    <ClCompile Include="GameControl.cpp" />
     <ClCompile Include="kxlol.cpp" />
     <ClCompile Include="kxlolDlg.cpp" />
+    <ClCompile Include="PlayerBasicInfo.cpp" />
+    <ClCompile Include="PlayerObject.cpp" />
+    <ClCompile Include="PlayerResBag.cpp" />
+    <ClCompile Include="PlayerResExt.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

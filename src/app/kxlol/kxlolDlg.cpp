@@ -68,6 +68,8 @@ BOOL CkxlolDlg::OnInitDialog()
     HTREEITEM h3 = m_treeRes.InsertItem(L"材料");
     m_treeRes.InsertItem(L"泡面：2", h3);
 
+    m_ulShenli = GAME.Player()->BasicInfo()->GetShenli();
+
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -164,7 +166,8 @@ void CkxlolDlg::OnTimer(UINT_PTR nIDEvent)
         m_listMsg.AddString(L"凝聚神力完成，增加1点空虚神力");
         m_btnNingjushenli.EnableWindow(TRUE);
         m_btnNingjushenli.SetWindowText(L"凝聚神力");
-        m_ulShenli++;
+        GAME.Player()->BasicInfo()->AddShenli(1);
+        m_ulShenli = GAME.Player()->BasicInfo()->GetShenli();
         UpdateData(FALSE);
         break;
     default:
