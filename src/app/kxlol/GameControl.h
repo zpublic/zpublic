@@ -1,5 +1,6 @@
 #pragma once
 #include "PlayerObject.h"
+#include "SavesMgr.h"
 
 class CGameControl
 {
