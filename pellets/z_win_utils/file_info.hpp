@@ -108,15 +108,15 @@ namespace WinUtils
          * @brief 文件信息类
          * @author Manuel Laflamme
          */
-        class CFileVersion
+        class ZLFileVersion
         {
         public:
-            CFileVersion()
+            ZLFileVersion()
             {
                 m_lpVersionData = NULL;
                 m_dwLangCharset = 0;
             }
-            ~CFileVersion()
+            ~ZLFileVersion()
             {
                 Close();
             }
