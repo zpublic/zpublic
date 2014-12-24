@@ -669,6 +669,14 @@ public:
 
         TEST_ASSERT(ftWrite.dwHighDateTime  > 0);
         TEST_ASSERT(ftWrite.dwLowDateTime   > 0);
+
+        zl::WinUtils::ZLFileInfo::CFileVersion versioner;
+        BOOL result = versioner.Open(sFile);
+        if (result)
+        {
+            TEST_ASSERT(CString(L"Registry Editor") == versioner.GetFileDescription());
+        }
+        TEST_ASSERT(result);
     }
     
     void test_uuid()
