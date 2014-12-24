@@ -6,6 +6,7 @@
 #include "kxlol.h"
 #include "kxlolDlg.h"
 #include "afxdialogex.h"
+#include "CkxlolDlgBuild.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -131,7 +132,8 @@ void CkxlolDlg::OnBnClickedBtnNingjushenli()
 
 void CkxlolDlg::OnBnClickedBtnBuild()
 {
-    // TODO:  在此添加控件通知处理程序代码
+    CkxlolDlgBuild dlg;
+    dlg.DoModal();
 }
 
 
@@ -159,7 +161,7 @@ void CkxlolDlg::OnTimer(UINT_PTR nIDEvent)
     {
     case 1:
         KillTimer(1);
-        m_listMsg.AddString(L"凝聚神力完成，增加1点神力");
+        m_listMsg.AddString(L"凝聚神力完成，增加1点空虚神力");
         m_btnNingjushenli.EnableWindow(TRUE);
         m_btnNingjushenli.SetWindowText(L"凝聚神力");
         m_ulShenli++;

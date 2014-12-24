@@ -8,36 +8,45 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="src\main">
+      <UniqueIdentifier>{a8613c1c-2c9e-4d90-a12d-5c56a7cdcbca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\dlg">
+      <UniqueIdentifier>{7fa99ed8-2ac1-4409-8f32-02d14c3380cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="kxlol.h">
-      <Filter>src</Filter>
+    <ClInclude Include="CkxlolDlgBuild.h">
+      <Filter>src\dlg</Filter>
     </ClInclude>
     <ClInclude Include="kxlolDlg.h">
-      <Filter>src</Filter>
+      <Filter>src\dlg</Filter>
+    </ClInclude>
+    <ClInclude Include="kxlol.h">
+      <Filter>src\main</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
-      <Filter>src</Filter>
+      <Filter>src\main</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
-      <Filter>src</Filter>
+      <Filter>src\main</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>src</Filter>
+      <Filter>src\main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="kxlol.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="CkxlolDlgBuild.cpp">
+      <Filter>src\dlg</Filter>
     </ClCompile>
     <ClCompile Include="kxlolDlg.cpp">
-      <Filter>src</Filter>
+      <Filter>src\dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="kxlol.cpp">
+      <Filter>src\main</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
-      <Filter>src</Filter>
+      <Filter>src\main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,5 +63,10 @@
     <Image Include="res\kxlol.ico">
       <Filter>res</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt">
+      <Filter>res</Filter>
+    </Text>
   </ItemGroup>
 </Project>
