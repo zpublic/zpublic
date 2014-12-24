@@ -38,6 +38,9 @@
     <Filter Include="src\publish\z_win_utils">
       <UniqueIdentifier>{b94f977f-9dcd-4a52-be70-a96ecde0c3c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\game\logic">
+      <UniqueIdentifier>{d4c2b2d5-6569-4646-adbb-c5dc748b4078}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CkxlolDlgBuild.h">
@@ -334,6 +337,18 @@
     <ClInclude Include="SavesDef.h">
       <Filter>src\game\saves</Filter>
     </ClInclude>
+    <ClInclude Include="LogicMgr.h">
+      <Filter>src\game\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="LogicBuild.h">
+      <Filter>src\game\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="LogicMake.h">
+      <Filter>src\game\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="LogicPractice.h">
+      <Filter>src\game\logic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CkxlolDlgBuild.cpp">
@@ -365,6 +380,18 @@
     </ClCompile>
     <ClCompile Include="SavesMgr.cpp">
       <Filter>src\game\saves</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicMgr.cpp">
+      <Filter>src\game\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicBuild.cpp">
+      <Filter>src\game\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicMake.cpp">
+      <Filter>src\game\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicPractice.cpp">
+      <Filter>src\game\logic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

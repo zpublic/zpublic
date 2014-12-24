@@ -193,6 +193,10 @@
     <ClInclude Include="GameControl.h" />
     <ClInclude Include="kxlol.h" />
     <ClInclude Include="kxlolDlg.h" />
+    <ClInclude Include="LogicBuild.h" />
+    <ClInclude Include="LogicMake.h" />
+    <ClInclude Include="LogicMgr.h" />
+    <ClInclude Include="LogicPractice.h" />
     <ClInclude Include="PlayerBasicInfo.h" />
     <ClInclude Include="PlayerObject.h" />
     <ClInclude Include="PlayerResBag.h" />
@@ -208,6 +212,10 @@
     <ClCompile Include="GameControl.cpp" />
     <ClCompile Include="kxlol.cpp" />
     <ClCompile Include="kxlolDlg.cpp" />
+    <ClCompile Include="LogicBuild.cpp" />
+    <ClCompile Include="LogicMake.cpp" />
+    <ClCompile Include="LogicMgr.cpp" />
+    <ClCompile Include="LogicPractice.cpp" />
     <ClCompile Include="PlayerBasicInfo.cpp" />
     <ClCompile Include="PlayerObject.cpp" />
     <ClCompile Include="PlayerResBag.cpp" />

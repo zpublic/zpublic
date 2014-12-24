@@ -1,6 +1,7 @@
 #pragma once
 #include "PlayerObject.h"
 #include "SavesMgr.h"
+#include "LogicMgr.h"
 
 class CGameControl
 {
@@ -15,18 +16,24 @@ public:
     }
 
 public:
-    CPlayerObject* Player()
+    CPlayerObject& Player()
     {
-        return &m_cPlayer;
+        return m_cPlayer;
     }
 
-    CSavesMgr* Saves()
+    CSavesMgr& Saves()
     {
-        return &m_cSaves;
+        return m_cSaves;
+    }
+
+    CLogicMgr& Logic()
+    {
+        return m_cLogic;
     }
 
 private:
     CPlayerObject           m_cPlayer;
     CSavesMgr               m_cSaves;
+    CLogicMgr               m_cLogic;
 };
 

@@ -21,7 +21,7 @@ int CSavesMgr::Save()
     int nRet = -1;
     KXLOL_SAVES_HEAD head;
     KXLOL_SAVES_DATA data;
-    data.m_ullShenli = GAME.Player()->BasicInfo()->GetShenli();
+    data.m_ullShenli = GAME.Player().BasicInfo().GetShenli();
 
     CString sPath = ZLPath::GetModuleFolder(NULL) + "data\\kxlol.dat";
     if (!ZLFileOperation::EnsureFileDir(sPath))

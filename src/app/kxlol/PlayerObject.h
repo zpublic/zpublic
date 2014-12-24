@@ -10,19 +10,19 @@ public:
     CPlayerObject();
     ~CPlayerObject();
 
-    CPlayerBasicInfo* BasicInfo()
+    CPlayerBasicInfo& BasicInfo()
     {
-        return &m_cBasicInfo;
+        return m_cBasicInfo;
     }
 
-    CPlayerResBag* RegBag()
+    CPlayerResBag& RegBag()
     {
-        return &m_cResBag;
+        return m_cResBag;
     }
 
-    CPlayerResExt* ResExt()
+    CPlayerResExt& ResExt()
     {
-        return &m_cResExt;
+        return m_cResExt;
     }
 
 private:
