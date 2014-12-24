@@ -227,6 +227,7 @@
     <ClInclude Include="kxlol.h" />
     <ClInclude Include="kxlolDlg.h" />
     <ClInclude Include="LogicBuild.h" />
+    <ClInclude Include="LogicGui.h" />
     <ClInclude Include="LogicMake.h" />
     <ClInclude Include="LogicMgr.h" />
     <ClInclude Include="LogicPractice.h" />
@@ -381,6 +382,7 @@
     <ClCompile Include="kxlol.cpp" />
     <ClCompile Include="kxlolDlg.cpp" />
     <ClCompile Include="LogicBuild.cpp" />
+    <ClCompile Include="LogicGui.cpp" />
     <ClCompile Include="LogicMake.cpp" />
     <ClCompile Include="LogicMgr.cpp" />
     <ClCompile Include="LogicPractice.cpp" />
@@ -403,6 +405,7 @@
   <ItemGroup>
     <None Include="..\..\..\3rdparty\luasrc\Makefile" />
     <None Include="..\kxlol_bin\data\build_shenminxinqiu.lua" />
+    <None Include="..\kxlol_bin\data\gui_zhushenkongjian.lua" />
     <None Include="res\kxlol.rc2" />
   </ItemGroup>
   <ItemGroup>

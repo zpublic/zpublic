@@ -41,12 +41,6 @@
     <Filter Include="src\game\logic">
       <UniqueIdentifier>{d4c2b2d5-6569-4646-adbb-c5dc748b4078}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\game\logic\build">
-      <UniqueIdentifier>{11bf2b48-c4e1-4948-92fc-78d663300be4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\game\logic\build\script">
-      <UniqueIdentifier>{f9c1c35e-2e89-4744-9afb-5529276346c7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="3rdparty">
       <UniqueIdentifier>{20147582-3ddd-4418-bec9-32cb4016c257}</UniqueIdentifier>
     </Filter>
@@ -55,6 +49,9 @@
     </Filter>
     <Filter Include="src\game\script">
       <UniqueIdentifier>{0bad07f2-4bd1-4f88-b3d7-4e115063d6e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\script\lua">
+      <UniqueIdentifier>{82528fdc-20f0-4efa-9eb9-25051f9ba18b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -361,9 +358,6 @@
     <ClInclude Include="LogicPractice.h">
       <Filter>src\game\logic</Filter>
     </ClInclude>
-    <ClInclude Include="LogicBuild.h">
-      <Filter>src\game\logic\build</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\3rdparty\luasrc\lapi.h">
       <Filter>3rdparty\lua</Filter>
     </ClInclude>
@@ -448,6 +442,12 @@
     <ClInclude Include="ScriptGui.h">
       <Filter>src\game\script</Filter>
     </ClInclude>
+    <ClInclude Include="LogicBuild.h">
+      <Filter>src\game\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="LogicGui.h">
+      <Filter>src\game\logic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CkxlolDlgBuild.cpp">
@@ -488,9 +488,6 @@
     </ClCompile>
     <ClCompile Include="LogicPractice.cpp">
       <Filter>src\game\logic</Filter>
-    </ClCompile>
-    <ClCompile Include="LogicBuild.cpp">
-      <Filter>src\game\logic\build</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\3rdparty\luasrc\lapi.c">
       <Filter>3rdparty\lua</Filter>
@@ -600,6 +597,12 @@
     <ClCompile Include="ScriptGui.cpp">
       <Filter>src\game\script</Filter>
     </ClCompile>
+    <ClCompile Include="LogicBuild.cpp">
+      <Filter>src\game\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicGui.cpp">
+      <Filter>src\game\logic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="kxlol.rc">
@@ -610,11 +613,14 @@
     <None Include="res\kxlol.rc2">
       <Filter>res</Filter>
     </None>
-    <None Include="..\kxlol_bin\data\build_shenminxinqiu.lua">
-      <Filter>src\game\logic\build\script</Filter>
-    </None>
     <None Include="..\..\..\3rdparty\luasrc\Makefile">
       <Filter>3rdparty\lua</Filter>
+    </None>
+    <None Include="..\kxlol_bin\data\build_shenminxinqiu.lua">
+      <Filter>src\game\script\lua</Filter>
+    </None>
+    <None Include="..\kxlol_bin\data\gui_zhushenkongjian.lua">
+      <Filter>src\game\script\lua</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

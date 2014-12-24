@@ -1,4 +1,4 @@
-function can_build()
+local function can_build()
 	if player.get_shenli() >= 2 then
 		return true
 	end
