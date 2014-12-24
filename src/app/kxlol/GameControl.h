@@ -19,7 +19,13 @@ public:
         return &m_cPlayer;
     }
 
+    CSavesMgr* Saves()
+    {
+        return &m_cSaves;
+    }
+
 private:
     CPlayerObject           m_cPlayer;
+    CSavesMgr               m_cSaves;
 };
 

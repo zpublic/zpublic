@@ -54,6 +54,9 @@
 
 
 #include "thread_sync/thread_sync.h"
+#include "z_lua_bind/z_lua_bind.h"
+#include <WinSvc.h>
+#include "z_win_utils/win_utils.h"
 
 #include "GameControl.h"
 #define GAME    CGameControl::Instance()
