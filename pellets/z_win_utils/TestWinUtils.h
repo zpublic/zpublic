@@ -670,7 +670,7 @@ public:
         TEST_ASSERT(ftWrite.dwHighDateTime  > 0);
         TEST_ASSERT(ftWrite.dwLowDateTime   > 0);
 
-        zl::WinUtils::ZLFileInfo::CFileVersion versioner;
+        zl::WinUtils::ZLFileInfo::ZLFileVersion versioner;
         BOOL result = versioner.Open(sFile);
         if (result)
         {
