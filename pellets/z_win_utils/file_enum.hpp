@@ -45,7 +45,7 @@ namespace WinUtils
          * @brief 初始化
          * @param[in] lpDirName 路径
          * @param[in] lpPost    搜索文件类型，默认为所有文件
-		 * @param[in] maxCount  当数量超过该值将停止扫描，防止扫描过久问题，负值为无限制
+         * @param[in] maxCount  当数量超过该值将停止扫描，防止扫描过久问题，负值为无限制
          */
         ZLFileEnum(LPCTSTR lpDirName, LPCTSTR lpPost=_T("*.*"), int maxCount=-1)
         {
@@ -79,14 +79,14 @@ namespace WinUtils
                         fi.m_nSize  = wfd.nFileSizeLow;
                         m_listFiles.push_back(fi);
                     }
-					if (maxCount >= 0)
-					{
-						--maxCount;
-						if (maxCount == 0)
-						{
-							break;
-						}
-					}
+                    if (maxCount >= 0)
+                    {
+                        --maxCount;
+                        if (maxCount == 0)
+                        {
+                            break;
+                        }
+                    }
                 }while (::FindNextFile(hFind, &wfd));
                 ::FindClose( hFind );
             }

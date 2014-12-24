@@ -25,6 +25,7 @@
 #include "win_utils_header.h"
 #include "directory.hpp"
 #include "buffer.hpp"
+#include "file_enum.hpp"
 
 namespace zl
 {

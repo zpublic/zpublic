@@ -21,7 +21,7 @@
 
 #pragma once
 #include "win_utils_header.h"
-#include "com_init.h"
+#include "com_init.hpp"
 
 #include <wbemcli.h>
 #include <comutil.h>
