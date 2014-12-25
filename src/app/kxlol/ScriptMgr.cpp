@@ -14,6 +14,9 @@ CScriptMgr::CScriptMgr()
     LUA_INSERT(m_luaregPlayer, set_shenli);
     LUA_INSERT(m_luaregPlayer, add_shenli);
     LUA_INSERT(m_luaregPlayer, sub_shenli);
+    LUA_INSERT(m_luaregPlayer, get_res_num);
+    LUA_INSERT(m_luaregPlayer, add_res_num);
+    LUA_INSERT(m_luaregPlayer, sub_res_num);
 
     m_luaregGui.libname("gui");
     LUA_INSERT(m_luaregGui, update_gui);

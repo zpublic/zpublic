@@ -27,14 +27,6 @@ int CLogicBuild::Build(const wchar_t* pName)
                 && 0 == lua.dofile(ZLW2A(sPath)))
             {
                 nRet = lua.call<int>("build");
-                if (nRet == 0)
-                {
-                    MessageBox(0, L"成功  神力-3", 0, 0);
-                }
-                else
-                {
-                    MessageBox(0, L"失败  神力不够", 0, 0);
-                }
             }
         }
     }
