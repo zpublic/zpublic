@@ -29,6 +29,7 @@ void CkxlolDlgBuild::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CkxlolDlgBuild, CDialogEx)
     ON_BN_CLICKED(IDC_BTN_BUILD_SHENMINXINQIU, &CkxlolDlgBuild::OnBnClickedBtnBuildShenminxinqiu)
+	ON_BN_CLICKED(IDC_LUNHUISHENDIAN, &CkxlolDlgBuild::OnBnClickedLunhuishendian)
 END_MESSAGE_MAP()
 
 
@@ -38,4 +39,11 @@ END_MESSAGE_MAP()
 void CkxlolDlgBuild::OnBnClickedBtnBuildShenminxinqiu()
 {
     GAME.Logic().Build().Build(L"shenminxinqiu");
+}
+
+
+void CkxlolDlgBuild::OnBnClickedLunhuishendian()
+{
+	GAME.Logic().Build().Build(L"lunhuishendian");
+	// TODO: 在此添加控件通知处理程序代码
 }
