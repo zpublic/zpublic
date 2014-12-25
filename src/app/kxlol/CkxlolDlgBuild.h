@@ -20,4 +20,5 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
     afx_msg void OnBnClickedBtnBuildShenminxinqiu();
+	afx_msg void OnBnClickedLunhuishendian();
 };
