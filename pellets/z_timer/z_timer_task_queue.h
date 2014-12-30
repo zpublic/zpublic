@@ -25,6 +25,8 @@
  * 非线程安全，外部加锁来保证
  */
 
+NAMESPACE_ZL_BEGIN
+
 class TimerTaskBase;
 
 class TimerTaskQueue
@@ -60,3 +62,5 @@ public:
 private:
     std::priority_queue<TimerTaskBase*, std::vector<TimerTaskBase*>, TimerTaskCmp> queue_;
 };
+
+NAMESPACE_ZL_END
