@@ -71,8 +71,8 @@ BOOL CkxlolDlg::OnInitDialog()
 
     m_ulShenli = GAME.Player().BasicInfo().GetShenli();
 
-    TimerTaskNolmal* t = new TimerTaskNolmal(TimerBaiscTask::BasicMinuteTask);
-    t->Timeout(TimerCalcMilliseconds(1, 0));
+    zl::TimerTaskNolmal* t = new zl::TimerTaskNolmal(TimerBaiscTask::BasicMinuteTask);
+    t->Timeout(zl::TimerCalcMilliseconds(1, 0));
     t->Repeat(true);
     GAME.Timer().AddNormalTask(t);
 

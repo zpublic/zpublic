@@ -862,6 +862,9 @@
     <ClInclude Include="..\..\pellets\z_win_utils\system_info.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_timer\z_timer.h">
+      <Filter>pellets\z_timer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">
