@@ -56,6 +56,17 @@ public:
             ::CloseHandle(thread_);
             thread_ = NULL;
         }
+        {
+            z_mutex_guard x(queue_mutex_);
+            while (queue_.Size() > 0)
+            {
+                TimerTaskBase* pTask = queue_.Pop();
+                if (pTask && pTask->Release())
+                {
+                    delete pTask;
+                }
+            }
+        }
         return 0;
     }
     int Start()
