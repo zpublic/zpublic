@@ -418,6 +418,7 @@
     <None Include="..\kxlol_bin\data\build_lunhuishendian.lua" />
     <None Include="..\kxlol_bin\data\build_shenminxinqiu.lua" />
     <None Include="..\kxlol_bin\data\gui_zhushenkongjian.lua" />
+    <None Include="..\kxlol_bin\data\timer_basic_minute_task.lua" />
     <None Include="res\kxlol.rc2" />
   </ItemGroup>
   <ItemGroup>

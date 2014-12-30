@@ -664,6 +664,9 @@
     <None Include="..\kxlol_bin\data\gui_zhushenkongjian.lua">
       <Filter>res\lua_script</Filter>
     </None>
+    <None Include="..\kxlol_bin\data\timer_basic_minute_task.lua">
+      <Filter>res\lua_script</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\kxlol.ico">
