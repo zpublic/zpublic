@@ -3,6 +3,7 @@
 #include "SavesMgr.h"
 #include "LogicMgr.h"
 #include "ScriptMgr.h"
+#include "TimerMgr.h"
 
 class CGameControl
 {
@@ -37,10 +38,16 @@ public:
         return m_cScript;
     }
 
+    CTimerMgr& Timer()
+    {
+        return m_cTimer;
+    }
+
 private:
     CPlayerObject           m_cPlayer;
     CSavesMgr               m_cSaves;
     CLogicMgr               m_cLogic;
     CScriptMgr              m_cScript;
+    CTimerMgr               m_cTimer;
 };
 

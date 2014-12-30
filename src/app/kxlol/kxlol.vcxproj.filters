@@ -38,9 +38,6 @@
     <Filter Include="src\game\script">
       <UniqueIdentifier>{0bad07f2-4bd1-4f88-b3d7-4e115063d6e0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\game\script\lua">
-      <UniqueIdentifier>{82528fdc-20f0-4efa-9eb9-25051f9ba18b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="publish">
       <UniqueIdentifier>{b1e154f6-27d0-474f-8ed1-b13ae42c2432}</UniqueIdentifier>
     </Filter>
@@ -52,6 +49,15 @@
     </Filter>
     <Filter Include="publish\z_lua_bind">
       <UniqueIdentifier>{2b2eaa5a-2ac0-4b4f-b8f9-83ea64744f67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res\lua_script">
+      <UniqueIdentifier>{aecf3bc0-070d-48d5-9fc2-9856c496f3ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="publish\z_timer">
+      <UniqueIdentifier>{95ff4609-e411-4db6-87db-e11a8407cc34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\timer">
+      <UniqueIdentifier>{5c05bf22-e4b5-4c61-9f37-c2bdcd9a4839}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -448,6 +454,30 @@
     <ClInclude Include="LogicGui.h">
       <Filter>src\game\logic</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_def.h">
+      <Filter>publish\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_dispatcher.h">
+      <Filter>publish\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_task.h">
+      <Filter>publish\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_task_queue.h">
+      <Filter>publish\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_test_code.h">
+      <Filter>publish\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_watcher.h">
+      <Filter>publish\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="TimerMgr.h">
+      <Filter>src\game\timer</Filter>
+    </ClInclude>
+    <ClInclude Include="TimerBaiscTask.h">
+      <Filter>src\game\timer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CkxlolDlgBuild.cpp">
@@ -603,6 +633,12 @@
     <ClCompile Include="LogicGui.cpp">
       <Filter>src\game\logic</Filter>
     </ClCompile>
+    <ClCompile Include="TimerMgr.cpp">
+      <Filter>src\game\timer</Filter>
+    </ClCompile>
+    <ClCompile Include="TimerBaiscTask.cpp">
+      <Filter>src\game\timer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="kxlol.rc">
@@ -616,11 +652,14 @@
     <None Include="..\..\..\3rdparty\luasrc\Makefile">
       <Filter>3rdparty\lua</Filter>
     </None>
+    <None Include="..\kxlol_bin\data\build_lunhuishendian.lua">
+      <Filter>res\lua_script</Filter>
+    </None>
     <None Include="..\kxlol_bin\data\build_shenminxinqiu.lua">
-      <Filter>src\game\script\lua</Filter>
+      <Filter>res\lua_script</Filter>
     </None>
     <None Include="..\kxlol_bin\data\gui_zhushenkongjian.lua">
-      <Filter>src\game\script\lua</Filter>
+      <Filter>res\lua_script</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

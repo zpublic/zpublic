@@ -158,6 +158,12 @@
     <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp" />
     <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_function_reg.hpp" />
     <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_state.hpp" />
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_def.h" />
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_dispatcher.h" />
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_task.h" />
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_task_queue.h" />
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_test_code.h" />
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_watcher.h" />
     <ClInclude Include="..\..\..\pellets\z_win_utils\acl.hpp" />
     <ClInclude Include="..\..\..\pellets\z_win_utils\autorun.hpp" />
     <ClInclude Include="..\..\..\pellets\z_win_utils\base64.hpp" />
@@ -243,6 +249,8 @@
     <ClInclude Include="ScriptPlayer.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TimerBaiscTask.h" />
+    <ClInclude Include="TimerMgr.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\3rdparty\luasrc\lapi.c">
@@ -398,12 +406,15 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TimerBaiscTask.cpp" />
+    <ClCompile Include="TimerMgr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="kxlol.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\3rdparty\luasrc\Makefile" />
+    <None Include="..\kxlol_bin\data\build_lunhuishendian.lua" />
     <None Include="..\kxlol_bin\data\build_shenminxinqiu.lua" />
     <None Include="..\kxlol_bin\data\gui_zhushenkongjian.lua" />
     <None Include="res\kxlol.rc2" />
