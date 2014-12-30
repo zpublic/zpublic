@@ -1,5 +1,4 @@
 #pragma once
-#include "z_timer\z_timer_dispatcher.h"
 
 class CTimerMgr
 {
@@ -7,12 +6,12 @@ public:
     CTimerMgr();
     ~CTimerMgr();
 
-    void AddNormalTask(TimerTaskBase* pTask)
+    void AddNormalTask(zl::TimerTaskBase* pTask)
     {
         m_timer.AddTimerTask(pTask);
     }
 
 private:
-    TimerDispatcher         m_timer;
+    zl::TimerDispatcher         m_timer;
 };
 

@@ -478,6 +478,9 @@
     <ClInclude Include="TimerBaiscTask.h">
       <Filter>src\game\timer</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer.h">
+      <Filter>publish\z_timer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CkxlolDlgBuild.cpp">

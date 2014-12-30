@@ -278,6 +278,7 @@
     <ClInclude Include="..\..\pellets\z_thread_pool\z_thread_stack.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_timer\z_timer.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_def.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_dispatcher.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_task.h" />

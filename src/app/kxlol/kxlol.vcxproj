@@ -158,6 +158,7 @@
     <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp" />
     <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_function_reg.hpp" />
     <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_state.hpp" />
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer.h" />
     <ClInclude Include="..\..\..\pellets\z_timer\z_timer_def.h" />
     <ClInclude Include="..\..\..\pellets\z_timer\z_timer_dispatcher.h" />
     <ClInclude Include="..\..\..\pellets\z_timer\z_timer_task.h" />
