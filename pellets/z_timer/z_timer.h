@@ -21,12 +21,10 @@
 #include <process.h>
 #include "../thread_sync/thread_sync.h"
 
-namespace zl
-{
+#define NAMESPACE_ZL_BEGIN      namespace zl {
+#define NAMESPACE_ZL_END        }
 
 #include "z_timer_task.h"
 #include "z_timer_task_queue.h"
 #include "z_timer_watcher.h"
 #include "z_timer_dispatcher.h"
-
-}

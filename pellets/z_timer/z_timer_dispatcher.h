@@ -19,6 +19,8 @@
 #include "z_timer_task_queue.h"
 #include "z_timer_watcher.h"
 
+NAMESPACE_ZL_BEGIN
+
 class TimerDispatcher
 {
 public:
@@ -261,3 +263,5 @@ private:
     HANDLE              thread_;            ///> 工作线程
     bool                stop_;              ///> 退出标志
 };
+
+NAMESPACE_ZL_END
