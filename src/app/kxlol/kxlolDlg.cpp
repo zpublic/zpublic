@@ -7,6 +7,7 @@
 #include "kxlolDlg.h"
 #include "afxdialogex.h"
 #include "CkxlolDlgBuild.h"
+#include "TimerBaiscTask.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -69,6 +70,11 @@ BOOL CkxlolDlg::OnInitDialog()
     m_treeRes.InsertItem(L"泡面：2", h3);
 
     m_ulShenli = GAME.Player().BasicInfo().GetShenli();
+
+    TimerTaskNolmal* t = new TimerTaskNolmal(TimerBaiscTask::BasicMinuteTask);
+    t->Timeout(TimerCalcMilliseconds(1, 0));
+    t->Repeat(true);
+    GAME.Timer().AddNormalTask(t);
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
