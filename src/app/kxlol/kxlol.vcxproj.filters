@@ -481,6 +481,9 @@
     <ClInclude Include="..\..\..\pellets\z_timer\z_timer.h">
       <Filter>publish\z_timer</Filter>
     </ClInclude>
+    <ClInclude Include="CustomMsg.h">
+      <Filter>src\main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CkxlolDlgBuild.cpp">

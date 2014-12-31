@@ -45,6 +45,7 @@ BEGIN_MESSAGE_MAP(CkxlolDlg, CDialogEx)
     ON_BN_CLICKED(IDC_BTN_PRACTIOCE, &CkxlolDlg::OnBnClickedBtnPractioce)
     ON_BN_CLICKED(IDC_BTN_CONNECT_XUKONG, &CkxlolDlg::OnBnClickedBtnConnectXukong)
     ON_WM_TIMER()
+	ON_MESSAGE(KXLOL_WM_UPDATEGUI, &CkxlolDlg::OnUpdateGUI)
 END_MESSAGE_MAP()
 
 
@@ -160,6 +161,14 @@ void CkxlolDlg::OnBnClickedBtnPractioce()
 void CkxlolDlg::OnBnClickedBtnConnectXukong()
 {
     // TODO:  在此添加控件通知处理程序代码
+}
+
+LRESULT CkxlolDlg::OnUpdateGUI(WPARAM, LPARAM)
+{
+	m_ulShenli = GAME.Player().BasicInfo().GetShenli();
+	UpdateData(FALSE);
+
+	return 0L;
 }
 
 

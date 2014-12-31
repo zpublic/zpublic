@@ -3,6 +3,8 @@
 
 int update_gui(lua_State* L)
 {
+	HWND hWnd = AfxGetMainWnd()->GetSafeHwnd();
+	::PostMessage(hWnd, KXLOL_WM_UPDATEGUI, 0, 0);
     return 0;
 }
 
