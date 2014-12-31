@@ -230,6 +230,7 @@
     <ClInclude Include="..\..\..\pellets\z_win_utils\wmi_query.hpp" />
     <ClInclude Include="..\..\..\pellets\z_win_utils\wow64.hpp" />
     <ClInclude Include="CkxlolDlgBuild.h" />
+    <ClInclude Include="CustomMsg.h" />
     <ClInclude Include="GameControl.h" />
     <ClInclude Include="kxlol.h" />
     <ClInclude Include="kxlolDlg.h" />

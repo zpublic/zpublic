@@ -62,6 +62,7 @@
 #include <WinSvc.h>
 #include "z_win_utils/win_utils.h"
 #include "z_timer/z_timer.h"
+#include "CustomMsg.h"
 
 #include "GameControl.h"
 #define GAME    CGameControl::Instance()
