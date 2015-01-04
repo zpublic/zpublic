@@ -16,6 +16,8 @@
  ************************************************************************/
 #pragma once
 
+NAMESPACE_ZL_BEGIN
+
 class TimerTaskBase;
 
 class ITimerWatcher
@@ -29,3 +31,5 @@ public:
     virtual void InsertTask(TimerTaskBase* pTask) {}
     virtual void RemoveTask(TimerTaskBase* pTask, bool bUse) {}
 };
+
+NAMESPACE_ZL_END

@@ -18,9 +18,8 @@
 #include "z_timer_task.h"
 #include "z_timer_task_queue.h"
 #include "z_timer_watcher.h"
-#include "../thread_sync/thread_sync.h"
-#include <windows.h>
-#include <process.h>
+
+NAMESPACE_ZL_BEGIN
 
 class TimerDispatcher
 {
@@ -55,6 +54,17 @@ public:
             }
             ::CloseHandle(thread_);
             thread_ = NULL;
+        }
+        {
+            z_mutex_guard x(queue_mutex_);
+            while (queue_.Size() > 0)
+            {
+                TimerTaskBase* pTask = queue_.Pop();
+                if (pTask && pTask->Release())
+                {
+                    delete pTask;
+                }
+            }
         }
         return 0;
     }
@@ -253,3 +263,5 @@ private:
     HANDLE              thread_;            ///> 工作线程
     bool                stop_;              ///> 退出标志
 };
+
+NAMESPACE_ZL_END

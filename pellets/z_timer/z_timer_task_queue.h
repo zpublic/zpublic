@@ -15,7 +15,6 @@
  *                                                                       *
  ************************************************************************/
 #pragma once
-#include <queue>
 
 /*
  * ACE的定时器队列提供了heap、wheel（数组）、hash、list四种策略方式
@@ -25,6 +24,8 @@
  * 也因此，只能添加任务不能删除任务
  * 非线程安全，外部加锁来保证
  */
+
+NAMESPACE_ZL_BEGIN
 
 class TimerTaskBase;
 
@@ -61,3 +62,5 @@ public:
 private:
     std::priority_queue<TimerTaskBase*, std::vector<TimerTaskBase*>, TimerTaskCmp> queue_;
 };
+
+NAMESPACE_ZL_END

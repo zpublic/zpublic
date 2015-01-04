@@ -85,7 +85,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>./../../3rdparty/cpptest_ext/Release/cpptest.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>./../../3rdparty/libcurl_lib/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>./../../3rdparty/libcurl_lib/;./../../3rdparty/zlib_lib/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -278,6 +278,7 @@
     <ClInclude Include="..\..\pellets\z_thread_pool\z_thread_stack.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_timer\z_timer.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_def.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_dispatcher.h" />
     <ClInclude Include="..\..\pellets\z_timer\z_timer_task.h" />
@@ -288,10 +289,12 @@
     <ClInclude Include="..\..\pellets\z_win_utils\base64.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\browser.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\acl.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\buffer.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\clipboard.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\cmdline.hpp" />
-    <ClInclude Include="..\..\pellets\z_win_utils\com_init.h" />
-    <ClInclude Include="..\..\pellets\z_win_utils\wmi_query.h" />
+    <ClInclude Include="..\..\pellets\z_win_utils\file_operation.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\com_init.hpp" />
+    <ClInclude Include="..\..\pellets\z_win_utils\wmi_query.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\console_color.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\cpu.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\crc32.hpp" />
@@ -329,7 +332,7 @@
     <ClInclude Include="..\..\pellets\z_win_utils\software_check.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\split_str.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\str_conv.hpp" />
-    <ClInclude Include="..\..\pellets\z_win_utils\system_info.h" />
+    <ClInclude Include="..\..\pellets\z_win_utils\system_info.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\system_path.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\system_version.hpp" />
     <ClInclude Include="..\..\pellets\z_win_utils\taskbar_position.hpp" />

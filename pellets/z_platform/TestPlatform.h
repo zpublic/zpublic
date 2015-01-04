@@ -56,7 +56,7 @@ public:
 
     void test_thread()
     {
-        TestDelegate d;
+        static TestDelegate d;
         zl_thread t;
         TEST_ASSERT(t.create(0, static_cast<zl_delegate*>(&d), NULL));
         TEST_ASSERT(t.create(static_cast<zl_delegate*>(&d), NULL));

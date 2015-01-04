@@ -706,9 +706,6 @@
     <ClInclude Include="..\..\pellets\z_win_utils\str_conv.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_win_utils\system_info.h">
-      <Filter>pellets\z_win_utils</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\3rdparty\mongoose\mongoose.h">
       <Filter>3rdparty\mongoose</Filter>
     </ClInclude>
@@ -772,9 +769,6 @@
     <ClInclude Include="TestHarold.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_win_utils\com_init.h">
-      <Filter>pellets\z_win_utils</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\pellets\z_platform\z_platform.h">
       <Filter>pellets\z_platform</Filter>
     </ClInclude>
@@ -795,9 +789,6 @@
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_win_mutex.hpp">
       <Filter>pellets\z_platform\impl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_win_utils\wmi_query.h">
-      <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_linux_event.hpp">
       <Filter>pellets\z_platform\impl</Filter>
@@ -855,6 +846,24 @@
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_state.hpp">
       <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\buffer.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\file_operation.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\wmi_query.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\com_init.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\system_info.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_timer\z_timer.h">
+      <Filter>pellets\z_timer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

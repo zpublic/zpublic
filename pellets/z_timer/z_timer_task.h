@@ -17,6 +17,8 @@
 #pragma once
 #include "z_timer_def.h"
 
+NAMESPACE_ZL_BEGIN
+
 class TimerTaskBase
 {
 public:
@@ -128,3 +130,5 @@ protected:
     PTimerTaskFunc  pfunc_;
     PTimerTaskFunc2 pfunc2_;
 };
+
+NAMESPACE_ZL_END

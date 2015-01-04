@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{548b0dcd-d763-4727-acbd-5e44fc09946f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="publish">
+      <UniqueIdentifier>{c4d72e60-1243-4d43-a430-b7961af52dbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="publish\z_http">
+      <UniqueIdentifier>{a7ecddc9-760e-4451-8ad1-95b46032a7b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty">
+      <UniqueIdentifier>{e3804e77-8a08-40ae-8e3d-f64f1fba092f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\libjson">
+      <UniqueIdentifier>{3ae5c1ea-41c4-4a40-9ec6-edad1a65832c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="zl_update.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="zl_updateDlg.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\file_write.hpp">
+      <Filter>publish\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\http_client.hpp">
+      <Filter>publish\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\ie_proxy.hpp">
+      <Filter>publish\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\mem_write.hpp">
+      <Filter>publish\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\simple_curl.hpp">
+      <Filter>publish\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\stream_writter.hpp">
+      <Filter>publish\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\z_http.h">
+      <Filter>publish\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\z_http_def.h">
+      <Filter>publish\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\z_http_header.h">
+      <Filter>publish\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_http\z_http_interface.h">
+      <Filter>publish\z_http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\lib_json\json_batchallocator.h">
+      <Filter>3rdparty\libjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\autolink.h">
+      <Filter>3rdparty\libjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\config.h">
+      <Filter>3rdparty\libjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\features.h">
+      <Filter>3rdparty\libjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\forwards.h">
+      <Filter>3rdparty\libjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\json.h">
+      <Filter>3rdparty\libjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\reader.h">
+      <Filter>3rdparty\libjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\value.h">
+      <Filter>3rdparty\libjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\jsonlib\json\writer.h">
+      <Filter>3rdparty\libjson</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="zl_update.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="zl_updateDlg.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\jsonlib\lib_json\json_reader.cpp">
+      <Filter>3rdparty\libjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\jsonlib\lib_json\json_value.cpp">
+      <Filter>3rdparty\libjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\jsonlib\lib_json\json_writer.cpp">
+      <Filter>3rdparty\libjson</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="zl_update.rc">
+      <Filter>res</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\zl_update.rc2">
+      <Filter>res</Filter>
+    </None>
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\json_internalarray.inl">
+      <Filter>3rdparty\libjson</Filter>
+    </None>
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\json_internalmap.inl">
+      <Filter>3rdparty\libjson</Filter>
+    </None>
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\json_valueiterator.inl">
+      <Filter>3rdparty\libjson</Filter>
+    </None>
+    <None Include="..\..\..\3rdparty\jsonlib\lib_json\sconscript">
+      <Filter>3rdparty\libjson</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\zl_update.ico">
+      <Filter>res</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
