@@ -1,56 +1,73 @@
 #pragma once
 
+#include <string>
+
 ///> 玩家资源背包管理类
 class CPlayerResBag
 {
 public:
     CPlayerResBag();
     ~CPlayerResBag();
+	typedef std::pair<std::wstring, int> TypeItem;
+	typedef std::map<std::wstring, int> TypeClass;
+	typedef std::map<std::wstring, TypeClass> TypeBag;
 
-    std::map<CString, int> GetBag()
+    TypeBag& GetBag()
     {
         z_mutex_guard g(m_mutex_mapBag);
         return m_mapBag;
     }
 
-    int GetResNum(LPCWSTR lpName)
+    int GetResNum(LPCWSTR lpClassName, LPCWSTR lpName)
     {
         z_mutex_guard g(m_mutex_mapBag);
-        auto it = m_mapBag.find(lpName);
+        auto it = m_mapBag.find(lpClassName);
         if (it != m_mapBag.end())
         {
-            return it->second;
+			auto item = it->second.find(lpName);
+			if (item != it->second.end())
+				return item->second;
         }
         return 0;
     }
 
-    void AddResNum(LPCWSTR lpName, int n)
+    void AddResNum(LPCWSTR lpClassName, LPCWSTR lpName, int n)
     {
         z_mutex_guard g(m_mutex_mapBag);
-        auto it = m_mapBag.find(lpName);
+        auto it = m_mapBag.find(lpClassName);
         if (it != m_mapBag.end())
         {
-            it->second += n;
+			auto item = it->second.find(lpName);
+			if(item != it->second.end())
+			{
+				item->second += n;
+			}
+			else
+			{
+				it->second[lpName] = n;
+			}
         }
         else
         {
-            m_mapBag[lpName] = n;
+			m_mapBag.insert(std::make_pair(lpClassName, TypeClass()));
+			m_mapBag[lpClassName][lpName] = n;
         }
     }
 
-    bool SubResNum(LPCWSTR lpName, int n)
+    bool SubResNum(LPCWSTR lpClassName, LPCWSTR lpName, int n)
     {
         z_mutex_guard g(m_mutex_mapBag);
-        auto it = m_mapBag.find(lpName);
-        if (it != m_mapBag.end() && it->second >= n)
+        auto it = m_mapBag.find(lpClassName);
+        if (it != m_mapBag.end())
         {
-            if (it->second > n)
+			auto item = it->second.find(lpName);
+			if(item->second >= n)
             {
-                it->second -= n;
+                item->second -= n;
             }
             else
             {
-                m_mapBag.erase(it);
+                it->second.erase(item);
             }
             return true;
         }
@@ -58,7 +75,7 @@ public:
     }
 
 private:
-    std::map<CString, int>          m_mapBag;
-    z_mutex                         m_mutex_mapBag;
+	TypeBag				 m_mapBag;
+    z_mutex              m_mutex_mapBag;
 };
 
