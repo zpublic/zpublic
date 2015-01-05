@@ -8,6 +8,7 @@
 enum
 {
 	KXLOL_WM_UPDATEGUI = WM_USER + 1024, // 刷新主界面 
+	KXLOL_WM_UPDATETREENODE,	//添加树控件根节点
 };
 
 #endif
