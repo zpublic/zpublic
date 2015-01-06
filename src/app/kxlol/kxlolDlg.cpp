@@ -45,7 +45,8 @@ BEGIN_MESSAGE_MAP(CkxlolDlg, CDialogEx)
     ON_BN_CLICKED(IDC_BTN_PRACTIOCE, &CkxlolDlg::OnBnClickedBtnPractioce)
     ON_BN_CLICKED(IDC_BTN_CONNECT_XUKONG, &CkxlolDlg::OnBnClickedBtnConnectXukong)
     ON_WM_TIMER()
-	ON_MESSAGE(KXLOL_WM_UPDATEGUI, &CkxlolDlg::OnUpdateGUI)
+	ON_MESSAGE(KXLOL_WM_UPDATEGUI,      &CkxlolDlg::OnUpdateGUI)
+    ON_MESSAGE(KXLOL_WM_INFO_OUTPUT,    &CkxlolDlg::OnInfoOutput)
 END_MESSAGE_MAP()
 
 
@@ -190,4 +191,10 @@ void CkxlolDlg::OnTimer(UINT_PTR nIDEvent)
     }
 
     CDialogEx::OnTimer(nIDEvent);
+}
+
+LRESULT CkxlolDlg::OnInfoOutput(WPARAM wp, LPARAM)
+{
+    m_listMsg.AddString((const wchar_t *)wp);
+    return 0;
 }
