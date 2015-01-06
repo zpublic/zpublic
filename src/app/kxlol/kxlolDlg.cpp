@@ -48,6 +48,8 @@ BEGIN_MESSAGE_MAP(CkxlolDlg, CDialogEx)
     ON_WM_TIMER()
 	ON_MESSAGE(KXLOL_WM_UPDATEGUI, &CkxlolDlg::OnUpdateGUI)
 	ON_MESSAGE(KXLOL_WM_UPDATETREENODE, &CkxlolDlg::OnUpdateTreeNode)
+	ON_MESSAGE(KXLOL_WM_UPDATEGUI,      &CkxlolDlg::OnUpdateGUI)
+    ON_MESSAGE(KXLOL_WM_INFO_OUTPUT,    &CkxlolDlg::OnInfoOutput)
 END_MESSAGE_MAP()
 
 
@@ -137,7 +139,7 @@ void CkxlolDlg::OnBnClickedBtnNingjushenli()
     m_listMsg.AddString(L"开始凝聚神力...");
     m_btnNingjushenli.EnableWindow(FALSE);
     m_btnNingjushenli.SetWindowText(L"正在凝聚神力");
-    SetTimer(1, 3000, NULL);
+    SetTimer(1, 2000, NULL);
 }
 
 
@@ -261,4 +263,10 @@ void CkxlolDlg::OnTimer(UINT_PTR nIDEvent)
     }
 
     CDialogEx::OnTimer(nIDEvent);
+}
+
+LRESULT CkxlolDlg::OnInfoOutput(WPARAM wp, LPARAM)
+{
+    m_listMsg.AddString((const wchar_t *)wp);
+    return 0;
 }

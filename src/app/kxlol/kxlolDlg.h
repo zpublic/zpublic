@@ -45,6 +45,8 @@ public:
     afx_msg void OnBnClickedBtnConnectXukong();
 	afx_msg LRESULT OnUpdateGUI(WPARAM, LPARAM);
 	afx_msg LRESULT OnUpdateTreeNode(WPARAM pRootName, LPARAM pNodeName);
+    afx_msg LRESULT OnInfoOutput(WPARAM, LPARAM);
+
 private:
     // 当前神力值
     ULONGLONG m_ulShenli;
