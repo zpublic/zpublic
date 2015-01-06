@@ -135,7 +135,7 @@ void CkxlolDlg::OnBnClickedBtnNingjushenli()
     m_listMsg.AddString(L"开始凝聚神力...");
     m_btnNingjushenli.EnableWindow(FALSE);
     m_btnNingjushenli.SetWindowText(L"正在凝聚神力");
-    SetTimer(1, 3000, NULL);
+    SetTimer(1, 2000, NULL);
 }
 
 
