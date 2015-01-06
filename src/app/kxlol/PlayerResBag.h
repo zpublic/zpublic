@@ -2,7 +2,7 @@
 
 #include <string>
 
-///> 玩家资源背包管理类
+///> 玩家资源背包管理
 class CPlayerResBag
 {
 public:
@@ -52,6 +52,9 @@ public:
 			m_mapBag.insert(std::make_pair(lpClassName, TypeClass()));
 			m_mapBag[lpClassName][lpName] = n;
         }
+
+		SendUpdateMsg(lpClassName, lpName);
+
     }
 
     bool SubResNum(LPCWSTR lpClassName, LPCWSTR lpName, int n)
@@ -69,10 +72,21 @@ public:
             {
                 it->second.erase(item);
             }
+			SendUpdateMsg(lpClassName, lpName);
             return true;
         }
         return false;
     }
+
+private:
+	void SendUpdateMsg(LPCWSTR lpClassName, LPCWSTR lpItemName)
+	{
+		HWND hWnd = AfxGetMainWnd()->GetSafeHwnd();
+		if(hWnd != NULL)
+		{
+			::SendMessage(hWnd, KXLOL_WM_UPDATETREENODE, (UINT_PTR)lpClassName, (UINT_PTR)lpItemName);
+		}
+	}
 
 private:
 	TypeBag				 m_mapBag;

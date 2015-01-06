@@ -64,9 +64,6 @@ BOOL CkxlolDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// 设置大图标
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
-    HTREEITEM h1 = m_treeRes.InsertItem(L"原始位面");
-    m_treeRes.InsertItem(L"星球：1", h1);
-
     HTREEITEM h2 = m_treeRes.InsertItem(L"部下");
     m_treeRes.InsertItem(L"食人魔：3", h2);
     m_treeRes.InsertItem(L"位面破灭者：1", h2);
@@ -186,6 +183,7 @@ LRESULT CkxlolDlg::OnUpdateTreeNode(WPARAM pRootName, LPARAM pNodeName)
 		if(itRoot->second.second.end() != itNode)
 		{
 			UpdateNode(pwszRootName, pwszNodeName);
+			return 0L;
 		}
 	}
 
@@ -206,17 +204,14 @@ void CkxlolDlg::CreateNode(const wchar_t* rootName, const wchar_t* nodeName)
 			m_treeNodeHandles.insert(std::make_pair(rootName, std::make_pair(hRoot, TREENODEHANDLE())));
 			itRoot = m_treeNodeHandles.find(rootName);
 		}
-		else
-		{
-			HTREEITEM hRoot = itRoot->second.first;
-			std::wstring temp;
-			std::wstringstream wsstemp;
-			wsstemp << nodeName << L":" << resNum;
-			wsstemp >> temp;
-			HTREEITEM hNode = m_treeRes.InsertItem(temp.c_str(), hRoot);
+		HTREEITEM hRoot = itRoot->second.first;
+		std::wstring temp;
+		std::wstringstream wsstemp;
+		wsstemp << nodeName << L":" << resNum;
+		wsstemp >> temp;
+		HTREEITEM hNode = m_treeRes.InsertItem(temp.c_str(), hRoot);
 
-			itRoot->second.second.insert(std::make_pair(nodeName, hNode)); 
-		}
+		itRoot->second.second.insert(std::make_pair(nodeName, hNode)); 
 	}
 }
 
