@@ -38,6 +38,8 @@ public:
     afx_msg void OnBnClickedBtnMake();
     afx_msg void OnBnClickedBtnPractioce();
     afx_msg void OnBnClickedBtnConnectXukong();
+	afx_msg LRESULT OnUpdateGUI(WPARAM, LPARAM);
+    afx_msg LRESULT OnInfoOutput(WPARAM, LPARAM);
 
 private:
     // 当前神力值
