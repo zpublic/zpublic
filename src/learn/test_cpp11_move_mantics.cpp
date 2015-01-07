@@ -111,7 +111,7 @@ vector_has_move getVec4()
 
 void test_cpp11_move_mantics()
 {
-    zl::timer zTimer;
+    //zl::timer zTimer;
 //     zTimer.restart();
 //     for (int i = 0; i < 999; i++)
 //     {
@@ -124,16 +124,16 @@ void test_cpp11_move_mantics()
 //         auto v1 = getVec2();
 //     }
 //     std::cout << zTimer.elapsed() << std::endl;
-    zTimer.restart();
+    //zTimer.restart();
     for (int i = 0; i < 999; i++)
     {
         auto v1 = getVec3();
     }
-    std::cout << zTimer.elapsed() << std::endl;
-    zTimer.restart();
+    //std::cout << zTimer.elapsed() << std::endl;
+    //zTimer.restart();
     for (int i = 0; i < 999; i++)
     {
         auto v1 = getVec4();
     }
-    std::cout << zTimer.elapsed() << std::endl;
+    //std::cout << zTimer.elapsed() << std::endl;
 }
