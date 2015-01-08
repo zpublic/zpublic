@@ -42,10 +42,11 @@ int sub_shenli(lua_State* L)
 int get_res_num(lua_State* L)
 {
     int n = 0;
-    const char* lpName = lua_tostring(L, 1);
+    const char* lpClassName = lua_tostring(L, 1);
+	const char* lpName = lua_tostring(L, 2);
     if (lpName)
     {
-        n = GAME.Player().RegBag().GetResNum(ZLA2W(lpName, CP_UTF8));
+        n = GAME.Player().RegBag().GetResNum(ZLA2W(lpClassName, CP_UTF8), ZLA2W(lpName, CP_UTF8));
     }
     lua_pushinteger(L, n);
     return 1;
@@ -53,23 +54,25 @@ int get_res_num(lua_State* L)
 
 int add_res_num(lua_State* L)
 {
-    const char* lpName = lua_tostring(L, 1);
-    int num = lua_tointeger(L, 2);
+    const char* lpClassName = lua_tostring(L, 1);
+	const char* lpName = lua_tostring(L, 2);
+    int num = lua_tointeger(L, 3);
     if (lpName)
     {
-        GAME.Player().RegBag().AddResNum(ZLA2W(lpName, CP_UTF8), num);
+        GAME.Player().RegBag().AddResNum(ZLA2W(lpClassName, CP_UTF8), ZLA2W(lpName, CP_UTF8), num);
     }
     return 0;
 }
 
 int sub_res_num(lua_State* L)
 {
-    bool b = FALSE;
-    const char* lpName = lua_tostring(L, 1);
-    int num = lua_tointeger(L, 2);
+    bool b = false;
+    const char* lpClassName = lua_tostring(L, 1);
+	const char* lpName = lua_tostring(L, 2);
+    int num = lua_tointeger(L, 3);
     if (lpName)
     {
-        b = GAME.Player().RegBag().SubResNum(ZLA2W(lpName, CP_UTF8), num);
+        b = GAME.Player().RegBag().SubResNum(ZLA2W(lpClassName, CP_UTF8), ZLA2W(lpName, CP_UTF8), num);
     }
     lua_pushboolean(L, b);
     return 1;
