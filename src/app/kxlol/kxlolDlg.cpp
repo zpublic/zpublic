@@ -8,6 +8,7 @@
 #include "afxdialogex.h"
 #include "CkxlolDlgBuild.h"
 #include "TimerBaiscTask.h"
+#include <sstream>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -45,6 +46,8 @@ BEGIN_MESSAGE_MAP(CkxlolDlg, CDialogEx)
     ON_BN_CLICKED(IDC_BTN_PRACTIOCE, &CkxlolDlg::OnBnClickedBtnPractioce)
     ON_BN_CLICKED(IDC_BTN_CONNECT_XUKONG, &CkxlolDlg::OnBnClickedBtnConnectXukong)
     ON_WM_TIMER()
+	ON_MESSAGE(KXLOL_WM_UPDATEGUI, &CkxlolDlg::OnUpdateGUI)
+	ON_MESSAGE(KXLOL_WM_UPDATETREENODE, &CkxlolDlg::OnUpdateTreeNode)
 	ON_MESSAGE(KXLOL_WM_UPDATEGUI,      &CkxlolDlg::OnUpdateGUI)
     ON_MESSAGE(KXLOL_WM_INFO_OUTPUT,    &CkxlolDlg::OnInfoOutput)
 END_MESSAGE_MAP()
@@ -60,9 +63,6 @@ BOOL CkxlolDlg::OnInitDialog()
 	//  执行此操作
 	SetIcon(m_hIcon, TRUE);			// 设置大图标
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
-
-    HTREEITEM h1 = m_treeRes.InsertItem(L"原始位面");
-    m_treeRes.InsertItem(L"星球：1", h1);
 
     HTREEITEM h2 = m_treeRes.InsertItem(L"部下");
     m_treeRes.InsertItem(L"食人魔：3", h2);
@@ -172,6 +172,73 @@ LRESULT CkxlolDlg::OnUpdateGUI(WPARAM, LPARAM)
 	return 0L;
 }
 
+LRESULT CkxlolDlg::OnUpdateTreeNode(WPARAM pRootName, LPARAM pNodeName)
+{
+	auto pwszRootName = (LPCWSTR)pRootName;
+	auto pwszNodeName = (LPCWSTR)pNodeName;
+	auto itRoot = m_treeNodeHandles.find(pwszRootName);
+	if(m_treeNodeHandles.end() != itRoot)
+	{
+		auto itNode = itRoot->second.second.find(pwszNodeName);
+		if(itRoot->second.second.end() != itNode)
+		{
+			UpdateNode(pwszRootName, pwszNodeName);
+			return 0L;
+		}
+	}
+
+	CreateNode(pwszRootName, pwszNodeName);
+
+	return 0L;
+}
+
+void CkxlolDlg::CreateNode(const wchar_t* rootName, const wchar_t* nodeName)
+{
+	auto resNum = GAME.Player().RegBag().GetResNum(rootName, nodeName);
+	if(0 != resNum)
+	{
+		auto itRoot = m_treeNodeHandles.find(rootName);
+		if(m_treeNodeHandles.end() == itRoot)
+		{
+			HTREEITEM hRoot = m_treeRes.InsertItem(rootName);
+			m_treeNodeHandles.insert(std::make_pair(rootName, std::make_pair(hRoot, TREENODEHANDLE())));
+			itRoot = m_treeNodeHandles.find(rootName);
+		}
+		HTREEITEM hRoot = itRoot->second.first;
+		std::wstring temp;
+		std::wstringstream wsstemp;
+		wsstemp << nodeName << L":" << resNum;
+		wsstemp >> temp;
+		HTREEITEM hNode = m_treeRes.InsertItem(temp.c_str(), hRoot);
+
+		itRoot->second.second.insert(std::make_pair(nodeName, hNode)); 
+	}
+}
+
+void CkxlolDlg::UpdateNode(const wchar_t* rootName, const wchar_t* nodeName)
+{
+	auto resNum = GAME.Player().RegBag().GetResNum(rootName, nodeName);
+	auto itRoot = m_treeNodeHandles.find(rootName);
+	if(m_treeNodeHandles.end() != itRoot)
+	{
+		auto& nodes = itRoot->second.second;
+		auto itNode = nodes.find(nodeName);
+		if(nodes.end() != itNode)
+		{
+			HTREEITEM hNode = itNode->second;
+			if(0 == resNum)
+				m_treeRes.DeleteItem(hNode);
+			else
+			{
+				std::wstring temp;
+				std::wstringstream wsstemp;
+				wsstemp << nodeName << L":" << resNum;
+				wsstemp >> temp;
+				m_treeRes.SetItemText(hNode, temp.c_str());
+			}
+		}
+	}
+}
 
 void CkxlolDlg::OnTimer(UINT_PTR nIDEvent)
 {

@@ -11,6 +11,7 @@ enum
 {
     KXLOL_WM_UPDATEGUI          = KXLOL_WM_MSG_BEGIN + 1,       ///> 刷新主界面 
     KXLOL_WM_INFO_OUTPUT        = KXLOL_WM_MSG_BEGIN + 2,       ///> 输出一条信息
+    KXLOL_WM_UPDATETREENODE		= KXLOL_WM_MSG_BEGIN + 3,		///>添加树控件根节点
 };
 
 #endif
