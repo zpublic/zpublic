@@ -54,3 +54,6 @@ udt
 
 mongoose
 5.5
+
+snappy
+1.1.2

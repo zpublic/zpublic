@@ -115,9 +115,6 @@
     <Filter Include="src\base\unittest\include\cipra">
       <UniqueIdentifier>{a7e467fa-c11a-48d1-966d-36df23aa0bfe}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\base\unittest\include\ltest">
-      <UniqueIdentifier>{3bcd22be-117b-498f-96fa-33f4bb4eedee}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\base\unittest\include\tut">
       <UniqueIdentifier>{492ea6b8-1372-45ae-86e0-8bde294074d8}</UniqueIdentifier>
     </Filter>
@@ -222,6 +219,12 @@
     </Filter>
     <Filter Include="src\net\mongoose\unittest">
       <UniqueIdentifier>{e76dab9f-9dad-44df-89bf-06904d885728}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\snappy">
+      <UniqueIdentifier>{6fae907c-e855-4b9e-9d22-e243f2358243}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\snappy\snappy">
+      <UniqueIdentifier>{20a49849-6af6-454f-b76a-5ecb2ef16fc2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -383,18 +386,6 @@
     </ClInclude>
     <ClInclude Include="test_smart_ptr.h">
       <Filter>src\base\standard\c++98|03</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\public\ltest\ltest.h">
-      <Filter>src\base\unittest\include\ltest</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\public\ltest\ltest_suite.hpp">
-      <Filter>src\base\unittest\include\ltest</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\public\ltest\ltest_macros.h">
-      <Filter>src\base\unittest\include\ltest</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\public\ltest\ltest_actor.hpp">
-      <Filter>src\base\unittest\include\ltest</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\cipra.hpp">
       <Filter>src\base\unittest\include\cipra</Filter>
@@ -845,6 +836,30 @@
     </ClInclude>
     <ClInclude Include="zl_curl_http.h">
       <Filter>src\net\libcurl</Filter>
+    </ClInclude>
+    <ClInclude Include="test_snappy.h">
+      <Filter>src\data\snappy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\google\snappy\snappy.h">
+      <Filter>src\data\snappy\snappy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\google\snappy\snappy-c.h">
+      <Filter>src\data\snappy\snappy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\google\snappy\snappy-internal.h">
+      <Filter>src\data\snappy\snappy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\google\snappy\snappy-sinksource.h">
+      <Filter>src\data\snappy\snappy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\google\snappy\snappy-stubs-internal.h">
+      <Filter>src\data\snappy\snappy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\google\snappy\snappy-stubs-public.h">
+      <Filter>src\data\snappy\snappy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\google\snappy\snappy-test.h">
+      <Filter>src\data\snappy\snappy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1372,6 +1387,27 @@
     </ClCompile>
     <ClCompile Include="zl_curl_http.cpp">
       <Filter>src\net\libcurl</Filter>
+    </ClCompile>
+    <ClCompile Include="test_snappy.cpp">
+      <Filter>src\data\snappy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\google\snappy\snappy.cc">
+      <Filter>src\data\snappy\snappy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\google\snappy\snappy_unittest.cc">
+      <Filter>src\data\snappy\snappy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\google\snappy\snappy-c.cc">
+      <Filter>src\data\snappy\snappy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\google\snappy\snappy-sinksource.cc">
+      <Filter>src\data\snappy\snappy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\google\snappy\snappy-stubs-internal.cc">
+      <Filter>src\data\snappy\snappy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\google\snappy\snappy-test.cc">
+      <Filter>src\data\snappy\snappy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

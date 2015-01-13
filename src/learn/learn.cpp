@@ -58,12 +58,13 @@
 #include "test_libevent.h"
 #include "test_qrcode.h"
 #include "test_mongoose.h"
+#include "test_snappy.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
     //practice_test();
 
-    test_standard();
+    //test_standard();
 
     //test_conversion();
     //test_string_aogo();
@@ -103,7 +104,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_sqlite();
     //test_libevent();
     //test_qrcode();
-    test_mongoose();
+    //test_mongoose();
+    test_snappy();
 
     getchar();
     return 0;
