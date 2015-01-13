@@ -193,6 +193,12 @@
     <ClInclude Include="..\..\pellets\thread_sync\thread_sync.h" />
     <ClInclude Include="..\..\pellets\thread_sync\z_t_thread_sync_def.h" />
     <ClInclude Include="..\..\pellets\thread_sync\z_t_atomic.hpp" />
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn.h" />
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn_task_base.h" />
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn_task_for_static_function.h" />
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn_task_for_member_function.h" />
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn_task_mgr.h" />
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn_test_code.h" />
     <ClInclude Include="..\..\pellets\z_com\export\z_com_dll_lock.hpp" />
     <ClInclude Include="..\..\pellets\z_com\export\z_com_dll_module.hpp" />
     <ClInclude Include="..\..\pellets\z_com\export\z_com_dll_object.hpp" />
@@ -355,6 +361,7 @@
     <ClInclude Include="def.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TestAsyn.h" />
     <ClInclude Include="TestDataBox.h" />
     <ClInclude Include="TestDesignPattern.h" />
     <ClInclude Include="TestEvent.h" />
@@ -467,6 +474,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TestAsyn.cpp" />
     <ClCompile Include="TestDataBox.cpp" />
     <ClCompile Include="TestDesignPattern.cpp" />
     <ClCompile Include="TestEvent.cpp" />
