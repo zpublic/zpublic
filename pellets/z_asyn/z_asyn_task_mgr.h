@@ -8,19 +8,27 @@ typedef std::map<ZLAsynTaskBase*, HANDLE>::iterator ZLAsynTaskSetIt;
 class ZLAsynTaskMgr;
 typedef struct _ZLAsynThreadStub
 {
-    _ZLAsynThreadStub(ZLAsynTaskMgr* pThis, ZLAsynTaskBase* pTask)
+    _ZLAsynThreadStub(ZLAsynTaskMgr* pThis, ZLAsynTaskBase* pTask, DWORD dwDelay)
     {
-        _this = pThis;
-        _task = pTask;
+        _this   = pThis;
+        _task   = pTask;
+        _delay = dwDelay;
     }
     ZLAsynTaskMgr*      _this;
     ZLAsynTaskBase*     _task;
+    DWORD               _delay;
 }ZLAsynThreadStub;
 
 class ZLAsynTaskMgr
 {
 public:
-    bool PostTask(ZLAsynTaskBase* pTask)
+    ZLAsynTaskMgr() : _stop_event(true) {}
+    ~ZLAsynTaskMgr()
+    {
+        WaitAndStop();
+    }
+
+    bool PostTask(ZLAsynTaskBase* pTask, DWORD dwMillisecondDelay = 0)
     {
         if (!pTask) return false;
 
@@ -31,7 +39,7 @@ public:
             _task_set[pTask] = NULL;
         }
 
-        ZLAsynThreadStub* pStub = new ZLAsynThreadStub(this, pTask);
+        ZLAsynThreadStub* pStub = new ZLAsynThreadStub(this, pTask, dwMillisecondDelay);
         HANDLE hThread = (HANDLE)_beginthreadex(
             NULL,
             0,
@@ -39,6 +47,7 @@ public:
             (void*)pStub,
             0,
             NULL);
+
         if (hThread)
         {
             z_mutex_guard g(_task_set_mutex);
@@ -62,6 +71,7 @@ public:
     void WaitAndStop(DWORD dwMillisecondPerTask = 100)
     {
         z_mutex_guard g(_task_set_mutex);
+        _stop_event.Set();
         ZLAsynTaskSetIt it = _task_set.begin();
         while (it != _task_set.end())
         {
@@ -78,6 +88,7 @@ public:
             ++it;
         }
         _task_set.clear();
+        _stop_event.Reset();
     }
 
 private:
@@ -88,7 +99,10 @@ private:
         {
             if (pStub->_task)
             {
-                pStub->_task->DoWork();
+                if (pStub->_this->_stop_event.Wait(pStub->_delay) == WAIT_TIMEOUT)
+                    pStub->_task->DoWork();
+
+                if (pStub->_this->_stop_event.Wait(0) == WAIT_TIMEOUT)
                 {
                     z_mutex_guard g(pStub->_this->_task_set_mutex);
                     ZLAsynTaskSetIt it = pStub->_this->_task_set.find(pStub->_task);
@@ -111,6 +125,7 @@ private:
 
     ZLAsynTaskSet                   _task_set;
     z_mutex                         _task_set_mutex;
+    ThreadSync::CEvent              _stop_event;
 };
 
 NAMESPACE_ZL_END
