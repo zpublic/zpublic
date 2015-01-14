@@ -13,6 +13,7 @@ just4convenient
 done:
 ------
 operation|class
+o aes                       - aes加解密
 o acl                       - 访问控制列表相关
 o autorun                   - 系统启动项
 o base64                    - base64编码解码
@@ -47,6 +48,7 @@ o privilege                 - 进程权限相关
 o process                   - 进程控制
 o process_enum              - 进程枚举
 o process_module            - 进程的模块枚举
+o rijndael                  - rijndael加密算法
 c register                  - 注册表操作
 o register_enum             - 注册表枚举
 o screen                    - 屏幕相关
@@ -79,5 +81,4 @@ o wow64                     - 32位、64位兼容处理
 todos:
 ------
 + screen_capture            - 截屏
-+ aes                       - aes加解密
 ...
