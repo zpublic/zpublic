@@ -48,6 +48,7 @@ public:
         TEST_ADD(CTestWinUtils::test_task_scheduler);
         TEST_ADD(CTestWinUtils::test_split_str);
         TEST_ADD(CTestWinUtils::test_str_conv);
+        TEST_ADD(CTestWinUtils::test_aes);
     }
 
     void test_path()
@@ -917,5 +918,33 @@ public:
         TEST_ASSERT(ZLW2A(w)          == CW2A(w));
         TEST_ASSERT(ZLW2A(w, CP_UTF8) == CW2A(w, CP_UTF8));
         TEST_ASSERT(ZLW2A(w, CP_ACP)  == CW2A(w, CP_ACP));
+    }
+
+    void test_aes()
+    {
+        const size_t dest_size = 128;
+        unsigned char src[dest_size] = "hello world";
+        size_t src_size = sizeof("hello world") - 1;
+        unsigned char* key = (unsigned char*)"s1t9e8v4e1n0l1b4";
+
+        // º”√‹
+        size_t n = ZLAes::Encrypt(
+            ZLAes::ECB,
+            ZLAes::PADDING_PKCS5,
+            ZLAes::KEY_BITS_128,
+            key, src, src_size, src, dest_size);
+
+        unsigned char result[] = { 0xA7, 0x4B, 0x20, 0x99, 0x7B, 0xD2, 0xD4, 0x7C, 0x6C, 0xB9, 0xCB, 0x42, 0x57, 0xA2, 0xCC, 0x91 };
+        TEST_ASSERT(0 == memcmp(src, result, n));
+
+        // Ω‚√‹
+        size_t m = ZLAes::Decrypt(
+            ZLAes::ECB,
+            ZLAes::PADDING_PKCS5,
+            ZLAes::KEY_BITS_128,
+            key, src, n, src, dest_size);
+        src[m] = 0;
+
+        TEST_ASSERT(0 == memcmp(src, "hello world", m));
     }
 };

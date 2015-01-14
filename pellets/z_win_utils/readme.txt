@@ -70,6 +70,7 @@ o usid                      - CurrentUserSID处理
 o uuid                      - uuid相关
 o wow64                     - 32位、64位兼容处理
 o str_conv                  - 字符串转换
+o aes                       - AES算法
 
 todos:
 ------
