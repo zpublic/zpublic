@@ -16,34 +16,11 @@
 
 NAMESPACE_ZL_BEGIN
 
-///> 这个时间用来计算任务执行点，用boot时间和程序执行时间都是可以的
-inline unsigned int TimerGetTime()
+class ZLAsynTaskBase
 {
-    return ::GetTickCount();
-}
-
-inline unsigned int TimerCalcMilliseconds(
-    unsigned int h,
-    unsigned int m,
-    unsigned int s)
-{
-    return h * 3600000 + m * 60000 + s * 1000;
-}
-
-inline unsigned int TimerCalcMilliseconds(
-    unsigned int m,
-    unsigned int s)
-{
-    return m * 60000 + s * 1000;
-}
-
-inline unsigned int TimerCalcMilliseconds(
-    unsigned int s)
-{
-    return s * 1000;
-}
-
-///> 任务执行次数为99999则无限重复
-#define TaskRepeatDef 99999
+public:
+    virtual ~ZLAsynTaskBase() {}
+    virtual void DoWork() = 0;
+};
 
 NAMESPACE_ZL_END

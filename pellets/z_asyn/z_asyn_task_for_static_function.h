@@ -16,34 +16,22 @@
 
 NAMESPACE_ZL_BEGIN
 
-///> 这个时间用来计算任务执行点，用boot时间和程序执行时间都是可以的
-inline unsigned int TimerGetTime()
+typedef void(*PAsynTaskFunc)();
+class ZLAsynTask4Static : public ZLAsynTaskBase
 {
-    return ::GetTickCount();
-}
+public:
+    ZLAsynTask4Static(PAsynTaskFunc pfunc = NULL) : pfunc_(pfunc) {}
+    virtual ~ZLAsynTask4Static() {}
+    virtual void DoWork()
+    {
+        if (pfunc_)
+        {
+            pfunc_();
+        }
+    }
 
-inline unsigned int TimerCalcMilliseconds(
-    unsigned int h,
-    unsigned int m,
-    unsigned int s)
-{
-    return h * 3600000 + m * 60000 + s * 1000;
-}
-
-inline unsigned int TimerCalcMilliseconds(
-    unsigned int m,
-    unsigned int s)
-{
-    return m * 60000 + s * 1000;
-}
-
-inline unsigned int TimerCalcMilliseconds(
-    unsigned int s)
-{
-    return s * 1000;
-}
-
-///> 任务执行次数为99999则无限重复
-#define TaskRepeatDef 99999
+protected:
+    PAsynTaskFunc  pfunc_;
+};
 
 NAMESPACE_ZL_END

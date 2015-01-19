@@ -104,6 +104,9 @@
     <Filter Include="pellets\z_platform\impl">
       <UniqueIdentifier>{e091ba82-3289-4a5a-957a-997322805af5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\z_asyn">
+      <UniqueIdentifier>{244bca52-71b4-4a6d-9025-18a24747754f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -865,6 +868,33 @@
     <ClInclude Include="..\..\pellets\z_timer\z_timer.h">
       <Filter>pellets\z_timer</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn.h">
+      <Filter>pellets\z_asyn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn_task_mgr.h">
+      <Filter>pellets\z_asyn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn_task_for_member_function.h">
+      <Filter>pellets\z_asyn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn_task_for_static_function.h">
+      <Filter>pellets\z_asyn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn_task_base.h">
+      <Filter>pellets\z_asyn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn_test_code.h">
+      <Filter>pellets\z_asyn</Filter>
+    </ClInclude>
+    <ClInclude Include="TestAsyn.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\aes.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\rijndael.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">
@@ -1135,6 +1165,9 @@
       <Filter>pellets\harold\observer_impl</Filter>
     </ClCompile>
     <ClCompile Include="TestHarold.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="TestAsyn.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

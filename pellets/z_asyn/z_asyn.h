@@ -14,36 +14,30 @@
 ************************************************************************/
 #pragma once
 
-NAMESPACE_ZL_BEGIN
+/************************************************************************/
+/*  主要针对的问题：
+/*      怎样更方便的在c++里异步执行代码？
+/*      场景举例：在界面线程里，要做一个实时的数据上报
+/*  重要的点：
+/*      1，不做线程池设计，每个task一个线程
+/*      2，将要执行的代码放到异步线程去执行之后，不提倡查询状态的方法
+/*      3，task manager线程安全
+/*      3，task manager能在task执行完自动释放资源
+/*      4，task manager能等待、释放所有task
+/*      5，同一个task不能加入多次，所以请 obj.PostTask(new taskA);
+/**************************************************************************/
 
-///> 这个时间用来计算任务执行点，用boot时间和程序执行时间都是可以的
-inline unsigned int TimerGetTime()
-{
-    return ::GetTickCount();
-}
+#include <map>
+#include <windows.h>
+#include <process.h>
+#include "../thread_sync/thread_sync.h"
 
-inline unsigned int TimerCalcMilliseconds(
-    unsigned int h,
-    unsigned int m,
-    unsigned int s)
-{
-    return h * 3600000 + m * 60000 + s * 1000;
-}
+#ifndef NAMESPACE_ZL_BEGIN
+#define NAMESPACE_ZL_BEGIN      namespace zl {
+#define NAMESPACE_ZL_END        }
+#endif
 
-inline unsigned int TimerCalcMilliseconds(
-    unsigned int m,
-    unsigned int s)
-{
-    return m * 60000 + s * 1000;
-}
-
-inline unsigned int TimerCalcMilliseconds(
-    unsigned int s)
-{
-    return s * 1000;
-}
-
-///> 任务执行次数为99999则无限重复
-#define TaskRepeatDef 99999
-
-NAMESPACE_ZL_END
+#include "z_asyn_task_base.h"
+#include "z_asyn_task_for_static_function.h"
+#include "z_asyn_task_for_member_function.h"
+#include "z_asyn_task_mgr.h"
