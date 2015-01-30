@@ -5,6 +5,7 @@
 #include "practice/practice_test.h"
 
 #include "test_standard.h"
+#include "test_ppl.h"
 
 #ifdef _TEST_BOOST_
 #include "test_conversion.h"
@@ -65,6 +66,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //practice_test();
 
     //test_standard();
+    test_ppl();
 
     //test_conversion();
     //test_string_aogo();
@@ -105,7 +107,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_libevent();
     //test_qrcode();
     //test_mongoose();
-    test_snappy();
+    //test_snappy();
 
     getchar();
     return 0;

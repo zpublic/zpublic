@@ -226,6 +226,9 @@
     <Filter Include="src\data\snappy\snappy">
       <UniqueIdentifier>{20a49849-6af6-454f-b76a-5ecb2ef16fc2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\base\ppl">
+      <UniqueIdentifier>{369b7ea2-4610-4780-96eb-7a8950b93f63}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -861,6 +864,18 @@
     <ClInclude Include="..\..\3rdparty\google\snappy\snappy-test.h">
       <Filter>src\data\snappy\snappy</Filter>
     </ClInclude>
+    <ClInclude Include="test_ppl.h">
+      <Filter>src\base\ppl</Filter>
+    </ClInclude>
+    <ClInclude Include="test_ppl_loops.h">
+      <Filter>src\base\ppl</Filter>
+    </ClInclude>
+    <ClInclude Include="test_ppl_tasks.h">
+      <Filter>src\base\ppl</Filter>
+    </ClInclude>
+    <ClInclude Include="test_ppl_aggregation.h">
+      <Filter>src\base\ppl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -1408,6 +1423,18 @@
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\google\snappy\snappy-test.cc">
       <Filter>src\data\snappy\snappy</Filter>
+    </ClCompile>
+    <ClCompile Include="test_ppl.cpp">
+      <Filter>src\base\ppl</Filter>
+    </ClCompile>
+    <ClCompile Include="test_ppl_loops.cpp">
+      <Filter>src\base\ppl</Filter>
+    </ClCompile>
+    <ClCompile Include="test_ppl_tasks.cpp">
+      <Filter>src\base\ppl</Filter>
+    </ClCompile>
+    <ClCompile Include="test_ppl_aggregation.cpp">
+      <Filter>src\base\ppl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
