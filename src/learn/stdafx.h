@@ -80,7 +80,7 @@ using std::wcerr;
 ///> functional
 #include <functional>
 
-#define _TEST_BOOST_
+//#define _TEST_BOOST_
 #ifdef _TEST_BOOST_
 ///> Conversion
 ///> Polymorphic and lexical casts.

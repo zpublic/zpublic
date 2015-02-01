@@ -229,6 +229,9 @@
     <Filter Include="src\base\ppl">
       <UniqueIdentifier>{369b7ea2-4610-4780-96eb-7a8950b93f63}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\net\asio">
+      <UniqueIdentifier>{094cb304-16d7-4a3f-bffa-497b76a5c22b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -876,6 +879,9 @@
     <ClInclude Include="test_ppl_aggregation.h">
       <Filter>src\base\ppl</Filter>
     </ClInclude>
+    <ClInclude Include="test_asio.h">
+      <Filter>src\net\asio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -1435,6 +1441,9 @@
     </ClCompile>
     <ClCompile Include="test_ppl_aggregation.cpp">
       <Filter>src\base\ppl</Filter>
+    </ClCompile>
+    <ClCompile Include="test_asio.cpp">
+      <Filter>src\net\asio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

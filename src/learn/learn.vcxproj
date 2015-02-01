@@ -388,6 +388,7 @@
     <ClInclude Include="sample_lua.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="test_asio.h" />
     <ClInclude Include="test_cpp11_alignment.h" />
     <ClInclude Include="test_cpp11_array.h" />
     <ClInclude Include="test_cpp11_atomic.h" />
@@ -1105,6 +1106,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="test_asio.cpp" />
     <ClCompile Include="test_cpp11_alignment.cpp" />
     <ClCompile Include="test_cpp11_array.cpp" />
     <ClCompile Include="test_cpp11_atomic.cpp" />

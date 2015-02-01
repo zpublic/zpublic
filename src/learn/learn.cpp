@@ -53,20 +53,20 @@
 #include "test_linq.h"
 #include "test_json_rpc.h"
 #include "test_json_cpp.h"
-
 #include "test_flatbuffer.h"
 #include "test_sqlite.h"
 #include "test_libevent.h"
 #include "test_qrcode.h"
 #include "test_mongoose.h"
 #include "test_snappy.h"
+#include "test_asio.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
     //practice_test();
 
     //test_standard();
-    test_ppl();
+    //test_ppl();
 
     //test_conversion();
     //test_string_aogo();
@@ -108,6 +108,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_qrcode();
     //test_mongoose();
     //test_snappy();
+    test_asio();
 
     getchar();
     return 0;
