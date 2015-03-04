@@ -60,7 +60,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>./../../3rdparty/boost_lib/;./../../3rdparty/protobuf_lib/;./../../3rdparty/libcurl_lib/</AdditionalLibraryDirectories>
-      <AdditionalDependencies />
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>protoc.exe --cpp_out=./ ./test_proto.proto</Command>
@@ -118,6 +118,16 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\google\snappy\snappy-c.h" />
+    <ClInclude Include="..\..\3rdparty\google\snappy\snappy-internal.h" />
+    <ClInclude Include="..\..\3rdparty\google\snappy\snappy-sinksource.h" />
+    <ClInclude Include="..\..\3rdparty\google\snappy\snappy-stubs-internal.h" />
+    <ClInclude Include="..\..\3rdparty\google\snappy\snappy-stubs-public.h" />
+    <ClInclude Include="..\..\3rdparty\google\snappy\snappy-test.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\google\snappy\snappy.h" />
     <ClInclude Include="..\..\3rdparty\hp_socket\bufferptr.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -372,16 +382,13 @@
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_runner.hpp" />
     <ClInclude Include="..\..\3rdparty\tut\tut\tut_xml_reporter.hpp" />
     <ClInclude Include="..\..\3rdparty\xde102\xde.h" />
-    <ClInclude Include="..\..\public\ltest\ltest.h" />
-    <ClInclude Include="..\..\public\ltest\ltest_actor.hpp" />
-    <ClInclude Include="..\..\public\ltest\ltest_macros.h" />
-    <ClInclude Include="..\..\public\ltest\ltest_suite.hpp" />
     <ClInclude Include="practice\practice_test.h" />
     <ClInclude Include="practice\property_tree.h" />
     <ClInclude Include="practice\test_property_tree.h" />
     <ClInclude Include="sample_lua.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="test_asio.h" />
     <ClInclude Include="test_cpp11_alignment.h" />
     <ClInclude Include="test_cpp11_array.h" />
     <ClInclude Include="test_cpp11_atomic.h" />
@@ -463,6 +470,10 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="test_ppl.h" />
+    <ClInclude Include="test_ppl_aggregation.h" />
+    <ClInclude Include="test_ppl_loops.h" />
+    <ClInclude Include="test_ppl_tasks.h" />
     <ClInclude Include="test_preprocessor.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -495,6 +506,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="test_smart_ptr.h" />
+    <ClInclude Include="test_snappy.h" />
     <ClInclude Include="test_sqlite.h" />
     <ClInclude Include="test_standard.h" />
     <ClInclude Include="test_stream.h" />
@@ -551,6 +563,30 @@
     <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_parser.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\google\snappy\snappy-c.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\google\snappy\snappy-sinksource.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\google\snappy\snappy-stubs-internal.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\google\snappy\snappy-test.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\google\snappy\snappy.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\google\snappy\snappy_unittest.cc">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -1070,6 +1106,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="test_asio.cpp" />
     <ClCompile Include="test_cpp11_alignment.cpp" />
     <ClCompile Include="test_cpp11_array.cpp" />
     <ClCompile Include="test_cpp11_atomic.cpp" />
@@ -1151,6 +1188,10 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="test_ppl.cpp" />
+    <ClCompile Include="test_ppl_aggregation.cpp" />
+    <ClCompile Include="test_ppl_loops.cpp" />
+    <ClCompile Include="test_ppl_tasks.cpp" />
     <ClCompile Include="test_preprocessor.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -1185,6 +1226,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="test_smart_ptr.cpp" />
+    <ClCompile Include="test_snappy.cpp" />
     <ClCompile Include="test_sqlite.cpp" />
     <ClCompile Include="test_stream.cpp" />
     <ClCompile Include="test_string_aogo.cpp">

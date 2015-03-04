@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5E859338-AFAA-4330-AEAF-49784E81E8C2}</ProjectGuid>
+    <RootNamespace>test_pellet_llvm</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>LLVM-vs2013_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>LLVM-vs2013_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>./../../pellets;./../../3rdparty;./../../3rdparty/jsonlib;./</AdditionalIncludeDirectories>
+      <AdditionalOptions>/D_HAS_EXCEPTIONS=0 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>./../../3rdparty/libcurl_lib/;./../../3rdparty/zlib_lib/</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>./../../pellets;./../../3rdparty;./../../3rdparty/jsonlib;./</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>./../../3rdparty/libcurl_lib/;./../../3rdparty/zlib_lib/</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\3rdparty\luasrc\lapi.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lauxlib.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lcode.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lctype.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\ldebug.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\ldo.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lfunc.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lgc.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\llex.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\llimits.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lmem.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lobject.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lopcodes.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lparser.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lstate.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lstring.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\ltable.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\ltm.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lua.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lua.hpp" />
+    <ClInclude Include="..\..\3rdparty\luasrc\luaconf.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lualib.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lundump.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lvm.h" />
+    <ClInclude Include="..\..\3rdparty\luasrc\lzio.h" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind.h" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_def.h" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal.hpp" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_call.hpp" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_def.hpp" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_functor.hpp" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_global.hpp" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.hpp" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.hpp" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.hpp" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_function_reg.hpp" />
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_state.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\3rdparty\luasrc\lapi.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lauxlib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lbaselib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lbitlib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lcode.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lcorolib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lctype.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\ldblib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\ldebug.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\ldo.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\ldump.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lfunc.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lgc.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\linit.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\liolib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\llex.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lmathlib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lmem.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\loadlib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lobject.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lopcodes.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\loslib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lparser.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lstate.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lstring.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lstrlib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\ltable.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\ltablib.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\ltm.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lundump.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lvm.c" />
+    <ClCompile Include="..\..\3rdparty\luasrc\lzio.c" />
+    <ClCompile Include="test_lua_bind.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\3rdparty\luasrc\Makefile" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -9,8 +9,6 @@
 *   Dq         {Ql         MH    iMX   Mg     MM   QP   QM   Eg         *
 * !EWNaPRag2$  +M"          $WNaHaN%   MQE$%EXW    QQ   CM    %M%a$D    *
 *                                                                       *
-*                               ZPublic                                 *
-*                  Developer: zapline(278998871@qq.com)                 *
 *               Website: https://github.com/zpublic/zpublic             *
 *                                                                       *
 ************************************************************************/
@@ -21,8 +19,10 @@
 #include <process.h>
 #include "../thread_sync/thread_sync.h"
 
+#ifndef NAMESPACE_ZL_BEGIN
 #define NAMESPACE_ZL_BEGIN      namespace zl {
 #define NAMESPACE_ZL_END        }
+#endif
 
 #include "z_timer_task.h"
 #include "z_timer_task_queue.h"

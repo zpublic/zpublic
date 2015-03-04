@@ -16,6 +16,7 @@
 #include "z_http\TestHttp.h"
 #include "TestHarold.h"
 #include "z_platform\TestPlatform.h"
+#include "TestAsyn.h"
 
 void AddTest(Suite& ts)
 {
@@ -27,11 +28,12 @@ void AddTest(Suite& ts)
 //     ts.add(std::auto_ptr<Suite>(new CTestDesignPattern));
 //     ts.add(std::auto_ptr<Suite>(new CTestEvent));
 //     ts.add(std::auto_ptr<Suite>(new CTestTimer));
-     ts.add(std::auto_ptr<Suite>(new CTestLuaBind));
+//     ts.add(std::auto_ptr<Suite>(new CTestLuaBind));
 //    ts.add(std::auto_ptr<Suite>(new CTestWinUtils));
 //    ts.add(std::auto_ptr<Suite>(new CTestHttp));
 //    ts.add(std::auto_ptr<Suite>(new CTestHarold));
 //    ts.add(std::auto_ptr<Suite>(new CTestPlatform));
+    ts.add(std::auto_ptr<Suite>(new CTestAsyn));
 }
 
 void UniTest()

@@ -5,6 +5,7 @@
 #include "practice/practice_test.h"
 
 #include "test_standard.h"
+#include "test_ppl.h"
 
 #ifdef _TEST_BOOST_
 #include "test_conversion.h"
@@ -52,18 +53,20 @@
 #include "test_linq.h"
 #include "test_json_rpc.h"
 #include "test_json_cpp.h"
-
 #include "test_flatbuffer.h"
 #include "test_sqlite.h"
 #include "test_libevent.h"
 #include "test_qrcode.h"
 #include "test_mongoose.h"
+#include "test_snappy.h"
+#include "test_asio.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
     //practice_test();
 
-    test_standard();
+    //test_standard();
+    //test_ppl();
 
     //test_conversion();
     //test_string_aogo();
@@ -103,7 +106,9 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_sqlite();
     //test_libevent();
     //test_qrcode();
-    test_mongoose();
+    //test_mongoose();
+    //test_snappy();
+    test_asio();
 
     getchar();
     return 0;

@@ -54,3 +54,9 @@ udt
 
 mongoose
 5.5
+
+snappy
+1.1.2
+
+asio(ASIO_STANDALONE)
+1.10.2
