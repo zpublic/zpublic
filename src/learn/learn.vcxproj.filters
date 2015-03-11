@@ -19,18 +19,6 @@
     <Filter Include="src\net\libcurl">
       <UniqueIdentifier>{9286bb95-bc12-46cf-98c6-c5061611af6c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\net\flatbuffer">
-      <UniqueIdentifier>{19996759-52b8-4fce-be9b-c762a8b9fed6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\net\flatbuffer\flatbuf">
-      <UniqueIdentifier>{8b7b29cb-1754-4f8e-8a24-a9612e35ea19}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\net\protobuf">
-      <UniqueIdentifier>{ce990ada-7144-4c14-93b8-31264e80d00f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\net\protobuf\proto">
-      <UniqueIdentifier>{7bbd6010-c314-409f-a383-5766526f51f6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\data">
       <UniqueIdentifier>{e1b32828-51b4-4cda-a837-478d619eddfd}</UniqueIdentifier>
     </Filter>
@@ -241,6 +229,21 @@
     <Filter Include="src\misc\cryptpp\cpp">
       <UniqueIdentifier>{ca1b570d-d718-4cdb-b6e3-d5a5f5f515e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\data\flatbuffer">
+      <UniqueIdentifier>{19996759-52b8-4fce-be9b-c762a8b9fed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\flatbuffer\flatbuf">
+      <UniqueIdentifier>{8b7b29cb-1754-4f8e-8a24-a9612e35ea19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\protobuf">
+      <UniqueIdentifier>{ce990ada-7144-4c14-93b8-31264e80d00f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\protobuf\proto">
+      <UniqueIdentifier>{7bbd6010-c314-409f-a383-5766526f51f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data\msgpack">
+      <UniqueIdentifier>{e1cab858-764e-40b6-81ac-b82aaeebe8d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -304,10 +307,10 @@
       <Filter>src\base\boost\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="test_protobuf.h">
-      <Filter>src\net\protobuf</Filter>
+      <Filter>src\data\protobuf</Filter>
     </ClInclude>
     <ClInclude Include="test_proto.pb.h">
-      <Filter>src\net\protobuf\proto</Filter>
+      <Filter>src\data\protobuf\proto</Filter>
     </ClInclude>
     <ClInclude Include="test_libcurl.h">
       <Filter>src\net\libcurl</Filter>
@@ -577,16 +580,16 @@
       <Filter>src\data\json\json_cpp\h</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\flatbuffer\include\flatbuffers\flatbuffers.h">
-      <Filter>src\net\flatbuffer\flatbuf</Filter>
+      <Filter>src\data\flatbuffer\flatbuf</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\flatbuffer\include\flatbuffers\idl.h">
-      <Filter>src\net\flatbuffer\flatbuf</Filter>
+      <Filter>src\data\flatbuffer\flatbuf</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\flatbuffer\include\flatbuffers\util.h">
-      <Filter>src\net\flatbuffer\flatbuf</Filter>
+      <Filter>src\data\flatbuffer\flatbuf</Filter>
     </ClInclude>
     <ClInclude Include="test_flatbuffer.h">
-      <Filter>src\net\flatbuffer</Filter>
+      <Filter>src\data\flatbuffer</Filter>
     </ClInclude>
     <ClInclude Include="test_sqlite.h">
       <Filter>src\data\sqlite</Filter>
@@ -1299,6 +1302,9 @@
     <ClInclude Include="test_cryptpp.h">
       <Filter>src\misc\cryptpp</Filter>
     </ClInclude>
+    <ClInclude Include="test_msgpack.h">
+      <Filter>src\data\msgpack</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -1359,10 +1365,10 @@
       <Filter>src\base\boost\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="test_protobuf.cpp">
-      <Filter>src\net\protobuf</Filter>
+      <Filter>src\data\protobuf</Filter>
     </ClCompile>
     <ClCompile Include="test_proto.pb.cc">
-      <Filter>src\net\protobuf\proto</Filter>
+      <Filter>src\data\protobuf\proto</Filter>
     </ClCompile>
     <ClCompile Include="test_libcurl.cpp">
       <Filter>src\net\libcurl</Filter>
@@ -1581,19 +1587,19 @@
       <Filter>src\data\json\json_cpp\cpp</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_gen_cpp.cpp">
-      <Filter>src\net\flatbuffer\flatbuf</Filter>
+      <Filter>src\data\flatbuffer\flatbuf</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_gen_java.cpp">
-      <Filter>src\net\flatbuffer\flatbuf</Filter>
+      <Filter>src\data\flatbuffer\flatbuf</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_gen_text.cpp">
-      <Filter>src\net\flatbuffer\flatbuf</Filter>
+      <Filter>src\data\flatbuffer\flatbuf</Filter>
     </ClCompile>
     <ClCompile Include="..\..\3rdparty\flatbuffer\src\idl_parser.cpp">
-      <Filter>src\net\flatbuffer\flatbuf</Filter>
+      <Filter>src\data\flatbuffer\flatbuf</Filter>
     </ClCompile>
     <ClCompile Include="test_flatbuffer.cpp">
-      <Filter>src\net\flatbuffer</Filter>
+      <Filter>src\data\flatbuffer</Filter>
     </ClCompile>
     <ClCompile Include="test_sqlite.cpp">
       <Filter>src\data\sqlite</Filter>
@@ -2237,10 +2243,13 @@
     <ClCompile Include="test_cryptpp.cpp">
       <Filter>src\misc\cryptpp</Filter>
     </ClCompile>
+    <ClCompile Include="test_msgpack.cpp">
+      <Filter>src\data\msgpack</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="test_proto.proto">
-      <Filter>src\net\protobuf\proto</Filter>
+      <Filter>src\data\protobuf\proto</Filter>
     </None>
     <None Include="..\..\3rdparty\luasrc\Makefile">
       <Filter>src\misc\lua\luasrc</Filter>
