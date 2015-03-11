@@ -60,6 +60,8 @@
 #include "test_mongoose.h"
 #include "test_snappy.h"
 #include "test_asio.h"
+#include "test_cryptpp.h"
+#include "test_msgpack.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -108,7 +110,9 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_qrcode();
     //test_mongoose();
     //test_snappy();
-    test_asio();
+    //test_asio();
+    //test_cryptpp();
+    test_msgpack();
 
     getchar();
     return 0;
