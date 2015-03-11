@@ -60,3 +60,6 @@ snappy
 
 asio(ASIO_STANDALONE)
 1.10.2
+
+msgpack
+1.0.0
