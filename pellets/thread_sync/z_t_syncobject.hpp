@@ -83,6 +83,13 @@ public:
 protected:
     HANDLE m_hSync;
 
+public:
+    ///> warning!!!
+    HANDLE GetHandle()
+    {
+        return m_hSync;
+    }
+
 private:
     DISALLOW_COPY_AND_ASSIGN(SyncObject);
 };
