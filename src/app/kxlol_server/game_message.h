@@ -54,13 +54,13 @@ public:
 
     bool decode_header()
     {
-        body_length_ = data_[0];
+        body_length_ = (unsigned char)data_[0];
         body_length_ <<= 8;
-        body_length_ |= data_[1];
+        body_length_ |= (unsigned char)data_[1];
         body_length_ <<= 8;
-        body_length_ |= data_[2];
+        body_length_ |= (unsigned char)data_[2];
         body_length_ <<= 8;
-        body_length_ |= data_[3];
+        body_length_ |= (unsigned char)data_[3];
         if (body_length_ > max_body_length)
         {
             body_length_ = 0;
