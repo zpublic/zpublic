@@ -54,9 +54,13 @@ public:
 
     bool decode_header()
     {
-        char header[header_length + 1] = "";
-        strncat_s(header, data_, header_length);
-        body_length_ = atoi(header);
+        body_length_ = data_[0];
+        body_length_ <<= 8;
+        body_length_ |= data_[1];
+        body_length_ <<= 8;
+        body_length_ |= data_[2];
+        body_length_ <<= 8;
+        body_length_ |= data_[3];
         if (body_length_ > max_body_length)
         {
             body_length_ = 0;
@@ -67,9 +71,10 @@ public:
 
     void encode_header()
     {
-        char header[header_length + 1] = "";
-        sprintf_s(header, "%4d", static_cast<int>(body_length_));
-        memcpy(data_, header, header_length);
+        data_[0] = (body_length_ >> 24) & 0xFF;
+        data_[1] = (body_length_ >> 16) & 0xFF;
+        data_[2] = (body_length_ >>  8) & 0xFF;
+        data_[3] = (body_length_      ) & 0xFF;
     }
 
 private:

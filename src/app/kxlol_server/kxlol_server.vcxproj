@@ -79,7 +79,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="game_message.h" />
-    <ClInclude Include="game_rome.h" />
+    <ClInclude Include="game_room.h" />
     <ClInclude Include="game_player.h" />
     <ClInclude Include="game_server.h" />
     <ClInclude Include="game_session.h" />
