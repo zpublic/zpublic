@@ -21,13 +21,13 @@
     <ClInclude Include="game_session.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="game_rome.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="game_server.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="game_message.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="game_room.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
