@@ -8,6 +8,7 @@
 /**************************************************************************/
 
 #include "z_platform_def.h"
+#include "z_platform_type.h"
 #include "z_platform_mutex.h"
 #include "z_platform_event.h"
 #include "z_platform_sleep.h"
