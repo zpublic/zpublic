@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #ifdef WIN32
 #define Z_PLATFORM_WIN

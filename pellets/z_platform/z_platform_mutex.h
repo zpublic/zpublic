@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "z_platform_def.h"
 
 #ifdef Z_PLATFORM_WIN
