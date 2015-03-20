@@ -9,22 +9,22 @@ class game_room
 public:
     void join(game_player_ptr player)
     {
-        palyers_.insert(player);
+        players_.insert(player);
     }
 
     void leave(game_player_ptr player)
     {
-        palyers_.erase(player);
+        players_.erase(player);
     }
 
     void deliver(const game_message& msg)
     {
         std::for_each(
-            palyers_.begin(),
-            palyers_.end(),
+            players_.begin(),
+            players_.end(),
             std::bind(&game_player::deliver, std::placeholders::_1, std::ref(msg)));
     }
 
 private:
-    std::set<game_player_ptr> palyers_;
+    std::set<game_player_ptr> players_;
 };
