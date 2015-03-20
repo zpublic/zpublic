@@ -63,3 +63,6 @@ asio(ASIO_STANDALONE)
 
 msgpack
 1.0.0
+
+cppformat
+1.1.0
