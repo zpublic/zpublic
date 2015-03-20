@@ -104,6 +104,8 @@
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\counter.hpp" />
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\tap13.hpp" />
     <ClInclude Include="..\..\3rdparty\cipra-1.1\include\impl\tests.hpp" />
+    <ClInclude Include="..\..\3rdparty\cppformat\format.h" />
+    <ClInclude Include="..\..\3rdparty\cppformat\posix.h" />
     <ClInclude Include="..\..\3rdparty\cppsqlite\CppSQLite3.h" />
     <ClInclude Include="..\..\3rdparty\cppsqlite\sqlite3.h" />
     <ClInclude Include="..\..\3rdparty\cryptopp\3way.h" />
@@ -559,6 +561,7 @@
     <ClInclude Include="test_cpp11_right_angle_brackets.h" />
     <ClInclude Include="test_cpp11_tuple.h" />
     <ClInclude Include="test_cpp11_variadic_templates.h" />
+    <ClInclude Include="test_cppformat.h" />
     <ClInclude Include="test_cryptpp.h" />
     <ClInclude Include="test_dynamic_bitset.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -675,6 +678,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\3rdparty\cppformat\format.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\cppformat\posix.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="..\..\3rdparty\cppsqlite\CppSQLite3.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -1775,6 +1786,7 @@
     <ClCompile Include="test_cpp11_right_angle_brackets.cpp" />
     <ClCompile Include="test_cpp11_tuple.cpp" />
     <ClCompile Include="test_cpp11_variadic_templates.cpp" />
+    <ClCompile Include="test_cppformat.cpp" />
     <ClCompile Include="test_cryptpp.cpp" />
     <ClCompile Include="test_dynamic_bitset.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>

@@ -62,6 +62,7 @@
 #include "test_asio.h"
 #include "test_cryptpp.h"
 #include "test_msgpack.h"
+#include "test_cppformat.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -112,7 +113,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_snappy();
     //test_asio();
     //test_cryptpp();
-    test_msgpack();
+    //test_msgpack();
+    test_cppformat();
 
     getchar();
     return 0;

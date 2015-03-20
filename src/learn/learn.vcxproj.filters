@@ -244,6 +244,12 @@
     <Filter Include="src\data\msgpack">
       <UniqueIdentifier>{e1cab858-764e-40b6-81ac-b82aaeebe8d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\misc\cppformat">
+      <UniqueIdentifier>{10b8390a-6322-4a0f-bdd6-0e208c68d5a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\misc\cppformat\src">
+      <UniqueIdentifier>{43c11c27-b95b-46fa-bca8-acd008e8d0df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -1305,6 +1311,15 @@
     <ClInclude Include="test_msgpack.h">
       <Filter>src\data\msgpack</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cppformat\format.h">
+      <Filter>src\misc\cppformat\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cppformat\posix.h">
+      <Filter>src\misc\cppformat\src</Filter>
+    </ClInclude>
+    <ClInclude Include="test_cppformat.h">
+      <Filter>src\misc\cppformat</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -2245,6 +2260,15 @@
     </ClCompile>
     <ClCompile Include="test_msgpack.cpp">
       <Filter>src\data\msgpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\cppformat\format.cc">
+      <Filter>src\misc\cppformat\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\cppformat\posix.cc">
+      <Filter>src\misc\cppformat\src</Filter>
+    </ClCompile>
+    <ClCompile Include="test_cppformat.cpp">
+      <Filter>src\misc\cppformat</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
