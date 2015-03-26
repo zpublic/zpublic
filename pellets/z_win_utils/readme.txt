@@ -44,6 +44,7 @@ o memory                    - 内存相关
 o message                   - 窗口消息相关
 c module                    - 动态运行库相关
 o path                      - 文件路径名操作
+c private_heap              - 私有堆封装
 o privilege                 - 进程权限相关
 o process                   - 进程控制
 o process_enum              - 进程枚举

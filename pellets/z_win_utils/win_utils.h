@@ -68,6 +68,7 @@
 #include "wmi_query.hpp"
 #include "buffer.hpp"
 #include "file_operation.hpp"
+#include "private_heap.hpp"
 
 #ifdef _GDIPLUS_H
 #include "gdiplus.hpp"
