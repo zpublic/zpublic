@@ -118,7 +118,7 @@ namespace WinUtils
          */
         VOID Attach(void* buffer,size_t bufsize)
         {
-            ATLASSERT(buffer);
+            assert(buffer);
             if (buffer && bufsize)
             {
                 _free();
@@ -149,7 +149,7 @@ namespace WinUtils
             {
                 size_t temp;
                 temp = fwrite(GetBuffer(),GetSize(),1,fp);
-                ATLASSERT(temp == 1);
+                assert(temp == 1);
                 fclose(fp);
                 return TRUE;
             }
