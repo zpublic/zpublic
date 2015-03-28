@@ -59,7 +59,7 @@ BOOL ZLClientSocket::_ConnectToServer(LPCWSTR lpRemoteAddress, USHORT uPort)
         return FALSE;
     }
 
-    SOCKADDR_IN addr;
+    sockaddr_in addr;
     addr.sin_family = AF_INET;
     addr.sin_port = htons(uPort);
     addr.sin_addr.s_addr = inet_addr(ZLW2A(sAddress.GetString()));
@@ -72,7 +72,7 @@ BOOL ZLClientSocket::_ConnectToServer(LPCWSTR lpRemoteAddress, USHORT uPort)
     {
         if (::WSAEventSelect(m_soClient, m_hSocket, FD_CONNECT | FD_CLOSE) != SOCKET_ERROR)
         {
-            int rc = connect(m_soClient, (SOCKADDR*)&addr, sizeof(SOCKADDR_IN));
+            int rc = connect(m_soClient, (sockaddr*)&addr, sizeof(sockaddr_in));
             if (rc == NO_ERROR
                 || (rc == SOCKET_ERROR && ::WSAGetLastError() == WSAEWOULDBLOCK))
             {
@@ -82,7 +82,7 @@ BOOL ZLClientSocket::_ConnectToServer(LPCWSTR lpRemoteAddress, USHORT uPort)
     }
     else
     {
-        if (connect(m_soClient, (SOCKADDR*)&addr, sizeof(SOCKADDR_IN)) != SOCKET_ERROR)
+        if (connect(m_soClient, (sockaddr*)&addr, sizeof(sockaddr_in)) != SOCKET_ERROR)
         {
             if (::WSAEventSelect(m_soClient, m_hSocket, FD_READ | FD_WRITE | FD_CLOSE) != SOCKET_ERROR)
             {

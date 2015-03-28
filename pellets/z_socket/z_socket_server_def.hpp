@@ -30,7 +30,7 @@ typedef struct _TBufferObj
 typedef struct _TSocketObj
 {
     SOCKET              socket;
-    SOCKADDR_IN         clientAddr;
+    sockaddr_in         clientAddr;
     ZLConnectId         connId;
     z_mutex*            pmutex;
 }TSocketObj;

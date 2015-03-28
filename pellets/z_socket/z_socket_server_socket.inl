@@ -73,12 +73,12 @@ BOOL ZLServerSocket::_CreateListenSocket(LPCWSTR lpBindAddress, USHORT usPort)
     m_soListen = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (m_soListen != INVALID_SOCKET)
     {
-        SOCKADDR_IN addr;
+        sockaddr_in addr;
         addr.sin_family;
         addr.sin_port = htons(usPort);
         addr.sin_addr.s_addr = inet_addr(ZLW2A(lpBindAddress));
         if (addr.sin_addr.s_addr != INADDR_NONE
-            && bind(m_soListen, (SOCKADDR*)&addr, sizeof(SOCKADDR_IN)) != SOCKET_ERROR)
+            && bind(m_soListen, (sockaddr*)&addr, sizeof(sockaddr_in)) != SOCKET_ERROR)
         {
             if (FirePrepareListen(m_soListen) != emZLSocketHandleResultError)
             {
