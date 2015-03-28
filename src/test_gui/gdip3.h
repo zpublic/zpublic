@@ -1,6 +1,6 @@
 #pragma once
 #include "resource.h"
-#include "lab/publish/gdiplus_resource.h"
+//#include "lab/publish/gdiplus_resource.h"
 
 class CGdip3 : public CSimpleDialog<IDD_DIALOG6>
 {
@@ -34,7 +34,7 @@ private:
         CDC hdc = BeginPaint(&ps);
         {
             Graphics    graphics(hdc);
-            Image       *image = zl::LoadSkinImage(IDB_PNG1);
+            Image       *image = NULL;//zl::LoadSkinImage(IDB_PNG1);
             if (image)
             {
                 TextureBrush  tBrush(image);
