@@ -17,6 +17,7 @@
 #include "TestHarold.h"
 #include "z_platform\TestPlatform.h"
 #include "TestAsyn.h"
+#include "TestSocket.h"
 
 void AddTest(Suite& ts)
 {
@@ -33,7 +34,8 @@ void AddTest(Suite& ts)
 //    ts.add(std::auto_ptr<Suite>(new CTestHttp));
 //    ts.add(std::auto_ptr<Suite>(new CTestHarold));
 //    ts.add(std::auto_ptr<Suite>(new CTestPlatform));
-    ts.add(std::auto_ptr<Suite>(new CTestAsyn));
+//    ts.add(std::auto_ptr<Suite>(new CTestAsyn));
+    ts.add(std::auto_ptr<Suite>(new CTestSocket));
 }
 
 void UniTest()

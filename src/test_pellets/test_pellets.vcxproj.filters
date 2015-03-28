@@ -107,6 +107,18 @@
     <Filter Include="pellets\z_asyn">
       <UniqueIdentifier>{244bca52-71b4-4a6d-9025-18a24747754f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pellets\z_socket">
+      <UniqueIdentifier>{a1440ee2-231b-46e3-a0cb-b31e09d3a892}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\z_socket\client">
+      <UniqueIdentifier>{d1248437-a36b-49c6-a7e4-42f44737985f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\z_socket\server">
+      <UniqueIdentifier>{001f597b-3064-426e-bb81-13a876ec86d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\cppformat">
+      <UniqueIdentifier>{5ab41642-9ac7-456b-80af-deb2365c789c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -895,6 +907,69 @@
     <ClInclude Include="..\..\pellets\z_win_utils\rijndael.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
+    <ClInclude Include="TestSocket.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket.hpp">
+      <Filter>pellets\z_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_def.hpp">
+      <Filter>pellets\z_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_init_socket.hpp">
+      <Filter>pellets\z_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_listener_interface.hpp">
+      <Filter>pellets\z_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_pull_interface.hpp">
+      <Filter>pellets\z_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_utils.hpp">
+      <Filter>pellets\z_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_pull_client_socket.hpp">
+      <Filter>pellets\z_socket\client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_client_socket_listener.hpp">
+      <Filter>pellets\z_socket\client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_client_socket.hpp">
+      <Filter>pellets\z_socket\client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_client_listener_interface.hpp">
+      <Filter>pellets\z_socket\client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_client_interface.hpp">
+      <Filter>pellets\z_socket\client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_client_def.hpp">
+      <Filter>pellets\z_socket\client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_def.hpp">
+      <Filter>pellets\z_socket\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_interface.hpp">
+      <Filter>pellets\z_socket\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_listener_interface.hpp">
+      <Filter>pellets\z_socket\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_socket.hpp">
+      <Filter>pellets\z_socket\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_socket_listener.hpp">
+      <Filter>pellets\z_socket\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_utils.hpp">
+      <Filter>pellets\z_socket\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_test_code.h">
+      <Filter>pellets\z_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cppformat\format.h">
+      <Filter>3rdparty\cppformat</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">
@@ -1170,6 +1245,12 @@
     <ClCompile Include="TestAsyn.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="TestSocket.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\cppformat\format.cc">
+      <Filter>3rdparty\cppformat</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\3rdparty\jsonlib\lib_json\json_internalarray.inl">
@@ -1183,6 +1264,12 @@
     </None>
     <None Include="..\..\3rdparty\luasrc\Makefile">
       <Filter>3rdparty\lua</Filter>
+    </None>
+    <None Include="..\..\pellets\z_socket\z_socket_client_socket.inl">
+      <Filter>pellets\z_socket\client</Filter>
+    </None>
+    <None Include="..\..\pellets\z_socket\z_socket_server_socket.inl">
+      <Filter>pellets\z_socket\server</Filter>
     </None>
   </ItemGroup>
 </Project>

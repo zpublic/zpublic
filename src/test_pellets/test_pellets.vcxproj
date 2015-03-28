@@ -50,7 +50,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>DETOURS_32BIT;DETOURS_X86;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ZSOCKET_TEST_CODE;DETOURS_32BIT;DETOURS_X86;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>./../../pellets;./../../3rdparty;./../../3rdparty/jsonlib;./</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <CallingConvention>Cdecl</CallingConvention>
@@ -75,7 +75,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>DETOURS_32BIT;DETOURS_X86;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ZSOCKET_TEST_CODE;DETOURS_32BIT;DETOURS_X86;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>./../../pellets;./../../3rdparty;./../../3rdparty/jsonlib;./</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -93,6 +93,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\3rdparty\cppformat\format.h" />
     <ClInclude Include="..\..\3rdparty\detours\src\detours.h" />
     <ClInclude Include="..\..\3rdparty\detours\src\detver.h" />
     <ClInclude Include="..\..\3rdparty\luasrc\lapi.h" />
@@ -266,6 +267,25 @@
     <ClInclude Include="..\..\pellets\z_platform\z_platform_mutex.h" />
     <ClInclude Include="..\..\pellets\z_platform\z_platform_sleep.h" />
     <ClInclude Include="..\..\pellets\z_platform\z_platform_thread.h" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_client_def.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_client_interface.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_client_listener_interface.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_client_socket.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_client_socket_listener.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_def.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_init_socket.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_listener_interface.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_pull_client_socket.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_pull_interface.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_def.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_interface.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_listener_interface.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_socket.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_socket_listener.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_utils.hpp" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_test_code.h" />
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_utils.hpp" />
     <ClInclude Include="..\..\pellets\z_thread_pool\z_task.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
@@ -371,11 +391,13 @@
     <ClInclude Include="TestLuaBind.h" />
     <ClInclude Include="TestPeutils.h" />
     <ClInclude Include="TestSerialize.h" />
+    <ClInclude Include="TestSocket.h" />
     <ClInclude Include="TestThreadPool.h" />
     <ClInclude Include="TestThreadSync.h" />
     <ClInclude Include="TestTimer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\3rdparty\cppformat\format.cc" />
     <ClCompile Include="..\..\3rdparty\detours\src\creatwth.cpp" />
     <ClCompile Include="..\..\3rdparty\detours\src\detours.cpp" />
     <ClCompile Include="..\..\3rdparty\detours\src\disasm.cpp" />
@@ -484,6 +506,7 @@
     <ClCompile Include="TestLuaBind.cpp" />
     <ClCompile Include="TestPeutils.cpp" />
     <ClCompile Include="TestSerialize.cpp" />
+    <ClCompile Include="TestSocket.cpp" />
     <ClCompile Include="TestThreadPool.cpp" />
     <ClCompile Include="TestThreadSync.cpp" />
     <ClCompile Include="TestTimer.cpp" />
@@ -494,6 +517,8 @@
     <None Include="..\..\3rdparty\jsonlib\lib_json\json_internalmap.inl" />
     <None Include="..\..\3rdparty\jsonlib\lib_json\json_valueiterator.inl" />
     <None Include="..\..\3rdparty\luasrc\Makefile" />
+    <None Include="..\..\pellets\z_socket\z_socket_client_socket.inl" />
+    <None Include="..\..\pellets\z_socket\z_socket_server_socket.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
