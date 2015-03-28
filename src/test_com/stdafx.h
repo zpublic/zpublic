@@ -41,8 +41,8 @@ using std::string;
 using std::cout;
 using std::endl;
 
-///> zpublic£¡
-#include "zpublic.hpp"
+#include <atlbase.h>
+#include <atlcom.h>
 
 ///> COM (Componet Object Model)
 //#include <objbase.h>
