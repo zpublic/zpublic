@@ -79,13 +79,13 @@ Exit0:
 
             }
 
-            virtual int OnProgress(double dCurrentSize, double dTotalSize)
+            virtual int OnProgress(double dltotal, double dlnow, double ultotal, double ulnow)
             {
                 if (m_stop.Wait(0) != WAIT_TIMEOUT)
                     return -1;
 
                 if (m_pProgress)
-                    return m_pProgress->OnProgress(dCurrentSize, dTotalSize);
+                    return m_pProgress->OnProgress(dltotal, dlnow, ultotal, ulnow);
 
                 return 0;
             }
@@ -107,12 +107,16 @@ Exit0:
 
             }
 
-            int DownloadFile(LPCTSTR szUrl, LPCTSTR szLocalFile, int nTimeLimit = 0)
+            int DownloadFile(
+                LPCTSTR szUrl,
+                LPCTSTR szLocalFile,
+                int nTimeLimit = 0,
+                ICurlProgress* pProgress = NULL)
             {
                 int nReturn = 0;
                 ZLFileWrite fileWrite(szLocalFile);
                 ZLStopHttpWriteWrap writeWrap(m_stop, &fileWrite);
-                ZLStopHttpProgress progressWrap(m_stop);
+                ZLStopHttpProgress progressWrap(m_stop, pProgress);
                 ZLSimpleCurl curl;
 
                 SetProxy(curl);
@@ -127,11 +131,15 @@ Exit0:
 
                 return nReturn;
             }
-            int DownloadMem(LPCTSTR szUrl, ZLMemWrite *pMem, int nTimeLimit = 0)
+            int DownloadMem(
+                LPCTSTR szUrl,
+                ZLMemWrite *pMem,
+                int nTimeLimit = 0,
+                ICurlProgress* pProgress = NULL)
             {
                 int nReturn = 0;
                 ZLStopHttpWriteWrap writeWrap(m_stop, pMem);
-                ZLStopHttpProgress progressWrap(m_stop);
+                ZLStopHttpProgress progressWrap(m_stop, pProgress);
                 ZLSimpleCurl curl;
 
                 SetProxy(curl);
@@ -147,11 +155,17 @@ Exit0:
                 return nReturn;
             }
 
-            int PostData(LPCTSTR szUrl, unsigned char *pData, DWORD dwLength, ZLMemWrite *pMem, int nTimeLimit = 0)
+            int PostData(
+                LPCTSTR szUrl,
+                unsigned char *pData,
+                DWORD dwLength,
+                ZLMemWrite *pMem,
+                int nTimeLimit = 0,
+                ICurlProgress* pProgress = NULL)
             {
                 int nReturn = 0;
                 ZLStopHttpWriteWrap writeWrap(m_stop, pMem);
-                ZLStopHttpProgress progressWrap(m_stop);
+                ZLStopHttpProgress progressWrap(m_stop, pProgress);
                 ZLSimpleCurl curl;
 
                 SetProxy(curl);
@@ -175,11 +189,12 @@ Exit0:
                 DWORD dwLength,
                 ZLMemWrite *pMem,
                 const std::map<CString,CString>& mapHeaders, // ÏûÏ¢Í·
-                int nTimeLimit = 0)
+                int nTimeLimit = 0,
+                ICurlProgress* pProgress = NULL)
             {
                 int nReturn = 0;
                 ZLStopHttpWriteWrap writeWrap(m_stop, pMem);
-                ZLStopHttpProgress progressWrap(m_stop);
+                ZLStopHttpProgress progressWrap(m_stop, pProgress);
                 ZLSimpleCurl curl;
 
                 SetProxy(curl);

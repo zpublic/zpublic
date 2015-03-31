@@ -31,7 +31,7 @@ namespace zl
         class ICurlProgress
         {
         public:
-            virtual int OnProgress(double dCurrentSize, double dTotalSize) = 0;
+            virtual int OnProgress(double dltotal, double dlnow, double ultotal, double ulnow) = 0;
         };
     }
 }

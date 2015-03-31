@@ -156,6 +156,9 @@ namespace zl
                 nRetCode = curl_easy_setopt(pCURL, CURLOPT_WRITEDATA, (void*)m_pWriteCallBack);
                 if (nRetCode != CURLE_OK) goto Exit0;
 
+                nRetCode = curl_easy_setopt(pCURL, CURLOPT_NOPROGRESS, FALSE);
+                if (nRetCode != CURLE_OK) goto Exit0;
+
                 nRetCode = curl_easy_setopt(pCURL, CURLOPT_PROGRESSFUNCTION, ProgressCallBack);
                 if (nRetCode != CURLE_OK) goto Exit0;
 
@@ -229,12 +232,12 @@ Exit0:
                 return nDataSize;
             }
 
-            static size_t ProgressCallBack(void *userdata, double dltotal, double dlnow, double ultotal,	double ulnow)
+            static size_t ProgressCallBack(void *userdata, double dltotal, double dlnow, double ultotal, double ulnow)
             {
                 size_t nReturn = 0;
                 ICurlProgress *pProgress = (ICurlProgress*)userdata;
                 if (pProgress)
-                    nReturn = pProgress->OnProgress(dlnow, dltotal);
+                    nReturn = pProgress->OnProgress(dltotal, dlnow, ultotal, ulnow);
                 return nReturn;
             }
 
