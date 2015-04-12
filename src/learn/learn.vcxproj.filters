@@ -1320,6 +1320,9 @@
     <ClInclude Include="test_cppformat.h">
       <Filter>src\misc\cppformat</Filter>
     </ClInclude>
+    <ClInclude Include="test_rapidjson.h">
+      <Filter>src\data\json</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -2269,6 +2272,9 @@
     </ClCompile>
     <ClCompile Include="test_cppformat.cpp">
       <Filter>src\misc\cppformat</Filter>
+    </ClCompile>
+    <ClCompile Include="test_rapidjson.cpp">
+      <Filter>src\data\json</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -639,6 +639,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="test_qrcode.h" />
+    <ClInclude Include="test_rapidjson.h" />
     <ClInclude Include="test_rapidxml.h" />
     <ClInclude Include="test_regex.h" />
     <ClInclude Include="test_searching_algorithms.h">
@@ -1866,6 +1867,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="test_qrcode.cpp" />
+    <ClCompile Include="test_rapidjson.cpp" />
     <ClCompile Include="test_rapidxml.cpp" />
     <ClCompile Include="test_regex.cpp" />
     <ClCompile Include="test_searching_algorithms.cpp">

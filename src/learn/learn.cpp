@@ -63,6 +63,7 @@
 #include "test_cryptpp.h"
 #include "test_msgpack.h"
 #include "test_cppformat.h"
+#include "test_rapidjson.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -114,7 +115,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_asio();
     //test_cryptpp();
     //test_msgpack();
-    test_cppformat();
+    //test_cppformat();
+    test_rapidjson();
 
     getchar();
     return 0;
