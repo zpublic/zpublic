@@ -586,6 +586,7 @@
     </ClInclude>
     <ClInclude Include="test_json_cpp.h" />
     <ClInclude Include="test_json_rpc.h" />
+    <ClInclude Include="test_kapok.h" />
     <ClInclude Include="test_libcurl.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -1812,6 +1813,7 @@
     </ClCompile>
     <ClCompile Include="test_json_cpp.cpp" />
     <ClCompile Include="test_json_rpc.cpp" />
+    <ClCompile Include="test_kapok.cpp" />
     <ClCompile Include="test_libcurl.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>

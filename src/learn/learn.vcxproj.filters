@@ -250,6 +250,9 @@
     <Filter Include="src\misc\cppformat\src">
       <UniqueIdentifier>{43c11c27-b95b-46fa-bca8-acd008e8d0df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\data\kapok">
+      <UniqueIdentifier>{3afe59d0-b04c-4408-9259-6025b6694a00}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -1323,6 +1326,9 @@
     <ClInclude Include="test_rapidjson.h">
       <Filter>src\data\json</Filter>
     </ClInclude>
+    <ClInclude Include="test_kapok.h">
+      <Filter>src\data\kapok</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -2275,6 +2281,9 @@
     </ClCompile>
     <ClCompile Include="test_rapidjson.cpp">
       <Filter>src\data\json</Filter>
+    </ClCompile>
+    <ClCompile Include="test_kapok.cpp">
+      <Filter>src\data\kapok</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

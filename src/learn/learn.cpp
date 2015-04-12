@@ -64,6 +64,7 @@
 #include "test_msgpack.h"
 #include "test_cppformat.h"
 #include "test_rapidjson.h"
+#include "test_kapok.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -116,7 +117,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_cryptpp();
     //test_msgpack();
     //test_cppformat();
-    test_rapidjson();
+    //test_rapidjson();
+    test_kapok();
 
     getchar();
     return 0;
