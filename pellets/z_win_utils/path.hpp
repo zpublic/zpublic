@@ -199,7 +199,7 @@ namespace WinUtils
             if (nPos == -1)
                 strPath.Empty();
             else
-                strPath = strPath.Left(nPos);
+                strPath = strPath.Left(nPos+1);
         }
     };
 
