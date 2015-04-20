@@ -72,3 +72,6 @@ rapidjson
 
 Kapok
 内测初版
+
+RxCpp
+2.1.0
