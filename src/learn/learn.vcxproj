@@ -643,6 +643,7 @@
     <ClInclude Include="test_rapidjson.h" />
     <ClInclude Include="test_rapidxml.h" />
     <ClInclude Include="test_regex.h" />
+    <ClInclude Include="test_rxcpp.h" />
     <ClInclude Include="test_searching_algorithms.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -1872,6 +1873,7 @@
     <ClCompile Include="test_rapidjson.cpp" />
     <ClCompile Include="test_rapidxml.cpp" />
     <ClCompile Include="test_regex.cpp" />
+    <ClCompile Include="test_rxcpp.cpp" />
     <ClCompile Include="test_searching_algorithms.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>

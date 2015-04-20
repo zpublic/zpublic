@@ -34,9 +34,6 @@
     <Filter Include="src\data\rapidxml\rapidxml">
       <UniqueIdentifier>{54501f83-8396-45c3-9572-be1a96c6164d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\data\linq">
-      <UniqueIdentifier>{f852326a-af1f-4bc9-a451-22515e2e7d7c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\data\json">
       <UniqueIdentifier>{d8495282-cee9-4ef0-81a0-3149537a4a6d}</UniqueIdentifier>
     </Filter>
@@ -252,6 +249,12 @@
     </Filter>
     <Filter Include="src\data\kapok">
       <UniqueIdentifier>{3afe59d0-b04c-4408-9259-6025b6694a00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\misc\linq">
+      <UniqueIdentifier>{f852326a-af1f-4bc9-a451-22515e2e7d7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\misc\rxcpp">
+      <UniqueIdentifier>{774f10fb-82ac-4cf6-aa0c-21b358a22051}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -541,7 +544,7 @@
       <Filter>src\data\rapidxml\rapidxml</Filter>
     </ClInclude>
     <ClInclude Include="test_linq.h">
-      <Filter>src\data\linq</Filter>
+      <Filter>src\misc\linq</Filter>
     </ClInclude>
     <ClInclude Include="test_preprocessor.h">
       <Filter>src\base\boost\Preprocessor</Filter>
@@ -1329,6 +1332,9 @@
     <ClInclude Include="test_kapok.h">
       <Filter>src\data\kapok</Filter>
     </ClInclude>
+    <ClInclude Include="test_rxcpp.h">
+      <Filter>src\misc\rxcpp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -1578,7 +1584,7 @@
       <Filter>src\data\rapidxml</Filter>
     </ClCompile>
     <ClCompile Include="test_linq.cpp">
-      <Filter>src\data\linq</Filter>
+      <Filter>src\misc\linq</Filter>
     </ClCompile>
     <ClCompile Include="test_preprocessor.cpp">
       <Filter>src\base\boost\Preprocessor</Filter>
@@ -2284,6 +2290,9 @@
     </ClCompile>
     <ClCompile Include="test_kapok.cpp">
       <Filter>src\data\kapok</Filter>
+    </ClCompile>
+    <ClCompile Include="test_rxcpp.cpp">
+      <Filter>src\misc\rxcpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
