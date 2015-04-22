@@ -22,9 +22,9 @@
 /*      1，不做线程池设计，每个task一个线程
 /*      2，将要执行的代码放到异步线程去执行之后，不提倡查询状态的方法
 /*      3，task manager线程安全
-/*      3，task manager能在task执行完自动释放资源
-/*      4，task manager能等待、释放所有task
-/*      5，同一个task不能加入多次，所以请 obj.PostTask(new taskA);
+/*      4，task manager能在task执行完自动释放资源
+/*      5，task manager能等待、释放所有task
+/*      6，同一个task不能加入多次，所以请 obj.PostTask(new taskA);
 /**************************************************************************/
 
 #include <map>
