@@ -99,7 +99,7 @@ Exit0:
         public:
             ZLHttpClient()
             {
-                m_stop.Create();
+                m_stop.Create(TRUE);
             }
 
             ~ZLHttpClient()
@@ -225,6 +225,11 @@ Exit0:
             void StopAllHttpRequest()
             {
                 m_stop.Set();
+            }
+
+            void EnableHttpRequest()
+            {
+                m_stop.Reset();
             }
 
         protected:

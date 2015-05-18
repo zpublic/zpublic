@@ -95,7 +95,7 @@ public:
         return ::WaitForSingleObject(m_handle, dwWaitTime);
     }
 
-    DWORD UnLock()
+    DWORD Unlock()
     {
         return ::ReleaseMutex(m_handle) ? 0 : ::GetLastError();
     }
