@@ -84,4 +84,6 @@ todos:
 + screen_capture            - 截屏
 + file                      - 文件读写封装
 + cache                     - 简单的缓存装置
++ adb_cmd                   - ADB命令封装
++ dbg_output                - OutputDebugString封装
 ...
