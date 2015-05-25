@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <mutex>
 #include <condition_variable>
@@ -7,50 +7,50 @@
 
 namespace Util
 {
-	class Readwrite_Lock
-	{
-	public:
-		Readwrite_Lock()
-			: stat(0)
-		{
-		}
+    class Readwrite_Lock
+    {
+    public:
+        Readwrite_Lock()
+            : stat(0)
+        {
+        }
 
-		void ReadLock()
-		{
-			while (stat < 0)
-			{
-				std::unique_lock<std::mutex> lock(mtx);			// Ğ´²Ù×÷´æÔÚÊ±×èÈû
-				cond.wait(lock);
-			}
-			InterlockedIncrement(reinterpret_cast<ULONG*>(&stat));
-		}
+        void ReadLock()
+        {
+            while (stat < 0)
+            {
+                std::unique_lock<std::mutex> lock(mtx);            // å†™æ“ä½œå­˜åœ¨æ—¶é˜»å¡
+                cond.wait(lock);
+            }
+            InterlockedIncrement(reinterpret_cast<ULONG*>(&stat));
+        }
 
-		void ReadUnlock()
-		{
-			InterlockedDecrement(reinterpret_cast<ULONG*>(&stat));
-			if (stat == 0)
-				cond.notify_one();								// ½ĞĞÑÒ»¸öµÈ´ıµÄĞ´²Ù×÷
-		}
+        void ReadUnlock()
+        {
+            InterlockedDecrement(reinterpret_cast<ULONG*>(&stat));
+            if (stat == 0)
+                cond.notify_one();                                // å«é†’ä¸€ä¸ªç­‰å¾…çš„å†™æ“ä½œ
+        }
 
-		void WriteLock()
-		{
-			while (stat != 0)									// ¶Á»òĞ´²Ù×÷´æÔÚÊ±¶¼×èÈû
-			{
-				std::unique_lock<std::mutex> lock(mtx);
-				cond.wait(lock);
-			}
-			InterlockedExchange(reinterpret_cast<ULONG*>(&stat), (ULONG)-1);
-		}
+        void WriteLock()
+        {
+            while (stat != 0)                                    // è¯»æˆ–å†™æ“ä½œå­˜åœ¨æ—¶éƒ½é˜»å¡
+            {
+                std::unique_lock<std::mutex> lock(mtx);
+                cond.wait(lock);
+            }
+            InterlockedExchange(reinterpret_cast<ULONG*>(&stat), (ULONG)-1);
+        }
 
-		void WriteUnlock()
-		{
-			InterlockedExchange(reinterpret_cast<ULONG*>(&stat), (0));
-			cond.notify_all(); // ½ĞĞÑËùÓĞµÈ´ıµÄ¶ÁºÍĞ´²Ù×÷
-		}
+        void WriteUnlock()
+        {
+            InterlockedExchange(reinterpret_cast<ULONG*>(&stat), (0));
+            cond.notify_all(); // å«é†’æ‰€æœ‰ç­‰å¾…çš„è¯»å’Œå†™æ“ä½œ
+        }
 
-	private:
-		std::mutex mtx;
-		std::condition_variable cond;
-		int stat; // == 0 ÎŞËø£»> 0 ÒÑ¼Ó¶ÁËø¸öÊı£»< 0 ÒÑ¼ÓĞ´Ëø
-	};
+    private:
+        std::mutex mtx;
+        std::condition_variable cond;
+        int stat; // == 0 æ— é”ï¼›> 0 å·²åŠ è¯»é”ä¸ªæ•°ï¼›< 0 å·²åŠ å†™é”
+    };
 }
