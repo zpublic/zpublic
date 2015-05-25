@@ -1335,6 +1335,9 @@
     <ClInclude Include="test_rxcpp.h">
       <Filter>src\misc\rxcpp</Filter>
     </ClInclude>
+    <ClInclude Include="test_catch.h">
+      <Filter>src\base\unittest</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="learn.cpp">
@@ -2293,6 +2296,9 @@
     </ClCompile>
     <ClCompile Include="test_rxcpp.cpp">
       <Filter>src\misc\rxcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="test_catch.cpp">
+      <Filter>src\base\unittest</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

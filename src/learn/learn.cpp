@@ -43,6 +43,7 @@
 #include "test_cipra.h"
 #include "test_tut.h"
 #endif // _TEST_UNITTEST_
+#include "test_catch.h"
 #include "test_xde.h"
 
 #ifdef _TEST_HP_SOCKET_
@@ -120,7 +121,8 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_cppformat();
     //test_rapidjson();
     //test_kapok();
-    test_rxcpp();
+    //test_rxcpp();
+    //test_catch();
 
     getchar();
     return 0;
