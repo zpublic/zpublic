@@ -75,3 +75,7 @@ Kapok
 
 RxCpp
 2.1.0
+
+Catch
+v1.1 build 3
+
