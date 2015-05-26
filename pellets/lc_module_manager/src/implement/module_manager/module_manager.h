@@ -11,11 +11,10 @@
 #include <queue>
 
 #include <mutex>
-
-// TODO:模块升级
-// TODO:自动加载模块
-
-
+/**
+* @brief 模块管理类。\n
+*
+*/
 class ModuleManager :public IMessageCenter, public IPluginManager
 {
     struct Message
@@ -30,19 +29,61 @@ class ModuleManager :public IMessageCenter, public IPluginManager
 public:
     ~ModuleManager();
     static ModuleManager* Instance();
-
-    void LoadMsgObserver(IMessageObserver* const observer) override;
-    int RegMonitorMsg(IMessageObserver* const observer, int message) override;
-    int UnRegMonitorMsg(IMessageObserver* const observer, int message) override;
+    
+    /**
+    * @brief 向模块发送消息。
+    * @param[in] senderID 发送者的ID
+    * @param[in] message 消息号
+    * @param[in] param1 消息参数1
+    * @param[in] param2 消息参数2
+    */
     void ProduceMessage(int senderID, int message, int param1, int param2, int receiverID = Module_ALL) override;
+
+    /**
+    * @brief 开始消息循环；
+    */
     void BeginMessageLoop() override;
 
+    /**
+    * @brief 加载模块；
+    * @param path 模块的路径
+    * @return 0:加载成功\n
+    *         -1;加载失败\n
+    *         -2;获取不到模块对象地址\n
+    *         -3;已经加载过此模块\n
+    *         -4;初始化失败
+    */
     int LoadPlugin(std::wstring path) override;
+
+    /**
+    * @brief 卸载模块；
+    * @param pluginID 模块ID
+    * @return 0:卸载成功\n
+    *         -1:卸载失败
+    */
     int UnloadPlugin(int pluginID) override;
+
+    /**
+    * @brief 获取模块指针；
+    * @param ID 模块ID
+    * @return nullptr:获取失败\n
+    *         其他:获取成功
+    */
     IPlugin* GetPluginByID(int ID) override;
+
+    /**
+    * @brief 获取模块指针；
+    * @param name 模块名称
+    * @return nullptr:获取失败\n
+    *         其他:获取成功
+    */
     IPlugin* GetPluginByName(std::wstring name) override;
 
 private:
+    void LoadMsgObserver(IMessageObserver* const observer) override;
+    int RegMonitorMsg(IMessageObserver* const observer, int message) override;
+    int UnRegMonitorMsg(IMessageObserver* const observer, int message) override;
+
     ModuleManager();
 
     static ModuleManager* _instance;
@@ -57,12 +98,4 @@ private:
 };
 
 
-extern "C" __declspec(dllexport) void ProduceMessage(int senderID, int message, int param1, int param2, int receiverID = 0);
-
-extern "C" __declspec(dllexport) void RegMonitorMsg(IMessageObserver* const observer, int message);
-
-extern "C" __declspec(dllexport) int UnRegMonitorMsg(IMessageObserver* const observer, int message);
-
-extern "C" __declspec(dllexport) void BeginMessageLoop();
-
-extern "C" __declspec(dllexport) int LoadPlugin(std::wstring path);
+extern "C" __declspec(dllexport) ModuleManager* GetModuleManager();

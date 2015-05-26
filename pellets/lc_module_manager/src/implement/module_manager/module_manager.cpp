@@ -113,22 +113,30 @@ void ModuleManager::BeginMessageLoop()
 int ModuleManager::LoadPlugin(std::wstring path)
 {
     HMODULE dllHandle = LoadLibrary(path.c_str());
-    if (dllHandle == NULL) return -1;
+    if (dllHandle == NULL) return -1;                                    // 加载失败
 
     typedef void* (*FuncGetPluginPrt)();
-    FuncGetPluginPrt fn = (FuncGetPluginPrt)GetProcAddress(dllHandle, "GetPluginPtr");
-    if (fn == nullptr) return -1;                                        // 获取不到模块对象地址
+    FuncGetPluginPrt fn = (FuncGetPluginPrt)GetProcAddress(dllHandle, "GetPluginPtr"); 
+    if (fn == nullptr)                                                    // 获取不到模块对象地址
+    {
+        ::FreeLibrary(dllHandle);
+        return -2;
+    }                                      
 
     void* ptr = fn();
     ModuleBase* ModuleBasePtr = static_cast<ModuleBase*>(ptr);
 
-    if (pluginMap.count(ModuleBasePtr->GetID() > 0)) return -2;            // 已经加载过此模块
+    if (pluginMap.count(ModuleBasePtr->GetID() > 0))
+    {
+        ::FreeLibrary(dllHandle);                                        // 已经加载过此模块
+        return -3;            
+    }
 
     pluginMap[ModuleBasePtr->GetID()] = ModuleBasePtr;
     if (ModuleBasePtr->Initialize() != 0)
     {
         ::FreeLibrary(dllHandle);
-        return -3;                                                        // 初始化失败
+        return -4;                                                        // 初始化失败
     }
 
 
@@ -189,27 +197,7 @@ void ModuleManager::LoadMsgObserver(IMessageObserver* const observer)
 }
 
 
-void ProduceMessage(int senderID, int message, int param1, int param2, int receiverID)
+ModuleManager* GetModuleManager()
 {
-    ModuleManager::Instance()->ProduceMessage(senderID, message, param1, param2, receiverID);
-}
-
-void RegMonitorMsg(IMessageObserver* const observer, int message)
-{
-    ModuleManager::Instance()->RegMonitorMsg(observer, message);
-}
-
-int UnRegMonitorMsg(IMessageObserver* const observer, int message)
-{
-    return ModuleManager::Instance()->UnRegMonitorMsg(observer, message);
-}
-
-void BeginMessageLoop()
-{
-    return ModuleManager::Instance()->BeginMessageLoop();
-}
-
-int LoadPlugin(std::wstring path)
-{
-    return ModuleManager::Instance()->LoadPlugin(path);
+    return ModuleManager::Instance();
 }

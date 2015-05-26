@@ -1,14 +1,10 @@
-#include "../implement/module_base/module_base.hpp"
+#include "../src/implement/module_base/module_base.hpp"
 
-
-/**
-* @brief 模块实现示例
-*/
 
 BEGIN_DECLARE_MODULE(ModuleSample)
 /**
-* @brief 模块示例类。\n
-*         模块定义必须包含在BEGIN_DECLARE_MODULE与END_DECLARE_MODULE两个宏之间；    编写定义前必须使用宏IMPLEMENT_MODULE_BASE对该模块类进行定义；\n
+* @brief  模块实现示例。\n
+*         模块定义必须包含在BEGIN_DECLARE_MODULE与END_DECLARE_MODULE两个宏之间，编写定义前必须使用宏IMPLEMENT_MODULE_BASE对该模块类进行定义；\n
 *         模块必须按单例模式实现，实现格式必须与此类一致。
 */
 
@@ -19,41 +15,41 @@ class ModuleSample :public ModuleBase
 public:
     /**
     * @brief 初始化；模块管理器将会在加载模块对象之前调用此函数。
-    *         模块类必须实现此函数。
+    *        模块类必须实现此函数。
     * @return 0为初始化成功，非0为失败。
     */
     int Initialize() override;
 
     /**
     * @brief 反初始化，模块管理器将会在卸载模块对象之前调用此函数。
-    *         模块类必须实现此函数。
+    *        模块类必须实现此函数。
     */
     void Uninitialize() override;
 
     /**
     * @brief 获取模块的ID；实现模块类时，必须先到/src/Module/implement/pubdef.h文件中定义该模块类的ID，以便模块管理器进行识别；
-    *         模块类必须实现此函数。
+    *        模块类必须实现此函数。
     * @return 模块ID
     */
     int GetID() override;
 
     /**
     * @brief 获取模块对象的指针，以便模块管理器进行加载；
-    *         模块类必须实现此函数。
+    *        模块类必须实现此函数。
     * @return 模块对象指针
     */
     IPlugin* GetModulePtr() override;
 
     /**
     * @brief 获取模块的名称，以便模块管理器进行识别；此名称必须为DLL的名字；
-    *         模块类必须实现此函数。
+    *        模块类必须实现此函数。
     * @return 模块名称
     */
     std::wstring GetName() override;
 
     /**
     * @brief 获取模块的版本，以便模块管理器进行升级；
-    *         模块类必须实现此函数。
+    *        模块类必须实现此函数。
     * @return 模块名称
     */
     int GetVersion() override;

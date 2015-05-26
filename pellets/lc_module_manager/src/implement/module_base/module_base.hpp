@@ -4,6 +4,8 @@
 #include "../../interfaces/message/imessage_observer.h"
 #include "../../interfaces/message/imessage_sender.h"
 
+#include "../../implement/module_manager/module_manager.h"
+
 #include <map>
 #include <vector>
 
@@ -108,36 +110,29 @@
 class ModuleBase :public IPlugin, public IMessageObserver, public IMessageSender
 {
 public:
+    ModuleBase()
+    {
+        HMODULE handle = ::GetModuleHandle(NULL);
+        typedef ModuleManager*(*FN)();
+        FN fn = (FN)GetProcAddress(handle, "GetModuleManager");
+        m_ModuleManager = fn();
+    }
+
+    virtual ~ModuleBase(){}
+
     void ModuleBase::ProduceMessage(int senderID, int message, int param1, int param2, int receiverID = Module_ALL) override
     {
-        HMODULE handle = ::GetModuleHandle(L"ModuleManager");
-
-        typedef void(*FN)(int senderID, int message, int param1, int param2, int receiverID);
-        FN fn = (FN)GetProcAddress(handle, "ProduceMessage");
-
-        fn(senderID, message, param1, param2, receiverID);
+        m_ModuleManager->ProduceMessage(senderID, message, param1, param2, receiverID);
     }
 
     void ModuleBase::RegMonitorMsg(int msg) override final
     {
-        // TODO:在msgMapping中加入消息
-        HMODULE handle = ::GetModuleHandle(L"ModuleManager");
-
-        typedef void(*FN)(IMessageObserver* const, int);
-        FN fn = (FN)GetProcAddress(handle, "RegMonitorMsg");
-
-        fn(this, msg);
+        m_ModuleManager->RegMonitorMsg(this, msg);
     }
 
     void ModuleBase::UnRegMonitorMsg(int msg) override final
     {
-        // TODO:在msgMapping中删除消息
-        HMODULE handle = ::GetModuleHandle(L"ModuleManager");
-
-        typedef void(*FN)(IMessageObserver* const, int);
-        FN fn = (FN)GetProcAddress(handle, "UnRegMonitorMsg");
-
-        fn(this, msg);
+        m_ModuleManager->UnRegMonitorMsg(this, msg);
     } 
 
     virtual std::vector<int> GetBindingMsgs() = 0;
@@ -151,4 +146,8 @@ public:
 
     virtual int Initialize() = 0;
     virtual void Uninitialize() = 0;
+
+protected:
+    ModuleManager* m_ModuleManager;
+    
 };
