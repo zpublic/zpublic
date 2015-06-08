@@ -118,7 +118,7 @@ inline BOOL ZLMd5::GetFileMd5( LPCTSTR lpFilePath, unsigned char arr[16], LONGLO
         impl.MD5Update(pBuf, (unsigned)nRead);
     }
 
-    delete pBuf;
+    delete[] pBuf;
     ::fclose(fp);
     impl.MD5Final(arr);
 
