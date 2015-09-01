@@ -96,7 +96,7 @@ Exit0:
 
             if (lpItemName)
             {
-                delete lpItemName;
+                delete[] lpItemName;
             }
 
             return (!vecItems.empty());
@@ -192,12 +192,12 @@ Exit0:
 
             if (lpValueName)
             {
-                delete lpValueName;
+                delete[] lpValueName;
             }
 
             if (lpValue)
             {
-                delete lpValue;
+                delete[] lpValue;
             }
 
             return bReturn;

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "test_libcurl.h"
-#include "zl_crul_http.h"
+#include "zl_curl_http.h"
 
 void test_libcurl_post()
 {

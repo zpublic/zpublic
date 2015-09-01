@@ -16,56 +16,14 @@
     <Filter Include="src\atl/wtl">
       <UniqueIdentifier>{4b87ebf3-50cd-42f7-b7d6-bdcef7a57553}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\zlui">
-      <UniqueIdentifier>{0705a34c-d72f-455b-80d1-fdf7cecb1f78}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\zlui\misc">
-      <UniqueIdentifier>{fe0940ac-3909-4f0e-8872-d676371c6039}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\zlui\controls">
-      <UniqueIdentifier>{ed813b02-2094-43f2-9d9a-9cd5d2232787}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\zlui\graphics">
-      <UniqueIdentifier>{bbb6d7a5-71d8-4f26-b535-c6ec974d13a5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\zlui\native">
-      <UniqueIdentifier>{7a189fbd-8694-456c-88a6-a3fbdca68aa4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\zlui\res">
-      <UniqueIdentifier>{5dd914aa-4d8f-4dcd-a612-4a56839b7ae5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\zlui\test">
-      <UniqueIdentifier>{a3138297-7a7b-406f-961a-3838e512af76}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\gdi">
       <UniqueIdentifier>{aa332d2f-45a0-4159-b29b-f9eef708830f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\lab">
-      <UniqueIdentifier>{08d0c7de-1545-4310-b3b9-53c3ea8fc731}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\lab\3rd">
-      <UniqueIdentifier>{822330f9-b648-43c6-86a7-cf0eaaba1834}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\gdiplus">
       <UniqueIdentifier>{14bc9e4e-4b79-470e-9a41-e1025a94fc04}</UniqueIdentifier>
     </Filter>
     <Filter Include="res">
       <UniqueIdentifier>{ede192b0-66dd-42d5-81bf-e023aa11ba57}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\lab\publish">
-      <UniqueIdentifier>{ec6643d8-3382-44d1-b082-b3ffae9e7e43}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\lab\particle">
-      <UniqueIdentifier>{53c40dee-ce55-43f6-ace8-2cccdbcd6e81}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\lab\particle\gdi">
-      <UniqueIdentifier>{b08d89e6-81b6-4756-bbee-6e7a5c364748}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\lab\particle\internal">
-      <UniqueIdentifier>{4a7e7630-8427-42fc-89dc-c057042ede9f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\lab\test">
-      <UniqueIdentifier>{e3c4937b-00c9-4b63-95b3-43b735c0f176}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -150,15 +108,6 @@
     <ClInclude Include="frame2_view.h">
       <Filter>src\atl/wtl</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\zlui\test\test_zlui.h">
-      <Filter>src\zlui\test</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\res\zl_res_font.h">
-      <Filter>src\zlui\res</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\res\zl_res.h">
-      <Filter>src\zlui\res</Filter>
-    </ClInclude>
     <ClInclude Include="frame3.h">
       <Filter>src\atl/wtl</Filter>
     </ClInclude>
@@ -201,9 +150,6 @@
     <ClInclude Include="animate.h">
       <Filter>src\gdi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\3rd\PictureExWnd.h">
-      <Filter>src\lab\3rd</Filter>
-    </ClInclude>
     <ClInclude Include="test_gdiplus.h">
       <Filter>src\gdiplus</Filter>
     </ClInclude>
@@ -213,62 +159,11 @@
     <ClInclude Include="resource.h">
       <Filter>res</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\publish\gdiplus_init.h">
-      <Filter>src\lab\publish</Filter>
-    </ClInclude>
     <ClInclude Include="gdip2.h">
       <Filter>src\gdiplus</Filter>
     </ClInclude>
     <ClInclude Include="gdip3.h">
       <Filter>src\gdiplus</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\publish\gdiplus_resource.h">
-      <Filter>src\lab\publish</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\publish\wh_round_rect_frame.h">
-      <Filter>src\lab\publish</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\3rd\KThreadCrack.h">
-      <Filter>src\lab\3rd</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\particle\particle.h">
-      <Filter>src\lab\particle\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\particle\particle_controler.h">
-      <Filter>src\lab\particle\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\particle\particle_creator.h">
-      <Filter>src\lab\particle\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\particle\particle_def.h">
-      <Filter>src\lab\particle\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\particle\particle_helper.h">
-      <Filter>src\lab\particle\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\particle\particle_init_controler.h">
-      <Filter>src\lab\particle\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\particle\particle_init_info.h">
-      <Filter>src\lab\particle\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\particle\particle_item.h">
-      <Filter>src\lab\particle\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="lab1.h">
-      <Filter>src\lab\test</Filter>
-    </ClInclude>
-    <ClInclude Include="test_lab.h">
-      <Filter>src\lab\test</Filter>
-    </ClInclude>
-    <ClInclude Include="lab2.h">
-      <Filter>src\lab\test</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\particle\particle_gdi_base.h">
-      <Filter>src\lab\particle\gdi</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\zlui\lab\publish\win_taskbar_position.h">
-      <Filter>src\lab\publish</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -281,20 +176,11 @@
     <ClCompile Include="test_basic.cpp">
       <Filter>src\atl/wtl</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\zlui\test\test_zlui.cpp">
-      <Filter>src\zlui\test</Filter>
-    </ClCompile>
     <ClCompile Include="test_gdi.cpp">
       <Filter>src\gdi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\zlui\lab\3rd\PictureExWnd.cpp">
-      <Filter>src\lab\3rd</Filter>
-    </ClCompile>
     <ClCompile Include="test_gdiplus.cpp">
       <Filter>src\gdiplus</Filter>
-    </ClCompile>
-    <ClCompile Include="test_lab.cpp">
-      <Filter>src\lab\test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

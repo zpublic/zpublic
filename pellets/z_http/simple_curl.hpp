@@ -74,6 +74,14 @@ namespace zl
                 return TRUE;
             }
 
+            void AppendHeaderList(LPCTSTR lpHeader)
+            {
+                if (lpHeader) 
+                {
+                    m_headerList.push_back(lpHeader);
+                }
+            }
+
             BOOL SetPostData(void* pBuffer, DWORD dwSize)
             {
                 m_pPostData = pBuffer;
@@ -135,10 +143,20 @@ namespace zl
 
                 SetMethodInfo(pCURL);
 
+                // 如果有消息头,则处理之
+                struct curl_slist *pHeaderList = _GetHeaderList(pCURL);
+                if (pHeaderList)
+                {
+                    curl_easy_setopt(pCURL, CURLOPT_HTTPHEADER, pHeaderList);
+                }
+
                 nRetCode = curl_easy_setopt(pCURL, CURLOPT_WRITEFUNCTION, WriteCallBack);
                 if (nRetCode != CURLE_OK) goto Exit0;
 
                 nRetCode = curl_easy_setopt(pCURL, CURLOPT_WRITEDATA, (void*)m_pWriteCallBack);
+                if (nRetCode != CURLE_OK) goto Exit0;
+
+                nRetCode = curl_easy_setopt(pCURL, CURLOPT_NOPROGRESS, FALSE);
                 if (nRetCode != CURLE_OK) goto Exit0;
 
                 nRetCode = curl_easy_setopt(pCURL, CURLOPT_PROGRESSFUNCTION, ProgressCallBack);
@@ -186,6 +204,8 @@ Exit0:
                 if (pCURL)
                     curl_easy_cleanup(pCURL);
 
+                _ClearHeaderList(pHeaderList);
+
                 return bRet;
             }
 
@@ -212,13 +232,36 @@ Exit0:
                 return nDataSize;
             }
 
-            static size_t ProgressCallBack(void *userdata, double dltotal, double dlnow, double ultotal,	double ulnow)
+            static size_t ProgressCallBack(void *userdata, double dltotal, double dlnow, double ultotal, double ulnow)
             {
                 size_t nReturn = 0;
                 ICurlProgress *pProgress = (ICurlProgress*)userdata;
                 if (pProgress)
-                    nReturn = pProgress->OnProgress(dlnow, dltotal);
+                    nReturn = pProgress->OnProgress(dltotal, dlnow, ultotal, ulnow);
                 return nReturn;
+            }
+
+            void _ClearHeaderList(struct curl_slist *pHeaders)
+            {
+                m_headerList.clear();
+                if (pHeaders)
+                {
+                    curl_slist_free_all(pHeaders);
+                }
+            }
+
+            struct curl_slist* _GetHeaderList(CURL *pCurl)
+            {
+                struct curl_slist *headers = NULL;
+
+                for (std::list<CString>::const_iterator it = m_headerList.begin();
+                    it != m_headerList.end();
+                    ++it)
+                {
+                    headers = curl_slist_append(headers, CW2A(*it, CP_UTF8));
+                }
+
+                return headers;
             }
 
             int SetMethodInfo(CURL *pCurl)
@@ -251,6 +294,7 @@ Exit0:
             }
 
         private:
+            std::list<CString> m_headerList; // HTTP协议的消息头
             CString m_strMethod;
             int m_nStatusCode;
             int m_nTimeLimit;

@@ -11,6 +11,13 @@
 
 #include <assert.h>
 
+#include <windows.h>
+#include <Shlwapi.h>
+#pragma comment(lib, "Shlwapi.lib")
+
+///> error C4995: “swprintf”:  名称被标记为 #pragma deprecated
+#pragma warning(disable:4995)
+
 ///> Function call with parameters that may be unsafe - this call relies
 ///> on the caller to check that the passed values are correct. To disable
 ///> this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how
@@ -32,9 +39,6 @@
 #define _WINSOCK_SUPPORT
 #include "hp_socket/GeneralHelper.h"
 #endif
-
-///> zpublic！
-#include "zpublic.hpp"
 
 ///> 标准容器
 #include <tuple>
@@ -76,7 +80,7 @@ using std::wcerr;
 ///> functional
 #include <functional>
 
-#define _TEST_BOOST_
+//#define _TEST_BOOST_
 #ifdef _TEST_BOOST_
 ///> Conversion
 ///> Polymorphic and lexical casts.
@@ -190,9 +194,6 @@ using std::wcerr;
 
 ///> lua
 #include <luasrc/lua.hpp>
-
-///> ltest
-#include "ltest/ltest.h"
 
 ///> XDE v1.02
 ///> eXtended length disassembler engine, based on LDE/ADE engines

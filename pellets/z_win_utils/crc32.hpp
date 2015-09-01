@@ -147,8 +147,8 @@ inline unsigned long ZLCrc32::Crc32File( unsigned long crc, LPCTSTR filepath, co
     nRead = fread(pBuf,  sizeof(unsigned char), (size_t)ulFileSize, fp);
     fclose(fp);
 
-    unsigned long nResult = Crc32Buf(crc, pBuf, nRead);
-    delete pBuf;
+    unsigned long nResult = Crc32Buf(crc, pBuf, (unsigned int)nRead);
+    delete[] pBuf;
 
     return nResult;
 }

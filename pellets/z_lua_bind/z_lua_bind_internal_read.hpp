@@ -38,6 +38,7 @@ namespace LuaBind
             return (char*)lua_tostring(L, index);
         }
     };
+
     template<>
     struct lua_read<const char*>
     {
@@ -46,6 +47,7 @@ namespace LuaBind
             return (const char*)lua_tostring(L, index);
         }
     };
+
     template<>
     struct lua_read<char>
     {
@@ -54,6 +56,7 @@ namespace LuaBind
             return (char)lua_tonumber(L, index);		
         }
     };
+
     template<>
     struct lua_read<unsigned char>
     {
@@ -62,6 +65,7 @@ namespace LuaBind
             return (unsigned char)lua_tonumber(L, index);
         }
     };
+
     template<>
     struct lua_read<short>
     {
@@ -70,6 +74,7 @@ namespace LuaBind
             return (short)lua_tonumber(L, index);		
         }
     };
+
     template<>
     struct lua_read<unsigned short>
     {
@@ -78,6 +83,7 @@ namespace LuaBind
             return (unsigned short)lua_tonumber(L, index);
         }
     };
+
     template<>
     struct lua_read<long>
     {
@@ -86,6 +92,7 @@ namespace LuaBind
             return (long)lua_tonumber(L, index);		
         }
     };
+
     template<>
     struct lua_read<unsigned long>
     {
@@ -94,6 +101,7 @@ namespace LuaBind
             return (unsigned long)lua_tonumber(L, index);
         }
     };
+
     template<>
     struct lua_read<int>
     {
@@ -102,6 +110,7 @@ namespace LuaBind
             return (int)lua_tonumber(L, index);		
         }
     };
+
     template<>
     struct lua_read<unsigned int>
     {
@@ -110,6 +119,7 @@ namespace LuaBind
             return (unsigned int)lua_tonumber(L, index);
         }
     };
+
     template<>
     struct lua_read<float>
     {
@@ -118,6 +128,7 @@ namespace LuaBind
             return (float)lua_tonumber(L, index);		
         }
     };
+
     template<>
     struct lua_read<double>
     {
@@ -126,6 +137,7 @@ namespace LuaBind
             return (double)lua_tonumber(L, index);
         }
     };
+
     template<>
     struct lua_read<bool>
     {
@@ -137,6 +149,7 @@ namespace LuaBind
                 return lua_tonumber(L, index) != 0;	
         }
     };
+
     template<>
     struct lua_read<void>
     {
@@ -145,6 +158,7 @@ namespace LuaBind
             return;
         }
     };
+
     template<>
     struct lua_read<long long>
     {
@@ -156,6 +170,7 @@ namespace LuaBind
                 return *(long long*)lua_touserdata(L, index);
         }
     };
+
     template<>
     struct lua_read<unsigned long long>
     {
@@ -167,6 +182,7 @@ namespace LuaBind
                 return *(unsigned long long*)lua_touserdata(L, index);
         }
     };
+
     template<>
     struct lua_read<std::string>
     {
@@ -180,6 +196,7 @@ namespace LuaBind
             return std::string("");
         }
     };
+
     template<typename T>
     struct lua_read<std::vector<T> >
     {
@@ -201,6 +218,7 @@ namespace LuaBind
             return vec;
         }
     };
+
     template<typename T>
     struct lua_read<std::list<T> >
     {
@@ -222,6 +240,7 @@ namespace LuaBind
             return list;
         }
     };
+
     template<typename T>
     struct lua_read<std::set<T> >
     {
@@ -243,6 +262,7 @@ namespace LuaBind
             return set;
         }
     };
+
     template<typename K, typename V>
     struct lua_read<std::map<K, V> >
     {

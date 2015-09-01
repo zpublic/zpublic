@@ -48,3 +48,34 @@ Sockets-2.3.9.9
 
 qrencode
 qrencode-3.4.4
+
+udt
+4.11
+
+mongoose
+5.5
+
+snappy
+1.1.2
+
+asio(ASIO_STANDALONE)
+1.10.2
+
+msgpack
+1.0.0
+
+cppformat
+1.1.0
+
+rapidjson
+1.0-beta
+
+Kapok
+内测初版
+
+RxCpp
+2.1.0
+
+Catch
+v1.1 build 3
+

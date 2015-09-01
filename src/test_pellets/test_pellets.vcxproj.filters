@@ -56,9 +56,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="pellets\z_lua_bind\internal">
-      <UniqueIdentifier>{d335074b-7e50-4faa-9670-4fd49fc267d6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="pellets\z_win_utils">
       <UniqueIdentifier>{1fc910f7-9a6c-4c48-9597-9f0de36ed60a}</UniqueIdentifier>
     </Filter>
@@ -88,6 +85,39 @@
     </Filter>
     <Filter Include="pellets\z_net\socket">
       <UniqueIdentifier>{c6fc2fbc-71bc-46a9-8ae6-94bcb13960e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\harold">
+      <UniqueIdentifier>{1fa1b100-c116-48ce-a8ef-7752928f2cc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\mongoose">
+      <UniqueIdentifier>{bf85a1a7-e469-49f9-ac06-5c6fc2b1750d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\harold\interface">
+      <UniqueIdentifier>{25fdf8e3-b4ef-4de0-822f-cc9ffa6b45da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\harold\observer_impl">
+      <UniqueIdentifier>{ea2b512b-5997-46f0-a7f3-87a66c77dfc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\z_platform">
+      <UniqueIdentifier>{3a1c1f70-0a46-4a28-9141-eab3446a1246}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\z_platform\impl">
+      <UniqueIdentifier>{e091ba82-3289-4a5a-957a-997322805af5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\z_asyn">
+      <UniqueIdentifier>{244bca52-71b4-4a6d-9025-18a24747754f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\z_socket">
+      <UniqueIdentifier>{a1440ee2-231b-46e3-a0cb-b31e09d3a892}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\z_socket\client">
+      <UniqueIdentifier>{d1248437-a36b-49c6-a7e4-42f44737985f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pellets\z_socket\server">
+      <UniqueIdentifier>{001f597b-3064-426e-bb81-13a876ec86d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\cppformat">
+      <UniqueIdentifier>{5ab41642-9ac7-456b-80af-deb2365c789c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -415,47 +445,8 @@
     <ClInclude Include="..\..\3rdparty\luasrc\lzio.h">
       <Filter>3rdparty\lua</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind.h">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_state.h">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_def.h">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_function_reg.h">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClInclude>
     <ClInclude Include="TestLuaBind.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_call.hpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_def.hpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_global.hpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal.hpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_functor.hpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.h">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.h">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.hpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pellets\z_win_utils\clipboard.hpp">
       <Filter>pellets\z_win_utils</Filter>
@@ -727,6 +718,258 @@
     <ClInclude Include="..\..\pellets\z_win_utils\software_check.hpp">
       <Filter>pellets\z_win_utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\str_conv.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\mongoose\mongoose.h">
+      <Filter>3rdparty\mongoose</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold.h">
+      <Filter>pellets\harold</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_header.h">
+      <Filter>pellets\harold</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\i_harold_server.h">
+      <Filter>pellets\harold\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_impl.h">
+      <Filter>pellets\harold</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\i_harold_server_auth_observer.h">
+      <Filter>pellets\harold\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\i_harold_server_request_observer.h">
+      <Filter>pellets\harold\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\i_harold_server_status_observer.h">
+      <Filter>pellets\harold\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_auth_log.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_request_directory_listing.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_request_download.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_request_log.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_status_log.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_request_upload.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_request_api.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\i_harold_server_observer.h">
+      <Filter>pellets\harold\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_def.h">
+      <Filter>pellets\harold</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_dynamic_impl.h">
+      <Filter>pellets\harold</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_request_dynamic_api.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\harold\harold_server_request_dynamic_download.h">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHarold.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform.h">
+      <Filter>pellets\z_platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_mutex.h">
+      <Filter>pellets\z_platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_def.h">
+      <Filter>pellets\z_platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_event.h">
+      <Filter>pellets\z_platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_sleep.h">
+      <Filter>pellets\z_platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_win_event.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_win_mutex.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_linux_event.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_linux_mutex.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\z_platform_thread.h">
+      <Filter>pellets\z_platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_win_thread.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\TestPlatform.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_platform\impl\z_platform_linux_thread.hpp">
+      <Filter>pellets\z_platform\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind.h">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_def.h">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_call.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_def.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_functor.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_global.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_read.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_function_reg.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_lua_bind\z_lua_state.hpp">
+      <Filter>pellets\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\buffer.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\file_operation.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\wmi_query.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\com_init.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\system_info.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_timer\z_timer.h">
+      <Filter>pellets\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn.h">
+      <Filter>pellets\z_asyn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn_task_mgr.h">
+      <Filter>pellets\z_asyn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn_task_for_member_function.h">
+      <Filter>pellets\z_asyn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn_task_for_static_function.h">
+      <Filter>pellets\z_asyn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn_task_base.h">
+      <Filter>pellets\z_asyn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_asyn\z_asyn_test_code.h">
+      <Filter>pellets\z_asyn</Filter>
+    </ClInclude>
+    <ClInclude Include="TestAsyn.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\aes.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_win_utils\rijndael.hpp">
+      <Filter>pellets\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="TestSocket.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket.hpp">
+      <Filter>pellets\z_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_def.hpp">
+      <Filter>pellets\z_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_init_socket.hpp">
+      <Filter>pellets\z_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_listener_interface.hpp">
+      <Filter>pellets\z_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_pull_interface.hpp">
+      <Filter>pellets\z_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_utils.hpp">
+      <Filter>pellets\z_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_pull_client_socket.hpp">
+      <Filter>pellets\z_socket\client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_client_socket_listener.hpp">
+      <Filter>pellets\z_socket\client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_client_socket.hpp">
+      <Filter>pellets\z_socket\client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_client_listener_interface.hpp">
+      <Filter>pellets\z_socket\client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_client_interface.hpp">
+      <Filter>pellets\z_socket\client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_client_def.hpp">
+      <Filter>pellets\z_socket\client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_def.hpp">
+      <Filter>pellets\z_socket\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_interface.hpp">
+      <Filter>pellets\z_socket\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_listener_interface.hpp">
+      <Filter>pellets\z_socket\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_socket.hpp">
+      <Filter>pellets\z_socket\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_socket_listener.hpp">
+      <Filter>pellets\z_socket\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_server_utils.hpp">
+      <Filter>pellets\z_socket\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pellets\z_socket\z_socket_test_code.h">
+      <Filter>pellets\z_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdparty\cppformat\format.h">
+      <Filter>3rdparty\cppformat</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\pellets\data_box\array_data.cpp">
@@ -918,12 +1161,6 @@
     <ClCompile Include="..\..\3rdparty\luasrc\lzio.c">
       <Filter>3rdparty\lua</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_state.cpp">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_function_reg.cpp">
-      <Filter>pellets\z_lua_bind</Filter>
-    </ClCompile>
     <ClCompile Include="TestLuaBind.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -957,12 +1194,6 @@
     <ClCompile Include="TestTimer.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.cpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pellets\z_lua_bind\z_lua_bind_internal_push.cpp">
-      <Filter>pellets\z_lua_bind\internal</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\pellets\z_win_utils\TestWinUtils.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -971,6 +1202,54 @@
     </ClCompile>
     <ClCompile Include="..\..\pellets\z_net\z_net_socket_address_ipv4.cpp">
       <Filter>pellets\z_net\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\mongoose\mongoose.c">
+      <Filter>3rdparty\mongoose</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_impl.cpp">
+      <Filter>pellets\harold</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_auth_log.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_request_directory_listing.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_request_download.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_request_log.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_status_log.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_request_upload.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_request_api.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_dynamic_impl.cpp">
+      <Filter>pellets\harold</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_request_dynamic_api.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pellets\harold\harold_server_request_dynamic_download.cpp">
+      <Filter>pellets\harold\observer_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="TestHarold.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="TestAsyn.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="TestSocket.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdparty\cppformat\format.cc">
+      <Filter>3rdparty\cppformat</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -985,6 +1264,12 @@
     </None>
     <None Include="..\..\3rdparty\luasrc\Makefile">
       <Filter>3rdparty\lua</Filter>
+    </None>
+    <None Include="..\..\pellets\z_socket\z_socket_client_socket.inl">
+      <Filter>pellets\z_socket\client</Filter>
+    </None>
+    <None Include="..\..\pellets\z_socket\z_socket_server_socket.inl">
+      <Filter>pellets\z_socket\server</Filter>
     </None>
   </ItemGroup>
 </Project>

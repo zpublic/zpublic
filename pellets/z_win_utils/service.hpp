@@ -666,7 +666,10 @@ Exit0:
                 dwBufSize = dwRetBytes + 2;
                 pBuffer = new BYTE[dwBufSize];
                 lErrCode = ::RegQueryValueEx(hKey, szSvchostKey, NULL, &dwType, pBuffer, &dwRetBytes);
-                if (lErrCode != ERROR_SUCCESS || dwType != REG_MULTI_SZ || dwBufSize != dwRetBytes + 2)
+                if (lErrCode != ERROR_SUCCESS || dwBufSize != dwRetBytes + 2)
+                    goto Exit0;
+
+                if (dwType != REG_SZ && dwType != REG_EXPAND_SZ && dwType != REG_MULTI_SZ)
                     goto Exit0;
 
                 pBuffer[dwRetBytes] = _T('\0');

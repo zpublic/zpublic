@@ -174,6 +174,23 @@ Exit0:
                 ::FindClose(hFind);
             return nReturn;
         }
+
+        /**
+         * @brief 检查路径对应资源是否是文件夹
+         * @param[in] szPath     检查路径
+         * @return 是文件夹返回TRUE，否则FALSE
+         * @see 
+         */
+        static BOOL IsDirectory(LPCTSTR szPath)
+        {
+            DWORD dwAttr = ::GetFileAttributes(szPath);
+            if( dwAttr != (DWORD)-1 && 
+                (dwAttr & FILE_ATTRIBUTE_DIRECTORY) )
+            {
+                return TRUE;
+            }
+            return FALSE;
+        }
     };
 
 }

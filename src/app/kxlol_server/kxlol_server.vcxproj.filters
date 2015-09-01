@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4eddba82-c6c4-4bd0-bead-93f1a7d478b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty">
+      <UniqueIdentifier>{a410c246-5782-4535-b99b-bcabec0f756b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="game_player.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="game_session.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="game_server.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="game_message.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="game_room.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="kxlol_server.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,687 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{f965539c-0cc9-443e-be5e-bf32ec00ffcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src\main">
+      <UniqueIdentifier>{a8613c1c-2c9e-4d90-a12d-5c56a7cdcbca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\dlg">
+      <UniqueIdentifier>{7fa99ed8-2ac1-4409-8f32-02d14c3380cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game">
+      <UniqueIdentifier>{f7893104-91f9-4a3c-a46e-c57a749abc7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\player">
+      <UniqueIdentifier>{fe4a4c8c-fd6e-4c38-9ab4-97e77cb3898f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\control">
+      <UniqueIdentifier>{1e25cc33-e7f7-4073-94b5-3bb664f82c04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\saves">
+      <UniqueIdentifier>{e7cef3b9-7b5e-45b3-a057-a284ea54bf97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\logic">
+      <UniqueIdentifier>{d4c2b2d5-6569-4646-adbb-c5dc748b4078}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty">
+      <UniqueIdentifier>{20147582-3ddd-4418-bec9-32cb4016c257}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\lua">
+      <UniqueIdentifier>{5b2cb495-d53f-4b46-b694-9d738f68b27b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\script">
+      <UniqueIdentifier>{0bad07f2-4bd1-4f88-b3d7-4e115063d6e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="publish">
+      <UniqueIdentifier>{b1e154f6-27d0-474f-8ed1-b13ae42c2432}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="publish\thread_sync">
+      <UniqueIdentifier>{78ef791c-843d-4c41-904d-c66bd24fca37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="publish\z_win_utils">
+      <UniqueIdentifier>{b94f977f-9dcd-4a52-be70-a96ecde0c3c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="publish\z_lua_bind">
+      <UniqueIdentifier>{2b2eaa5a-2ac0-4b4f-b8f9-83ea64744f67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res\lua_script">
+      <UniqueIdentifier>{aecf3bc0-070d-48d5-9fc2-9856c496f3ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="publish\z_timer">
+      <UniqueIdentifier>{95ff4609-e411-4db6-87db-e11a8407cc34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\timer">
+      <UniqueIdentifier>{5c05bf22-e4b5-4c61-9f37-c2bdcd9a4839}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CkxlolDlgBuild.h">
+      <Filter>src\dlg</Filter>
+    </ClInclude>
+    <ClInclude Include="kxlolDlg.h">
+      <Filter>src\dlg</Filter>
+    </ClInclude>
+    <ClInclude Include="kxlol.h">
+      <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>src\main</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBasicInfo.h">
+      <Filter>src\game\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerObject.h">
+      <Filter>src\game\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerResBag.h">
+      <Filter>src\game\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerResExt.h">
+      <Filter>src\game\player</Filter>
+    </ClInclude>
+    <ClInclude Include="GameControl.h">
+      <Filter>src\game\control</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_mutex.hpp">
+      <Filter>publish\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_semaphore.hpp">
+      <Filter>publish\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_syncobject.hpp">
+      <Filter>publish\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_thread_sync_def.h">
+      <Filter>publish\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\thread_sync.h">
+      <Filter>publish\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_atomic.hpp">
+      <Filter>publish\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_criticalsection.hpp">
+      <Filter>publish\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\thread_sync\z_t_event.hpp">
+      <Filter>publish\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="SavesMgr.h">
+      <Filter>src\game\saves</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\acl.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\autorun.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\base64.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\browser.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\buffer.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\clipboard.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\cmdline.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\com_init.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\console_color.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\cpu.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\crc32.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\cstring.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\directory.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\disk.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\dos_name.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\drive.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\environment_var.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\error_code.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\file_enum.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\file_icon.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\file_info.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\file_operation.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\file_version.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\gdiplus.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\ini.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\md5.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\memory.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\message.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\module.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\path.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\privilege.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\process.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\process_enum.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\process_module.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\register.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\register_enum.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\screen.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\security_attribute.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\service.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\shortcut.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\shutdown.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\sign_info.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\sign_verify.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\software_check.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\split_str.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\str_conv.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\system_info.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\system_path.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\system_version.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\task_scheduler.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\taskbar_position.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\tick_counter.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\time.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\time_string.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\token.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\uri.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\uri_query.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\uri_utils.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\usid.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\uuid.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\win_utils.h">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\win_utils_header.h">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\wmi_query.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_win_utils\wow64.hpp">
+      <Filter>publish\z_win_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_bind.h">
+      <Filter>publish\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_bind_def.h">
+      <Filter>publish\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_bind_internal.hpp">
+      <Filter>publish\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_bind_internal_call.hpp">
+      <Filter>publish\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_bind_internal_def.hpp">
+      <Filter>publish\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_bind_internal_functor.hpp">
+      <Filter>publish\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_bind_internal_global.hpp">
+      <Filter>publish\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_bind_internal_pop.hpp">
+      <Filter>publish\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_bind_internal_push.hpp">
+      <Filter>publish\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_bind_internal_read.hpp">
+      <Filter>publish\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_bind_internal_typetrait.hpp">
+      <Filter>publish\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_function_reg.hpp">
+      <Filter>publish\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_lua_bind\z_lua_state.hpp">
+      <Filter>publish\z_lua_bind</Filter>
+    </ClInclude>
+    <ClInclude Include="SavesDef.h">
+      <Filter>src\game\saves</Filter>
+    </ClInclude>
+    <ClInclude Include="LogicMgr.h">
+      <Filter>src\game\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="LogicMake.h">
+      <Filter>src\game\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="LogicPractice.h">
+      <Filter>src\game\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lapi.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lauxlib.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lcode.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lctype.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\ldebug.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\ldo.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lfunc.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lgc.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\llex.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\llimits.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lmem.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lobject.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lopcodes.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lparser.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lstate.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lstring.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\ltable.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\ltm.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lua.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lua.hpp">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\luaconf.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lualib.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lundump.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lvm.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\3rdparty\luasrc\lzio.h">
+      <Filter>3rdparty\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptMgr.h">
+      <Filter>src\game\script</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptPlayer.h">
+      <Filter>src\game\script</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptGui.h">
+      <Filter>src\game\script</Filter>
+    </ClInclude>
+    <ClInclude Include="LogicBuild.h">
+      <Filter>src\game\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="LogicGui.h">
+      <Filter>src\game\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_def.h">
+      <Filter>publish\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_dispatcher.h">
+      <Filter>publish\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_task.h">
+      <Filter>publish\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_task_queue.h">
+      <Filter>publish\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_test_code.h">
+      <Filter>publish\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer_watcher.h">
+      <Filter>publish\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="TimerMgr.h">
+      <Filter>src\game\timer</Filter>
+    </ClInclude>
+    <ClInclude Include="TimerBaiscTask.h">
+      <Filter>src\game\timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pellets\z_timer\z_timer.h">
+      <Filter>publish\z_timer</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomMsg.h">
+      <Filter>src\main</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CkxlolDlgBuild.cpp">
+      <Filter>src\dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="kxlolDlg.cpp">
+      <Filter>src\dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="kxlol.cpp">
+      <Filter>src\main</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src\main</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBasicInfo.cpp">
+      <Filter>src\game\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerObject.cpp">
+      <Filter>src\game\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerResBag.cpp">
+      <Filter>src\game\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerResExt.cpp">
+      <Filter>src\game\player</Filter>
+    </ClCompile>
+    <ClCompile Include="GameControl.cpp">
+      <Filter>src\game\control</Filter>
+    </ClCompile>
+    <ClCompile Include="SavesMgr.cpp">
+      <Filter>src\game\saves</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicMgr.cpp">
+      <Filter>src\game\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicMake.cpp">
+      <Filter>src\game\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicPractice.cpp">
+      <Filter>src\game\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lapi.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lauxlib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lbaselib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lbitlib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lcode.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lcorolib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lctype.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\ldblib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\ldebug.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\ldo.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\ldump.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lfunc.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lgc.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\linit.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\liolib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\llex.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lmathlib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lmem.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\loadlib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lobject.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lopcodes.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\loslib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lparser.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lstate.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lstring.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lstrlib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\ltable.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\ltablib.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\ltm.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lua.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lundump.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lvm.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\3rdparty\luasrc\lzio.c">
+      <Filter>3rdparty\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptMgr.cpp">
+      <Filter>src\game\script</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptPlayer.cpp">
+      <Filter>src\game\script</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptGui.cpp">
+      <Filter>src\game\script</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicBuild.cpp">
+      <Filter>src\game\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicGui.cpp">
+      <Filter>src\game\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="TimerMgr.cpp">
+      <Filter>src\game\timer</Filter>
+    </ClCompile>
+    <ClCompile Include="TimerBaiscTask.cpp">
+      <Filter>src\game\timer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="kxlol.rc">
+      <Filter>res</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\kxlol.rc2">
+      <Filter>res</Filter>
+    </None>
+    <None Include="..\..\..\3rdparty\luasrc\Makefile">
+      <Filter>3rdparty\lua</Filter>
+    </None>
+    <None Include="..\kxlol_bin\data\build_lunhuishendian.lua">
+      <Filter>res\lua_script</Filter>
+    </None>
+    <None Include="..\kxlol_bin\data\build_shenminxinqiu.lua">
+      <Filter>res\lua_script</Filter>
+    </None>
+    <None Include="..\kxlol_bin\data\gui_zhushenkongjian.lua">
+      <Filter>res\lua_script</Filter>
+    </None>
+    <None Include="..\kxlol_bin\data\timer_basic_minute_task.lua">
+      <Filter>res\lua_script</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\kxlol.ico">
+      <Filter>res</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt">
+      <Filter>res</Filter>
+    </Text>
+    <Text Include="..\..\..\pellets\z_win_utils\readme.txt">
+      <Filter>publish\z_win_utils</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

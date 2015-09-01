@@ -4,16 +4,10 @@
 #include "stdafx.h"
 #include "practice/practice_test.h"
 
-#ifdef _TEST_BOOST_
-#include "test_smart_ptr.h"
-#include "test_regex.h"
-#include "test_atomic.h"
-#include "test_chrono.h"
-#include "test_bitset.h"
-#include "test_array.h"
-#include "test_stream.h"
-#include "test_functional.h"
+#include "test_standard.h"
+#include "test_ppl.h"
 
+#ifdef _TEST_BOOST_
 #include "test_conversion.h"
 #include "test_string_aogo.h"
 #include "test_format.h"
@@ -49,6 +43,7 @@
 #include "test_cipra.h"
 #include "test_tut.h"
 #endif // _TEST_UNITTEST_
+#include "test_catch.h"
 #include "test_xde.h"
 
 #ifdef _TEST_HP_SOCKET_
@@ -59,23 +54,26 @@
 #include "test_linq.h"
 #include "test_json_rpc.h"
 #include "test_json_cpp.h"
-
 #include "test_flatbuffer.h"
 #include "test_sqlite.h"
 #include "test_libevent.h"
 #include "test_qrcode.h"
+#include "test_mongoose.h"
+#include "test_snappy.h"
+#include "test_asio.h"
+#include "test_cryptpp.h"
+#include "test_msgpack.h"
+#include "test_cppformat.h"
+#include "test_rapidjson.h"
+#include "test_kapok.h"
+#include "test_rxcpp.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
     //practice_test();
-    //test_smart_ptr();
-    //test_regex();
-    //test_atomic();
-    //test_chrono();
-    //test_bitset();
-    //test_array();
-    //test_stream();
-    //test_functional();
+
+    //test_standard();
+    //test_ppl();
 
     //test_conversion();
     //test_string_aogo();
@@ -114,7 +112,17 @@ int _tmain(int argc, _TCHAR* argv[])
     //test_flatbuffer();
     //test_sqlite();
     //test_libevent();
-    test_qrcode();
+    //test_qrcode();
+    //test_mongoose();
+    //test_snappy();
+    //test_asio();
+    //test_cryptpp();
+    //test_msgpack();
+    //test_cppformat();
+    //test_rapidjson();
+    //test_kapok();
+    //test_rxcpp();
+    //test_catch();
 
     getchar();
     return 0;

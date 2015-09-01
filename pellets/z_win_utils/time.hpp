@@ -98,7 +98,7 @@ namespace WinUtils
         {
             LARGE_INTEGER freq = {0};
             LARGE_INTEGER timeEnd = {0};
-            if (llTimeBegin.QuadPart = 0
+            if (llTimeBegin.QuadPart != 0
                 && ::QueryPerformanceFrequency(&freq)
                 && ::QueryPerformanceCounter(&timeEnd))
             {

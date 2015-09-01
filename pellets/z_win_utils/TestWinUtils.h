@@ -2,6 +2,7 @@
 
 #include "def.h"
 #include "z_win_utils/win_utils.h"
+#include "z_win_utils/aes.hpp"
 
 typedef BOOL (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL);
 
@@ -47,6 +48,8 @@ public:
         TEST_ADD(CTestWinUtils::test_signer_info);
         TEST_ADD(CTestWinUtils::test_task_scheduler);
         TEST_ADD(CTestWinUtils::test_split_str);
+        TEST_ADD(CTestWinUtils::test_str_conv);
+        TEST_ADD(CTestWinUtils::test_aes);
     }
 
     void test_path()
@@ -417,6 +420,15 @@ public:
         TEST_ASSERT(ZLMemory::GetMemorySize() != 0);
         TEST_ASSERT(ZLMemory::GetUsedMem() != 0);
         TEST_ASSERT(ZLDrive::GetDriveSize() != 0);
+        TEST_ASSERT(ZLSystemInfo::CreateGUID() != L"");
+        TEST_ASSERT(ZLSystemInfo::GetComputername() != L"");
+        TEST_ASSERT(ZLSystemInfo::GetComputerType() != emComputeType_Null);
+        TEST_ASSERT(ZLSystemInfo::GetComputerFullUsername() != L"");
+
+        WSADATA wsData;
+        ::WSAStartup(MAKEWORD(2,2), &wsData);
+        TEST_ASSERT(ZLSystemInfo::GetHostname() != L"");
+        ::WSACleanup();
     }
 
     void test_process()
@@ -659,6 +671,14 @@ public:
 
         TEST_ASSERT(ftWrite.dwHighDateTime  > 0);
         TEST_ASSERT(ftWrite.dwLowDateTime   > 0);
+
+        zl::WinUtils::ZLFileVersion versioner;
+        BOOL result = versioner.Create(sFile);
+        if (result)
+        {
+            TEST_ASSERT(CString(L"Registry Editor") == versioner.GetFileDescription());
+        }
+        TEST_ASSERT(result);
     }
     
     void test_uuid()
@@ -892,5 +912,59 @@ public:
         TEST_ASSERT(vecResult[2] == L",z");
         TEST_ASSERT(vecResult[3] == L"public!");
         TEST_ASSERT(vecResult[4] == L"");
+    }
+
+    void test_str_conv()
+    {
+        // A2W
+        LPCSTR a = "哈哈,我是a";
+        TEST_ASSERT(ZLA2W(a)          == CA2W(a));
+        TEST_ASSERT(ZLA2W(a, CP_UTF8) == CA2W(a, CP_UTF8));
+        TEST_ASSERT(ZLA2W(a, CP_ACP)  == CA2W(a, CP_ACP));
+
+        // W2A
+        LPCWSTR w = L"呵呵,我是w";
+        TEST_ASSERT(ZLW2A(w)          == CW2A(w));
+        TEST_ASSERT(ZLW2A(w, CP_UTF8) == CW2A(w, CP_UTF8));
+        TEST_ASSERT(ZLW2A(w, CP_ACP)  == CW2A(w, CP_ACP));
+    }
+
+    void test_aes()
+    {
+        char src[] = "hello world";
+        size_t src_size = strlen(src);
+        unsigned char* key = (unsigned char*)"s1t9e8v4e1n0l1b4";
+
+        // 加密
+        size_t dst_size = src_size + 16;
+        unsigned char* dst = new unsigned char[dst_size];
+        size_t n = ZLAes::Encrypt(
+            ZLAes::ECB,
+            ZLAes::PADDING_PKCS5,
+            ZLAes::KEY_BITS_128,
+            key,
+            (const unsigned char*)src,
+            src_size,
+            dst,
+            dst_size);
+
+        unsigned char result[] = { 0xA7, 0x4B, 0x20, 0x99, 0x7B, 0xD2, 0xD4, 0x7C, 0x6C, 0xB9, 0xCB, 0x42, 0x57, 0xA2, 0xCC, 0x91 };
+        TEST_ASSERT(0 == memcmp(dst, result, n));
+
+        // 解密
+        unsigned char* dst2 = new unsigned char[dst_size];
+        size_t m = ZLAes::Decrypt(
+            ZLAes::ECB,
+            ZLAes::PADDING_PKCS5,
+            ZLAes::KEY_BITS_128,
+            key,
+            dst,
+            n,
+            dst2,
+            dst_size);
+        TEST_ASSERT(m = src_size);
+        TEST_ASSERT(0 == memcmp(dst2, src, src_size));
+        delete[] dst;
+        delete[] dst2;
     }
 };

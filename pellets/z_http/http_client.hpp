@@ -79,13 +79,13 @@ Exit0:
 
             }
 
-            virtual int OnProgress(double dCurrentSize, double dTotalSize)
+            virtual int OnProgress(double dltotal, double dlnow, double ultotal, double ulnow)
             {
                 if (m_stop.Wait(0) != WAIT_TIMEOUT)
                     return -1;
 
                 if (m_pProgress)
-                    return m_pProgress->OnProgress(dCurrentSize, dTotalSize);
+                    return m_pProgress->OnProgress(dltotal, dlnow, ultotal, ulnow);
 
                 return 0;
             }
@@ -99,7 +99,7 @@ Exit0:
         public:
             ZLHttpClient()
             {
-                m_stop.Create();
+                m_stop.Create(TRUE);
             }
 
             ~ZLHttpClient()
@@ -107,12 +107,16 @@ Exit0:
 
             }
 
-            int DownloadFile(LPCTSTR szUrl, LPCTSTR szLocalFile, int nTimeLimit = 0)
+            int DownloadFile(
+                LPCTSTR szUrl,
+                LPCTSTR szLocalFile,
+                int nTimeLimit = 0,
+                ICurlProgress* pProgress = NULL)
             {
                 int nReturn = 0;
                 ZLFileWrite fileWrite(szLocalFile);
                 ZLStopHttpWriteWrap writeWrap(m_stop, &fileWrite);
-                ZLStopHttpProgress progressWrap(m_stop);
+                ZLStopHttpProgress progressWrap(m_stop, pProgress);
                 ZLSimpleCurl curl;
 
                 SetProxy(curl);
@@ -127,11 +131,15 @@ Exit0:
 
                 return nReturn;
             }
-            int DownloadMem(LPCTSTR szUrl, ZLMemWrite *pMem, int nTimeLimit = 0)
+            int DownloadMem(
+                LPCTSTR szUrl,
+                ZLMemWrite *pMem,
+                int nTimeLimit = 0,
+                ICurlProgress* pProgress = NULL)
             {
                 int nReturn = 0;
                 ZLStopHttpWriteWrap writeWrap(m_stop, pMem);
-                ZLStopHttpProgress progressWrap(m_stop);
+                ZLStopHttpProgress progressWrap(m_stop, pProgress);
                 ZLSimpleCurl curl;
 
                 SetProxy(curl);
@@ -147,11 +155,17 @@ Exit0:
                 return nReturn;
             }
 
-            int PostData(LPCTSTR szUrl, unsigned char *pData, DWORD dwLength, ZLMemWrite *pMem, int nTimeLimit = 0)
+            int PostData(
+                LPCTSTR szUrl,
+                unsigned char *pData,
+                DWORD dwLength,
+                ZLMemWrite *pMem,
+                int nTimeLimit = 0,
+                ICurlProgress* pProgress = NULL)
             {
                 int nReturn = 0;
                 ZLStopHttpWriteWrap writeWrap(m_stop, pMem);
-                ZLStopHttpProgress progressWrap(m_stop);
+                ZLStopHttpProgress progressWrap(m_stop, pProgress);
                 ZLSimpleCurl curl;
 
                 SetProxy(curl);
@@ -169,9 +183,53 @@ Exit0:
                 return nReturn;
             }
 
+            int PostData(
+                LPCTSTR szUrl,
+                unsigned char *pData,
+                DWORD dwLength,
+                ZLMemWrite *pMem,
+                const std::map<CString,CString>& mapHeaders, // 消息头
+                int nTimeLimit = 0,
+                ICurlProgress* pProgress = NULL)
+            {
+                int nReturn = 0;
+                ZLStopHttpWriteWrap writeWrap(m_stop, pMem);
+                ZLStopHttpProgress progressWrap(m_stop, pProgress);
+                ZLSimpleCurl curl;
+
+                SetProxy(curl);
+                curl.SetWriteCallBack(&writeWrap);
+                curl.SetProgressCallBack(&progressWrap);
+                curl.SetPostData(pData, dwLength);
+                curl.SetMethod(_T("post"));
+
+                // 设置消息头
+                CString sTmp;
+                for (std::map<CString,CString>::const_iterator it = mapHeaders.begin();
+                    it != mapHeaders.end();
+                    ++it)
+                {
+                    sTmp.Format(L"%s: %s", it->first, it->second);
+                    curl.AppendHeaderList(sTmp);
+                }
+
+                if (nTimeLimit)
+                    curl.SetTimeLimit(nTimeLimit);
+
+                if (!curl.Navigate(szUrl))
+                    nReturn = curl.GetStatus();
+
+                return nReturn;
+            }
+
             void StopAllHttpRequest()
             {
                 m_stop.Set();
+            }
+
+            void EnableHttpRequest()
+            {
+                m_stop.Reset();
             }
 
         protected:
