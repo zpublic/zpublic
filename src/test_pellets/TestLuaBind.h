@@ -32,6 +32,9 @@ const std::string test_lua =
     function PI()   \
         return 3.14 \
     end             \
+    function retf() \
+        return true         \
+    end                     \
     function l_add(i,j)     \
         return i+j          \
     end                     \
@@ -81,6 +84,7 @@ public:
         TEST_ASSERT((int)l.call<float>("PI") == 3) 
         TEST_ASSERT((int)l.call<float>("l_add", 1.1, 2.2) == 3)
         TEST_ASSERT(l.call<int>("l_add", 3, 4) == 7)
+        TEST_ASSERT(l.call<bool>("retf") == true)
 
         l.def("c_add", c_add);
         TEST_ASSERT((int)l.call<float>("cc", 1, 3, 2.2) == 6)
