@@ -185,9 +185,10 @@ namespace zl
                 nRetCode = curl_easy_setopt(pCURL, CURLOPT_FOLLOWLOCATION, 1);
                 if (nRetCode != CURLE_OK) goto Exit0;
 
+				nRetCode = curl_easy_perform(pCURL);
+				
 // 版本号大于等于0x071300的curl库,才支持取原始IP
 #if LIBCURL_VERSION_NUM >= 0x071300
-                nRetCode = curl_easy_perform(pCURL);
                 curl_easy_getinfo(pCURL, CURLINFO_PRIMARY_IP, &szIp);
                 if (szIp) m_strAddr = CA2W(szIp);
 
